@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "domain": "Cloud Concepts",
+    "question": "What is one of the main advantages of cloud computing compared to on-premises infrastructure?",
+    "choices": [
+      "Fixed long-term contracts are required",
+      "Trade capital expense for variable expense",
+      "You must manage physical servers",
+      "Capacity must be guessed in advance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud computing allows you to trade capital expense (buying servers) for variable expense (paying only for what you consume), which is one of the six advantages of cloud computing identified by AWS."
+  },
+  {
+    "id": 2,
+    "domain": "Cloud Concepts",
+    "question": "Which cloud computing model provides the most control over the underlying infrastructure?",
+    "choices": [
+      "Software as a Service (SaaS)",
+      "Platform as a Service (PaaS)",
+      "Infrastructure as a Service (IaaS)",
+      "Function as a Service (FaaS)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "IaaS provides the most control over IT resources. You manage the operating system, storage, and deployed applications while AWS manages the underlying hardware."
+  },
+  {
+    "id": 3,
+    "domain": "Cloud Concepts",
+    "question": "What does the AWS Well-Architected Framework pillar 'Reliability' focus on?",
+    "choices": [
+      "Minimizing costs across all services",
+      "Ensuring workloads perform their intended function correctly and consistently",
+      "Protecting data through encryption only",
+      "Reducing the number of AWS services used"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Reliability pillar focuses on ensuring a workload performs its intended function correctly and consistently. It includes the ability to recover from infrastructure or service disruptions and dynamically acquire resources to meet demand."
+  },
+  {
+    "id": 4,
+    "domain": "Security and Compliance",
+    "question": "Under the AWS Shared Responsibility Model, which of the following is the customer's responsibility?",
+    "choices": [
+      "Physical security of data centers",
+      "Patching the hypervisor",
+      "Managing security groups and NACLs",
+      "Maintaining the global network infrastructure"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Under the Shared Responsibility Model, customers are responsible for security 'in' the cloud, which includes configuring security groups and network ACLs. AWS is responsible for security 'of' the cloud, including physical infrastructure."
+  },
+  {
+    "id": 5,
+    "domain": "Security and Compliance",
+    "question": "Which AWS service is used to manage encryption keys?",
+    "choices": [
+      "AWS Shield",
+      "Amazon Inspector",
+      "AWS Key Management Service (KMS)",
+      "Amazon GuardDuty"
+    ],
+    "correctAnswer": 2,
+    "explanation": "AWS KMS is a managed service that makes it easy to create and control the encryption keys used to encrypt your data. It integrates with many other AWS services to help protect data."
+  },
+  {
+    "id": 6,
+    "domain": "Security and Compliance",
+    "question": "What is the recommended best practice for the AWS account root user?",
+    "choices": [
+      "Use it for daily administrative tasks",
+      "Share the credentials with the team lead",
+      "Enable MFA and avoid using it for everyday tasks",
+      "Delete the root user after creating IAM users"
+    ],
+    "correctAnswer": 2,
+    "explanation": "AWS recommends enabling Multi-Factor Authentication (MFA) on the root account and avoiding its use for everyday tasks. Instead, create IAM users with appropriate permissions for daily work."
+  },
+  {
+    "id": 7,
+    "domain": "Cloud Technology and Services",
+    "question": "Which AWS service provides scalable object storage?",
+    "choices": [
+      "Amazon EBS",
+      "Amazon S3",
+      "Amazon RDS",
+      "Amazon EC2"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amazon S3 (Simple Storage Service) provides scalable object storage with high availability and durability. It is designed for storing and retrieving any amount of data from anywhere."
+  },
+  {
+    "id": 8,
+    "domain": "Cloud Technology and Services",
+    "question": "Which AWS service is a fully managed relational database service?",
+    "choices": [
+      "Amazon DynamoDB",
+      "Amazon Redshift",
+      "Amazon RDS",
+      "Amazon ElastiCache"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Amazon RDS (Relational Database Service) is a fully managed service that makes it easy to set up, operate, and scale relational databases in the cloud. It supports engines like MySQL, PostgreSQL, and others."
+  },
+  {
+    "id": 9,
+    "domain": "Cloud Technology and Services",
+    "question": "What is an AWS Region?",
+    "choices": [
+      "A single data center",
+      "A content delivery network endpoint",
+      "A geographical area with multiple isolated locations called Availability Zones",
+      "A virtual private network"
+    ],
+    "correctAnswer": 2,
+    "explanation": "An AWS Region is a physical location around the world where AWS clusters data centers. Each Region consists of multiple, isolated, and physically separate Availability Zones within a geographic area."
+  },
+  {
+    "id": 10,
+    "domain": "Billing, Pricing and Support",
+    "question": "Which AWS tool allows you to estimate the cost of your architecture before deploying it?",
+    "choices": [
+      "AWS Cost Explorer",
+      "AWS Budgets",
+      "AWS Pricing Calculator",
+      "AWS Trusted Advisor"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The AWS Pricing Calculator lets you explore AWS services and estimate the cost of your use cases on AWS. You can model your solutions before building them and compare the cost of different configurations."
+  }
+]
