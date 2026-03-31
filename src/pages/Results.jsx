@@ -8,10 +8,13 @@ export default function Results() {
 
   if (!answers) {
     return (
-      <div className="text-center py-16 space-y-4">
-        <p className="text-[#d0d0d5]">No results to display.</p>
-        <Link to={`/${cert.id}`} className="text-[#99c9ff] hover:opacity-80 transition-opacity font-bold">
-          Back to Dashboard
+      <div className="text-center py-20 space-y-6 animate-fade-up">
+        <p className="text-zinc-400 text-lg">No session data found.</p>
+        <Link 
+          to={`/${cert.id}`} 
+          className="inline-block px-8 py-3 rounded-lg text-sm font-semibold bg-zinc-900 border border-white/10 text-zinc-100 hover:bg-zinc-800 transition-all"
+        >
+          Return to Dashboard
         </Link>
       </div>
     )
@@ -38,44 +41,71 @@ export default function Results() {
   domainResults.sort((a, b) => a.percentage - b.percentage)
 
   return (
-    <div className="space-y-8 animate-fade-up">
-      <h1 className="text-4xl font-bold text-[#f5f6f7] text-center pt-4">Exam Results</h1>
+    <div className="space-y-12 animate-fade-up pt-4 max-w-4xl mx-auto">
+      <h1 className="text-4xl md:text-5xl font-bold text-zinc-100 text-center tracking-tight">Official Exam Results</h1>
 
-      <div className="bg-[#1b1b32] rounded-md p-10 text-center space-y-4 max-w-md mx-auto">
-        <p className={`text-7xl font-black ${passed ? 'text-[#acd157]' : 'text-red-400'}`}>
+      <div className="glass-panel rounded-2xl p-10 text-center max-w-lg mx-auto relative overflow-hidden shadow-2xl">
+        <div 
+          className="absolute inset-0 opacity-10 blur-3xl pointer-events-none" 
+          style={{ backgroundColor: passed ? '#34d399' : '#f43f5e' }} 
+        />
+        
+        <p className="text-sm font-bold tracking-widest uppercase mb-4 text-zinc-500">
+          Final Score
+        </p>
+        <p 
+          className="text-8xl font-black mb-6 tracking-tighter"
+          style={{ 
+            color: passed ? '#34d399' : '#fb7185',
+            textShadow: `0 0 40px ${passed ? 'rgba(52,211,153,0.4)' : 'rgba(244,63,94,0.4)'}`
+          }}
+        >
           {pct}%
         </p>
-        <p className={`text-xl font-bold ${passed ? 'text-[#acd157]' : 'text-red-400'}`}>
-          {passed ? 'PASSED' : 'NOT PASSED'}
-        </p>
-        <p className="text-[#d0d0d5]">
-          {correct} of {total} questions correct — passing score is {cert.passingScore}%
+        <div className="inline-block px-6 py-2 rounded-full border mb-8 bg-zinc-950/50 backdrop-blur-sm" style={{ borderColor: passed ? 'rgba(52,211,153,0.3)' : 'rgba(244,63,94,0.3)' }}>
+          <p className="text-lg font-bold uppercase tracking-wider" style={{ color: passed ? '#34d399' : '#fb7185' }}>
+            {passed ? 'Passed successfully' : 'Did not pass'}
+          </p>
+        </div>
+        <p className="text-zinc-400 font-medium">
+          <span className="text-zinc-100 font-bold">{correct}</span> / {total} correct answers &mdash; passing bar is <span className="text-zinc-200">{cert.passingScore}%</span>
         </p>
       </div>
 
-      <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
-        <h2 className="text-lg font-bold text-[#f5f6f7]">
+      <div className="glass-panel rounded-2xl p-8 space-y-8 relative overflow-hidden">
+        <h2 className="text-2xl font-bold text-zinc-100">
           Domain Breakdown
-          <span className="text-sm font-normal text-[#a5abc4] ml-2">(weakest first)</span>
+          <span className="text-sm font-normal text-zinc-500 ml-3">(Ranked weakest first)</span>
         </h2>
-        <div className="space-y-5">
+        
+        <div className="space-y-6 relative z-10">
           {domainResults.map((d) => {
             const colors = cert.domainColors[d.domain]
             return (
-              <div key={d.domain}>
-                <div className="flex items-center justify-between mb-2">
-                  <span className={`text-sm font-bold ${colors?.text || 'text-[#d0d0d5]'}`}>
-                    {d.domain}
-                  </span>
-                  <span className="text-sm text-[#a5abc4] font-bold">
-                    {d.correct}/{d.total} ({d.percentage}%)
-                  </span>
+              <div key={d.domain} className="group">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-zinc-300 font-medium text-sm md:text-base flex-1 pr-4">{d.domain}</span>
+                  <div className="flex items-center gap-4">
+                    <span className="text-zinc-500 text-sm font-medium hidden sm:inline">{d.correct} / {d.total} correct</span>
+                    <span 
+                      className="font-bold text-base px-3 py-1 bg-zinc-900/50 rounded-md border border-white/5"
+                      style={{ color: colors ? colors.text : '#a1a1aa' }}
+                    >
+                      {d.percentage}%
+                    </span>
+                  </div>
                 </div>
-                <div className="h-2.5 bg-[#2a2a40] rounded overflow-hidden">
+                <div className="h-3 bg-zinc-900/80 rounded-full border border-white/5 overflow-hidden shadow-inner flex">
                   <div
-                    className={`h-full rounded animate-bar-fill ${colors?.bar || 'bg-[#a5abc4]'}`}
-                    style={{ '--bar-width': `${d.percentage}%` }}
-                  />
+                    className="h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end"
+                    style={{ 
+                      width: `${d.percentage}%`,
+                      background: colors ? `linear-gradient(90deg, transparent, ${colors.bar.replace('bg-[', '').replace(']', '')})` : '#52525b',
+                      backgroundColor: colors ? colors.bar.replace('bg-[', '').replace(']', '') : '#3f3f46'
+                    }}
+                  >
+                    <div className="w-10 h-full bg-white/20 blur-sm" />
+                  </div>
                 </div>
               </div>
             )
@@ -83,25 +113,25 @@ export default function Results() {
         </div>
       </div>
 
-      <div className="flex gap-4 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 pb-12">
         <Link
           id="results-dashboard-btn"
           to={`/${cert.id}`}
-          className="px-6 py-2.5 rounded font-bold text-sm border border-[#f5f6f7] text-[#f5f6f7] hover:bg-[#f5f6f7]/10 transition-all duration-200"
+          className="px-6 py-4 rounded-xl font-bold text-center border border-white/10 text-zinc-300 hover:bg-white/5 hover:text-white transition-all shadow-sm"
         >
           Dashboard
         </Link>
         <Link
           id="results-practice-btn"
           to={`/${cert.id}/quiz`}
-          className="px-6 py-2.5 rounded font-bold text-sm bg-[#f1be32] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
+          className="px-6 py-4 rounded-xl font-bold text-center bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:shadow-[0_0_20px_-5px_#6366f1] transition-all"
         >
-          Practice Weak Areas
+          Target Weak Areas
         </Link>
         <Link
           id="results-retake-btn"
           to={`/${cert.id}/exam`}
-          className="px-6 py-2.5 rounded font-bold text-sm bg-[#dbb8ff] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
+          className="px-6 py-4 rounded-xl font-bold text-center bg-zinc-100 text-zinc-900 border hover:bg-white hover:scale-105 shadow-[0_5px_15px_-3px_rgba(255,255,255,0.3)] transition-all"
         >
           Retake Exam
         </Link>

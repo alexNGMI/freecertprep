@@ -14,33 +14,50 @@ export default function CertLayout() {
   if (!cert) return <Navigate to="/" replace />
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0a23]">
-      <header className="border-b border-[#1b1b32] bg-[#0a0a23]/95 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link to="/" className="text-[#f5f6f7] text-lg tracking-wide hover:opacity-80 transition-opacity">
-              <BrandedName />
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Dynamic Background Mesh specific to the cert's color family */}
+      <div className="absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div 
+          className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full blur-[140px] animate-float opacity-30" 
+          style={{ backgroundColor: cert.color }} 
+        />
+        <div 
+          className="absolute -bottom-[20%] right-[10%] w-[50%] h-[50%] rounded-full blur-[150px] animate-float-delayed opacity-20" 
+          style={{ backgroundColor: cert.color }} 
+        />
+      </div>
+
+      <header className="border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-20">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Link to="/" className="hover:opacity-80 transition-opacity">
+              <BrandedName size="text-xl" />
             </Link>
-            <span className="text-[#3b3b4f]">/</span>
-            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>
+            <span className="text-zinc-600 hidden sm:inline">/</span>
+            <span 
+              className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-md border bg-zinc-900/50" 
+              style={{ color: cert.color, borderColor: `${cert.color}30` }}
+            >
               {cert.code}
             </span>
           </div>
-          <nav className="flex gap-2" aria-label="Cert navigation">
+          <nav className="flex gap-2 p-1 rounded-lg bg-zinc-900/50 border border-white/5" aria-label="Cert navigation">
             {navItems.map(({ to, label, end }) => (
               <NavLink
                 key={label}
                 to={to}
                 end={end}
                 className={({ isActive }) =>
-                  `px-4 py-1 rounded text-sm font-medium transition-all duration-200 border ${
+                  `px-4 py-1.5 rounded-md text-sm transition-all duration-300 ${
                     isActive
-                      ? 'border-transparent font-bold text-[#0a0a23]'
-                      : 'border-[#f5f6f7] text-[#f5f6f7] hover:bg-[#f5f6f7]/10'
+                      ? 'font-semibold text-zinc-950 shadow-md transform scale-[1.02]'
+                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5'
                   }`
                 }
                 style={({ isActive }) =>
-                  isActive ? { backgroundColor: cert.color, borderColor: cert.color } : {}
+                  isActive 
+                    ? { backgroundColor: cert.color, boxShadow: `0 4px 15px -3px ${cert.color}60` } 
+                    : {}
                 }
               >
                 {label}
@@ -49,11 +66,11 @@ export default function CertLayout() {
           </nav>
         </div>
       </header>
-      <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10">
+      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
         <Outlet />
       </main>
-      <footer className="border-t border-[#1b1b32] py-5 text-center text-sm text-[#d0d0d5]">
-        FreeCertPrep — {cert.title} Exam Prep
+      <footer className="border-t border-white/5 bg-zinc-950/50 py-8 mt-auto text-center text-sm text-zinc-500 backdrop-blur-md">
+        <p>FreeCertPrep &mdash; {cert.title} Premium Exam Engine</p>
       </footer>
     </div>
   )

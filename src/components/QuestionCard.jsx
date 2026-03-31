@@ -5,9 +5,11 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   const isStatement = question.type === 'statement-block'
   
   // Local state for interactive questions before they are submitted (only used in Quiz Mode)
-  const [localMulti, setLocalMulti] = useState([])
+  const [localMulti, setLocalMulti] = useState(() => 
+    isMultiple && !examMode ? [] : []
+  )
   const [localStatements, setLocalStatements] = useState(() => 
-    question.statements ? new Array(question.statements.length).fill(null) : []
+    question.statements && !examMode ? new Array(question.statements.length).fill(null) : []
   )
 
   const toggleMulti = (index) => {
@@ -39,43 +41,42 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
     else if (isStatement) onAnswer(localStatements)
   }
 
-  // Determine if answer is correct for the feedback block
   const isCorrect = Array.isArray(selectedChoice)
     ? JSON.stringify(selectedChoice) === JSON.stringify(question.correctAnswers)
     : selectedChoice === question.correctAnswer
 
   return (
-    <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
-      <div className="flex justify-between items-center">
-        <span className="inline-block text-xs font-bold px-3 py-1 rounded bg-[#2a2a40] text-[#a5abc4] uppercase tracking-wide">
+    <div className="glass-panel rounded-2xl p-6 md:p-8 space-y-8 relative overflow-hidden">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <span className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 uppercase tracking-widest shadow-[0_0_15px_-3px_rgba(99,102,241,0.2)]">
           {question.domain}
         </span>
-        {isMultiple && <span className="text-xs text-[#99c9ff] font-bold">Select {question.correctAnswers.length}</span>}
-        {isStatement && <span className="text-xs text-[#99c9ff] font-bold">Yes / No required</span>}
+        {isMultiple && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Select {question.correctAnswers.length}</span>}
+        {isStatement && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Yes / No required</span>}
       </div>
       
-      <p className="text-[#f5f6f7] text-lg leading-relaxed">{question.question}</p>
+      <p className="text-zinc-100 text-xl font-medium leading-relaxed">{question.question}</p>
       
-      <div className="space-y-3">
+      <div className="space-y-4">
         {/* Render Single Choice or Multiple Response */}
-        {!isStatement && question.choices.map((choice, index) => {
+        {!isStatement && question.choices && question.choices.map((choice, index) => {
           const isSelected = isMultiple 
             ? (answered || examMode ? selectedChoice?.includes(index) : localMulti.includes(index)) 
             : selectedChoice === index;
           const isCorrectChoice = isMultiple ? question.correctAnswers.includes(index) : question.correctAnswer === index;
           
-          let style = 'border-[#3b3b4f] bg-[#2a2a40] text-[#d0d0d5] hover:border-[#99c9ff] hover:text-[#f5f6f7] hover:scale-[1.01] active:scale-[0.99]';
+          let style = 'border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800 hover:text-zinc-100 hover:-translate-y-0.5';
           
           if (answered) {
             if (isCorrectChoice) {
-              style = 'border-[#acd157] bg-[#acd157]/10 text-[#acd157] animate-answer-pop';
+              style = 'border-emerald-500/50 bg-emerald-500/10 text-emerald-100 animate-answer-pop shadow-[0_0_20px_-5px_rgba(16,185,129,0.3)]';
             } else if (isSelected && !isCorrectChoice) {
-              style = 'border-red-500 bg-red-500/10 text-red-400 animate-answer-pop';
+              style = 'border-rose-500/50 bg-rose-500/10 text-rose-200 animate-answer-pop shadow-[0_0_15px_-5px_rgba(244,63,94,0.3)]';
             } else {
-              style = 'border-[#2a2a40] bg-[#1b1b32] text-[#3b3b4f]';
+              style = 'border-white/5 bg-zinc-900/20 text-zinc-600 opacity-60';
             }
           } else if (isSelected) {
-            style = 'border-[#99c9ff] bg-[#99c9ff]/10 text-[#99c9ff]';
+            style = 'border-indigo-500/50 bg-indigo-500/10 text-indigo-100 shadow-[0_0_15px_-5px_rgba(99,102,241,0.3)]';
           }
 
           return (
@@ -83,42 +84,44 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
               key={index}
               disabled={answered}
               onClick={() => isMultiple ? toggleMulti(index) : onAnswer(index)}
-              className={`w-full text-left px-5 py-3.5 rounded border transition-all duration-200 text-sm ${style}`}
+              className={`w-full text-left px-6 py-4 rounded-xl border transition-all duration-300 ${style}`}
             >
-              <span className="font-bold mr-3 text-[#a5abc4]">
-                {isMultiple ? (isSelected ? '☑' : '☐') : String.fromCharCode(65 + index) + '.'}
-              </span>
-              {choice}
+              <div className="flex items-start">
+                <span className={`font-bold mr-4 shrink-0 flex items-center justify-center w-6 h-6 rounded ${isSelected ? 'bg-indigo-500/20 text-indigo-300' : 'bg-zinc-800 text-zinc-500'}`}>
+                  {isMultiple ? (isSelected ? '✓' : '') : String.fromCharCode(65 + index)}
+                </span>
+                <span className="flex-1 mt-0.5 leading-snug text-sm sm:text-base">{choice}</span>
+              </div>
             </button>
           )
         })}
 
         {/* Render Statement Block */}
-        {isStatement && question.statements.map((stmt, index) => {
+        {isStatement && question.statements && question.statements.map((stmt, index) => {
           const ans = (answered || examMode) ? selectedChoice?.[index] : localStatements[index];
           const correctAns = question.correctAnswers[index];
-          let rowStyle = 'border-[#3b3b4f] bg-[#2a2a40]';
+          let rowStyle = 'border-white/5 bg-zinc-900/50';
           
           if (answered) {
-            if (ans === correctAns) rowStyle = 'border-[#acd157] bg-[#acd157]/10';
-            else rowStyle = 'border-red-500 bg-red-500/10';
+            if (ans === correctAns) rowStyle = 'border-emerald-500/50 bg-emerald-500/10 shadow-[0_0_15px_-5px_rgba(16,185,129,0.2)]';
+            else rowStyle = 'border-rose-500/50 bg-rose-500/10 shadow-[0_0_15px_-5px_rgba(244,63,94,0.2)]';
           }
 
           return (
-            <div key={index} className={`flex flex-col sm:flex-row justify-between items-center px-4 py-3 rounded border ${rowStyle}`}>
-              <span className="text-sm text-[#d0d0d5] flex-1 pr-4">{stmt}</span>
-              <div className="flex gap-2 mt-3 sm:mt-0">
+            <div key={index} className={`flex flex-col md:flex-row justify-between items-start md:items-center px-6 py-4 rounded-xl border transition-all ${rowStyle}`}>
+              <span className="text-sm sm:text-base text-zinc-200 flex-1 pr-6 leading-relaxed mb-4 md:mb-0">{stmt}</span>
+              <div className="flex gap-2 w-full md:w-auto">
                 <button
                   disabled={answered}
                   onClick={() => setStatement(index, true)}
-                  className={`px-4 py-1.5 rounded text-sm font-bold border ${ans === true ? 'bg-[#99c9ff] text-[#0a0a23] border-[#99c9ff]' : 'border-[#3b3b4f] text-[#a5abc4] hover:border-[#99c9ff]'} disabled:opacity-50`}
+                  className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === true ? 'bg-indigo-500 border-indigo-500 text-white shadow-[0_0_15px_-3px_rgba(99,102,241,0.5)]' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
                 >
                   Yes
                 </button>
                 <button
                   disabled={answered}
                   onClick={() => setStatement(index, false)}
-                  className={`px-4 py-1.5 rounded text-sm font-bold border ${ans === false ? 'bg-[#99c9ff] text-[#0a0a23] border-[#99c9ff]' : 'border-[#3b3b4f] text-[#a5abc4] hover:border-[#99c9ff]'} disabled:opacity-50`}
+                  className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === false ? 'bg-indigo-500 border-indigo-500 text-white shadow-[0_0_15px_-3px_rgba(99,102,241,0.5)]' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
                 >
                   No
                 </button>
@@ -130,10 +133,10 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
       {/* Submit Button for interactive types */}
       {!answered && !examMode && (isMultiple || isStatement) && (
-        <div className="pt-2 flex justify-end">
+        <div className="pt-4 flex justify-end">
           <button 
             onClick={handleSubmit}
-            className="px-6 py-2 rounded text-sm font-bold bg-[#99c9ff] text-[#0a0a23] hover:opacity-90 transition-all"
+            className="px-8 py-3 rounded-lg text-sm font-semibold bg-indigo-500 text-white shadow-[0_0_20px_-5px_rgba(99,102,241,0.5)] hover:bg-indigo-400 hover:shadow-[0_0_25px_-3px_rgba(99,102,241,0.6)] hover:-translate-y-0.5 transition-all"
           >
             Submit Answer
           </button>
@@ -142,15 +145,28 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
       {/* Feedback Block */}
       {answered && (
-        <div className={`p-5 rounded text-sm leading-relaxed animate-fade-up ${
+        <div className={`p-6 rounded-xl text-sm sm:text-base leading-relaxed animate-fade-up flex gap-4 ${
           isCorrect
-            ? 'bg-[#acd157]/10 border border-[#acd157]/30 text-[#acd157]'
-            : 'bg-red-500/10 border border-red-500/30 text-red-400'
+            ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-100 shadow-[0_0_30px_-10px_rgba(16,185,129,0.2)]'
+            : 'bg-rose-500/10 border border-rose-500/30 text-rose-100 shadow-[0_0_30px_-10px_rgba(244,63,94,0.2)]'
         }`}>
-          <p className="font-bold mb-1">
-            {isCorrect ? '✓ Correct!' : '✗ Incorrect'}
-          </p>
-          <p className="text-[#d0d0d5]">{question.explanation}</p>
+          <div className="shrink-0 mt-0.5">
+            {isCorrect ? (
+              <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+          </div>
+          <div>
+            <p className="font-bold mb-2">
+              {isCorrect ? 'Correct!' : 'Incorrect'}
+            </p>
+            <p className="text-zinc-300/90 pr-4">{question.explanation}</p>
+          </div>
         </div>
       )}
     </div>

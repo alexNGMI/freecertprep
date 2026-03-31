@@ -5,139 +5,157 @@ import BrandedName from '../components/BrandedName'
 const certs = getAllCerts()
 
 const providerStyles = {
-  AWS: { bg: 'bg-[#f1be32]/15', text: 'text-[#f1be32]' },
-  'Google Cloud': { bg: 'bg-[#4285f4]/15', text: 'text-[#4285f4]' },
-  NVIDIA: { bg: 'bg-[#76b900]/15', text: 'text-[#76b900]' },
-  'Microsoft Azure': { bg: 'bg-[#0078d4]/15', text: 'text-[#0078d4]' },
+  AWS: { bg: 'bg-orange-500/10 border-orange-500/20', text: 'text-orange-400' },
+  'Google Cloud': { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-400' },
+  NVIDIA: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-400' },
+  'Microsoft Azure': { bg: 'bg-cyan-500/10 border-cyan-500/20', text: 'text-cyan-400' },
 }
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0a0a23] flex flex-col">
-      <header className="border-b border-[#1b1b32] bg-[#0a0a23]/95 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-6 py-3 flex items-center">
-          <Link to="/" className="text-[#f5f6f7] hover:opacity-80 transition-opacity">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
+      {/* Dynamic Background Mesh */}
+      <div className="absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-600/10 blur-[120px] animate-float" />
+        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-sky-500/10 blur-[120px] animate-float-delayed" />
+        <div className="absolute -bottom-[20%] left-[20%] w-[60%] h-[50%] rounded-full bg-emerald-500/5 blur-[120px] animate-float" />
+      </div>
+
+      <header className="border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-20 transition-all">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link to="/" className="hover:opacity-80 transition-opacity">
             <BrandedName />
           </Link>
+          <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
+            <a href="#certs" className="hover:text-zinc-100 transition-colors">Certifications</a>
+            <a href="https://github.com/alexNGMI/freecertprep" target="_blank" rel="noreferrer" className="hover:text-zinc-100 transition-colors">GitHub</a>
+          </div>
         </div>
       </header>
 
       <main className="flex-1">
-        {/* Hero */}
-        <section className="relative max-w-6xl mx-auto px-6 pt-20 pb-16 text-center overflow-hidden">
-          {/* Subtle gradient orbs */}
-          <div className="absolute top-10 left-1/4 w-72 h-72 bg-[#f1be32]/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute top-20 right-1/4 w-64 h-64 bg-[#dbb8ff]/5 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative mb-6 animate-fade-up">
-            <Link to="/" className="text-[#f5f6f7] inline-block">
-              <BrandedName size="text-5xl md:text-6xl" />
-            </Link>
+        {/* Hero Section */}
+        <section className="relative max-w-5xl mx-auto px-6 pt-32 pb-24 text-center">
+          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-300 text-sm font-medium animate-fade-up">
+            ✨ Free, High-Quality Mock Exams
           </div>
-          <p className="relative text-xl text-[#d0d0d5] max-w-xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Practice for your cloud certifications with realistic exam questions, timed simulations, and progress tracking.
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
+            Master your <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Cloud Career</span>
+          </h1>
+          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
+            Practice for AWS, Google Cloud, Azure, and NVIDIA certifications with deeply realistic questions, timed visual simulations, and intelligent progress tracking.
           </p>
-          <div className="relative mt-10 animate-fade-up" style={{ animationDelay: '200ms' }}>
+          <div className="mt-12 flex items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '300ms' }}>
             <a
               href="#certs"
               id="hero-start-btn"
-              className="inline-block bg-[#f1be32] text-[#0a0a23] font-bold text-lg px-10 py-3.5 rounded hover:opacity-90 hover:scale-105 transition-all duration-200"
+              className="group relative inline-flex items-center justify-center bg-zinc-100 text-zinc-950 font-semibold text-lg px-8 py-3.5 rounded-xl hover:bg-white transition-all duration-300 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-0.5"
             >
-              Start Learning
+              Explore Certs
+              <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </a>
           </div>
         </section>
 
-        {/* Divider */}
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="border-t border-[#1b1b32]" />
-        </div>
-
         {/* Cert Catalog */}
-        <section id="certs" className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-sm font-bold text-[#a5abc4] uppercase tracking-wider mb-8">
-            Available Certifications
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section id="certs" className="max-w-7xl mx-auto px-6 py-24">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-3xl font-bold text-zinc-100">
+              Available <span className="text-zinc-500">Certifications</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certs.map((cert, i) => (
               <CertCard key={cert.id} cert={cert} index={i} />
             ))}
 
-            <div className="rounded-md p-6 border border-dashed border-[#3b3b4f] flex flex-col items-center justify-center text-center min-h-[300px] animate-fade-up" style={{ animationDelay: `${certs.length * 80}ms` }}>
-              <div className="w-12 h-12 rounded-full border-2 border-dashed border-[#3b3b4f] flex items-center justify-center mb-4">
-                <span className="text-[#3b3b4f] text-xl">+</span>
+            <div className="glass-panel rounded-2xl p-8 flex flex-col items-center justify-center text-center min-h-[340px] border-dashed animate-fade-up" style={{ animationDelay: `${certs.length * 80 + 300}ms` }}>
+              <div className="w-14 h-14 rounded-full border-2 border-dashed border-zinc-600 flex items-center justify-center mb-6 bg-zinc-900/50">
+                <span className="text-zinc-500 text-2xl font-light">+</span>
               </div>
-              <p className="text-[#a5abc4] font-bold text-sm">More certs coming soon</p>
-              <p className="text-[#3b3b4f] text-xs mt-2 leading-relaxed">
-                Solutions Architect, Developer,<br />SysOps, and more...
+              <h3 className="text-zinc-300 font-semibold text-lg">More coming soon</h3>
+              <p className="text-zinc-500 text-sm mt-3 leading-relaxed">
+                We're actively adding new question banks for Solutions Architect, DevOps, and more.
               </p>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-[#1b1b32] py-6 text-center text-sm text-[#a5abc4]">
-        <Link to="/" className="text-[#f5f6f7] hover:opacity-80 transition-opacity">
-          <BrandedName size="text-sm" />
-        </Link>
-        <p className="mt-2 text-[#3b3b4f]">Free cloud certification practice for everyone.</p>
+      <footer className="border-t border-white/5 bg-zinc-950/50 py-10 mt-12 text-center text-zinc-500">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <BrandedName size="text-lg" />
+          </Link>
+          <p className="text-sm">Built for the community. Free forever.</p>
+        </div>
       </footer>
     </div>
   )
 }
 
 function CertCard({ cert, index }) {
-  const ps = providerStyles[cert.provider] || { bg: 'bg-[#a5abc4]/15', text: 'text-[#a5abc4]' }
+  const ps = providerStyles[cert.provider] || { bg: 'bg-zinc-800 border-zinc-700', text: 'text-zinc-400' }
 
   return (
     <Link
       to={`/${cert.id}`}
       id={`cert-card-${cert.id}`}
-      className="bg-[#1b1b32] rounded-md p-6 hover:bg-[#2a2a40] transition-all duration-200 group flex flex-col min-h-[300px] hover:scale-[1.02] hover:-translate-y-1 animate-fade-up"
-      style={{ animationDelay: `${index * 80}ms` }}
+      className="glass-panel glass-panel-hover rounded-2xl p-8 group flex flex-col min-h-[340px] animate-fade-up relative overflow-hidden"
+      style={{ animationDelay: `${index * 80 + 300}ms` }}
     >
-      <div className="flex items-center justify-between mb-5">
+      {/* Subtle top gradient line to give the card identity */}
+      <div 
+        className="absolute top-0 left-0 w-full h-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ backgroundColor: cert.color, boxShadow: `0 0 20px ${cert.color}` }}
+      />
+      
+      <div className="flex items-start justify-between mb-6">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-md border ${ps.bg} ${ps.text}`}>
+            {cert.provider}
+          </span>
+          <span className="text-[11px] font-medium text-zinc-400 bg-zinc-800/50 border border-zinc-700/50 px-2.5 py-1 rounded-md">
+            {cert.code}
+          </span>
+        </div>
         <span
-          className="text-xs font-bold px-3 py-1 rounded"
-          style={{ backgroundColor: cert.color + '20', color: cert.color }}
+          className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-zinc-900/80 border"
+          style={{ borderColor: `${cert.color}40`, color: cert.color }}
         >
           {cert.difficulty}
         </span>
-        <div className="flex items-center gap-2">
-          <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${ps.bg} ${ps.text}`}>
-            {cert.provider}
-          </span>
-          <span className="text-xs font-bold text-[#a5abc4] bg-[#2a2a40] px-2 py-0.5 rounded">{cert.code}</span>
-        </div>
       </div>
 
-      <h3 className="text-xl font-bold text-[#f5f6f7] mb-2 transition-colors" style={{ '--hover-color': cert.color }}>
-        <span className="group-hover:text-[var(--hover-color)] transition-colors">{cert.title}</span>
+      <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300" style={{ backgroundImage: `linear-gradient(to right, #ffffff, ${cert.color})` }}>
+        {cert.title}
       </h3>
-      <p className="text-sm text-[#d0d0d5] mb-6 flex-1 leading-relaxed">
+      <p className="text-sm text-zinc-400 mb-8 flex-1 leading-relaxed">
         {cert.description}
       </p>
 
-      <div className="grid grid-cols-3 gap-3 mb-6 bg-[#0a0a23] rounded-md p-3">
+      <div className="grid grid-cols-3 gap-2 mb-8 border-y border-white/5 py-4">
         <div className="text-center">
-          <p className="text-lg font-bold text-[#f5f6f7]">{cert.questionCount}</p>
-          <p className="text-[10px] text-[#a5abc4] uppercase tracking-wider font-bold">Questions</p>
+          <p className="text-xl font-semibold text-zinc-200">{cert.examQuestions}</p>
+          <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-medium">Questions</p>
         </div>
-        <div className="text-center border-x border-[#1b1b32]">
-          <p className="text-lg font-bold text-[#f5f6f7]">{cert.examTime} min</p>
-          <p className="text-[10px] text-[#a5abc4] uppercase tracking-wider font-bold">Exam Time</p>
+        <div className="text-center border-x border-white/5">
+          <p className="text-xl font-semibold text-zinc-200">{cert.examTime}</p>
+          <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-medium">Minutes</p>
         </div>
         <div className="text-center">
-          <p className="text-lg font-bold text-[#f5f6f7]">{cert.passingScore}%</p>
-          <p className="text-[10px] text-[#a5abc4] uppercase tracking-wider font-bold">Passing</p>
+          <p className="text-xl font-semibold text-zinc-200">{cert.passingScore}%</p>
+          <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-medium">Passing</p>
         </div>
       </div>
 
       <span
-        className="font-bold text-sm py-2.5 rounded text-center group-hover:opacity-90 transition-all duration-200 text-[#0a0a23]"
-        style={{ backgroundColor: cert.color }}
+        className="text-sm font-semibold py-3 rounded-lg text-center transition-all duration-300 border bg-zinc-900/50 hover:bg-zinc-800"
+        style={{ color: cert.color, borderColor: `${cert.color}30`, boxShadow: `0 0 15px -5px ${cert.color}40` }}
       >
-        Start Learning
+        View Detail &rarr;
       </span>
     </Link>
   )

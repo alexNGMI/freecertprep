@@ -57,42 +57,57 @@ export default function Quiz() {
 
   if (!quizStarted) {
     return (
-      <div className="space-y-8 animate-fade-up">
-        <div className="text-center space-y-3 pt-4">
-          <h1 className="text-4xl font-bold text-[#f5f6f7]">Practice Quiz</h1>
-          <p className="text-lg text-[#d0d0d5]">Select a domain and start practicing</p>
+      <div className="space-y-12 animate-fade-up pt-4">
+        <div className="text-center space-y-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-zinc-100">Practice Quiz</h1>
+          <p className="text-xl text-zinc-400">Target a specific domain or practice them all.</p>
         </div>
-        <div className="bg-[#1b1b32] rounded-md p-8 space-y-6 max-w-2xl mx-auto">
-          <label className="block text-sm font-bold text-[#a5abc4] uppercase tracking-wider">Filter by Domain</label>
-          <div className="flex flex-wrap gap-2">
-            {domainNames.map((domain) => (
-              <button
-                key={domain}
-                id={`domain-filter-${domain.replace(/\s+/g, '-').toLowerCase()}`}
-                onClick={() => setSelectedDomain(domain)}
-                className={`px-4 py-1.5 rounded text-sm font-bold transition-all duration-200 border ${
-                  selectedDomain === domain
-                    ? 'border-transparent text-[#0a0a23]'
-                    : 'border-[#f5f6f7] text-[#f5f6f7] hover:bg-[#f5f6f7]/10'
-                }`}
-                style={selectedDomain === domain ? { backgroundColor: cert.color, borderColor: cert.color } : {}}
-              >
-                {domain}
-              </button>
-            ))}
+        
+        <div className="glass-panel rounded-2xl p-8 md:p-12 space-y-8 max-w-3xl mx-auto shadow-xl" style={{ boxShadow: `0 20px 60px -15px ${cert.color}25` }}>
+          <div className="space-y-4">
+            <label className="block text-xs font-bold text-zinc-500 uppercase tracking-widest pl-1">
+              Select Focus Area
+            </label>
+            <div className="flex flex-col gap-3">
+              {domainNames.map((domain) => (
+                <button
+                  key={domain}
+                  id={`domain-filter-${domain.replace(/\s+/g, '-').toLowerCase()}`}
+                  onClick={() => setSelectedDomain(domain)}
+                  className={`px-6 py-4 rounded-xl text-left font-medium transition-all duration-300 border shadow-sm flex items-center justify-between group ${
+                    selectedDomain === domain
+                      ? 'bg-zinc-100 text-zinc-950 scale-[1.01]'
+                      : 'border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800'
+                  }`}
+                  style={selectedDomain === domain ? { boxShadow: `0 0 20px -5px ${cert.color}80` } : {}}
+                >
+                  <span>{domain}</span>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${selectedDomain === domain ? 'border-zinc-950' : 'border-zinc-600 group-hover:border-zinc-400'}`}>
+                    {selectedDomain === domain && <div className="w-2.5 h-2.5 rounded-full bg-zinc-950" />}
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
-          <p className="text-sm text-[#a5abc4]">
-            {filteredQuestions.length} question{filteredQuestions.length !== 1 ? 's' : ''} available
-          </p>
-          <button
-            id="start-quiz-btn"
-            onClick={startQuiz}
-            disabled={filteredQuestions.length === 0}
-            className="font-bold px-8 py-2.5 rounded transition-all duration-200 text-[#0a0a23] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
-            style={{ backgroundColor: cert.color }}
-          >
-            Start Learning
-          </button>
+          
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-white/5">
+            <div className="flex items-center gap-3">
+              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/20">
+                {filteredQuestions.length}
+              </span>
+              <span className="text-zinc-400 text-sm font-medium">Questions available</span>
+            </div>
+            
+            <button
+              id="start-quiz-btn"
+              onClick={startQuiz}
+              disabled={filteredQuestions.length === 0}
+              className="w-full md:w-auto font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
+              style={{ backgroundColor: cert.color, boxShadow: `0 10px 30px -10px ${cert.color}` }}
+            >
+              Start Practice Session
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -102,23 +117,31 @@ export default function Quiz() {
     const correct = answers.filter((a) => a.correct).length
     const total = answers.length
     const pct = Math.round((correct / total) * 100)
+    const passed = pct >= cert.passingScore
+    
     return (
-      <div className="space-y-8 animate-fade-up">
-        <h1 className="text-4xl font-bold text-[#f5f6f7] text-center pt-4">Quiz Complete</h1>
-        <div className="bg-[#1b1b32] rounded-md p-10 text-center space-y-5 max-w-md mx-auto">
-          <p className={`text-6xl font-black ${pct >= cert.passingScore ? 'text-[#acd157]' : 'text-red-400'}`}>
+      <div className="space-y-12 animate-fade-up pt-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-zinc-100 text-center">Session Complete</h1>
+        
+        <div className="glass-panel rounded-2xl p-10 md:p-14 text-center max-w-lg mx-auto relative overflow-hidden">
+          <div 
+            className="absolute top-0 left-0 w-full h-2 opacity-80" 
+            style={{ backgroundColor: passed ? '#34d399' : '#f43f5e', boxShadow: `0 0 30px ${passed ? '#34d399' : '#f43f5e'}` }} 
+          />
+          
+          <p className={`text-7xl font-black mb-6 tracking-tighter ${passed ? 'text-emerald-400' : 'text-rose-400'}`} style={{ textShadow: `0 0 30px ${passed ? 'rgba(52,211,153,0.3)' : 'rgba(244,63,94,0.3)'}` }}>
             {pct}%
           </p>
-          <p className="text-[#d0d0d5] text-lg">
-            {correct} of {total} correct
+          <p className="text-zinc-400 text-xl font-medium mb-10">
+            You got <span className="text-zinc-200 font-bold">{correct}</span> out of <span className="text-zinc-200 font-bold">{total}</span> correct
           </p>
+          
           <button
             id="quiz-try-again-btn"
             onClick={() => setQuizStarted(false)}
-            className="font-bold px-8 py-2.5 rounded transition-all duration-200 text-[#0a0a23] hover:opacity-90"
-            style={{ backgroundColor: cert.color }}
+            className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 bg-zinc-100 text-zinc-950 hover:bg-white hover:scale-105 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)] w-full"
           >
-            Try Again
+            Practice Again
           </button>
         </div>
       </div>
@@ -129,38 +152,57 @@ export default function Quiz() {
   const currentAnswer = answers[currentIndex]
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold text-[#f5f6f7]">Practice Quiz</h1>
-        <span className="text-sm text-[#a5abc4] font-bold">
-          {currentIndex + 1} / {filteredQuestions.length}
-        </span>
+    <div className="space-y-8 animate-fade-up max-w-4xl mx-auto">
+      <div className="flex items-end justify-between px-2">
+        <h1 className="text-2xl font-bold text-zinc-100 hidden sm:block">Practice Quiz</h1>
+        <div className="flex items-center gap-3">
+          <span className="text-sm text-zinc-400 font-semibold tracking-wide">
+            Progress <span className="text-zinc-200">{currentIndex + 1}</span> of {filteredQuestions.length}
+          </span>
+        </div>
       </div>
-      <div className="h-2 bg-[#2a2a40] rounded overflow-hidden">
+      
+      <div className="h-2.5 bg-zinc-900/80 rounded-full overflow-hidden border border-white/5 shadow-inner">
         <div
-          className="h-full rounded transition-all duration-300"
+          className="h-full rounded-full transition-all duration-500 ease-out flex justify-end"
           style={{
             width: `${((currentIndex + 1) / filteredQuestions.length) * 100}%`,
             backgroundColor: cert.color,
+            boxShadow: `0 0 10px ${cert.color}80`
           }}
+        >
+          <div className="w-10 h-full bg-white/30 blur-sm" />
+        </div>
+      </div>
+      
+      <div className="mb-4">
+        <QuestionCard
+          key={currentQuestion.id}
+          question={currentQuestion}
+          onAnswer={handleAnswer}
+          answered={!!currentAnswer}
+          selectedChoice={currentAnswer?.selected}
         />
       </div>
-      <QuestionCard
-        key={currentQuestion.id}
-        question={currentQuestion}
-        onAnswer={handleAnswer}
-        answered={!!currentAnswer}
-        selectedChoice={currentAnswer?.selected}
-      />
+      
       {currentAnswer && (
-        <div className="flex justify-end">
+        <div className="flex justify-end pt-2 animate-fade-up">
           <button
             id="quiz-next-btn"
             onClick={handleNext}
-            className="font-bold px-8 py-2.5 rounded transition-all duration-200 text-[#0a0a23] hover:opacity-90"
-            style={{ backgroundColor: cert.color }}
+            className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 hover:scale-105 shadow-xl flex items-center justify-center min-w-[200px]"
+            style={{ backgroundColor: cert.color, boxShadow: `0 10px 25px -5px ${cert.color}80` }}
           >
-            {currentIndex < filteredQuestions.length - 1 ? 'Next Question' : 'See Results'}
+            {currentIndex < filteredQuestions.length - 1 ? (
+              <>
+                Next Question
+                <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </>
+            ) : (
+              'See Results'
+            )}
           </button>
         </div>
       )}

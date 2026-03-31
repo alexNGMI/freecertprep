@@ -9,14 +9,22 @@ export default function Dashboard() {
   const overall = getOverallStats
 
   return (
-    <div className="space-y-10 animate-fade-up">
-      <div className="text-center space-y-3 pt-4">
-        <h1 className="text-4xl font-bold text-[#f5f6f7]">{cert.code}</h1>
-        <p className="text-lg text-[#d0d0d5]">Track your {cert.title} exam prep progress</p>
+    <div className="space-y-12 animate-fade-up">
+      <div className="text-center space-y-4 pt-6">
+        <h1 className="text-5xl font-bold text-zinc-100 flex items-center justify-center gap-4">
+          <span 
+            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-zinc-900 border" 
+            style={{ color: cert.color, borderColor: `${cert.color}40`, boxShadow: `0 0 20px -5px ${cert.color}60` }}
+          >
+            {cert.code.charAt(0)}
+          </span>
+          {cert.code}
+        </h1>
+        <p className="text-xl text-zinc-400">Track your <span className="text-zinc-200 font-semibold">{cert.title}</span> mastery</p>
       </div>
 
       {/* Overall Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         <StatCard label="Questions" value={overall.totalQuestions} />
         <StatCard label="Correct" value={overall.correctAnswers} />
         <StatCard
@@ -29,27 +37,37 @@ export default function Dashboard() {
       </div>
 
       {/* Domain Progress */}
-      <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
-        <h2 className="text-lg font-bold text-[#f5f6f7]">Domain Progress</h2>
-        <div className="space-y-5">
+      <div className="glass-panel rounded-2xl p-8 space-y-8 relative overflow-hidden">
+        {/* Subtle decorative glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px]" />
+        
+        <h2 className="text-2xl font-bold text-zinc-100 relative z-10">Domain Readiness</h2>
+        <div className="space-y-6 relative z-10">
           {domainStats.map((stat) => {
             const colors = cert.domainColors[stat.domain]
             const weight = cert.domains.find((d) => d.name === stat.domain)?.weight
             return (
-              <div key={stat.domain}>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[#d0d0d5] text-sm">{stat.domain}</span>
-                  <div className="flex items-center gap-3 text-sm">
-                    <span className="text-[#a5abc4]">{weight}% of exam</span>
-                    <span className="text-[#f5f6f7] font-bold w-10 text-right">
+              <div key={stat.domain} className="group">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-zinc-300 font-medium tracking-wide flex-1 pr-4">{stat.domain}</span>
+                  <div className="flex items-center gap-4 text-sm font-medium">
+                    <span className="text-zinc-500 uppercase tracking-widest text-[10px] hidden sm:inline">{weight}% of exam</span>
+                    <span 
+                      className="font-bold text-base px-3 py-1 bg-zinc-900/50 rounded-md border border-white/5"
+                      style={{ color: stat.total > 0 && colors ? colors.text : '#a1a1aa' }}
+                    >
                       {stat.total > 0 ? `${stat.percentage}%` : '—'}
                     </span>
                   </div>
                 </div>
-                <div className="h-2.5 bg-[#2a2a40] rounded overflow-hidden">
+                <div className="h-3 bg-zinc-900/80 rounded-full border border-white/5 overflow-hidden shadow-inner flex">
                   <div
-                    className={`h-full rounded animate-bar-fill ${colors?.bar || 'bg-[#a5abc4]'}`}
-                    style={{ '--bar-width': `${stat.percentage}%` }}
+                    className={`h-full rounded-full animate-bar-fill transition-all duration-700 ease-out`}
+                    style={{ 
+                      '--bar-width': `${stat.percentage}%`, 
+                      background: colors ? (stat.percentage > 0 ? `linear-gradient(90deg, transparent, ${stat.percentage > 70 ? '#34d399' : '#38bdf8'})` : '') : '#52525b',
+                      backgroundColor: colors && stat.percentage > 0 ? 'currentColor' : '#3f3f46'
+                    }}
                   />
                 </div>
               </div>
@@ -59,35 +77,50 @@ export default function Dashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
         <Link
           to="quiz"
           id="dashboard-quiz-btn"
-          className="bg-[#1b1b32] rounded-md p-8 hover:bg-[#2a2a40] transition-all duration-200 group text-center space-y-4 hover:scale-[1.02] hover:-translate-y-0.5"
+          className="glass-panel glass-panel-hover rounded-2xl p-8 text-center space-y-5 flex flex-col justify-between"
         >
-          <h3 className="text-xl font-bold text-[#f5f6f7]">Practice Quiz</h3>
-          <p className="text-sm text-[#d0d0d5]">
-            Study by domain with instant feedback and explanations
-          </p>
-          <span
-            className="inline-block font-bold px-8 py-2.5 rounded text-sm group-hover:opacity-90 transition-opacity text-[#0a0a23]"
-            style={{ backgroundColor: cert.color }}
-          >
+          <div>
+            <div className="w-16 h-16 mx-auto rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
+              <svg className="w-8 h-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-zinc-100">Practice Quiz</h3>
+            <p className="text-zinc-400 mt-2 leading-relaxed">
+              Target specifically weak domains with instant feedback, interactive layouts, and detailed explanations.
+            </p>
+          </div>
+          <span className="inline-block font-semibold px-8 py-3.5 rounded-lg transition-all border border-indigo-500/30 bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500 hover:text-white hover:shadow-[0_0_20px_-5px_#6366f1]">
             Start Learning
           </span>
         </Link>
         <Link
           to="exam"
           id="dashboard-exam-btn"
-          className="bg-[#1b1b32] rounded-md p-8 hover:bg-[#2a2a40] transition-all duration-200 group text-center space-y-4 hover:scale-[1.02] hover:-translate-y-0.5"
+          className="glass-panel glass-panel-hover rounded-2xl p-8 text-center space-y-5 flex flex-col justify-between"
+          style={{ borderColor: `${cert.color}40`, boxShadow: `0 10px 40px -10px ${cert.color}20` }}
         >
-          <h3 className="text-xl font-bold text-[#f5f6f7]">Exam Simulator</h3>
-          <p className="text-sm text-[#d0d0d5]">
-            {cert.examQuestions} questions, {cert.examTime}-minute timer — simulate the real exam
-          </p>
+          <div>
+            <div 
+              className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 border"
+              style={{ backgroundColor: `${cert.color}15`, borderColor: `${cert.color}30`, color: cert.color }}
+            >
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-zinc-100">Live Simulator</h3>
+            <p className="text-zinc-400 mt-2 leading-relaxed">
+              {cert.examQuestions} unique questions mapped correctly across domains on a strict {cert.examTime}-minute countdown.
+            </p>
+          </div>
           <span
-            className="inline-block font-bold px-8 py-2.5 rounded text-sm group-hover:opacity-90 transition-opacity text-[#0a0a23]"
-            style={{ backgroundColor: cert.color }}
+            className="inline-block bg-zinc-100 text-zinc-950 font-semibold px-8 py-3.5 rounded-lg hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_-3px_rgba(255,255,255,0.4)]"
+            style={{ boxShadow: `0 0 20px -3px ${cert.color}80` }}
           >
             Start Exam
           </span>
@@ -100,15 +133,15 @@ export default function Dashboard() {
 function StatCard({ label, value, highlight, glowColor }) {
   return (
     <div
-      className={`bg-[#1b1b32] rounded-md p-4 text-center transition-all duration-300 ${
-        highlight ? 'ring-1 ring-inset' : ''
+      className={`glass-panel rounded-2xl p-6 text-center transition-all duration-300 flex flex-col justify-center ${
+        highlight ? 'backdrop-blur-2xl' : ''
       }`}
-      style={highlight ? { boxShadow: `0 0 20px ${glowColor}15`, ringColor: glowColor + '40' } : {}}
+      style={highlight ? { borderColor: `${glowColor}50`, background: `${glowColor}10`, boxShadow: `0 0 30px -5px ${glowColor}40` } : {}}
     >
-      <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-2">{label}</p>
+      <p className="text-[11px] text-zinc-500 uppercase tracking-widest font-semibold mb-3">{label}</p>
       <p
-        className={`text-3xl font-bold ${highlight ? '' : 'text-[#f5f6f7]'}`}
-        style={highlight ? { color: glowColor } : {}}
+        className={`text-4xl font-black tracking-tight ${highlight ? '' : 'text-zinc-100'}`}
+        style={highlight ? { color: glowColor, textShadow: `0 0 20px ${glowColor}80` } : {}}
       >
         {value}
       </p>

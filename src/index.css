@@ -1,31 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-dark: #0a0a23;
-  --color-navy: #1b1b32;
-  --color-navy-light: #2a2a40;
-  --color-navy-lighter: #3b3b4f;
-  --color-fcc-yellow: #f1be32;
-  --color-fcc-blue: #99c9ff;
-  --color-fcc-purple: #dbb8ff;
-  --color-fcc-green: #acd157;
-  --color-fcc-text: #f5f6f7;
-  --color-fcc-text-muted: #d0d0d5;
-  --color-fcc-text-dim: #a5abc4;
-  --color-fcc-border: #3b3b4f;
-  --color-fcc-link: #99c9ff;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Outfit", system-ui, sans-serif;
 
-  --animate-fade-up: fade-up 0.4s ease-out both;
-  --animate-answer-pop: answer-pop 0.25s ease-out both;
-  --animate-bar-fill: bar-fill 0.8s ease-out both;
+  --animate-fade-up: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-answer-pop: answer-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-bar-fill: bar-fill 1s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-timer-pulse: timer-pulse 1s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 3s infinite;
+  
+  --shadow-glow: 0 0 20px -2px var(--tw-shadow-color);
+  --shadow-glow-lg: 0 0 40px -5px var(--tw-shadow-color);
 }
 
-/* Entrance animation */
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -33,14 +26,13 @@
   }
 }
 
-/* Answer reveal pop */
 @keyframes answer-pop {
   0% {
-    transform: scale(0.97);
-    opacity: 0.7;
+    transform: scale(0.95);
+    opacity: 0.5;
   }
   50% {
-    transform: scale(1.01);
+    transform: scale(1.02);
   }
   100% {
     transform: scale(1);
@@ -48,7 +40,6 @@
   }
 }
 
-/* Progress bar fill */
 @keyframes bar-fill {
   from {
     width: 0%;
@@ -58,13 +49,21 @@
   }
 }
 
-/* Timer pulse for low time warning */
 @keyframes timer-pulse {
   0%, 100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.4;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
 
@@ -75,24 +74,64 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
+  /* Deep cinematic dark background */
+  background-color: #09090b; 
+  color: #f4f4f5;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Focus-visible ring for keyboard navigation */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
 *:focus-visible {
-  outline: 2px solid #f1be32;
+  outline: 2px solid #38bdf8;
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
-/* Remove focus ring for mouse users */
 *:focus:not(:focus-visible) {
   outline: none;
 }
 
-/* Smooth page transitions */
+/* Base scrollbar styling for seamless look */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b; 
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46; 
+}
+
+/* Glass panel utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
 main {
-  animation: fade-up 0.3s ease-out;
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
