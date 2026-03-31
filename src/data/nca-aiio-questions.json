@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which NVIDIA GPU architecture introduced the Transformer Engine specifically designed to accelerate transformer-based AI models?",
+    "choices": ["Ampere", "Hopper", "Volta", "Turing"],
+    "correctAnswer": 1,
+    "explanation": "The Hopper architecture (H100) introduced the Transformer Engine, which uses a combination of FP8 and FP16 precision to dramatically accelerate transformer model training and inference."
+  },
+  {
+    "id": 2,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the primary function of Tensor Cores in NVIDIA GPUs?",
+    "choices": ["Rendering 3D graphics at high frame rates", "Accelerating matrix multiply-and-accumulate operations for AI workloads", "Managing memory allocation across GPU clusters", "Handling network packet processing for GPU-to-GPU communication"],
+    "correctAnswer": 1,
+    "explanation": "Tensor Cores are specialized processing units designed to accelerate matrix multiply-and-accumulate (MMA) operations, which are the core computations in deep learning training and inference."
+  },
+  {
+    "id": 3,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "How much HBM3 memory does the NVIDIA H100 SXM GPU provide?",
+    "choices": ["40 GB", "48 GB", "80 GB", "128 GB"],
+    "correctAnswer": 2,
+    "explanation": "The NVIDIA H100 SXM GPU comes equipped with 80 GB of HBM3 memory, providing up to 3.35 TB/s of memory bandwidth for handling large AI models and datasets."
+  },
+  {
+    "id": 4,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the primary advantage of NVLink over PCIe for multi-GPU communication?",
+    "choices": ["NVLink uses less power than PCIe", "NVLink provides significantly higher bandwidth for GPU-to-GPU data transfer", "NVLink supports more GPU vendors than PCIe", "NVLink eliminates the need for system memory entirely"],
+    "correctAnswer": 1,
+    "explanation": "NVLink provides significantly higher bandwidth than PCIe for direct GPU-to-GPU communication. For example, NVLink 4.0 in the H100 provides 900 GB/s total bandwidth, far exceeding PCIe Gen5 capabilities."
+  },
+  {
+    "id": 5,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which component in an NVIDIA DGX system enables all-to-all GPU communication within a single node?",
+    "choices": ["PCIe switch", "NVSwitch", "InfiniBand HCA", "BlueField DPU"],
+    "correctAnswer": 1,
+    "explanation": "NVSwitch is a dedicated chip inside DGX systems that provides high-bandwidth, all-to-all NVLink connectivity between all GPUs within a single node, enabling any GPU to communicate directly with any other GPU at full NVLink bandwidth."
+  },
+  {
+    "id": 6,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What type of memory is used in the NVIDIA A100 GPU?",
+    "choices": ["GDDR6", "GDDR6X", "HBM2e", "HBM3"],
+    "correctAnswer": 2,
+    "explanation": "The NVIDIA A100 uses HBM2e (High Bandwidth Memory 2e), providing either 40 GB or 80 GB of memory with up to 2 TB/s bandwidth, which is critical for large AI model training."
+  },
+  {
+    "id": 7,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Why are GPUs better suited than CPUs for deep learning training workloads?",
+    "choices": ["GPUs have higher clock speeds than CPUs", "GPUs have larger L3 caches for data storage", "GPUs have thousands of parallel cores optimized for the matrix operations used in deep learning", "GPUs consume less power than CPUs"],
+    "correctAnswer": 2,
+    "explanation": "GPUs contain thousands of cores designed for parallel processing, making them ideal for the massive matrix multiplications and tensor operations that form the basis of deep learning. CPUs have fewer, more complex cores optimized for sequential tasks."
+  },
+  {
+    "id": 8,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which NVIDIA GPU is specifically designed for AI inference and visualization workloads in enterprise data centers?",
+    "choices": ["A100", "H100", "L40", "RTX 4090"],
+    "correctAnswer": 2,
+    "explanation": "The NVIDIA L40 GPU is designed for enterprise data center AI inference, graphics rendering, and visualization workloads, offering a balance of AI compute and graphics capabilities with 48 GB GDDR6 memory."
+  },
+  {
+    "id": 9,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What does Multi-Instance GPU (MIG) technology allow on the NVIDIA A100 and H100?",
+    "choices": ["Running multiple operating systems on a single GPU", "Partitioning a single GPU into multiple isolated GPU instances for different workloads", "Connecting multiple GPUs into a single logical device", "Overclocking GPU cores for higher performance"],
+    "correctAnswer": 1,
+    "explanation": "MIG technology allows a single GPU to be partitioned into up to seven isolated instances, each with dedicated compute, memory, and cache resources. This enables multiple users or workloads to share a single GPU securely."
+  },
+  {
+    "id": 10,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the approximate aggregate GPU-to-GPU bandwidth provided by NVLink in an 8-GPU NVIDIA DGX H100 system?",
+    "choices": ["600 GB/s", "900 GB/s per GPU, 3.6 TB/s bisection bandwidth", "100 GB/s total", "2 TB/s per GPU"],
+    "correctAnswer": 1,
+    "explanation": "In the DGX H100 system, each GPU has 900 GB/s of NVLink bandwidth via 4th-generation NVLink connected through NVSwitch, providing 3.6 TB/s of total bisection bandwidth across the 8 GPUs."
+  },
+  {
+    "id": 11,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which precision format was introduced with the Hopper architecture to improve transformer model performance?",
+    "choices": ["FP32", "BF16", "FP8", "INT4"],
+    "correctAnswer": 2,
+    "explanation": "The Hopper architecture introduced FP8 (8-bit floating point) precision support through the Transformer Engine, which dynamically manages precision between FP8 and FP16 to accelerate transformer models while maintaining accuracy."
+  },
+  {
+    "id": 12,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the purpose of GPU memory bandwidth in AI workloads?",
+    "choices": ["It determines the maximum number of GPUs that can be connected", "It measures how quickly data can be read from and written to GPU memory, directly impacting model performance", "It controls the clock speed of the GPU cores", "It sets the maximum size of the neural network that can be compiled"],
+    "correctAnswer": 1,
+    "explanation": "Memory bandwidth determines how fast data can be transferred between GPU memory and compute cores. For AI workloads, especially large language models, memory bandwidth is often the bottleneck as models require rapid access to large amounts of data."
+  },
+  {
+    "id": 13,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "How many SMs (Streaming Multiprocessors) does the NVIDIA H100 SXM GPU contain?",
+    "choices": ["80", "108", "132", "144"],
+    "correctAnswer": 2,
+    "explanation": "The H100 SXM GPU contains 132 Streaming Multiprocessors (SMs), each equipped with Tensor Cores and CUDA cores, providing massive parallel compute capability for AI workloads."
+  },
+  {
+    "id": 14,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which NVIDIA architecture first introduced Tensor Cores?",
+    "choices": ["Pascal", "Volta", "Turing", "Ampere"],
+    "correctAnswer": 1,
+    "explanation": "Tensor Cores were first introduced in the Volta architecture (V100 GPU). Each generation since has significantly improved Tensor Core capabilities, adding support for additional data types and increasing throughput."
+  },
+  {
+    "id": 15,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the key difference between the A100 PCIe and A100 SXM form factors?",
+    "choices": ["The PCIe version has more memory", "The SXM version supports NVLink while the PCIe version does not", "The SXM version provides higher TDP and NVLink connectivity for maximum performance in dense GPU servers", "The PCIe version supports MIG while the SXM does not"],
+    "correctAnswer": 2,
+    "explanation": "The A100 SXM form factor supports higher TDP (400W vs 300W for PCIe) and full NVLink connectivity through NVSwitch, making it ideal for DGX-style dense GPU servers requiring maximum inter-GPU bandwidth."
+  },
+  {
+    "id": 16,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is sparsity support in NVIDIA Ampere and Hopper GPUs used for?",
+    "choices": ["Compressing data stored on disk", "Accelerating computations on sparse neural network weight matrices by skipping zero values", "Reducing network packet sizes during multi-node training", "Encrypting model parameters for security"],
+    "correctAnswer": 1,
+    "explanation": "Structured sparsity support allows Tensor Cores to achieve up to 2x speedup by exploiting fine-grained sparsity patterns in neural network weights, effectively skipping zero-value computations."
+  },
+  {
+    "id": 17,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "How many GPUs does a standard NVIDIA DGX A100 system contain?",
+    "choices": ["4", "6", "8", "16"],
+    "correctAnswer": 2,
+    "explanation": "A standard NVIDIA DGX A100 system contains 8 A100 GPUs connected via NVSwitch, providing 5 petaFLOPS of AI performance in a single node."
+  },
+  {
+    "id": 18,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What does HBM stand for in the context of GPU memory?",
+    "choices": ["Hybrid Bandwidth Module", "High Bandwidth Memory", "Heterogeneous Buffer Memory", "Hardware Bus Memory"],
+    "correctAnswer": 1,
+    "explanation": "HBM stands for High Bandwidth Memory. It uses stacked memory dies connected via silicon interposers to deliver very high memory bandwidth, which is critical for AI and HPC workloads."
+  },
+  {
+    "id": 19,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which of the following best describes the NVIDIA Grace Hopper Superchip?",
+    "choices": ["A standalone GPU for gaming workloads", "A combined CPU-GPU architecture connecting an ARM-based Grace CPU with an H100 GPU via a high-bandwidth coherent interface", "A network switch designed for InfiniBand clusters", "A software platform for managing AI workloads"],
+    "correctAnswer": 1,
+    "explanation": "The Grace Hopper Superchip combines the NVIDIA Grace ARM-based CPU with the H100 GPU connected via NVLink-C2C, providing 900 GB/s of coherent bandwidth between CPU and GPU memory for workloads that require large memory footprints."
+  },
+  {
+    "id": 20,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the primary purpose of CUDA cores in an NVIDIA GPU?",
+    "choices": ["To perform dedicated ray tracing calculations", "To handle general-purpose parallel computing tasks including single-precision floating-point operations", "To manage memory transfers between host and device", "To orchestrate network communication between GPUs"],
+    "correctAnswer": 1,
+    "explanation": "CUDA cores are the general-purpose parallel processing units in NVIDIA GPUs. They handle a wide range of floating-point and integer operations, forming the foundation for GPU-accelerated computing tasks."
+  },
+  {
+    "id": 21,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the maximum number of MIG instances that can be created on a single NVIDIA A100 80 GB GPU?",
+    "choices": ["3", "5", "7", "8"],
+    "correctAnswer": 2,
+    "explanation": "The A100 80 GB GPU can be partitioned into up to 7 MIG instances, each with dedicated compute, memory bandwidth, and L2 cache resources for workload isolation."
+  },
+  {
+    "id": 22,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which memory type is used by the NVIDIA L40 GPU?",
+    "choices": ["HBM2e", "HBM3", "GDDR6", "GDDR6X"],
+    "correctAnswer": 2,
+    "explanation": "The NVIDIA L40 uses 48 GB of GDDR6 memory with ECC support. Unlike the A100 and H100 which use HBM, the L40 uses GDDR6 which provides a different cost-performance trade-off suited to inference and visualization."
+  },
+  {
+    "id": 23,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the purpose of the GPU's L2 cache in AI training workloads?",
+    "choices": ["To store the operating system kernel", "To provide fast temporary storage that reduces the number of accesses to slower HBM, improving compute efficiency", "To hold the entire model in a high-speed buffer", "To cache network packets for multi-node communication"],
+    "correctAnswer": 1,
+    "explanation": "The L2 cache sits between the compute cores and HBM, providing fast data access that reduces memory bandwidth pressure. The H100's 50 MB L2 cache is significantly larger than previous generations, helping data-intensive AI workloads."
+  },
+  {
+    "id": 24,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is TF32 (TensorFloat-32) and which architecture introduced it?",
+    "choices": ["A 32-bit integer format introduced with Volta", "A 19-bit floating-point format introduced with Ampere that provides FP32-range with higher throughput on Tensor Cores", "A 32-bit fixed-point format introduced with Turing", "A 16-bit format introduced with Hopper for inference only"],
+    "correctAnswer": 1,
+    "explanation": "TF32 is a 19-bit floating-point format introduced with the Ampere architecture. It uses the same range as FP32 (8-bit exponent) but with reduced mantissa precision (10 bits), allowing Tensor Cores to process FP32 data at much higher throughput without code changes."
+  },
+  {
+    "id": 25,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "Which NVIDIA DGX system uses the Grace Hopper Superchip architecture?",
+    "choices": ["DGX A100", "DGX H100", "DGX GH200", "DGX Station"],
+    "correctAnswer": 2,
+    "explanation": "The DGX GH200 system is built using Grace Hopper Superchips, combining ARM-based Grace CPUs with H100 GPUs connected via NVLink-C2C, and supporting up to 256 superchips connected through NVLink Switch System."
+  },
+  {
+    "id": 26,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the role of a GPU baseboard in an HGX platform?",
+    "choices": ["It provides the operating system for GPU management", "It is the physical board that holds multiple GPUs and NVSwitch chips, providing NVLink interconnects between GPUs", "It manages network routing between servers", "It stores training data for quick access by GPUs"],
+    "correctAnswer": 1,
+    "explanation": "The GPU baseboard in HGX platforms is the physical carrier board that houses multiple GPUs (typically 4 or 8) along with NVSwitch chips, providing the NVLink fabric for high-speed GPU-to-GPU communication."
+  },
+  {
+    "id": 27,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What advantage does mixed-precision training provide for AI workloads?",
+    "choices": ["It eliminates the need for Tensor Cores", "It reduces memory usage and increases training speed by using lower precision for most operations while maintaining FP32 accuracy for critical computations", "It doubles the number of available GPU cores", "It allows training on CPUs instead of GPUs"],
+    "correctAnswer": 1,
+    "explanation": "Mixed-precision training uses FP16 or BF16 for forward and backward passes to reduce memory footprint and leverage Tensor Core throughput, while maintaining a master copy of weights in FP32 for gradient accumulation to preserve model accuracy."
+  },
+  {
+    "id": 28,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "How does the NVIDIA A100's third-generation Tensor Core improve over the previous generation?",
+    "choices": ["It only supports FP64 operations", "It adds support for TF32, BF16, and sparsity acceleration in addition to FP16 and INT8", "It removes support for lower precision formats", "It is designed exclusively for inference workloads"],
+    "correctAnswer": 1,
+    "explanation": "The A100's third-generation Tensor Cores expanded support to include TF32, BF16, FP64, and INT8/INT4, while adding structured sparsity support that can double Tensor Core throughput for compatible neural network layers."
+  },
+  {
+    "id": 29,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the NVIDIA DGX SuperPOD?",
+    "choices": ["A single-GPU workstation for developers", "A large-scale AI supercomputer cluster built from multiple DGX nodes connected via high-speed networking", "A software package for GPU virtualization", "A portable AI training appliance"],
+    "correctAnswer": 1,
+    "explanation": "The DGX SuperPOD is a scalable AI supercomputer architecture composed of multiple DGX nodes (typically 32 or more DGX H100 systems) interconnected via InfiniBand networking, designed for enterprise-scale AI training workloads."
+  },
+  {
+    "id": 30,
+    "domain": "AI Infrastructure Fundamentals",
+    "question": "What is the peak FP8 Tensor Core performance of the NVIDIA H100 SXM GPU?",
+    "choices": ["312 TFLOPS", "989 TFLOPS", "1,979 TFLOPS with sparsity", "3,958 TFLOPS with sparsity"],
+    "correctAnswer": 3,
+    "explanation": "The H100 SXM delivers up to 3,958 TFLOPS of FP8 performance with sparsity enabled, making it exceptionally powerful for transformer-based large language model training and inference."
+  },
+  {
+    "id": 31,
+    "domain": "AI Workload Management",
+    "question": "What is the primary purpose of NVIDIA Base Command Manager?",
+    "choices": ["To design neural network architectures", "To provide cluster management, job scheduling, and resource orchestration for AI infrastructure", "To optimize GPU hardware clock speeds", "To compile CUDA applications from source code"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA Base Command Manager (formerly Bright Cluster Manager) provides comprehensive cluster management including bare-metal provisioning, job scheduling, resource monitoring, and orchestration for GPU-accelerated AI infrastructure."
+  },
+  {
+    "id": 32,
+    "domain": "AI Workload Management",
+    "question": "Which Kubernetes component is required to enable GPU scheduling in a Kubernetes cluster?",
+    "choices": ["kube-proxy", "NVIDIA GPU Operator", "CoreDNS", "etcd"],
+    "correctAnswer": 1,
+    "explanation": "The NVIDIA GPU Operator automates the deployment of all components needed to provision GPUs in Kubernetes, including the device plugin, container runtime, drivers, and monitoring tools."
+  },
+  {
+    "id": 33,
+    "domain": "AI Workload Management",
+    "question": "What is the function of the NVIDIA device plugin for Kubernetes?",
+    "choices": ["It installs GPU drivers on all cluster nodes", "It exposes GPU resources to the Kubernetes scheduler so pods can request GPU allocations", "It monitors network traffic between pods", "It provides a web dashboard for GPU metrics"],
+    "correctAnswer": 1,
+    "explanation": "The NVIDIA device plugin for Kubernetes advertises the number and type of GPUs on each node to the Kubernetes scheduler, enabling pods to request nvidia.com/gpu resources and ensuring proper GPU allocation to workloads."
+  },
+  {
+    "id": 34,
+    "domain": "AI Workload Management",
+    "question": "Which workload manager is commonly used for scheduling GPU jobs in HPC and AI clusters?",
+    "choices": ["Apache Kafka", "Slurm", "Jenkins", "Terraform"],
+    "correctAnswer": 1,
+    "explanation": "Slurm (Simple Linux Utility for Resource Management) is the most widely used workload manager for HPC and AI clusters. It supports GPU-aware scheduling with the GRES (Generic Resources) plugin for NVIDIA GPUs."
+  },
+  {
+    "id": 35,
+    "domain": "AI Workload Management",
+    "question": "What is the purpose of NVIDIA's container runtime (nvidia-container-runtime)?",
+    "choices": ["To build Docker images with GPU support", "To automatically configure containers with access to NVIDIA GPUs and drivers without modifying the container image", "To manage virtual machines with GPU passthrough", "To compile CUDA code inside containers"],
+    "correctAnswer": 1,
+    "explanation": "The nvidia-container-runtime is a modified OCI runtime that automatically injects NVIDIA GPU libraries and device files into containers at launch time, allowing unmodified container images to access GPU hardware."
+  },
+  {
+    "id": 36,
+    "domain": "AI Workload Management",
+    "question": "In Slurm, how do you request 4 GPUs for a training job?",
+    "choices": ["--gpu-count=4", "--gres=gpu:4", "--num-gpus 4", "--gpus-per-task 4"],
+    "correctAnswer": 1,
+    "explanation": "In Slurm, the --gres=gpu:4 flag requests 4 GPUs using the Generic Resources (GRES) scheduling mechanism. You can also specify GPU type with --gres=gpu:a100:4."
+  },
+  {
+    "id": 37,
+    "domain": "AI Workload Management",
+    "question": "What is the benefit of using GPU time-slicing in Kubernetes?",
+    "choices": ["It increases the clock speed of each GPU", "It allows multiple pods to share a single GPU by rapidly switching context between workloads", "It provides hardware-level GPU isolation", "It enables GPUs to run without drivers"],
+    "correctAnswer": 1,
+    "explanation": "GPU time-slicing allows multiple pods to share a single GPU by scheduling access in time slices. While it doesn't provide memory isolation like MIG, it enables better GPU utilization for lightweight inference workloads."
+  },
+  {
+    "id": 38,
+    "domain": "AI Workload Management",
+    "question": "How does MIG differ from GPU time-slicing for workload isolation in Kubernetes?",
+    "choices": ["MIG is software-only while time-slicing is hardware-based", "MIG provides hardware-level isolation with dedicated compute, memory, and cache per instance, while time-slicing only provides temporal sharing", "Time-slicing provides better isolation than MIG", "There is no difference between MIG and time-slicing"],
+    "correctAnswer": 1,
+    "explanation": "MIG creates hardware-partitioned GPU instances with dedicated SMs, memory bandwidth, and L2 cache, providing strong isolation. Time-slicing shares all GPU resources between workloads with only temporal separation and no memory isolation."
+  },
+  {
+    "id": 39,
+    "domain": "AI Workload Management",
+    "question": "What is the NVIDIA GPU Operator's relationship with Kubernetes?",
+    "choices": ["It replaces the Kubernetes scheduler entirely", "It is a Kubernetes operator that automates the management of all NVIDIA software components needed for GPU workloads", "It converts Kubernetes pods into virtual machines", "It only works with OpenShift, not standard Kubernetes"],
+    "correctAnswer": 1,
+    "explanation": "The NVIDIA GPU Operator is a Kubernetes operator that uses the operator framework to automate the deployment and lifecycle management of GPU drivers, container runtime, device plugin, monitoring (DCGM), and other components."
+  },
+  {
+    "id": 40,
+    "domain": "AI Workload Management",
+    "question": "What is the recommended approach for running multi-node distributed training in Kubernetes?",
+    "choices": ["Run individual pods on each node and manage communication manually", "Use the Kubeflow Training Operator (MPI Operator or PyTorch Operator) to orchestrate distributed training jobs", "Use a CronJob to synchronize training across nodes", "Deploy a separate Kubernetes cluster for each training node"],
+    "correctAnswer": 1,
+    "explanation": "The Kubeflow Training Operator provides CRDs like MPIJob and PyTorchJob that handle the orchestration of multi-node distributed training, including launcher/worker pod management, service discovery, and proper GPU allocation."
+  },
+  {
+    "id": 41,
+    "domain": "AI Workload Management",
+    "question": "What is NVIDIA Base Command Platform designed for?",
+    "choices": ["A local development IDE for CUDA programming", "A cloud-hosted AI development platform that provides access to NVIDIA DGX infrastructure with job management and collaboration tools", "A network monitoring tool for InfiniBand clusters", "A GPU driver installation utility"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA Base Command Platform is a cloud-hosted platform that provides managed access to NVIDIA DGX SuperPOD infrastructure, featuring job scheduling, dataset management, results tracking, and collaboration capabilities for AI teams."
+  },
+  {
+    "id": 42,
+    "domain": "AI Workload Management",
+    "question": "What happens when a Kubernetes pod requests more GPUs than are available on any single node?",
+    "choices": ["Kubernetes automatically distributes the pod across multiple nodes", "The pod remains in Pending state until a node with sufficient GPUs becomes available", "Kubernetes reduces the GPU request to fit available resources", "The pod is immediately terminated with an error"],
+    "correctAnswer": 1,
+    "explanation": "In Kubernetes, a single pod cannot span multiple nodes. If a pod requests more GPUs than any single node has, it will remain in Pending state. Multi-node GPU workloads require multiple pods coordinated by an operator like MPI Operator."
+  },
+  {
+    "id": 43,
+    "domain": "AI Workload Management",
+    "question": "Which container registry provides pre-built, optimized AI containers from NVIDIA?",
+    "choices": ["Docker Hub", "Amazon ECR", "NVIDIA NGC Catalog", "GitHub Container Registry"],
+    "correctAnswer": 2,
+    "explanation": "The NVIDIA NGC Catalog provides GPU-optimized containers for AI frameworks (PyTorch, TensorFlow), inference servers (Triton), and other tools that are pre-configured and tested on NVIDIA hardware."
+  },
+  {
+    "id": 44,
+    "domain": "AI Workload Management",
+    "question": "What is the purpose of resource quotas for GPU workloads in Kubernetes?",
+    "choices": ["To increase the total number of available GPUs", "To limit the total GPU resources that can be consumed per namespace, preventing any single team from monopolizing GPU capacity", "To automatically scale GPU nodes up and down", "To encrypt GPU memory for security"],
+    "correctAnswer": 1,
+    "explanation": "Kubernetes ResourceQuotas can limit nvidia.com/gpu resources per namespace, ensuring fair sharing of GPU capacity among teams and preventing resource exhaustion by any single tenant."
+  },
+  {
+    "id": 45,
+    "domain": "AI Workload Management",
+    "question": "What is a common strategy for maximizing GPU cluster utilization during off-peak hours?",
+    "choices": ["Power off unused GPU nodes to save energy", "Implement priority-based scheduling with preemptable lower-priority jobs that fill idle capacity", "Reduce the GPU clock speed to lower power consumption", "Restrict access to only administrators during off-peak hours"],
+    "correctAnswer": 1,
+    "explanation": "Priority-based scheduling with preemption allows low-priority batch jobs to fill GPU capacity during off-peak times. When high-priority jobs arrive, lower-priority jobs can be preempted, ensuring important work gets resources quickly."
+  },
+  {
+    "id": 46,
+    "domain": "AI Workload Management",
+    "question": "What is the NVIDIA Container Toolkit?",
+    "choices": ["A set of tools for building GPU-accelerated container images from scratch", "A collection of tools and libraries that enable GPU-accelerated containers, including the container runtime hook and CLI tools", "A virtual machine hypervisor for GPU workloads", "A Kubernetes distribution optimized for NVIDIA GPUs"],
+    "correctAnswer": 1,
+    "explanation": "The NVIDIA Container Toolkit (formerly nvidia-docker) provides the container runtime hook, CLI tools, and libraries necessary to run GPU-accelerated containers with Docker, containerd, CRI-O, and Podman."
+  },
+  {
+    "id": 47,
+    "domain": "AI Workload Management",
+    "question": "In a Slurm-managed GPU cluster, what does the --exclusive flag do when requesting GPU nodes?",
+    "choices": ["It requests GPUs from a dedicated partition only", "It allocates the entire node exclusively to the job, preventing other jobs from sharing the node's resources", "It enables exclusive access to the InfiniBand network", "It locks the GPU memory to prevent other processes from accessing it"],
+    "correctAnswer": 1,
+    "explanation": "The --exclusive flag in Slurm ensures that the entire node is allocated to the job, including all GPUs, CPUs, and memory, preventing any resource sharing with other jobs on the same node."
+  },
+  {
+    "id": 48,
+    "domain": "AI Workload Management",
+    "question": "What is the recommended way to handle GPU driver upgrades on a Kubernetes cluster managed by the GPU Operator?",
+    "choices": ["Manually SSH into each node and upgrade drivers", "Update the driver version in the GPU Operator configuration, which handles rolling driver upgrades across nodes", "Rebuild all container images with new drivers", "Recreate the entire Kubernetes cluster with new drivers"],
+    "correctAnswer": 1,
+    "explanation": "The NVIDIA GPU Operator manages driver lifecycle through its ClusterPolicy resource. Updating the driver version in the configuration triggers a rolling upgrade across nodes, cordoning and draining each node before updating."
+  },
+  {
+    "id": 49,
+    "domain": "AI Workload Management",
+    "question": "What is the primary benefit of using Enroot as a container runtime for AI workloads?",
+    "choices": ["It replaces Docker entirely for all containerization needs", "It is a lightweight unprivileged container runtime designed for HPC that provides native GPU support and parallel filesystem integration", "It provides a graphical interface for managing containers", "It automatically scales containers across multiple nodes"],
+    "correctAnswer": 1,
+    "explanation": "Enroot is a lightweight container runtime designed for HPC environments. It runs as an unprivileged user, imports Docker/OCI images, and has native support for GPU passthrough and parallel filesystem mounts commonly used in AI training clusters."
+  },
+  {
+    "id": 50,
+    "domain": "AI Workload Management",
+    "question": "What is gang scheduling and why is it important for distributed AI training?",
+    "choices": ["It schedules jobs alphabetically by user name", "It ensures all pods/tasks of a distributed training job are scheduled simultaneously, preventing deadlocks from partial resource allocation", "It groups similar GPU types together on the same node", "It schedules backup jobs to run in case the primary job fails"],
+    "correctAnswer": 1,
+    "explanation": "Gang scheduling ensures that all components of a distributed training job start at the same time. Without it, partial allocation can lead to deadlocks where some workers hold GPUs waiting for others that cannot be scheduled."
+  },
+  {
+    "id": 51,
+    "domain": "AI Workload Management",
+    "question": "How do you specify which type of NVIDIA GPU a Kubernetes pod should use?",
+    "choices": ["Add a gpu-type label to the pod spec", "Use node selectors or node affinity rules based on GPU type labels applied to nodes", "Set the GPU type in the container's environment variables", "Specify the GPU model in the container image name"],
+    "correctAnswer": 1,
+    "explanation": "In Kubernetes, you use node selectors or node affinity rules to match pods to nodes with specific GPU types. The GPU Operator and device plugin label nodes with GPU information (e.g., nvidia.com/gpu.product=A100-SXM4-80GB) that can be used for scheduling."
+  },
+  {
+    "id": 52,
+    "domain": "AI Workload Management",
+    "question": "What is Pyxis in the context of NVIDIA AI workload management?",
+    "choices": ["A GPU monitoring dashboard", "A Slurm plugin that enables running containerized GPU workloads natively within Slurm jobs using Enroot", "A network topology optimizer", "A dataset version control system"],
+    "correctAnswer": 1,
+    "explanation": "Pyxis is a Slurm plugin (SPANK plugin) that integrates Enroot container runtime with Slurm, allowing users to run containerized workloads using familiar Slurm commands with the --container-image flag."
+  },
+  {
+    "id": 53,
+    "domain": "AI Workload Management",
+    "question": "What is the purpose of CUDA_VISIBLE_DEVICES environment variable?",
+    "choices": ["To set the CUDA compiler optimization level", "To control which GPUs are visible and accessible to a CUDA application, enabling GPU assignment for workloads", "To specify the CUDA toolkit installation path", "To enable or disable CUDA debugging features"],
+    "correctAnswer": 1,
+    "explanation": "CUDA_VISIBLE_DEVICES controls which GPUs a CUDA application can see and use. Setting it to specific device IDs (e.g., 0,1) restricts the application to those GPUs, which is essential for workload isolation on multi-GPU systems."
+  },
+  {
+    "id": 54,
+    "domain": "AI Workload Management",
+    "question": "What is the advantage of using Kubernetes with GPU topology awareness?",
+    "choices": ["It reduces the number of required GPUs", "It enables the scheduler to allocate GPUs with optimal NVLink or PCIe connectivity to minimize communication overhead for multi-GPU jobs", "It automatically compiles code for the correct GPU architecture", "It enables GPU overcommitment beyond physical limits"],
+    "correctAnswer": 1,
+    "explanation": "GPU topology-aware scheduling in Kubernetes considers the physical connectivity between GPUs (NVLink vs PCIe) when making allocation decisions, ensuring multi-GPU workloads get GPUs with the fastest interconnect for optimal communication performance."
+  },
+  {
+    "id": 55,
+    "domain": "AI Workload Management",
+    "question": "What does the NVIDIA Run:ai platform provide for AI workload management?",
+    "choices": ["A code editor for AI model development", "An AI workload orchestration and GPU resource management platform with dynamic fractional GPU allocation, queuing, and fairness scheduling", "A hardware diagnostic tool for NVIDIA GPUs", "A data labeling platform for training datasets"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA Run:ai provides an AI workload orchestration platform that sits on top of Kubernetes, offering advanced GPU scheduling with fractional GPU support, guaranteed quotas, over-quota fairness, dynamic resource pooling, and workload prioritization."
+  },
+  {
+    "id": 56,
+    "domain": "AI Workload Management",
+    "question": "What is the primary challenge of running AI inference workloads at scale in production?",
+    "choices": ["Inference only works on single GPUs", "Balancing latency requirements, throughput demands, cost efficiency, and resource utilization while handling variable request volumes", "Inference requires more memory than training", "Inference workloads cannot be containerized"],
+    "correctAnswer": 1,
+    "explanation": "Scaling AI inference involves balancing low-latency requirements against throughput targets while maintaining cost efficiency. Variable request volumes require auto-scaling, batching strategies, and efficient resource utilization across GPU fleets."
+  },
+  {
+    "id": 57,
+    "domain": "AI Workload Management",
+    "question": "How does Kubernetes Cluster Autoscaler work with GPU nodes?",
+    "choices": ["It partitions existing GPUs into smaller slices", "It automatically adds or removes GPU nodes from the cluster based on pending pod requirements and current utilization", "It overclocks GPUs during high demand", "It migrates GPU workloads between cloud providers"],
+    "correctAnswer": 1,
+    "explanation": "The Kubernetes Cluster Autoscaler monitors pending pods that cannot be scheduled due to insufficient resources. It can provision new GPU nodes when needed and remove underutilized nodes to optimize costs, with special considerations for GPU node pools."
+  },
+  {
+    "id": 58,
+    "domain": "AI Workload Management",
+    "question": "What is the benefit of using node taints and tolerations for GPU nodes in Kubernetes?",
+    "choices": ["They increase GPU clock speeds", "They ensure that only GPU workloads are scheduled on expensive GPU nodes, preventing non-GPU pods from wasting GPU resources", "They encrypt data stored on GPU nodes", "They provide automatic GPU driver updates"],
+    "correctAnswer": 1,
+    "explanation": "Applying taints to GPU nodes (e.g., nvidia.com/gpu=present:NoSchedule) ensures only pods with matching tolerations can be scheduled there. This prevents CPU-only workloads from being scheduled on expensive GPU nodes, maximizing resource efficiency."
+  },
+  {
+    "id": 59,
+    "domain": "AI Workload Management",
+    "question": "What is a preemptible or spot instance strategy for AI training workloads?",
+    "choices": ["Using the fastest available GPU regardless of cost", "Using lower-cost interruptible cloud instances for training with checkpointing to handle potential interruptions", "Running training only during peak hours for maximum performance", "Using CPUs instead of GPUs to reduce cost"],
+    "correctAnswer": 1,
+    "explanation": "Preemptible/spot instances offer significant cost savings (60-90%) for AI training. Combined with regular model checkpointing, training can resume from the last checkpoint after interruption, making this a cost-effective strategy for large training jobs."
+  },
+  {
+    "id": 60,
+    "domain": "AI Workload Management",
+    "question": "What is the role of a job scheduler's fair-share policy in a multi-tenant GPU cluster?",
+    "choices": ["To give all users equal GPU speed", "To allocate GPU resources proportionally based on each team's share, ensuring fair access while allowing burst usage when capacity is available", "To limit all users to the same number of jobs", "To schedule jobs in the order they were submitted"],
+    "correctAnswer": 1,
+    "explanation": "Fair-share scheduling tracks historical usage against configured shares for each team/user. Teams that have used less than their share get priority, while over-quota usage is allowed when resources are idle, maximizing overall cluster utilization."
+  },
+  {
+    "id": 61,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the primary advantage of InfiniBand over Ethernet for AI training cluster networking?",
+    "choices": ["InfiniBand cables are cheaper than Ethernet cables", "InfiniBand provides lower latency, higher bandwidth, and native RDMA support critical for distributed AI training communication", "InfiniBand supports more network protocols than Ethernet", "InfiniBand works without network switches"],
+    "correctAnswer": 1,
+    "explanation": "InfiniBand offers ultra-low latency (sub-microsecond), high bandwidth (up to 400 Gb/s per port with NDR), and native RDMA (Remote Direct Memory Access) support, making it ideal for the frequent all-reduce operations in distributed AI training."
+  },
+  {
+    "id": 62,
+    "domain": "Networking and Storage for AI",
+    "question": "What is GPUDirect RDMA?",
+    "choices": ["A method to directly connect GPUs to storage via USB", "A technology that enables direct data transfer between GPU memory and network adapters, bypassing CPU and system memory", "A protocol for GPU-to-GPU communication within a single server", "A driver for remote desktop access to GPU workstations"],
+    "correctAnswer": 1,
+    "explanation": "GPUDirect RDMA enables network adapters (InfiniBand HCAs) to directly read from and write to GPU memory, bypassing the CPU and system memory entirely. This reduces latency and CPU overhead for inter-node GPU communication."
+  },
+  {
+    "id": 63,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the NVIDIA ConnectX-7 adapter primarily used for in AI infrastructure?",
+    "choices": ["Providing video output for GPU workstations", "Serving as a high-performance network adapter supporting InfiniBand and Ethernet with up to 400 Gb/s connectivity and hardware offloads", "Acting as a GPU co-processor for AI training", "Managing storage volumes across the cluster"],
+    "correctAnswer": 1,
+    "explanation": "The ConnectX-7 is a SmartNIC/HCA that provides up to 400 Gb/s InfiniBand (NDR) or Ethernet connectivity with hardware RDMA, GPUDirect, and various offloads essential for high-performance AI cluster networking."
+  },
+  {
+    "id": 64,
+    "domain": "Networking and Storage for AI",
+    "question": "What differentiates a BlueField DPU from a ConnectX SmartNIC?",
+    "choices": ["BlueField only supports Ethernet while ConnectX supports InfiniBand", "BlueField includes ARM CPU cores for running infrastructure software, providing data center infrastructure offloading beyond basic network acceleration", "ConnectX is faster than BlueField in all scenarios", "BlueField is designed for consumer networking while ConnectX is for data centers"],
+    "correctAnswer": 1,
+    "explanation": "BlueField DPUs contain ARM CPU cores, memory, and an embedded ConnectX network adapter, allowing them to run infrastructure services like storage, security, and networking software directly on the DPU, offloading these tasks from the main server CPUs."
+  },
+  {
+    "id": 65,
+    "domain": "Networking and Storage for AI",
+    "question": "What is RDMA and why is it important for distributed AI training?",
+    "choices": ["Random Data Memory Allocation - a method for random memory access", "Remote Direct Memory Access - enables direct memory-to-memory data transfer between machines without involving the CPU, reducing latency", "Rapid Data Migration Architecture - moves data between storage tiers", "Redundant Data Mirroring Array - a storage redundancy protocol"],
+    "correctAnswer": 1,
+    "explanation": "RDMA (Remote Direct Memory Access) allows one computer to read from or write to the memory of another computer directly without involving either CPU or operating system. This is critical for the low-latency, high-throughput communication needed in distributed AI training."
+  },
+  {
+    "id": 66,
+    "domain": "Networking and Storage for AI",
+    "question": "What is GPUDirect Storage?",
+    "choices": ["A GPU-based file system", "A technology that creates a direct data path between GPU memory and storage devices, bypassing the CPU bounce buffer", "A method to store GPU firmware on NVMe drives", "A storage encryption technology using GPU compute"],
+    "correctAnswer": 1,
+    "explanation": "GPUDirect Storage enables a direct memory access (DMA) path between GPU memory and storage (NVMe, NFS), eliminating the CPU bounce buffer. This significantly reduces data loading latency and CPU overhead for data-intensive AI workloads."
+  },
+  {
+    "id": 67,
+    "domain": "Networking and Storage for AI",
+    "question": "Which InfiniBand speed generation provides 400 Gb/s per port?",
+    "choices": ["HDR (High Data Rate)", "EDR (Enhanced Data Rate)", "NDR (Next Data Rate)", "FDR (Fourteen Data Rate)"],
+    "correctAnswer": 2,
+    "explanation": "NDR (Next Data Rate) InfiniBand provides 400 Gb/s per port. HDR provides 200 Gb/s, EDR provides 100 Gb/s, and FDR provides 56 Gb/s per port."
+  },
+  {
+    "id": 68,
+    "domain": "Networking and Storage for AI",
+    "question": "Why is a parallel file system preferred over a standard NFS for large-scale AI training?",
+    "choices": ["NFS is not compatible with Linux", "Parallel file systems stripe data across multiple servers, providing aggregate bandwidth that scales with the number of servers, which is critical for feeding data to large GPU clusters", "Parallel file systems are always cheaper than NFS", "NFS cannot store files larger than 1 GB"],
+    "correctAnswer": 1,
+    "explanation": "Parallel file systems (like Lustre, GPFS/Spectrum Scale, or WekaFS) distribute data across many storage servers, providing aggregate throughput that scales linearly. A single NFS server becomes a bottleneck when dozens or hundreds of GPUs need concurrent data access."
+  },
+  {
+    "id": 69,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the role of Adaptive Routing in InfiniBand networks?",
+    "choices": ["It adapts the network speed based on power availability", "It dynamically routes packets across multiple available paths to avoid congested links and maximize network utilization", "It automatically configures IP addresses for network devices", "It adapts the MTU size based on packet loss rates"],
+    "correctAnswer": 1,
+    "explanation": "Adaptive Routing in InfiniBand allows switches to dynamically choose the least congested path for each packet, distributing traffic across multiple available routes. This prevents hotspots and improves overall network throughput for AI training workloads."
+  },
+  {
+    "id": 70,
+    "domain": "Networking and Storage for AI",
+    "question": "What is SHARP (Scalable Hierarchical Aggregation and Reduction Protocol) in NVIDIA InfiniBand networks?",
+    "choices": ["A data compression protocol for storage", "An in-network computing technology that offloads collective operations like all-reduce to InfiniBand switches, reducing network traffic", "A network security encryption standard", "A protocol for automatic network topology discovery"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA SHARP offloads collective operations (all-reduce, broadcast, barrier) to InfiniBand switches, performing aggregation in the network fabric itself. This dramatically reduces the amount of data traversing the network and accelerates distributed training."
+  },
+  {
+    "id": 71,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the typical network topology used in NVIDIA DGX SuperPOD deployments?",
+    "choices": ["Star topology with a single switch", "Full mesh connecting every node to every other node", "Fat-tree topology with leaf and spine InfiniBand switches providing full bisection bandwidth", "Ring topology connecting nodes in a circle"],
+    "correctAnswer": 2,
+    "explanation": "DGX SuperPOD deployments typically use a fat-tree (Clos) InfiniBand topology with leaf and spine switches. This provides full bisection bandwidth, meaning any set of nodes can communicate with any other set at full speed simultaneously."
+  },
+  {
+    "id": 72,
+    "domain": "Networking and Storage for AI",
+    "question": "What is RoCE (RDMA over Converged Ethernet)?",
+    "choices": ["A type of Ethernet cable for data centers", "A protocol that enables RDMA communication over standard Ethernet networks, providing an alternative to InfiniBand", "A method for routing traffic between InfiniBand and Ethernet", "A storage protocol for SSDs"],
+    "correctAnswer": 1,
+    "explanation": "RoCE allows RDMA operations over Ethernet networks. RoCEv2 is commonly used in AI clusters where InfiniBand is not available, providing lower latency than TCP/IP while leveraging existing Ethernet infrastructure. NVIDIA ConnectX adapters support both."
+  },
+  {
+    "id": 73,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the purpose of a subnet manager in an InfiniBand network?",
+    "choices": ["To assign IP addresses to InfiniBand devices", "To discover the network topology, assign addresses (LIDs), and compute routing tables for all InfiniBand switches and endpoints", "To manage data encryption across the subnet", "To monitor power consumption of InfiniBand switches"],
+    "correctAnswer": 1,
+    "explanation": "The InfiniBand Subnet Manager (SM) is responsible for network initialization, topology discovery, Local Identifier (LID) assignment, and computing forwarding tables for switches. NVIDIA UFM provides an advanced enterprise subnet management solution."
+  },
+  {
+    "id": 74,
+    "domain": "Networking and Storage for AI",
+    "question": "What is NVIDIA UFM (Unified Fabric Manager)?",
+    "choices": ["A GPU driver update utility", "A comprehensive InfiniBand network management platform that provides network monitoring, diagnostics, and orchestration", "A storage management tool for NVMe arrays", "A container orchestration platform for NVIDIA GPUs"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA UFM provides enterprise-grade management for InfiniBand fabrics, including subnet management, network monitoring, topology visualization, performance analytics, and advanced features like adaptive routing and SHARP configuration."
+  },
+  {
+    "id": 75,
+    "domain": "Networking and Storage for AI",
+    "question": "Why is NVMe storage preferred over traditional SAS/SATA for AI data pipelines?",
+    "choices": ["NVMe drives are physically smaller", "NVMe connects via PCIe providing much lower latency and higher throughput than SAS/SATA, critical for keeping GPUs fed with training data", "NVMe drives have more storage capacity", "NVMe is compatible with more operating systems"],
+    "correctAnswer": 1,
+    "explanation": "NVMe SSDs connect directly to the PCIe bus, eliminating the storage controller bottleneck of SAS/SATA. This provides much lower latency (~10 microseconds vs ~100 microseconds) and higher throughput (up to 7+ GB/s per drive), essential for AI data pipelines."
+  },
+  {
+    "id": 76,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the purpose of data caching in AI training storage architectures?",
+    "choices": ["To backup training data in case of hardware failure", "To store frequently accessed training data on fast local storage or memory, reducing repeated reads from slower shared storage", "To compress training data for smaller storage footprint", "To encrypt sensitive training data at rest"],
+    "correctAnswer": 1,
+    "explanation": "Caching hot training data on fast local NVMe or in-memory caches reduces repeated reads from shared parallel file systems. This is especially important when multiple training epochs re-read the same dataset, preventing storage from becoming a bottleneck."
+  },
+  {
+    "id": 77,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the NVIDIA Quantum-2 InfiniBand platform?",
+    "choices": ["A quantum computing accelerator", "An NDR 400 Gb/s InfiniBand networking platform providing switches and adapters with advanced features like SHARP and adaptive routing for AI clusters", "A quantum-encrypted networking solution", "A 100G Ethernet switch platform"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA Quantum-2 is the NDR (400 Gb/s) InfiniBand platform that includes switches (QM9700 series) and ConnectX-7 adapters. It supports in-network computing (SHARP), adaptive routing, and congestion control optimized for AI training workloads."
+  },
+  {
+    "id": 78,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the concept of a non-blocking network fabric and why does it matter for AI training?",
+    "choices": ["A network that never drops packets under any conditions", "A network where the aggregate bandwidth at every switch layer is sufficient to handle full-speed communication from all ports simultaneously without contention", "A network that operates without any switches", "A network that uses only wireless connections to avoid physical blocking"],
+    "correctAnswer": 1,
+    "explanation": "A non-blocking fabric provides full bisection bandwidth, meaning all nodes can communicate at full speed simultaneously. For distributed AI training where all-reduce operations require coordinated communication across all GPUs, a non-blocking fabric prevents network bottlenecks."
+  },
+  {
+    "id": 79,
+    "domain": "Networking and Storage for AI",
+    "question": "How does GPUDirect Peer-to-Peer (P2P) differ from GPUDirect RDMA?",
+    "choices": ["They are the same technology with different names", "GPUDirect P2P enables direct memory transfer between GPUs within the same server, while GPUDirect RDMA enables transfers between GPUs in different servers via network adapters", "GPUDirect P2P is for storage while RDMA is for networking", "GPUDirect P2P requires NVLink while RDMA does not"],
+    "correctAnswer": 1,
+    "explanation": "GPUDirect P2P allows GPUs within the same node to directly access each other's memory over PCIe or NVLink without CPU involvement. GPUDirect RDMA extends this concept across nodes, enabling network adapters to directly read/write GPU memory."
+  },
+  {
+    "id": 80,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the primary consideration when designing storage for AI model checkpointing?",
+    "choices": ["Maximum storage capacity at lowest cost", "High sustained write throughput to handle periodic large checkpoint writes from all GPU nodes simultaneously without stalling training", "The smallest possible form factor", "Support for the widest range of file formats"],
+    "correctAnswer": 1,
+    "explanation": "Model checkpointing involves periodically writing the full model state (which can be hundreds of GBs) from all training nodes simultaneously. The storage system must handle this burst write workload without becoming a bottleneck that pauses training."
+  },
+  {
+    "id": 81,
+    "domain": "Networking and Storage for AI",
+    "question": "What role does lossless Ethernet play in RoCE deployments for AI?",
+    "choices": ["It reduces cable costs", "Priority Flow Control (PFC) and ECN are used to create a lossless Ethernet fabric, which RDMA requires to function correctly without packet drops", "It increases the maximum cable length", "It enables Ethernet to carry InfiniBand packets"],
+    "correctAnswer": 1,
+    "explanation": "RoCE requires a lossless network because RDMA protocols expect reliable delivery at the network layer. PFC (Priority Flow Control) prevents buffer overflows and ECN (Explicit Congestion Notification) helps manage congestion proactively."
+  },
+  {
+    "id": 82,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the typical impact of network bandwidth on large language model (LLM) training scalability?",
+    "choices": ["Network bandwidth has no impact on LLM training", "Insufficient inter-node bandwidth creates a communication bottleneck during gradient synchronization, reducing training efficiency as node count increases", "Higher bandwidth always linearly increases training speed", "Network bandwidth only affects inference, not training"],
+    "correctAnswer": 1,
+    "explanation": "During distributed LLM training, gradient synchronization (all-reduce) across nodes requires significant bandwidth. If the network is a bottleneck, GPUs spend time idle waiting for gradient communication, reducing scaling efficiency as more nodes are added."
+  },
+  {
+    "id": 83,
+    "domain": "Networking and Storage for AI",
+    "question": "How many InfiniBand NDR ports are typically connected per GPU in an NVIDIA DGX H100 system?",
+    "choices": ["One 400 Gb/s port per GPU", "Two 200 Gb/s ports per GPU", "One 200 Gb/s port shared among all GPUs", "Four 100 Gb/s ports per GPU"],
+    "correctAnswer": 0,
+    "explanation": "In a DGX H100 system, each of the 8 H100 GPUs is directly connected to one 400 Gb/s NDR InfiniBand port via ConnectX-7 adapters, providing 3.2 Tb/s of total network bandwidth per node for inter-node communication."
+  },
+  {
+    "id": 84,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the benefit of using WekaFS or similar flash-optimized parallel file systems for AI workloads?",
+    "choices": ["They are free and open-source", "They provide very high throughput and low latency by leveraging NVMe SSDs with parallel access patterns, optimized for the mixed read/write patterns of AI training", "They only work with NVIDIA GPUs", "They eliminate the need for network storage entirely"],
+    "correctAnswer": 1,
+    "explanation": "Flash-optimized parallel file systems like WekaFS are designed to maximize NVMe performance with parallel data striping, metadata optimization, and GPU-aware data paths. They handle the mixed I/O patterns of AI training (random reads for data loading, large sequential writes for checkpoints) efficiently."
+  },
+  {
+    "id": 85,
+    "domain": "Networking and Storage for AI",
+    "question": "What is network congestion control and why is it critical in AI training clusters?",
+    "choices": ["It limits the number of users on the network", "It manages data flow rates across the network to prevent buffer overflows and maintain consistent latency, ensuring training performance remains predictable", "It encrypts network traffic to prevent congestion from attackers", "It physically controls which cables are connected to the switches"],
+    "correctAnswer": 1,
+    "explanation": "Congestion control mechanisms (like InfiniBand's credit-based flow control or Ethernet's ECN/PFC) prevent network switches from dropping packets due to buffer overflows. Consistent, low-latency networking is critical because any jitter in collective operations slows down all GPUs."
+  },
+  {
+    "id": 86,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the data path when GPUDirect Storage is NOT available and training data must be loaded from storage to GPU?",
+    "choices": ["Storage to GPU memory directly via PCIe", "Storage to CPU system memory (bounce buffer), then CPU copies data to GPU memory via PCIe", "Storage to network adapter, then to GPU memory", "Storage to GPU cache, bypassing all other components"],
+    "correctAnswer": 1,
+    "explanation": "Without GPUDirect Storage, data follows the traditional path: storage device to CPU system memory (acting as a bounce buffer), then the CPU initiates a DMA transfer to copy the data from system memory to GPU memory. This extra copy wastes CPU cycles and adds latency."
+  },
+  {
+    "id": 87,
+    "domain": "Networking and Storage for AI",
+    "question": "What is a common challenge with using NFS for distributed AI training data?",
+    "choices": ["NFS does not support file locking", "A single NFS server can become a throughput bottleneck when many GPU nodes simultaneously read training data", "NFS is incompatible with Linux", "NFS files cannot be larger than 4 GB"],
+    "correctAnswer": 1,
+    "explanation": "Standard NFS relies on a single server handling all I/O requests. When dozens or hundreds of GPU nodes simultaneously read training data, the NFS server's network and disk throughput limits become a bottleneck that starves GPUs of data."
+  },
+  {
+    "id": 88,
+    "domain": "Networking and Storage for AI",
+    "question": "What is the purpose of NVIDIA Magnum IO?",
+    "choices": ["A GPU overclocking utility", "A suite of I/O technologies including GPUDirect, NCCL, and storage optimizations that accelerate data movement for AI and HPC workloads", "A file compression tool for training datasets", "A network monitoring dashboard"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA Magnum IO is a collection of I/O acceleration technologies that optimize data movement across storage, network, and GPU memory. It includes GPUDirect (Storage and RDMA), NCCL for collective communications, and other optimizations for AI and HPC."
+  },
+  {
+    "id": 89,
+    "domain": "Networking and Storage for AI",
+    "question": "What is in-band vs. out-of-band network management for InfiniBand?",
+    "choices": ["In-band uses wireless while out-of-band uses wired connections", "In-band management uses the InfiniBand data network itself, while out-of-band uses a separate Ethernet management network for switch and fabric control", "In-band is for input traffic and out-of-band is for output traffic", "In-band is faster while out-of-band is more secure"],
+    "correctAnswer": 1,
+    "explanation": "In-band management communicates with network devices over the InfiniBand data fabric itself. Out-of-band management uses a separate dedicated Ethernet network for device management, ensuring management access even if the InfiniBand fabric has issues."
+  },
+  {
+    "id": 90,
+    "domain": "Networking and Storage for AI",
+    "question": "What storage capacity planning consideration is unique to large language model training?",
+    "choices": ["LLM training only requires a few megabytes of storage", "Model checkpoints can be extremely large (hundreds of GBs to TBs each), requiring substantial storage capacity and write performance for regular checkpointing across the training run", "LLMs only read data and never write anything to storage", "LLM training data must always be stored on tape"],
+    "correctAnswer": 1,
+    "explanation": "LLM checkpoints capture the full model state including optimizer states, which can be hundreds of GBs to TBs. Regular checkpointing (e.g., every few hours) across multi-week training runs requires substantial storage capacity with high sustained write throughput."
+  },
+  {
+    "id": 91,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NVIDIA TensorRT used for?",
+    "choices": ["Training deep learning models from scratch", "Optimizing trained neural network models for high-performance inference by applying graph optimizations, precision calibration, and kernel auto-tuning", "Managing GPU cluster resources", "Visualizing neural network architectures"],
+    "correctAnswer": 1,
+    "explanation": "TensorRT is an inference optimization SDK that takes trained models and applies layer fusion, precision calibration (FP16/INT8), kernel auto-tuning, and other optimizations to maximize inference throughput and minimize latency on NVIDIA GPUs."
+  },
+  {
+    "id": 92,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NVIDIA Triton Inference Server?",
+    "choices": ["A training framework for computer vision models", "An open-source inference serving platform that supports multiple frameworks and provides features like dynamic batching, model versioning, and ensemble pipelines", "A database server optimized for AI metadata", "A GPU driver management tool"],
+    "correctAnswer": 1,
+    "explanation": "Triton Inference Server is an open-source inference serving solution that supports TensorRT, TensorFlow, PyTorch, ONNX, and other backends. It provides dynamic batching, concurrent model execution, model versioning, and health monitoring for production deployment."
+  },
+  {
+    "id": 93,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NCCL (NVIDIA Collective Communications Library)?",
+    "choices": ["A compiler for CUDA programs", "A library providing optimized collective communication primitives (all-reduce, broadcast, etc.) for multi-GPU and multi-node training", "A network configuration command-line tool", "A GPU memory management library"],
+    "correctAnswer": 1,
+    "explanation": "NCCL provides highly optimized implementations of collective operations (all-reduce, all-gather, reduce-scatter, broadcast) that automatically leverage NVLink, NVSwitch, PCIe, and InfiniBand for the fastest possible multi-GPU and multi-node communication."
+  },
+  {
+    "id": 94,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the NVIDIA NGC Catalog?",
+    "choices": ["A hardware catalog for purchasing NVIDIA GPUs", "A hub of GPU-optimized software including containers, pre-trained models, model scripts, and Helm charts for AI development and deployment", "A catalog of GPU specifications and benchmarks", "A network configuration generator"],
+    "correctAnswer": 1,
+    "explanation": "The NGC Catalog provides GPU-optimized containers for AI frameworks, pre-trained models, model training scripts, Helm charts for Kubernetes, and industry-specific AI solutions, all tested and optimized for NVIDIA hardware."
+  },
+  {
+    "id": 95,
+    "domain": "AI Software and Frameworks",
+    "question": "What is cuDNN and what role does it play in deep learning?",
+    "choices": ["A neural network architecture design tool", "A GPU-accelerated library of primitives for deep neural networks, providing optimized implementations of convolutions, pooling, normalization, and activation functions", "A database query engine for neural network data", "A debugging tool for CUDA applications"],
+    "correctAnswer": 1,
+    "explanation": "cuDNN (CUDA Deep Neural Network library) provides highly tuned implementations of standard deep learning operations that frameworks like PyTorch and TensorFlow call to execute operations on NVIDIA GPUs with maximum performance."
+  },
+  {
+    "id": 96,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NVIDIA RAPIDS?",
+    "choices": ["A fast data transfer protocol for GPU clusters", "A suite of GPU-accelerated data science and analytics libraries that provides pandas-like (cuDF) and scikit-learn-like (cuML) APIs", "A rapid deployment tool for AI models", "A GPU stress-testing benchmark suite"],
+    "correctAnswer": 1,
+    "explanation": "RAPIDS is a collection of GPU-accelerated libraries for data science including cuDF (dataframe operations), cuML (machine learning), cuGraph (graph analytics), and others that provide familiar Python APIs while executing on GPUs for dramatic speedups."
+  },
+  {
+    "id": 97,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NVIDIA AI Enterprise?",
+    "choices": ["A free open-source AI toolkit", "An end-to-end enterprise AI software platform that includes optimized frameworks, tools, and management software with enterprise support", "A cloud-only AI training service", "A GPU hardware product line"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA AI Enterprise is a comprehensive software suite providing enterprise-grade AI tools including optimized containers, Triton Inference Server, RAPIDS, TensorRT, and management tools with security patches, long-term support, and enterprise SLAs."
+  },
+  {
+    "id": 98,
+    "domain": "AI Software and Frameworks",
+    "question": "How does dynamic batching in Triton Inference Server improve inference performance?",
+    "choices": ["It reduces the model size automatically", "It combines multiple incoming inference requests into a single batch, improving GPU utilization and throughput by amortizing kernel launch overhead", "It splits large models across multiple GPUs automatically", "It caches previous inference results to avoid recomputation"],
+    "correctAnswer": 1,
+    "explanation": "Dynamic batching in Triton groups individual inference requests arriving within a configurable time window into a single batch. This improves GPU utilization because GPU throughput scales better with larger batches, amortizing fixed costs like kernel launches."
+  },
+  {
+    "id": 99,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the purpose of the CUDA Toolkit?",
+    "choices": ["To design GPU hardware circuits", "To provide a comprehensive development environment including compilers, libraries, debugging tools, and profilers for developing GPU-accelerated applications", "To manage GPU power consumption", "To configure network settings for GPU clusters"],
+    "correctAnswer": 1,
+    "explanation": "The CUDA Toolkit includes the nvcc compiler, GPU-accelerated libraries (cuBLAS, cuFFT, cuRAND), debugging and profiling tools (cuda-gdb, Nsight), and the CUDA runtime, providing everything needed to develop and optimize GPU-accelerated applications."
+  },
+  {
+    "id": 100,
+    "domain": "AI Software and Frameworks",
+    "question": "What optimization does TensorRT's layer fusion perform?",
+    "choices": ["It fuses multiple GPUs into a single logical device", "It combines multiple sequential network layers into a single optimized kernel, reducing memory bandwidth usage and kernel launch overhead", "It fuses training and inference into a single pass", "It combines multiple model files into one"],
+    "correctAnswer": 1,
+    "explanation": "Layer fusion in TensorRT identifies patterns of sequential operations (e.g., convolution + bias + ReLU) that can be combined into a single CUDA kernel. This reduces GPU memory reads/writes between layers and eliminates kernel launch overhead."
+  },
+  {
+    "id": 101,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the difference between TensorRT and TensorRT-LLM?",
+    "choices": ["They are the same product with different names", "TensorRT is a general inference optimizer, while TensorRT-LLM is specifically optimized for large language model inference with features like in-flight batching and KV-cache management", "TensorRT-LLM is for training LLMs while TensorRT is for inference", "TensorRT works on NVIDIA GPUs while TensorRT-LLM works on any GPU"],
+    "correctAnswer": 1,
+    "explanation": "TensorRT-LLM extends TensorRT specifically for LLM inference, adding optimizations like in-flight batching (continuous batching), paged KV-cache, tensor parallelism across GPUs, and custom attention kernels designed for autoregressive generation."
+  },
+  {
+    "id": 102,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NVIDIA NeMo?",
+    "choices": ["A network monitoring tool", "A framework for building, training, and fine-tuning large language models and other generative AI models with optimized training techniques", "A GPU memory optimizer", "A containerization platform for AI"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA NeMo is an end-to-end framework for generative AI that provides tools for data curation, model training with parallelism strategies (tensor, pipeline, data), fine-tuning (PEFT, RLHF), and deployment of large language models and other generative AI models."
+  },
+  {
+    "id": 103,
+    "domain": "AI Software and Frameworks",
+    "question": "How does PyTorch leverage NVIDIA GPUs for training acceleration?",
+    "choices": ["PyTorch has its own GPU hardware", "PyTorch uses CUDA, cuDNN, and NCCL through its backend to execute tensor operations on GPUs and handle distributed training communication", "PyTorch only runs on CPUs", "PyTorch requires manual CUDA kernel programming for GPU use"],
+    "correctAnswer": 1,
+    "explanation": "PyTorch leverages NVIDIA's software stack transparently: CUDA for basic GPU operations, cuDNN for optimized deep learning primitives, cuBLAS for linear algebra, and NCCL for distributed training communication, all accessible through PyTorch's Python API."
+  },
+  {
+    "id": 104,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the purpose of NVIDIA Nsight Systems?",
+    "choices": ["Managing GPU cluster networking", "A system-wide performance analysis tool that visualizes CPU and GPU activity, memory transfers, and API calls to identify performance bottlenecks in AI applications", "A GPU firmware update utility", "A neural network architecture search tool"],
+    "correctAnswer": 1,
+    "explanation": "Nsight Systems provides a timeline-based visualization of application performance, showing CPU/GPU activity, CUDA API calls, memory transfers, and kernel execution. It helps developers identify bottlenecks like CPU-GPU synchronization issues or underutilized GPU resources."
+  },
+  {
+    "id": 105,
+    "domain": "AI Software and Frameworks",
+    "question": "What is INT8 quantization in the context of TensorRT inference optimization?",
+    "choices": ["An 8-integer encryption method for model security", "Reducing model precision from FP32 to 8-bit integers, which reduces model size and increases throughput with minimal accuracy loss using calibration", "A method to train models using only 8 samples", "A way to run 8 models simultaneously"],
+    "correctAnswer": 1,
+    "explanation": "INT8 quantization converts model weights and activations from FP32 to 8-bit integers using a calibration process. This reduces memory footprint by 4x and significantly increases inference throughput on Tensor Cores, typically with less than 1% accuracy loss."
+  },
+  {
+    "id": 106,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the NVIDIA CUDA compiler (nvcc)?",
+    "choices": ["A C++ compiler for CPU-only code", "A compiler driver that separates GPU device code from host code, compiling CUDA kernels to PTX/SASS and host code with the system C++ compiler", "A just-in-time interpreter for Python", "A network packet compiler for InfiniBand"],
+    "correctAnswer": 1,
+    "explanation": "nvcc is the CUDA compiler driver that processes .cu files, separating host (CPU) and device (GPU) code. Device code is compiled to PTX (intermediate representation) and then to SASS (GPU machine code), while host code is forwarded to the system's C++ compiler."
+  },
+  {
+    "id": 107,
+    "domain": "AI Software and Frameworks",
+    "question": "What is model parallelism and when is it necessary?",
+    "choices": ["Running the same model on multiple datasets simultaneously", "Splitting a single model across multiple GPUs when the model is too large to fit in a single GPU's memory", "Training multiple different models at the same time", "Using parallel processing within a single GPU"],
+    "correctAnswer": 1,
+    "explanation": "Model parallelism distributes different parts of a neural network across multiple GPUs. It is essential when models are too large to fit in a single GPU's memory. Tensor parallelism splits individual layers while pipeline parallelism assigns different layers to different GPUs."
+  },
+  {
+    "id": 108,
+    "domain": "AI Software and Frameworks",
+    "question": "What does NVIDIA DeepStream SDK provide?",
+    "choices": ["Deep learning model training capabilities", "A streaming analytics toolkit for building AI-powered video and sensor processing pipelines with GPU acceleration", "A deep storage management system", "A deep packet inspection tool for network security"],
+    "correctAnswer": 1,
+    "explanation": "DeepStream SDK provides a complete framework for building GPU-accelerated video analytics pipelines, with plugins for video decoding, inference, tracking, and metadata handling, used in applications like smart cities, retail analytics, and industrial inspection."
+  },
+  {
+    "id": 109,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the difference between data parallelism and model parallelism?",
+    "choices": ["They are the same approach with different names", "Data parallelism replicates the model on each GPU and splits the data, while model parallelism splits the model itself across GPUs", "Data parallelism is for inference and model parallelism is for training", "Data parallelism uses CPUs while model parallelism uses GPUs"],
+    "correctAnswer": 1,
+    "explanation": "Data parallelism keeps a complete copy of the model on each GPU and divides the training data into mini-batches. Model parallelism splits the model's parameters across GPUs. They can be combined (e.g., in 3D parallelism) for training very large models."
+  },
+  {
+    "id": 110,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NVIDIA cuBLAS?",
+    "choices": ["A tool for creating GPU clusters", "A GPU-accelerated implementation of the Basic Linear Algebra Subprograms (BLAS) library, providing optimized matrix operations", "A network configuration tool for BlueField DPUs", "A backup utility for CUDA installations"],
+    "correctAnswer": 1,
+    "explanation": "cuBLAS provides GPU-accelerated implementations of standard BLAS routines including matrix multiplication (GEMM), which is the fundamental operation in deep learning. It automatically leverages Tensor Cores for supported precision formats."
+  },
+  {
+    "id": 111,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the role of ONNX (Open Neural Network Exchange) in the AI software ecosystem?",
+    "choices": ["A GPU driver standard", "An open format for representing machine learning models that enables interoperability between different AI frameworks and deployment with tools like TensorRT", "A network protocol for GPU clusters", "A database format for storing training data"],
+    "correctAnswer": 1,
+    "explanation": "ONNX provides a standardized model format that allows models trained in one framework (e.g., PyTorch) to be exported and deployed using another tool (e.g., TensorRT). This enables framework-agnostic model optimization and deployment workflows."
+  },
+  {
+    "id": 112,
+    "domain": "AI Software and Frameworks",
+    "question": "What is continuous batching (in-flight batching) in LLM inference serving?",
+    "choices": ["Batching all requests and processing them at once", "A technique where new requests can join a batch while existing requests are still being processed, rather than waiting for the entire batch to complete", "Processing one request at a time without batching", "Splitting a single request across multiple batches"],
+    "correctAnswer": 1,
+    "explanation": "Continuous/in-flight batching allows new inference requests to enter the processing pipeline as soon as any slot becomes available, without waiting for all current requests to finish. This dramatically improves GPU utilization and throughput for LLM serving."
+  },
+  {
+    "id": 113,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the purpose of NVIDIA Nsight Compute?",
+    "choices": ["Computing cluster resource utilization", "A detailed GPU kernel profiler that provides performance metrics, roofline analysis, and optimization guidance for individual CUDA kernels", "A tool for computing network latency", "A calculator for GPU pricing"],
+    "correctAnswer": 1,
+    "explanation": "Nsight Compute is a kernel-level profiler that provides detailed metrics for individual CUDA kernels including execution time, memory throughput, occupancy, instruction mix, and roofline model analysis to guide optimization efforts."
+  },
+  {
+    "id": 114,
+    "domain": "AI Software and Frameworks",
+    "question": "What is NVIDIA DALI (Data Loading Library)?",
+    "choices": ["A deep learning framework for artists", "A GPU-accelerated data loading and preprocessing library that builds efficient input pipelines for AI training to prevent CPU bottlenecks", "A digital asset ledger for AI models", "A data anonymization tool"],
+    "correctAnswer": 1,
+    "explanation": "DALI accelerates data loading and augmentation pipelines by offloading preprocessing (decoding, resizing, augmentation) to the GPU, preventing the CPU data pipeline from becoming a bottleneck that leaves GPUs idle during training."
+  },
+  {
+    "id": 115,
+    "domain": "AI Software and Frameworks",
+    "question": "What are the key components of the NVIDIA AI Enterprise software suite?",
+    "choices": ["Only TensorRT and Triton", "A comprehensive suite including NVIDIA RAPIDS, NeMo, Triton Inference Server, TensorRT, GPU Operator, and other AI tools with enterprise support", "Only GPU drivers and CUDA Toolkit", "Only container images from NGC"],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA AI Enterprise includes a full stack of AI software: RAPIDS for data analytics, NeMo for LLMs, Triton for inference serving, TensorRT for optimization, GPU Operator for Kubernetes, DOCA for DPUs, plus enterprise support, security updates, and SLAs."
+  },
+  {
+    "id": 116,
+    "domain": "AI Software and Frameworks",
+    "question": "What is KV-cache (key-value cache) in LLM inference and why is it important?",
+    "choices": ["A database caching system for storing AI models", "A mechanism that caches computed key and value tensors from previous tokens during autoregressive generation to avoid redundant computation", "A key-value store for model hyperparameters", "A caching layer for training data"],
+    "correctAnswer": 1,
+    "explanation": "During LLM autoregressive generation, each new token requires attending to all previous tokens. The KV-cache stores the key and value projections from previous tokens so they don't need to be recomputed, significantly reducing the computational cost of generation."
+  },
+  {
+    "id": 117,
+    "domain": "AI Software and Frameworks",
+    "question": "What does the torch.compile() function in PyTorch 2.0+ do?",
+    "choices": ["Compiles the model to run on CPUs only", "Applies JIT compilation and graph-level optimizations to PyTorch models, including operator fusion and CUDA graph capture, to improve execution speed", "Converts PyTorch models to TensorFlow format", "Compiles Python code to C++ for production deployment"],
+    "correctAnswer": 1,
+    "explanation": "torch.compile() uses TorchDynamo and TorchInductor to capture the model's computation graph and apply optimizations like operator fusion, memory planning, and CUDA graph capture, often providing significant speedups with minimal code changes."
+  },
+  {
+    "id": 118,
+    "domain": "AI Software and Frameworks",
+    "question": "What is pipeline parallelism in the context of training large neural networks?",
+    "choices": ["Processing data through multiple preprocessing steps in parallel", "Assigning different layers of the model to different GPUs and overlapping computation across micro-batches to maximize GPU utilization", "Running inference and training simultaneously", "Using multiple CPUs to feed data to a single GPU"],
+    "correctAnswer": 1,
+    "explanation": "Pipeline parallelism partitions model layers across GPUs and processes multiple micro-batches concurrently. While one micro-batch is in the forward pass on GPU 2, another can be in the forward pass on GPU 1, reducing idle time (the pipeline bubble)."
+  },
+  {
+    "id": 119,
+    "domain": "AI Software and Frameworks",
+    "question": "What is the NVIDIA Triton Model Analyzer used for?",
+    "choices": ["Analyzing model accuracy and bias", "Profiling inference performance to find the optimal model configuration (batch size, instance count, precision) that meets latency and throughput targets", "Analyzing GPU hardware for defects", "Visualizing model architectures"],
+    "correctAnswer": 1,
+    "explanation": "Triton Model Analyzer systematically profiles different model configurations on Triton Inference Server, measuring throughput and latency at various batch sizes, instance counts, and concurrency levels to find the optimal serving configuration."
+  },
+  {
+    "id": 120,
+    "domain": "AI Software and Frameworks",
+    "question": "What does ZeRO (Zero Redundancy Optimizer) achieve in distributed training?",
+    "choices": ["It eliminates the need for gradient computation", "It partitions optimizer states, gradients, and model parameters across data-parallel GPUs to reduce per-GPU memory consumption while maintaining data parallelism", "It reduces network latency to zero", "It compresses models to zero bytes for efficient transfer"],
+    "correctAnswer": 1,
+    "explanation": "ZeRO (used in DeepSpeed and FSDP) partitions the optimizer states (ZeRO-1), gradients (ZeRO-2), and parameters (ZeRO-3) across GPUs in data-parallel groups, dramatically reducing per-GPU memory requirements and enabling training of much larger models."
+  },
+  {
+    "id": 121,
+    "domain": "Deployment and Operations",
+    "question": "What is the nvidia-smi command used for?",
+    "choices": ["Installing NVIDIA GPU drivers", "Querying and monitoring GPU status including temperature, utilization, memory usage, power consumption, and running processes", "Configuring network interfaces on NVIDIA adapters", "Compiling CUDA applications"],
+    "correctAnswer": 1,
+    "explanation": "nvidia-smi (NVIDIA System Management Interface) is a command-line tool that provides real-time information about GPU status including temperature, GPU/memory utilization, power draw, ECC errors, running processes, and driver version."
+  },
+  {
+    "id": 122,
+    "domain": "Deployment and Operations",
+    "question": "What is NVIDIA DCGM (Data Center GPU Manager)?",
+    "choices": ["A GPU purchasing management system", "A suite of tools for managing and monitoring NVIDIA GPUs in data center environments, providing health checks, diagnostics, profiling, and policy-based management", "A data compression tool for GPU memory", "A container image registry"],
+    "correctAnswer": 1,
+    "explanation": "DCGM provides comprehensive GPU management including active health monitoring, diagnostics (stress testing, memory checks), profiling, configuration management, and integration with Kubernetes, Prometheus, and other orchestration/monitoring tools."
+  },
+  {
+    "id": 123,
+    "domain": "Deployment and Operations",
+    "question": "Which nvidia-smi command shows detailed GPU memory usage breakdown?",
+    "choices": ["nvidia-smi --query-memory", "nvidia-smi -q -d MEMORY", "nvidia-smi --memory-info", "nvidia-smi -mem"],
+    "correctAnswer": 1,
+    "explanation": "The 'nvidia-smi -q -d MEMORY' command displays detailed memory information including total, used, and free memory for each GPU, along with BAR1 memory details and FB memory usage breakdowns."
+  },
+  {
+    "id": 124,
+    "domain": "Deployment and Operations",
+    "question": "What does GPU utilization percentage indicate in nvidia-smi?",
+    "choices": ["The percentage of GPU memory in use", "The percentage of time over the past sample period that at least one GPU kernel was executing", "The percentage of CUDA cores actively processing", "The percentage of available power being consumed"],
+    "correctAnswer": 1,
+    "explanation": "GPU utilization in nvidia-smi represents the percentage of time during the sampling period where at least one GPU kernel was executing. It does not directly reflect how many SMs or CUDA cores are active, so 100% utilization does not necessarily mean all resources are fully utilized."
+  },
+  {
+    "id": 125,
+    "domain": "Deployment and Operations",
+    "question": "What is the purpose of GPU health checks using DCGM diagnostics?",
+    "choices": ["To upgrade GPU firmware automatically", "To run targeted tests on GPUs to detect hardware issues like memory errors, interconnect problems, or thermal throttling before they impact production workloads", "To benchmark GPU performance against competitors", "To generate sales reports for GPU usage"],
+    "correctAnswer": 1,
+    "explanation": "DCGM diagnostics runs configurable health checks (Level 1-3) that test GPU memory, compute correctness, PCIe bandwidth, NVLink connectivity, and thermal behavior. Running these proactively catches hardware degradation before it causes training failures."
+  },
+  {
+    "id": 126,
+    "domain": "Deployment and Operations",
+    "question": "What is ECC memory and why is it important for AI training GPUs?",
+    "choices": ["Enhanced Computing Cache for faster AI operations", "Error Correcting Code memory that detects and corrects single-bit memory errors, preventing silent data corruption that could cause training instability or model accuracy issues", "Encrypted Cloud Computing memory for secure AI", "External Communication Channel for multi-GPU systems"],
+    "correctAnswer": 1,
+    "explanation": "ECC (Error Correcting Code) memory can detect and correct single-bit errors and detect double-bit errors. In AI training, even rare memory errors can corrupt gradients or model weights, leading to training divergence or degraded model quality."
+  },
+  {
+    "id": 127,
+    "domain": "Deployment and Operations",
+    "question": "How can you monitor GPU metrics in a Kubernetes environment using DCGM?",
+    "choices": ["By running nvidia-smi manually on each node", "By deploying DCGM-Exporter which exposes GPU metrics as Prometheus endpoints that can be scraped and visualized in Grafana", "By reading GPU log files from each container", "By using kubectl describe node only"],
+    "correctAnswer": 1,
+    "explanation": "DCGM-Exporter runs as a DaemonSet on GPU nodes, collecting GPU metrics via DCGM and exposing them in Prometheus format. These metrics are scraped by Prometheus and can be visualized in Grafana dashboards for real-time GPU monitoring."
+  },
+  {
+    "id": 128,
+    "domain": "Deployment and Operations",
+    "question": "What is thermal throttling and how does it affect GPU performance?",
+    "choices": ["A method to boost GPU clock speed in cold environments", "When GPU temperature exceeds safe limits, the GPU automatically reduces clock speeds to prevent damage, causing reduced performance", "A network throttling technique for GPU traffic", "A technique to throttle data loading to prevent GPU memory overflow"],
+    "correctAnswer": 1,
+    "explanation": "When a GPU's temperature exceeds its thermal threshold (typically around 83-90C depending on the model), it reduces its clock speed to lower heat output. This causes reduced compute performance, which can significantly slow AI training or increase inference latency."
+  },
+  {
+    "id": 129,
+    "domain": "Deployment and Operations",
+    "question": "What is the recommended approach for troubleshooting a sudden drop in GPU training throughput?",
+    "choices": ["Immediately restart all GPU nodes", "Systematically check GPU utilization, memory usage, thermal throttling, ECC errors, network bandwidth, and storage I/O to identify the bottleneck", "Reduce the model size to fit in fewer GPUs", "Upgrade to newer GPUs"],
+    "correctAnswer": 1,
+    "explanation": "A systematic approach examines multiple potential causes: thermal throttling (nvidia-smi temperature), GPU errors (ECC/XID errors in dmesg), network issues (InfiniBand port counters), storage bottlenecks (I/O wait), and software issues (CUDA errors)."
+  },
+  {
+    "id": 130,
+    "domain": "Deployment and Operations",
+    "question": "What are XID errors in the context of NVIDIA GPU operations?",
+    "choices": ["User authentication error codes", "GPU hardware and software error codes reported by the NVIDIA driver that indicate specific types of GPU faults such as memory errors, fallen off bus, or driver issues", "Network packet error identifiers", "Storage device error codes"],
+    "correctAnswer": 1,
+    "explanation": "XID errors are NVIDIA driver error codes logged in the system journal (dmesg). Common XID errors include 48 (DBE ECC error), 79 (GPU fallen off bus), 63 (row remapping failure), and others that help diagnose specific GPU hardware or driver issues."
+  },
+  {
+    "id": 131,
+    "domain": "Deployment and Operations",
+    "question": "What is the purpose of GPU persistence mode (nvidia-smi -pm 1)?",
+    "choices": ["To persist GPU data across reboots", "To keep the GPU driver loaded even when no applications are using it, eliminating the driver initialization latency for subsequent GPU tasks", "To save GPU settings permanently", "To enable persistent storage on GPU memory"],
+    "correctAnswer": 1,
+    "explanation": "Persistence mode keeps the NVIDIA driver loaded and the GPU initialized even when no client applications are running. Without it, the driver unloads when the last application exits, causing a delay when the next application starts that can be significant in automated workflows."
+  },
+  {
+    "id": 132,
+    "domain": "Deployment and Operations",
+    "question": "How does multi-node distributed training typically communicate gradients between nodes?",
+    "choices": ["By writing gradients to a shared file system", "Using all-reduce collective operations over NCCL that aggregate gradients across all GPUs via the high-speed network interconnect", "By sending gradients through a central parameter server only", "Using USB connections between nodes"],
+    "correctAnswer": 1,
+    "explanation": "Modern distributed training uses NCCL's all-reduce operations to synchronize gradients across all GPUs. NCCL automatically selects the optimal communication topology, using NVLink within nodes and InfiniBand/RoCE across nodes for maximum bandwidth."
+  },
+  {
+    "id": 133,
+    "domain": "Deployment and Operations",
+    "question": "What power consumption considerations are important for GPU data center design?",
+    "choices": ["GPUs consume very little power, so no special planning is needed", "High-power GPUs like H100 (700W TDP) require adequate power delivery, cooling capacity, and rack-level power distribution planning to avoid overloading circuits", "GPU power consumption is identical to CPU power consumption", "GPUs only consume power during active computation"],
+    "correctAnswer": 1,
+    "explanation": "Modern AI GPUs consume significant power (H100 SXM: 700W, A100 SXM: 400W). A single DGX H100 can consume over 10 kW. Data center planning must account for power delivery, cooling capacity (often liquid cooling), and rack density limits."
+  },
+  {
+    "id": 134,
+    "domain": "Deployment and Operations",
+    "question": "What is the purpose of nvidia-smi dmon command?",
+    "choices": ["To monitor network daemon processes", "To continuously display GPU metrics like utilization, temperature, power, and memory at regular intervals for real-time monitoring", "To manage Docker containers with GPU access", "To monitor disk I/O on GPU servers"],
+    "correctAnswer": 1,
+    "explanation": "nvidia-smi dmon provides a continuous, compact display of key GPU metrics (utilization, temperature, power, memory, ECC errors) sampled at configurable intervals, useful for real-time monitoring and logging of GPU behavior during training runs."
+  },
+  {
+    "id": 135,
+    "domain": "Deployment and Operations",
+    "question": "What is liquid cooling's role in modern AI GPU data centers?",
+    "choices": ["It is used only for aesthetic purposes", "It provides the necessary thermal dissipation capacity for high-power GPU systems that exceed what traditional air cooling can efficiently handle", "It is only used for storage systems", "It replaces the need for any electrical power management"],
+    "correctAnswer": 1,
+    "explanation": "Modern AI GPUs (H100: 700W, with next-gen GPUs trending higher) generate heat that pushes air cooling to its limits. Direct-to-chip liquid cooling provides more efficient heat removal, enables higher rack density, and often reduces total cooling energy costs."
+  },
+  {
+    "id": 136,
+    "domain": "Deployment and Operations",
+    "question": "What is the significance of GPU memory utilization vs GPU compute utilization?",
+    "choices": ["They always increase and decrease together", "High memory utilization with low compute utilization may indicate a memory-bandwidth-bound workload or inefficient kernel implementation, while high compute with low memory suggests compute-bound execution", "Memory utilization is always more important than compute utilization", "They measure the same thing using different scales"],
+    "correctAnswer": 1,
+    "explanation": "Monitoring both metrics together helps diagnose performance: high memory/low compute suggests memory-bandwidth bottleneck or idle periods; high compute/low memory indicates efficient compute-bound execution; both low may indicate CPU bottleneck or I/O stall."
+  },
+  {
+    "id": 137,
+    "domain": "Deployment and Operations",
+    "question": "How do you scale AI training from a single node to multiple nodes?",
+    "choices": ["Simply add more GPUs to the existing server", "Implement distributed training using a framework like PyTorch DDP with NCCL, configure the cluster networking, and ensure proper job orchestration across nodes", "Copy the model to each node and train independently", "Connect the nodes with USB cables and share memory"],
+    "correctAnswer": 1,
+    "explanation": "Multi-node scaling requires distributed training software (e.g., PyTorch DDP, Horovod), a high-speed interconnect (InfiniBand), a communication library (NCCL), shared storage for data and checkpoints, and job orchestration (Slurm, Kubernetes)."
+  },
+  {
+    "id": 138,
+    "domain": "Deployment and Operations",
+    "question": "What is the purpose of DCGM policy-based management?",
+    "choices": ["To manage GPU purchasing policies", "To define automated responses to GPU events such as taking a GPU offline when critical errors are detected or alerting on thermal violations", "To set pricing policies for GPU cloud instances", "To manage user access policies for GPU nodes"],
+    "correctAnswer": 1,
+    "explanation": "DCGM policies allow administrators to define automated actions triggered by GPU events. For example, a policy can automatically drain a node when double-bit ECC errors are detected, preventing workload assignments to unhealthy GPUs."
+  },
+  {
+    "id": 139,
+    "domain": "Deployment and Operations",
+    "question": "What is the recommended practice for GPU firmware and driver updates in production AI clusters?",
+    "choices": ["Update all nodes simultaneously to minimize total downtime", "Use a rolling update strategy, updating nodes one at a time or in small batches while draining workloads, to maintain cluster availability", "Never update firmware or drivers once deployed", "Only update when NVIDIA releases a new GPU model"],
+    "correctAnswer": 1,
+    "explanation": "Rolling updates (cordoning a node, draining workloads, updating, testing, uncordoning) maintain cluster availability during updates. Testing on a canary node first helps catch compatibility issues before rolling out to the entire cluster."
+  },
+  {
+    "id": 140,
+    "domain": "Deployment and Operations",
+    "question": "What metrics should be monitored to detect GPU degradation over time?",
+    "choices": ["Only GPU temperature", "ECC error counts (corrected and uncorrected), clock speed consistency, power draw anomalies, PCIe link errors, and performance regression compared to baseline", "Only the number of running processes", "Only memory usage"],
+    "correctAnswer": 1,
+    "explanation": "GPU degradation can manifest as increasing corrected ECC errors, unexpected clock throttling, abnormal power draw, PCIe link speed degradation, or performance regression. Tracking these metrics over time helps predict failures before they impact production."
+  },
+  {
+    "id": 141,
+    "domain": "Deployment and Operations",
+    "question": "What is the purpose of setting GPU clock frequency using nvidia-smi -lgc?",
+    "choices": ["To overclock GPUs beyond their rated speed", "To lock GPU clock frequencies to ensure consistent and predictable performance by preventing dynamic frequency scaling", "To reduce GPU power consumption to zero", "To synchronize GPU clocks across a cluster network"],
+    "correctAnswer": 1,
+    "explanation": "Locking GPU clocks with nvidia-smi -lgc ensures consistent performance by preventing the GPU from dynamically adjusting frequencies based on workload or thermal conditions. This is important for benchmarking and workloads that require predictable latency."
+  },
+  {
+    "id": 142,
+    "domain": "Deployment and Operations",
+    "question": "What is the typical process for troubleshooting a GPU that shows as fallen off the bus (XID 79)?",
+    "choices": ["Reinstall the GPU drivers", "Check physical seating, PCIe slot integrity, power connections, system event logs, and potentially RMA the GPU if hardware fault is confirmed", "Clear the GPU memory and restart", "Update the CUDA Toolkit to the latest version"],
+    "correctAnswer": 1,
+    "explanation": "XID 79 (GPU fallen off bus) indicates the GPU is no longer communicating via PCIe. Troubleshooting involves checking physical connections, verifying PSU adequacy, examining system logs for related errors, testing in a different PCIe slot, and RMA if the GPU itself is faulty."
+  },
+  {
+    "id": 143,
+    "domain": "Deployment and Operations",
+    "question": "What is the benefit of using CUDA MPS (Multi-Process Service) for inference workloads?",
+    "choices": ["It enables GPUs to run without drivers", "It allows multiple inference processes to share a single GPU more efficiently by providing concurrent kernel execution and reduced context switch overhead", "It provides encryption for CUDA computations", "It converts CPU code to GPU code automatically"],
+    "correctAnswer": 1,
+    "explanation": "CUDA MPS allows multiple processes to share a GPU with overlapping kernel execution and reduced context switching overhead. For inference workloads where individual requests don't fully utilize GPU resources, MPS improves overall GPU utilization."
+  },
+  {
+    "id": 144,
+    "domain": "Deployment and Operations",
+    "question": "What is the importance of NVLink error monitoring in multi-GPU systems?",
+    "choices": ["NVLink errors only affect display output", "NVLink errors can cause GPU communication failures that slow down or crash distributed training, so monitoring NVLink CRC errors and replay counts helps detect degrading interconnects", "NVLink errors are automatically corrected and never need monitoring", "NVLink errors only occur during GPU idle periods"],
+    "correctAnswer": 1,
+    "explanation": "NVLink errors (CRC errors, replay counts) indicate degrading interconnect quality that can impact multi-GPU training performance. Monitoring these via nvidia-smi nvlink -e or DCGM helps identify failing NVLink connections before they cause training failures."
+  },
+  {
+    "id": 145,
+    "domain": "Deployment and Operations",
+    "question": "What factors affect power consumption of GPU servers under AI workloads?",
+    "choices": ["Only the number of GPUs installed", "GPU compute utilization, memory access patterns, clock frequencies, cooling fan speeds, CPU load, and network adapter activity all contribute to total system power draw", "Only the ambient room temperature", "Only the model size being trained"],
+    "correctAnswer": 1,
+    "explanation": "Total system power is affected by multiple factors: GPU power scales with utilization and clock speed, CPUs consume power for data preprocessing, network adapters draw power during communication, fans increase power for cooling, and memory access patterns affect GPU power draw."
+  },
+  {
+    "id": 146,
+    "domain": "Deployment and Operations",
+    "question": "What is the role of Prometheus and Grafana in GPU infrastructure monitoring?",
+    "choices": ["They replace nvidia-smi entirely", "Prometheus collects and stores GPU metrics from exporters like DCGM-Exporter, while Grafana provides dashboards for visualization, alerting, and historical analysis", "They are used only for network monitoring", "They directly control GPU hardware settings"],
+    "correctAnswer": 1,
+    "explanation": "Prometheus scrapes GPU metrics exposed by DCGM-Exporter and stores them as time-series data. Grafana connects to Prometheus to create dashboards showing GPU utilization, temperature, memory, errors, and other metrics with alerting capabilities."
+  },
+  {
+    "id": 147,
+    "domain": "Deployment and Operations",
+    "question": "What is model checkpointing and why is it critical for long-running training jobs?",
+    "choices": ["It checks the model accuracy during training", "It periodically saves the complete model state to storage so training can resume from the last checkpoint if interrupted, avoiding complete loss of training progress", "It checks the GPU hardware for errors", "It validates model inputs against a test dataset"],
+    "correctAnswer": 1,
+    "explanation": "Model checkpointing saves model weights, optimizer state, and training metadata at regular intervals. For multi-day or multi-week training runs, checkpointing protects against hardware failures, preemption, or software crashes by enabling restart from the last checkpoint."
+  },
+  {
+    "id": 148,
+    "domain": "Deployment and Operations",
+    "question": "What is the recommended approach for managing GPU driver versions across a large AI cluster?",
+    "choices": ["Let each user install their preferred driver version", "Use a centralized configuration management system to ensure consistent driver versions across all nodes, with tested and validated driver packages", "Use the oldest available driver for maximum stability", "Install different driver versions on different nodes for testing"],
+    "correctAnswer": 1,
+    "explanation": "Consistent driver versions across all cluster nodes prevent compatibility issues during distributed training. Configuration management tools (Ansible, Puppet, or GPU Operator) ensure all nodes run validated driver versions that are tested against the cluster's software stack."
+  },
+  {
+    "id": 149,
+    "domain": "Deployment and Operations",
+    "question": "How does GPU row remapping work and when is it triggered?",
+    "choices": ["It remaps keyboard rows to GPU functions", "When uncorrectable memory errors occur in specific rows, the GPU firmware remaps those rows to spare rows, maintaining GPU operation but consuming finite spare capacity", "It reorganizes GPU memory for faster access", "It remaps network addresses to GPU devices"],
+    "correctAnswer": 1,
+    "explanation": "GPU memory row remapping replaces faulty memory rows with spare rows when uncorrectable errors are detected. While this preserves GPU functionality, the number of spare rows is limited. Monitoring remaining spare capacity (via nvidia-smi) indicates when replacement is needed."
+  },
+  {
+    "id": 150,
+    "domain": "Deployment and Operations",
+    "question": "What is the significance of the nvidia-smi --query-gpu flag and how is it useful for operations?",
+    "choices": ["It only queries GPU serial numbers", "It allows querying specific GPU metrics in a scriptable CSV format, enabling automated monitoring, alerting, and reporting through integration with monitoring tools", "It sends queries to NVIDIA support", "It queries GPU prices from the NVIDIA store"],
+    "correctAnswer": 1,
+    "explanation": "The --query-gpu flag with --format=csv allows extracting specific GPU metrics (temperature, utilization, memory, power, ECC errors) in a parseable CSV format, enabling integration with monitoring scripts, alerting systems, and operational dashboards."
+  }
+]

@@ -1,0 +1,1952 @@
+[
+  {
+    "id": 1,
+    "domain": "LLM Fundamentals",
+    "question": "What is the primary mechanism that allows transformers to weigh the importance of different tokens in a sequence?",
+    "choices": [
+      "Self-attention mechanism",
+      "Recurrent connections",
+      "Convolutional filters",
+      "Pooling layers"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The self-attention mechanism is the core innovation of the transformer architecture, allowing each token to attend to all other tokens in the sequence and compute relevance scores, enabling the model to capture long-range dependencies."
+  },
+  {
+    "id": 2,
+    "domain": "LLM Fundamentals",
+    "question": "In the transformer architecture, what are the three vectors computed from the input embeddings in the attention mechanism?",
+    "choices": [
+      "Query, Key, and Value",
+      "Input, Output, and Hidden",
+      "Encoder, Decoder, and Attention",
+      "Weight, Bias, and Activation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In the attention mechanism, each input embedding is projected into three vectors: Query (Q), Key (K), and Value (V). The attention scores are computed as the dot product of Q and K, then used to weight the V vectors."
+  },
+  {
+    "id": 3,
+    "domain": "LLM Fundamentals",
+    "question": "What does the temperature parameter control during LLM text generation?",
+    "choices": [
+      "The learning rate during training",
+      "The randomness of the output distribution",
+      "The maximum number of tokens generated",
+      "The size of the context window"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Temperature controls the randomness of the probability distribution over tokens. A lower temperature (e.g., 0.1) makes the model more deterministic by sharpening the distribution, while a higher temperature (e.g., 1.5) increases randomness by flattening it."
+  },
+  {
+    "id": 4,
+    "domain": "LLM Fundamentals",
+    "question": "What is the purpose of positional encoding in transformer models?",
+    "choices": [
+      "To reduce the model size",
+      "To inject information about the order of tokens in the sequence",
+      "To normalize the attention weights",
+      "To compress the input embeddings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Since transformers process all tokens in parallel (unlike RNNs), they have no inherent sense of token order. Positional encodings are added to the input embeddings to provide information about each token's position in the sequence."
+  },
+  {
+    "id": 5,
+    "domain": "LLM Fundamentals",
+    "question": "Which tokenization method is commonly used by modern LLMs and works by iteratively merging the most frequent pairs of characters or tokens?",
+    "choices": [
+      "Word-level tokenization",
+      "Character-level tokenization",
+      "Byte Pair Encoding (BPE)",
+      "N-gram tokenization"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Byte Pair Encoding (BPE) is the most widely used tokenization method in modern LLMs. It starts with individual characters and iteratively merges the most frequent adjacent pairs to create a vocabulary of subword tokens, balancing vocabulary size with representation efficiency."
+  },
+  {
+    "id": 6,
+    "domain": "LLM Fundamentals",
+    "question": "What does top-p (nucleus) sampling do during text generation?",
+    "choices": [
+      "Selects only the top token with the highest probability",
+      "Samples from the smallest set of tokens whose cumulative probability exceeds p",
+      "Randomly selects any token from the vocabulary",
+      "Limits generation to p number of tokens"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Top-p (nucleus) sampling dynamically selects the smallest set of tokens whose cumulative probability mass exceeds the threshold p. This allows the number of candidate tokens to vary based on the distribution, keeping high-probability tokens while filtering out unlikely ones."
+  },
+  {
+    "id": 7,
+    "domain": "LLM Fundamentals",
+    "question": "A model with 70 billion parameters stored in FP16 format requires approximately how much GPU memory just for the model weights?",
+    "choices": [
+      "35 GB",
+      "70 GB",
+      "140 GB",
+      "280 GB"
+    ],
+    "correctAnswer": 2,
+    "explanation": "In FP16 format, each parameter requires 2 bytes. Therefore, 70 billion parameters require 70B x 2 bytes = 140 GB of GPU memory just for the model weights, not including activations, optimizer states, or KV cache."
+  },
+  {
+    "id": 8,
+    "domain": "LLM Fundamentals",
+    "question": "What is the key difference between an encoder-only transformer (like BERT) and a decoder-only transformer (like GPT)?",
+    "choices": [
+      "Encoder-only models are larger than decoder-only models",
+      "Encoder-only models use bidirectional attention while decoder-only models use causal (unidirectional) attention",
+      "Decoder-only models cannot process text input",
+      "Encoder-only models are always faster at inference"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Encoder-only models like BERT use bidirectional attention, meaning each token can attend to all other tokens in both directions. Decoder-only models like GPT use causal attention where each token can only attend to previous tokens, making them suitable for autoregressive text generation."
+  },
+  {
+    "id": 9,
+    "domain": "LLM Fundamentals",
+    "question": "What is a foundation model?",
+    "choices": [
+      "A model trained exclusively on labeled data for a specific task",
+      "A large model pre-trained on broad data that can be adapted to many downstream tasks",
+      "A small model used only for basic text classification",
+      "A model that requires no training data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A foundation model is a large-scale model pre-trained on vast, diverse datasets in a self-supervised or semi-supervised manner. It serves as a base that can be adapted (fine-tuned) for a wide variety of downstream tasks, such as text generation, classification, and summarization."
+  },
+  {
+    "id": 10,
+    "domain": "LLM Fundamentals",
+    "question": "What is the purpose of the softmax function in the attention mechanism?",
+    "choices": [
+      "To reduce the dimensionality of the input",
+      "To normalize attention scores into a probability distribution that sums to 1",
+      "To apply non-linearity to the feed-forward layers",
+      "To initialize the model weights"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The softmax function converts the raw attention scores (dot products of queries and keys) into a probability distribution where all values are positive and sum to 1. This allows the model to create weighted combinations of the value vectors."
+  },
+  {
+    "id": 11,
+    "domain": "LLM Fundamentals",
+    "question": "What is multi-head attention in transformer models?",
+    "choices": [
+      "Using multiple transformer blocks stacked together",
+      "Running multiple attention computations in parallel with different learned projections",
+      "Applying attention only to the first and last tokens",
+      "Using attention across multiple different input modalities"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Multi-head attention runs multiple attention operations in parallel, each with different learned projection matrices. This allows the model to jointly attend to information from different representation subspaces at different positions, capturing diverse patterns in the data."
+  },
+  {
+    "id": 12,
+    "domain": "LLM Fundamentals",
+    "question": "What does the context window of an LLM refer to?",
+    "choices": [
+      "The total number of parameters in the model",
+      "The maximum number of tokens the model can process in a single input-output sequence",
+      "The size of the training dataset",
+      "The number of transformer layers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The context window defines the maximum number of tokens (input plus output) that the model can handle in a single forward pass. Tokens beyond this limit cannot be attended to, which limits how much prior context the model can use for generation."
+  },
+  {
+    "id": 13,
+    "domain": "LLM Fundamentals",
+    "question": "What is the relationship between pre-training and fine-tuning in the LLM development pipeline?",
+    "choices": [
+      "Pre-training and fine-tuning are identical processes",
+      "Pre-training learns general language representations from large corpora, and fine-tuning adapts the model to specific tasks or domains",
+      "Fine-tuning always occurs before pre-training",
+      "Pre-training uses labeled data while fine-tuning uses unlabeled data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pre-training involves training the model on massive, diverse text corpora to learn general language patterns and representations. Fine-tuning then adapts this pre-trained model to specific tasks or domains using smaller, task-specific datasets, leveraging the knowledge already learned."
+  },
+  {
+    "id": 14,
+    "domain": "LLM Fundamentals",
+    "question": "In transformer models, what is the role of layer normalization?",
+    "choices": [
+      "To increase the number of parameters",
+      "To stabilize training by normalizing activations within each layer",
+      "To reduce the vocabulary size",
+      "To perform tokenization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Layer normalization stabilizes the training process by normalizing the activations across the feature dimension within each layer. This helps prevent vanishing or exploding gradients and allows for more stable and faster training of deep transformer models."
+  },
+  {
+    "id": 15,
+    "domain": "LLM Fundamentals",
+    "question": "What is the primary training objective for GPT-style decoder-only language models?",
+    "choices": [
+      "Masked language modeling",
+      "Next token prediction (causal language modeling)",
+      "Sentence pair classification",
+      "Image captioning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GPT-style decoder-only models are trained using next token prediction (causal language modeling), where the model learns to predict the next token given all preceding tokens. This autoregressive objective naturally supports text generation tasks."
+  },
+  {
+    "id": 16,
+    "domain": "LLM Fundamentals",
+    "question": "What happens when you set the temperature to 0 during LLM inference?",
+    "choices": [
+      "The model generates random text",
+      "The model always selects the token with the highest probability (greedy decoding)",
+      "The model stops generating text",
+      "The model generates longer responses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Setting temperature to 0 (or very close to 0) makes the model fully deterministic by always selecting the highest-probability token at each step. This is known as greedy decoding and produces the most predictable output."
+  },
+  {
+    "id": 17,
+    "domain": "LLM Fundamentals",
+    "question": "What is an embedding in the context of LLMs?",
+    "choices": [
+      "A compression algorithm for text",
+      "A dense vector representation of tokens in a continuous vector space",
+      "A method for encrypting model weights",
+      "A type of loss function"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Embeddings are dense vector representations that map discrete tokens (words or subwords) into a continuous vector space. These learned representations capture semantic relationships between tokens, where similar tokens have vectors that are closer together in the embedding space."
+  },
+  {
+    "id": 18,
+    "domain": "LLM Fundamentals",
+    "question": "What is the feed-forward network (FFN) component in each transformer layer responsible for?",
+    "choices": [
+      "Computing attention between tokens",
+      "Applying non-linear transformations to each token's representation independently",
+      "Tokenizing the input text",
+      "Generating the final output probabilities"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The feed-forward network in each transformer layer applies a non-linear transformation to each token's representation independently (position-wise). It typically consists of two linear transformations with a non-linear activation (like GELU or ReLU) in between, allowing the model to learn complex feature interactions."
+  },
+  {
+    "id": 19,
+    "domain": "LLM Fundamentals",
+    "question": "Which of the following best describes the concept of 'emergent abilities' in large language models?",
+    "choices": [
+      "Abilities that are explicitly programmed into the model",
+      "Capabilities that appear only at certain model scales and are not present in smaller models",
+      "Features that degrade as model size increases",
+      "Skills that require supervised training data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Emergent abilities are capabilities that appear suddenly as models reach certain scale thresholds. These abilities, such as chain-of-thought reasoning or in-context learning, are not present in smaller models and cannot be predicted simply by extrapolating from smaller model performance."
+  },
+  {
+    "id": 20,
+    "domain": "LLM Fundamentals",
+    "question": "What is the purpose of the residual connections (skip connections) in transformer architectures?",
+    "choices": [
+      "To skip the attention computation for efficiency",
+      "To allow gradients to flow directly through the network, enabling training of deeper models",
+      "To reduce the number of parameters",
+      "To eliminate the need for layer normalization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Residual connections add the input of a sublayer directly to its output, creating a shortcut path for gradients during backpropagation. This mitigates the vanishing gradient problem in deep networks and enables successful training of transformers with many layers."
+  },
+  {
+    "id": 21,
+    "domain": "LLM Fundamentals",
+    "question": "What is the scaling dimension factor (square root of d_k) used for in the scaled dot-product attention?",
+    "choices": [
+      "To increase the model's capacity",
+      "To prevent the dot products from growing too large, which would push softmax into regions with very small gradients",
+      "To reduce computation time",
+      "To normalize the output embeddings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The dot products of queries and keys grow in magnitude with the dimension size d_k. Dividing by the square root of d_k prevents these values from becoming too large, which would cause the softmax function to produce extremely peaked distributions with near-zero gradients."
+  },
+  {
+    "id": 22,
+    "domain": "LLM Fundamentals",
+    "question": "What is the typical vocabulary size range for modern large language models?",
+    "choices": [
+      "100 to 500 tokens",
+      "1,000 to 5,000 tokens",
+      "32,000 to 128,000 tokens",
+      "Over 10 million tokens"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Modern LLMs typically use vocabularies in the range of 32,000 to 128,000 tokens. For example, GPT-2 uses about 50,000 tokens, LLaMA uses 32,000, and some newer models use up to 128,000. This range balances between granularity and efficiency."
+  },
+  {
+    "id": 23,
+    "domain": "LLM Fundamentals",
+    "question": "Which of the following statements about autoregressive language models is correct?",
+    "choices": [
+      "They generate all tokens simultaneously in a single step",
+      "They generate tokens one at a time, conditioning each new token on all previously generated tokens",
+      "They can only process fixed-length inputs",
+      "They require labeled training data for every example"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Autoregressive models generate tokens sequentially, one at a time. Each new token is conditioned on the entire sequence of previously generated tokens (plus the input). This sequential generation process is fundamental to how GPT-style models produce text."
+  },
+  {
+    "id": 24,
+    "domain": "LLM Fundamentals",
+    "question": "What is Rotary Position Embedding (RoPE)?",
+    "choices": [
+      "A method for compressing model weights",
+      "A positional encoding technique that encodes position by rotating the query and key vectors",
+      "A type of attention mask",
+      "A method for training tokenizers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "RoPE (Rotary Position Embedding) encodes positional information by applying rotation matrices to the query and key vectors. It preserves relative position information through the dot product of rotated vectors and has been adopted by many modern LLMs including LLaMA for its effectiveness."
+  },
+  {
+    "id": 25,
+    "domain": "LLM Fundamentals",
+    "question": "What is the key advantage of Grouped Query Attention (GQA) compared to standard Multi-Head Attention (MHA)?",
+    "choices": [
+      "It increases model accuracy significantly",
+      "It reduces the KV cache memory requirements by sharing key-value heads across multiple query heads",
+      "It eliminates the need for positional encodings",
+      "It increases the number of attention heads"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Grouped Query Attention reduces memory usage by having multiple query heads share the same key-value heads. This significantly decreases the KV cache size during inference, improving throughput and reducing memory requirements while maintaining quality close to standard multi-head attention."
+  },
+  {
+    "id": 26,
+    "domain": "LLM Fundamentals",
+    "question": "In the context of LLMs, what does 'perplexity' measure?",
+    "choices": [
+      "The number of parameters in the model",
+      "How well the model predicts a sample, with lower values indicating better performance",
+      "The speed of inference",
+      "The size of the training dataset"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Perplexity is a common metric for evaluating language models. It measures how well the probability distribution predicted by the model matches the actual distribution of the data. Lower perplexity indicates the model is less 'surprised' by the data, meaning it makes better predictions."
+  },
+  {
+    "id": 27,
+    "domain": "LLM Fundamentals",
+    "question": "What is the primary difference between causal attention and bidirectional attention?",
+    "choices": [
+      "Causal attention is faster to compute",
+      "Causal attention masks future tokens so each position can only attend to previous positions and itself",
+      "Bidirectional attention only looks at adjacent tokens",
+      "There is no difference between them"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Causal attention uses a mask to prevent each position from attending to subsequent positions, ensuring that predictions for a given position can only depend on known outputs at previous positions. Bidirectional attention allows each position to attend to all positions in the sequence."
+  },
+  {
+    "id": 28,
+    "domain": "LLM Fundamentals",
+    "question": "What is in-context learning in large language models?",
+    "choices": [
+      "Training the model on new data during inference",
+      "The ability to learn tasks from examples provided in the prompt without updating model weights",
+      "A method for pre-training transformer models",
+      "A technique for reducing model size"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In-context learning is the ability of LLMs to perform new tasks by conditioning on examples or instructions provided in the input prompt, without any gradient updates or fine-tuning. The model leverages patterns learned during pre-training to generalize from the provided context."
+  },
+  {
+    "id": 29,
+    "domain": "LLM Fundamentals",
+    "question": "What does the term 'hallucination' refer to in the context of LLMs?",
+    "choices": [
+      "When the model generates extremely long outputs",
+      "When the model generates plausible-sounding but factually incorrect or fabricated information",
+      "When the model fails to generate any output",
+      "When the model generates text in the wrong language"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Hallucination occurs when an LLM generates content that sounds plausible and confident but is factually wrong, fabricated, or inconsistent with the provided context. This is a significant challenge in deploying LLMs for factual or critical applications."
+  },
+  {
+    "id": 30,
+    "domain": "LLM Fundamentals",
+    "question": "What is the SwiGLU activation function used in many modern LLMs?",
+    "choices": [
+      "A simple ReLU activation applied to all layers",
+      "A gated activation function combining Swish and Gated Linear Unit that improves model quality",
+      "A dropout regularization technique",
+      "A type of attention mechanism"
+    ],
+    "correctAnswer": 1,
+    "explanation": "SwiGLU is a gated activation function used in the feed-forward layers of modern transformers like LLaMA. It combines the Swish activation with a Gated Linear Unit (GLU), where one branch acts as a gate for the other. It has been shown to improve model quality compared to standard ReLU or GELU activations."
+  },
+  {
+    "id": 31,
+    "domain": "LLM Fundamentals",
+    "question": "Which of the following best describes the concept of 'attention head' in a multi-head attention mechanism?",
+    "choices": [
+      "A separate transformer model running in parallel",
+      "An individual attention computation with its own learned Q, K, V projection matrices",
+      "The final output layer of the transformer",
+      "A special token added to the beginning of the input"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Each attention head has its own set of learned projection matrices for queries, keys, and values. This allows different heads to specialize in capturing different types of relationships in the data, such as syntactic dependencies, semantic similarities, or positional patterns."
+  },
+  {
+    "id": 32,
+    "domain": "LLM Fundamentals",
+    "question": "What is the primary advantage of using subword tokenization over word-level tokenization?",
+    "choices": [
+      "Subword tokenization produces shorter sequences",
+      "Subword tokenization handles out-of-vocabulary words and morphological variations effectively",
+      "Subword tokenization requires less memory",
+      "Subword tokenization is only used for non-English languages"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Subword tokenization breaks words into meaningful subword units, allowing the model to handle words it has never seen during training by composing them from known subword tokens. This effectively eliminates the out-of-vocabulary problem and allows the model to understand morphological variations and novel words."
+  },
+  {
+    "id": 33,
+    "domain": "LLM Fundamentals",
+    "question": "What is the key innovation of the 'Mixture of Experts' (MoE) architecture used in some LLMs?",
+    "choices": [
+      "It uses multiple different model architectures combined together",
+      "It activates only a subset of parameters for each input using a routing mechanism, increasing capacity without proportionally increasing computation",
+      "It trains the model on multiple datasets simultaneously",
+      "It uses a committee of models to vote on the output"
+    ],
+    "correctAnswer": 1,
+    "explanation": "MoE architectures use a gating/routing mechanism to selectively activate only a subset of 'expert' feed-forward networks for each input token. This allows the model to have a much larger total parameter count (capacity) while keeping the computational cost per token similar to a smaller dense model."
+  },
+  {
+    "id": 34,
+    "domain": "LLM Fundamentals",
+    "question": "What does KV cache refer to in the context of LLM inference?",
+    "choices": [
+      "A database for storing training data",
+      "Cached key and value tensors from previous tokens to avoid redundant computation during autoregressive generation",
+      "A compression technique for model weights",
+      "A type of GPU memory allocation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "During autoregressive generation, the KV cache stores the key and value tensors computed for all previous tokens. This avoids recomputing these tensors at each generation step, significantly speeding up inference. However, the KV cache can consume substantial GPU memory, especially for long sequences."
+  },
+  {
+    "id": 35,
+    "domain": "LLM Fundamentals",
+    "question": "What is the purpose of beam search in text generation?",
+    "choices": [
+      "To train the model faster",
+      "To explore multiple candidate sequences simultaneously and select the most likely overall sequence",
+      "To reduce model memory usage",
+      "To tokenize the input text"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Beam search maintains multiple candidate sequences (beams) at each generation step and selects the top-k most likely partial sequences. This explores more of the search space than greedy decoding, often finding higher-probability complete sequences, though it may reduce diversity."
+  },
+  {
+    "id": 36,
+    "domain": "LLM Fundamentals",
+    "question": "What is the 'attention mask' used for in transformer models?",
+    "choices": [
+      "To hide the model's predictions from the user",
+      "To specify which positions in the sequence should be attended to and which should be ignored",
+      "To reduce the number of attention heads",
+      "To compress the input sequence"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Attention masks control which positions in the input can attend to which other positions. In causal language models, the mask prevents attending to future tokens. Padding masks prevent attending to padding tokens in batched inputs. This ensures correct computation of attention weights."
+  },
+  {
+    "id": 37,
+    "domain": "LLM Fundamentals",
+    "question": "What is the typical order of magnitude for the hidden dimension (d_model) in a large language model with around 70 billion parameters?",
+    "choices": [
+      "256",
+      "1,024",
+      "8,192",
+      "65,536"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Large language models with around 70 billion parameters typically use a hidden dimension (d_model) around 8,192. For example, LLaMA-2 70B uses a hidden dimension of 8,192 with 80 transformer layers. The hidden dimension scales with overall model size."
+  },
+  {
+    "id": 38,
+    "domain": "LLM Fundamentals",
+    "question": "What is the difference between a token and a word in the context of LLMs?",
+    "choices": [
+      "They are always identical",
+      "A token can be a subword, word, or special character, so one word may be split into multiple tokens",
+      "A word is always smaller than a token",
+      "Tokens only represent punctuation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In LLMs using subword tokenization, a token can represent a complete word, a subword part, a single character, or a special symbol. Common words are typically single tokens, while rare or long words may be split into multiple subword tokens. This means the token count often exceeds the word count."
+  },
+  {
+    "id": 39,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is Reinforcement Learning from Human Feedback (RLHF)?",
+    "choices": [
+      "Training the model using only human-written text",
+      "A technique that uses a reward model trained on human preferences to fine-tune the LLM using reinforcement learning",
+      "A method for collecting training data from human annotators",
+      "A way to reduce the model size based on human feedback"
+    ],
+    "correctAnswer": 1,
+    "explanation": "RLHF involves training a reward model on human preference data (rankings of model outputs), then using this reward model as a signal to fine-tune the LLM using RL algorithms like PPO. This aligns the model's outputs with human preferences for helpfulness, harmlessness, and honesty."
+  },
+  {
+    "id": 40,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is LoRA (Low-Rank Adaptation)?",
+    "choices": [
+      "A technique for increasing the model's context window",
+      "A parameter-efficient fine-tuning method that adds trainable low-rank decomposition matrices to existing weights",
+      "A method for pre-training models from scratch",
+      "A type of optimizer for training large models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LoRA freezes the pre-trained model weights and injects trainable rank decomposition matrices (A and B) into transformer layers. Instead of updating all parameters, only these small additional matrices are trained, dramatically reducing the number of trainable parameters and memory requirements while maintaining performance."
+  },
+  {
+    "id": 41,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What additional technique does QLoRA introduce compared to standard LoRA?",
+    "choices": [
+      "It uses larger rank matrices",
+      "It quantizes the base model weights to 4-bit precision while keeping LoRA adapters in higher precision",
+      "It trains all model parameters instead of just adapters",
+      "It eliminates the need for a GPU"
+    ],
+    "correctAnswer": 1,
+    "explanation": "QLoRA extends LoRA by quantizing the frozen base model weights to 4-bit precision (using NF4 quantization) while maintaining the LoRA adapter weights in higher precision (BF16). This dramatically reduces memory requirements, enabling fine-tuning of large models on consumer GPUs."
+  },
+  {
+    "id": 42,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is data parallelism in distributed training?",
+    "choices": [
+      "Splitting the model across multiple GPUs",
+      "Replicating the entire model on each GPU and splitting the training data across GPUs",
+      "Training different models on different datasets",
+      "Processing data sequentially across GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In data parallelism, the complete model is replicated on each GPU, and the training data is split into mini-batches distributed across GPUs. Each GPU computes gradients on its data portion, and gradients are synchronized (typically with all-reduce) before updating the model weights."
+  },
+  {
+    "id": 43,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the primary advantage of mixed precision training using FP16/BF16?",
+    "choices": [
+      "It increases model accuracy",
+      "It reduces memory usage and increases computational throughput while maintaining training stability",
+      "It eliminates the need for gradient synchronization",
+      "It makes the model deterministic"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mixed precision training uses lower-precision formats (FP16 or BF16) for most computations while keeping a master copy of weights in FP32. This approximately halves the memory for activations and gradients and leverages Tensor Cores for faster computation, while maintaining training stability through the FP32 master weights."
+  },
+  {
+    "id": 44,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is tensor parallelism in the context of distributed LLM training?",
+    "choices": [
+      "Splitting each batch of data across GPUs",
+      "Partitioning individual tensor operations (like matrix multiplications) within a layer across multiple GPUs",
+      "Running different models on different GPUs",
+      "Caching tensors on disk instead of GPU memory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tensor parallelism splits individual tensor operations within a single layer across multiple GPUs. For example, a large matrix multiplication can be split column-wise or row-wise across GPUs. This is essential for layers that are too large to fit on a single GPU and requires high-bandwidth interconnects like NVLink."
+  },
+  {
+    "id": 45,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is pipeline parallelism in distributed training?",
+    "choices": [
+      "Splitting the training data into sequential pipelines",
+      "Distributing different layers of the model across different GPUs, processing micro-batches in a pipelined fashion",
+      "Running the same layer on all GPUs simultaneously",
+      "Using different optimizers on different GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pipeline parallelism assigns different groups of consecutive model layers to different GPUs. The input is split into micro-batches that flow through the pipeline, with each GPU processing its assigned layers. This enables training models that are too deep to fit on a single GPU, though it introduces pipeline bubbles."
+  },
+  {
+    "id": 46,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is gradient accumulation and when is it used?",
+    "choices": [
+      "Accumulating models trained on different datasets",
+      "Accumulating gradients over multiple forward-backward passes before performing a weight update, effectively simulating a larger batch size",
+      "Storing gradients on disk to save memory",
+      "Using gradients from a previous training run"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Gradient accumulation performs multiple forward and backward passes, summing up the gradients, before performing a single weight update. This effectively simulates training with a larger batch size than what fits in GPU memory, which is crucial when GPU memory is limited or when large batch sizes are needed for stability."
+  },
+  {
+    "id": 47,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is supervised fine-tuning (SFT) in the context of LLM alignment?",
+    "choices": [
+      "Pre-training the model on unlabeled text data",
+      "Fine-tuning the model on high-quality demonstration data showing desired input-output behavior",
+      "Training the model using reinforcement learning",
+      "Reducing the model size through pruning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Supervised fine-tuning (SFT) is typically the first step in LLM alignment, where the pre-trained model is fine-tuned on carefully curated demonstration data of desired behavior (such as helpful conversations). This teaches the model the expected format and style of responses before further alignment with RLHF."
+  },
+  {
+    "id": 48,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What does PEFT stand for and what is its purpose?",
+    "choices": [
+      "Pre-trained Evaluation Fine-Tuning; it evaluates model performance",
+      "Parameter-Efficient Fine-Tuning; it adapts models using only a small fraction of trainable parameters",
+      "Parallel Efficient Fast Training; it speeds up pre-training",
+      "Progressive Encoder Fine-Tuning; it fine-tunes encoder models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "PEFT (Parameter-Efficient Fine-Tuning) encompasses techniques like LoRA, prefix tuning, and adapters that fine-tune models by training only a small subset of parameters. This dramatically reduces memory, storage, and compute requirements compared to full fine-tuning while often achieving comparable performance."
+  },
+  {
+    "id": 49,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the purpose of a reward model in RLHF?",
+    "choices": [
+      "To generate training data automatically",
+      "To learn a scoring function from human preference comparisons that provides a reward signal for RL optimization",
+      "To tokenize the input data",
+      "To parallelize training across GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The reward model is trained on human preference data (e.g., comparisons of model outputs) to learn a scoring function that predicts human preference. This learned reward model then provides the reward signal for the RL phase, guiding the LLM to produce outputs that align with human preferences."
+  },
+  {
+    "id": 50,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the ZeRO (Zero Redundancy Optimizer) technique used for?",
+    "choices": [
+      "Eliminating the need for an optimizer",
+      "Partitioning optimizer states, gradients, and parameters across data-parallel GPUs to reduce memory redundancy",
+      "Training models with zero training data",
+      "Reducing the model to zero parameters for testing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ZeRO eliminates memory redundancy in data-parallel training by partitioning optimizer states (ZeRO-1), gradients (ZeRO-2), and model parameters (ZeRO-3) across GPUs instead of replicating them. This dramatically reduces per-GPU memory usage and enables training much larger models with data parallelism."
+  },
+  {
+    "id": 51,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is Direct Preference Optimization (DPO) and how does it differ from RLHF?",
+    "choices": [
+      "DPO is identical to RLHF with a different name",
+      "DPO directly optimizes the policy using preference data without training a separate reward model, simplifying the RLHF pipeline",
+      "DPO only works with encoder models",
+      "DPO requires more compute than RLHF"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DPO simplifies the RLHF pipeline by deriving a loss function that directly optimizes the LLM policy from human preference pairs without needing to first train a separate reward model or use RL algorithms like PPO. This makes it simpler and more stable to train while achieving comparable alignment performance."
+  },
+  {
+    "id": 52,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the purpose of gradient checkpointing (activation recomputation) in LLM training?",
+    "choices": [
+      "To speed up the forward pass",
+      "To reduce activation memory by only storing checkpoints and recomputing activations during the backward pass",
+      "To save model checkpoints to disk",
+      "To validate gradients during training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Gradient checkpointing reduces memory usage by only storing activations at selected checkpoints during the forward pass, instead of storing all intermediate activations. During the backward pass, the needed activations are recomputed from the nearest checkpoint. This trades computation for memory, enabling training of larger models or longer sequences."
+  },
+  {
+    "id": 53,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "Why is BF16 (bfloat16) often preferred over FP16 for LLM training?",
+    "choices": [
+      "BF16 uses less memory than FP16",
+      "BF16 has the same exponent range as FP32, reducing overflow/underflow issues compared to FP16",
+      "BF16 provides higher precision than FP16",
+      "BF16 is only available on consumer GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BF16 maintains the same 8-bit exponent as FP32, giving it the same dynamic range. While FP16 has only a 5-bit exponent with limited range (often requiring loss scaling), BF16 avoids overflow and underflow issues, making training more stable. The tradeoff is reduced mantissa precision (7 bits vs FP16's 10 bits)."
+  },
+  {
+    "id": 54,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the Chinchilla scaling law's key finding?",
+    "choices": [
+      "Larger models are always better regardless of data",
+      "For a given compute budget, the model size and training data should be scaled roughly proportionally",
+      "Training data doesn't matter for model performance",
+      "Smaller models always outperform larger models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Chinchilla scaling law found that many LLMs were significantly undertrained relative to their size. For a fixed compute budget, optimal performance is achieved by scaling both model size and training data roughly proportionally, rather than training a very large model on relatively less data."
+  },
+  {
+    "id": 55,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "In the context of fine-tuning, what is catastrophic forgetting?",
+    "choices": [
+      "When the model forgets to generate end-of-sequence tokens",
+      "When fine-tuning on a specific task causes the model to lose previously learned general knowledge",
+      "When the training data is accidentally deleted",
+      "When the model size shrinks during training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Catastrophic forgetting occurs when fine-tuning a model on a new task causes it to significantly degrade on previously learned tasks or general capabilities. This happens because the weight updates for the new task overwrite information important for prior tasks. PEFT methods like LoRA help mitigate this by modifying only a small portion of parameters."
+  },
+  {
+    "id": 56,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the typical first step in the RLHF training pipeline for an LLM?",
+    "choices": [
+      "Training the reward model",
+      "Supervised fine-tuning (SFT) on demonstration data",
+      "Running PPO optimization",
+      "Collecting human preference rankings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The typical RLHF pipeline starts with supervised fine-tuning (SFT) on high-quality demonstration data. This is followed by training a reward model on human preference comparisons, and finally using PPO (or similar RL algorithm) to optimize the SFT model against the reward model."
+  },
+  {
+    "id": 57,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What rank value is commonly used as a starting point for LoRA fine-tuning?",
+    "choices": [
+      "r = 1",
+      "r = 8 or r = 16",
+      "r = 1024",
+      "r = equal to the hidden dimension"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Common starting points for LoRA rank are 8 or 16. Lower ranks use fewer parameters but may underfit, while higher ranks capture more information but use more memory and compute. In practice, r = 8 or r = 16 provides a good balance for many fine-tuning tasks, and the optimal value depends on the task complexity."
+  },
+  {
+    "id": 58,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the role of the KL divergence penalty in RLHF?",
+    "choices": [
+      "To make the model generate longer responses",
+      "To prevent the fine-tuned model from deviating too far from the original SFT model, avoiding reward hacking",
+      "To increase the learning rate during training",
+      "To reduce the vocabulary size"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The KL divergence penalty constrains the RL-optimized model to stay close to the original SFT model's output distribution. Without this constraint, the model could exploit the reward model by generating degenerate outputs that score high on the reward but are low quality (reward hacking)."
+  },
+  {
+    "id": 59,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is Fully Sharded Data Parallel (FSDP)?",
+    "choices": [
+      "A data loading technique for faster I/O",
+      "A distributed training strategy that shards model parameters, gradients, and optimizer states across all GPUs, similar to ZeRO-3",
+      "A technique for training on fully labeled datasets",
+      "A method for sharding training data across disks"
+    ],
+    "correctAnswer": 1,
+    "explanation": "FSDP is PyTorch's implementation of ZeRO Stage 3, where model parameters, gradients, and optimizer states are sharded across all data-parallel workers. Parameters are gathered on-demand for computation and released afterward, dramatically reducing per-GPU memory and enabling training of very large models."
+  },
+  {
+    "id": 60,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is model parallelism and when is it necessary?",
+    "choices": [
+      "Running multiple copies of the same model for inference",
+      "Splitting the model itself across multiple GPUs when it is too large to fit on a single GPU",
+      "Training the model in parallel with different hyperparameters",
+      "Parallelizing the data preprocessing pipeline"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Model parallelism splits different parts of the model across multiple GPUs. It is necessary when the model (including its parameters, optimizer states, and activations) is too large to fit in a single GPU's memory. This includes tensor parallelism (splitting within layers) and pipeline parallelism (splitting across layers)."
+  },
+  {
+    "id": 61,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the advantage of using adapter layers for fine-tuning compared to full fine-tuning?",
+    "choices": [
+      "Adapter layers always produce better results",
+      "Adapter layers insert small trainable modules while keeping original weights frozen, reducing memory and enabling easy task switching",
+      "Adapter layers eliminate the need for training data",
+      "Adapter layers increase the model size significantly"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Adapter layers are small trainable modules inserted between frozen pre-trained layers. They reduce memory requirements since only a small fraction of parameters are trained, enable storing multiple task-specific adapters efficiently, and reduce the risk of catastrophic forgetting by keeping the original weights intact."
+  },
+  {
+    "id": 62,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "Why is the learning rate typically much lower for fine-tuning than for pre-training?",
+    "choices": [
+      "Fine-tuning datasets are always larger",
+      "A lower learning rate prevents the model from losing the valuable representations learned during pre-training",
+      "Higher learning rates are not supported during fine-tuning",
+      "Fine-tuning doesn't use gradient descent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "During fine-tuning, a lower learning rate (typically 1e-5 to 5e-5) is used to make small, careful adjustments to the pre-trained weights. A high learning rate would cause large weight updates that could destroy the valuable general knowledge and representations learned during pre-training."
+  },
+  {
+    "id": 63,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the main advantage of instruction tuning?",
+    "choices": [
+      "It reduces the model size",
+      "It improves the model's ability to follow diverse natural language instructions and generalize to unseen tasks",
+      "It speeds up inference",
+      "It eliminates the need for pre-training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Instruction tuning fine-tunes the model on a diverse set of tasks formulated as natural language instructions. This teaches the model to follow instructions more reliably and improves its zero-shot generalization to new tasks not seen during fine-tuning, making it more useful as a general-purpose assistant."
+  },
+  {
+    "id": 64,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "In distributed training, what is an all-reduce operation?",
+    "choices": [
+      "Reducing the model size across all GPUs",
+      "A collective communication operation that aggregates values (e.g., gradient sums) from all GPUs and distributes the result back to all GPUs",
+      "Removing all redundant parameters from the model",
+      "Reducing the batch size across all workers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "All-reduce is a collective communication primitive that combines values from all GPUs (e.g., summing gradients) and distributes the result to every GPU. In data-parallel training, all-reduce is used to synchronize gradients so all GPU replicas maintain identical model weights after each update."
+  },
+  {
+    "id": 65,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is prefix tuning?",
+    "choices": [
+      "Adding a fixed text prefix to every input during inference",
+      "A PEFT method that prepends trainable continuous vectors (virtual tokens) to the input at each layer while keeping the model frozen",
+      "A technique for training tokenizers",
+      "A method for pruning the first layers of the model"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Prefix tuning prepends trainable continuous vectors (soft prompts) to the key and value matrices at each transformer layer. Only these prefix parameters are trained while the entire model remains frozen. This is highly parameter-efficient and avoids modifying the original model weights."
+  },
+  {
+    "id": 66,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the 'pipeline bubble' problem in pipeline parallelism?",
+    "choices": [
+      "Data overflow in the training pipeline",
+      "GPU idle time that occurs at the beginning and end of each training step when pipeline stages are waiting for data",
+      "A memory leak in the training framework",
+      "A networking bottleneck between GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pipeline bubbles represent idle time on GPUs at the start (filling the pipeline) and end (draining the pipeline) of each training step. During these periods, some GPUs have no micro-batches to process. Techniques like interleaved schedules and more micro-batches help reduce the bubble fraction."
+  },
+  {
+    "id": 67,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "What is the AdamW optimizer and why is it commonly used for LLM training?",
+    "choices": [
+      "An optimizer that only works with small models",
+      "A variant of Adam that decouples weight decay from the adaptive learning rate, providing better regularization for large models",
+      "A simple SGD optimizer with momentum",
+      "An optimizer that eliminates the need for learning rate scheduling"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AdamW corrects the weight decay implementation in the original Adam optimizer by decoupling it from the gradient-based update. This provides proper L2 regularization and has been shown to improve generalization in training large language models, making it the standard optimizer for LLM pre-training and fine-tuning."
+  },
+  {
+    "id": 68,
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "How does the warmup phase in learning rate scheduling benefit LLM training?",
+    "choices": [
+      "It increases the final model accuracy by 50%",
+      "It gradually increases the learning rate from near-zero to prevent large, destabilizing updates in the early stages when the model is far from optimal",
+      "It reduces the total training time",
+      "It eliminates the need for gradient clipping"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The warmup phase starts with a very small learning rate and gradually increases it. This prevents large, potentially harmful weight updates early in training when the model's representations and gradient statistics are still unstable. After warmup, the learning rate typically follows a decay schedule."
+  },
+  {
+    "id": 69,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is NVIDIA Triton Inference Server primarily used for?",
+    "choices": [
+      "Training large language models from scratch",
+      "Serving and managing inference requests for AI models in production with support for multiple frameworks and dynamic batching",
+      "Building training datasets",
+      "Designing neural network architectures"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA Triton Inference Server is an open-source inference serving platform that simplifies deploying AI models at scale. It supports multiple frameworks (TensorRT, PyTorch, ONNX, etc.), provides features like dynamic batching, model versioning, model ensembles, and GPU/CPU inference management."
+  },
+  {
+    "id": 70,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is TensorRT-LLM?",
+    "choices": [
+      "A general-purpose deep learning training framework",
+      "An NVIDIA library for optimizing and accelerating LLM inference on NVIDIA GPUs with techniques like quantization, KV caching, and in-flight batching",
+      "A cloud-based LLM hosting platform",
+      "A model architecture for small language models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TensorRT-LLM is NVIDIA's purpose-built library for optimizing LLM inference on NVIDIA GPUs. It provides LLM-specific optimizations including KV cache management, in-flight batching, quantization (INT8, FP8, INT4), tensor parallelism, and custom CUDA kernels to maximize throughput and minimize latency."
+  },
+  {
+    "id": 71,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the key advantage of INT8 quantization for LLM deployment?",
+    "choices": [
+      "It increases the model's training speed",
+      "It reduces the model size by approximately 2x compared to FP16 while maintaining acceptable accuracy for many use cases",
+      "It improves model accuracy over FP32",
+      "It eliminates the need for GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "INT8 quantization converts model weights from 16-bit floating point (2 bytes per parameter) to 8-bit integers (1 byte per parameter), approximately halving the model size and memory requirements. This enables fitting larger models on fewer GPUs and increases inference throughput, with typically minimal accuracy degradation."
+  },
+  {
+    "id": 72,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is dynamic batching in the context of inference serving?",
+    "choices": [
+      "Changing the batch size during training",
+      "Automatically grouping incoming inference requests into batches to maximize GPU utilization",
+      "Splitting a single request into multiple batches",
+      "Using different batch sizes for different model layers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Dynamic batching automatically collects incoming inference requests and groups them into batches on-the-fly to maximize GPU utilization. Instead of processing requests one at a time, the server waits briefly to accumulate requests (up to a configurable timeout or batch size) before processing them together."
+  },
+  {
+    "id": 73,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is speculative decoding and how does it accelerate LLM inference?",
+    "choices": [
+      "Running the model on speculative hardware",
+      "Using a smaller draft model to generate candidate tokens that are then verified by the larger model in parallel, reducing overall latency",
+      "Generating multiple independent responses simultaneously",
+      "Predicting which model layer to skip during inference"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Speculative decoding uses a smaller, faster 'draft' model to generate several candidate tokens ahead. The larger target model then verifies these candidates in a single forward pass (which can evaluate multiple tokens in parallel). When the draft model's predictions are correct, this effectively generates multiple tokens per large model forward pass."
+  },
+  {
+    "id": 74,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the primary tradeoff between latency and throughput in LLM inference?",
+    "choices": [
+      "There is no tradeoff; both always improve together",
+      "Larger batch sizes increase throughput but may increase per-request latency due to longer queue wait times",
+      "Smaller models always have better latency and throughput",
+      "Latency and throughput are the same metric"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Larger batch sizes improve throughput (tokens per second across all requests) by better utilizing GPU compute, but individual requests may experience higher latency due to waiting for a batch to form and the increased computation time per batch. Optimizing for one often comes at the expense of the other."
+  },
+  {
+    "id": 75,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is continuous batching (in-flight batching) and why is it important for LLM serving?",
+    "choices": [
+      "Processing requests in a fixed order",
+      "A technique that allows new requests to join a running batch and completed requests to leave without waiting for the entire batch to finish",
+      "Batching requests by their length",
+      "Running inference continuously without stopping"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Continuous batching (or in-flight batching) allows the inference server to insert new requests into a running batch as soon as a slot opens (when another request finishes generating). This dramatically improves GPU utilization and throughput compared to static batching, where the server must wait for all requests in a batch to complete."
+  },
+  {
+    "id": 76,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is model quantization's primary purpose in LLM deployment?",
+    "choices": [
+      "Increasing the training data size",
+      "Reducing model memory footprint and improving inference speed by representing weights and activations with fewer bits",
+      "Adding more parameters to the model",
+      "Converting the model from one framework to another"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Quantization reduces the precision of model weights (and optionally activations) from higher precision (e.g., FP32, FP16) to lower precision (e.g., INT8, INT4). This reduces memory requirements, enables faster computation on quantization-aware hardware, and allows deployment of larger models on smaller GPU configurations."
+  },
+  {
+    "id": 77,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the difference between weight-only quantization and weight-activation quantization?",
+    "choices": [
+      "They are identical",
+      "Weight-only quantization quantizes only the model weights, while weight-activation quantization quantizes both weights and activations during inference",
+      "Weight-only quantization is always more accurate",
+      "Weight-activation quantization doesn't reduce model size"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Weight-only quantization keeps activations in higher precision (FP16) and only quantizes the stored weights, primarily reducing memory. Weight-activation quantization quantizes both weights and activations, enabling faster integer arithmetic on compatible hardware but requiring more careful calibration to maintain accuracy."
+  },
+  {
+    "id": 78,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the GPTQ quantization method?",
+    "choices": [
+      "A pre-training technique for GPT models",
+      "A post-training quantization method that uses approximate second-order information to quantize weights with minimal accuracy loss",
+      "A new model architecture",
+      "A fine-tuning method for GPT models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GPTQ is a post-training quantization technique that uses an approximate second-order method to optimally quantize weights one layer at a time. It compensates for quantization error by adjusting remaining weights, enabling accurate 4-bit and 3-bit quantization of large models without retraining."
+  },
+  {
+    "id": 79,
+    "domain": "LLM Deployment and Inference",
+    "question": "In LLM inference, what are the two main phases and their characteristics?",
+    "choices": [
+      "Training phase and testing phase",
+      "Prefill phase (compute-bound, processes all input tokens) and decode phase (memory-bound, generates tokens one at a time)",
+      "Upload phase and download phase",
+      "Encoding phase and compression phase"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LLM inference has two phases: the prefill phase processes all input tokens in parallel (compute-bound, as it involves matrix multiplications) and populates the KV cache. The decode phase then generates output tokens one at a time autoregressively (memory-bound, as each step requires reading the full KV cache and model weights for a single token)."
+  },
+  {
+    "id": 80,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is PagedAttention and what problem does it solve?",
+    "choices": [
+      "A method for paginating long text outputs",
+      "A memory management technique that allocates KV cache in non-contiguous pages, reducing memory waste and fragmentation",
+      "A new type of attention mechanism for transformers",
+      "A pagination system for model weights"
+    ],
+    "correctAnswer": 1,
+    "explanation": "PagedAttention (used in vLLM) manages the KV cache by allocating it in fixed-size pages that can be non-contiguous in physical GPU memory, similar to virtual memory in operating systems. This eliminates memory fragmentation and waste from pre-allocated contiguous buffers, dramatically improving memory efficiency and enabling higher throughput."
+  },
+  {
+    "id": 81,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the purpose of model distillation in LLM deployment?",
+    "choices": [
+      "Combining multiple models into one",
+      "Training a smaller 'student' model to mimic the behavior of a larger 'teacher' model, producing a more efficient model for deployment",
+      "Removing unnecessary training data",
+      "Converting the model to a different programming language"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Knowledge distillation trains a smaller student model to replicate the outputs (soft labels/logits) of a larger teacher model. The student model learns to approximate the teacher's behavior while being significantly smaller and faster, making it more practical for deployment with limited resources."
+  },
+  {
+    "id": 82,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is FP8 quantization and what NVIDIA hardware supports it natively?",
+    "choices": [
+      "A 16-bit format supported on all NVIDIA GPUs",
+      "An 8-bit floating-point format natively supported on NVIDIA H100 (Hopper) and newer GPUs, offering a balance between INT8 speed and FP16 accuracy",
+      "A software-only emulation technique",
+      "A format exclusively for training, not inference"
+    ],
+    "correctAnswer": 1,
+    "explanation": "FP8 is an 8-bit floating-point format with two variants (E4M3 for weights, E5M2 for gradients) natively supported by NVIDIA's Hopper architecture (H100). It provides the computational benefits of 8-bit precision while maintaining the floating-point representation that is more forgiving than integer quantization, reducing the accuracy gap."
+  },
+  {
+    "id": 83,
+    "domain": "LLM Deployment and Inference",
+    "question": "When deploying an LLM for a chatbot application with strict latency requirements, which metric is most critical?",
+    "choices": [
+      "Total training time",
+      "Time to first token (TTFT) and inter-token latency",
+      "Model parameter count",
+      "Training data size"
+    ],
+    "correctAnswer": 1,
+    "explanation": "For interactive chatbot applications, Time to First Token (TTFT) measures how quickly the user sees the first response token, and inter-token latency determines the perceived generation speed. These directly impact user experience and are the critical metrics for latency-sensitive deployments."
+  },
+  {
+    "id": 84,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the AWQ (Activation-aware Weight Quantization) method?",
+    "choices": [
+      "A method for activating specific model layers",
+      "A quantization technique that identifies and protects the most important weights based on activation distributions rather than weight magnitudes",
+      "A training method for weight initialization",
+      "An activation function for quantized models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWQ observes that not all weights are equally important for model quality. It analyzes activation distributions to identify the small percentage of weight channels that are critical (corresponding to large activations) and protects them during quantization, achieving better accuracy than naive weight quantization at the same bit-width."
+  },
+  {
+    "id": 85,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the benefit of using NVIDIA TensorRT for model optimization?",
+    "choices": [
+      "It converts models to run on CPUs only",
+      "It optimizes neural network graphs through layer fusion, precision calibration, and kernel auto-tuning for maximum inference performance on NVIDIA GPUs",
+      "It provides a training framework for transformers",
+      "It stores models in a database"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TensorRT optimizes neural network models by performing graph optimizations (layer fusion, kernel selection), precision calibration, and hardware-specific auto-tuning. These optimizations maximize inference performance on NVIDIA GPUs by reducing memory bandwidth usage, minimizing kernel launches, and leveraging Tensor Cores."
+  },
+  {
+    "id": 86,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is model pruning in the context of LLM optimization?",
+    "choices": [
+      "Adding more parameters to the model",
+      "Removing less important weights or structures from the model to reduce size and computation while maintaining performance",
+      "Training the model on a smaller dataset",
+      "Reducing the batch size during inference"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pruning removes redundant or less important weights (unstructured pruning) or entire neurons/attention heads (structured pruning) from the model. This reduces model size and computational requirements. Structured pruning is particularly useful as it produces models that can be accelerated on standard hardware without specialized sparse computation support."
+  },
+  {
+    "id": 87,
+    "domain": "LLM Deployment and Inference",
+    "question": "What challenge does the memory-bandwidth bottleneck pose for LLM inference?",
+    "choices": [
+      "It limits the model training speed",
+      "The decode phase requires reading the entire model weights and KV cache for each generated token, making it limited by memory bandwidth rather than compute",
+      "It prevents the model from fitting in memory",
+      "It causes the model to generate incorrect tokens"
+    ],
+    "correctAnswer": 1,
+    "explanation": "During the autoregressive decode phase, each generated token requires reading the entire model weights and accumulated KV cache from GPU memory. Since only a single token's worth of computation is performed per read, the process is memory-bandwidth-bound. This is why batching multiple requests together improves GPU utilization."
+  },
+  {
+    "id": 88,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is INT4 quantization and what is its primary tradeoff?",
+    "choices": [
+      "A high-precision format with no tradeoffs",
+      "Representing weights with just 4 bits, providing ~4x memory reduction over FP16 but with greater potential accuracy degradation",
+      "A 4-byte integer format",
+      "A quantization method only for attention layers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "INT4 quantization represents each weight with only 4 bits (0.5 bytes), providing approximately 4x memory reduction compared to FP16. This aggressive quantization enables running very large models on limited hardware but introduces more accuracy degradation. Advanced methods like GPTQ and AWQ help minimize this loss."
+  },
+  {
+    "id": 89,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the role of a load balancer when deploying multiple LLM inference replicas?",
+    "choices": [
+      "Training the model across replicas",
+      "Distributing incoming inference requests across multiple model replicas to handle higher traffic and provide redundancy",
+      "Reducing the model size",
+      "Managing the model's vocabulary"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A load balancer distributes incoming inference requests across multiple model replicas running on different GPUs or nodes. This enables handling higher request volumes, provides fault tolerance if a replica fails, and helps maintain consistent latency by preventing any single replica from being overwhelmed."
+  },
+  {
+    "id": 90,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the purpose of KV cache compression techniques during inference?",
+    "choices": [
+      "To compress the input text",
+      "To reduce the memory footprint of stored key-value pairs for long sequences, enabling longer context or larger batch sizes",
+      "To speed up model loading",
+      "To reduce the vocabulary size"
+    ],
+    "correctAnswer": 1,
+    "explanation": "KV cache compression techniques (such as quantizing KV cache to lower precision, or evicting less important entries) reduce the memory consumed by cached key-value pairs. This is critical for long-sequence or high-batch inference where the KV cache can dominate GPU memory, enabling longer context windows or more concurrent requests."
+  },
+  {
+    "id": 91,
+    "domain": "LLM Deployment and Inference",
+    "question": "What metric measures the total number of tokens an LLM inference system can generate per second across all concurrent requests?",
+    "choices": [
+      "Time to first token (TTFT)",
+      "Throughput (tokens per second)",
+      "Model accuracy",
+      "Training FLOPS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Throughput measures the total tokens generated per second across all requests being served. It is a system-level metric that reflects the overall capacity of the inference deployment. Higher throughput means the system can serve more users simultaneously, reducing cost per token."
+  },
+  {
+    "id": 92,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is model serving with multiple GPU tensor parallelism used for during inference?",
+    "choices": [
+      "Training the model faster",
+      "Splitting a single model across multiple GPUs to fit larger models in memory and reduce per-token latency",
+      "Running multiple different models simultaneously",
+      "Backing up the model across GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tensor parallelism during inference splits model layers across multiple GPUs, allowing models too large for a single GPU to be served. It also reduces latency because each GPU handles a portion of the computation. This requires high-bandwidth interconnects (NVLink) between GPUs for efficient communication."
+  },
+  {
+    "id": 93,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is ONNX Runtime's role in model deployment?",
+    "choices": [
+      "It is a training framework for transformers",
+      "It is a cross-platform inference engine that can run models exported in the ONNX format with hardware-specific optimizations",
+      "It is a database for storing models",
+      "It is a tokenization library"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ONNX Runtime is an inference engine that runs models in the Open Neural Network Exchange (ONNX) format. It provides cross-platform support and applies hardware-specific optimizations including graph optimizations, operator fusion, and hardware acceleration through execution providers for GPUs, CPUs, and other hardware."
+  },
+  {
+    "id": 94,
+    "domain": "LLM Deployment and Inference",
+    "question": "What does the term 'time to first token' (TTFT) measure in LLM inference?",
+    "choices": [
+      "The total time to generate all output tokens",
+      "The elapsed time from when a request is received to when the first output token is generated",
+      "The time to load the model into memory",
+      "The time to tokenize the input"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TTFT measures the latency from request submission to the generation of the first output token. It includes request queuing time, input processing (prefill), and the first token generation. Low TTFT is critical for interactive applications where users expect a quick initial response."
+  },
+  {
+    "id": 95,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the FlashAttention optimization and how does it improve inference?",
+    "choices": [
+      "A new attention mechanism that replaces transformers",
+      "An IO-aware exact attention algorithm that reduces memory reads/writes by fusing operations and using tiling, without approximating attention",
+      "A technique for skipping attention computation",
+      "A hardware accelerator for attention"
+    ],
+    "correctAnswer": 1,
+    "explanation": "FlashAttention is an IO-aware attention algorithm that computes exact attention while minimizing HBM (high-bandwidth memory) reads and writes. By using tiling to keep data in fast SRAM and fusing multiple operations, it achieves significant speedups and memory savings without any approximation of the attention computation."
+  },
+  {
+    "id": 96,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the Medusa decoding technique?",
+    "choices": [
+      "A decoding method that requires three separate models",
+      "A parallel decoding method that adds multiple prediction heads to the model, enabling it to predict several future tokens simultaneously",
+      "A technique for decoding encrypted model weights",
+      "A method for decoding images with language models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Medusa adds extra prediction heads on top of the last hidden layer of the LLM, where each head predicts a different future token position. During inference, multiple candidate continuations are generated and verified in a single forward pass using a tree-based attention structure, accelerating generation without needing a separate draft model."
+  },
+  {
+    "id": 97,
+    "domain": "LLM Deployment and Inference",
+    "question": "A 13B parameter model quantized to 4-bit precision requires approximately how much GPU memory for the weights?",
+    "choices": [
+      "3.25 GB",
+      "6.5 GB",
+      "13 GB",
+      "26 GB"
+    ],
+    "correctAnswer": 1,
+    "explanation": "At 4-bit (0.5 bytes per parameter): 13B x 0.5 bytes = 6.5 GB for the model weights. This is a significant reduction from the 26 GB required at FP16 (2 bytes per parameter) and makes the model deployable on a single consumer GPU with 8 GB of memory (accounting for some overhead for KV cache and activations)."
+  },
+  {
+    "id": 98,
+    "domain": "LLM Deployment and Inference",
+    "question": "What is the difference between static batching and continuous batching for LLM serving?",
+    "choices": [
+      "There is no difference",
+      "Static batching waits for all sequences in a batch to complete before starting new ones, while continuous batching can swap finished sequences with new ones mid-generation",
+      "Static batching is always faster",
+      "Continuous batching requires more memory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Static batching groups requests into a fixed batch and waits for all sequences to finish generating before accepting new requests. This wastes GPU cycles on padding for shorter sequences. Continuous batching allows completed sequences to be replaced with new ones immediately, dramatically improving GPU utilization and throughput."
+  },
+  {
+    "id": 99,
+    "domain": "RAG and LLM Applications",
+    "question": "What is Retrieval Augmented Generation (RAG)?",
+    "choices": [
+      "A method for training models on augmented data",
+      "A technique that enhances LLM responses by retrieving relevant information from external knowledge sources and including it in the prompt context",
+      "A type of model architecture for image generation",
+      "A method for reducing model hallucinations by retraining"
+    ],
+    "correctAnswer": 1,
+    "explanation": "RAG combines information retrieval with text generation. When a query is received, relevant documents are retrieved from an external knowledge base (using vector similarity search) and provided as context in the LLM's prompt. This allows the model to generate responses grounded in specific, up-to-date information without retraining."
+  },
+  {
+    "id": 100,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the role of a vector database in a RAG pipeline?",
+    "choices": [
+      "To store the LLM model weights",
+      "To store and efficiently search document embeddings for semantic similarity retrieval",
+      "To train the embedding model",
+      "To generate text responses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A vector database stores document chunk embeddings and provides efficient approximate nearest neighbor (ANN) search capabilities. When a user query is embedded, the vector database quickly finds the most semantically similar document chunks, which are then provided as context to the LLM for generating grounded responses."
+  },
+  {
+    "id": 101,
+    "domain": "RAG and LLM Applications",
+    "question": "What is 'chunking' in the context of RAG and why is it important?",
+    "choices": [
+      "Splitting the model into smaller pieces",
+      "Breaking documents into smaller segments for embedding and retrieval, where chunk size affects retrieval precision and context relevance",
+      "Compressing the vector database",
+      "Dividing the GPU memory into segments"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chunking divides source documents into smaller text segments before embedding. Chunk size is critical: too large chunks may contain irrelevant information and exceed context limits; too small chunks may lose important context. Common strategies include fixed-size chunking, sentence-based, paragraph-based, and recursive splitting with overlap."
+  },
+  {
+    "id": 102,
+    "domain": "RAG and LLM Applications",
+    "question": "What is prompt engineering?",
+    "choices": [
+      "Engineering the hardware to run LLMs faster",
+      "The practice of crafting and optimizing input prompts to guide LLM behavior and improve output quality without modifying model weights",
+      "A technique for reducing model parameters",
+      "A method for training tokenizers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Prompt engineering involves carefully designing the input text (prompt) to elicit desired behaviors from an LLM. This includes structuring instructions, providing examples, specifying output format, and using techniques like chain-of-thought prompting. It is a cost-effective way to improve model outputs without fine-tuning."
+  },
+  {
+    "id": 103,
+    "domain": "RAG and LLM Applications",
+    "question": "What is chain-of-thought (CoT) prompting?",
+    "choices": [
+      "Chaining multiple LLM models together",
+      "A technique that instructs the model to break down complex problems into intermediate reasoning steps before providing a final answer",
+      "A method for training the model on sequential data",
+      "A tokenization technique for long sequences"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chain-of-thought prompting encourages the model to generate intermediate reasoning steps before arriving at a final answer. This technique significantly improves performance on complex reasoning tasks (math, logic, multi-step problems) by making the reasoning process explicit and allowing the model to build upon intermediate results."
+  },
+  {
+    "id": 104,
+    "domain": "RAG and LLM Applications",
+    "question": "What is few-shot learning in the context of LLMs?",
+    "choices": [
+      "Training the model with very few epochs",
+      "Providing a small number of input-output examples in the prompt to demonstrate the desired task format and behavior",
+      "Using a model with very few parameters",
+      "Fine-tuning with a tiny dataset"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Few-shot learning provides several example input-output pairs in the prompt to demonstrate the desired task. The model uses these examples as a pattern to follow when processing new inputs. This leverages the model's in-context learning ability without any weight updates, making it a flexible and quick approach for many tasks."
+  },
+  {
+    "id": 105,
+    "domain": "RAG and LLM Applications",
+    "question": "What are LLM guardrails?",
+    "choices": [
+      "Physical barriers around GPU servers",
+      "Safety mechanisms and filters that constrain LLM inputs and outputs to prevent harmful, off-topic, or policy-violating content",
+      "Hardware protection for model weights",
+      "Redundant model replicas for reliability"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Guardrails are programmable rules and filters applied to LLM inputs and/or outputs to ensure safe, compliant behavior. They can prevent prompt injection attacks, filter toxic content, enforce topic boundaries, validate output format, and ensure responses comply with organizational policies. NVIDIA NeMo Guardrails is a framework for implementing these."
+  },
+  {
+    "id": 106,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the purpose of an embedding model in a RAG system?",
+    "choices": [
+      "To generate the final text response",
+      "To convert text (both documents and queries) into dense vector representations that capture semantic meaning for similarity search",
+      "To store documents in a database",
+      "To fine-tune the LLM"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The embedding model converts text into dense vector representations (embeddings) in a shared semantic space. Both documents and queries are embedded using the same model, allowing semantic similarity comparison. The quality of the embedding model directly impacts retrieval accuracy in RAG systems."
+  },
+  {
+    "id": 107,
+    "domain": "RAG and LLM Applications",
+    "question": "What is NVIDIA NeMo framework primarily designed for?",
+    "choices": [
+      "Only image generation",
+      "Building, customizing, and deploying generative AI models including LLMs, with tools for data curation, training, fine-tuning, and deployment",
+      "Only database management",
+      "Only web development"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA NeMo is an end-to-end framework for building, customizing, and deploying generative AI models. It provides tools for data curation, pre-training, fine-tuning (including PEFT methods), alignment (RLHF/DPO), and deployment of LLMs, speech, and multimodal models, integrated with NVIDIA's GPU-optimized infrastructure."
+  },
+  {
+    "id": 108,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the advantage of using hybrid search (combining keyword and semantic search) in a RAG system?",
+    "choices": [
+      "It reduces the need for an embedding model",
+      "It leverages both exact keyword matching and semantic understanding, improving retrieval accuracy for diverse query types",
+      "It eliminates the need for a vector database",
+      "It is always faster than pure semantic search"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Hybrid search combines traditional keyword search (BM25) with semantic vector search. Keyword search excels at finding exact terms and names, while semantic search captures meaning and handles paraphrases. Combining both improves retrieval robustness, as different query types may benefit more from one approach than the other."
+  },
+  {
+    "id": 109,
+    "domain": "RAG and LLM Applications",
+    "question": "What is prompt injection and why is it a concern for LLM applications?",
+    "choices": [
+      "A method for improving model performance",
+      "An attack where malicious instructions are embedded in user input or data to manipulate the LLM into performing unintended actions",
+      "A technique for adding more examples to a prompt",
+      "A hardware vulnerability in GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Prompt injection is a security vulnerability where an attacker crafts input that overrides or manipulates the LLM's system instructions. This can cause the model to reveal confidential information, bypass safety filters, or perform unintended actions. It is a significant concern for production LLM applications and requires guardrails and input validation."
+  },
+  {
+    "id": 110,
+    "domain": "RAG and LLM Applications",
+    "question": "What is LangChain primarily used for?",
+    "choices": [
+      "Training LLMs from scratch",
+      "A framework for building LLM-powered applications by chaining together components like prompts, LLMs, tools, and memory",
+      "A blockchain technology for AI",
+      "A hardware driver for GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LangChain is an open-source framework that simplifies building applications powered by LLMs. It provides abstractions for chaining together various components including prompt templates, LLM calls, document retrieval, tools, and memory systems, enabling developers to build complex LLM applications like RAG systems, agents, and chatbots."
+  },
+  {
+    "id": 111,
+    "domain": "RAG and LLM Applications",
+    "question": "What is a key challenge with naive RAG implementations?",
+    "choices": [
+      "They require too much GPU memory",
+      "Retrieved context may be irrelevant, fragmented, or miss important information, leading to poor or hallucinated responses",
+      "They are too fast for practical use",
+      "They cannot handle text input"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Naive RAG can retrieve irrelevant documents due to embedding similarity limitations, miss relevant context due to poor chunking, or return fragmented information that lacks necessary context. These retrieval failures lead to low-quality or hallucinated responses. Advanced RAG techniques address these through re-ranking, query transformation, and improved chunking strategies."
+  },
+  {
+    "id": 112,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the purpose of a re-ranker in an advanced RAG pipeline?",
+    "choices": [
+      "To rank the model parameters by importance",
+      "To re-score and reorder initially retrieved documents based on more precise relevance assessment before passing them to the LLM",
+      "To rank different LLM models",
+      "To sort the output tokens"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A re-ranker takes the initially retrieved documents and performs a more computationally expensive but accurate relevance scoring (often using a cross-encoder model). This improves the quality of context provided to the LLM by ensuring the most relevant passages are ranked highest, even if the initial retrieval stage produced noisy results."
+  },
+  {
+    "id": 113,
+    "domain": "RAG and LLM Applications",
+    "question": "What is zero-shot prompting?",
+    "choices": [
+      "Training a model with no data",
+      "Asking the model to perform a task using only instructions without providing any examples in the prompt",
+      "A model that cannot make predictions",
+      "A technique requiring exactly zero tokens"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Zero-shot prompting provides only task instructions to the model without any demonstration examples. The model relies entirely on its pre-trained knowledge to understand and perform the task. This is the simplest prompting approach and works well for tasks the model has been exposed to during pre-training."
+  },
+  {
+    "id": 114,
+    "domain": "RAG and LLM Applications",
+    "question": "What is NeMo Guardrails?",
+    "choices": [
+      "A hardware safety feature for NVIDIA GPUs",
+      "An NVIDIA toolkit for adding programmable safety, security, and behavioral constraints to LLM-based applications",
+      "A network firewall for GPU clusters",
+      "A model training safety protocol"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NeMo Guardrails is an open-source toolkit from NVIDIA that allows developers to add programmable guardrails to LLM applications. It enables defining conversation flows, topical boundaries, safety filters, and fact-checking mechanisms using a Colang configuration language, helping ensure LLM applications behave safely and within defined boundaries."
+  },
+  {
+    "id": 115,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the purpose of chunk overlap in RAG document preprocessing?",
+    "choices": [
+      "To increase the storage requirements",
+      "To preserve context at chunk boundaries so that information spanning two chunks is not lost during retrieval",
+      "To duplicate all documents for backup",
+      "To slow down the retrieval process"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chunk overlap ensures that text at the boundary between two adjacent chunks is included in both chunks. Without overlap, sentences or ideas that span a chunk boundary could be split, potentially losing important context. A typical overlap of 10-20% of the chunk size helps maintain contextual continuity across chunks."
+  },
+  {
+    "id": 116,
+    "domain": "RAG and LLM Applications",
+    "question": "What is an LLM agent?",
+    "choices": [
+      "A human operator who monitors the LLM",
+      "An LLM-powered system that can reason about tasks, plan steps, and interact with external tools and APIs to accomplish goals",
+      "A type of embedding model",
+      "A specialized tokenizer"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An LLM agent is a system where an LLM acts as a reasoning engine that can plan actions, use external tools (APIs, databases, calculators, code execution), observe results, and iterate to accomplish complex goals. The agent decides which tools to use and when, going beyond simple prompt-response interactions."
+  },
+  {
+    "id": 117,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the advantage of using metadata filtering in vector database queries for RAG?",
+    "choices": [
+      "It eliminates the need for vector embeddings",
+      "It narrows the search space using document attributes (date, source, category) before or during similarity search, improving precision",
+      "It speeds up embedding generation",
+      "It increases the number of retrieved documents"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Metadata filtering allows pre-filtering or post-filtering of documents based on structured attributes (like date range, document type, department, or access level) in addition to semantic similarity. This significantly improves retrieval precision by limiting results to documents that match specific criteria relevant to the query."
+  },
+  {
+    "id": 118,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the role of system prompts in LLM applications?",
+    "choices": [
+      "They contain the model's weights",
+      "They provide persistent instructions that define the model's behavior, persona, and constraints across all interactions in a session",
+      "They are used only during model training",
+      "They reduce inference latency"
+    ],
+    "correctAnswer": 1,
+    "explanation": "System prompts are instructions provided at the beginning of a conversation that define the LLM's role, behavior guidelines, output format requirements, and constraints. They persist throughout the conversation and influence all subsequent responses, allowing developers to customize the model's behavior for specific applications."
+  },
+  {
+    "id": 119,
+    "domain": "RAG and LLM Applications",
+    "question": "What is query transformation in advanced RAG systems?",
+    "choices": [
+      "Translating queries between languages",
+      "Modifying or expanding the user query to improve retrieval, such as rewriting, decomposing complex queries, or generating hypothetical documents",
+      "Removing the query entirely",
+      "Encrypting the query for security"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Query transformation modifies the original user query to improve retrieval results. Techniques include query rewriting for clarity, HyDE (generating a hypothetical document to use for retrieval), query decomposition (breaking complex queries into sub-queries), and step-back prompting (asking a more general question first). These address the vocabulary mismatch between user queries and documents."
+  },
+  {
+    "id": 120,
+    "domain": "RAG and LLM Applications",
+    "question": "What is the approximate nearest neighbor (ANN) search and why is it used instead of exact search in vector databases?",
+    "choices": [
+      "ANN is always more accurate than exact search",
+      "ANN trades a small amount of accuracy for dramatically faster search speeds, making it practical for large-scale vector databases with millions of documents",
+      "ANN requires less storage space",
+      "ANN only works with small databases"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Exact nearest neighbor search requires comparing the query vector against every vector in the database, which becomes prohibitively slow for millions of documents. ANN algorithms (like HNSW, IVF, ScaNN) use indexing structures to find approximately nearest neighbors much faster, with a small and configurable accuracy tradeoff that is acceptable for most RAG applications."
+  },
+  {
+    "id": 121,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "How much HBM (High Bandwidth Memory) does a single NVIDIA H100 SXM GPU have?",
+    "choices": [
+      "24 GB",
+      "40 GB",
+      "80 GB",
+      "160 GB"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The NVIDIA H100 SXM GPU is equipped with 80 GB of HBM3 memory with a bandwidth of over 3 TB/s. This large memory capacity is essential for hosting large language models and their associated KV caches during inference, or for training with large batch sizes."
+  },
+  {
+    "id": 122,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is NVLink and why is it critical for LLM training?",
+    "choices": [
+      "A type of GPU core",
+      "A high-bandwidth, low-latency interconnect between GPUs that enables efficient tensor parallelism and data exchange during distributed training",
+      "A software library for GPU programming",
+      "A network protocol for internet connectivity"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVLink is NVIDIA's high-speed GPU-to-GPU interconnect providing much higher bandwidth than PCIe. For LLM training, tensor parallelism requires frequent communication between GPUs (exchanging partial results within layers), and NVLink's high bandwidth (up to 900 GB/s per GPU on H100) makes this communication efficient."
+  },
+  {
+    "id": 123,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the NVIDIA DGX H100 system?",
+    "choices": [
+      "A single GPU card",
+      "A purpose-built AI system containing 8 H100 GPUs interconnected with NVLink, designed for large-scale AI training and inference",
+      "A software development kit",
+      "A cloud computing service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The DGX H100 is NVIDIA's flagship AI system containing 8 H100 SXM GPUs interconnected via NVLink Switch (providing 900 GB/s per GPU), along with high-performance CPUs, networking, and storage. With 640 GB of total GPU memory, it is designed as a building block for large-scale LLM training and inference clusters."
+  },
+  {
+    "id": 124,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is HBM (High Bandwidth Memory) and why is it important for LLMs?",
+    "choices": [
+      "A type of CPU cache",
+      "A stacked DRAM technology providing very high memory bandwidth, critical for the memory-bandwidth-bound operations common in LLM inference",
+      "A networking technology for GPU clusters",
+      "A type of storage device"
+    ],
+    "correctAnswer": 1,
+    "explanation": "HBM is a high-bandwidth memory technology that uses vertically stacked DRAM dies connected through silicon interposers. It provides significantly higher bandwidth than traditional GDDR memory. For LLMs, where inference is often memory-bandwidth-bound (especially during token generation), HBM's high bandwidth directly translates to faster inference."
+  },
+  {
+    "id": 125,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "To train a 175B parameter model like GPT-3 from scratch, approximately how much GPU memory is needed at minimum?",
+    "choices": [
+      "175 GB",
+      "350 GB",
+      "Approximately 3-4 TB (accounting for model weights, optimizer states, gradients, and activations)",
+      "40 GB"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Training a 175B parameter model requires memory for: model parameters (~350 GB in FP16), optimizer states (~700 GB for Adam with FP32 copies), gradients (~350 GB), and activations (variable, can be hundreds of GB). The total easily exceeds 1.4 TB minimum, and with activations can reach 3-4 TB, requiring many GPUs with parallelism strategies."
+  },
+  {
+    "id": 126,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the NVIDIA A100 GPU's memory capacity in its highest configuration?",
+    "choices": [
+      "16 GB",
+      "40 GB",
+      "80 GB",
+      "160 GB"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The NVIDIA A100 is available in 40 GB and 80 GB HBM2e variants. The 80 GB version (SXM form factor) provides the highest memory capacity, with memory bandwidth of up to 2 TB/s. The larger memory is particularly valuable for training and serving large language models."
+  },
+  {
+    "id": 127,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What are Tensor Cores on NVIDIA GPUs?",
+    "choices": [
+      "CPU cores used for tensor operations",
+      "Specialized hardware units that accelerate matrix multiplication operations used in deep learning, supporting mixed precision formats",
+      "Cooling systems for the GPU",
+      "Memory controllers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tensor Cores are specialized processing units on NVIDIA GPUs designed to accelerate matrix multiply-and-accumulate operations that are fundamental to deep learning. They support various precision formats (FP16, BF16, TF32, FP8, INT8) and provide significant throughput improvements over standard CUDA cores for training and inference workloads."
+  },
+  {
+    "id": 128,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What networking technology is used to connect multiple DGX systems in an AI cluster?",
+    "choices": [
+      "Standard Ethernet only",
+      "InfiniBand, providing high-bandwidth, low-latency networking for efficient multi-node distributed training",
+      "Bluetooth",
+      "USB-C connections"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA's DGX SuperPOD and large-scale AI clusters use InfiniBand networking (typically NVIDIA ConnectX adapters and Quantum switches) to connect multiple DGX nodes. InfiniBand provides the high bandwidth (up to 400 Gb/s per port) and low latency needed for efficient gradient synchronization and data exchange in distributed LLM training."
+  },
+  {
+    "id": 129,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "How do you estimate the minimum number of GPUs needed to serve a 70B parameter model in FP16?",
+    "choices": [
+      "1 GPU is always sufficient",
+      "Divide the model memory requirement (140 GB for FP16) by the GPU memory, accounting for KV cache and overhead. At minimum 2x 80 GB GPUs",
+      "The number of GPUs equals the number of model layers",
+      "The number of GPUs equals the number of attention heads"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A 70B model in FP16 requires ~140 GB for weights alone. With 80 GB GPUs (like H100 or A100), you need at least 2 GPUs just for the weights. Adding KV cache and runtime overhead, you typically need 2-4 GPUs depending on batch size and sequence length. Using quantization (INT8 or INT4) can reduce the GPU requirement."
+  },
+  {
+    "id": 130,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the advantage of the NVIDIA H100's Transformer Engine?",
+    "choices": [
+      "It is a separate chip for running transformers",
+      "It automatically manages FP8 precision for transformer workloads, dynamically choosing between FP8 and FP16 per layer to maximize performance while maintaining accuracy",
+      "It replaces the need for CUDA cores",
+      "It only works with encoder models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Transformer Engine on H100 GPUs intelligently manages precision on a per-layer, per-iteration basis. It automatically applies FP8 precision where it maintains accuracy and falls back to higher precision when needed, providing up to 4x speedup for transformer training compared to FP16 on the previous generation A100."
+  },
+  {
+    "id": 131,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is GPU memory fragmentation and how does it affect LLM serving?",
+    "choices": [
+      "Physical damage to GPU memory chips",
+      "When available GPU memory is split into non-contiguous small blocks that cannot be used for large allocations like KV caches, reducing effective memory utilization",
+      "When GPU memory is completely full",
+      "An error in memory addressing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Memory fragmentation occurs when GPU memory becomes divided into small, non-contiguous free blocks. For LLM serving, KV caches traditionally require contiguous memory allocations. Fragmentation can prevent allocating new KV caches even when total free memory is sufficient, reducing the number of concurrent requests. PagedAttention addresses this problem."
+  },
+  {
+    "id": 132,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the NVSwitch and what role does it play in multi-GPU systems?",
+    "choices": [
+      "A software library for switching between GPU drivers",
+      "A high-bandwidth switch chip that enables all-to-all NVLink communication between all GPUs in a system, avoiding bottlenecks",
+      "A power management unit for GPUs",
+      "A display output connector"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVSwitch is a custom switch chip that connects all NVLink-enabled GPUs in a system with full bisection bandwidth, enabling any GPU to communicate with any other GPU at full NVLink speed simultaneously. In DGX systems, NVSwitch eliminates communication bottlenecks for tensor parallelism and other multi-GPU operations."
+  },
+  {
+    "id": 133,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the difference between PCIe and NVLink bandwidth for GPU interconnects?",
+    "choices": [
+      "PCIe is always faster than NVLink",
+      "NVLink provides significantly higher bandwidth (up to 900 GB/s on H100) compared to PCIe Gen5 (up to 128 GB/s bidirectional), making it critical for multi-GPU LLM workloads",
+      "They provide identical bandwidth",
+      "PCIe is only used for storage, not GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVLink provides dramatically higher GPU-to-GPU bandwidth than PCIe. On H100, NVLink provides up to 900 GB/s bidirectional bandwidth, roughly 7x faster than PCIe Gen5's ~128 GB/s. This bandwidth advantage is critical for tensor parallelism in LLM training and inference where GPUs must frequently exchange large amounts of data."
+  },
+  {
+    "id": 134,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the NVIDIA DGX SuperPOD?",
+    "choices": [
+      "A single GPU server",
+      "A large-scale AI infrastructure that connects multiple DGX systems with high-speed networking for enterprise-scale LLM training",
+      "A portable GPU device",
+      "A cloud-only service with no physical hardware"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DGX SuperPOD is NVIDIA's scalable AI infrastructure solution that connects multiple DGX systems (e.g., 32 or more DGX H100 nodes) using InfiniBand networking. This creates a unified computing cluster with hundreds of GPUs capable of training the largest language models, with shared storage and cluster management capabilities."
+  },
+  {
+    "id": 135,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "When choosing between using 4 GPUs with tensor parallelism versus 4 GPUs with data parallelism for inference, what is the key consideration?",
+    "choices": [
+      "They always produce the same results",
+      "Tensor parallelism reduces per-request latency by splitting computation across GPUs, while data parallelism increases throughput by processing separate requests on each GPU",
+      "Data parallelism always provides lower latency",
+      "Tensor parallelism requires no inter-GPU communication"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tensor parallelism splits a single model across GPUs, reducing per-request latency (each GPU handles part of each layer), but requires high-bandwidth communication between GPUs. Data parallelism runs complete model replicas on each GPU, serving separate requests simultaneously for higher throughput but with the same per-request latency."
+  },
+  {
+    "id": 136,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the significance of memory bandwidth (measured in TB/s) for LLM inference performance?",
+    "choices": [
+      "It only affects model loading time",
+      "It directly determines the token generation speed since the decode phase is memory-bandwidth-bound, requiring reading model weights for each token",
+      "It only matters during training",
+      "It has no impact on inference"
+    ],
+    "correctAnswer": 1,
+    "explanation": "During the decode phase of LLM inference, each token generation requires reading the model weights and KV cache from memory. With minimal computation per token, the speed of reading from memory (memory bandwidth) becomes the bottleneck. Higher bandwidth (like H100's 3.35 TB/s HBM3) directly translates to faster token generation."
+  },
+  {
+    "id": 137,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the purpose of NVIDIA CUDA in the context of LLM deployment?",
+    "choices": [
+      "It is a hardware component inside the GPU",
+      "A parallel computing platform and programming model that enables software to leverage NVIDIA GPUs for general-purpose computing including LLM workloads",
+      "A type of memory used in GPUs",
+      "A display technology"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CUDA (Compute Unified Device Architecture) is NVIDIA's parallel computing platform and API that allows developers to use NVIDIA GPUs for general-purpose computing. All major deep learning frameworks use CUDA to accelerate training and inference operations, making it the foundation for running LLM workloads on NVIDIA GPUs."
+  },
+  {
+    "id": 138,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "How does GPU utilization differ between the prefill and decode phases of LLM inference?",
+    "choices": [
+      "Both phases have identical GPU utilization",
+      "The prefill phase has high GPU compute utilization (processing many tokens in parallel), while the decode phase has low compute utilization (generating one token at a time)",
+      "The decode phase always has higher utilization",
+      "Neither phase uses the GPU significantly"
+    ],
+    "correctAnswer": 1,
+    "explanation": "During prefill, all input tokens are processed in parallel through matrix multiplications, achieving high compute utilization. During decode, only one new token is generated per step, resulting in small matrix-vector operations that underutilize the GPU's compute capacity. This is why batching multiple decode requests together is important for efficiency."
+  },
+  {
+    "id": 139,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What role does the GPU-to-GPU bandwidth play in scaling LLM training across multiple nodes?",
+    "choices": [
+      "It has no impact on multi-node training",
+      "Higher inter-node bandwidth (via InfiniBand) reduces communication overhead for gradient synchronization and parameter sharing, enabling efficient scaling",
+      "Only CPU-to-CPU bandwidth matters",
+      "Bandwidth only affects data loading"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Multi-node LLM training requires frequent communication between GPUs across nodes for gradient synchronization (data parallelism) and parameter exchange (model parallelism). Higher inter-node bandwidth reduces the time spent on communication relative to computation, improving scaling efficiency. InfiniBand with RDMA provides the low-latency, high-bandwidth networking needed."
+  },
+  {
+    "id": 140,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the concept of 'linear scaling' in distributed LLM training?",
+    "choices": [
+      "Training only linear layers of the model",
+      "The ideal scenario where doubling the number of GPUs halves the training time, though real-world scaling is typically sub-linear due to communication overhead",
+      "Scaling the model linearly with data size",
+      "Using only linear algebra for training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Linear scaling means that adding more GPUs proportionally reduces training time (2x GPUs = 2x faster). In practice, communication overhead, synchronization barriers, and pipeline bubbles cause sub-linear scaling. Achieving near-linear scaling requires careful optimization of parallelism strategies, communication patterns, and computation-communication overlap."
+  },
+  {
+    "id": 141,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the NVIDIA GH200 Grace Hopper Superchip?",
+    "choices": [
+      "A standard desktop GPU",
+      "A combined CPU-GPU module connecting an ARM-based Grace CPU with an H100 GPU via a high-bandwidth coherent interface for AI workloads",
+      "A networking switch chip",
+      "A storage accelerator"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The GH200 Grace Hopper Superchip combines NVIDIA's Grace ARM CPU and H100 GPU on a single module connected via NVLink-C2C with 900 GB/s coherent bandwidth. It provides up to 624 GB of unified memory (combining HBM3 and LPDDR5x) with a coherent memory model, ideal for large AI models that exceed single GPU memory."
+  },
+  {
+    "id": 142,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the significance of FLOPS (Floating Point Operations Per Second) when evaluating GPUs for LLM training?",
+    "choices": [
+      "FLOPS measure memory capacity",
+      "FLOPS measure the GPU's raw computational throughput, indicating how quickly it can perform the matrix operations that dominate LLM training",
+      "FLOPS measure network bandwidth",
+      "FLOPS measure power consumption"
+    ],
+    "correctAnswer": 1,
+    "explanation": "FLOPS indicate a GPU's computational power for performing floating-point operations. LLM training is dominated by matrix multiplications, so higher FLOPS translates to faster processing of these operations. For example, the H100 provides ~989 TFLOPS for FP16 Tensor Core operations, roughly 3x the A100's ~312 TFLOPS."
+  },
+  {
+    "id": 143,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "Why is ECC (Error Correcting Code) memory important for LLM training on GPUs?",
+    "choices": [
+      "It increases memory bandwidth",
+      "It detects and corrects memory bit errors that could corrupt model weights or gradients during long training runs spanning days or weeks",
+      "It reduces memory capacity",
+      "It is only needed for gaming GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "LLM training runs last days to weeks, during which random memory bit flips (caused by cosmic rays or electrical noise) could silently corrupt training data, weights, or gradients. ECC memory detects and corrects these errors, ensuring training reliability. Professional GPUs (A100, H100) include ECC memory, while consumer GPUs typically do not."
+  },
+  {
+    "id": 144,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the approximate total GPU memory of an 8-GPU DGX H100 system?",
+    "choices": [
+      "80 GB",
+      "320 GB",
+      "640 GB",
+      "1280 GB"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A DGX H100 system contains 8 H100 SXM GPUs, each with 80 GB of HBM3 memory. The total GPU memory is 8 x 80 GB = 640 GB. This combined memory is critical for training and serving large language models, with NVLink Switch enabling unified access patterns across all GPUs."
+  },
+  {
+    "id": 145,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the impact of GPU thermal throttling on LLM training?",
+    "choices": [
+      "It improves training speed",
+      "The GPU reduces clock speeds when overheating, slowing down training and potentially causing inconsistent training times across GPUs in a cluster",
+      "It has no effect on performance",
+      "It only affects inference, not training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When GPUs overheat beyond their thermal limits, they automatically reduce clock speeds (throttle) to prevent hardware damage. This reduces computational throughput, slowing training. In distributed training, one throttling GPU can slow down the entire cluster if synchronization is required, making proper cooling and airflow critical in GPU data centers."
+  },
+  {
+    "id": 146,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the advantage of using InfiniBand with GPUDirect RDMA for multi-node LLM training?",
+    "choices": [
+      "It reduces GPU memory requirements",
+      "It enables direct data transfer between GPUs on different nodes without involving the CPU, reducing latency and freeing CPU resources",
+      "It increases model accuracy",
+      "It eliminates the need for NVLink within a node"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GPUDirect RDMA (Remote Direct Memory Access) allows direct data transfer between GPU memory on one node and GPU memory on another node via InfiniBand, bypassing the CPU and system memory entirely. This reduces latency, increases bandwidth utilization, and frees the CPU for other tasks, which is critical for efficient gradient synchronization in distributed training."
+  },
+  {
+    "id": 147,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the relationship between model size and the number of GPUs required for training, given the Adam optimizer?",
+    "choices": [
+      "The number of GPUs only depends on the dataset size",
+      "Each parameter requires approximately 18-20 bytes during training (FP16 weights + FP32 master weights + FP32 optimizer states + FP16 gradients), so memory requirements scale linearly with model size",
+      "Larger models always need fewer GPUs",
+      "The number of GPUs is fixed regardless of model size"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When training with mixed precision and the Adam optimizer, each parameter requires: 2 bytes (FP16 weights) + 4 bytes (FP32 master copy) + 8 bytes (FP32 Adam momentum and variance) + 2 bytes (FP16 gradients) = ~16-20 bytes. A 70B model thus needs ~1.1-1.4 TB just for these, requiring distributed training across many GPUs."
+  },
+  {
+    "id": 148,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the NVIDIA TensorRT-LLM's in-flight batching feature and why is it important for GPU utilization?",
+    "choices": [
+      "It batches model weights for compression",
+      "It allows new requests to be added to a running inference batch and completed requests to exit, maximizing GPU compute utilization across requests with varying lengths",
+      "It batches GPU driver updates",
+      "It groups similar prompts together"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TensorRT-LLM's in-flight batching (continuous batching) inserts new requests into a running batch as others complete. Without this, the GPU idles while waiting for the longest sequence in a static batch to finish. In-flight batching keeps the GPU busy with a dynamic set of requests, dramatically improving throughput and GPU utilization."
+  },
+  {
+    "id": 149,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What is the primary purpose of NVLink Switch in the DGX H100 architecture?",
+    "choices": [
+      "To connect the DGX system to the internet",
+      "To provide all-to-all full-bandwidth NVLink connectivity between all 8 GPUs in the system, enabling efficient multi-GPU communication",
+      "To switch between different GPU driver versions",
+      "To manage power distribution to GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVLink Switch in DGX H100 connects all 8 GPUs via fourth-generation NVLink, providing 900 GB/s bidirectional bandwidth per GPU. It enables any GPU to communicate with any other GPU at full bandwidth simultaneously, which is essential for tensor parallelism, pipeline parallelism, and collective operations used in LLM training and inference."
+  },
+  {
+    "id": 150,
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "What are the key factors to consider when sizing a GPU cluster for LLM pre-training?",
+    "choices": [
+      "Only the number of CPU cores matters",
+      "Model size (parameter count), desired training time, training data size, inter-GPU/inter-node bandwidth, and memory capacity per GPU",
+      "Only the total disk storage capacity",
+      "Only the number of GPUs without regard to their specifications"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sizing a GPU cluster requires considering: total GPU memory needed for model parameters, optimizer states, and activations; compute throughput (FLOPS) to achieve the target training time; inter-GPU bandwidth (NVLink) and inter-node bandwidth (InfiniBand) for parallelism efficiency; and data throughput for feeding the training pipeline. All these factors interact and must be balanced."
+  }
+]

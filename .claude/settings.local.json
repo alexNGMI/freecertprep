@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npm --version)",
+      "Bash(npm create:*)",
+      "Bash(cp -r /c/Users/spide/Documents/cloudprep/* /c/Users/spide/Documents/cloudprep/.* C:/Users/spide/Documents/freecertprep/)",
+      "Bash(rm -rf /c/Users/spide/Documents/cloudprep)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "WebSearch",
+      "WebFetch(domain:www.freecodecamp.org)",
+      "WebFetch(domain:design-style-guide.freecodecamp.org)",
+      "WebFetch(domain:forum.freecodecamp.org)",
+      "WebFetch(domain:github.com)",
+      "Bash(node -e \":*)"
+    ]
+  }
+}
