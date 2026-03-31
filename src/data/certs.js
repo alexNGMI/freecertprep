@@ -1,4 +1,28 @@
 const certs = {
+  'az-900': {
+    id: 'az-900',
+    title: 'Microsoft Azure Fundamentals',
+    code: 'AZ-900',
+    provider: 'Microsoft Azure',
+    description: 'Foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.',
+    difficulty: 'Foundational',
+    color: '#0078d4',
+    questionCount: 40,
+    examQuestions: 40,
+    examTime: 45,
+    passingScore: 70,
+    loadQuestions: () => import('./az-900-questions.json'),
+    domains: [
+      { name: 'Describe cloud concepts', weight: 25 },
+      { name: 'Describe Azure architecture and services', weight: 40 },
+      { name: 'Describe Azure management and governance', weight: 35 },
+    ],
+    domainColors: {
+      'Describe cloud concepts': { dot: 'bg-[#0078d4]', bar: 'bg-[#0078d4]', text: 'text-[#0078d4]' },
+      'Describe Azure architecture and services': { dot: 'bg-[#5c2d91]', bar: 'bg-[#5c2d91]', text: 'text-[#5c2d91]' },
+      'Describe Azure management and governance': { dot: 'bg-[#008272]', bar: 'bg-[#008272]', text: 'text-[#008272]' },
+    },
+  },
   'clf-c02': {
     id: 'clf-c02',
     title: 'AWS Cloud Practitioner',

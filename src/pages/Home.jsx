@@ -8,6 +8,7 @@ const providerStyles = {
   AWS: { bg: 'bg-[#f1be32]/15', text: 'text-[#f1be32]' },
   'Google Cloud': { bg: 'bg-[#4285f4]/15', text: 'text-[#4285f4]' },
   NVIDIA: { bg: 'bg-[#76b900]/15', text: 'text-[#76b900]' },
+  'Microsoft Azure': { bg: 'bg-[#0078d4]/15', text: 'text-[#0078d4]' },
 }
 
 export default function Home() {

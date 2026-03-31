@@ -8,6 +8,7 @@ Free cloud certification exam prep — practice with realistic questions, timed 
 |------|----------|------|------------|-----------|-----------|
 | AWS Cloud Practitioner | AWS | CLF-C02 | Foundational | 150 | 90 min |
 | Google Cloud Digital Leader | Google Cloud | CDL | Foundational | 150 | 90 min |
+| Microsoft Azure Fundamentals | Microsoft Azure | AZ-900 | Foundational | 40 | 45 min |
 | NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 150 | 60 min |
 | NVIDIA Generalist AI | NVIDIA | NCA-GENL | Associate | 150 | 60 min |
 
