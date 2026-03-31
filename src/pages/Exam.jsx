@@ -16,14 +16,10 @@ export default function Exam() {
   const navigate = useNavigate()
   const timerRef = useRef(null)
 
-  // For MVP, repeat questions to fill 65 slots
+  // Randomly select 65 unique questions from the pool
   const examQuestions = useState(() => {
     const shuffled = [...questions].sort(() => Math.random() - 0.5)
-    const repeated = []
-    while (repeated.length < EXAM_QUESTIONS) {
-      repeated.push(...shuffled)
-    }
-    return repeated.slice(0, EXAM_QUESTIONS)
+    return shuffled.slice(0, EXAM_QUESTIONS)
   })[0]
 
   useEffect(() => {
@@ -63,93 +59,87 @@ export default function Exam() {
 
   if (!started) {
     return (
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Exam Simulator</h1>
-          <p className="text-gray-400">Simulate the real AWS CLF-C02 exam experience</p>
+      <div className="space-y-8">
+        <div className="text-center space-y-3 pt-4">
+          <h1 className="text-4xl font-bold text-[#f5f6f7]">Exam Simulator</h1>
+          <p className="text-lg text-[#d0d0d5]">Simulate the real AWS CLF-C02 exam experience</p>
         </div>
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-4">
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div className="bg-gray-800 rounded p-3">
-              <p className="text-gray-500">Questions</p>
-              <p className="text-white font-bold text-lg">65</p>
+        <div className="bg-[#1b1b32] rounded-md p-8 space-y-6 max-w-2xl mx-auto">
+          <div className="grid grid-cols-3 gap-4">
+            <div className="bg-[#2a2a40] rounded-md p-4 text-center">
+              <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-1">Questions</p>
+              <p className="text-[#f5f6f7] font-bold text-2xl">65</p>
             </div>
-            <div className="bg-gray-800 rounded p-3">
-              <p className="text-gray-500">Time Limit</p>
-              <p className="text-white font-bold text-lg">90 min</p>
+            <div className="bg-[#2a2a40] rounded-md p-4 text-center">
+              <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-1">Time Limit</p>
+              <p className="text-[#f5f6f7] font-bold text-2xl">90 min</p>
             </div>
-            <div className="bg-gray-800 rounded p-3">
-              <p className="text-gray-500">Passing Score</p>
-              <p className="text-white font-bold text-lg">70%</p>
-            </div>
-            <div className="bg-gray-800 rounded p-3">
-              <p className="text-gray-500">Available Questions</p>
-              <p className="text-white font-bold text-lg">{questions.length}</p>
+            <div className="bg-[#2a2a40] rounded-md p-4 text-center">
+              <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-1">Passing Score</p>
+              <p className="text-[#f5f6f7] font-bold text-2xl">70%</p>
             </div>
           </div>
-          <p className="text-xs text-gray-500">
-            Note: MVP uses {questions.length} sample questions repeated to fill 65 slots. Add more questions to questions.json for variety.
-          </p>
-          <button
-            onClick={() => setStarted(true)}
-            className="bg-violet-500 hover:bg-violet-600 text-white font-medium px-6 py-2 rounded transition-colors"
-          >
-            Begin Exam
-          </button>
+          <div className="text-center">
+            <button
+              onClick={() => setStarted(true)}
+              className="bg-[#f1be32] hover:opacity-90 text-[#0a0a23] font-bold px-8 py-2.5 rounded transition-all duration-200"
+            >
+              Begin Exam
+            </button>
+          </div>
         </div>
       </div>
     )
   }
 
   const q = examQuestions[currentIndex]
-  const answered = selectedAnswers[currentIndex] !== undefined
 
   return (
     <div className="space-y-4">
       {/* Timer bar */}
-      <div className="flex items-center justify-between bg-gray-900 border border-gray-800 rounded-lg px-4 py-2">
-        <span className="text-sm text-gray-400">
+      <div className="flex items-center justify-between bg-[#1b1b32] rounded-md px-5 py-3">
+        <span className="text-sm text-[#d0d0d5] font-bold">
           Question {currentIndex + 1} of {EXAM_QUESTIONS}
         </span>
-        <span className={`font-mono font-bold ${timeLeft < 300 ? 'text-red-400' : 'text-white'}`}>
+        <span className={`font-mono font-bold text-lg ${timeLeft < 300 ? 'text-red-400' : 'text-[#f1be32]'}`}>
           {formatTime(timeLeft)}
         </span>
         <button
           onClick={finishExam}
-          className="text-sm text-gray-500 hover:text-white transition-colors"
+          className="text-sm text-[#a5abc4] hover:text-[#f5f6f7] font-bold transition-colors border border-[#3b3b4f] px-3 py-1 rounded hover:border-[#f5f6f7]"
         >
           End Exam
         </button>
       </div>
 
       {/* Progress */}
-      <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
+      <div className="h-2 bg-[#2a2a40] rounded overflow-hidden">
         <div
-          className="h-full bg-violet-500 rounded-full transition-all duration-300"
+          className="h-full bg-[#dbb8ff] rounded transition-all duration-300"
           style={{ width: `${((currentIndex + 1) / EXAM_QUESTIONS) * 100}%` }}
         />
       </div>
 
       {/* Question */}
-      <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-4">
-        <span className="inline-block text-xs font-medium px-2 py-0.5 rounded bg-gray-800 text-gray-400">
+      <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
+        <span className="inline-block text-xs font-bold px-3 py-1 rounded bg-[#2a2a40] text-[#a5abc4] uppercase tracking-wide">
           {q.domain}
         </span>
-        <p className="text-white text-lg leading-relaxed">{q.question}</p>
-        <div className="space-y-2">
+        <p className="text-[#f5f6f7] text-lg leading-relaxed">{q.question}</p>
+        <div className="space-y-3">
           {q.choices.map((choice, index) => (
             <button
               key={index}
               onClick={() =>
                 setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: index }))
               }
-              className={`w-full text-left px-4 py-3 rounded-lg border transition-all text-sm ${
+              className={`w-full text-left px-5 py-3.5 rounded border transition-all duration-200 text-sm ${
                 selectedAnswers[currentIndex] === index
-                  ? 'border-violet-500/50 bg-violet-500/10 text-violet-300'
-                  : 'border-gray-700 bg-gray-800/50 text-gray-300 hover:border-gray-600'
+                  ? 'border-[#f1be32] bg-[#f1be32]/10 text-[#f1be32]'
+                  : 'border-[#3b3b4f] bg-[#2a2a40] text-[#d0d0d5] hover:border-[#99c9ff] hover:text-[#f5f6f7]'
               }`}
             >
-              <span className="font-medium mr-2">{String.fromCharCode(65 + index)}.</span>
+              <span className="font-bold mr-3 text-[#a5abc4]">{String.fromCharCode(65 + index)}.</span>
               {choice}
             </button>
           ))}
@@ -161,21 +151,21 @@ export default function Exam() {
         <button
           onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
           disabled={currentIndex === 0}
-          className="px-4 py-2 rounded text-sm font-medium bg-gray-800 text-gray-400 hover:text-white disabled:opacity-30 transition-colors"
+          className="px-5 py-2 rounded text-sm font-bold text-[#f5f6f7] border border-[#f5f6f7] hover:bg-[#f5f6f7]/10 disabled:opacity-30 transition-all duration-200"
         >
           Previous
         </button>
         {currentIndex < EXAM_QUESTIONS - 1 ? (
           <button
             onClick={() => setCurrentIndex((prev) => prev + 1)}
-            className="px-4 py-2 rounded text-sm font-medium bg-violet-500 hover:bg-violet-600 text-white transition-colors"
+            className="px-5 py-2 rounded text-sm font-bold bg-[#f1be32] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
           >
             Next
           </button>
         ) : (
           <button
             onClick={finishExam}
-            className="px-4 py-2 rounded text-sm font-medium bg-emerald-500 hover:bg-emerald-600 text-white transition-colors"
+            className="px-5 py-2 rounded text-sm font-bold bg-[#acd157] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
           >
             Submit Exam
           </button>

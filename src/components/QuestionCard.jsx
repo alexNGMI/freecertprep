@@ -1,20 +1,20 @@
 export default function QuestionCard({ question, onAnswer, answered, selectedChoice }) {
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-4">
-      <span className="inline-block text-xs font-medium px-2 py-0.5 rounded bg-gray-800 text-gray-400">
+    <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
+      <span className="inline-block text-xs font-bold px-3 py-1 rounded bg-[#2a2a40] text-[#a5abc4] uppercase tracking-wide">
         {question.domain}
       </span>
-      <p className="text-white text-lg leading-relaxed">{question.question}</p>
-      <div className="space-y-2">
+      <p className="text-[#f5f6f7] text-lg leading-relaxed">{question.question}</p>
+      <div className="space-y-3">
         {question.choices.map((choice, index) => {
-          let style = 'border-gray-700 bg-gray-800/50 text-gray-300 hover:border-gray-600 hover:bg-gray-800'
+          let style = 'border-[#3b3b4f] bg-[#2a2a40] text-[#d0d0d5] hover:border-[#99c9ff] hover:text-[#f5f6f7]'
           if (answered) {
             if (index === question.correctAnswer) {
-              style = 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400'
-            } else if (index === selectedChoice && !isCorrect(index, question.correctAnswer)) {
-              style = 'border-red-500/50 bg-red-500/10 text-red-400'
+              style = 'border-[#acd157] bg-[#acd157]/10 text-[#acd157]'
+            } else if (index === selectedChoice && index !== question.correctAnswer) {
+              style = 'border-red-500 bg-red-500/10 text-red-400'
             } else {
-              style = 'border-gray-800 bg-gray-800/30 text-gray-600'
+              style = 'border-[#2a2a40] bg-[#1b1b32] text-[#3b3b4f]'
             }
           }
           return (
@@ -22,9 +22,9 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
               key={index}
               onClick={() => !answered && onAnswer(index)}
               disabled={answered}
-              className={`w-full text-left px-4 py-3 rounded-lg border transition-all text-sm ${style}`}
+              className={`w-full text-left px-5 py-3.5 rounded border transition-all duration-200 text-sm ${style}`}
             >
-              <span className="font-medium mr-2">
+              <span className="font-bold mr-3 text-[#a5abc4]">
                 {String.fromCharCode(65 + index)}.
               </span>
               {choice}
@@ -33,21 +33,17 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
         })}
       </div>
       {answered && (
-        <div className={`p-4 rounded-lg text-sm ${
+        <div className={`p-5 rounded text-sm leading-relaxed ${
           selectedChoice === question.correctAnswer
-            ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300'
-            : 'bg-red-500/10 border border-red-500/30 text-red-300'
+            ? 'bg-[#acd157]/10 border border-[#acd157]/30 text-[#acd157]'
+            : 'bg-red-500/10 border border-red-500/30 text-red-400'
         }`}>
-          <p className="font-medium mb-1">
+          <p className="font-bold mb-1">
             {selectedChoice === question.correctAnswer ? 'Correct!' : 'Incorrect'}
           </p>
-          <p className="text-gray-400">{question.explanation}</p>
+          <p className="text-[#d0d0d5]">{question.explanation}</p>
         </div>
       )}
     </div>
   )
-}
-
-function isCorrect(index, correctAnswer) {
-  return index === correctAnswer
 }

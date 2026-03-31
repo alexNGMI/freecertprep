@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const STORAGE_KEY = 'cloudprep-progress'
+const STORAGE_KEY = 'freecertprep-progress'
 
 const defaultProgress = {
   quizHistory: [],

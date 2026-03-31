@@ -1,4 +1,4 @@
-# CloudPrep
+# FreeCertPrep
 
 AWS CLF-C02 (Cloud Practitioner) exam prep platform.
 

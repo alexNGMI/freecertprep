@@ -1,17 +1,17 @@
 import { useLocation, Link } from 'react-router-dom'
 
 const domainColors = {
-  'Cloud Concepts': 'text-sky-400',
-  'Security and Compliance': 'text-emerald-400',
-  'Cloud Technology and Services': 'text-violet-400',
-  'Billing, Pricing and Support': 'text-amber-400',
+  'Cloud Concepts': 'text-[#99c9ff]',
+  'Security and Compliance': 'text-[#acd157]',
+  'Cloud Technology and Services': 'text-[#dbb8ff]',
+  'Billing, Pricing and Support': 'text-[#f1be32]',
 }
 
 const domainBarColors = {
-  'Cloud Concepts': 'bg-sky-400',
-  'Security and Compliance': 'bg-emerald-400',
-  'Cloud Technology and Services': 'bg-violet-400',
-  'Billing, Pricing and Support': 'bg-amber-400',
+  'Cloud Concepts': 'bg-[#99c9ff]',
+  'Security and Compliance': 'bg-[#acd157]',
+  'Cloud Technology and Services': 'bg-[#dbb8ff]',
+  'Billing, Pricing and Support': 'bg-[#f1be32]',
 }
 
 export default function Results() {
@@ -21,8 +21,8 @@ export default function Results() {
   if (!answers) {
     return (
       <div className="text-center py-16 space-y-4">
-        <p className="text-gray-400">No results to display.</p>
-        <Link to="/" className="text-sky-400 hover:text-sky-300 transition-colors">
+        <p className="text-[#d0d0d5]">No results to display.</p>
+        <Link to="/" className="text-[#99c9ff] hover:opacity-80 transition-opacity font-bold">
           Back to Dashboard
         </Link>
       </div>
@@ -53,44 +53,42 @@ export default function Results() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Exam Results</h1>
-      </div>
+      <h1 className="text-4xl font-bold text-[#f5f6f7] text-center pt-4">Exam Results</h1>
 
       {/* Score Card */}
-      <div className="bg-gray-900 border border-gray-800 rounded-lg p-8 text-center space-y-3">
-        <p className={`text-6xl font-bold ${passed ? 'text-emerald-400' : 'text-red-400'}`}>
+      <div className="bg-[#1b1b32] rounded-md p-10 text-center space-y-4 max-w-md mx-auto">
+        <p className={`text-7xl font-black ${passed ? 'text-[#acd157]' : 'text-red-400'}`}>
           {pct}%
         </p>
-        <p className={`text-lg font-semibold ${passed ? 'text-emerald-400' : 'text-red-400'}`}>
+        <p className={`text-xl font-bold ${passed ? 'text-[#acd157]' : 'text-red-400'}`}>
           {passed ? 'PASSED' : 'NOT PASSED'}
         </p>
-        <p className="text-gray-400">
+        <p className="text-[#d0d0d5]">
           {correct} of {total} questions correct — passing score is 70%
         </p>
       </div>
 
       {/* Domain Breakdown */}
-      <div className="bg-gray-900 border border-gray-800 rounded-lg p-6">
-        <h2 className="text-lg font-semibold text-white mb-4">
+      <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
+        <h2 className="text-lg font-bold text-[#f5f6f7]">
           Domain Breakdown
-          <span className="text-sm font-normal text-gray-500 ml-2">(weakest first)</span>
+          <span className="text-sm font-normal text-[#a5abc4] ml-2">(weakest first)</span>
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-5">
           {domainResults.map((d) => (
             <div key={d.domain}>
-              <div className="flex items-center justify-between mb-1.5">
-                <span className={`text-sm font-medium ${domainColors[d.domain] || 'text-gray-300'}`}>
+              <div className="flex items-center justify-between mb-2">
+                <span className={`text-sm font-bold ${domainColors[d.domain] || 'text-[#d0d0d5]'}`}>
                   {d.domain}
                 </span>
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-[#a5abc4] font-bold">
                   {d.correct}/{d.total} ({d.percentage}%)
                 </span>
               </div>
-              <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div className="h-2.5 bg-[#2a2a40] rounded overflow-hidden">
                 <div
-                  className={`h-full rounded-full transition-all duration-500 ${
-                    domainBarColors[d.domain] || 'bg-gray-500'
+                  className={`h-full rounded transition-all duration-500 ${
+                    domainBarColors[d.domain] || 'bg-[#a5abc4]'
                   }`}
                   style={{ width: `${d.percentage}%` }}
                 />
@@ -104,19 +102,19 @@ export default function Results() {
       <div className="flex gap-4 justify-center">
         <Link
           to="/"
-          className="px-6 py-2 rounded font-medium text-sm bg-gray-800 text-gray-300 hover:text-white transition-colors"
+          className="px-6 py-2.5 rounded font-bold text-sm border border-[#f5f6f7] text-[#f5f6f7] hover:bg-[#f5f6f7]/10 transition-all duration-200"
         >
           Dashboard
         </Link>
         <Link
           to="/quiz"
-          className="px-6 py-2 rounded font-medium text-sm bg-sky-500 hover:bg-sky-600 text-white transition-colors"
+          className="px-6 py-2.5 rounded font-bold text-sm bg-[#f1be32] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
         >
           Practice Weak Areas
         </Link>
         <Link
           to="/exam"
-          className="px-6 py-2 rounded font-medium text-sm bg-violet-500 hover:bg-violet-600 text-white transition-colors"
+          className="px-6 py-2.5 rounded font-bold text-sm bg-[#dbb8ff] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
         >
           Retake Exam
         </Link>
