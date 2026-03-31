@@ -54,7 +54,7 @@ export default function Dashboard() {
                     <span className="text-zinc-500 uppercase tracking-widest text-[10px] hidden sm:inline">{weight}% of exam</span>
                     <span 
                       className="font-bold text-base px-3 py-1 bg-zinc-900/50 rounded-md border border-white/5"
-                      style={{ color: stat.total > 0 && colors ? colors.text : '#a1a1aa' }}
+                      style={{ color: stat.total > 0 && colors ? colors.hex : '#a1a1aa' }}
                     >
                       {stat.total > 0 ? `${stat.percentage}%` : '—'}
                     </span>

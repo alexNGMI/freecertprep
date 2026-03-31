@@ -18,9 +18,9 @@ const certs = {
       { name: 'Describe Azure management and governance', weight: 35 },
     ],
     domainColors: {
-      'Describe cloud concepts': { dot: 'bg-[#0078d4]', bar: 'bg-[#0078d4]', text: 'text-[#0078d4]' },
-      'Describe Azure architecture and services': { dot: 'bg-[#5c2d91]', bar: 'bg-[#5c2d91]', text: 'text-[#5c2d91]' },
-      'Describe Azure management and governance': { dot: 'bg-[#008272]', bar: 'bg-[#008272]', text: 'text-[#008272]' },
+      'Describe cloud concepts': { dot: 'bg-[#0078d4]', bar: 'bg-[#0078d4]', text: 'text-[#0078d4]', hex: '#0078d4' },
+      'Describe Azure architecture and services': { dot: 'bg-[#5c2d91]', bar: 'bg-[#5c2d91]', text: 'text-[#5c2d91]', hex: '#5c2d91' },
+      'Describe Azure management and governance': { dot: 'bg-[#008272]', bar: 'bg-[#008272]', text: 'text-[#008272]', hex: '#008272' },
     },
   },
   'clf-c02': {
@@ -43,10 +43,10 @@ const certs = {
       { name: 'Billing, Pricing and Support', weight: 12 },
     ],
     domainColors: {
-      'Cloud Concepts': { dot: 'bg-[#99c9ff]', bar: 'bg-[#99c9ff]', text: 'text-[#99c9ff]' },
-      'Security and Compliance': { dot: 'bg-[#acd157]', bar: 'bg-[#acd157]', text: 'text-[#acd157]' },
-      'Cloud Technology and Services': { dot: 'bg-[#dbb8ff]', bar: 'bg-[#dbb8ff]', text: 'text-[#dbb8ff]' },
-      'Billing, Pricing and Support': { dot: 'bg-[#f1be32]', bar: 'bg-[#f1be32]', text: 'text-[#f1be32]' },
+      'Cloud Concepts': { dot: 'bg-[#99c9ff]', bar: 'bg-[#99c9ff]', text: 'text-[#99c9ff]', hex: '#99c9ff' },
+      'Security and Compliance': { dot: 'bg-[#acd157]', bar: 'bg-[#acd157]', text: 'text-[#acd157]', hex: '#acd157' },
+      'Cloud Technology and Services': { dot: 'bg-[#dbb8ff]', bar: 'bg-[#dbb8ff]', text: 'text-[#dbb8ff]', hex: '#dbb8ff' },
+      'Billing, Pricing and Support': { dot: 'bg-[#f1be32]', bar: 'bg-[#f1be32]', text: 'text-[#f1be32]', hex: '#f1be32' },
     },
   },
   'cdl': {
@@ -69,10 +69,10 @@ const certs = {
       { name: 'Google Cloud Security and Operations', weight: 37 },
     ],
     domainColors: {
-      'Digital Transformation with Google Cloud': { dot: 'bg-[#4285f4]', bar: 'bg-[#4285f4]', text: 'text-[#4285f4]' },
-      'Innovating with Data and Google Cloud': { dot: 'bg-[#34a853]', bar: 'bg-[#34a853]', text: 'text-[#34a853]' },
-      'Infrastructure and Application Modernization': { dot: 'bg-[#fbbc05]', bar: 'bg-[#fbbc05]', text: 'text-[#fbbc05]' },
-      'Google Cloud Security and Operations': { dot: 'bg-[#ea4335]', bar: 'bg-[#ea4335]', text: 'text-[#ea4335]' },
+      'Digital Transformation with Google Cloud': { dot: 'bg-[#4285f4]', bar: 'bg-[#4285f4]', text: 'text-[#4285f4]', hex: '#4285f4' },
+      'Innovating with Data and Google Cloud': { dot: 'bg-[#34a853]', bar: 'bg-[#34a853]', text: 'text-[#34a853]', hex: '#34a853' },
+      'Infrastructure and Application Modernization': { dot: 'bg-[#fbbc05]', bar: 'bg-[#fbbc05]', text: 'text-[#fbbc05]', hex: '#fbbc05' },
+      'Google Cloud Security and Operations': { dot: 'bg-[#ea4335]', bar: 'bg-[#ea4335]', text: 'text-[#ea4335]', hex: '#ea4335' },
     },
   },
   'nca-aiio': {
@@ -96,11 +96,11 @@ const certs = {
       { name: 'Deployment and Operations', weight: 10 },
     ],
     domainColors: {
-      'AI Infrastructure Fundamentals': { dot: 'bg-[#76b900]', bar: 'bg-[#76b900]', text: 'text-[#76b900]' },
-      'AI Workload Management': { dot: 'bg-[#1a9641]', bar: 'bg-[#1a9641]', text: 'text-[#1a9641]' },
-      'Networking and Storage for AI': { dot: 'bg-[#00bcd4]', bar: 'bg-[#00bcd4]', text: 'text-[#00bcd4]' },
-      'AI Software and Frameworks': { dot: 'bg-[#ff9800]', bar: 'bg-[#ff9800]', text: 'text-[#ff9800]' },
-      'Deployment and Operations': { dot: 'bg-[#e91e63]', bar: 'bg-[#e91e63]', text: 'text-[#e91e63]' },
+      'AI Infrastructure Fundamentals': { dot: 'bg-[#76b900]', bar: 'bg-[#76b900]', text: 'text-[#76b900]', hex: '#76b900' },
+      'AI Workload Management': { dot: 'bg-[#1a9641]', bar: 'bg-[#1a9641]', text: 'text-[#1a9641]', hex: '#1a9641' },
+      'Networking and Storage for AI': { dot: 'bg-[#00bcd4]', bar: 'bg-[#00bcd4]', text: 'text-[#00bcd4]', hex: '#00bcd4' },
+      'AI Software and Frameworks': { dot: 'bg-[#ff9800]', bar: 'bg-[#ff9800]', text: 'text-[#ff9800]', hex: '#ff9800' },
+      'Deployment and Operations': { dot: 'bg-[#e91e63]', bar: 'bg-[#e91e63]', text: 'text-[#e91e63]', hex: '#e91e63' },
     },
   },
   'nca-genl': {
@@ -124,11 +124,11 @@ const certs = {
       { name: 'AI Safety and Best Practices', weight: 10 },
     ],
     domainColors: {
-      'LLM Fundamentals': { dot: 'bg-[#76b900]', bar: 'bg-[#76b900]', text: 'text-[#76b900]' },
-      'Training and Fine-tuning LLMs': { dot: 'bg-[#1a9641]', bar: 'bg-[#1a9641]', text: 'text-[#1a9641]' },
-      'GPU Infrastructure for LLMs': { dot: 'bg-[#00bcd4]', bar: 'bg-[#00bcd4]', text: 'text-[#00bcd4]' },
-      'Deploying and Managing LLMs': { dot: 'bg-[#ff9800]', bar: 'bg-[#ff9800]', text: 'text-[#ff9800]' },
-      'AI Safety and Best Practices': { dot: 'bg-[#e91e63]', bar: 'bg-[#e91e63]', text: 'text-[#e91e63]' },
+      'LLM Fundamentals': { dot: 'bg-[#76b900]', bar: 'bg-[#76b900]', text: 'text-[#76b900]', hex: '#76b900' },
+      'Training and Fine-tuning LLMs': { dot: 'bg-[#1a9641]', bar: 'bg-[#1a9641]', text: 'text-[#1a9641]', hex: '#1a9641' },
+      'GPU Infrastructure for LLMs': { dot: 'bg-[#00bcd4]', bar: 'bg-[#00bcd4]', text: 'text-[#00bcd4]', hex: '#00bcd4' },
+      'Deploying and Managing LLMs': { dot: 'bg-[#ff9800]', bar: 'bg-[#ff9800]', text: 'text-[#ff9800]', hex: '#ff9800' },
+      'AI Safety and Best Practices': { dot: 'bg-[#e91e63]', bar: 'bg-[#e91e63]', text: 'text-[#e91e63]', hex: '#e91e63' },
     },
   },
 }

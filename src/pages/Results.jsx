@@ -87,9 +87,9 @@ export default function Results() {
                   <span className="text-zinc-300 font-medium text-sm md:text-base flex-1 pr-4">{d.domain}</span>
                   <div className="flex items-center gap-4">
                     <span className="text-zinc-500 text-sm font-medium hidden sm:inline">{d.correct} / {d.total} correct</span>
-                    <span 
+                    <span
                       className="font-bold text-base px-3 py-1 bg-zinc-900/50 rounded-md border border-white/5"
-                      style={{ color: colors ? colors.text : '#a1a1aa' }}
+                      style={{ color: colors?.hex || '#a1a1aa' }}
                     >
                       {d.percentage}%
                     </span>
@@ -98,10 +98,10 @@ export default function Results() {
                 <div className="h-3 bg-zinc-900/80 rounded-full border border-white/5 overflow-hidden shadow-inner flex">
                   <div
                     className="h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end"
-                    style={{ 
+                    style={{
                       width: `${d.percentage}%`,
-                      background: colors ? `linear-gradient(90deg, transparent, ${colors.bar.replace('bg-[', '').replace(']', '')})` : '#52525b',
-                      backgroundColor: colors ? colors.bar.replace('bg-[', '').replace(']', '') : '#3f3f46'
+                      backgroundColor: colors?.hex || '#3f3f46',
+                      boxShadow: colors?.hex ? `0 0 10px ${colors.hex}60` : 'none',
                     }}
                   >
                     <div className="w-10 h-full bg-white/20 blur-sm" />
