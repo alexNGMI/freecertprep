@@ -318,5 +318,225 @@
     "choices": ["Management Group", "Subscription", "Resource Group", "Availability Zone"],
     "correctAnswer": 2,
     "explanation": "A resource group is a container that holds related resources for an Azure solution. Generally, add resources that share the same lifecycle to the same resource group."
+  },
+  {
+    "id": "az900-41",
+    "domain": "Describe cloud concepts",
+    "type": "multiple-response",
+    "question": "Which two characteristics are associated with a Public Cloud deployment model? (Select two)",
+    "choices": ["Hardware is owned by the cloud service provider", "Dedicated physical hardware is provided for each customer", "Resources are accessed over a secure private network only", "Pay-as-you-go pricing model is used"],
+    "correctAnswers": [0, 3],
+    "explanation": "In a public cloud, the provider owns and maintains the hardware. Computing resources are offered to anyone over the internet on a pay-as-you-go basis."
+  },
+  {
+    "id": "az900-42",
+    "domain": "Describe cloud concepts",
+    "type": "multiple-response",
+    "question": "Which two scenarios represent a shift from CapEx to OpEx? (Select two)",
+    "choices": ["Purchasing a server rack for a new branch office", "Paying a monthly subscription fee for Microsoft 365", "Leasing a dedicated datacenter building for 10 years", "Using Azure Virtual Machines billed by the minute"],
+    "correctAnswers": [1, 3],
+    "explanation": "OpEx involves paying for services continuously as they are consumed (e.g., monthly SaaS subscriptions or pay-as-you-go compute instances), unlike CapEx which requires large upfront investments."
+  },
+  {
+    "id": "az900-43",
+    "domain": "Describe Azure architecture and services",
+    "type": "multiple-response",
+    "question": "Which two services are considered Platform as a Service (PaaS)? (Select two)",
+    "choices": ["Azure Virtual Machines", "Azure App Service", "Azure SQL Database", "Microsoft 365"],
+    "correctAnswers": [1, 2],
+    "explanation": "Azure App Service and Azure SQL Database are PaaS offerings because Azure manages the underlying VMs and OS, allowing you to focus purely on the application or data."
+  },
+  {
+    "id": "az900-44",
+    "domain": "Describe Azure architecture and services",
+    "type": "multiple-response",
+    "question": "Which two Azure resources can be deployed to an Availability Zone to ensure high availability? (Select two)",
+    "choices": ["Azure Active Directory (Entra ID)", "Azure Virtual Machines", "Azure Policy", "Azure Public IP Addresses"],
+    "correctAnswers": [1, 3],
+    "explanation": "Zonal resources like Virtual Machines, managed disks, and Public IPs can be pinned to a specific Availability Zone for high availability. Global services like Entra ID and Policy are not tied to specific zones."
+  },
+  {
+    "id": "az900-45",
+    "domain": "Describe Azure management and governance",
+    "type": "multiple-response",
+    "question": "Which two tools can an administrator use to enforce corporate compliance rules on all new Azure resources? (Select two)",
+    "choices": ["Azure Advisor", "Azure Policy", "Resource Locks", "Azure Blueprints"],
+    "correctAnswers": [1, 3],
+    "explanation": "Azure Policy actively evaluates and enforces rules on resources. Azure Blueprints can orchestrate the deployment of various resource templates and policies to ensure compliance from the start."
+  },
+  {
+    "id": "az900-46",
+    "domain": "Describe Azure management and governance",
+    "type": "multiple-response",
+    "question": "Which two access management concepts does Azure RBAC directly control? (Select two)",
+    "choices": ["Who has access to the subscription", "What actions an authorized user can perform on a resource", "What hours a user is allowed to log in", "Which physical datacenter a user can enter"],
+    "correctAnswers": [0, 1],
+    "explanation": "Role-Based Access Control determines exactly who is granted access at what scope (subscription, resource group) and what specific operations (read, write, delete) they can perform."
+  },
+  {
+    "id": "az900-47",
+    "domain": "Describe Azure architecture and services",
+    "type": "multiple-response",
+    "question": "You need to migrate an on-premises web server and database to Azure with minimal architectural changes. Which two services should you use? (Select two)",
+    "choices": ["Azure Virtual Machines", "Azure Cosmos DB", "Azure Blob Storage", "Azure Virtual Network"],
+    "correctAnswers": [0, 3],
+    "explanation": "A 'lift and shift' approach with minimal changes typically involves moving the workload to IaaS solutions like Azure Virtual Machines connected to an Azure Virtual Network."
+  },
+  {
+    "id": "az900-48",
+    "domain": "Describe cloud concepts",
+    "type": "multiple-response",
+    "question": "Which two statements accurately describe the Shared Responsibility Model in a PaaS environment? (Select two)",
+    "choices": ["The cloud provider is responsible for OS patching", "The customer is responsible for physical datacenter security", "The customer is responsible for application data", "The cloud provider manages all identity and access logic"],
+    "correctAnswers": [0, 2],
+    "explanation": "In PaaS, the provider handles the underlying infrastructure and OS patching, but the customer retains full responsibility for their application data and access rights."
+  },
+  {
+    "id": "az900-49",
+    "domain": "Describe Azure architecture and services",
+    "type": "multiple-response",
+    "question": "Which two services are designed to route and load-balance web traffic across multiple regions globally? (Select two)",
+    "choices": ["Azure Front Door", "Azure Load Balancer", "Azure Traffic Manager", "Network Security Group"],
+    "correctAnswers": [0, 2],
+    "explanation": "Both Azure Front Door and Azure Traffic Manager operate globally to load balance web traffic, unlike Azure Load Balancer which operates at a regional or virtual network level."
+  },
+  {
+    "id": "az900-50",
+    "domain": "Describe Azure management and governance",
+    "type": "multiple-response",
+    "question": "Which two features are native to Azure Cost Management and Billing? (Select two)",
+    "choices": ["Cost alerting and budget thresholds", "Automated deletion of expensive VMs", "Cost allocation via Azure Tags", "Infrastructure as Code scanning"],
+    "correctAnswers": [0, 2],
+    "explanation": "Cost Management allows you to set budgets, trigger alerts, and analyze costs broken down by resource tags."
+  },
+  {
+    "id": "az900-51",
+    "domain": "Describe cloud concepts",
+    "type": "statement-block",
+    "question": "Evaluate the following statements regarding Cloud Computing models:",
+    "statements": [
+      "In a public cloud, resources are shared among multiple organizations.",
+      "A private cloud must be hosted on-premises in a company's own datacenter.",
+      "A hybrid cloud requires a connection between a public cloud and a private cloud."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "Public clouds use multi-tenant shared infrastructure. A private cloud can be hosted on-premises OR by a third-party provider physically isolated. Hybrid clouds link public and private clouds."
+  },
+  {
+    "id": "az900-52",
+    "domain": "Describe cloud concepts",
+    "type": "statement-block",
+    "question": "Evaluate whether the following statements about serverless computing are Yes or No:",
+    "statements": [
+      "Serverless computing eliminates the need to pay for compute resources when the code is not running.",
+      "Serverless applications require you to manage the underlying operating system.",
+      "Azure Functions is an example of a serverless compute service."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "Serverless scales perfectly to zero (no cost when idle). It abstracts the OS completely from the user, and Azure Functions is the flagship serverless compute service in Azure."
+  },
+  {
+    "id": "az900-53",
+    "domain": "Describe Azure architecture and services",
+    "type": "statement-block",
+    "question": "Determine if the following statements regarding Azure Regions are Yes or No:",
+    "statements": [
+      "Data transferred between Azure regions is always free.",
+      "Some Azure services are only available in specific regions.",
+      "An Azure Region contains exactly one datacenter."
+    ],
+    "correctAnswers": [false, true, false],
+    "explanation": "Outbound data transfer between regions usually incurs costs. Not all services are deployed globally simultaneously. A region is typically composed of multiple datacenters, not just one."
+  },
+  {
+    "id": "az900-54",
+    "domain": "Describe Azure architecture and services",
+    "type": "statement-block",
+    "question": "Evaluate the following statements regarding Azure storage services:",
+    "statements": [
+      "Azure Blob Storage is designed for massive amounts of highly structured relational data.",
+      "Azure File Storage supports access via the standard SMB protocol.",
+      "Azure Archive Storage provides the lowest storage cost but has the highest data retrieval time."
+    ],
+    "correctAnswers": [false, true, true],
+    "explanation": "Blob storage is for unstructured data (images, documents), not relational data. Azure Files uses SMB endpoints. Archive tier is incredibly cheap to store but costs money and takes hours to retrieve data."
+  },
+  {
+    "id": "az900-55",
+    "domain": "Describe Azure management and governance",
+    "type": "statement-block",
+    "question": "Evaluate these statements regarding Azure Resource Manager (ARM):",
+    "statements": [
+      "A resource can exist in multiple resource groups simultaneously.",
+      "Deleting a resource group deletes all resources contained within it.",
+      "Resource groups can be nested inside other resource groups."
+    ],
+    "correctAnswers": [false, true, false],
+    "explanation": "A resource can only live in one resource group. Deleting the group deletes everything inside it. Resource groups cannot be nested (though Management Groups can)."
+  },
+  {
+    "id": "az900-56",
+    "domain": "Describe Azure management and governance",
+    "type": "statement-block",
+    "question": "Evaluate the following statements regarding Azure Resource Locks:",
+    "statements": [
+      "A ReadOnly lock prevents a user from deleting a resource, even if they are the Subscription Owner.",
+      "Resource locks can be applied to a subscription, resource group, or individual resource.",
+      "A CanNotDelete lock prevents users from restarting an Azure Virtual Machine."
+    ],
+    "correctAnswers": [true, true, false],
+    "explanation": "Locks apply to all users regardless of RBAC permissions. They can be scoped at any level. CanNotDelete prevents deletion but does NOT prevent modifications or normal operations like restarting."
+  },
+  {
+    "id": "az900-57",
+    "domain": "Describe Azure architecture and services",
+    "type": "statement-block",
+    "question": "Evaluate these statements about Azure Active Directory (Entra ID):",
+    "statements": [
+      "It provides centralized identity and access management.",
+      "It requires a physical domain controller VM to be provisioned in Azure.",
+      "It supports Multi-Factor Authentication (MFA)."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "Entra ID is an Identity-as-a-Service (IDaaS) platform, meaning no domain controller VMs are needed. It heavily features native MFA support."
+  },
+  {
+    "id": "az900-58",
+    "domain": "Describe Azure management and governance",
+    "type": "statement-block",
+    "question": "Evaluate the following statements about Azure Monitor and Advisor:",
+    "statements": [
+      "Azure Advisor provides recommendations to reduce your overall Azure spending.",
+      "Azure Monitor can automatically trigger alerts based on high CPU utilization of a VM.",
+      "Azure Security Center (Defender) is part of Azure Monitor."
+    ],
+    "correctAnswers": [true, true, false],
+    "explanation": "Advisor acts as a consultant for cost reduction. Monitor collects telemetry and triggers alerts. Defender for Cloud is a separate, specialized security service, not a subset of Azure Monitor."
+  },
+  {
+    "id": "az900-59",
+    "domain": "Describe Azure architecture and services",
+    "type": "statement-block",
+    "question": "Evaluate the following networking statements:",
+    "statements": [
+      "A Network Security Group (NSG) can block traffic from a specific IP address.",
+      "Azure Load Balancer operates at Layer 7 (application layer) of the OSI model.",
+      "Two virtual networks in different Azure regions can be connected using VNet Peering."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "NSGs process rules to block/allow IPs. Load Balancer operates at Layer 4 (Transport); Application Gateway is Layer 7. Global VNet Peering allows connecting networks across regions."
+  },
+  {
+    "id": "az900-60",
+    "domain": "Describe cloud concepts",
+    "type": "statement-block",
+    "question": "Evaluate these statements concerning cloud economics:",
+    "statements": [
+      "Deploying your own datacenter is an example of OpEx.",
+      "Public cloud services follow a consumption-based (OpEx) model.",
+      "SaaS solutions completely eliminate Capital Expenditure (CapEx) for the software consumer."
+    ],
+    "correctAnswers": [false, true, true],
+    "explanation": "Building a datacenter requires massive upfront purchasing (CapEx). Public cloud and SaaS are pure OpEx consumption models."
   }
 ]

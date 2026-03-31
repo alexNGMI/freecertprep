@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useNavigate } from 'react-router-dom'
+import QuestionCard from '../components/QuestionCard'
 
 function shuffleAndSlice(arr, count) {
   const shuffled = [...arr].sort(() => Math.random() - 0.5)
@@ -35,12 +36,19 @@ export default function Exam() {
     setFinished(true)
     clearInterval(timerRef.current)
     const currentAnswers = selectedAnswersRef.current
-    const answers = examQuestions.map((q, i) => ({
-      questionId: q.id,
-      domain: q.domain,
-      selected: currentAnswers[i] ?? -1,
-      correct: currentAnswers[i] === q.correctAnswer,
-    }))
+    const answers = examQuestions.map((q, i) => {
+      const selected = currentAnswers[i] ?? -1
+      const correct = Array.isArray(selected)
+        ? JSON.stringify(selected) === JSON.stringify(q.correctAnswers)
+        : selected === q.correctAnswer
+        
+      return {
+        questionId: q.id,
+        domain: q.domain,
+        selected,
+        correct,
+      }
+    })
     addExamResult({ answers })
     navigate(`/${cert.id}/results`, { state: { answers, questions: examQuestions } })
   }, [examQuestions, addExamResult, navigate, cert.id])
@@ -169,31 +177,14 @@ export default function Exam() {
         </div>
       </div>
 
-      <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
-        <span className="inline-block text-xs font-bold px-3 py-1 rounded bg-[#2a2a40] text-[#a5abc4] uppercase tracking-wide">
-          {q.domain}
-        </span>
-        <p className="text-[#f5f6f7] text-lg leading-relaxed">{q.question}</p>
-        <div className="space-y-3">
-          {q.choices.map((choice, index) => (
-            <button
-              key={index}
-              id={`exam-choice-${index}`}
-              onClick={() =>
-                setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: index }))
-              }
-              className={`w-full text-left px-5 py-3.5 rounded border transition-all duration-200 text-sm ${
-                selectedAnswers[currentIndex] === index
-                  ? 'border-[#f1be32] bg-[#f1be32]/10 text-[#f1be32]'
-                  : 'border-[#3b3b4f] bg-[#2a2a40] text-[#d0d0d5] hover:border-[#99c9ff] hover:text-[#f5f6f7]'
-              }`}
-            >
-              <span className="font-bold mr-3 text-[#a5abc4]">{String.fromCharCode(65 + index)}.</span>
-              {choice}
-            </button>
-          ))}
-        </div>
-      </div>
+      <QuestionCard
+        key={q.id}
+        question={q}
+        onAnswer={(ans) => setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: ans }))}
+        answered={false}
+        selectedChoice={selectedAnswers[currentIndex]}
+        examMode={true}
+      />
 
       <div className="flex justify-between">
         <button

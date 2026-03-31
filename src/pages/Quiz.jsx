@@ -29,7 +29,12 @@ export default function Quiz() {
 
   const handleAnswer = (selectedChoice) => {
     const question = filteredQuestions[currentIndex]
-    const correct = selectedChoice === question.correctAnswer
+    
+    // Check correctness: Handle arrays (multiple-response/statement-block) or primitive integers (single-choice)
+    const correct = Array.isArray(selectedChoice)
+      ? JSON.stringify(selectedChoice) === JSON.stringify(question.correctAnswers)
+      : selectedChoice === question.correctAnswer
+
     setAnswers((prev) => [
       ...prev,
       {
@@ -141,6 +146,7 @@ export default function Quiz() {
         />
       </div>
       <QuestionCard
+        key={currentQuestion.id}
         question={currentQuestion}
         onAnswer={handleAnswer}
         answered={!!currentAnswer}
