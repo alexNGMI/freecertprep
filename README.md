@@ -1,30 +1,31 @@
 # FreeCertPrep
 
-AWS CLF-C02 (Cloud Practitioner) exam prep platform.
+Free cloud certification exam prep — practice with realistic questions, timed simulations, and progress tracking.
+
+## Supported Certifications
+
+| Cert | Provider | Code | Difficulty | Questions | Exam Time |
+|------|----------|------|------------|-----------|-----------|
+| AWS Cloud Practitioner | AWS | CLF-C02 | Foundational | 150 | 90 min |
+| Google Cloud Digital Leader | Google Cloud | CDL | Foundational | 150 | 90 min |
+| NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 150 | 60 min |
+| NVIDIA Generalist AI | NVIDIA | NCA-GENL | Associate | 150 | 60 min |
 
 ## Features
 
+- **Home** — Browse available certifications with at-a-glance stats
 - **Dashboard** — Progress tracking by domain and overall stats
 - **Practice Quiz** — Multiple choice with scoring, explanations, and domain filtering
-- **Exam Simulator** — 65 questions, 90-minute timer, simulates the real exam
+- **Exam Simulator** — Timed simulation with question navigator, matching real exam format
 - **Results** — Score breakdown highlighting weak domains
-
-## Exam Domains
-
-| Domain | Weight |
-|--------|--------|
-| Cloud Concepts | 24% |
-| Security and Compliance | 30% |
-| Cloud Technology and Services | 34% |
-| Billing, Pricing and Support | 12% |
 
 ## Tech Stack
 
-- React + Vite
+- React 19 + Vite 8
 - Tailwind CSS v4
-- React Router
+- React Router v7
 - LocalStorage for progress persistence
-- JSON-based question bank
+- JSON-based question banks (lazy-loaded)
 
 ## Getting Started
 
@@ -35,12 +36,12 @@ npm run dev
 
 ## Adding Questions
 
-Edit `src/data/questions.json`. Each question follows this format:
+Create or edit a JSON file in `src/data/`. Each question follows this format:
 
 ```json
 {
   "id": 1,
-  "domain": "Cloud Concepts",
+  "domain": "Domain Name",
   "question": "Your question here?",
   "choices": ["A", "B", "C", "D"],
   "correctAnswer": 0,
@@ -48,11 +49,13 @@ Edit `src/data/questions.json`. Each question follows this format:
 }
 ```
 
+Then register it in `src/data/certs.js` with a `loadQuestions` dynamic import.
+
 ## Deployment
 
-Designed for static hosting on AWS S3 + CloudFront:
+Designed for static hosting (S3 + CloudFront, Vercel, Netlify, etc.):
 
 ```bash
 npm run build
-# Upload dist/ to S3 bucket
+# Upload dist/ to your hosting provider
 ```

@@ -14,6 +14,62 @@
   --color-fcc-text-dim: #a5abc4;
   --color-fcc-border: #3b3b4f;
   --color-fcc-link: #99c9ff;
+
+  --animate-fade-up: fade-up 0.4s ease-out both;
+  --animate-answer-pop: answer-pop 0.25s ease-out both;
+  --animate-bar-fill: bar-fill 0.8s ease-out both;
+  --animate-timer-pulse: timer-pulse 1s ease-in-out infinite;
+}
+
+/* Entrance animation */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Answer reveal pop */
+@keyframes answer-pop {
+  0% {
+    transform: scale(0.97);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Progress bar fill */
+@keyframes bar-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--bar-width);
+  }
+}
+
+/* Timer pulse for low time warning */
+@keyframes timer-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -22,4 +78,21 @@ body {
   font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 18px;
   line-height: 1.5;
+}
+
+/* Focus-visible ring for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid #f1be32;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Remove focus ring for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth page transitions */
+main {
+  animation: fade-up 0.3s ease-out;
 }

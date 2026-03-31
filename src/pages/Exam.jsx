@@ -1,7 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useNavigate } from 'react-router-dom'
+
+function shuffleAndSlice(arr, count) {
+  const shuffled = [...arr].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, count)
+}
 
 export default function Exam() {
   const cert = useCert()
@@ -17,11 +22,28 @@ export default function Exam() {
   const { addExamResult } = useProgress(cert.id)
   const navigate = useNavigate()
   const timerRef = useRef(null)
+  const selectedAnswersRef = useRef(selectedAnswers)
 
-  const examQuestions = useState(() => {
-    const shuffled = [...questions].sort(() => Math.random() - 0.5)
-    return shuffled.slice(0, EXAM_QUESTIONS)
-  })[0]
+  const [examQuestions] = useState(() => shuffleAndSlice(questions, EXAM_QUESTIONS))
+
+  // Keep ref in sync so finishExam always has current answers
+  useEffect(() => {
+    selectedAnswersRef.current = selectedAnswers
+  }, [selectedAnswers])
+
+  const finishExam = useCallback(() => {
+    setFinished(true)
+    clearInterval(timerRef.current)
+    const currentAnswers = selectedAnswersRef.current
+    const answers = examQuestions.map((q, i) => ({
+      questionId: q.id,
+      domain: q.domain,
+      selected: currentAnswers[i] ?? -1,
+      correct: currentAnswers[i] === q.correctAnswer,
+    }))
+    addExamResult({ answers })
+    navigate(`/${cert.id}/results`, { state: { answers, questions: examQuestions } })
+  }, [examQuestions, addExamResult, navigate, cert.id])
 
   useEffect(() => {
     if (started && !finished) {
@@ -37,26 +59,15 @@ export default function Exam() {
       }, 1000)
     }
     return () => clearInterval(timerRef.current)
-  }, [started, finished])
-
-  const finishExam = () => {
-    setFinished(true)
-    clearInterval(timerRef.current)
-    const answers = examQuestions.map((q, i) => ({
-      questionId: q.id,
-      domain: q.domain,
-      selected: selectedAnswers[i] ?? -1,
-      correct: selectedAnswers[i] === q.correctAnswer,
-    }))
-    addExamResult({ answers })
-    navigate(`/${cert.id}/results`, { state: { answers, questions: examQuestions } })
-  }
+  }, [started, finished, finishExam])
 
   const formatTime = (seconds) => {
     const m = Math.floor(seconds / 60)
     const s = seconds % 60
     return `${m}:${s.toString().padStart(2, '0')}`
   }
+
+  const answeredCount = Object.keys(selectedAnswers).length
 
   if (!started) {
     return (
@@ -82,6 +93,7 @@ export default function Exam() {
           </div>
           <div className="text-center">
             <button
+              id="begin-exam-btn"
               onClick={() => setStarted(true)}
               className="bg-[#f1be32] hover:opacity-90 text-[#0a0a23] font-bold px-8 py-2.5 rounded transition-all duration-200"
             >
@@ -94,6 +106,7 @@ export default function Exam() {
   }
 
   const q = examQuestions[currentIndex]
+  const timerWarning = timeLeft < 300
 
   return (
     <div className="space-y-4">
@@ -101,15 +114,26 @@ export default function Exam() {
         <span className="text-sm text-[#d0d0d5] font-bold">
           Question {currentIndex + 1} of {EXAM_QUESTIONS}
         </span>
-        <span className={`font-mono font-bold text-lg ${timeLeft < 300 ? 'text-red-400' : 'text-[#f1be32]'}`}>
+        <span
+          className={`font-mono font-bold text-lg transition-all duration-300 ${
+            timerWarning ? 'text-red-400 animate-timer-pulse' : 'text-[#f1be32]'
+          }`}
+          aria-label={`Time remaining: ${formatTime(timeLeft)}`}
+        >
           {formatTime(timeLeft)}
         </span>
-        <button
-          onClick={finishExam}
-          className="text-sm text-[#a5abc4] hover:text-[#f5f6f7] font-bold transition-colors border border-[#3b3b4f] px-3 py-1 rounded hover:border-[#f5f6f7]"
-        >
-          End Exam
-        </button>
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-[#a5abc4]">
+            {answeredCount}/{EXAM_QUESTIONS} answered
+          </span>
+          <button
+            id="end-exam-btn"
+            onClick={finishExam}
+            className="text-sm text-[#a5abc4] hover:text-[#f5f6f7] font-bold transition-colors border border-[#3b3b4f] px-3 py-1 rounded hover:border-[#f5f6f7]"
+          >
+            End Exam
+          </button>
+        </div>
       </div>
 
       <div className="h-2 bg-[#2a2a40] rounded overflow-hidden">
@@ -117,6 +141,32 @@ export default function Exam() {
           className="h-full bg-[#dbb8ff] rounded transition-all duration-300"
           style={{ width: `${((currentIndex + 1) / EXAM_QUESTIONS) * 100}%` }}
         />
+      </div>
+
+      {/* Question Navigator Grid */}
+      <div className="bg-[#1b1b32] rounded-md p-4">
+        <div className="flex flex-wrap gap-1.5">
+          {examQuestions.map((_, i) => {
+            const isAnswered = selectedAnswers[i] !== undefined
+            const isCurrent = i === currentIndex
+            return (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                aria-label={`Go to question ${i + 1}${isAnswered ? ' (answered)' : ''}`}
+                className={`w-8 h-8 rounded text-xs font-bold transition-all duration-150 ${
+                  isCurrent
+                    ? 'bg-[#f1be32] text-[#0a0a23] scale-110'
+                    : isAnswered
+                      ? 'bg-[#dbb8ff]/20 text-[#dbb8ff] border border-[#dbb8ff]/40'
+                      : 'bg-[#2a2a40] text-[#a5abc4] border border-[#3b3b4f] hover:border-[#a5abc4]'
+                }`}
+              >
+                {i + 1}
+              </button>
+            )
+          })}
+        </div>
       </div>
 
       <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
@@ -128,6 +178,7 @@ export default function Exam() {
           {q.choices.map((choice, index) => (
             <button
               key={index}
+              id={`exam-choice-${index}`}
               onClick={() =>
                 setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: index }))
               }
@@ -146,6 +197,7 @@ export default function Exam() {
 
       <div className="flex justify-between">
         <button
+          id="exam-prev-btn"
           onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
           disabled={currentIndex === 0}
           className="px-5 py-2 rounded text-sm font-bold text-[#f5f6f7] border border-[#f5f6f7] hover:bg-[#f5f6f7]/10 disabled:opacity-30 transition-all duration-200"
@@ -154,6 +206,7 @@ export default function Exam() {
         </button>
         {currentIndex < EXAM_QUESTIONS - 1 ? (
           <button
+            id="exam-next-btn"
             onClick={() => setCurrentIndex((prev) => prev + 1)}
             className="px-5 py-2 rounded text-sm font-bold bg-[#f1be32] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
           >
@@ -161,6 +214,7 @@ export default function Exam() {
           </button>
         ) : (
           <button
+            id="exam-submit-btn"
             onClick={finishExam}
             className="px-5 py-2 rounded text-sm font-bold bg-[#acd157] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
           >

@@ -4,7 +4,7 @@ import { useCert } from '../hooks/useCert'
 export default function Results() {
   const cert = useCert()
   const location = useLocation()
-  const { answers, questions } = location.state || {}
+  const { answers } = location.state || {}
 
   if (!answers) {
     return (
@@ -38,7 +38,7 @@ export default function Results() {
   domainResults.sort((a, b) => a.percentage - b.percentage)
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 animate-fade-up">
       <h1 className="text-4xl font-bold text-[#f5f6f7] text-center pt-4">Exam Results</h1>
 
       <div className="bg-[#1b1b32] rounded-md p-10 text-center space-y-4 max-w-md mx-auto">
@@ -73,8 +73,8 @@ export default function Results() {
                 </div>
                 <div className="h-2.5 bg-[#2a2a40] rounded overflow-hidden">
                   <div
-                    className={`h-full rounded transition-all duration-500 ${colors?.bar || 'bg-[#a5abc4]'}`}
-                    style={{ width: `${d.percentage}%` }}
+                    className={`h-full rounded animate-bar-fill ${colors?.bar || 'bg-[#a5abc4]'}`}
+                    style={{ '--bar-width': `${d.percentage}%` }}
                   />
                 </div>
               </div>
@@ -85,18 +85,21 @@ export default function Results() {
 
       <div className="flex gap-4 justify-center">
         <Link
+          id="results-dashboard-btn"
           to={`/${cert.id}`}
           className="px-6 py-2.5 rounded font-bold text-sm border border-[#f5f6f7] text-[#f5f6f7] hover:bg-[#f5f6f7]/10 transition-all duration-200"
         >
           Dashboard
         </Link>
         <Link
+          id="results-practice-btn"
           to={`/${cert.id}/quiz`}
           className="px-6 py-2.5 rounded font-bold text-sm bg-[#f1be32] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
         >
           Practice Weak Areas
         </Link>
         <Link
+          id="results-retake-btn"
           to={`/${cert.id}/exam`}
           className="px-6 py-2.5 rounded font-bold text-sm bg-[#dbb8ff] hover:opacity-90 text-[#0a0a23] transition-all duration-200"
         >

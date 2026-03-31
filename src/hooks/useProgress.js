@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 
 const STORAGE_KEY = 'freecertprep-progress'
 
@@ -24,7 +24,7 @@ export function useProgress(certId) {
 
   const certProgress = getCertProgress(progress, certId)
 
-  const addQuizResult = (result) => {
+  const addQuizResult = useCallback((result) => {
     setProgress((prev) => {
       const cert = getCertProgress(prev, certId)
       return {
@@ -35,9 +35,9 @@ export function useProgress(certId) {
         },
       }
     })
-  }
+  }, [certId])
 
-  const addExamResult = (result) => {
+  const addExamResult = useCallback((result) => {
     setProgress((prev) => {
       const cert = getCertProgress(prev, certId)
       return {
@@ -48,9 +48,9 @@ export function useProgress(certId) {
         },
       }
     })
-  }
+  }, [certId])
 
-  const getDomainStats = (domains) => {
+  const getDomainStats = useCallback((domains) => {
     const allResults = [...certProgress.quizHistory, ...certProgress.examHistory]
 
     return domains.map(({ name: domain }) => {
@@ -66,9 +66,9 @@ export function useProgress(certId) {
         percentage: total > 0 ? Math.round((correct / total) * 100) : 0,
       }
     })
-  }
+  }, [certProgress.quizHistory, certProgress.examHistory])
 
-  const getOverallStats = () => {
+  const getOverallStats = useMemo(() => {
     const allResults = [...certProgress.quizHistory, ...certProgress.examHistory]
     const allAnswers = allResults.flatMap((r) => r.answers || [])
     const total = allAnswers.length
@@ -80,14 +80,14 @@ export function useProgress(certId) {
       quizzesTaken: certProgress.quizHistory.length,
       examsTaken: certProgress.examHistory.length,
     }
-  }
+  }, [certProgress.quizHistory, certProgress.examHistory])
 
-  const resetProgress = () => {
+  const resetProgress = useCallback(() => {
     setProgress((prev) => ({
       ...prev,
       [certId]: { quizHistory: [], examHistory: [] },
     }))
-  }
+  }, [certId])
 
   return {
     progress: certProgress,
