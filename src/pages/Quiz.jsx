@@ -56,37 +56,37 @@ export default function Quiz() {
 
   if (!quizStarted) {
     return (
-      <div className="space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold text-white mb-2">Practice Quiz</h1>
-          <p className="text-gray-400">Select a domain and start practicing</p>
+      <div className="space-y-8">
+        <div className="text-center space-y-3 pt-4">
+          <h1 className="text-4xl font-bold text-[#f5f6f7]">Practice Quiz</h1>
+          <p className="text-lg text-[#d0d0d5]">Select a domain and start practicing</p>
         </div>
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-4">
-          <label className="block text-sm font-medium text-gray-300">Filter by Domain</label>
+        <div className="bg-[#1b1b32] rounded-md p-8 space-y-6 max-w-2xl mx-auto">
+          <label className="block text-sm font-bold text-[#a5abc4] uppercase tracking-wider">Filter by Domain</label>
           <div className="flex flex-wrap gap-2">
             {domains.map((domain) => (
               <button
                 key={domain}
                 onClick={() => setSelectedDomain(domain)}
-                className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
+                className={`px-4 py-1.5 rounded text-sm font-bold transition-all duration-200 border ${
                   selectedDomain === domain
-                    ? 'bg-sky-500/20 text-sky-400 border border-sky-500/50'
-                    : 'bg-gray-800 text-gray-400 border border-gray-700 hover:text-gray-200'
+                    ? 'bg-[#f1be32] border-[#f1be32] text-[#0a0a23]'
+                    : 'border-[#f5f6f7] text-[#f5f6f7] hover:bg-[#f5f6f7]/10'
                 }`}
               >
                 {domain}
               </button>
             ))}
           </div>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[#a5abc4]">
             {filteredQuestions.length} question{filteredQuestions.length !== 1 ? 's' : ''} available
           </p>
           <button
             onClick={startQuiz}
             disabled={filteredQuestions.length === 0}
-            className="bg-sky-500 hover:bg-sky-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium px-6 py-2 rounded transition-colors"
+            className="bg-[#f1be32] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed text-[#0a0a23] font-bold px-8 py-2.5 rounded transition-all duration-200"
           >
-            Start Quiz
+            Start Learning
           </button>
         </div>
       </div>
@@ -98,18 +98,18 @@ export default function Quiz() {
     const total = answers.length
     const pct = Math.round((correct / total) * 100)
     return (
-      <div className="space-y-6">
-        <h1 className="text-3xl font-bold text-white">Quiz Complete</h1>
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 text-center space-y-4">
-          <p className={`text-5xl font-bold ${pct >= 70 ? 'text-emerald-400' : 'text-red-400'}`}>
+      <div className="space-y-8">
+        <h1 className="text-4xl font-bold text-[#f5f6f7] text-center pt-4">Quiz Complete</h1>
+        <div className="bg-[#1b1b32] rounded-md p-10 text-center space-y-5 max-w-md mx-auto">
+          <p className={`text-6xl font-black ${pct >= 70 ? 'text-[#acd157]' : 'text-red-400'}`}>
             {pct}%
           </p>
-          <p className="text-gray-400">
+          <p className="text-[#d0d0d5] text-lg">
             {correct} of {total} correct
           </p>
           <button
             onClick={() => setQuizStarted(false)}
-            className="bg-sky-500 hover:bg-sky-600 text-white font-medium px-6 py-2 rounded transition-colors"
+            className="bg-[#f1be32] hover:opacity-90 text-[#0a0a23] font-bold px-8 py-2.5 rounded transition-all duration-200"
           >
             Try Again
           </button>
@@ -124,14 +124,14 @@ export default function Quiz() {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-bold text-white">Practice Quiz</h1>
-        <span className="text-sm text-gray-500">
+        <h1 className="text-xl font-bold text-[#f5f6f7]">Practice Quiz</h1>
+        <span className="text-sm text-[#a5abc4] font-bold">
           {currentIndex + 1} / {filteredQuestions.length}
         </span>
       </div>
-      <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
+      <div className="h-2 bg-[#2a2a40] rounded overflow-hidden">
         <div
-          className="h-full bg-sky-500 rounded-full transition-all duration-300"
+          className="h-full bg-[#f1be32] rounded transition-all duration-300"
           style={{ width: `${((currentIndex + 1) / filteredQuestions.length) * 100}%` }}
         />
       </div>
@@ -145,7 +145,7 @@ export default function Quiz() {
         <div className="flex justify-end">
           <button
             onClick={handleNext}
-            className="bg-sky-500 hover:bg-sky-600 text-white font-medium px-6 py-2 rounded transition-colors"
+            className="bg-[#f1be32] hover:opacity-90 text-[#0a0a23] font-bold px-8 py-2.5 rounded transition-all duration-200"
           >
             {currentIndex < filteredQuestions.length - 1 ? 'Next Question' : 'See Results'}
           </button>

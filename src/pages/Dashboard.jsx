@@ -9,17 +9,10 @@ const domainWeights = {
 }
 
 const domainColors = {
-  'Cloud Concepts': 'bg-sky-500',
-  'Security and Compliance': 'bg-emerald-500',
-  'Cloud Technology and Services': 'bg-violet-500',
-  'Billing, Pricing and Support': 'bg-amber-500',
-}
-
-const domainBarColors = {
-  'Cloud Concepts': 'bg-sky-400',
-  'Security and Compliance': 'bg-emerald-400',
-  'Cloud Technology and Services': 'bg-violet-400',
-  'Billing, Pricing and Support': 'bg-amber-400',
+  'Cloud Concepts': 'bg-[#99c9ff]',
+  'Security and Compliance': 'bg-[#acd157]',
+  'Cloud Technology and Services': 'bg-[#dbb8ff]',
+  'Billing, Pricing and Support': 'bg-[#f1be32]',
 }
 
 export default function Dashboard() {
@@ -28,18 +21,18 @@ export default function Dashboard() {
   const overall = getOverallStats()
 
   return (
-    <div className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-        <p className="text-gray-400">Track your AWS CLF-C02 exam preparation progress</p>
+    <div className="space-y-10">
+      <div className="text-center space-y-3 pt-4">
+        <h1 className="text-4xl font-bold text-[#f5f6f7]">AWS CLF-C02</h1>
+        <p className="text-lg text-[#d0d0d5]">Track your Cloud Practitioner exam prep progress</p>
       </div>
 
       {/* Overall Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard label="Questions Answered" value={overall.totalQuestions} />
-        <StatCard label="Correct Answers" value={overall.correctAnswers} />
+        <StatCard label="Questions" value={overall.totalQuestions} />
+        <StatCard label="Correct" value={overall.correctAnswers} />
         <StatCard
-          label="Overall Score"
+          label="Score"
           value={overall.totalQuestions > 0 ? `${overall.percentage}%` : '—'}
           highlight
         />
@@ -47,26 +40,23 @@ export default function Dashboard() {
       </div>
 
       {/* Domain Progress */}
-      <div className="bg-gray-900 rounded-lg border border-gray-800 p-6">
-        <h2 className="text-lg font-semibold text-white mb-4">Domain Progress</h2>
-        <div className="space-y-4">
+      <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
+        <h2 className="text-lg font-bold text-[#f5f6f7]">Domain Progress</h2>
+        <div className="space-y-5">
           {domainStats.map((stat) => (
             <div key={stat.domain}>
-              <div className="flex items-center justify-between mb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`w-2.5 h-2.5 rounded-full ${domainColors[stat.domain]}`} />
-                  <span className="text-sm text-gray-300">{stat.domain}</span>
-                </div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[#d0d0d5] text-sm">{stat.domain}</span>
                 <div className="flex items-center gap-3 text-sm">
-                  <span className="text-gray-500">{domainWeights[stat.domain]}% of exam</span>
-                  <span className="text-gray-300 font-medium w-10 text-right">
+                  <span className="text-[#a5abc4]">{domainWeights[stat.domain]}% of exam</span>
+                  <span className="text-[#f5f6f7] font-bold w-10 text-right">
                     {stat.total > 0 ? `${stat.percentage}%` : '—'}
                   </span>
                 </div>
               </div>
-              <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
+              <div className="h-2.5 bg-[#2a2a40] rounded overflow-hidden">
                 <div
-                  className={`h-full rounded-full transition-all duration-500 ${domainBarColors[stat.domain]}`}
+                  className={`h-full rounded transition-all duration-500 ${domainColors[stat.domain]}`}
                   style={{ width: `${stat.percentage}%` }}
                 />
               </div>
@@ -76,28 +66,30 @@ export default function Dashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Link
           to="/quiz"
-          className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-sky-500/50 hover:bg-gray-900/80 transition-all group"
+          className="bg-[#1b1b32] rounded-md p-8 hover:bg-[#2a2a40] transition-colors group text-center space-y-4"
         >
-          <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-sky-400 transition-colors">
-            Practice Quiz
-          </h3>
-          <p className="text-sm text-gray-400">
+          <h3 className="text-xl font-bold text-[#f5f6f7]">Practice Quiz</h3>
+          <p className="text-sm text-[#d0d0d5]">
             Study by domain with instant feedback and explanations
           </p>
+          <span className="inline-block bg-[#f1be32] text-[#0a0a23] font-bold px-8 py-2.5 rounded text-sm group-hover:opacity-90 transition-opacity">
+            Start Learning
+          </span>
         </Link>
         <Link
           to="/exam"
-          className="bg-gray-900 border border-gray-800 rounded-lg p-6 hover:border-violet-500/50 hover:bg-gray-900/80 transition-all group"
+          className="bg-[#1b1b32] rounded-md p-8 hover:bg-[#2a2a40] transition-colors group text-center space-y-4"
         >
-          <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-violet-400 transition-colors">
-            Exam Simulator
-          </h3>
-          <p className="text-sm text-gray-400">
+          <h3 className="text-xl font-bold text-[#f5f6f7]">Exam Simulator</h3>
+          <p className="text-sm text-[#d0d0d5]">
             65 questions, 90-minute timer — simulate the real exam
           </p>
+          <span className="inline-block bg-[#f1be32] text-[#0a0a23] font-bold px-8 py-2.5 rounded text-sm group-hover:opacity-90 transition-opacity">
+            Start Exam
+          </span>
         </Link>
       </div>
     </div>
@@ -106,9 +98,9 @@ export default function Dashboard() {
 
 function StatCard({ label, value, highlight }) {
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-lg p-4">
-      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">{label}</p>
-      <p className={`text-2xl font-bold ${highlight ? 'text-sky-400' : 'text-white'}`}>
+    <div className="bg-[#1b1b32] rounded-md p-4 text-center">
+      <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-2">{label}</p>
+      <p className={`text-3xl font-bold ${highlight ? 'text-[#f1be32]' : 'text-[#f5f6f7]'}`}>
         {value}
       </p>
     </div>

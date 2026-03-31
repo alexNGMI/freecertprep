@@ -8,22 +8,24 @@ const navItems = [
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <header className="border-b border-gray-800 bg-gray-950/80 backdrop-blur-sm sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <NavLink to="/" className="text-xl font-bold text-sky-400 hover:text-sky-300 transition-colors">
-            CloudPrep
+    <div className="min-h-screen flex flex-col bg-[#0a0a23]">
+      <header className="border-b border-[#1b1b32] bg-[#0a0a23] sticky top-0 z-10">
+        <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+          <NavLink to="/" className="text-[#f5f6f7] text-lg tracking-wide hover:opacity-80 transition-opacity" style={{ fontFamily: "'Lato', sans-serif" }}>
+            <span className="font-normal">free</span>
+            <span className="font-bold">CertPrep</span>
+            <span className="text-fcc-yellow ml-0.5">(&#9650;)</span>
           </NavLink>
-          <nav className="flex gap-1">
+          <nav className="flex gap-2">
             {navItems.map(({ to, label }) => (
               <NavLink
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `px-3 py-1.5 rounded text-sm font-medium transition-colors ${
+                  `px-4 py-1 rounded text-sm font-medium transition-all duration-200 border ${
                     isActive
-                      ? 'bg-gray-800 text-white'
-                      : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/50'
+                      ? 'bg-fcc-yellow border-fcc-yellow text-[#0a0a23] font-bold'
+                      : 'border-[#f5f6f7] text-[#f5f6f7] hover:bg-[#f5f6f7]/10'
                   }`
                 }
               >
@@ -33,11 +35,11 @@ export default function Layout() {
           </nav>
         </div>
       </header>
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-8">
+      <main className="flex-1 max-w-6xl w-full mx-auto px-6 py-10">
         <Outlet />
       </main>
-      <footer className="border-t border-gray-800 py-4 text-center text-xs text-gray-600">
-        CloudPrep — AWS CLF-C02 Exam Prep
+      <footer className="border-t border-[#1b1b32] py-5 text-center text-sm text-[#d0d0d5]">
+        FreeCertPrep — AWS CLF-C02 Exam Prep
       </footer>
     </div>
   )
