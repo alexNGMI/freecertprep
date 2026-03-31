@@ -1,0 +1,1952 @@
+[
+  {
+    "id": 1,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A retail company wants to move from on-premises infrastructure to the cloud to reduce capital expenditure. Which financial benefit best describes this shift?",
+    "choices": [
+      "Moving from capital expenditure (CapEx) to operational expenditure (OpEx)",
+      "Eliminating all IT costs permanently",
+      "Increasing capital expenditure for better hardware",
+      "Reducing operational expenditure by purchasing more servers"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Cloud computing shifts costs from CapEx (buying and maintaining hardware) to OpEx (paying for services as you use them), which improves cash flow and reduces upfront investment."
+  },
+  {
+    "id": 2,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which of the following is a key advantage of cloud computing over traditional on-premises infrastructure?",
+    "choices": [
+      "Guaranteed lower costs in every scenario",
+      "Ability to scale resources up or down based on demand",
+      "Complete elimination of the need for IT staff",
+      "Physical control over all hardware components"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Elasticity and scalability are core advantages of cloud computing. Organizations can quickly scale resources to match demand without having to purchase and provision physical hardware in advance."
+  },
+  {
+    "id": 3,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "An organization is evaluating total cost of ownership (TCO) for migrating to the cloud. Which hidden cost of on-premises infrastructure should be included in the comparison?",
+    "choices": [
+      "Cloud egress fees",
+      "Facility cooling, power, and physical security",
+      "Per-user cloud licensing fees",
+      "Cloud support plan costs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When calculating TCO for on-premises infrastructure, organizations often overlook hidden costs such as facility cooling, electricity, physical security, and real estate, all of which are included in cloud pricing."
+  },
+  {
+    "id": 4,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A startup wants to launch a new product quickly without investing in infrastructure. Which cloud model best supports this goal?",
+    "choices": [
+      "Private cloud hosted in a colocation facility",
+      "Public cloud with pay-as-you-go pricing",
+      "On-premises data center with leased equipment",
+      "Hybrid cloud with dedicated hardware"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Public cloud with pay-as-you-go pricing allows startups to launch quickly without upfront infrastructure investment, paying only for the resources they consume."
+  },
+  {
+    "id": 5,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "What does digital transformation fundamentally involve for an organization?",
+    "choices": [
+      "Simply migrating existing applications to cloud virtual machines",
+      "Rethinking how an organization uses technology, people, and processes to pursue new business models",
+      "Replacing all employees with automated systems",
+      "Purchasing the latest hardware for all departments"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Digital transformation is not just about technology migration; it involves fundamentally rethinking how technology, people, and processes work together to create new business value and pursue new models."
+  },
+  {
+    "id": 6,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which Google Cloud value proposition focuses on the environmental impact of cloud infrastructure?",
+    "choices": [
+      "Google Cloud runs on a carbon-neutral cloud and aims for 24/7 carbon-free energy",
+      "Google Cloud guarantees the lowest pricing in the industry",
+      "Google Cloud provides unlimited free storage for all customers",
+      "Google Cloud eliminates the need for any data governance"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Google Cloud is committed to sustainability. It operates on a carbon-neutral cloud and has a goal to run on 24/7 carbon-free energy, which is a significant differentiator and value proposition."
+  },
+  {
+    "id": 7,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A manufacturing company wants to use IoT sensors on the factory floor to predict equipment failures before they happen. Which type of digital transformation initiative does this represent?",
+    "choices": [
+      "Infrastructure modernization",
+      "Business intelligence reporting",
+      "Predictive maintenance using data and analytics",
+      "Simple cloud migration"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Using IoT sensors with analytics to predict equipment failures is an example of predictive maintenance, a digital transformation initiative that uses data to drive business value."
+  },
+  {
+    "id": 8,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which cloud deployment model combines on-premises infrastructure with public cloud resources?",
+    "choices": [
+      "Multi-cloud",
+      "Hybrid cloud",
+      "Private cloud",
+      "Community cloud"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A hybrid cloud deployment model combines on-premises (or private cloud) infrastructure with public cloud resources, allowing organizations to leverage both environments."
+  },
+  {
+    "id": 9,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "What is an API in the context of digital transformation?",
+    "choices": [
+      "A type of database used for storing unstructured data",
+      "A programming interface that allows different software systems to communicate with each other",
+      "A physical networking device that connects cloud regions",
+      "An encryption standard used for securing data in transit"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An API (Application Programming Interface) enables different software systems to communicate and share data, which is fundamental to building connected, modern digital services."
+  },
+  {
+    "id": 10,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "An enterprise uses multiple cloud providers to avoid vendor lock-in. Which strategy does this describe?",
+    "choices": [
+      "Hybrid cloud",
+      "Multi-cloud",
+      "Private cloud",
+      "Edge computing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A multi-cloud strategy involves using services from multiple cloud providers to reduce dependency on any single vendor and leverage best-of-breed services from each provider."
+  },
+  {
+    "id": 11,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which service model provides the highest level of abstraction, where the cloud provider manages everything except the application and its data?",
+    "choices": [
+      "Infrastructure as a Service (IaaS)",
+      "Platform as a Service (PaaS)",
+      "Software as a Service (SaaS)",
+      "Functions as a Service (FaaS)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "SaaS provides the highest level of abstraction. The cloud provider manages the entire stack, and users only interact with the application. PaaS and FaaS still require some development effort."
+  },
+  {
+    "id": 12,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A CTO is concerned about losing control of data when moving to the cloud. Which Google Cloud feature addresses data sovereignty and control?",
+    "choices": [
+      "Sustained use discounts",
+      "Data residency and regional resource placement controls",
+      "Preemptible VMs for cost savings",
+      "Auto-scaling groups for compute instances"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Cloud offers data residency controls that allow organizations to specify where their data is stored and processed, addressing data sovereignty and regulatory compliance concerns."
+  },
+  {
+    "id": 13,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "What is a key characteristic of Infrastructure as a Service (IaaS)?",
+    "choices": [
+      "The provider manages the application runtime and middleware",
+      "Users manage the operating system, middleware, and applications while the provider manages virtualization, servers, and networking",
+      "Users only manage their data and access policies",
+      "The provider manages everything including the application code"
+    ],
+    "correctAnswer": 1,
+    "explanation": "With IaaS, the cloud provider manages the physical infrastructure (servers, networking, storage, virtualization), while the customer is responsible for the operating system, middleware, runtime, and applications."
+  },
+  {
+    "id": 14,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which Google Cloud differentiator relates to its global fiber-optic network?",
+    "choices": [
+      "Open-source leadership",
+      "Premium tier networking with Google's private global network",
+      "Free unlimited bandwidth for all services",
+      "Automatic application deployment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Cloud's premium tier networking uses Google's private global fiber-optic network, providing low-latency, high-throughput connectivity between its data centers and users worldwide."
+  },
+  {
+    "id": 15,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A company wants to foster innovation while ensuring governance and cost control in the cloud. Which approach is recommended?",
+    "choices": [
+      "Restrict cloud access to only the IT department",
+      "Establish a Cloud Center of Excellence (CCoE) with governance frameworks",
+      "Allow all departments unrestricted cloud spending",
+      "Avoid the cloud entirely until all policies are finalized"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Cloud Center of Excellence (CCoE) helps organizations balance innovation with governance by establishing best practices, policies, and frameworks for cloud adoption while enabling teams to experiment."
+  },
+  {
+    "id": 16,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "What is the primary purpose of Google Cloud's resource hierarchy (Organization, Folders, Projects)?",
+    "choices": [
+      "To increase the speed of virtual machines",
+      "To organize resources and apply policies and permissions at different levels",
+      "To automatically back up all data across regions",
+      "To provide free credits for new projects"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Cloud's resource hierarchy allows organizations to organize resources logically and apply IAM policies, billing controls, and organizational policies at different levels for governance and management."
+  },
+  {
+    "id": 17,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which factor most distinguishes a cloud-native application from a traditional application that has been migrated to the cloud?",
+    "choices": [
+      "Cloud-native applications always cost less to operate",
+      "Cloud-native applications are designed from the ground up to leverage cloud services like auto-scaling, managed databases, and microservices",
+      "Cloud-native applications cannot use virtual machines",
+      "Cloud-native applications do not require any monitoring"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud-native applications are specifically designed to take full advantage of cloud computing models, including microservices architecture, containerization, auto-scaling, and managed services."
+  },
+  {
+    "id": 18,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A hospital system needs to comply with healthcare data regulations. How does Google Cloud support compliance?",
+    "choices": [
+      "Google Cloud automatically ensures all applications are compliant",
+      "Google Cloud provides compliance certifications such as HIPAA and offers a shared responsibility model",
+      "Google Cloud removes all regulatory requirements from customers",
+      "Google Cloud stores healthcare data only in encrypted USB drives"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Cloud holds numerous compliance certifications including HIPAA. Under the shared responsibility model, Google ensures the infrastructure is compliant, while the customer is responsible for configuring their applications and data handling appropriately."
+  },
+  {
+    "id": 19,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which statement best describes the concept of 'innovation' in the context of digital transformation?",
+    "choices": [
+      "Buying the newest servers every year",
+      "Creating new value by applying technology to solve problems in novel ways",
+      "Eliminating all legacy systems immediately",
+      "Hiring more developers than competitors"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Innovation in digital transformation means leveraging technology to solve problems in new ways, create new products or services, improve customer experiences, or streamline operations to generate business value."
+  },
+  {
+    "id": 20,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which of the following is a business driver for cloud adoption?",
+    "choices": [
+      "Desire to manage more physical servers",
+      "Need to increase time-to-market for new products and services",
+      "Preference for fixed long-term hardware contracts",
+      "Requirement to keep all data on local hard drives"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Reducing time-to-market is a major business driver for cloud adoption. The cloud provides ready-to-use services and scalable infrastructure that enable organizations to develop and deploy products faster."
+  },
+  {
+    "id": 21,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A company uses Google Workspace for email, documents, and collaboration. Which cloud service model does this represent?",
+    "choices": [
+      "Infrastructure as a Service (IaaS)",
+      "Platform as a Service (PaaS)",
+      "Software as a Service (SaaS)",
+      "Container as a Service (CaaS)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Google Workspace is a SaaS product. Users access fully managed applications (Gmail, Docs, Drive) through a browser without managing any underlying infrastructure or platform components."
+  },
+  {
+    "id": 22,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "What is the primary purpose of a cloud adoption framework?",
+    "choices": [
+      "To provide a step-by-step coding tutorial",
+      "To offer a structured approach for organizations to plan, implement, and optimize their cloud journey",
+      "To replace the organization's existing IT team",
+      "To automatically migrate all on-premises applications"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A cloud adoption framework provides a structured methodology that helps organizations assess their readiness, plan their migration, build skills, and optimize their use of cloud services throughout the adoption journey."
+  },
+  {
+    "id": 23,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "An organization is considering a 'lift and shift' migration. What does this approach involve?",
+    "choices": [
+      "Completely rewriting applications using cloud-native services",
+      "Moving existing applications to the cloud with minimal changes",
+      "Building new applications from scratch in the cloud",
+      "Retiring all existing applications and starting over"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Lift and shift (rehosting) involves moving existing applications to the cloud with minimal or no code changes. It is the quickest migration approach but may not fully leverage cloud-native benefits."
+  },
+  {
+    "id": 24,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which Google Cloud service is an open cloud platform that helps organizations develop, deploy, and operate applications seamlessly across clouds?",
+    "choices": [
+      "Cloud Storage",
+      "Anthos",
+      "Cloud SQL",
+      "Pub/Sub"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Anthos is Google Cloud's open application platform that enables organizations to modernize applications, build new ones, and run them consistently across on-premises, Google Cloud, and other cloud environments."
+  },
+  {
+    "id": 25,
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Why is culture change often considered the most challenging aspect of digital transformation?",
+    "choices": [
+      "Because new technology is always too expensive",
+      "Because people and organizational processes are resistant to change and require new skills, mindsets, and ways of working",
+      "Because cloud providers do not support organizational changes",
+      "Because digital transformation only involves technology changes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Culture change is the most challenging part of digital transformation because it requires people to adopt new skills, collaborate differently, embrace experimentation, and change established processes and mindsets."
+  },
+  {
+    "id": 26,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud service is a fully managed, serverless data warehouse designed for large-scale data analytics?",
+    "choices": [
+      "Cloud SQL",
+      "Cloud Spanner",
+      "BigQuery",
+      "Firestore"
+    ],
+    "correctAnswer": 2,
+    "explanation": "BigQuery is Google Cloud's fully managed, serverless, highly scalable enterprise data warehouse designed for business agility. It enables super-fast SQL queries using the processing power of Google's infrastructure."
+  },
+  {
+    "id": 27,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A data engineer needs to build a real-time streaming data pipeline that can process and transform data as it arrives. Which Google Cloud service should they use?",
+    "choices": [
+      "Cloud Storage",
+      "Dataflow",
+      "BigQuery",
+      "Cloud SQL"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Dataflow is a fully managed service for executing Apache Beam pipelines for both batch and stream (real-time) data processing. It automatically scales and can transform data as it arrives."
+  },
+  {
+    "id": 28,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is the primary difference between a data lake and a data warehouse?",
+    "choices": [
+      "A data lake can only store structured data, while a data warehouse stores all data types",
+      "A data lake stores raw data in its native format, while a data warehouse stores processed, structured data optimized for analysis",
+      "A data lake is always more expensive than a data warehouse",
+      "There is no difference; the terms are interchangeable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A data lake stores raw data in its native format (structured, semi-structured, and unstructured) for future processing, while a data warehouse stores cleaned, processed, and structured data optimized for analytical queries."
+  },
+  {
+    "id": 29,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud service provides a managed Apache Spark and Apache Hadoop environment?",
+    "choices": [
+      "Dataflow",
+      "Dataproc",
+      "BigQuery",
+      "Pub/Sub"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Dataproc is a fully managed service for running Apache Spark, Apache Hadoop, and other open-source tools. It provisions clusters quickly and integrates with other Google Cloud services."
+  },
+  {
+    "id": 30,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A company needs to ingest millions of events per second from IoT devices and make them available to multiple downstream consumers. Which Google Cloud service is best suited for this?",
+    "choices": [
+      "Cloud SQL",
+      "Pub/Sub",
+      "Cloud Storage",
+      "Memorystore"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pub/Sub is a fully managed, real-time messaging service that allows you to send and receive messages between independent applications. It is designed for high-throughput event ingestion and supports multiple subscribers."
+  },
+  {
+    "id": 31,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud service is a business intelligence platform that enables interactive dashboards and data exploration?",
+    "choices": [
+      "Dataflow",
+      "BigQuery",
+      "Looker",
+      "Cloud Composer"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Looker is Google Cloud's enterprise business intelligence platform that provides interactive dashboards, data exploration, and embedded analytics capabilities with a semantic modeling layer."
+  },
+  {
+    "id": 32,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What type of data is best described as data that does not fit neatly into rows and columns, such as images, videos, and audio files?",
+    "choices": [
+      "Structured data",
+      "Semi-structured data",
+      "Unstructured data",
+      "Relational data"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Unstructured data includes content like images, videos, audio files, and free-form text that does not conform to a predefined schema or data model with rows and columns."
+  },
+  {
+    "id": 33,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud AI service allows users to build custom machine learning models with minimal ML expertise?",
+    "choices": [
+      "Cloud Natural Language API",
+      "AutoML",
+      "Vision API",
+      "Translation API"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AutoML enables users with limited machine learning expertise to train high-quality custom models by leveraging Google's transfer learning and neural architecture search technology."
+  },
+  {
+    "id": 34,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A company wants to extract text from scanned documents and handwritten forms. Which Google Cloud pre-trained API should they use?",
+    "choices": [
+      "Speech-to-Text API",
+      "Cloud Vision API (or Document AI)",
+      "Cloud Natural Language API",
+      "Recommendations AI"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Vision API can perform optical character recognition (OCR) on images of documents, and Document AI provides specialized document processing capabilities for extracting text, forms, and entities from scanned documents."
+  },
+  {
+    "id": 35,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is Vertex AI?",
+    "choices": [
+      "A managed relational database service",
+      "A unified machine learning platform for building, deploying, and scaling ML models",
+      "A content delivery network for media files",
+      "A domain name registration service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vertex AI is Google Cloud's unified ML platform that brings together all Google Cloud services for building ML under one unified UI and API, including tools for data preparation, model training, evaluation, and deployment."
+  },
+  {
+    "id": 36,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which type of machine learning involves training a model on labeled data where the desired output is known?",
+    "choices": [
+      "Unsupervised learning",
+      "Supervised learning",
+      "Reinforcement learning",
+      "Transfer learning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Supervised learning trains models using labeled datasets where both the input and the expected output are provided. The model learns to map inputs to outputs, enabling it to make predictions on new data."
+  },
+  {
+    "id": 37,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A media company wants to automatically generate captions for video content. Which combination of Google Cloud APIs would be most useful?",
+    "choices": [
+      "Translation API and Cloud Storage API",
+      "Speech-to-Text API and Translation API",
+      "Vision API and Recommendations AI",
+      "Natural Language API and Cloud SQL API"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Speech-to-Text API converts spoken audio into text (creating captions), and Translation API can translate those captions into multiple languages for international audiences."
+  },
+  {
+    "id": 38,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is the purpose of BigQuery ML?",
+    "choices": [
+      "To migrate databases from on-premises to BigQuery",
+      "To create and execute machine learning models directly within BigQuery using SQL",
+      "To visualize data stored in BigQuery as dashboards",
+      "To encrypt all data stored in BigQuery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BigQuery ML lets you create and execute machine learning models in BigQuery using standard SQL queries. This allows data analysts familiar with SQL to build ML models without moving data or learning new tools."
+  },
+  {
+    "id": 39,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which of the following best describes semi-structured data?",
+    "choices": [
+      "Data stored in relational database tables with fixed schemas",
+      "Data that has some organizational properties like tags or keys but does not conform to a rigid schema, such as JSON or XML",
+      "Data that has no identifiable structure whatsoever",
+      "Data that is always stored in CSV files"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Semi-structured data has some organizational properties (like tags, keys, or hierarchies) but does not follow a strict tabular schema. Examples include JSON, XML, and YAML files."
+  },
+  {
+    "id": 40,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A retail company wants to provide product recommendations to customers on their website. Which Google Cloud service is designed for this use case?",
+    "choices": [
+      "Cloud Spanner",
+      "Recommendations AI",
+      "Cloud Armor",
+      "Cloud DNS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Recommendations AI is a Google Cloud service that delivers personalized product recommendations at scale, using the same technology that powers recommendations on Google Shopping and YouTube."
+  },
+  {
+    "id": 41,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is the primary benefit of using a fully managed service like BigQuery compared to managing your own data warehouse?",
+    "choices": [
+      "You have more control over the physical hardware",
+      "You can avoid paying for any compute resources",
+      "Google handles infrastructure management, patching, scaling, and availability so you can focus on analytics",
+      "You can only use proprietary query languages"
+    ],
+    "correctAnswer": 2,
+    "explanation": "With fully managed services like BigQuery, Google handles all infrastructure management including provisioning, scaling, patching, and ensuring high availability, allowing users to focus on deriving insights from their data."
+  },
+  {
+    "id": 42,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud service is used for orchestrating complex data workflows and pipelines?",
+    "choices": [
+      "Cloud Composer",
+      "Cloud Run",
+      "Compute Engine",
+      "Cloud Endpoints"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Cloud Composer is a fully managed workflow orchestration service built on Apache Airflow that helps you author, schedule, and monitor data pipelines spanning hybrid and multi-cloud environments."
+  },
+  {
+    "id": 43,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A healthcare organization wants to analyze patient sentiment from feedback forms using natural language processing. Which Google Cloud service should they consider?",
+    "choices": [
+      "Cloud Vision API",
+      "Cloud Natural Language API",
+      "Cloud Translation API",
+      "Video Intelligence API"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Natural Language API provides natural language understanding capabilities including sentiment analysis, entity recognition, and syntax analysis, making it ideal for analyzing patient feedback text."
+  },
+  {
+    "id": 44,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is the difference between artificial intelligence (AI) and machine learning (ML)?",
+    "choices": [
+      "AI and ML are exactly the same thing",
+      "ML is a subset of AI that focuses on algorithms that learn from data to make predictions or decisions",
+      "AI is a subset of ML that focuses on rule-based systems",
+      "ML requires no data while AI requires large datasets"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Machine learning is a subset of artificial intelligence. AI is the broader concept of machines performing tasks intelligently, while ML specifically refers to algorithms and statistical models that learn from and make predictions based on data."
+  },
+  {
+    "id": 45,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud service provides a managed environment for running Apache Kafka workloads?",
+    "choices": [
+      "Pub/Sub",
+      "Managed Service for Apache Kafka",
+      "Cloud Functions",
+      "Cloud Spanner"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Cloud offers Managed Service for Apache Kafka, which provides a fully managed Apache Kafka service that reduces the operational burden of managing Kafka clusters while maintaining compatibility with existing Kafka workloads."
+  },
+  {
+    "id": 46,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A financial services company needs to detect fraudulent transactions in real time. Which approach using Google Cloud would be most effective?",
+    "choices": [
+      "Batch processing transactions nightly with BigQuery",
+      "Storing all transactions in Cloud Storage and reviewing manually",
+      "Using a streaming pipeline with Pub/Sub and Dataflow combined with an ML model on Vertex AI for real-time scoring",
+      "Running a weekly scheduled query in Cloud SQL"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Real-time fraud detection requires a streaming architecture. Pub/Sub ingests transactions in real time, Dataflow processes the stream, and a deployed ML model on Vertex AI scores each transaction for fraud probability."
+  },
+  {
+    "id": 47,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is a key advantage of using pre-trained ML APIs like the Vision API or Natural Language API?",
+    "choices": [
+      "They require extensive training data specific to your use case",
+      "They provide immediate ML capabilities without the need to build and train custom models",
+      "They are only available for batch processing",
+      "They can only be used with structured data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pre-trained APIs provide ready-to-use ML capabilities immediately. Organizations can leverage Google's pre-trained models without needing their own training data or ML expertise to get started."
+  },
+  {
+    "id": 48,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which of the following is a characteristic of a data warehouse?",
+    "choices": [
+      "It stores raw, unprocessed data in its native format",
+      "It stores structured, processed data optimized for fast analytical queries",
+      "It is designed primarily for transactional processing (OLTP)",
+      "It cannot handle SQL queries"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A data warehouse stores structured, processed, and curated data that is optimized for analytical queries (OLAP). Data is typically cleaned, transformed, and loaded via ETL processes before being queried."
+  },
+  {
+    "id": 49,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud product can be used to build and deploy machine learning pipelines in a repeatable and automated way?",
+    "choices": [
+      "Cloud Build",
+      "Vertex AI Pipelines",
+      "Cloud Scheduler",
+      "Artifact Registry"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Vertex AI Pipelines allows you to automate, monitor, and govern ML systems by orchestrating ML workflows in a serverless manner, ensuring repeatability and scalability of ML pipelines."
+  },
+  {
+    "id": 50,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is the concept of 'data governance'?",
+    "choices": [
+      "The process of deleting all unnecessary data",
+      "The overall management of data availability, usability, integrity, and security within an organization",
+      "Storing all data in a single database for simplicity",
+      "Allowing unrestricted access to all data for all employees"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Data governance encompasses the policies, processes, and standards that ensure data is managed properly across an organization, addressing availability, usability, integrity, and security of data assets."
+  },
+  {
+    "id": 51,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud service provides a managed, serverless way to catalog and discover data assets across an organization?",
+    "choices": [
+      "Data Catalog",
+      "Cloud Storage",
+      "Cloud Spanner",
+      "Memorystore"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Data Catalog is a fully managed, scalable metadata management service that helps organizations discover, manage, and understand all their data in Google Cloud through automated tagging and a searchable catalog."
+  },
+  {
+    "id": 52,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A company wants to analyze customer call recordings to understand common complaints. Which sequence of Google Cloud APIs should they use?",
+    "choices": [
+      "Vision API followed by Translation API",
+      "Speech-to-Text API followed by Natural Language API",
+      "Video Intelligence API followed by Recommendations AI",
+      "Translation API followed by Vision API"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Speech-to-Text API converts the audio recordings into text transcripts, and then Natural Language API can analyze the text for entities, sentiment, and topics to identify common complaints."
+  },
+  {
+    "id": 53,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is deep learning?",
+    "choices": [
+      "A type of database indexing strategy",
+      "A subset of machine learning based on artificial neural networks with multiple layers that can learn complex patterns from large amounts of data",
+      "A manual data analysis technique performed by data analysts",
+      "A cloud storage tier for infrequently accessed data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Deep learning is a subset of machine learning that uses artificial neural networks with multiple hidden layers. It excels at learning complex patterns from large datasets and powers many AI applications like image recognition and NLP."
+  },
+  {
+    "id": 54,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which storage class in Cloud Storage is most cost-effective for data that is accessed less than once a year?",
+    "choices": [
+      "Standard",
+      "Nearline",
+      "Coldline",
+      "Archive"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Archive storage class is designed for data that is accessed less than once a year, such as regulatory archives and disaster recovery data. It offers the lowest storage cost but has higher access costs."
+  },
+  {
+    "id": 55,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What does ETL stand for in the context of data processing?",
+    "choices": [
+      "Encrypt, Transfer, Log",
+      "Extract, Transform, Load",
+      "Enable, Test, Launch",
+      "Evaluate, Train, Learn"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ETL stands for Extract, Transform, Load. It is a data integration process that extracts data from source systems, transforms it into a suitable format, and loads it into a target system like a data warehouse."
+  },
+  {
+    "id": 56,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "An e-commerce company wants to enable natural language search on their product catalog so customers can ask questions like 'show me blue running shoes under $100'. Which type of AI capability would power this?",
+    "choices": [
+      "Computer vision",
+      "Reinforcement learning",
+      "Natural language processing (NLP)",
+      "Anomaly detection"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Natural Language Processing (NLP) enables computers to understand and interpret human language. It would power the ability to parse natural language queries and translate them into product search filters."
+  },
+  {
+    "id": 57,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is a key benefit of using Dataflow for data processing compared to managing your own Apache Beam cluster?",
+    "choices": [
+      "Dataflow only supports batch processing",
+      "Dataflow is a fully managed service that automatically provisions and manages resources, eliminating operational overhead",
+      "Dataflow requires you to manage the underlying virtual machines",
+      "Dataflow can only process structured data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Dataflow is a fully managed service that handles resource provisioning, auto-scaling, and pipeline management automatically. This eliminates the operational overhead of managing your own Beam cluster."
+  },
+  {
+    "id": 58,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which Google Cloud AI service can identify objects, faces, and text within images?",
+    "choices": [
+      "Cloud Natural Language API",
+      "Cloud Vision API",
+      "Cloud Speech-to-Text API",
+      "Cloud Translation API"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Vision API uses pre-trained machine learning models to detect objects, faces, text (OCR), logos, and other content within images."
+  },
+  {
+    "id": 59,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A logistics company has data in BigQuery and on-premises Oracle databases. They want to analyze this data together without moving everything to one location. Which BigQuery feature supports this?",
+    "choices": [
+      "BigQuery BI Engine",
+      "BigQuery federated queries",
+      "BigQuery ML",
+      "BigQuery materialized views"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BigQuery federated queries allow you to query data stored outside of BigQuery (such as Cloud Storage, Cloud SQL, or external databases) directly without loading it into BigQuery first."
+  },
+  {
+    "id": 60,
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "What is the primary purpose of a feature store in machine learning?",
+    "choices": [
+      "To store the final trained model artifacts",
+      "To serve as a centralized repository for storing, managing, and serving ML features consistently for training and prediction",
+      "To visualize model performance metrics",
+      "To manage user access to ML notebooks"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A feature store (like Vertex AI Feature Store) is a centralized repository that manages ML features, ensuring consistency between training and serving, enabling feature reuse, and reducing feature engineering duplication."
+  },
+  {
+    "id": 61,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service provides virtual machines that run on Google's infrastructure?",
+    "choices": [
+      "Cloud Functions",
+      "Compute Engine",
+      "Cloud Run",
+      "App Engine"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Compute Engine provides virtual machines (VMs) that run on Google's infrastructure. Users can choose from predefined or custom machine types and have full control over the VM operating system and configuration."
+  },
+  {
+    "id": 62,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A development team wants to deploy containerized applications without managing the underlying infrastructure. Which Google Cloud service should they use?",
+    "choices": [
+      "Compute Engine",
+      "Cloud Run",
+      "Bare Metal Solution",
+      "Cloud Interconnect"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Run is a fully managed serverless platform that automatically scales containerized applications. Developers deploy containers without managing servers, clusters, or infrastructure."
+  },
+  {
+    "id": 63,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is Google Kubernetes Engine (GKE)?",
+    "choices": [
+      "A relational database management service",
+      "A managed environment for deploying, managing, and scaling containerized applications using Kubernetes",
+      "A serverless function execution service",
+      "A virtual private network service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GKE is a managed Kubernetes service that provides a production-ready environment for deploying, managing, and scaling containerized applications using Google's infrastructure and Kubernetes orchestration."
+  },
+  {
+    "id": 64,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which of the following best describes a container?",
+    "choices": [
+      "A virtual machine with its own operating system",
+      "A lightweight, standalone package that includes application code and all its dependencies, sharing the host OS kernel",
+      "A physical server dedicated to a single application",
+      "A type of cloud storage bucket"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A container is a lightweight package that bundles application code with all dependencies (libraries, runtime, configuration). Containers share the host OS kernel, making them more efficient and portable than virtual machines."
+  },
+  {
+    "id": 65,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service is best suited for running short-lived, event-driven functions that respond to cloud events?",
+    "choices": [
+      "Compute Engine",
+      "GKE",
+      "Cloud Functions",
+      "App Engine"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cloud Functions is a serverless, event-driven compute service for running lightweight functions that respond to cloud events (such as file uploads, Pub/Sub messages, or HTTP requests) without managing servers."
+  },
+  {
+    "id": 66,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is the primary benefit of a microservices architecture compared to a monolithic architecture?",
+    "choices": [
+      "Microservices are always cheaper to develop",
+      "Each service can be developed, deployed, and scaled independently",
+      "Microservices require fewer developers",
+      "Monolithic applications cannot be deployed to the cloud"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Microservices architecture decomposes applications into small, independent services that can be developed, deployed, updated, and scaled independently, improving agility and enabling teams to work in parallel."
+  },
+  {
+    "id": 67,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A company wants to automate their software build, test, and deployment pipeline. Which Google Cloud service supports CI/CD?",
+    "choices": [
+      "Cloud Build",
+      "Cloud Storage",
+      "Cloud Logging",
+      "Cloud Armor"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Cloud Build is Google Cloud's serverless CI/CD platform that lets you build, test, and deploy software quickly. It executes builds as a series of build steps in containers."
+  },
+  {
+    "id": 68,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service is a fully managed platform for building and deploying web applications and APIs with automatic scaling?",
+    "choices": [
+      "Compute Engine",
+      "App Engine",
+      "Cloud Interconnect",
+      "Cloud VPN"
+    ],
+    "correctAnswer": 1,
+    "explanation": "App Engine is a fully managed, serverless PaaS for developing and hosting web applications. It handles infrastructure management, automatic scaling, and load balancing."
+  },
+  {
+    "id": 69,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is the purpose of Anthos in a multi-cloud strategy?",
+    "choices": [
+      "To provide a managed database service across clouds",
+      "To provide a consistent platform for managing applications across on-premises, Google Cloud, and other cloud environments",
+      "To provide free compute resources across all cloud providers",
+      "To automatically replicate data between cloud providers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Anthos enables organizations to manage applications consistently across on-premises data centers and multiple cloud providers, providing a unified platform for deployment, configuration, and operations."
+  },
+  {
+    "id": 70,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which migration strategy involves modifying an application to take advantage of cloud-native features before migrating it?",
+    "choices": [
+      "Rehost (lift and shift)",
+      "Refactor (re-architect)",
+      "Retire",
+      "Retain"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Refactoring (re-architecting) involves modifying the application code and architecture to leverage cloud-native services and features, which can improve performance, scalability, and maintainability."
+  },
+  {
+    "id": 71,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "An organization needs a managed relational database with strong consistency and horizontal scalability across regions. Which Google Cloud service should they choose?",
+    "choices": [
+      "Cloud SQL",
+      "Cloud Spanner",
+      "Firestore",
+      "Bigtable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Spanner is a fully managed, globally distributed relational database that provides strong consistency, horizontal scaling, and high availability across regions, making it unique among relational databases."
+  },
+  {
+    "id": 72,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service stores container images and other artifacts?",
+    "choices": [
+      "Cloud Storage",
+      "Artifact Registry",
+      "Cloud Filestore",
+      "Persistent Disk"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Artifact Registry is a fully managed service for storing, managing, and securing container images, language packages, and other build artifacts in a central repository."
+  },
+  {
+    "id": 73,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is the difference between Cloud Run and Cloud Functions?",
+    "choices": [
+      "Cloud Run only supports Python while Cloud Functions supports all languages",
+      "Cloud Run runs any containerized application while Cloud Functions runs individual event-driven functions with specific runtime constraints",
+      "Cloud Functions provides more control over infrastructure than Cloud Run",
+      "There is no difference; they are the same service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Run deploys and scales any containerized application (including web apps and APIs), while Cloud Functions is designed for individual, event-driven functions with specific runtime and language constraints."
+  },
+  {
+    "id": 74,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which tool can help migrate virtual machines from on-premises or other clouds to Google Cloud Compute Engine?",
+    "choices": [
+      "Cloud CDN",
+      "Migrate to Virtual Machines",
+      "Cloud NAT",
+      "Cloud DNS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Migrate to Virtual Machines (formerly Migrate for Compute Engine) helps organizations migrate VMs from on-premises environments or other clouds to Google Cloud Compute Engine with minimal downtime."
+  },
+  {
+    "id": 75,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A development team wants to ensure that their application works the same way in development, testing, and production environments. Which technology is most helpful?",
+    "choices": [
+      "Virtual private networks",
+      "Containers",
+      "Load balancers",
+      "DNS servers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Containers package an application with all its dependencies, ensuring consistent behavior across development, testing, and production environments regardless of the underlying infrastructure."
+  },
+  {
+    "id": 76,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service provides managed MySQL, PostgreSQL, and SQL Server databases?",
+    "choices": [
+      "Cloud Spanner",
+      "Cloud SQL",
+      "Bigtable",
+      "Firestore"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud SQL is a fully managed relational database service for MySQL, PostgreSQL, and SQL Server. It handles replication, backups, patches, and updates while providing high availability."
+  },
+  {
+    "id": 77,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is the purpose of a load balancer in cloud architecture?",
+    "choices": [
+      "To store backup copies of data",
+      "To distribute incoming traffic across multiple backend instances to ensure availability and performance",
+      "To encrypt data at rest",
+      "To manage user authentication"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A load balancer distributes incoming network traffic across multiple backend instances, ensuring no single instance is overwhelmed and improving application availability, reliability, and performance."
+  },
+  {
+    "id": 78,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service is a fully managed NoSQL document database for mobile, web, and IoT applications?",
+    "choices": [
+      "Cloud SQL",
+      "Firestore",
+      "Cloud Spanner",
+      "BigQuery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Firestore is a fully managed, serverless, NoSQL document database built for automatic scaling, high performance, and ease of application development for mobile, web, and IoT applications."
+  },
+  {
+    "id": 79,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "An organization is modernizing a legacy monolithic application. They want to break it into microservices gradually. Which migration approach does this describe?",
+    "choices": [
+      "Big bang migration",
+      "Strangler fig pattern",
+      "Lift and shift",
+      "Blue-green deployment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The strangler fig pattern involves gradually replacing components of a legacy application with new microservices over time, allowing incremental modernization while the legacy system continues to operate."
+  },
+  {
+    "id": 80,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What does 'serverless' mean in cloud computing?",
+    "choices": [
+      "There are literally no servers involved",
+      "The cloud provider manages all server infrastructure, and customers only pay for actual usage without provisioning or managing servers",
+      "Only physical servers are used instead of virtual machines",
+      "Customers must bring their own servers to the cloud"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Serverless means the cloud provider fully manages the infrastructure. Developers focus only on code, and resources are automatically provisioned and scaled. Billing is based on actual usage rather than reserved capacity."
+  },
+  {
+    "id": 81,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service provides a managed, high-throughput, low-latency NoSQL database for large analytical and operational workloads?",
+    "choices": [
+      "Cloud SQL",
+      "Firestore",
+      "Cloud Bigtable",
+      "Cloud Spanner"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cloud Bigtable is a fully managed, wide-column NoSQL database designed for large analytical and operational workloads with consistent low latency and high throughput, ideal for time-series data, IoT, and analytics."
+  },
+  {
+    "id": 82,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is CI/CD?",
+    "choices": [
+      "Cloud Integration / Cloud Delivery",
+      "Continuous Integration / Continuous Delivery (or Deployment), the practice of automating the build, test, and release process",
+      "Customer Interface / Customer Dashboard",
+      "Container Instance / Container Distribution"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CI/CD stands for Continuous Integration / Continuous Delivery (or Deployment). It is the practice of automating software build, testing, and release processes to deliver code changes more frequently and reliably."
+  },
+  {
+    "id": 83,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A company needs to connect their on-premises data center to Google Cloud with a dedicated, private, high-bandwidth connection. Which service should they use?",
+    "choices": [
+      "Cloud VPN",
+      "Cloud Interconnect",
+      "Cloud CDN",
+      "Cloud NAT"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Interconnect provides dedicated, private, high-bandwidth physical connections between on-premises networks and Google Cloud, offering lower latency and higher reliability than internet-based connections."
+  },
+  {
+    "id": 84,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud service helps manage APIs by providing features like rate limiting, authentication, and monitoring?",
+    "choices": [
+      "Cloud Endpoints",
+      "Cloud Storage",
+      "Cloud Build",
+      "Cloud Scheduler"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Cloud Endpoints is an API management platform that helps you develop, deploy, protect, and monitor APIs. It provides features like authentication, rate limiting, logging, and API key management."
+  },
+  {
+    "id": 85,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A team needs to deploy a stateless web application that scales automatically to zero when there is no traffic. Which service is most appropriate?",
+    "choices": [
+      "Compute Engine with autoscaler",
+      "Cloud Run",
+      "GKE with a node pool",
+      "Cloud SQL"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Run can automatically scale containerized stateless applications down to zero instances when there is no traffic and back up when requests arrive, making it cost-efficient for variable workloads."
+  },
+  {
+    "id": 86,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is the primary advantage of using managed services instead of self-managed infrastructure?",
+    "choices": [
+      "Managed services always cost less",
+      "Managed services provide more customization options",
+      "Managed services reduce operational overhead by handling maintenance, patching, scaling, and availability",
+      "Managed services give you root access to the underlying servers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Managed services reduce operational overhead because the cloud provider handles infrastructure maintenance, security patching, automatic scaling, backups, and high availability configuration."
+  },
+  {
+    "id": 87,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud networking service provides secure, encrypted tunnels between on-premises networks and Google Cloud over the public internet?",
+    "choices": [
+      "Cloud Interconnect",
+      "Cloud VPN",
+      "Cloud CDN",
+      "Cloud Load Balancing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud VPN creates encrypted IPsec tunnels between on-premises networks and Google Cloud over the public internet, providing a secure connection at lower cost than dedicated interconnect."
+  },
+  {
+    "id": 88,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which approach to application modernization involves keeping an application running as-is because it still meets business requirements?",
+    "choices": [
+      "Rehost",
+      "Refactor",
+      "Retain",
+      "Retire"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Retain strategy means keeping an application in its current environment without migrating it, typically because it still meets requirements, is too complex to move, or will be retired soon."
+  },
+  {
+    "id": 89,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is the purpose of Google Cloud's Migrate to Containers service?",
+    "choices": [
+      "To create virtual machines from container images",
+      "To convert existing applications running in VMs into containers that can run on GKE or Cloud Run",
+      "To migrate containers from Docker Hub to Google Cloud",
+      "To convert containers back into virtual machines"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Migrate to Containers helps modernize traditional applications by extracting them from VMs and converting them into containers that can be deployed on GKE or Cloud Run."
+  },
+  {
+    "id": 90,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A media streaming company needs a content delivery network to reduce latency for users worldwide. Which Google Cloud service should they use?",
+    "choices": [
+      "Cloud VPN",
+      "Cloud CDN",
+      "Cloud Interconnect",
+      "Cloud NAT"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud CDN (Content Delivery Network) uses Google's globally distributed edge caches to serve content closer to users, reducing latency and improving the delivery speed of web and video content."
+  },
+  {
+    "id": 91,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is the benefit of using preemptible or spot VMs on Compute Engine?",
+    "choices": [
+      "They have guaranteed uptime SLAs",
+      "They offer significantly lower pricing for fault-tolerant workloads that can handle interruptions",
+      "They automatically scale based on demand",
+      "They include premium support at no extra cost"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Preemptible and spot VMs offer significantly lower pricing (up to 60-91% discount) compared to regular VMs, making them ideal for fault-tolerant, batch processing, or stateless workloads that can tolerate interruptions."
+  },
+  {
+    "id": 92,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Compute Engine feature automatically creates VM instances based on demand and removes them when they are no longer needed?",
+    "choices": [
+      "Persistent Disk snapshots",
+      "Managed instance groups with autoscaling",
+      "Cloud VPN tunnels",
+      "Custom machine types"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Managed instance groups with autoscaling automatically adjust the number of VM instances in a group based on load metrics, creating instances when demand increases and removing them when it decreases."
+  },
+  {
+    "id": 93,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A company wants to store objects like images, videos, and backups in the cloud. Which Google Cloud service is best suited?",
+    "choices": [
+      "Cloud SQL",
+      "Cloud Storage",
+      "Persistent Disk",
+      "Cloud Memorystore"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Storage is an object storage service designed for storing unstructured data like images, videos, backups, and logs. It offers different storage classes for various access patterns and durability requirements."
+  },
+  {
+    "id": 94,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "What is a key characteristic of Kubernetes that makes it popular for container orchestration?",
+    "choices": [
+      "It can only run on Google Cloud",
+      "It provides declarative configuration, automatic scaling, self-healing, and service discovery for containerized workloads",
+      "It eliminates the need for containers",
+      "It only supports single-container deployments"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kubernetes is popular because it provides declarative configuration, automatic scaling, self-healing (restarting failed containers), load balancing, service discovery, and rolling updates for containerized applications."
+  },
+  {
+    "id": 95,
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which Google Cloud database service is best suited for wide-column, high-throughput workloads like time-series data from IoT devices?",
+    "choices": [
+      "Cloud SQL",
+      "Cloud Spanner",
+      "Cloud Bigtable",
+      "Firestore"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cloud Bigtable is a wide-column NoSQL database optimized for high-throughput, low-latency workloads. It is ideal for time-series data, IoT telemetry, financial data, and similar use cases requiring consistent performance at scale."
+  },
+  {
+    "id": 96,
+    "domain": "Google Cloud Security and Operations",
+    "question": "In the Google Cloud shared responsibility model, which of the following is the customer's responsibility?",
+    "choices": [
+      "Physical security of data center facilities",
+      "Encryption of data at rest on Google's disks",
+      "Managing access control and IAM policies for their resources",
+      "Patching the hypervisor software"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Under the shared responsibility model, Google secures the infrastructure (physical security, hypervisor, encryption at rest), while customers are responsible for managing access control, IAM policies, and securing their applications and data."
+  },
+  {
+    "id": 97,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the principle of least privilege in the context of IAM?",
+    "choices": [
+      "Granting all users admin access to simplify management",
+      "Granting users only the minimum permissions they need to perform their specific tasks",
+      "Removing all permissions from users by default permanently",
+      "Granting permissions based on seniority level"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The principle of least privilege means granting users and service accounts only the minimum set of permissions necessary to perform their specific tasks, reducing the blast radius of potential security incidents."
+  },
+  {
+    "id": 98,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service provides centralized visibility into security vulnerabilities and threats across your Google Cloud assets?",
+    "choices": [
+      "Cloud Armor",
+      "Security Command Center",
+      "Cloud NAT",
+      "Cloud DNS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Security Command Center is Google Cloud's centralized security and risk management platform that provides visibility into security vulnerabilities, misconfigurations, and threats across your Google Cloud environment."
+  },
+  {
+    "id": 99,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service protects applications from DDoS attacks and provides web application firewall (WAF) capabilities?",
+    "choices": [
+      "Cloud IAM",
+      "Cloud Armor",
+      "Cloud KMS",
+      "VPC Flow Logs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Armor provides DDoS protection and web application firewall (WAF) capabilities for applications behind Google Cloud load balancers, helping protect against common web attacks and DDoS threats."
+  },
+  {
+    "id": 100,
+    "domain": "Google Cloud Security and Operations",
+    "question": "How does Google Cloud encrypt data at rest by default?",
+    "choices": [
+      "Data at rest is not encrypted by default; customers must enable it",
+      "Google Cloud uses AES-256 encryption for all data at rest by default with Google-managed keys",
+      "Data at rest is only encrypted for premium tier customers",
+      "Encryption at rest requires customers to provide their own keys"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Cloud encrypts all customer data at rest by default using AES-256 encryption with Google-managed encryption keys, with no additional action required by the customer."
+  },
+  {
+    "id": 101,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service collects, stores, and analyzes log data from Google Cloud services and applications?",
+    "choices": [
+      "Cloud Monitoring",
+      "Cloud Logging",
+      "Cloud Trace",
+      "Cloud Profiler"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Logging is a fully managed service for storing, searching, analyzing, and alerting on log data from Google Cloud services, VMs, containers, and custom applications."
+  },
+  {
+    "id": 102,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service collects metrics and provides dashboards and alerting for monitoring infrastructure and application health?",
+    "choices": [
+      "Cloud Logging",
+      "Cloud Monitoring",
+      "Cloud Trace",
+      "Error Reporting"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Monitoring collects metrics, events, and metadata from Google Cloud services and applications. It provides dashboards, alerting, and uptime checks for monitoring infrastructure and application health."
+  },
+  {
+    "id": 103,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is an SLA in cloud computing?",
+    "choices": [
+      "Software License Agreement",
+      "A Service Level Agreement that defines the guaranteed level of service (like uptime percentage) a provider commits to deliver",
+      "Secure Login Access",
+      "Standard Log Analysis"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Service Level Agreement (SLA) is a formal commitment between a cloud provider and customer that defines guaranteed service levels, typically including uptime percentages and remedies if those levels are not met."
+  },
+  {
+    "id": 104,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the difference between an SLO and an SLA?",
+    "choices": [
+      "They are the same thing",
+      "An SLO (Service Level Objective) is an internal target for service reliability, while an SLA is an external contractual commitment with financial consequences",
+      "An SLO is only for storage services, while an SLA is for compute services",
+      "An SLA is less strict than an SLO"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An SLO is an internal target that teams set for service reliability (e.g., 99.95% availability). An SLA is an external, contractual guarantee with customers that typically includes financial penalties if not met. SLOs are usually stricter than SLAs."
+  },
+  {
+    "id": 105,
+    "domain": "Google Cloud Security and Operations",
+    "question": "A company wants to use their own encryption keys to protect data in Google Cloud rather than Google-managed keys. Which service should they use?",
+    "choices": [
+      "Cloud Armor",
+      "Cloud Key Management Service (Cloud KMS)",
+      "Cloud NAT",
+      "Cloud CDN"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud KMS allows customers to create, use, rotate, and manage cryptographic keys for data encryption. It supports customer-managed encryption keys (CMEK) for controlling encryption across Google Cloud services."
+  },
+  {
+    "id": 106,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is a Virtual Private Cloud (VPC) in Google Cloud?",
+    "choices": [
+      "A physical data center dedicated to a single customer",
+      "A logically isolated network within Google Cloud where you can deploy resources with private IP addresses and define network policies",
+      "A special type of virtual machine",
+      "An encryption service for data in transit"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A VPC is a logically isolated, software-defined network within Google Cloud. It provides private IP addressing, subnets, firewall rules, and routing for cloud resources, similar to a traditional network but in the cloud."
+  },
+  {
+    "id": 107,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud feature controls incoming and outgoing network traffic to VM instances based on defined rules?",
+    "choices": [
+      "Cloud IAM",
+      "VPC firewall rules",
+      "Cloud KMS",
+      "Cloud Scheduler"
+    ],
+    "correctAnswer": 1,
+    "explanation": "VPC firewall rules allow you to control network traffic to and from VM instances by defining rules based on IP ranges, protocols, ports, and tags. They act as a virtual firewall for your Google Cloud network."
+  },
+  {
+    "id": 108,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which IAM entity should be used to grant permissions to an application or service running on Google Cloud rather than to a human user?",
+    "choices": [
+      "Google Group",
+      "Cloud Identity user",
+      "Service account",
+      "Organization admin"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Service accounts are special accounts used by applications, VMs, and services (not humans) to authenticate and interact with Google Cloud APIs. They enable programmatic access with specific permissions."
+  },
+  {
+    "id": 109,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What does an SLI (Service Level Indicator) measure?",
+    "choices": [
+      "The financial penalty for downtime",
+      "A quantitative measure of a specific aspect of the level of service being provided, such as request latency or error rate",
+      "The total number of users on a platform",
+      "The cost of running a cloud service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An SLI (Service Level Indicator) is a quantitative metric that measures a specific aspect of service quality, such as request latency, availability percentage, error rate, or throughput."
+  },
+  {
+    "id": 110,
+    "domain": "Google Cloud Security and Operations",
+    "question": "An organization wants to centrally manage identity and access for both Google Cloud and on-premises resources. Which Google Cloud service should they use?",
+    "choices": [
+      "Cloud Armor",
+      "Cloud Identity",
+      "Cloud CDN",
+      "Cloud Storage"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Identity is an Identity as a Service (IDaaS) solution that provides centralized identity management for users and groups, supporting integration with on-premises Active Directory and third-party identity providers."
+  },
+  {
+    "id": 111,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of Cloud Audit Logs?",
+    "choices": [
+      "To store application data backups",
+      "To record who did what, where, and when within Google Cloud resources for security auditing and compliance",
+      "To manage billing information",
+      "To provide DNS resolution services"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Audit Logs maintain a record of administrative activities, data access, and system events across Google Cloud resources, answering 'who did what, where, and when' for security auditing and compliance."
+  },
+  {
+    "id": 112,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which type of IAM role provides the most granular permissions for specific services and actions?",
+    "choices": [
+      "Basic roles (Owner, Editor, Viewer)",
+      "Predefined roles",
+      "Custom roles",
+      "Primitive roles"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Custom IAM roles allow administrators to create roles with a specific set of permissions tailored to an organization's needs, providing the most granular access control compared to basic or predefined roles."
+  },
+  {
+    "id": 113,
+    "domain": "Google Cloud Security and Operations",
+    "question": "A security team wants to prevent sensitive data like credit card numbers from being exposed in their cloud environment. Which Google Cloud service can help?",
+    "choices": [
+      "Cloud CDN",
+      "Cloud Data Loss Prevention (DLP)",
+      "Cloud NAT",
+      "Cloud Build"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud DLP (Data Loss Prevention) helps discover, classify, and protect sensitive data. It can inspect and de-identify sensitive information like credit card numbers, SSNs, and other PII across Google Cloud resources."
+  },
+  {
+    "id": 114,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of multi-factor authentication (MFA)?",
+    "choices": [
+      "To allow users to log in without a password",
+      "To require users to provide two or more verification factors to gain access, increasing security beyond just a password",
+      "To allow multiple users to share a single account",
+      "To encrypt data at rest"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Multi-factor authentication requires users to provide two or more independent verification factors (something they know, have, or are) to authenticate, significantly reducing the risk of unauthorized access."
+  },
+  {
+    "id": 115,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud operations tool helps identify performance bottlenecks in distributed applications by analyzing request latency?",
+    "choices": [
+      "Cloud Logging",
+      "Cloud Monitoring",
+      "Cloud Trace",
+      "Cloud Profiler"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cloud Trace collects latency data from applications and provides detailed, near-real-time performance insights for distributed applications, helping identify bottlenecks and latency issues."
+  },
+  {
+    "id": 116,
+    "domain": "Google Cloud Security and Operations",
+    "question": "In incident management, what is a 'postmortem'?",
+    "choices": [
+      "A meeting held before an incident to plan response",
+      "A blameless analysis conducted after an incident to understand what happened, why, and how to prevent it in the future",
+      "A real-time communication during an active incident",
+      "A financial report of incident costs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A postmortem is a blameless review conducted after an incident that documents what happened, the root cause, the impact, and action items to prevent similar incidents in the future. It focuses on learning, not blame."
+  },
+  {
+    "id": 117,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service helps protect against SQL injection and cross-site scripting (XSS) attacks?",
+    "choices": [
+      "Cloud IAM",
+      "Cloud KMS",
+      "Cloud Armor",
+      "Cloud Logging"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cloud Armor's web application firewall (WAF) capabilities include preconfigured rules to protect against common web attacks like SQL injection and cross-site scripting (XSS)."
+  },
+  {
+    "id": 118,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of Organization Policy Service in Google Cloud?",
+    "choices": [
+      "To manage DNS records for an organization",
+      "To define and enforce constraints on how Google Cloud resources can be configured across an organization",
+      "To provide discounts for large organizations",
+      "To manage email distribution lists"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Organization Policy Service allows administrators to set constraints on how resources can be configured across the organization, such as restricting which regions resources can be created in or disabling external IP addresses."
+  },
+  {
+    "id": 119,
+    "domain": "Google Cloud Security and Operations",
+    "question": "A company needs to ensure that their cloud resources are only deployed in specific geographic regions due to regulatory requirements. Which Google Cloud feature helps enforce this?",
+    "choices": [
+      "Cloud Load Balancing",
+      "Organization Policy constraints for resource locations",
+      "Cloud CDN caching policies",
+      "Cloud Scheduler"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Organization Policy constraints can restrict the geographic locations where resources can be created, helping organizations comply with data residency and sovereignty regulations."
+  },
+  {
+    "id": 120,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which encryption protects data while it is being transmitted between systems?",
+    "choices": [
+      "Encryption at rest",
+      "Encryption in transit",
+      "Encryption at the application layer only",
+      "Column-level encryption"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Encryption in transit protects data as it travels between systems (client to server, between services) using protocols like TLS/SSL to prevent interception and eavesdropping."
+  },
+  {
+    "id": 121,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the error budget concept in Site Reliability Engineering (SRE)?",
+    "choices": [
+      "The financial budget allocated for fixing errors",
+      "The acceptable amount of unreliability defined as 1 minus the SLO, which balances reliability with the pace of innovation",
+      "The number of error messages allowed in log files",
+      "The budget for hiring SRE engineers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An error budget is the maximum amount of time a service can be unreliable, calculated as 1 minus the SLO. It provides a balance between reliability and innovation: if the budget is not exhausted, teams can push changes faster."
+  },
+  {
+    "id": 122,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud feature allows you to label resources for better organization and cost allocation?",
+    "choices": [
+      "Tags",
+      "Labels",
+      "Folders",
+      "Annotations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Labels are key-value pairs that can be attached to Google Cloud resources. They help organize resources, track costs by project/team/environment, and enable filtering in billing reports and monitoring."
+  },
+  {
+    "id": 123,
+    "domain": "Google Cloud Security and Operations",
+    "question": "A company wants to be alerted when their monthly cloud spending exceeds a certain threshold. Which Google Cloud feature should they configure?",
+    "choices": [
+      "Cloud Monitoring alerts",
+      "Budget alerts in Cloud Billing",
+      "Cloud Logging export",
+      "VPC firewall rules"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Budget alerts in Cloud Billing allow organizations to set spending thresholds and receive email notifications or trigger programmatic actions when actual or forecasted spending exceeds defined budget amounts."
+  },
+  {
+    "id": 124,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service provides managed threat detection for your cloud environment by analyzing logs for suspicious activity?",
+    "choices": [
+      "Cloud Armor",
+      "Chronicle (Google Security Operations)",
+      "Cloud NAT",
+      "Cloud Build"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chronicle (Google Security Operations) is a cloud-native security analytics platform that can analyze large volumes of security telemetry data to detect threats, investigate incidents, and respond to security events."
+  },
+  {
+    "id": 125,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of VPC Service Controls?",
+    "choices": [
+      "To manage VM instance sizing",
+      "To create a security perimeter around Google Cloud services to mitigate data exfiltration risks",
+      "To provide load balancing for VPC networks",
+      "To manage DNS resolution within a VPC"
+    ],
+    "correctAnswer": 1,
+    "explanation": "VPC Service Controls create security perimeters around Google Cloud resources to prevent data exfiltration. They restrict access to data within the perimeter and control which identities and APIs can cross the boundary."
+  },
+  {
+    "id": 126,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which IAM concept allows you to grant permissions to a group of users simultaneously rather than individually?",
+    "choices": [
+      "Service accounts",
+      "Google Groups",
+      "Custom roles",
+      "API keys"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Groups allow you to manage permissions for collections of users. Instead of granting roles to individual users, you can grant roles to a group, and all members inherit those permissions."
+  },
+  {
+    "id": 127,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What does 'defense in depth' mean in cloud security?",
+    "choices": [
+      "Using a single, very strong security measure",
+      "Implementing multiple layers of security controls so that if one layer fails, others still provide protection",
+      "Storing all data in the deepest storage tier",
+      "Only allowing access from a single IP address"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Defense in depth is a security strategy that deploys multiple layers of security controls (network, identity, application, data) so that the failure of any single control does not compromise the overall system."
+  },
+  {
+    "id": 128,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service automatically groups and counts similar application errors?",
+    "choices": [
+      "Cloud Logging",
+      "Error Reporting",
+      "Cloud Monitoring",
+      "Cloud Trace"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Error Reporting aggregates and displays errors produced by running cloud services. It groups similar errors, provides occurrence counts, and allows you to track error resolution over time."
+  },
+  {
+    "id": 129,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the primary function of Cloud IAM (Identity and Access Management)?",
+    "choices": [
+      "To encrypt data stored in Cloud Storage",
+      "To control who (identity) has what access (role) to which resource",
+      "To monitor application performance",
+      "To manage DNS records"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud IAM lets administrators control who (which identity) has what access (which role/permissions) to which Google Cloud resources, providing fine-grained access control across the organization."
+  },
+  {
+    "id": 130,
+    "domain": "Google Cloud Security and Operations",
+    "question": "A DevOps team wants to receive notifications when the CPU utilization of their Compute Engine instances exceeds 80%. Which service should they configure?",
+    "choices": [
+      "Cloud Logging",
+      "Cloud Monitoring alerting policies",
+      "Cloud Trace",
+      "Cloud Build triggers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Monitoring alerting policies allow you to define conditions (like CPU > 80%) and notification channels (email, SMS, PagerDuty) to receive alerts when metrics exceed defined thresholds."
+  },
+  {
+    "id": 131,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which of the following is an example of a basic (primitive) IAM role?",
+    "choices": [
+      "roles/storage.objectViewer",
+      "roles/editor",
+      "roles/compute.instanceAdmin",
+      "A custom role created by an organization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Basic (primitive) roles are the original pre-defined roles: Owner, Editor, and Viewer (e.g., roles/editor). They apply broadly across all services and are less granular than predefined or custom roles."
+  },
+  {
+    "id": 132,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Why should organizations avoid using basic IAM roles (Owner, Editor, Viewer) in production?",
+    "choices": [
+      "Basic roles are deprecated and no longer available",
+      "Basic roles grant overly broad permissions across all services, violating the principle of least privilege",
+      "Basic roles do not work with service accounts",
+      "Basic roles are more expensive than predefined roles"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Basic roles grant very broad permissions across all Google Cloud services. For example, Editor grants write access to almost all resources. This violates least privilege and increases security risk. Predefined or custom roles are preferred."
+  },
+  {
+    "id": 133,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of a Cloud NAT (Network Address Translation) gateway?",
+    "choices": [
+      "To provide DDoS protection",
+      "To allow VM instances without external IP addresses to access the internet for outbound connections",
+      "To encrypt data in transit between regions",
+      "To load balance incoming traffic"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud NAT allows VM instances with only internal IP addresses to make outbound connections to the internet (for updates, API calls, etc.) without exposing those instances with external IP addresses."
+  },
+  {
+    "id": 134,
+    "domain": "Google Cloud Security and Operations",
+    "question": "An organization needs to comply with PCI DSS standards for handling credit card data. How does Google Cloud support this?",
+    "choices": [
+      "Google Cloud automatically makes all customer applications PCI DSS compliant",
+      "Google Cloud infrastructure holds PCI DSS compliance certification, and customers must ensure their applications and configurations also meet PCI DSS requirements",
+      "Google Cloud does not support PCI DSS compliance",
+      "PCI DSS compliance is only available on-premises"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Google Cloud infrastructure is PCI DSS certified. Under the shared responsibility model, customers must ensure their own applications, configurations, and data handling practices also meet PCI DSS requirements."
+  },
+  {
+    "id": 135,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud tool provides recommendations for optimizing cost, performance, security, and management of resources?",
+    "choices": [
+      "Cloud Profiler",
+      "Active Assist (Recommender)",
+      "Cloud Scheduler",
+      "Cloud Endpoints"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Active Assist (including the Recommender service) provides machine learning-driven recommendations for optimizing Google Cloud resources, including rightsizing VMs, improving security, and reducing costs."
+  },
+  {
+    "id": 136,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the primary purpose of Cloud Profiler?",
+    "choices": [
+      "To manage user profiles and identity",
+      "To continuously analyze the performance of production applications by measuring CPU and memory usage of code paths",
+      "To create profiles for virtual machines",
+      "To manage security profiles for VPC networks"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Profiler is a continuous profiling tool that analyzes CPU and memory usage in production applications with minimal overhead, helping developers identify and fix performance bottlenecks."
+  },
+  {
+    "id": 137,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which concept describes the practice of treating infrastructure configuration as code that can be versioned, reviewed, and automated?",
+    "choices": [
+      "Manual provisioning",
+      "Infrastructure as Code (IaC)",
+      "Shadow IT",
+      "Waterfall deployment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Infrastructure as Code (IaC) is the practice of managing and provisioning infrastructure through machine-readable configuration files rather than manual processes, enabling version control, code review, and automation."
+  },
+  {
+    "id": 138,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service can be used to implement Infrastructure as Code for provisioning and managing Google Cloud resources?",
+    "choices": [
+      "Cloud Monitoring",
+      "Cloud Deployment Manager or Terraform",
+      "Cloud Logging",
+      "Cloud Trace"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Deployment Manager and third-party tools like Terraform allow you to define Google Cloud infrastructure in configuration files and automatically provision, update, and manage resources as code."
+  },
+  {
+    "id": 139,
+    "domain": "Google Cloud Security and Operations",
+    "question": "A company discovers that a service account key has been compromised. What should they do first?",
+    "choices": [
+      "Wait for the key to expire naturally",
+      "Immediately revoke or delete the compromised key and create a new one if needed",
+      "Ignore it since service accounts have limited access",
+      "Change only the project name"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When a service account key is compromised, the immediate action is to revoke or delete the compromised key to prevent unauthorized access. A new key can be created if the service account is still needed."
+  },
+  {
+    "id": 140,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the benefit of using predefined IAM roles over basic roles?",
+    "choices": [
+      "Predefined roles are always free of charge",
+      "Predefined roles provide more granular, service-specific permissions aligned with the principle of least privilege",
+      "Predefined roles grant more permissions than basic roles",
+      "Predefined roles do not require authentication"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Predefined roles are designed for specific services and use cases, providing more granular permissions than basic roles. This helps organizations follow the principle of least privilege by granting only the permissions needed."
+  },
+  {
+    "id": 141,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud feature helps you understand and optimize your cloud costs by providing detailed billing reports and visualizations?",
+    "choices": [
+      "Cloud Monitoring dashboards",
+      "Cloud Billing reports and cost management tools",
+      "Cloud Logging",
+      "Cloud Trace"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud Billing provides detailed reports, cost breakdowns, and visualization tools that help organizations understand their spending patterns, identify cost optimization opportunities, and manage budgets."
+  },
+  {
+    "id": 142,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of committed use discounts in Google Cloud?",
+    "choices": [
+      "To provide free resources for a limited trial period",
+      "To offer significant discounts in exchange for committing to a specific amount of resource usage over 1 or 3 years",
+      "To automatically reduce costs when resources are idle",
+      "To provide discounts for using open-source software"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Committed use discounts offer significant price reductions (up to 57% for compute, up to 70% for some other services) when customers commit to purchasing a specific amount of resources for a 1-year or 3-year term."
+  },
+  {
+    "id": 143,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which practice involves gradually rolling out a new application version to a small percentage of users before a full deployment?",
+    "choices": [
+      "Blue-green deployment",
+      "Canary deployment",
+      "Rolling update",
+      "A/B testing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A canary deployment gradually rolls out changes to a small subset of users first, allowing teams to monitor for issues before routing all traffic to the new version, reducing the risk of widespread failures."
+  },
+  {
+    "id": 144,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of setting up an uptime check in Cloud Monitoring?",
+    "choices": [
+      "To automatically restart failed VMs",
+      "To verify that a URL, service, or resource is available and responding correctly at regular intervals",
+      "To encrypt data at rest",
+      "To manage IAM policies"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Uptime checks in Cloud Monitoring periodically send requests to specified URLs, services, or resources to verify they are available and responding correctly, alerting when downtime is detected."
+  },
+  {
+    "id": 145,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service provides confidential computing capabilities that encrypt data while it is being processed in memory?",
+    "choices": [
+      "Cloud KMS",
+      "Confidential VMs",
+      "Cloud Armor",
+      "Cloud Storage"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Confidential VMs provide hardware-based memory encryption that keeps data encrypted even while it is being processed in memory, providing an additional layer of protection against compromised infrastructure."
+  },
+  {
+    "id": 146,
+    "domain": "Google Cloud Security and Operations",
+    "question": "An SRE team measures that their service was available 99.9% of the time last month. Their SLO target is 99.95%. What does this indicate?",
+    "choices": [
+      "The team has excess error budget and can deploy more aggressively",
+      "The team has consumed more than their error budget and should focus on reliability improvements",
+      "The SLA has been violated and financial penalties apply",
+      "The service is performing perfectly"
+    ],
+    "correctAnswer": 1,
+    "explanation": "With an SLO of 99.95% and actual availability of 99.9%, the team has exceeded their error budget (0.05% allowed, 0.1% actual downtime). They should prioritize reliability improvements and slow down feature releases."
+  },
+  {
+    "id": 147,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which Google Cloud service allows you to define private connectivity between VPC networks without using the public internet?",
+    "choices": [
+      "Cloud VPN",
+      "VPC Peering",
+      "Cloud CDN",
+      "Cloud Armor"
+    ],
+    "correctAnswer": 1,
+    "explanation": "VPC Network Peering allows private connectivity between two VPC networks. Traffic between peered VPCs travels on Google's internal network rather than the public internet, providing low latency and high security."
+  },
+  {
+    "id": 148,
+    "domain": "Google Cloud Security and Operations",
+    "question": "What is the purpose of Google Cloud's Access Transparency?",
+    "choices": [
+      "To make all customer data publicly accessible",
+      "To provide near-real-time logs of actions taken by Google personnel when accessing customer content",
+      "To encrypt data at rest",
+      "To provide free security audits"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Access Transparency provides near-real-time logs of actions taken by Google personnel when they access customer content, giving organizations visibility and assurance about how their data is being handled."
+  },
+  {
+    "id": 149,
+    "domain": "Google Cloud Security and Operations",
+    "question": "A team uses Cloud Logging to export logs to BigQuery for long-term analysis. What is this practice called?",
+    "choices": [
+      "Log encryption",
+      "Log sinks (log routing)",
+      "Log deletion",
+      "Log compression"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Log sinks (log routing) in Cloud Logging allow you to export log entries to destinations like BigQuery, Cloud Storage, or Pub/Sub for long-term storage, analysis, or integration with other systems."
+  },
+  {
+    "id": 150,
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which deployment strategy involves maintaining two identical production environments, with one serving live traffic (blue) and the other standing by for the new release (green)?",
+    "choices": [
+      "Canary deployment",
+      "Blue-green deployment",
+      "Rolling update",
+      "Recreate deployment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Blue-green deployment maintains two identical environments. Traffic is directed to the 'blue' (current) environment while the 'green' (new) environment is prepared and tested. Traffic is then switched to green, enabling instant rollback if needed."
+  }
+]

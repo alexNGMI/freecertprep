@@ -1,28 +1,24 @@
 import { useState, useMemo } from 'react'
-import questions from '../data/questions.json'
+import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import QuestionCard from '../components/QuestionCard'
 
-const domains = [
-  'All Domains',
-  'Cloud Concepts',
-  'Security and Compliance',
-  'Cloud Technology and Services',
-  'Billing, Pricing and Support',
-]
-
 export default function Quiz() {
+  const cert = useCert()
+  const questions = cert.questions
+  const domainNames = ['All Domains', ...cert.domains.map((d) => d.name)]
+
   const [selectedDomain, setSelectedDomain] = useState('All Domains')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState([])
   const [showResult, setShowResult] = useState(false)
   const [quizStarted, setQuizStarted] = useState(false)
-  const { addQuizResult } = useProgress()
+  const { addQuizResult } = useProgress(cert.id)
 
   const filteredQuestions = useMemo(() => {
     if (selectedDomain === 'All Domains') return questions
     return questions.filter((q) => q.domain === selectedDomain)
-  }, [selectedDomain])
+  }, [selectedDomain, questions])
 
   const startQuiz = () => {
     setCurrentIndex(0)
@@ -64,7 +60,7 @@ export default function Quiz() {
         <div className="bg-[#1b1b32] rounded-md p-8 space-y-6 max-w-2xl mx-auto">
           <label className="block text-sm font-bold text-[#a5abc4] uppercase tracking-wider">Filter by Domain</label>
           <div className="flex flex-wrap gap-2">
-            {domains.map((domain) => (
+            {domainNames.map((domain) => (
               <button
                 key={domain}
                 onClick={() => setSelectedDomain(domain)}
@@ -101,7 +97,7 @@ export default function Quiz() {
       <div className="space-y-8">
         <h1 className="text-4xl font-bold text-[#f5f6f7] text-center pt-4">Quiz Complete</h1>
         <div className="bg-[#1b1b32] rounded-md p-10 text-center space-y-5 max-w-md mx-auto">
-          <p className={`text-6xl font-black ${pct >= 70 ? 'text-[#acd157]' : 'text-red-400'}`}>
+          <p className={`text-6xl font-black ${pct >= cert.passingScore ? 'text-[#acd157]' : 'text-red-400'}`}>
             {pct}%
           </p>
           <p className="text-[#d0d0d5] text-lg">

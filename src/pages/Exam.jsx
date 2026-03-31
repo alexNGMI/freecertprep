@@ -1,22 +1,23 @@
 import { useState, useEffect, useRef } from 'react'
-import questions from '../data/questions.json'
+import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useNavigate } from 'react-router-dom'
 
-const EXAM_TIME = 90 * 60 // 90 minutes in seconds
-const EXAM_QUESTIONS = 65
-
 export default function Exam() {
+  const cert = useCert()
+  const questions = cert.questions
+  const EXAM_TIME = cert.examTime * 60
+  const EXAM_QUESTIONS = cert.examQuestions
+
   const [started, setStarted] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedAnswers, setSelectedAnswers] = useState({})
   const [timeLeft, setTimeLeft] = useState(EXAM_TIME)
   const [finished, setFinished] = useState(false)
-  const { addExamResult } = useProgress()
+  const { addExamResult } = useProgress(cert.id)
   const navigate = useNavigate()
   const timerRef = useRef(null)
 
-  // Randomly select 65 unique questions from the pool
   const examQuestions = useState(() => {
     const shuffled = [...questions].sort(() => Math.random() - 0.5)
     return shuffled.slice(0, EXAM_QUESTIONS)
@@ -48,7 +49,7 @@ export default function Exam() {
       correct: selectedAnswers[i] === q.correctAnswer,
     }))
     addExamResult({ answers })
-    navigate('/results', { state: { answers, questions: examQuestions } })
+    navigate(`/${cert.id}/results`, { state: { answers, questions: examQuestions } })
   }
 
   const formatTime = (seconds) => {
@@ -62,21 +63,21 @@ export default function Exam() {
       <div className="space-y-8">
         <div className="text-center space-y-3 pt-4">
           <h1 className="text-4xl font-bold text-[#f5f6f7]">Exam Simulator</h1>
-          <p className="text-lg text-[#d0d0d5]">Simulate the real AWS CLF-C02 exam experience</p>
+          <p className="text-lg text-[#d0d0d5]">Simulate the real {cert.title} exam experience</p>
         </div>
         <div className="bg-[#1b1b32] rounded-md p-8 space-y-6 max-w-2xl mx-auto">
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-[#2a2a40] rounded-md p-4 text-center">
               <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-1">Questions</p>
-              <p className="text-[#f5f6f7] font-bold text-2xl">65</p>
+              <p className="text-[#f5f6f7] font-bold text-2xl">{EXAM_QUESTIONS}</p>
             </div>
             <div className="bg-[#2a2a40] rounded-md p-4 text-center">
               <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-1">Time Limit</p>
-              <p className="text-[#f5f6f7] font-bold text-2xl">90 min</p>
+              <p className="text-[#f5f6f7] font-bold text-2xl">{cert.examTime} min</p>
             </div>
             <div className="bg-[#2a2a40] rounded-md p-4 text-center">
               <p className="text-xs text-[#a5abc4] uppercase tracking-wider font-bold mb-1">Passing Score</p>
-              <p className="text-[#f5f6f7] font-bold text-2xl">70%</p>
+              <p className="text-[#f5f6f7] font-bold text-2xl">{cert.passingScore}%</p>
             </div>
           </div>
           <div className="text-center">
@@ -96,7 +97,6 @@ export default function Exam() {
 
   return (
     <div className="space-y-4">
-      {/* Timer bar */}
       <div className="flex items-center justify-between bg-[#1b1b32] rounded-md px-5 py-3">
         <span className="text-sm text-[#d0d0d5] font-bold">
           Question {currentIndex + 1} of {EXAM_QUESTIONS}
@@ -112,7 +112,6 @@ export default function Exam() {
         </button>
       </div>
 
-      {/* Progress */}
       <div className="h-2 bg-[#2a2a40] rounded overflow-hidden">
         <div
           className="h-full bg-[#dbb8ff] rounded transition-all duration-300"
@@ -120,7 +119,6 @@ export default function Exam() {
         />
       </div>
 
-      {/* Question */}
       <div className="bg-[#1b1b32] rounded-md p-6 space-y-5">
         <span className="inline-block text-xs font-bold px-3 py-1 rounded bg-[#2a2a40] text-[#a5abc4] uppercase tracking-wide">
           {q.domain}
@@ -146,7 +144,6 @@ export default function Exam() {
         </div>
       </div>
 
-      {/* Navigation */}
       <div className="flex justify-between">
         <button
           onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}

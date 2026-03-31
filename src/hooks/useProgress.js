@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 
 const STORAGE_KEY = 'freecertprep-progress'
 
-const defaultProgress = {
-  quizHistory: [],
-  examHistory: [],
+const defaultProgress = {}
+
+function getCertProgress(progress, certId) {
+  return progress[certId] || { quizHistory: [], examHistory: [] }
 }
 
-export function useProgress() {
+export function useProgress(certId) {
   const [progress, setProgress] = useState(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY)
@@ -21,31 +22,38 @@ export function useProgress() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress))
   }, [progress])
 
+  const certProgress = getCertProgress(progress, certId)
+
   const addQuizResult = (result) => {
-    setProgress((prev) => ({
-      ...prev,
-      quizHistory: [...prev.quizHistory, { ...result, timestamp: Date.now() }],
-    }))
+    setProgress((prev) => {
+      const cert = getCertProgress(prev, certId)
+      return {
+        ...prev,
+        [certId]: {
+          ...cert,
+          quizHistory: [...cert.quizHistory, { ...result, timestamp: Date.now() }],
+        },
+      }
+    })
   }
 
   const addExamResult = (result) => {
-    setProgress((prev) => ({
-      ...prev,
-      examHistory: [...prev.examHistory, { ...result, timestamp: Date.now() }],
-    }))
+    setProgress((prev) => {
+      const cert = getCertProgress(prev, certId)
+      return {
+        ...prev,
+        [certId]: {
+          ...cert,
+          examHistory: [...cert.examHistory, { ...result, timestamp: Date.now() }],
+        },
+      }
+    })
   }
 
-  const getDomainStats = () => {
-    const domains = [
-      'Cloud Concepts',
-      'Security and Compliance',
-      'Cloud Technology and Services',
-      'Billing, Pricing and Support',
-    ]
+  const getDomainStats = (domains) => {
+    const allResults = [...certProgress.quizHistory, ...certProgress.examHistory]
 
-    const allResults = [...progress.quizHistory, ...progress.examHistory]
-
-    return domains.map((domain) => {
+    return domains.map(({ name: domain }) => {
       const domainResults = allResults.flatMap((r) =>
         (r.answers || []).filter((a) => a.domain === domain)
       )
@@ -61,7 +69,7 @@ export function useProgress() {
   }
 
   const getOverallStats = () => {
-    const allResults = [...progress.quizHistory, ...progress.examHistory]
+    const allResults = [...certProgress.quizHistory, ...certProgress.examHistory]
     const allAnswers = allResults.flatMap((r) => r.answers || [])
     const total = allAnswers.length
     const correct = allAnswers.filter((a) => a.correct).length
@@ -69,17 +77,20 @@ export function useProgress() {
       totalQuestions: total,
       correctAnswers: correct,
       percentage: total > 0 ? Math.round((correct / total) * 100) : 0,
-      quizzesTaken: progress.quizHistory.length,
-      examsTaken: progress.examHistory.length,
+      quizzesTaken: certProgress.quizHistory.length,
+      examsTaken: certProgress.examHistory.length,
     }
   }
 
   const resetProgress = () => {
-    setProgress(defaultProgress)
+    setProgress((prev) => ({
+      ...prev,
+      [certId]: { quizHistory: [], examHistory: [] },
+    }))
   }
 
   return {
-    progress,
+    progress: certProgress,
     addQuizResult,
     addExamResult,
     getDomainStats,
