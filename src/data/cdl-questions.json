@@ -1948,5 +1948,305 @@
     ],
     "correctAnswer": 1,
     "explanation": "Blue-green deployment maintains two identical environments. Traffic is directed to the 'blue' (current) environment while the 'green' (new) environment is prepared and tested. Traffic is then switched to green, enabling instant rollback if needed."
+  },
+  {
+    "id": 151,
+    "type": "multiple-response",
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which TWO of the following are key benefits of digital transformation with cloud technology? (Select TWO)",
+    "choices": [
+      "Eliminates the need for any IT staff",
+      "Enables rapid innovation by reducing time to market",
+      "Provides scalable infrastructure that grows with demand",
+      "Guarantees zero security incidents",
+      "Requires all applications to be rewritten from scratch"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Cloud-enabled digital transformation accelerates innovation by providing on-demand resources that reduce time to market, and offers scalable infrastructure that automatically adjusts to demand without large upfront investments."
+  },
+  {
+    "id": 152,
+    "type": "multiple-response",
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "A company is considering migrating to the cloud. Which TWO are valid cloud migration approaches? (Select TWO)",
+    "choices": [
+      "Lift and shift (rehost) existing workloads to the cloud",
+      "Delete all existing data before migrating",
+      "Refactor applications to take advantage of cloud-native services",
+      "Migrate only email services and keep everything else on-premises permanently",
+      "Wait for all vendors to discontinue on-premises products"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Lift and shift (rehosting) moves existing workloads to the cloud with minimal changes for quick migration. Refactoring (re-architecting) modifies applications to leverage cloud-native capabilities like managed services and serverless computing."
+  },
+  {
+    "id": 153,
+    "type": "multiple-response",
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which TWO statements accurately describe the concept of total cost of ownership (TCO) when comparing cloud to on-premises? (Select TWO)",
+    "choices": [
+      "Cloud eliminates upfront capital expenditure for infrastructure",
+      "On-premises always has a lower TCO than cloud",
+      "Cloud shifts costs from CapEx to OpEx with pay-as-you-go pricing",
+      "TCO analysis is irrelevant when evaluating cloud migration",
+      "Cloud requires the same hardware refresh cycles as on-premises"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Cloud eliminates the need for large upfront capital expenditure on hardware and shifts spending to operational expenditure with pay-as-you-go pricing, making costs more predictable and aligned with actual usage."
+  },
+  {
+    "id": 154,
+    "type": "multiple-response",
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which TWO Google Cloud services are designed for real-time data streaming and processing? (Select TWO)",
+    "choices": [
+      "Cloud Storage",
+      "Pub/Sub",
+      "Dataflow",
+      "Cloud SQL",
+      "Cloud Deployment Manager"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Pub/Sub is a messaging service for ingesting real-time event streams. Dataflow is a fully managed stream and batch data processing service based on Apache Beam. Together they form the backbone of real-time data pipelines on Google Cloud."
+  },
+  {
+    "id": 155,
+    "type": "multiple-response",
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A data team needs to build a modern data warehouse on Google Cloud. Which TWO services should they consider? (Select TWO)",
+    "choices": [
+      "BigQuery",
+      "Cloud Memorystore",
+      "Looker",
+      "Cloud NAT",
+      "Cloud Armor"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "BigQuery is Google Cloud's serverless, highly scalable data warehouse for analytics. Looker is a business intelligence platform that connects to BigQuery and other sources to create visualizations and dashboards for data-driven decisions."
+  },
+  {
+    "id": 156,
+    "type": "multiple-response",
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which TWO Google Cloud AI/ML services allow businesses to use pre-trained models without ML expertise? (Select TWO)",
+    "choices": [
+      "Vertex AI AutoML",
+      "Cloud Vision API",
+      "Compute Engine",
+      "Cloud VPN",
+      "Cloud Deployment Manager"
+    ],
+    "correctAnswers": [0, 1],
+    "explanation": "Vertex AI AutoML lets you train custom models with minimal ML expertise. The Cloud Vision API provides pre-trained models for image analysis tasks like label detection, OCR, and face detection — no ML knowledge required."
+  },
+  {
+    "id": 157,
+    "type": "multiple-response",
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which TWO statements about BigQuery are correct? (Select TWO)",
+    "choices": [
+      "BigQuery is a serverless data warehouse that scales automatically",
+      "BigQuery requires you to provision and manage server clusters",
+      "BigQuery supports standard SQL for querying data",
+      "BigQuery can only store data up to 1 TB",
+      "BigQuery does not support real-time data ingestion"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "BigQuery is fully serverless — there are no clusters to manage. It supports standard SQL, making it accessible to analysts and engineers. It can handle petabyte-scale data and supports both batch and streaming ingestion."
+  },
+  {
+    "id": 158,
+    "type": "multiple-response",
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "A company wants to build ML models on Google Cloud. Which TWO services are part of the Vertex AI platform? (Select TWO)",
+    "choices": [
+      "AutoML for no-code model training",
+      "Cloud Armor for model security",
+      "Custom training with pre-built containers",
+      "Cloud CDN for model distribution",
+      "VPC peering for model isolation"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Vertex AI unifies Google Cloud's ML offerings. AutoML enables no-code model training for users without ML expertise. Custom training allows data scientists to use pre-built or custom containers with frameworks like TensorFlow and PyTorch."
+  },
+  {
+    "id": 159,
+    "type": "multiple-response",
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which TWO compute options on Google Cloud are considered serverless? (Select TWO)",
+    "choices": [
+      "Compute Engine",
+      "Cloud Run",
+      "Cloud Functions",
+      "Google Kubernetes Engine",
+      "Bare Metal Solution"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Cloud Run is a serverless platform for running containers without managing infrastructure. Cloud Functions is a serverless functions-as-a-service platform for event-driven code. Both auto-scale to zero when not in use."
+  },
+  {
+    "id": 160,
+    "type": "multiple-response",
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which TWO are benefits of containerizing applications for deployment on Google Kubernetes Engine (GKE)? (Select TWO)",
+    "choices": [
+      "Containers package applications with dependencies for consistent behavior across environments",
+      "Containers eliminate the need for any orchestration",
+      "Kubernetes provides automatic scaling, self-healing, and rolling updates",
+      "Containers can only run on Google Cloud",
+      "Containerized apps cannot communicate with non-containerized services"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Containers ensure consistent behavior by packaging apps with all dependencies. Kubernetes (via GKE) provides orchestration features like automatic scaling based on demand, self-healing of failed pods, and zero-downtime rolling updates."
+  },
+  {
+    "id": 161,
+    "type": "multiple-response",
+    "domain": "Infrastructure and Application Modernization",
+    "question": "A company needs to connect their on-premises data center to Google Cloud. Which TWO networking services can provide this hybrid connectivity? (Select TWO)",
+    "choices": [
+      "Cloud VPN",
+      "Cloud CDN",
+      "Cloud Interconnect",
+      "Cloud NAT",
+      "Cloud DNS"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Cloud VPN provides encrypted connectivity over the public internet between on-premises and Google Cloud. Cloud Interconnect provides high-bandwidth, low-latency dedicated or partner connections that bypass the public internet."
+  },
+  {
+    "id": 162,
+    "type": "multiple-response",
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which TWO Google Cloud database services support relational data models? (Select TWO)",
+    "choices": [
+      "Cloud SQL",
+      "Cloud Bigtable",
+      "Cloud Spanner",
+      "Firestore",
+      "Memorystore"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Cloud SQL provides managed MySQL, PostgreSQL, and SQL Server databases. Cloud Spanner is a globally distributed, strongly consistent relational database. Both support SQL queries and ACID transactions."
+  },
+  {
+    "id": 163,
+    "type": "multiple-response",
+    "domain": "Infrastructure and Application Modernization",
+    "question": "Which TWO strategies help optimize costs for Compute Engine workloads? (Select TWO)",
+    "choices": [
+      "Using sustained use discounts that apply automatically",
+      "Always using the largest machine type available",
+      "Rightsizing VMs based on actual utilization with Recommender",
+      "Disabling all monitoring to reduce overhead",
+      "Running all workloads in a single zone"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Sustained use discounts are automatically applied when VMs run for a significant portion of the month. The Recommender service analyzes utilization metrics and suggests rightsizing VMs to match actual needs, reducing waste."
+  },
+  {
+    "id": 164,
+    "type": "multiple-response",
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which TWO practices are recommended for securing IAM in Google Cloud? (Select TWO)",
+    "choices": [
+      "Grant basic Editor role to all team members for simplicity",
+      "Use predefined or custom roles following the principle of least privilege",
+      "Enable multi-factor authentication for all user accounts",
+      "Share service account keys via email for convenience",
+      "Disable Cloud Audit Logs to reduce storage costs"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Using granular predefined or custom roles follows least privilege, reducing risk. Enabling MFA adds a critical second authentication factor. Sharing keys and using broad roles are anti-patterns that increase security risk."
+  },
+  {
+    "id": 165,
+    "type": "multiple-response",
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which TWO Google Cloud services help with operational monitoring and observability? (Select TWO)",
+    "choices": [
+      "Cloud Monitoring",
+      "Cloud Armor",
+      "Cloud Logging",
+      "Cloud KMS",
+      "Cloud CDN"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Cloud Monitoring collects metrics and provides dashboards and alerting for infrastructure health. Cloud Logging aggregates log data from all services. Together they form the core of Google Cloud's observability stack."
+  },
+  {
+    "id": 166,
+    "type": "multiple-response",
+    "domain": "Google Cloud Security and Operations",
+    "question": "Which TWO of the following are components of Google Cloud's defense-in-depth security approach? (Select TWO)",
+    "choices": [
+      "Encryption of data at rest and in transit by default",
+      "Relying solely on perimeter firewalls",
+      "Identity-aware access controls with BeyondCorp principles",
+      "Storing all encryption keys in plaintext",
+      "Disabling logging to reduce attack surface"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Google Cloud encrypts data at rest and in transit by default as one security layer. BeyondCorp-inspired identity-aware access controls provide zero-trust security based on user identity and device context rather than just network perimeter."
+  },
+  {
+    "id": 167,
+    "type": "multiple-response",
+    "domain": "Google Cloud Security and Operations",
+    "question": "A company wants to automate their CI/CD pipeline on Google Cloud. Which TWO services should they use? (Select TWO)",
+    "choices": [
+      "Cloud Build",
+      "Cloud Storage",
+      "Cloud Deploy",
+      "Cloud Monitoring",
+      "Cloud NAT"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Cloud Build is a serverless CI/CD platform for building, testing, and packaging code. Cloud Deploy provides managed continuous delivery pipelines for deploying to GKE and Cloud Run with approval workflows and rollback capabilities."
+  },
+  {
+    "id": 168,
+    "type": "multiple-response",
+    "domain": "Innovating with Data and Google Cloud",
+    "question": "Which TWO types of data storage are available in Cloud Storage? (Select TWO)",
+    "choices": [
+      "Standard storage for frequently accessed data",
+      "Relational storage for SQL queries",
+      "Archive storage for rarely accessed long-term data",
+      "Graph storage for relationship data",
+      "In-memory storage for caching"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Cloud Storage offers multiple storage classes: Standard for frequently accessed data, Nearline for monthly access, Coldline for quarterly access, and Archive for long-term rarely accessed data. Each offers different cost and access tradeoffs."
+  },
+  {
+    "id": 169,
+    "type": "multiple-response",
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which TWO are characteristics of a cloud-native application architecture? (Select TWO)",
+    "choices": [
+      "Monolithic design deployed on dedicated hardware",
+      "Microservices that can be developed and deployed independently",
+      "Containerized components orchestrated by platforms like Kubernetes",
+      "Tight coupling between all application modules",
+      "Manual scaling requiring physical server provisioning"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Cloud-native applications use microservices that can be independently developed, deployed, and scaled. They are typically containerized and orchestrated by platforms like Kubernetes, enabling agility and resilience."
+  },
+  {
+    "id": 170,
+    "type": "multiple-response",
+    "domain": "Digital Transformation with Google Cloud",
+    "question": "Which TWO factors should an organization consider when choosing a Google Cloud region for deploying resources? (Select TWO)",
+    "choices": [
+      "Proximity to end users for low latency",
+      "The color scheme of the Google Cloud Console",
+      "Data residency and compliance requirements",
+      "The number of Google employees in that region",
+      "Whether the region name is easy to pronounce"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "When choosing a region, organizations should consider proximity to users for low latency and data residency requirements to comply with regulations like GDPR that mandate where data must be stored and processed."
   }
 ]

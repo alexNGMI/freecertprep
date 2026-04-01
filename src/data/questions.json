@@ -1948,5 +1948,305 @@
     ],
     "correctAnswer": 1,
     "explanation": "Amazon OpenSearch Service makes it easy to deploy, operate, and scale OpenSearch for log analytics, full-text search, application monitoring, and more."
+  },
+  {
+    "id": 151,
+    "type": "multiple-response",
+    "domain": "Cloud Concepts",
+    "question": "Which TWO of the following are advantages of cloud computing over on-premises deployments? (Select TWO)",
+    "choices": [
+      "Trade variable expense for capital expense",
+      "Benefit from massive economies of scale",
+      "Stop guessing about capacity",
+      "Maintain full physical control of infrastructure",
+      "Increase time to deploy new resources globally"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Cloud computing lets you benefit from massive economies of scale because usage from hundreds of thousands of customers is aggregated. You also stop guessing about capacity — you can scale up or down as needed."
+  },
+  {
+    "id": 152,
+    "type": "multiple-response",
+    "domain": "Cloud Concepts",
+    "question": "A company is evaluating the six pillars of the AWS Well-Architected Framework. Which TWO pillars are included? (Select TWO)",
+    "choices": [
+      "Operational Excellence",
+      "Data Residency",
+      "Sustainability",
+      "Vendor Lock-in Prevention",
+      "Auto Scaling"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "The six pillars of the Well-Architected Framework are Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
+  },
+  {
+    "id": 153,
+    "type": "multiple-response",
+    "domain": "Security and Compliance",
+    "question": "Which TWO actions should be taken to secure the AWS root user account? (Select TWO)",
+    "choices": [
+      "Enable multi-factor authentication (MFA)",
+      "Share the root credentials with all administrators",
+      "Delete the root access keys if they exist",
+      "Use the root account for daily administrative tasks",
+      "Create a simple password for easy access"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS recommends enabling MFA on the root account and deleting the root access keys. The root account should not be used for everyday tasks — IAM users with appropriate permissions should be used instead."
+  },
+  {
+    "id": 154,
+    "type": "multiple-response",
+    "domain": "Security and Compliance",
+    "question": "Which TWO services can be used to protect web applications from common web exploits? (Select TWO)",
+    "choices": [
+      "AWS WAF",
+      "Amazon Inspector",
+      "AWS Shield",
+      "Amazon Macie",
+      "AWS Config"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS WAF helps protect web applications from common web exploits by letting you create security rules. AWS Shield provides DDoS protection. Together they defend applications from a range of attacks."
+  },
+  {
+    "id": 155,
+    "type": "multiple-response",
+    "domain": "Security and Compliance",
+    "question": "Which TWO of the following are responsibilities of the customer under the AWS shared responsibility model? (Select TWO)",
+    "choices": [
+      "Patching the guest operating system on EC2 instances",
+      "Managing the physical security of data centers",
+      "Configuring security group and NACL rules",
+      "Maintaining the hypervisor on which instances run",
+      "Replacing faulty network hardware"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Under the shared responsibility model, the customer is responsible for security 'in' the cloud — including patching guest OS, configuring firewalls (security groups and NACLs), and managing application-level security. AWS handles the physical infrastructure."
+  },
+  {
+    "id": 156,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "A company needs to store objects with automatic lifecycle management and multiple storage tiers. Which TWO Amazon S3 features meet this requirement? (Select TWO)",
+    "choices": [
+      "S3 Lifecycle policies",
+      "S3 Object Lock",
+      "S3 Intelligent-Tiering",
+      "S3 Transfer Acceleration",
+      "S3 Static Website Hosting"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "S3 Lifecycle policies let you automatically transition objects between storage classes or expire them. S3 Intelligent-Tiering automatically moves data to the most cost-effective tier based on access patterns."
+  },
+  {
+    "id": 157,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "Which TWO AWS services are serverless compute options? (Select TWO)",
+    "choices": [
+      "Amazon EC2",
+      "AWS Lambda",
+      "AWS Fargate",
+      "Amazon EMR",
+      "Amazon Lightsail"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "AWS Lambda runs code without provisioning or managing servers. AWS Fargate is a serverless compute engine for containers that removes the need to manage the underlying EC2 instances."
+  },
+  {
+    "id": 158,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "Which TWO AWS services can be used to decouple application components? (Select TWO)",
+    "choices": [
+      "Amazon SQS",
+      "Amazon VPC",
+      "Amazon SNS",
+      "AWS CloudFormation",
+      "Amazon Route 53"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Amazon SQS (Simple Queue Service) provides message queuing to decouple and scale microservices. Amazon SNS (Simple Notification Service) is a pub/sub messaging service. Both are used to decouple application components."
+  },
+  {
+    "id": 159,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "A company wants to run relational databases on AWS. Which TWO services provide managed relational database engines? (Select TWO)",
+    "choices": [
+      "Amazon DynamoDB",
+      "Amazon RDS",
+      "Amazon Aurora",
+      "Amazon ElastiCache",
+      "Amazon Neptune"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Amazon RDS supports multiple relational engines (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB). Amazon Aurora is a MySQL/PostgreSQL-compatible relational database built for the cloud with up to 5x performance of standard MySQL."
+  },
+  {
+    "id": 160,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "Which TWO services provide edge caching and content delivery? (Select TWO)",
+    "choices": [
+      "Amazon CloudFront",
+      "Amazon S3",
+      "AWS Global Accelerator",
+      "Amazon ElastiCache",
+      "Amazon Route 53"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Amazon CloudFront is a CDN that caches content at edge locations worldwide. AWS Global Accelerator uses the AWS edge network to route traffic to optimal endpoints, improving performance for global users."
+  },
+  {
+    "id": 161,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "Which TWO AWS services allow you to monitor and receive alerts about resource utilization? (Select TWO)",
+    "choices": [
+      "Amazon CloudWatch",
+      "AWS CloudTrail",
+      "Amazon EventBridge",
+      "AWS Trusted Advisor",
+      "AWS Artifact"
+    ],
+    "correctAnswers": [0, 3],
+    "explanation": "Amazon CloudWatch collects monitoring data and lets you set alarms for resource metrics. AWS Trusted Advisor checks for cost optimization, performance, security, fault tolerance, and service limits — alerting you to underutilized resources."
+  },
+  {
+    "id": 162,
+    "type": "multiple-response",
+    "domain": "Security and Compliance",
+    "question": "Which TWO services provide encryption capabilities for data at rest in AWS? (Select TWO)",
+    "choices": [
+      "AWS KMS",
+      "Amazon GuardDuty",
+      "Server-side encryption in Amazon S3",
+      "AWS Config",
+      "AWS CloudTrail"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS KMS (Key Management Service) lets you create and manage cryptographic keys for encrypting data. Amazon S3 server-side encryption automatically encrypts objects when stored and decrypts them when retrieved."
+  },
+  {
+    "id": 163,
+    "type": "multiple-response",
+    "domain": "Security and Compliance",
+    "question": "A company must track all API calls made within their AWS account for auditing. Which TWO services should they use? (Select TWO)",
+    "choices": [
+      "AWS CloudTrail",
+      "Amazon CloudWatch",
+      "AWS Config",
+      "Amazon Macie",
+      "AWS Security Hub"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS CloudTrail records all API calls made in the account, providing a complete audit trail. AWS Config tracks resource configuration changes over time, complementing CloudTrail for a full compliance picture."
+  },
+  {
+    "id": 164,
+    "type": "multiple-response",
+    "domain": "Billing, Pricing and Support",
+    "question": "Which TWO of the following are benefits of AWS Organizations? (Select TWO)",
+    "choices": [
+      "Consolidated billing across multiple accounts",
+      "Automatic code deployments across accounts",
+      "Service control policies (SCPs) to centrally manage permissions",
+      "Free Dedicated Host instances for all member accounts",
+      "Automatic data backups for all accounts"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS Organizations provides consolidated billing to combine usage for volume discounts, and service control policies (SCPs) to centrally restrict which AWS services and actions are allowed across member accounts."
+  },
+  {
+    "id": 165,
+    "type": "multiple-response",
+    "domain": "Billing, Pricing and Support",
+    "question": "Which TWO pricing models can help reduce costs for predictable, steady-state workloads compared to On-Demand pricing? (Select TWO)",
+    "choices": [
+      "Spot Instances",
+      "Reserved Instances",
+      "Savings Plans",
+      "Dedicated Hosts",
+      "Elastic IP addresses"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Reserved Instances offer up to 72% discount for committing to a 1- or 3-year term. Savings Plans offer similar discounts with more flexibility — you commit to a consistent amount of compute usage ($/hour) regardless of instance family or region."
+  },
+  {
+    "id": 166,
+    "type": "multiple-response",
+    "domain": "Cloud Concepts",
+    "question": "Which TWO of the following describe characteristics of the cloud concept of 'high availability'? (Select TWO)",
+    "choices": [
+      "Deploying across multiple Availability Zones",
+      "Using the largest possible instance type",
+      "Using load balancers to distribute traffic to healthy targets",
+      "Storing all data in a single Region for low latency",
+      "Reserving capacity for one year"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "High availability means designing systems that remain operational even during component failures. Deploying across multiple Availability Zones and using load balancers to route traffic only to healthy targets are key strategies."
+  },
+  {
+    "id": 167,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "A company wants to migrate on-premises servers to AWS with minimal changes. Which TWO AWS services can assist with this migration? (Select TWO)",
+    "choices": [
+      "AWS Application Migration Service",
+      "Amazon Kinesis",
+      "AWS Database Migration Service",
+      "Amazon SageMaker",
+      "Amazon CloudFront"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS Application Migration Service (MGN) simplifies lift-and-shift migrations by automatically converting servers to run natively on AWS. AWS Database Migration Service helps migrate databases to AWS with minimal downtime."
+  },
+  {
+    "id": 168,
+    "type": "multiple-response",
+    "domain": "Cloud Technology and Services",
+    "question": "Which TWO AWS services provide managed NoSQL database capabilities? (Select TWO)",
+    "choices": [
+      "Amazon RDS",
+      "Amazon DynamoDB",
+      "Amazon Aurora",
+      "Amazon DocumentDB",
+      "Amazon Redshift"
+    ],
+    "correctAnswers": [1, 3],
+    "explanation": "Amazon DynamoDB is a fully managed key-value and document NoSQL database. Amazon DocumentDB is a managed document database compatible with MongoDB. RDS, Aurora, and Redshift are relational/analytical databases."
+  },
+  {
+    "id": 169,
+    "type": "multiple-response",
+    "domain": "Cloud Concepts",
+    "question": "Which TWO of the following are benefits of the AWS global infrastructure? (Select TWO)",
+    "choices": [
+      "Ability to deploy applications closer to end users for lower latency",
+      "Elimination of all operational costs",
+      "Built-in redundancy through multiple Availability Zones within Regions",
+      "Guaranteed zero downtime for all services",
+      "Free data transfer between all Regions"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "The AWS global infrastructure lets you deploy close to users for low latency, and each Region has multiple Availability Zones for redundancy and high availability. AWS does not guarantee zero downtime or free inter-Region transfer."
+  },
+  {
+    "id": 170,
+    "type": "multiple-response",
+    "domain": "Billing, Pricing and Support",
+    "question": "Which TWO features are available to ALL AWS support plans, including the Basic plan? (Select TWO)",
+    "choices": [
+      "24/7 access to customer service via phone",
+      "AWS Trusted Advisor core security checks",
+      "A designated Technical Account Manager",
+      "AWS Personal Health Dashboard",
+      "Infrastructure Event Management"
+    ],
+    "correctAnswers": [1, 3],
+    "explanation": "All AWS customers, including Basic support, get access to Trusted Advisor core security checks and the AWS Personal Health Dashboard. Phone support, TAMs, and Infrastructure Event Management require higher-tier plans."
   }
 ]

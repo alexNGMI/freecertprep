@@ -1948,5 +1948,305 @@
     ],
     "correctAnswer": 1,
     "explanation": "Sizing a GPU cluster requires considering: total GPU memory needed for model parameters, optimizer states, and activations; compute throughput (FLOPS) to achieve the target training time; inter-GPU bandwidth (NVLink) and inter-node bandwidth (InfiniBand) for parallelism efficiency; and data throughput for feeding the training pipeline. All these factors interact and must be balanced."
+  },
+  {
+    "id": 151,
+    "type": "multiple-response",
+    "domain": "LLM Fundamentals",
+    "question": "Which TWO components are essential parts of the transformer architecture used in modern LLMs? (Select TWO)",
+    "choices": [
+      "Self-attention mechanism",
+      "Recurrent hidden state loops",
+      "Positional encoding",
+      "Convolutional pooling layers",
+      "Decision tree ensembles"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "The transformer architecture relies on self-attention mechanisms to capture relationships between all tokens in a sequence, and positional encoding to inject information about token order since transformers process all positions in parallel rather than sequentially."
+  },
+  {
+    "id": 152,
+    "type": "multiple-response",
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "Which TWO are parameter-efficient fine-tuning (PEFT) techniques that avoid updating all model weights? (Select TWO)",
+    "choices": [
+      "Full fine-tuning of all layers",
+      "LoRA (Low-Rank Adaptation)",
+      "Training from random initialization",
+      "Prompt tuning / prefix tuning",
+      "Increasing the model's hidden dimension"
+    ],
+    "correctAnswers": [1, 3],
+    "explanation": "LoRA injects small trainable low-rank matrices into existing layers, drastically reducing the number of trainable parameters. Prompt tuning and prefix tuning prepend learnable soft tokens to the input, keeping the base model frozen. Both are PEFT methods."
+  },
+  {
+    "id": 153,
+    "type": "multiple-response",
+    "domain": "LLM Deployment and Inference",
+    "question": "Which TWO techniques are commonly used to reduce LLM inference latency and memory footprint? (Select TWO)",
+    "choices": [
+      "Increasing model parameter count",
+      "Quantization (e.g., INT8 or INT4)",
+      "Disabling GPU acceleration",
+      "KV-cache optimization",
+      "Training for more epochs"
+    ],
+    "correctAnswers": [1, 3],
+    "explanation": "Quantization reduces precision of model weights (e.g., FP16 to INT8) to lower memory usage and speed up computation. KV-cache optimization avoids recomputing key-value pairs for previously generated tokens during autoregressive generation, significantly reducing latency."
+  },
+  {
+    "id": 154,
+    "type": "multiple-response",
+    "domain": "RAG and LLM Applications",
+    "question": "Which TWO components are required to implement a Retrieval-Augmented Generation (RAG) pipeline? (Select TWO)",
+    "choices": [
+      "A vector database or embedding store for document retrieval",
+      "A reinforcement learning reward model",
+      "An LLM that generates responses using retrieved context",
+      "A GAN (Generative Adversarial Network) for data augmentation",
+      "A separate model for image classification"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "RAG combines retrieval and generation: a vector store holds document embeddings for semantic search, and an LLM generates answers grounded in the retrieved context. This reduces hallucination and allows the model to access up-to-date or domain-specific knowledge."
+  },
+  {
+    "id": 155,
+    "type": "multiple-response",
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "Which TWO parallelism strategies are used to train LLMs that exceed single-GPU memory capacity? (Select TWO)",
+    "choices": [
+      "Tensor parallelism (splitting layers across GPUs)",
+      "Running the model on CPU only",
+      "Pipeline parallelism (splitting model stages across GPUs)",
+      "Reducing the dataset to fit in one GPU",
+      "Using smaller batch sizes without any parallelism"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Tensor parallelism splits individual layers (e.g., attention heads or MLP columns) across GPUs for intra-layer parallelism. Pipeline parallelism splits the model into sequential stages across GPUs, with micro-batches flowing through the pipeline. Both are essential for training models that exceed single-GPU memory."
+  },
+  {
+    "id": 156,
+    "type": "multiple-response",
+    "domain": "LLM Fundamentals",
+    "question": "Which TWO techniques are used during the pre-training phase of large language models? (Select TWO)",
+    "choices": [
+      "Next-token prediction (causal language modeling)",
+      "Supervised classification on labeled datasets",
+      "Masked language modeling (predicting masked tokens)",
+      "Reinforcement learning from human feedback",
+      "K-nearest neighbor retrieval"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Causal language modeling (next-token prediction) is used by decoder-only models like GPT. Masked language modeling (predicting randomly masked tokens) is used by encoder models like BERT. Both are self-supervised pre-training objectives that learn language representations from unlabeled text."
+  },
+  {
+    "id": 157,
+    "type": "multiple-response",
+    "domain": "LLM Fundamentals",
+    "question": "Which TWO factors most directly determine the computational cost of training an LLM? (Select TWO)",
+    "choices": [
+      "The number of model parameters",
+      "The programming language used to write the training script",
+      "The size of the training dataset (number of tokens)",
+      "The color depth of any images in the dataset",
+      "The geographic location of the data center"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Training compute (measured in FLOPs) scales roughly as 6 × N × D, where N is the number of parameters and D is the number of training tokens. These two factors are the primary drivers of training cost according to scaling laws research."
+  },
+  {
+    "id": 158,
+    "type": "multiple-response",
+    "domain": "LLM Fundamentals",
+    "question": "Which TWO are common evaluation benchmarks used to assess LLM capabilities? (Select TWO)",
+    "choices": [
+      "MMLU (Massive Multitask Language Understanding)",
+      "ImageNet (image classification accuracy)",
+      "HumanEval (code generation)",
+      "BLEU score for image captioning only",
+      "PageRank for web search ranking"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "MMLU tests knowledge across 57 academic subjects and is a standard benchmark for general LLM reasoning. HumanEval tests code generation by evaluating whether generated functions pass unit tests. Both are widely used to compare LLM capabilities."
+  },
+  {
+    "id": 159,
+    "type": "multiple-response",
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "Which TWO are key steps in the RLHF (Reinforcement Learning from Human Feedback) alignment process? (Select TWO)",
+    "choices": [
+      "Training a reward model from human preference comparisons",
+      "Removing all pre-training weights before alignment",
+      "Using PPO or similar RL algorithms to optimize the policy against the reward model",
+      "Converting the model from transformer to RNN architecture",
+      "Reducing the vocabulary size to 1000 tokens"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "RLHF involves: (1) collecting human preference data and training a reward model that scores responses, then (2) using a reinforcement learning algorithm like PPO to fine-tune the LLM to maximize the reward model's score while staying close to the supervised fine-tuned policy."
+  },
+  {
+    "id": 160,
+    "type": "multiple-response",
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "Which TWO strategies help prevent catastrophic forgetting when fine-tuning a pre-trained LLM? (Select TWO)",
+    "choices": [
+      "Using a very high learning rate to overwrite old knowledge quickly",
+      "Using a low learning rate relative to pre-training",
+      "Training on the fine-tuning dataset for hundreds of epochs",
+      "Mixing a portion of the original pre-training data with fine-tuning data",
+      "Removing the attention layers before fine-tuning"
+    ],
+    "correctAnswers": [1, 3],
+    "explanation": "A low learning rate makes small updates that adapt the model without drastically overwriting pre-trained knowledge. Mixing pre-training data into the fine-tuning dataset (replay) helps the model retain general capabilities while learning the new task."
+  },
+  {
+    "id": 161,
+    "type": "multiple-response",
+    "domain": "Training and Fine-tuning LLMs",
+    "question": "Which TWO data quality practices are critical when preparing a fine-tuning dataset for an LLM? (Select TWO)",
+    "choices": [
+      "Deduplicating training examples to avoid memorization bias",
+      "Including as much noisy data as possible for robustness",
+      "Ensuring diverse and representative examples across the target distribution",
+      "Using only examples shorter than 10 tokens",
+      "Encrypting all training data so the model cannot read it"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Deduplication prevents the model from memorizing repeated examples and improves generalization. Diversity and representativeness ensure the model learns the full range of desired behaviors rather than overfitting to a narrow subset of patterns."
+  },
+  {
+    "id": 162,
+    "type": "multiple-response",
+    "domain": "LLM Deployment and Inference",
+    "question": "Which TWO serving strategies help handle high-throughput LLM inference in production? (Select TWO)",
+    "choices": [
+      "Continuous batching (inflight batching) of requests",
+      "Processing one request at a time sequentially",
+      "Speculative decoding with a smaller draft model",
+      "Disabling the GPU and using CPU-only inference",
+      "Limiting the model to a single output token per request"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Continuous batching dynamically adds new requests to an in-progress batch as earlier requests finish, maximizing GPU utilization. Speculative decoding uses a faster draft model to propose multiple tokens that the larger model verifies in parallel, increasing tokens per second."
+  },
+  {
+    "id": 163,
+    "type": "multiple-response",
+    "domain": "LLM Deployment and Inference",
+    "question": "Which TWO metrics are most important when evaluating LLM inference performance in production? (Select TWO)",
+    "choices": [
+      "Time to first token (TTFT) latency",
+      "Number of lines of code in the serving framework",
+      "Throughput measured in tokens per second",
+      "The file size of the server's configuration file",
+      "The number of Python packages installed"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "TTFT measures how quickly a user sees the first generated token, critical for interactive applications. Throughput (tokens/second) determines how many concurrent users the system can serve. Together they define the user experience and cost efficiency of an LLM deployment."
+  },
+  {
+    "id": 164,
+    "type": "multiple-response",
+    "domain": "LLM Deployment and Inference",
+    "question": "Which TWO are benefits of serving LLMs with NVIDIA TensorRT-LLM? (Select TWO)",
+    "choices": [
+      "Optimized CUDA kernels for transformer operations like attention",
+      "Automatic conversion of LLMs to image classification models",
+      "Support for in-flight batching and paged KV-cache",
+      "Elimination of the need for GPUs entirely",
+      "Built-in web browser for model testing"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "TensorRT-LLM provides highly optimized CUDA kernels for transformer operations including flash attention and fused MLP layers. It also supports in-flight batching and paged KV-cache for efficient memory management, significantly improving inference throughput and latency."
+  },
+  {
+    "id": 165,
+    "type": "multiple-response",
+    "domain": "RAG and LLM Applications",
+    "question": "Which TWO techniques improve the quality of retrieval in a RAG system? (Select TWO)",
+    "choices": [
+      "Using hybrid search combining dense embeddings and sparse keyword matching",
+      "Retrieving documents randomly without any relevance scoring",
+      "Chunking documents into semantically meaningful segments with overlap",
+      "Using a fixed chunk size of exactly one character",
+      "Ignoring metadata and relying only on document titles"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Hybrid search combines semantic (dense embedding) similarity with keyword (sparse BM25) matching for better recall across different query types. Intelligent chunking with overlap ensures that relevant context isn't split across chunk boundaries, improving retrieval precision."
+  },
+  {
+    "id": 166,
+    "type": "multiple-response",
+    "domain": "RAG and LLM Applications",
+    "question": "Which TWO are common failure modes that RAG is specifically designed to mitigate in LLM applications? (Select TWO)",
+    "choices": [
+      "Hallucination of facts not present in training data",
+      "Slow GPU memory bandwidth",
+      "Inability to access up-to-date or domain-specific knowledge",
+      "High electricity costs for inference",
+      "Difficulty in tokenizing non-English text"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "RAG mitigates hallucination by grounding responses in retrieved documents rather than relying solely on parametric memory. It also addresses the knowledge cutoff problem by allowing the model to access current, domain-specific, or proprietary information at query time."
+  },
+  {
+    "id": 167,
+    "type": "multiple-response",
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "Which TWO interconnect technologies are critical for multi-GPU and multi-node LLM training? (Select TWO)",
+    "choices": [
+      "NVLink for high-bandwidth intra-node GPU-to-GPU communication",
+      "USB 2.0 for connecting GPUs to the motherboard",
+      "InfiniBand for high-bandwidth inter-node communication",
+      "Bluetooth for wireless GPU synchronization",
+      "SATA for GPU memory expansion"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "NVLink provides high-bandwidth, low-latency communication between GPUs within a single node (up to 900 GB/s on H100). InfiniBand (e.g., NDR 400 Gb/s) provides the high-bandwidth, low-latency fabric needed for efficient gradient synchronization across nodes in large training clusters."
+  },
+  {
+    "id": 168,
+    "type": "multiple-response",
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "Which TWO memory optimization techniques allow training larger models on limited GPU memory? (Select TWO)",
+    "choices": [
+      "Gradient checkpointing (activation recomputation)",
+      "Increasing batch size without any memory management",
+      "Mixed-precision training (FP16/BF16 with FP32 master weights)",
+      "Using only CPU RAM and disabling GPU memory entirely",
+      "Storing all optimizer states in full FP64 precision"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Gradient checkpointing trades compute for memory by recomputing activations during the backward pass instead of storing them all. Mixed-precision training uses FP16/BF16 for forward/backward passes while maintaining FP32 master weights, nearly halving activation and gradient memory."
+  },
+  {
+    "id": 169,
+    "type": "multiple-response",
+    "domain": "GPU Infrastructure for LLMs",
+    "question": "Which TWO features of the NVIDIA H100 GPU make it particularly suited for LLM workloads? (Select TWO)",
+    "choices": [
+      "Transformer Engine with FP8 support for faster attention computation",
+      "Built-in web server for hosting models",
+      "80 GB of HBM3 memory with high bandwidth",
+      "Integrated display output for visualization",
+      "Automatic code generation without any software"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "The H100's Transformer Engine automatically manages mixed FP8/FP16 precision for transformer layers, dramatically accelerating attention and MLP operations. Its 80 GB of HBM3 memory with 3.35 TB/s bandwidth allows fitting larger model shards and batch sizes per GPU."
+  },
+  {
+    "id": 170,
+    "type": "multiple-response",
+    "domain": "RAG and LLM Applications",
+    "question": "Which TWO guardrail techniques help ensure safe and reliable outputs from LLM applications in production? (Select TWO)",
+    "choices": [
+      "Input/output content filtering to block harmful or off-topic responses",
+      "Removing all system prompts to give the model full freedom",
+      "Structured output validation (e.g., JSON schema enforcement)",
+      "Disabling all logging to improve latency",
+      "Allowing the model to execute arbitrary system commands"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Content filtering scans inputs and outputs for harmful, toxic, or off-topic content to prevent misuse. Structured output validation ensures the model returns data in the expected format (e.g., valid JSON matching a schema), preventing downstream errors in application pipelines."
   }
 ]
