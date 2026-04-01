@@ -2248,5 +2248,621 @@
     ],
     "correctAnswers": [1, 3],
     "explanation": "All AWS customers, including Basic support, get access to Trusted Advisor core security checks and the AWS Personal Health Dashboard. Phone support, TAMs, and Infrastructure Event Management require higher-tier plans."
+  },
+  {
+    "id": 171,
+    "domain": "Cloud Concepts",
+    "question": "Which of the following BEST describes the AWS Well-Architected Framework's 'Reliability' pillar?",
+    "choices": [
+      "Minimizing costs by using the cheapest instance types",
+      "Ensuring a workload performs its intended function correctly and consistently, recovering quickly from failures",
+      "Encrypting all data at rest and in transit",
+      "Automating deployments using CI/CD pipelines"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Reliability pillar focuses on ensuring a workload can perform its intended function correctly and consistently. It includes the ability to operate and test the workload through its total lifecycle, recover from failures, and meet demand."
+  },
+  {
+    "id": 172,
+    "domain": "Cloud Concepts",
+    "question": "What does the term 'loose coupling' mean in cloud architecture?",
+    "choices": [
+      "Running all application components on a single server",
+      "Designing components that are independent so that a failure in one does not cascade to others",
+      "Connecting all databases to a single application server",
+      "Using the same programming language across all services"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Loose coupling is an architectural principle where components interact through well-defined interfaces (queues, APIs, event buses) rather than direct dependencies. If one component fails, the others continue operating. AWS services like SQS, SNS, and EventBridge enable loose coupling."
+  },
+  {
+    "id": 173,
+    "domain": "Cloud Concepts",
+    "question": "Which AWS design principle recommends automatically recovering from failure?",
+    "choices": [
+      "Cost Optimization",
+      "Design for failure",
+      "Performance Efficiency",
+      "Security by design"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The 'design for failure' principle recommends building systems that automatically detect and recover from failures. In AWS, this is achieved through health checks, Auto Scaling, multi-AZ deployments, and automated failover mechanisms."
+  },
+  {
+    "id": 174,
+    "domain": "Cloud Concepts",
+    "question": "What does the 'six R's' of cloud migration refer to?",
+    "choices": [
+      "Six AWS Regions used for migration",
+      "Six strategies for migrating applications to the cloud: Rehost, Replatform, Repurchase, Refactor, Retire, and Retain",
+      "Six security rules for cloud deployment",
+      "Six types of AWS support plans"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The six R's are migration strategies: Rehost (lift and shift), Replatform (lift and optimize), Repurchase (move to SaaS), Refactor (re-architect), Retire (decommission), and Retain (keep on-premises). Each strategy suits different application requirements and timelines."
+  },
+  {
+    "id": 175,
+    "domain": "Cloud Concepts",
+    "question": "Which of the following is an advantage of cloud computing as defined by AWS?",
+    "choices": [
+      "Increase time to deploy new resources globally",
+      "Trade variable expense for capital expense",
+      "Go global in minutes",
+      "Maintain physical data centers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "AWS lists six advantages of cloud computing, one of which is 'Go global in minutes.' You can deploy your application in multiple regions around the world with just a few clicks, providing low latency and better experiences for customers at minimal cost."
+  },
+  {
+    "id": 176,
+    "domain": "Cloud Concepts",
+    "question": "What is a microservices architecture?",
+    "choices": [
+      "Running an entire application as a single, tightly coupled unit",
+      "Breaking an application into small, independent services that communicate through APIs",
+      "Using the smallest possible EC2 instance for all workloads",
+      "Deploying all services in a single Availability Zone"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Microservices architecture decomposes an application into small, independent services. Each service runs its own process, can be deployed independently, and communicates via APIs. This enables teams to develop, deploy, and scale services independently using AWS services like ECS, EKS, and Lambda."
+  },
+  {
+    "id": 177,
+    "domain": "Cloud Concepts",
+    "question": "What is the AWS Shared Responsibility Model?",
+    "choices": [
+      "A cost-sharing agreement between AWS and the customer",
+      "A model that defines which security tasks are handled by AWS (security OF the cloud) and which are handled by the customer (security IN the cloud)",
+      "A model where AWS handles all security responsibilities",
+      "An agreement that customers share resources with other AWS users"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Shared Responsibility Model divides security responsibilities: AWS is responsible for security OF the cloud (infrastructure, hardware, global network, managed services), while the customer is responsible for security IN the cloud (data, identity management, OS patching for EC2, firewall configuration)."
+  },
+  {
+    "id": 178,
+    "domain": "Cloud Concepts",
+    "question": "Which of the following BEST describes an AWS Region?",
+    "choices": [
+      "A single data center",
+      "A physical location around the world that consists of multiple isolated Availability Zones",
+      "A CDN edge location for caching content",
+      "A virtual network for EC2 instances"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An AWS Region is a physical location with multiple isolated and physically separated Availability Zones. Each Region is designed to be completely isolated from other Regions to achieve the greatest possible fault tolerance and stability."
+  },
+  {
+    "id": 179,
+    "domain": "Cloud Concepts",
+    "question": "What is the difference between an Availability Zone and an edge location?",
+    "choices": [
+      "They are the same thing",
+      "An Availability Zone is one or more data centers for running resources; an edge location is a CDN site for caching content closer to users",
+      "An edge location runs EC2 instances; an Availability Zone caches content",
+      "Availability Zones are only in the US; edge locations are global"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Availability Zones are isolated data center groups within a Region where you deploy resources (EC2, RDS, etc.). Edge locations are part of the CloudFront CDN network, positioned globally to cache content close to end users for low-latency delivery. There are far more edge locations than AZs."
+  },
+  {
+    "id": 180,
+    "domain": "Cloud Concepts",
+    "type": "multiple-response",
+    "question": "Which TWO are design principles of the AWS Well-Architected Framework's Cost Optimization pillar? (Select TWO)",
+    "choices": [
+      "Implement cloud financial management",
+      "Encrypt all data at rest",
+      "Adopt a consumption-based model to pay only for what you use",
+      "Use the largest instance type available for maximum performance",
+      "Manually provision all resources"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Cost Optimization design principles include implementing cloud financial management (treating cloud spending as a business discipline) and adopting a consumption model (paying only for resources you actually consume, scaling down when demand drops)."
+  },
+  {
+    "id": 181,
+    "domain": "Cloud Concepts",
+    "type": "multiple-response",
+    "question": "Which TWO describe characteristics of a well-architected serverless application? (Select TWO)",
+    "choices": [
+      "No server management or provisioning required by the customer",
+      "Applications must be written in Python only",
+      "Automatic scaling based on demand without manual intervention",
+      "Always runs on dedicated hardware",
+      "Requires minimum 1-year commitment"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Serverless applications remove the need for server management — AWS handles provisioning, patching, and capacity. They automatically scale with demand (Lambda scales per-request, Fargate scales per-task). There's no language restriction, dedicated hardware requirement, or minimum commitment."
+  },
+  {
+    "id": 182,
+    "domain": "Cloud Concepts",
+    "type": "statement-block",
+    "question": "Evaluate the following statements about the AWS Cloud Adoption Framework (CAF):",
+    "statements": [
+      "The CAF includes perspectives for Business, People, Governance, Platform, Security, and Operations.",
+      "The CAF is only relevant for large enterprises, not small businesses.",
+      "The Platform perspective helps architects design and implement new cloud solutions."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "The AWS CAF organizes guidance into six perspectives: Business, People, Governance, Platform, Security, and Operations. It is applicable to organizations of all sizes. The Platform perspective covers architecture, deployment, and provisioning of cloud infrastructure."
+  },
+  {
+    "id": 183,
+    "domain": "Cloud Concepts",
+    "question": "What is the benefit of deploying an application across multiple AWS Regions?",
+    "choices": [
+      "Lower cost than deploying in a single Region",
+      "Improved disaster recovery and lower latency for global users",
+      "Simplified application architecture",
+      "Automatic compliance with all global regulations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Multi-Region deployment provides disaster recovery (if an entire Region fails, the other Region serves traffic) and lower latency (users connect to the nearest Region). It doesn't automatically ensure compliance or simplify architecture — it adds complexity but improves resilience."
+  },
+  {
+    "id": 184,
+    "domain": "Cloud Concepts",
+    "question": "What does 'infrastructure as code' (IaC) mean in the context of AWS?",
+    "choices": [
+      "Writing application business logic",
+      "Defining and provisioning cloud infrastructure using machine-readable templates or code instead of manual processes",
+      "Coding directly on AWS hardware",
+      "Using only the AWS Console for all deployments"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Infrastructure as Code means managing infrastructure through code (e.g., AWS CloudFormation templates, AWS CDK, or Terraform). This enables version control, repeatable deployments, testing, and automated rollback — eliminating manual, error-prone configuration."
+  },
+  {
+    "id": 185,
+    "domain": "Cloud Concepts",
+    "type": "multiple-response",
+    "question": "Which TWO are benefits of using AWS managed services over self-managed EC2 instances? (Select TWO)",
+    "choices": [
+      "Reduced operational overhead for patching and maintenance",
+      "Complete control over the underlying operating system",
+      "Built-in high availability and automatic scaling in many managed services",
+      "Lower networking latency than EC2",
+      "Ability to SSH into the service host"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Managed services like RDS, DynamoDB, and Lambda reduce operational burden — AWS handles patching, backups, and scaling. Many include built-in HA (multi-AZ, automatic failover). The trade-off is less OS-level control compared to self-managed EC2."
+  },
+  {
+    "id": 186,
+    "domain": "Cloud Concepts",
+    "type": "statement-block",
+    "question": "Evaluate the following statements about AWS global infrastructure:",
+    "statements": [
+      "Each AWS Region has a minimum of three Availability Zones.",
+      "Availability Zones within a Region are connected by high-bandwidth, low-latency networking.",
+      "Data automatically replicates between all AWS Regions by default."
+    ],
+    "correctAnswers": [true, true, false],
+    "explanation": "Most Regions have at least 3 AZs. AZs within a Region are interconnected with high-bandwidth, low-latency private fiber. Data does NOT automatically replicate between Regions — cross-Region replication must be explicitly configured for each service (S3 CRR, RDS cross-Region read replicas, etc.)."
+  },
+  {
+    "id": 187,
+    "domain": "Cloud Concepts",
+    "question": "What does the 'Performance Efficiency' pillar of the Well-Architected Framework focus on?",
+    "choices": [
+      "Reducing the cost of all AWS services",
+      "Using compute resources efficiently and maintaining efficiency as demand changes and technologies evolve",
+      "Encrypting all data transmissions",
+      "Automating incident response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Performance Efficiency pillar focuses on using IT and computing resources efficiently. Key areas include selecting the right resource types and sizes, monitoring performance, and making informed decisions to maintain efficiency as business needs evolve."
+  },
+  {
+    "id": 188,
+    "domain": "Cloud Concepts",
+    "question": "Which AWS concept allows you to run experiments and innovate quickly with low cost and risk?",
+    "choices": [
+      "Reserved capacity",
+      "The ability to provision and decommission resources on demand",
+      "Dedicated Hosts",
+      "Support plans"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud computing enables rapid experimentation because you can provision resources instantly and decommission them when done, paying only for what you used. Failed experiments cost little. This is one of the six advantages of cloud computing: 'Increase speed and agility.'"
+  },
+  {
+    "id": 189,
+    "domain": "Cloud Concepts",
+    "type": "multiple-response",
+    "question": "Which TWO statements correctly describe the AWS pricing model? (Select TWO)",
+    "choices": [
+      "You pay for compute, storage, and outbound data transfer",
+      "Inbound data transfer is always charged",
+      "You can achieve significant savings by committing to reserved capacity",
+      "All AWS services have the same pricing across all Regions",
+      "There are no free tier options"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS charges for three main categories: compute, storage, and outbound data transfer. Inbound data transfer is generally free. Reserved capacity (Reserved Instances, Savings Plans) provides major discounts. Pricing varies by Region, and AWS offers a Free Tier for many services."
+  },
+  {
+    "id": 190,
+    "domain": "Cloud Concepts",
+    "question": "What is the AWS Free Tier?",
+    "choices": [
+      "A permanently free version of all AWS services",
+      "A program offering free usage of select AWS services for new accounts (12-month free tier) plus some always-free services",
+      "A free support plan",
+      "Free data transfer between all AWS services"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The AWS Free Tier includes three types of offers: 12-month free (e.g., 750 hours/month of t2.micro EC2), always free (e.g., 1 million Lambda requests/month), and short-term trials. It helps new users experiment with AWS at no cost."
+  },
+  {
+    "id": 191,
+    "domain": "Security and Compliance",
+    "question": "What is the purpose of AWS Identity and Access Management (IAM)?",
+    "choices": [
+      "To monitor application performance",
+      "To securely manage access to AWS services and resources by creating users, groups, roles, and policies",
+      "To provide DDoS protection",
+      "To encrypt data stored in S3"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS IAM enables you to manage access to AWS services securely. You create IAM users, groups, and roles, then attach policies that define what actions are allowed or denied on which resources. IAM is global — it's not Region-specific."
+  },
+  {
+    "id": 192,
+    "domain": "Security and Compliance",
+    "question": "What is the principle of least privilege in AWS IAM?",
+    "choices": [
+      "Giving all users administrator access for convenience",
+      "Granting only the minimum permissions necessary for a user or role to perform their required tasks",
+      "Using only the smallest EC2 instance sizes",
+      "Restricting all users to read-only access"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The principle of least privilege means granting only the permissions needed to perform a specific task — nothing more. In IAM, this means starting with no permissions and adding only what's necessary through carefully scoped policies. This minimizes the blast radius of compromised credentials."
+  },
+  {
+    "id": 193,
+    "domain": "Security and Compliance",
+    "question": "What is Amazon GuardDuty?",
+    "choices": [
+      "A web application firewall service",
+      "An intelligent threat detection service that continuously monitors for malicious activity and unauthorized behavior",
+      "A DDoS protection service",
+      "A certificate management service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behavior. It analyzes AWS CloudTrail events, VPC Flow Logs, and DNS logs using machine learning to detect threats like compromised instances, reconnaissance, and credential compromise."
+  },
+  {
+    "id": 194,
+    "domain": "Security and Compliance",
+    "question": "What is AWS CloudTrail used for?",
+    "choices": [
+      "Deploying applications to EC2 instances",
+      "Recording API calls and account activity across your AWS infrastructure for governance, compliance, and auditing",
+      "Monitoring CPU utilization of EC2 instances",
+      "Managing DNS routing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS CloudTrail records API calls made in your AWS account — who made the call, when, from where, and what was changed. This audit trail is essential for security analysis, compliance auditing, resource change tracking, and troubleshooting operational issues."
+  },
+  {
+    "id": 195,
+    "domain": "Security and Compliance",
+    "question": "What is AWS Artifact?",
+    "choices": [
+      "A CI/CD pipeline tool",
+      "A central resource for accessing AWS compliance reports, certifications, and agreements",
+      "A container image registry",
+      "A code versioning system"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Artifact provides on-demand access to AWS security and compliance reports (SOC, PCI, ISO) and select online agreements (BAA, NDA). It's a self-service portal for auditors and compliance teams to access the documentation they need."
+  },
+  {
+    "id": 196,
+    "domain": "Security and Compliance",
+    "question": "What does Amazon Macie do?",
+    "choices": [
+      "Provides a managed Kubernetes service",
+      "Uses machine learning to automatically discover, classify, and protect sensitive data such as PII stored in Amazon S3",
+      "Manages SSL/TLS certificates",
+      "Balances network traffic across instances"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amazon Macie uses machine learning and pattern matching to discover and protect sensitive data in S3. It can identify personally identifiable information (PII), financial data, and other sensitive content, and generates alerts when it detects potential data exposure risks."
+  },
+  {
+    "id": 197,
+    "domain": "Security and Compliance",
+    "question": "What is AWS Security Hub?",
+    "choices": [
+      "A physical security center at AWS headquarters",
+      "A service that aggregates, organizes, and prioritizes security findings from multiple AWS services into a single dashboard",
+      "A tool for deploying security patches to EC2",
+      "A VPN management service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Security Hub provides a comprehensive view of security across your AWS accounts. It aggregates findings from GuardDuty, Inspector, Macie, IAM Access Analyzer, and more into a single pane of glass with automated compliance checks against frameworks like CIS and PCI DSS."
+  },
+  {
+    "id": 198,
+    "domain": "Security and Compliance",
+    "question": "What is the purpose of AWS Config?",
+    "choices": [
+      "To configure EC2 instances automatically",
+      "To continuously assess, audit, and evaluate the configuration of AWS resources against desired settings",
+      "To manage user access keys",
+      "To optimize AWS costs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Config continuously records resource configuration changes and evaluates them against rules you define. It can detect when a resource's configuration drifts from the desired state (e.g., an S3 bucket becomes public) and trigger automated remediation."
+  },
+  {
+    "id": 199,
+    "domain": "Security and Compliance",
+    "question": "What is Amazon Inspector?",
+    "choices": [
+      "A tool for inspecting S3 bucket contents",
+      "An automated vulnerability management service that continually scans EC2 instances, container images, and Lambda functions for software vulnerabilities",
+      "A network traffic monitoring tool",
+      "A database performance analysis service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amazon Inspector automatically discovers and scans EC2 instances, ECR container images, and Lambda functions for software vulnerabilities (CVEs) and unintended network exposure. It prioritizes findings by severity and provides remediation guidance."
+  },
+  {
+    "id": 200,
+    "domain": "Security and Compliance",
+    "question": "What is the difference between an IAM user and an IAM role?",
+    "choices": [
+      "There is no difference",
+      "An IAM user has long-term credentials tied to a person or application; an IAM role provides temporary credentials and can be assumed by users, services, or applications",
+      "An IAM role can only be used by AWS services, not by people",
+      "An IAM user provides temporary credentials; an IAM role provides permanent credentials"
+    ],
+    "correctAnswer": 1,
+    "explanation": "IAM users have permanent long-term credentials (password, access keys) for specific people or applications. IAM roles have no permanent credentials — they provide temporary security credentials when assumed. Roles can be assumed by IAM users, AWS services (like EC2 or Lambda), or external identities."
+  },
+  {
+    "id": 201,
+    "domain": "Security and Compliance",
+    "question": "What does AWS WAF protect against?",
+    "choices": [
+      "DDoS attacks at the network layer",
+      "Common web exploits like SQL injection, cross-site scripting (XSS), and other OWASP Top 10 vulnerabilities",
+      "Physical security threats to data centers",
+      "Data corruption in S3 buckets"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS WAF (Web Application Firewall) protects web applications from common web exploits. You create rules to block SQL injection, XSS, and other patterns. WAF integrates with CloudFront, ALB, API Gateway, and AppSync to inspect and filter HTTP/HTTPS requests."
+  },
+  {
+    "id": 202,
+    "domain": "Security and Compliance",
+    "question": "What is AWS Shield Standard?",
+    "choices": [
+      "A paid DDoS protection service",
+      "Automatic DDoS protection that is included at no extra cost for all AWS customers",
+      "A web application firewall",
+      "A compliance reporting tool"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Shield Standard is automatically enabled for all AWS customers at no additional cost. It provides protection against the most common network and transport layer DDoS attacks. AWS Shield Advanced provides additional protection, DDoS response team access, and cost protection."
+  },
+  {
+    "id": 203,
+    "domain": "Security and Compliance",
+    "question": "What is the purpose of AWS KMS (Key Management Service)?",
+    "choices": [
+      "Managing Kubernetes clusters",
+      "Creating and managing cryptographic keys used to encrypt data across AWS services",
+      "Monitoring network traffic",
+      "Managing SSH keys for EC2 instances"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS KMS lets you create, manage, and control cryptographic keys for encrypting data. It integrates with most AWS services (S3, EBS, RDS, Redshift, etc.) and provides centralized key management with audit trails via CloudTrail."
+  },
+  {
+    "id": 204,
+    "domain": "Security and Compliance",
+    "question": "What does AWS IAM Access Analyzer do?",
+    "choices": [
+      "Analyzes network traffic patterns",
+      "Identifies resources shared with external entities and validates IAM policies against best practices",
+      "Analyzes EC2 instance performance",
+      "Monitors S3 bucket sizes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "IAM Access Analyzer identifies resources in your account (S3 buckets, IAM roles, KMS keys, Lambda functions, SQS queues) that are shared with external entities. It also validates IAM policies to help you set secure and functional permissions."
+  },
+  {
+    "id": 205,
+    "domain": "Security and Compliance",
+    "question": "What is the AWS shared responsibility for encryption?",
+    "choices": [
+      "AWS encrypts all data automatically with no customer involvement",
+      "AWS provides encryption tools and services; the customer is responsible for enabling and configuring encryption for their data",
+      "Encryption is entirely the customer's responsibility with no AWS support",
+      "Only AWS can access encryption keys"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS provides robust encryption services (KMS, CloudHSM, S3 SSE, EBS encryption) but the customer must choose to enable encryption and manage key policies. Some services offer default encryption, but customers are responsible for ensuring their data is encrypted according to their requirements."
+  },
+  {
+    "id": 206,
+    "domain": "Security and Compliance",
+    "question": "What is AWS CloudHSM?",
+    "choices": [
+      "A managed machine learning service",
+      "A cloud-based Hardware Security Module that lets you generate and use your own encryption keys on FIPS 140-2 Level 3 validated hardware",
+      "A cloud storage service",
+      "A DNS management service"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS CloudHSM provides dedicated Hardware Security Modules in the AWS Cloud. You have exclusive control over your encryption keys — AWS cannot access them. CloudHSM is FIPS 140-2 Level 3 validated, meeting the strictest compliance requirements for key management."
+  },
+  {
+    "id": 207,
+    "domain": "Security and Compliance",
+    "question": "Which AWS service can automatically remediate non-compliant resources based on rules?",
+    "choices": [
+      "AWS CloudTrail",
+      "AWS Config with remediation actions",
+      "Amazon GuardDuty",
+      "AWS Artifact"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Config rules evaluate resource configurations, and when non-compliance is detected, AWS Config can trigger automatic remediation using AWS Systems Manager Automation documents. For example, it can automatically re-enable S3 bucket encryption if it's turned off."
+  },
+  {
+    "id": 208,
+    "domain": "Security and Compliance",
+    "type": "multiple-response",
+    "question": "Which TWO are valid IAM best practices? (Select TWO)",
+    "choices": [
+      "Enable MFA for all users, especially the root account",
+      "Share IAM credentials between team members for convenience",
+      "Use IAM roles for applications running on EC2 instead of embedding access keys",
+      "Give all developers AdministratorAccess to speed up development",
+      "Store access keys in source code repositories"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "IAM best practices include enabling MFA (especially for root and privileged users) and using IAM roles for EC2 applications (roles provide temporary credentials, eliminating the risk of leaked access keys). Never share credentials, grant excessive permissions, or store keys in code."
+  },
+  {
+    "id": 209,
+    "domain": "Security and Compliance",
+    "type": "multiple-response",
+    "question": "Which TWO AWS services help protect against DDoS attacks? (Select TWO)",
+    "choices": [
+      "AWS Shield",
+      "Amazon Macie",
+      "Amazon CloudFront",
+      "AWS CodeCommit",
+      "Amazon Redshift"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS Shield provides dedicated DDoS protection (Standard is free, Advanced is paid with enhanced protection). CloudFront acts as a DDoS protection layer by distributing traffic across global edge locations and absorbing volumetric attacks before they reach your origin. Macie is for data security, not DDoS."
+  },
+  {
+    "id": 210,
+    "domain": "Security and Compliance",
+    "type": "multiple-response",
+    "question": "Which TWO describe valid uses of AWS Organizations Service Control Policies (SCPs)? (Select TWO)",
+    "choices": [
+      "Restricting which AWS Regions member accounts can deploy resources to",
+      "Granting IAM users permissions within an account",
+      "Preventing member accounts from leaving the organization without approval",
+      "Blocking specific AWS services from being used across the organization",
+      "Encrypting data in S3 buckets automatically"
+    ],
+    "correctAnswers": [0, 3],
+    "explanation": "SCPs define maximum available permissions for member accounts. They can restrict deployments to specific Regions (deny all services except in approved Regions) and block services entirely across the organization. SCPs don't grant permissions — they only limit what's possible. They don't handle encryption."
+  },
+  {
+    "id": 211,
+    "domain": "Security and Compliance",
+    "type": "multiple-response",
+    "question": "Which TWO types of data encryption does AWS support? (Select TWO)",
+    "choices": [
+      "Encryption at rest using AWS KMS or customer-managed keys",
+      "Encryption of physical datacenter buildings",
+      "Encryption in transit using TLS/SSL",
+      "Encryption of AWS billing invoices",
+      "Encryption of IAM usernames"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "AWS supports encryption at rest (protecting stored data using KMS, S3 SSE, EBS encryption) and encryption in transit (protecting data moving between services or to/from clients using TLS/SSL). These are the two fundamental categories of data encryption in cloud security."
+  },
+  {
+    "id": 212,
+    "domain": "Security and Compliance",
+    "type": "multiple-response",
+    "question": "Which TWO statements about the AWS root account are correct? (Select TWO)",
+    "choices": [
+      "The root account has unrestricted access to all resources in the AWS account",
+      "The root account should be used for everyday administrative tasks",
+      "The root account's email and password are created when you first set up your AWS account",
+      "The root account can be deleted after creating IAM users",
+      "Root account permissions can be restricted using IAM policies"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "The root account is created with the email and password used during AWS account setup and has complete, unrestricted access. Best practice: secure it with MFA, create IAM users for daily tasks, and lock away root credentials. The root account cannot be deleted and cannot be restricted by IAM policies."
+  },
+  {
+    "id": 213,
+    "domain": "Security and Compliance",
+    "question": "What is AWS Secrets Manager used for?",
+    "choices": [
+      "Managing IAM policies and roles",
+      "Securely storing, rotating, and managing secrets such as database credentials, API keys, and tokens",
+      "Monitoring application logs",
+      "Managing EC2 instance types"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Secrets Manager helps you protect access to your applications, services, and IT resources by securely storing and automatically rotating secrets like database credentials, API keys, and OAuth tokens. Applications retrieve secrets via API calls instead of hardcoding them."
+  },
+  {
+    "id": 214,
+    "domain": "Security and Compliance",
+    "question": "What compliance program does AWS Artifact provide documentation for?",
+    "choices": [
+      "Only HIPAA",
+      "Multiple compliance programs including SOC, PCI DSS, ISO 27001, FedRAMP, and HIPAA",
+      "Only PCI DSS",
+      "No compliance programs — it's a deployment tool"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Artifact provides access to compliance documentation for numerous programs: SOC 1/2/3, PCI DSS, ISO 27001/27017/27018, FedRAMP, HIPAA BAA, GDPR DPA, and more. It's the central self-service portal for all AWS compliance reports and agreements."
+  },
+  {
+    "id": 215,
+    "domain": "Security and Compliance",
+    "type": "statement-block",
+    "question": "Evaluate the following statements about AWS security services:",
+    "statements": [
+      "AWS GuardDuty uses machine learning to detect threats by analyzing CloudTrail, VPC Flow Logs, and DNS logs.",
+      "AWS Inspector requires manual setup and scanning — it does not run continuously.",
+      "AWS Security Hub can aggregate findings from GuardDuty, Inspector, and Macie into a single view."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "GuardDuty continuously analyzes log data using ML and threat intelligence. Inspector runs continuously (not just on-demand) — it automatically scans new instances and images when deployed. Security Hub aggregates findings from multiple AWS security services into a unified dashboard."
+  },
+  {
+    "id": 216,
+    "domain": "Security and Compliance",
+    "type": "statement-block",
+    "question": "Evaluate the following statements about AWS network security:",
+    "statements": [
+      "Security groups are stateful — if you allow inbound traffic, the response is automatically allowed outbound.",
+      "Network ACLs (NACLs) evaluate rules in order from lowest to highest rule number and stop at the first match.",
+      "AWS PrivateLink allows you to access AWS services over the public internet for better performance."
+    ],
+    "correctAnswers": [true, true, false],
+    "explanation": "Security groups are stateful — return traffic is automatically allowed. NACLs are stateless and evaluate rules numerically, stopping at the first match. AWS PrivateLink provides PRIVATE connectivity to services through VPC endpoints — traffic does NOT traverse the public internet. That's the entire point of PrivateLink."
   }
 ]
