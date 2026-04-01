@@ -83,7 +83,7 @@ const certs = {
     description: 'AI infrastructure, GPU workload management, networking, storage, and AI software frameworks',
     difficulty: 'Associate',
     color: '#76b900',
-    questionCount: 150,
+    questionCount: 256,
     examQuestions: 50,
     examTime: 60,
     passingScore: 70,
