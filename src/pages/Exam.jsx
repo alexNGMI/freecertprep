@@ -4,9 +4,55 @@ import { useProgress } from '../hooks/useProgress'
 import { useNavigate } from 'react-router-dom'
 import QuestionCard from '../components/QuestionCard'
 
-function shuffleAndSlice(arr, count) {
-  const shuffled = [...arr].sort(() => Math.random() - 0.5)
-  return shuffled.slice(0, count)
+function fisherYates(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+// Select questions proportional to domain weights (largest-remainder rounding).
+// Falls back to uniform random if cert has no domain config.
+function weightedSelect(questions, count, domains) {
+  if (!domains?.length) {
+    return fisherYates(questions).slice(0, count)
+  }
+
+  // Group questions by domain name
+  const byDomain = {}
+  for (const q of questions) {
+    if (!byDomain[q.domain]) byDomain[q.domain] = []
+    byDomain[q.domain].push(q)
+  }
+
+  // Largest-remainder allocation so totals always equal count
+  const exact = domains.map(d => ({ name: d.name, exact: (d.weight / 100) * count }))
+  const floors = exact.map(d => ({ ...d, alloc: Math.floor(d.exact), remainder: d.exact - Math.floor(d.exact) }))
+  let remainder = count - floors.reduce((s, d) => s + d.alloc, 0)
+  floors.sort((a, b) => b.remainder - a.remainder)
+  for (let i = 0; i < remainder; i++) floors[i].alloc += 1
+
+  // Pick allocated questions from each domain (shuffle pool first)
+  const picked = []
+  let leftover = 0
+  for (const { name, alloc } of floors) {
+    const pool = fisherYates(byDomain[name] || [])
+    const take = Math.min(alloc, pool.length)
+    picked.push(...pool.slice(0, take))
+    leftover += alloc - take   // track shortfall if domain has fewer questions than allocated
+  }
+
+  // Fill any shortfall with random questions not already picked
+  if (leftover > 0) {
+    const pickedIds = new Set(picked.map(q => q.id))
+    const extra = fisherYates(questions.filter(q => !pickedIds.has(q.id)))
+    picked.push(...extra.slice(0, leftover))
+  }
+
+  // Final shuffle so domain blocks aren't visible in question order
+  return fisherYates(picked)
 }
 
 export default function Exam() {
@@ -25,7 +71,7 @@ export default function Exam() {
   const timerRef = useRef(null)
   const selectedAnswersRef = useRef(selectedAnswers)
 
-  const [examQuestions] = useState(() => shuffleAndSlice(questions, EXAM_QUESTIONS))
+  const [examQuestions] = useState(() => weightedSelect(questions, EXAM_QUESTIONS, cert.domains))
 
   // Keep ref in sync so finishExam always has current answers
   useEffect(() => {
