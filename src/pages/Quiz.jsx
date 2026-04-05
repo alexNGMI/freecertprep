@@ -13,18 +13,29 @@ export default function Quiz() {
   const [answers, setAnswers] = useState([])
   const [showResult, setShowResult] = useState(false)
   const [quizStarted, setQuizStarted] = useState(false)
+  const [sessionKey, setSessionKey] = useState(0)
   const { addQuizResult } = useProgress(cert.id)
 
   const filteredQuestions = useMemo(() => {
-    if (selectedDomain === 'All Domains') return questions
-    return questions.filter((q) => q.domain === selectedDomain)
-  }, [selectedDomain, questions])
+    const pool = selectedDomain === 'All Domains'
+      ? questions
+      : questions.filter((q) => q.domain === selectedDomain)
+    // Shuffle on every new session (sessionKey changes) and on domain change.
+    // useMemo keeps order stable within a session.
+    const shuffled = [...pool]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+    return shuffled
+  }, [selectedDomain, questions, sessionKey])
 
   const startQuiz = () => {
     setCurrentIndex(0)
     setAnswers([])
     setShowResult(false)
     setQuizStarted(true)
+    setSessionKey(k => k + 1)  // triggers fresh shuffle of filteredQuestions
   }
 
   const handleAnswer = (selectedChoice) => {

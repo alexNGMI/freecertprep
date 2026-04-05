@@ -51,6 +51,28 @@ function weightedSelect(questions, count, domains) {
     picked.push(...extra.slice(0, leftover))
   }
 
+  // Guarantee at least 1 question per type that exists in the pool.
+  // Rare types (ordering, matching) can disappear by chance — this ensures
+  // every type the cert has is always represented in the exam.
+  const poolTypes = [...new Set(questions.map(q => q.type || 'single-choice'))]
+  const pickedTypes = new Set(picked.map(q => q.type || 'single-choice'))
+  const missingTypes = poolTypes.filter(t => !pickedTypes.has(t))
+
+  if (missingTypes.length > 0) {
+    const pickedIds = new Set(picked.map(q => q.id))
+    for (const missing of missingTypes) {
+      // Find a candidate of the missing type from the unselected pool
+      const candidates = fisherYates(questions.filter(q => !pickedIds.has(q.id) && (q.type || 'single-choice') === missing))
+      if (candidates.length === 0) continue
+      // Swap out a common-type question (prefer single-choice swap to preserve rare types)
+      const swapIdx = picked.findIndex(q => (q.type || 'single-choice') === 'single-choice')
+      if (swapIdx === -1) continue
+      pickedIds.delete(picked[swapIdx].id)
+      picked[swapIdx] = candidates[0]
+      pickedIds.add(candidates[0].id)
+    }
+  }
+
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)
 }
