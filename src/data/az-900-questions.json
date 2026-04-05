@@ -3295,5 +3295,344 @@
     ],
     "correctAnswer": 1,
     "explanation": "Deleting a resource group deletes ALL resources contained within it. This is a destructive, irreversible operation. This is why resource locks (CanNotDelete) are important for protecting critical resource groups from accidental deletion."
+  },
+  {
+    "id": "az900-281",
+    "domain": "Describe cloud concepts",
+    "type": "ordering",
+    "question": "Place the following cloud migration phases in the correct order from start to finish:",
+    "items": [
+      "Migrate workloads to the cloud",
+      "Assess on-premises environment and define migration goals",
+      "Optimize and modernize cloud resources post-migration",
+      "Plan the migration wave and select target Azure services"
+    ],
+    "correctOrder": [1, 3, 0, 2],
+    "explanation": "A structured cloud migration follows: (1) Assess — discover and evaluate existing workloads; (2) Plan — define target architecture and migration waves; (3) Migrate — move workloads using tools like Azure Migrate; (4) Optimize — right-size, apply reservations, and modernize after migration."
+  },
+  {
+    "id": "az900-282",
+    "domain": "Describe cloud concepts",
+    "type": "ordering",
+    "question": "Arrange the following cloud service models from MOST customer-managed to LEAST customer-managed:",
+    "items": [
+      "Software as a Service (SaaS)",
+      "Platform as a Service (PaaS)",
+      "Infrastructure as a Service (IaaS)",
+      "On-Premises"
+    ],
+    "correctOrder": [3, 2, 1, 0],
+    "explanation": "On-premises: customer manages everything. IaaS: customer manages OS, middleware, apps, data. PaaS: customer manages apps and data only. SaaS: customer manages only data and user access. Each step up the stack transfers more management responsibility to the provider."
+  },
+  {
+    "id": "az900-283",
+    "domain": "Describe Azure architecture and services",
+    "type": "ordering",
+    "question": "Place the following Azure governance hierarchy levels in order from BROADEST to most SPECIFIC scope:",
+    "items": [
+      "Resource Group",
+      "Management Group",
+      "Individual Resource",
+      "Subscription"
+    ],
+    "correctOrder": [1, 3, 0, 2],
+    "explanation": "Azure's governance hierarchy from broadest to narrowest: Management Groups (contain subscriptions) → Subscriptions (billing and access boundaries) → Resource Groups (logical containers within a subscription) → Individual Resources (the actual services like VMs, storage accounts)."
+  },
+  {
+    "id": "az900-284",
+    "domain": "Describe Azure architecture and services",
+    "type": "ordering",
+    "question": "Place the following steps for deploying a VM using an ARM template in the correct order:",
+    "items": [
+      "Review deployment output and confirm VM is running",
+      "Author or download an ARM template defining the VM configuration",
+      "Submit the template to Azure Resource Manager via CLI, portal, or pipeline",
+      "Validate the template syntax and parameters"
+    ],
+    "correctOrder": [1, 3, 2, 0],
+    "explanation": "ARM template deployment workflow: (1) Author the template; (2) Validate syntax and parameters using 'az deployment validate'; (3) Submit/deploy the template through portal, CLI, or pipeline; (4) Review outputs and confirm resources were created successfully."
+  },
+  {
+    "id": "az900-285",
+    "domain": "Describe Azure management and governance",
+    "type": "ordering",
+    "question": "Place the following steps for responding to a security incident in Azure in the correct order:",
+    "items": [
+      "Remediate the vulnerability and verify the fix",
+      "Detect the threat through Microsoft Defender for Cloud or Sentinel alert",
+      "Contain the affected resources (isolate VM, revoke credentials)",
+      "Investigate root cause using logs and Sentinel investigation graph"
+    ],
+    "correctOrder": [1, 3, 2, 0],
+    "explanation": "Security incident response: (1) Detect — an alert fires in Defender or Sentinel; (2) Investigate — use audit logs, Sentinel investigation, and KQL queries to understand the scope; (3) Contain — isolate affected resources to prevent lateral movement; (4) Remediate — patch the root cause and verify resolution."
+  },
+  {
+    "id": "az900-286",
+    "domain": "Describe Azure management and governance",
+    "type": "ordering",
+    "question": "Place the following steps for setting up cost governance for a new Azure subscription in the correct order:",
+    "items": [
+      "Analyze actual spending and optimize with Advisor recommendations",
+      "Apply Azure Policy to enforce tagging and allowed resource types",
+      "Create cost budgets with email alerts in Azure Cost Management",
+      "Define a resource tagging strategy for cost allocation"
+    ],
+    "correctOrder": [3, 1, 2, 0],
+    "explanation": "Cost governance setup: (1) Define tagging strategy — decide which tags (Department, Project, Environment) you'll use; (2) Enforce tags via Azure Policy so all resources are tagged at creation; (3) Create budgets with alerts to catch overspending early; (4) Analyze actual spend and act on Advisor cost recommendations."
+  },
+  {
+    "id": "az900-287",
+    "domain": "Describe Azure architecture and services",
+    "type": "ordering",
+    "question": "Place the following network traffic flow steps in order when a user in Europe accesses an Azure-hosted web app protected by Azure Front Door:",
+    "items": [
+      "Request reaches the Azure App Service origin server",
+      "User's browser sends an HTTPS request",
+      "Azure Front Door WAF inspects and routes the request to the nearest healthy origin",
+      "Azure Front Door edge node receives the request at the nearest Point of Presence"
+    ],
+    "correctOrder": [1, 3, 2, 0],
+    "explanation": "Traffic flow with Azure Front Door: (1) Browser sends HTTPS request; (2) DNS resolves to nearest Front Door PoP via Anycast; (3) Front Door edge receives the request and WAF inspects it, then routes to the best healthy origin using health probes and routing rules; (4) Origin (App Service) processes the request and returns a response."
+  },
+  {
+    "id": "az900-288",
+    "domain": "Describe Azure architecture and services",
+    "type": "ordering",
+    "question": "Arrange the following Azure storage access tiers from MOST expensive to store to LEAST expensive to store (per GB/month):",
+    "items": [
+      "Archive",
+      "Cool",
+      "Hot",
+      "Cold"
+    ],
+    "correctOrder": [2, 1, 3, 0],
+    "explanation": "Storage cost per GB from highest to lowest: Hot (highest storage cost, lowest access cost) → Cool → Cold → Archive (lowest storage cost, highest access/rehydration cost). The tiers trade off between storage price and retrieval cost — Archive is cheapest to store but expensive and slow to access."
+  },
+  {
+    "id": "az900-289",
+    "domain": "Describe cloud concepts",
+    "type": "ordering",
+    "question": "Place the following steps for calculating a composite SLA for an application using multiple Azure services:",
+    "items": [
+      "Identify all Azure services your application depends on",
+      "Compare the composite SLA to your availability target and add redundancy if needed",
+      "Look up each service's individual SLA from Microsoft's SLA documentation",
+      "Multiply all individual SLAs together to get the composite SLA"
+    ],
+    "correctOrder": [0, 2, 3, 1],
+    "explanation": "Composite SLA calculation: (1) List all dependent services; (2) Find each service's SLA in the Azure SLA documentation; (3) Multiply all SLAs (e.g., 99.9% × 99.95% = 99.85%); (4) Compare to your requirement — if composite is too low, add redundancy to increase availability."
+  },
+  {
+    "id": "az900-290",
+    "domain": "Describe Azure management and governance",
+    "type": "ordering",
+    "question": "Place the following steps for creating and assigning an Azure Policy to deny VM deployments in unauthorized regions:",
+    "items": [
+      "Assign the policy definition to the target management group or subscription",
+      "Test the policy in audit mode to see what would be affected",
+      "Create a policy definition with a 'deny' effect and the allowed locations list",
+      "Monitor compliance reports to verify enforcement"
+    ],
+    "correctOrder": [2, 1, 0, 3],
+    "explanation": "Azure Policy workflow: (1) Create the policy definition specifying the rule and effect; (2) Test in audit mode first to understand impact without blocking deployments; (3) Assign the policy at the appropriate scope; (4) Monitor the compliance dashboard to verify resources are compliant."
+  },
+  {
+    "id": "az900-291",
+    "domain": "Describe Azure architecture and services",
+    "type": "matching",
+    "question": "Match each Azure service to its primary service model category:",
+    "itemsLeft": [
+      "Azure Virtual Machines",
+      "Azure App Service",
+      "Microsoft 365 (Office 365)",
+      "Azure SQL Database"
+    ],
+    "itemsRight": [
+      "IaaS",
+      "PaaS",
+      "SaaS"
+    ],
+    "correctMatches": [0, 1, 2, 1],
+    "explanation": "Azure VMs = IaaS (you manage OS up). App Service = PaaS (managed web hosting, no OS management). Microsoft 365 = SaaS (fully managed productivity software). Azure SQL Database = PaaS (managed relational database, no OS or SQL Server patching required)."
+  },
+  {
+    "id": "az900-292",
+    "domain": "Describe Azure architecture and services",
+    "type": "matching",
+    "question": "Match each Azure networking service to its primary function:",
+    "itemsLeft": [
+      "Azure Load Balancer",
+      "Azure Application Gateway",
+      "Azure Traffic Manager",
+      "Azure Front Door"
+    ],
+    "itemsRight": [
+      "Layer 4 TCP/UDP load balancing within a region",
+      "Layer 7 HTTP/HTTPS routing with WAF within a region",
+      "DNS-based global load balancing across regions",
+      "Global Layer 7 entry point with CDN and WAF"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "Load Balancer: Layer 4 regional balancing. Application Gateway: Layer 7 with URL routing, SSL termination, and WAF. Traffic Manager: DNS-based global routing (performance, priority, weighted, geographic). Front Door: Global Layer 7 with CDN acceleration, WAF, and health-based routing."
+  },
+  {
+    "id": "az900-293",
+    "domain": "Describe Azure management and governance",
+    "type": "matching",
+    "question": "Match each Azure management tool to its primary purpose:",
+    "itemsLeft": [
+      "Azure Advisor",
+      "Azure Policy",
+      "Azure Cost Management",
+      "Microsoft Defender for Cloud"
+    ],
+    "itemsRight": [
+      "Proactive best-practice recommendations across 5 categories",
+      "Enforce organizational standards and audit compliance",
+      "Track, analyze, and optimize cloud spending",
+      "Unified security posture management and threat protection"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "Advisor = proactive recommendations (reliability, security, performance, cost, ops). Policy = governance enforcement with audit/deny/remediate effects. Cost Management = billing analysis, budgets, and spend optimization. Defender for Cloud = security posture scoring, threat detection, and compliance."
+  },
+  {
+    "id": "az900-294",
+    "domain": "Describe Azure architecture and services",
+    "type": "matching",
+    "question": "Match each Azure storage service to its best-fit use case:",
+    "itemsLeft": [
+      "Azure Blob Storage",
+      "Azure File Storage",
+      "Azure Table Storage",
+      "Azure Queue Storage"
+    ],
+    "itemsRight": [
+      "Storing unstructured data like images, videos, and backups",
+      "Mounting a network file share accessible from Windows or Linux",
+      "Storing structured NoSQL key-attribute data",
+      "Decoupling application components with message queuing"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "Blob = unstructured objects (images, videos, logs, backups). Files = SMB/NFS shares mountable like network drives. Table = structured NoSQL key-attribute data (schemales, fast lookups). Queue = FIFO message store for decoupling producers and consumers."
+  },
+  {
+    "id": "az900-295",
+    "domain": "Describe Azure management and governance",
+    "type": "matching",
+    "question": "Match each Azure identity and access feature to its description:",
+    "itemsLeft": [
+      "Conditional Access",
+      "Privileged Identity Management (PIM)",
+      "Multi-Factor Authentication (MFA)",
+      "Azure RBAC"
+    ],
+    "itemsRight": [
+      "If-then policies that grant or block access based on signals like location and device",
+      "Just-in-time access to privileged roles with approval workflows",
+      "Requiring two or more verification methods to prove identity",
+      "Role-based authorization for Azure resources at various scopes"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "Conditional Access: signal-based if-then access policies. PIM: just-in-time elevation to admin roles, reducing standing privilege. MFA: additional verification factor beyond password. RBAC: assigns Owner/Contributor/Reader and custom roles at management group, subscription, resource group, or resource scope."
+  },
+  {
+    "id": "az900-296",
+    "domain": "Describe cloud concepts",
+    "type": "matching",
+    "question": "Match each cloud concept to its correct definition:",
+    "itemsLeft": [
+      "High Availability",
+      "Fault Tolerance",
+      "Disaster Recovery",
+      "Elasticity"
+    ],
+    "itemsRight": [
+      "Maximizing uptime by minimizing service interruptions, measured by SLA percentage",
+      "Continuing to operate correctly even when one or more components fail",
+      "Restoring services after a catastrophic event such as a regional outage",
+      "Automatically scaling resources up or down in real time based on demand"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "HA: maintaining high uptime through redundancy (SLA-backed). Fault tolerance: surviving component failures without service interruption. DR: recovery from catastrophic events (cross-region failover, backups). Elasticity: dynamic, automatic resource adjustment matching real-time demand."
+  },
+  {
+    "id": "az900-297",
+    "domain": "Describe Azure architecture and services",
+    "type": "matching",
+    "question": "Match each Azure compute service to its best description:",
+    "itemsLeft": [
+      "Azure Virtual Machines",
+      "Azure App Service",
+      "Azure Functions",
+      "Azure Kubernetes Service (AKS)"
+    ],
+    "itemsRight": [
+      "Full OS control with complete flexibility over software configuration",
+      "Managed web hosting platform supporting multiple languages",
+      "Event-driven serverless compute billed per execution",
+      "Managed Kubernetes for orchestrating containerized applications"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "VMs: IaaS with full OS control. App Service: PaaS web hosting for HTTP apps. Functions: serverless event-triggered code execution. AKS: managed Kubernetes control plane with self-managed worker nodes for containerized microservices."
+  },
+  {
+    "id": "az900-298",
+    "domain": "Describe Azure management and governance",
+    "type": "matching",
+    "question": "Match each Infrastructure as Code tool to its key characteristic:",
+    "itemsLeft": [
+      "ARM Templates",
+      "Azure Bicep",
+      "Terraform",
+      "Azure CLI scripts"
+    ],
+    "itemsRight": [
+      "JSON-based declarative Azure-native IaC format",
+      "Domain-specific language that compiles to ARM JSON with cleaner syntax",
+      "Open-source, multi-cloud IaC tool using HCL syntax",
+      "Imperative scripting using 'az' commands — not declarative IaC"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "ARM templates: JSON-based, verbose but supported everywhere. Bicep: newer DSL that transpiles to ARM JSON, cleaner and recommended for Azure-only IaC. Terraform: open-source, cloud-agnostic, HCL syntax, state file management. Azure CLI scripts: imperative (procedural) commands — useful for automation but not true IaC since they don't define desired state."
+  },
+  {
+    "id": "az900-299",
+    "domain": "Describe Azure architecture and services",
+    "type": "matching",
+    "question": "Match each Azure database service to its database type:",
+    "itemsLeft": [
+      "Azure SQL Database",
+      "Azure Cosmos DB",
+      "Azure Database for PostgreSQL",
+      "Azure Cache for Redis"
+    ],
+    "itemsRight": [
+      "Managed relational database based on SQL Server",
+      "Globally distributed multi-model NoSQL database",
+      "Managed open-source relational PostgreSQL database",
+      "Managed in-memory key-value cache"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "Azure SQL Database: managed SQL Server engine, relational. Cosmos DB: globally distributed, multi-model NoSQL (document, key-value, graph, column). Azure Database for PostgreSQL: managed open-source PostgreSQL, fully relational. Redis Cache: in-memory key-value store for caching, sessions, and real-time scenarios."
+  },
+  {
+    "id": "az900-300",
+    "domain": "Describe Azure management and governance",
+    "type": "matching",
+    "question": "Match each Azure compliance and governance tool to its purpose:",
+    "itemsLeft": [
+      "Microsoft Service Trust Portal",
+      "Azure Blueprints",
+      "Microsoft Purview",
+      "Azure Resource Graph"
+    ],
+    "itemsRight": [
+      "Access audit reports, compliance certifications, and trust documentation",
+      "Deploy governed environments with bundled policies, roles, and ARM templates",
+      "Unified data governance for classifying and managing data across cloud and on-premises",
+      "Query and explore Azure resources at scale across subscriptions"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "Service Trust Portal: public-facing compliance documentation hub. Blueprints: package of ARM templates + policies + role assignments deployable as a governed environment. Purview: data catalog and governance for data discovery, classification, and lineage. Resource Graph: KQL-based querying of all Azure resources across subscriptions for governance and inventory."
   }
 ]
