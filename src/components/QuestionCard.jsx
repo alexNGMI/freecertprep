@@ -1,10 +1,24 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 
 export default function QuestionCard({ question, onAnswer, answered, selectedChoice, examMode = false }) {
   const isMultiple = question.type === 'multiple-response'
   const isStatement = question.type === 'statement-block'
   const isOrdering = question.type === 'ordering'
   const isMatching = question.type === 'matching'
+
+  // Shuffle answer choices once per question so correct answer isn't always position B.
+  // shuffledChoices is an array of { origIdx, text } — display order is shuffled,
+  // but all answer storage/validation uses original indices unchanged.
+  const shuffledChoices = useMemo(() => {
+    if (!question.choices) return []
+    const indices = question.choices.map((_, i) => i)
+    // Fisher-Yates shuffle
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]]
+    }
+    return indices.map(origIdx => ({ origIdx, text: question.choices[origIdx] }))
+  }, [question.id]) // re-shuffle only when question changes
 
   // Local state for interactive questions before they are submitted (only used in Quiz Mode)
   const [localMulti, setLocalMulti] = useState(() =>
@@ -110,12 +124,13 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
       <p className="text-zinc-100 text-xl font-medium leading-relaxed">{question.question}</p>
 
       <div className="space-y-4">
-        {/* Single Choice or Multiple Response */}
-        {!isStatement && !isOrdering && !isMatching && question.choices && question.choices.map((choice, index) => {
+        {/* Single Choice or Multiple Response — uses shuffledChoices for display,
+            origIdx for answer storage so validation is unaffected */}
+        {!isStatement && !isOrdering && !isMatching && shuffledChoices.map(({ origIdx, text }, displayIdx) => {
           const isSelected = isMultiple
-            ? (answered || examMode ? selectedChoice?.includes(index) : localMulti.includes(index))
-            : selectedChoice === index;
-          const isCorrectChoice = isMultiple ? question.correctAnswers.includes(index) : question.correctAnswer === index;
+            ? (answered || examMode ? selectedChoice?.includes(origIdx) : localMulti.includes(origIdx))
+            : selectedChoice === origIdx;
+          const isCorrectChoice = isMultiple ? question.correctAnswers.includes(origIdx) : question.correctAnswer === origIdx;
 
           let style = 'border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800 hover:text-zinc-100 hover:-translate-y-0.5';
 
@@ -133,16 +148,16 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
           return (
             <button
-              key={index}
+              key={origIdx}
               disabled={answered}
-              onClick={() => isMultiple ? toggleMulti(index) : onAnswer(index)}
+              onClick={() => isMultiple ? toggleMulti(origIdx) : onAnswer(origIdx)}
               className={`w-full text-left px-6 py-4 rounded-xl border transition-all duration-300 ${style}`}
             >
               <div className="flex items-start">
                 <span className={`font-bold mr-4 shrink-0 flex items-center justify-center w-6 h-6 rounded ${isSelected ? 'bg-indigo-500/20 text-indigo-300' : 'bg-zinc-800 text-zinc-500'}`}>
-                  {isMultiple ? (isSelected ? '✓' : '') : String.fromCharCode(65 + index)}
+                  {isMultiple ? (isSelected ? '✓' : '') : String.fromCharCode(65 + displayIdx)}
                 </span>
-                <span className="flex-1 mt-0.5 leading-snug text-sm sm:text-base">{choice}</span>
+                <span className="flex-1 mt-0.5 leading-snug text-sm sm:text-base">{text}</span>
               </div>
             </button>
           )
