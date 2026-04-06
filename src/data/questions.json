@@ -3847,5 +3847,335 @@
       0
     ],
     "explanation": "AWS MGN performs continuous block-level replication of source servers to lift and shift entire workloads to AWS with minimal downtime. DMS continuously replicates database records and supports both homogeneous and heterogeneous migrations. The Snow Family physically ships data when network transfer is impractical due to volume or bandwidth constraints. Transfer Family provides managed SFTP, FTPS, and FTP endpoints backed by S3 or EFS for file-based partner integrations."
+  },
+  {
+    "id": 257,
+    "domain": "Cloud Concepts",
+    "question": "A startup expects its user base to fluctuate significantly during product launches. They want their infrastructure to automatically handle traffic spikes without manual intervention and scale down during quiet periods to minimize cost. Which AWS cloud benefit BEST addresses this requirement?",
+    "choices": [
+      "High availability",
+      "Elasticity",
+      "Fault tolerance",
+      "Agility"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Elasticity is the ability to automatically scale resources up during demand spikes and scale down when demand decreases. This directly addresses the startup's need to handle traffic fluctuations without manual intervention while minimizing cost during quiet periods."
+  },
+  {
+    "id": 258,
+    "domain": "Cloud Concepts",
+    "question": "A retail company currently owns and operates two data centers. They want to keep their core inventory system on-premises for compliance reasons but use cloud resources for their customer-facing website during peak shopping seasons. Which cloud deployment model should they use?",
+    "choices": [
+      "Public cloud",
+      "Private cloud",
+      "Hybrid cloud",
+      "Multi-cloud"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A hybrid cloud deployment model connects on-premises infrastructure with cloud resources. This allows the company to keep their inventory system on-premises for compliance while leveraging the public cloud's scalability for their customer-facing website during peak periods."
+  },
+  {
+    "id": 259,
+    "domain": "Cloud Concepts",
+    "question": "A CTO is presenting cloud migration benefits to the board of directors. The board is concerned about the large upfront capital investment required. Which AWS Cloud value proposition should the CTO emphasize to address this concern?",
+    "choices": [
+      "Global infrastructure reach",
+      "Trading fixed expense for variable expense",
+      "Increased speed and agility",
+      "Economy of scale"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Trading capital expense (CapEx) for variable operational expense (OpEx) directly addresses the board's concern about large upfront investments. With AWS, the company pays only for what they consume instead of investing heavily in data centers and infrastructure before knowing their exact needs."
+  },
+  {
+    "id": 260,
+    "domain": "Cloud Concepts",
+    "question": "A media company needs to process thousands of video files uploaded daily. The workload varies dramatically between 100 and 10,000 uploads per day. Each video takes 5-15 minutes to process. Which approach aligns BEST with cloud architecture best practices?",
+    "choices": [
+      "Purchase enough servers to handle 10,000 videos per day and run them continuously",
+      "Use a queue-based architecture with auto-scaling compute instances that scale to zero when idle",
+      "Manually add servers each morning based on the previous day's upload count",
+      "Process all videos in a single batch overnight using reserved instances"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A queue-based architecture with auto-scaling decouples the upload from processing, handles variable workloads efficiently, and scales to zero when idle to minimize cost. This follows the AWS Well-Architected Framework's performance efficiency and cost optimization pillars."
+  },
+  {
+    "id": 261,
+    "domain": "Cloud Concepts",
+    "question": "A software company wants to deploy their application in a way that survives the failure of an entire data center. Their application requires low latency for users in North America. Which AWS infrastructure strategy should they implement?",
+    "choices": [
+      "Deploy to a single Availability Zone with automated backups",
+      "Deploy across multiple Availability Zones within a North American Region",
+      "Deploy to a single Region with larger instance sizes",
+      "Deploy only to edge locations using CloudFront"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Deploying across multiple Availability Zones within a Region provides high availability that survives data center failures. Each AZ is a physically separate data center with independent power and networking. Staying within a North American Region ensures low latency for those users."
+  },
+  {
+    "id": 262,
+    "domain": "Cloud Concepts",
+    "question": "A development team wants to test a new feature on infrastructure identical to production, use it for two weeks, then tear it down completely. On-premises, provisioning this environment took 3 months. Which cloud computing advantage does this scenario illustrate?",
+    "choices": [
+      "Benefit from massive economies of scale",
+      "Go global in minutes",
+      "Increase speed and agility",
+      "Stop spending money running and maintaining data centers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Increased speed and agility means developers can quickly provision temporary environments in minutes instead of months, experiment with new ideas, and tear them down when finished. This is one of the six advantages of cloud computing identified by AWS."
+  },
+  {
+    "id": 263,
+    "domain": "Security and Compliance",
+    "type": "multiple-response",
+    "question": "A company's security team discovered that an IAM user's access keys have been accidentally published in a public GitHub repository. Which actions should they take IMMEDIATELY? (Select TWO)",
+    "choices": [
+      "Delete the IAM user's account entirely",
+      "Deactivate the exposed access keys and create new ones",
+      "Review CloudTrail logs for unauthorized activity using the compromised keys",
+      "Rotate the root account password",
+      "Restart all EC2 instances in the account"
+    ],
+    "correctAnswers": [
+      1,
+      2
+    ],
+    "explanation": "The immediate priority is to deactivate the exposed access keys to prevent further unauthorized access, then review CloudTrail logs to determine if the keys were used maliciously. Deleting the entire user is too aggressive, and restarting instances doesn't address the credential compromise."
+  },
+  {
+    "id": 264,
+    "domain": "Security and Compliance",
+    "question": "A healthcare company is migrating patient records to AWS and must comply with HIPAA regulations. They need to ensure all data is encrypted at rest and demonstrate compliance to auditors. Which combination of AWS services should they use?",
+    "choices": [
+      "Amazon S3 with server-side encryption and AWS Artifact for compliance reports",
+      "Amazon EC2 with EBS volumes and AWS Trusted Advisor for compliance reports",
+      "Amazon RDS without encryption and AWS Config for compliance reports",
+      "Amazon DynamoDB and AWS Personal Health Dashboard for compliance reports"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Amazon S3 with server-side encryption ensures data is encrypted at rest, meeting HIPAA requirements. AWS Artifact provides on-demand access to compliance reports and agreements, including the Business Associate Addendum (BAA) required for HIPAA, which auditors need to verify compliance."
+  },
+  {
+    "id": 265,
+    "domain": "Security and Compliance",
+    "question": "A company has multiple AWS accounts for different departments. They want to centrally manage security policies, prevent any account from leaving the organization, and ensure all accounts have CloudTrail enabled. Which service provides this centralized governance?",
+    "choices": [
+      "AWS IAM",
+      "AWS Config",
+      "AWS Organizations with Service Control Policies",
+      "Amazon GuardDuty"
+    ],
+    "correctAnswer": 2,
+    "explanation": "AWS Organizations allows centralized management of multiple AWS accounts. Service Control Policies (SCPs) enforce governance rules across all accounts, such as requiring CloudTrail and preventing accounts from leaving. IAM manages access within a single account, not across an organization."
+  },
+  {
+    "id": 266,
+    "domain": "Security and Compliance",
+    "question": "A financial services company notices unusual API call patterns in their AWS account at 3 AM, including attempts to create new IAM users and launch EC2 instances in regions they don't normally use. Which AWS service would have detected this suspicious activity automatically?",
+    "choices": [
+      "AWS CloudTrail",
+      "Amazon Inspector",
+      "Amazon GuardDuty",
+      "AWS Security Hub"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behavior. It analyzes CloudTrail logs, VPC Flow Logs, and DNS logs using machine learning to identify anomalies like unusual API calls, instance launches in unexpected regions, and potential account compromise."
+  },
+  {
+    "id": 267,
+    "domain": "Security and Compliance",
+    "question": "A company's IT administrator needs to grant a contractor temporary access to specific S3 buckets for a 90-day project. The contractor should not be able to access any other AWS resources, and access should automatically expire. What is the MOST secure approach?",
+    "choices": [
+      "Share the root account credentials with an expiration reminder",
+      "Create an IAM user with an inline policy scoped to specific S3 buckets",
+      "Create an IAM role with a policy scoped to specific S3 buckets and use temporary security credentials",
+      "Add the contractor to an IAM group that has full S3 access"
+    ],
+    "correctAnswer": 2,
+    "explanation": "IAM roles with temporary security credentials follow the principle of least privilege and provide time-limited access. The role's policy can be scoped to specific S3 buckets, and the temporary credentials automatically expire. This is more secure than long-lived IAM user credentials."
+  },
+  {
+    "id": 268,
+    "domain": "Security and Compliance",
+    "question": "A web application running on AWS is being targeted by a SQL injection attack. The security team wants to create custom rules to filter malicious HTTP requests before they reach the application. Which AWS service should they configure?",
+    "choices": [
+      "AWS Shield Standard",
+      "Amazon GuardDuty",
+      "AWS WAF",
+      "AWS Network Firewall"
+    ],
+    "correctAnswer": 2,
+    "explanation": "AWS WAF (Web Application Firewall) allows you to create custom rules that filter HTTP/HTTPS traffic based on conditions like SQL injection patterns, cross-site scripting, and IP addresses. It integrates with ALB and CloudFront to block malicious requests before they reach your application."
+  },
+  {
+    "id": 269,
+    "domain": "Security and Compliance",
+    "question": "During a compliance audit, a company is asked to prove that AWS meets SOC 2 and ISO 27001 standards. The auditor needs official documentation from AWS. Where should the compliance team obtain these documents?",
+    "choices": [
+      "AWS Management Console under the Billing section",
+      "AWS Artifact",
+      "AWS Trusted Advisor",
+      "AWS Support Center"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Artifact is a self-service portal that provides on-demand access to AWS security and compliance documents, including SOC reports, ISO certifications, and PCI DSS attestations. These are the official third-party audit reports that auditors require."
+  },
+  {
+    "id": 270,
+    "domain": "Cloud Technology and Services",
+    "question": "A company runs a legacy monolithic application on a single server. During Black Friday sales, the server crashes from traffic overload. They want to re-architect for AWS so the application handles traffic spikes. The team has limited cloud experience. Which migration strategy is FASTEST while solving the scalability problem?",
+    "choices": [
+      "Refactor the application into microservices using AWS Lambda",
+      "Rehost the application on an Auto Scaling group of EC2 instances behind an Application Load Balancer",
+      "Rebuild the application as a serverless application from scratch",
+      "Replatform to containers running on Amazon EKS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rehosting (lift and shift) onto an Auto Scaling group behind an ALB is the fastest path to solving scalability with minimal code changes. The team can move the existing application to EC2, add auto-scaling for traffic spikes, and use the ALB to distribute load."
+  },
+  {
+    "id": 271,
+    "domain": "Cloud Technology and Services",
+    "question": "A mobile gaming company stores player profiles and game state data that is read millions of times per second with single-digit millisecond latency requirements. The data model is simple key-value pairs. Which AWS database service is BEST suited for this workload?",
+    "choices": [
+      "Amazon RDS for MySQL",
+      "Amazon Redshift",
+      "Amazon DynamoDB",
+      "Amazon Aurora"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Amazon DynamoDB is a fully managed NoSQL database that provides consistent single-digit millisecond performance at any scale. Its key-value data model is ideal for player profiles and game state, handling millions of requests per second."
+  },
+  {
+    "id": 272,
+    "domain": "Cloud Technology and Services",
+    "question": "A data analytics company needs to run complex SQL queries across petabytes of structured data for business intelligence reporting. The queries run for minutes to hours and generate weekly dashboards. Which AWS service is designed for this use case?",
+    "choices": [
+      "Amazon DynamoDB",
+      "Amazon RDS",
+      "Amazon Redshift",
+      "Amazon ElastiCache"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Amazon Redshift is a fully managed data warehouse designed for online analytical processing (OLAP) workloads. It handles petabyte-scale data and is optimized for complex SQL queries across large datasets, making it ideal for business intelligence reporting."
+  },
+  {
+    "id": 273,
+    "domain": "Cloud Technology and Services",
+    "question": "An e-commerce company wants to send order confirmation emails and process payment receipts asynchronously. If the email or payment service is temporarily unavailable, messages should be preserved and processed when the service recovers. Which AWS service enables this?",
+    "choices": [
+      "Amazon API Gateway",
+      "Amazon SQS",
+      "Amazon CloudFront",
+      "AWS Direct Connect"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amazon SQS (Simple Queue Service) is a fully managed message queue that decouples application components. Messages are stored durably until the consuming service processes them, ensuring no messages are lost if a downstream service is temporarily unavailable."
+  },
+  {
+    "id": 274,
+    "domain": "Cloud Technology and Services",
+    "question": "A company has a web application with static assets served to users globally. Users in Asia and Europe report slow page load times because the application is hosted only in us-east-1. Which AWS service will improve performance for these users WITHOUT moving the application?",
+    "choices": [
+      "AWS Global Accelerator",
+      "Amazon CloudFront",
+      "Amazon Route 53",
+      "AWS Transit Gateway"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amazon CloudFront is a CDN that caches static content at edge locations worldwide. When users in Asia or Europe request content, CloudFront serves it from the nearest edge location instead of routing to us-east-1, dramatically reducing latency."
+  },
+  {
+    "id": 275,
+    "domain": "Cloud Technology and Services",
+    "question": "A development team needs to deploy a web application quickly without managing servers, load balancers, or auto-scaling configuration. They want to upload their code and have AWS handle all infrastructure provisioning. Which service should they use?",
+    "choices": [
+      "Amazon EC2",
+      "AWS Elastic Beanstalk",
+      "Amazon ECS",
+      "AWS CloudFormation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Elastic Beanstalk is a platform-as-a-service that automatically handles deployment, capacity provisioning, load balancing, and auto-scaling. Developers upload their code, and Beanstalk manages the underlying infrastructure."
+  },
+  {
+    "id": 276,
+    "domain": "Cloud Technology and Services",
+    "question": "A company runs nightly batch processing jobs that analyze log files. The jobs can tolerate interruptions and restart from the last checkpoint. They currently use On-Demand EC2 instances but want to reduce compute costs by up to 90%. Which EC2 purchasing option should they use?",
+    "choices": [
+      "Reserved Instances",
+      "Spot Instances",
+      "Dedicated Hosts",
+      "Savings Plans"
+    ],
+    "correctAnswer": 1,
+    "explanation": "EC2 Spot Instances offer up to 90% discount compared to On-Demand pricing. They are ideal for fault-tolerant workloads that handle interruptions, such as batch jobs with checkpoint/restart capability."
+  },
+  {
+    "id": 277,
+    "domain": "Cloud Technology and Services",
+    "question": "A company needs to migrate 50 TB of data from on-premises to Amazon S3. Their 100 Mbps connection would take over 45 days. They need the data in AWS within one week. Which service should they use?",
+    "choices": [
+      "AWS DataSync",
+      "AWS Snowball Edge",
+      "Amazon S3 Transfer Acceleration",
+      "AWS Direct Connect"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Snowball Edge is a physical device that stores up to 80 TB. AWS ships it to the company, they load data onto it, and ship it back. This bypasses the network bottleneck and completes a 50 TB migration within a week."
+  },
+  {
+    "id": 278,
+    "domain": "Cloud Technology and Services",
+    "question": "A company's application generates log files that need real-time analysis to detect anomalies and trigger alerts within seconds. Data arrives continuously at thousands of records per second. Which AWS service is designed for real-time streaming data ingestion?",
+    "choices": [
+      "Amazon S3",
+      "Amazon Kinesis Data Streams",
+      "Amazon Glacier",
+      "AWS Batch"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Amazon Kinesis Data Streams collects, processes, and analyzes real-time streaming data at thousands of records per second. Unlike S3, which is for batch storage, Kinesis is purpose-built for continuous data streams requiring sub-second processing."
+  },
+  {
+    "id": 279,
+    "domain": "Billing, Pricing and Support",
+    "question": "A company runs EC2 instances across three AWS accounts for development, staging, and production. Each account is billed separately and they're not getting volume discounts. Which AWS feature combines usage across accounts to maximize volume pricing?",
+    "choices": [
+      "AWS Budgets",
+      "AWS Organizations with consolidated billing",
+      "AWS Cost Explorer",
+      "AWS Pricing Calculator"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Organizations with consolidated billing combines usage from all member accounts into a single bill. This aggregated usage can qualify for volume pricing tiers and Reserved Instance sharing across accounts, lowering overall costs."
+  },
+  {
+    "id": 280,
+    "domain": "Billing, Pricing and Support",
+    "question": "A company's cloud costs have been increasing unexpectedly over 3 months. The finance team wants to understand which services and accounts are driving the increases, identify trends, and forecast future spending. Which AWS tool provides this?",
+    "choices": [
+      "AWS Budgets",
+      "AWS Cost Explorer",
+      "AWS Pricing Calculator",
+      "AWS Trusted Advisor"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Cost Explorer provides a visual interface to explore and analyze AWS costs and usage over time. It breaks down costs by service, account, and tag, identifies spending trends, and forecasts future costs based on historical patterns."
+  },
+  {
+    "id": 281,
+    "domain": "Billing, Pricing and Support",
+    "question": "A startup prototyping on AWS wants to keep their monthly bill under $500. If spending approaches this threshold, the engineering lead should receive an email alert so they can act before costs spiral. Which AWS service should they configure?",
+    "choices": [
+      "AWS Cost Explorer",
+      "AWS Budgets with alert notifications",
+      "AWS Trusted Advisor",
+      "Amazon CloudWatch billing alarms"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AWS Budgets allows you to set custom cost thresholds and configure email or SNS alert notifications when actual or forecasted spending approaches the budget. This is the purpose-built tool for proactive cost management."
   }
 ]
