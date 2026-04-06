@@ -1961,7 +1961,10 @@
       "Maintain full physical control of infrastructure",
       "Increase time to deploy new resources globally"
     ],
-    "correctAnswers": [1, 2],
+    "correctAnswers": [
+      1,
+      2
+    ],
     "explanation": "Cloud computing lets you benefit from massive economies of scale because usage from hundreds of thousands of customers is aggregated. You also stop guessing about capacity — you can scale up or down as needed."
   },
   {
@@ -1976,7 +1979,10 @@
       "Vendor Lock-in Prevention",
       "Auto Scaling"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "The six pillars of the Well-Architected Framework are Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
   },
   {
@@ -1991,7 +1997,10 @@
       "Use the root account for daily administrative tasks",
       "Create a simple password for easy access"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS recommends enabling MFA on the root account and deleting the root access keys. The root account should not be used for everyday tasks — IAM users with appropriate permissions should be used instead."
   },
   {
@@ -2006,7 +2015,10 @@
       "Amazon Macie",
       "AWS Config"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS WAF helps protect web applications from common web exploits by letting you create security rules. AWS Shield provides DDoS protection. Together they defend applications from a range of attacks."
   },
   {
@@ -2021,7 +2033,10 @@
       "Maintaining the hypervisor on which instances run",
       "Replacing faulty network hardware"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "Under the shared responsibility model, the customer is responsible for security 'in' the cloud — including patching guest OS, configuring firewalls (security groups and NACLs), and managing application-level security. AWS handles the physical infrastructure."
   },
   {
@@ -2036,7 +2051,10 @@
       "S3 Transfer Acceleration",
       "S3 Static Website Hosting"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "S3 Lifecycle policies let you automatically transition objects between storage classes or expire them. S3 Intelligent-Tiering automatically moves data to the most cost-effective tier based on access patterns."
   },
   {
@@ -2051,7 +2069,10 @@
       "Amazon EMR",
       "Amazon Lightsail"
     ],
-    "correctAnswers": [1, 2],
+    "correctAnswers": [
+      1,
+      2
+    ],
     "explanation": "AWS Lambda runs code without provisioning or managing servers. AWS Fargate is a serverless compute engine for containers that removes the need to manage the underlying EC2 instances."
   },
   {
@@ -2066,7 +2087,10 @@
       "AWS CloudFormation",
       "Amazon Route 53"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "Amazon SQS (Simple Queue Service) provides message queuing to decouple and scale microservices. Amazon SNS (Simple Notification Service) is a pub/sub messaging service. Both are used to decouple application components."
   },
   {
@@ -2081,7 +2105,10 @@
       "Amazon ElastiCache",
       "Amazon Neptune"
     ],
-    "correctAnswers": [1, 2],
+    "correctAnswers": [
+      1,
+      2
+    ],
     "explanation": "Amazon RDS supports multiple relational engines (MySQL, PostgreSQL, Oracle, SQL Server, MariaDB). Amazon Aurora is a MySQL/PostgreSQL-compatible relational database built for the cloud with up to 5x performance of standard MySQL."
   },
   {
@@ -2096,7 +2123,10 @@
       "Amazon ElastiCache",
       "Amazon Route 53"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "Amazon CloudFront is a CDN that caches content at edge locations worldwide. AWS Global Accelerator uses the AWS edge network to route traffic to optimal endpoints, improving performance for global users."
   },
   {
@@ -2111,7 +2141,10 @@
       "AWS Trusted Advisor",
       "AWS Artifact"
     ],
-    "correctAnswers": [0, 3],
+    "correctAnswers": [
+      0,
+      3
+    ],
     "explanation": "Amazon CloudWatch collects monitoring data and lets you set alarms for resource metrics. AWS Trusted Advisor checks for cost optimization, performance, security, fault tolerance, and service limits — alerting you to underutilized resources."
   },
   {
@@ -2126,7 +2159,10 @@
       "AWS Config",
       "AWS CloudTrail"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS KMS (Key Management Service) lets you create and manage cryptographic keys for encrypting data. Amazon S3 server-side encryption automatically encrypts objects when stored and decrypts them when retrieved."
   },
   {
@@ -2141,7 +2177,10 @@
       "Amazon Macie",
       "AWS Security Hub"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS CloudTrail records all API calls made in the account, providing a complete audit trail. AWS Config tracks resource configuration changes over time, complementing CloudTrail for a full compliance picture."
   },
   {
@@ -2156,7 +2195,10 @@
       "Free Dedicated Host instances for all member accounts",
       "Automatic data backups for all accounts"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS Organizations provides consolidated billing to combine usage for volume discounts, and service control policies (SCPs) to centrally restrict which AWS services and actions are allowed across member accounts."
   },
   {
@@ -2171,7 +2213,10 @@
       "Dedicated Hosts",
       "Elastic IP addresses"
     ],
-    "correctAnswers": [1, 2],
+    "correctAnswers": [
+      1,
+      2
+    ],
     "explanation": "Reserved Instances offer up to 72% discount for committing to a 1- or 3-year term. Savings Plans offer similar discounts with more flexibility — you commit to a consistent amount of compute usage ($/hour) regardless of instance family or region."
   },
   {
@@ -2186,7 +2231,10 @@
       "Storing all data in a single Region for low latency",
       "Reserving capacity for one year"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "High availability means designing systems that remain operational even during component failures. Deploying across multiple Availability Zones and using load balancers to route traffic only to healthy targets are key strategies."
   },
   {
@@ -2201,7 +2249,10 @@
       "Amazon SageMaker",
       "Amazon CloudFront"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS Application Migration Service (MGN) simplifies lift-and-shift migrations by automatically converting servers to run natively on AWS. AWS Database Migration Service helps migrate databases to AWS with minimal downtime."
   },
   {
@@ -2216,7 +2267,10 @@
       "Amazon DocumentDB",
       "Amazon Redshift"
     ],
-    "correctAnswers": [1, 3],
+    "correctAnswers": [
+      1,
+      3
+    ],
     "explanation": "Amazon DynamoDB is a fully managed key-value and document NoSQL database. Amazon DocumentDB is a managed document database compatible with MongoDB. RDS, Aurora, and Redshift are relational/analytical databases."
   },
   {
@@ -2231,7 +2285,10 @@
       "Guaranteed zero downtime for all services",
       "Free data transfer between all Regions"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "The AWS global infrastructure lets you deploy close to users for low latency, and each Region has multiple Availability Zones for redundancy and high availability. AWS does not guarantee zero downtime or free inter-Region transfer."
   },
   {
@@ -2246,7 +2303,10 @@
       "AWS Personal Health Dashboard",
       "Infrastructure Event Management"
     ],
-    "correctAnswers": [1, 3],
+    "correctAnswers": [
+      1,
+      3
+    ],
     "explanation": "All AWS customers, including Basic support, get access to Trusted Advisor core security checks and the AWS Personal Health Dashboard. Phone support, TAMs, and Infrastructure Event Management require higher-tier plans."
   },
   {
@@ -2378,7 +2438,10 @@
       "Use the largest instance type available for maximum performance",
       "Manually provision all resources"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "Cost Optimization design principles include implementing cloud financial management (treating cloud spending as a business discipline) and adopting a consumption model (paying only for resources you actually consume, scaling down when demand drops)."
   },
   {
@@ -2393,7 +2456,10 @@
       "Always runs on dedicated hardware",
       "Requires minimum 1-year commitment"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "Serverless applications remove the need for server management — AWS handles provisioning, patching, and capacity. They automatically scale with demand (Lambda scales per-request, Fargate scales per-task). There's no language restriction, dedicated hardware requirement, or minimum commitment."
   },
   {
@@ -2406,7 +2472,11 @@
       "The CAF is only relevant for large enterprises, not small businesses.",
       "The Platform perspective helps architects design and implement new cloud solutions."
     ],
-    "correctAnswers": [true, false, true],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
     "explanation": "The AWS CAF organizes guidance into six perspectives: Business, People, Governance, Platform, Security, and Operations. It is applicable to organizations of all sizes. The Platform perspective covers architecture, deployment, and provisioning of cloud infrastructure."
   },
   {
@@ -2447,7 +2517,10 @@
       "Lower networking latency than EC2",
       "Ability to SSH into the service host"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "Managed services like RDS, DynamoDB, and Lambda reduce operational burden — AWS handles patching, backups, and scaling. Many include built-in HA (multi-AZ, automatic failover). The trade-off is less OS-level control compared to self-managed EC2."
   },
   {
@@ -2460,7 +2533,11 @@
       "Availability Zones within a Region are connected by high-bandwidth, low-latency networking.",
       "Data automatically replicates between all AWS Regions by default."
     ],
-    "correctAnswers": [true, true, false],
+    "correctAnswers": [
+      true,
+      true,
+      false
+    ],
     "explanation": "Most Regions have at least 3 AZs. AZs within a Region are interconnected with high-bandwidth, low-latency private fiber. Data does NOT automatically replicate between Regions — cross-Region replication must be explicitly configured for each service (S3 CRR, RDS cross-Region read replicas, etc.)."
   },
   {
@@ -2501,7 +2578,10 @@
       "All AWS services have the same pricing across all Regions",
       "There are no free tier options"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS charges for three main categories: compute, storage, and outbound data transfer. Inbound data transfer is generally free. Reserved capacity (Reserved Instances, Savings Plans) provides major discounts. Pricing varies by Region, and AWS offers a Free Tier for many services."
   },
   {
@@ -2750,7 +2830,10 @@
       "Give all developers AdministratorAccess to speed up development",
       "Store access keys in source code repositories"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "IAM best practices include enabling MFA (especially for root and privileged users) and using IAM roles for EC2 applications (roles provide temporary credentials, eliminating the risk of leaked access keys). Never share credentials, grant excessive permissions, or store keys in code."
   },
   {
@@ -2765,7 +2848,10 @@
       "AWS CodeCommit",
       "Amazon Redshift"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS Shield provides dedicated DDoS protection (Standard is free, Advanced is paid with enhanced protection). CloudFront acts as a DDoS protection layer by distributing traffic across global edge locations and absorbing volumetric attacks before they reach your origin. Macie is for data security, not DDoS."
   },
   {
@@ -2780,7 +2866,10 @@
       "Blocking specific AWS services from being used across the organization",
       "Encrypting data in S3 buckets automatically"
     ],
-    "correctAnswers": [0, 3],
+    "correctAnswers": [
+      0,
+      3
+    ],
     "explanation": "SCPs define maximum available permissions for member accounts. They can restrict deployments to specific Regions (deny all services except in approved Regions) and block services entirely across the organization. SCPs don't grant permissions — they only limit what's possible. They don't handle encryption."
   },
   {
@@ -2795,7 +2884,10 @@
       "Encryption of AWS billing invoices",
       "Encryption of IAM usernames"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "AWS supports encryption at rest (protecting stored data using KMS, S3 SSE, EBS encryption) and encryption in transit (protecting data moving between services or to/from clients using TLS/SSL). These are the two fundamental categories of data encryption in cloud security."
   },
   {
@@ -2810,7 +2902,10 @@
       "The root account can be deleted after creating IAM users",
       "Root account permissions can be restricted using IAM policies"
     ],
-    "correctAnswers": [0, 2],
+    "correctAnswers": [
+      0,
+      2
+    ],
     "explanation": "The root account is created with the email and password used during AWS account setup and has complete, unrestricted access. Best practice: secure it with MFA, create IAM users for daily tasks, and lock away root credentials. The root account cannot be deleted and cannot be restricted by IAM policies."
   },
   {
@@ -2849,7 +2944,11 @@
       "AWS Inspector requires manual setup and scanning — it does not run continuously.",
       "AWS Security Hub can aggregate findings from GuardDuty, Inspector, and Macie into a single view."
     ],
-    "correctAnswers": [true, false, true],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
     "explanation": "GuardDuty continuously analyzes log data using ML and threat intelligence. Inspector runs continuously (not just on-demand) — it automatically scans new instances and images when deployed. Security Hub aggregates findings from multiple AWS security services into a unified dashboard."
   },
   {
@@ -2862,7 +2961,451 @@
       "Network ACLs (NACLs) evaluate rules in order from lowest to highest rule number and stop at the first match.",
       "AWS PrivateLink allows you to access AWS services over the public internet for better performance."
     ],
-    "correctAnswers": [true, true, false],
+    "correctAnswers": [
+      true,
+      true,
+      false
+    ],
     "explanation": "Security groups are stateful — return traffic is automatically allowed. NACLs are stateless and evaluate rules numerically, stopping at the first match. AWS PrivateLink provides PRIVATE connectivity to services through VPC endpoints — traffic does NOT traverse the public internet. That's the entire point of PrivateLink."
+  },
+  {
+    "id": 217,
+    "domain": "Cloud Concepts",
+    "type": "ordering",
+    "question": "Arrange the following steps to correctly apply the AWS Well-Architected Framework review to an existing workload:",
+    "items": [
+      "Run a Well-Architected Review using the AWS Well-Architected Tool",
+      "Identify high-risk issues (HRIs) flagged in the review",
+      "Define the workload and select applicable lenses",
+      "Create improvement milestones and implement remediations"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1,
+      3
+    ],
+    "explanation": "You first define the workload and choose relevant lenses, then run the Well-Architected Review to answer pillar questions, then identify the high-risk issues the review surfaces, and finally create improvement milestones and implement remediations. Skipping the definition step means the review scope is unclear."
+  },
+  {
+    "id": 218,
+    "domain": "Cloud Concepts",
+    "type": "ordering",
+    "question": "Place the following cost optimization steps in the correct sequence when right-sizing EC2 instances:",
+    "items": [
+      "Review Amazon CloudWatch CPU and memory utilization metrics over a 2-week period",
+      "Use AWS Compute Optimizer to get rightsizing recommendations",
+      "Enable detailed monitoring and install the CloudWatch agent to collect memory metrics",
+      "Resize or change instance types based on recommendations and monitor the effect"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1,
+      3
+    ],
+    "explanation": "Memory metrics require the CloudWatch agent to be installed first because they are not collected by default. Once memory data is available alongside CPU, you review utilization trends over a representative period, then run Compute Optimizer for data-driven recommendations, and finally apply and validate the changes."
+  },
+  {
+    "id": 219,
+    "domain": "Security and Compliance",
+    "type": "ordering",
+    "question": "Arrange the steps to set up multi-factor authentication (MFA) for the AWS root account:",
+    "items": [
+      "Open the IAM console and navigate to My Security Credentials",
+      "Sign in to the AWS Management Console as the root user",
+      "Scan the QR code with an authenticator app and enter two consecutive TOTP codes",
+      "Choose Assign MFA device and select a virtual MFA device type"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      3,
+      2
+    ],
+    "explanation": "You must first sign in as root, then navigate to the security credentials page in the IAM console, then select the device type and begin the enrollment wizard, and finally scan the QR code and confirm two consecutive codes to activate MFA. The codes cannot be entered until the QR code is scanned."
+  },
+  {
+    "id": 220,
+    "domain": "Security and Compliance",
+    "type": "ordering",
+    "question": "Arrange the steps in the correct order for how AWS evaluates an IAM policy when a principal makes an API call:",
+    "items": [
+      "Check for an explicit Deny in any applicable policy — if found, deny immediately",
+      "Check for an explicit Allow in an applicable identity or resource policy",
+      "Evaluate whether the request is permitted by the applicable Service Control Policy (SCP)",
+      "Apply the default implicit deny — access is denied unless explicitly allowed"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1,
+      3
+    ],
+    "explanation": "AWS policy evaluation starts with SCPs to establish the account permission boundary. Next, any explicit Deny in any policy immediately denies access. Then AWS looks for an explicit Allow. If no Allow is found after all policies are checked, the default implicit deny applies."
+  },
+  {
+    "id": 221,
+    "domain": "Security and Compliance",
+    "type": "ordering",
+    "question": "Place the following incident response steps in the correct order after suspicious activity is detected in an AWS account:",
+    "items": [
+      "Isolate affected resources by modifying security groups or detaching IAM roles",
+      "Identify the scope of the incident using AWS CloudTrail logs and GuardDuty findings",
+      "Notify stakeholders and open an AWS Support case if needed",
+      "Rotate compromised credentials and revoke active sessions"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      3,
+      2
+    ],
+    "explanation": "Effective incident response first identifies the scope using CloudTrail logs and GuardDuty findings. Resources are then isolated to prevent further damage. Compromised credentials are rotated to cut off the attacker. Finally, stakeholders are notified and support is engaged to assist with remediation."
+  },
+  {
+    "id": 222,
+    "domain": "Cloud Technology and Services",
+    "type": "ordering",
+    "question": "Arrange the steps to create a VPC with public internet access for EC2 instances:",
+    "items": [
+      "Create a VPC with a CIDR block (e.g., 10.0.0.0/16)",
+      "Attach an Internet Gateway to the VPC",
+      "Create a public subnet and add a route to the Internet Gateway in the route table",
+      "Launch an EC2 instance in the subnet with an Elastic IP or auto-assigned public IP"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "You must first create the VPC, then attach an Internet Gateway to enable external connectivity, then create the subnet and configure routing so 0.0.0.0/0 traffic is directed to the gateway, and finally launch the instance with a public IP. Each step depends on the previous one."
+  },
+  {
+    "id": 223,
+    "domain": "Cloud Technology and Services",
+    "type": "ordering",
+    "question": "Arrange the following steps to configure an S3 lifecycle policy that transitions objects to cheaper storage classes:",
+    "items": [
+      "Define a lifecycle rule scope (prefix, tag filter, or all objects)",
+      "Open the S3 bucket and navigate to the Management tab",
+      "Specify transition actions and timing (e.g., move to S3-IA after 30 days, Glacier after 90 days)",
+      "Review and save the lifecycle rule"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2,
+      3
+    ],
+    "explanation": "Setting up an S3 lifecycle policy begins in the Management tab. You then define the rule scope to control which objects it applies to, specify the transition actions and timing thresholds, and finally review and save. Objects must remain in S3 Standard for at least 30 days before transitioning to S3-IA."
+  },
+  {
+    "id": 224,
+    "domain": "Cloud Technology and Services",
+    "type": "ordering",
+    "question": "Arrange the steps to deploy infrastructure using AWS CloudFormation:",
+    "items": [
+      "Validate the CloudFormation template using the AWS CLI or console linter",
+      "Author a CloudFormation template in YAML or JSON defining the required resources",
+      "Monitor stack events in the console to confirm successful resource creation",
+      "Create a new CloudFormation stack by uploading the validated template"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      3,
+      2
+    ],
+    "explanation": "Infrastructure-as-code deployment starts with authoring the template. Validating the template before deployment catches syntax errors early. The stack is then created by uploading the validated template, and finally you monitor stack events to confirm each resource is created and the stack reaches CREATE_COMPLETE."
+  },
+  {
+    "id": 225,
+    "domain": "Cloud Technology and Services",
+    "type": "ordering",
+    "question": "Arrange the following steps to launch a new EC2 instance with a running web server:",
+    "items": [
+      "Select an AMI (e.g., Amazon Linux 2023)",
+      "Configure security group rules to allow HTTP (port 80) and SSH (port 22) inbound traffic",
+      "Choose an instance type (e.g., t3.micro)",
+      "Add a user data script to install and start the web server on first boot"
+    ],
+    "correctOrder": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "explanation": "EC2 instance launch begins by selecting the base AMI which determines the OS. Next you choose the instance type for CPU and memory. Security group rules are then configured for network access. Finally, user data is added so the web server is installed and started automatically at first boot."
+  },
+  {
+    "id": 226,
+    "domain": "Billing, Pricing and Support",
+    "type": "ordering",
+    "question": "Arrange the following steps to enable AWS Config and monitor compliance with a managed rule:",
+    "items": [
+      "Enable AWS Config in the desired region and specify an S3 bucket for configuration history",
+      "Select and add a managed Config rule (e.g., ec2-instance-no-public-ip)",
+      "Review the compliance dashboard to identify non-compliant resources",
+      "Set up an EventBridge rule or SNS notification to alert on compliance status changes"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      3,
+      2
+    ],
+    "explanation": "AWS Config must be enabled first so it can begin recording resource configurations. You then add a managed rule to define the compliance condition. Setting up alerting before reviewing the dashboard ensures future violations trigger notifications. Finally, the compliance dashboard shows current and historical compliance status."
+  },
+  {
+    "id": 227,
+    "domain": "Cloud Concepts",
+    "type": "matching",
+    "question": "Match each AWS Cloud benefit or concept to its correct description:",
+    "itemsLeft": [
+      "Elasticity",
+      "High Availability",
+      "Fault Tolerance",
+      "Agility"
+    ],
+    "itemsRight": [
+      "The ability to quickly provision new resources, reducing time to experiment from months to minutes",
+      "The ability to automatically scale resources up or down to match demand",
+      "Designing systems to continue operating with zero downtime even when individual components fail",
+      "Deploying across multiple Availability Zones so failure of one AZ does not take down the service"
+    ],
+    "correctMatches": [
+      1,
+      3,
+      2,
+      0
+    ],
+    "explanation": "Elasticity refers to auto-scaling resources with demand. High Availability means the system stays operational across AZ failures. Fault Tolerance is a stronger guarantee — the system continues with zero disruption even during failures. Agility captures the cloud's ability to reduce provisioning time from months to minutes."
+  },
+  {
+    "id": 228,
+    "domain": "Cloud Concepts",
+    "type": "matching",
+    "question": "Match each AWS EC2 pricing model to its correct description:",
+    "itemsLeft": [
+      "On-Demand Instances",
+      "Reserved Instances",
+      "Spot Instances",
+      "Savings Plans"
+    ],
+    "itemsRight": [
+      "Up to 90% discount by bidding on unused EC2 capacity; instances can be interrupted with a 2-minute warning",
+      "Up to 72% discount by committing to a specific instance type and region for 1 or 3 years",
+      "Pay per second with no long-term commitment; highest per-unit cost but maximum flexibility",
+      "Commit to a consistent hourly spend for 1 or 3 years; applies across instance families and regions"
+    ],
+    "correctMatches": [
+      2,
+      1,
+      0,
+      3
+    ],
+    "explanation": "On-Demand offers maximum flexibility at the highest cost. Reserved Instances provide up to 72% savings for steady-state committed use. Spot Instances offer the deepest discounts on spare EC2 capacity but can be reclaimed with 2 minutes notice. Savings Plans provide similar savings to Reserved Instances with more flexibility across instance types and regions."
+  },
+  {
+    "id": 229,
+    "domain": "Cloud Concepts",
+    "type": "matching",
+    "question": "Match each AWS Support plan to its key differentiating feature:",
+    "itemsLeft": [
+      "Basic Support",
+      "Developer Support",
+      "Business Support",
+      "Enterprise Support"
+    ],
+    "itemsRight": [
+      "Dedicated Technical Account Manager (TAM) and Concierge Support team for billing and account guidance",
+      "24/7 phone, chat, and email access to Cloud Support Engineers; full AWS Trusted Advisor checks",
+      "Business-hours email access to Cloud Support Associates for guidance on AWS services",
+      "Access to AWS documentation, whitepapers, and Service Health Dashboard only; no technical case support"
+    ],
+    "correctMatches": [
+      3,
+      2,
+      1,
+      0
+    ],
+    "explanation": "Basic Support provides only self-service resources with no case-based technical support. Developer adds email-based guidance during business hours. Business unlocks 24/7 engineer access and all Trusted Advisor checks. Enterprise adds a dedicated TAM and a Concierge team."
+  },
+  {
+    "id": 230,
+    "domain": "Security and Compliance",
+    "type": "matching",
+    "question": "Match each AWS security service to its primary function:",
+    "itemsLeft": [
+      "AWS GuardDuty",
+      "AWS Inspector",
+      "Amazon Macie",
+      "AWS Shield"
+    ],
+    "itemsRight": [
+      "Managed DDoS protection for AWS applications at network and application layers",
+      "Continuous threat detection using ML on CloudTrail logs, VPC Flow Logs, and DNS logs",
+      "Automated security vulnerability scanning for EC2 instances and container images",
+      "Discovers and protects sensitive data (PII) stored in Amazon S3 using ML"
+    ],
+    "correctMatches": [
+      1,
+      2,
+      3,
+      0
+    ],
+    "explanation": "GuardDuty continuously monitors account logs for threats using ML. Inspector automatically scans for software vulnerabilities and unintended network exposure. Macie uses ML to find sensitive data like PII in S3. Shield provides managed DDoS protection — Standard is included free, Advanced adds enhanced protections."
+  },
+  {
+    "id": 231,
+    "domain": "Security and Compliance",
+    "type": "matching",
+    "question": "Match each IAM concept to its correct definition:",
+    "itemsLeft": [
+      "IAM Role",
+      "IAM Policy",
+      "Service Control Policy (SCP)",
+      "IAM Permission Boundary"
+    ],
+    "itemsRight": [
+      "Sets the maximum permissions an IAM entity can have, regardless of which policies are attached",
+      "An identity with temporary credentials that can be assumed by users, services, or applications",
+      "A JSON document that defines allowed or denied actions on AWS resources",
+      "An organizational-level guardrail that restricts maximum permissions across accounts in an AWS Organization"
+    ],
+    "correctMatches": [
+      1,
+      2,
+      3,
+      0
+    ],
+    "explanation": "An IAM Role is an identity designed to be assumed temporarily. A Policy is the JSON document specifying permissions. An SCP operates at the AWS Organizations level to cap what accounts can do. A Permission Boundary limits the maximum effective permissions of an individual IAM entity."
+  },
+  {
+    "id": 232,
+    "domain": "Security and Compliance",
+    "type": "matching",
+    "question": "Match each AWS compliance and audit service to its primary purpose:",
+    "itemsLeft": [
+      "AWS CloudTrail",
+      "AWS Config",
+      "AWS Artifact",
+      "AWS Security Hub"
+    ],
+    "itemsRight": [
+      "Central self-service portal for downloading AWS compliance reports (SOC, PCI DSS, ISO) and agreements",
+      "Tracks changes to AWS resource configurations over time and evaluates them against compliance rules",
+      "Aggregates and prioritizes security findings from GuardDuty, Inspector, Macie, and other services",
+      "Records all API calls made in the AWS account, providing an audit trail for forensics and compliance"
+    ],
+    "correctMatches": [
+      3,
+      1,
+      0,
+      2
+    ],
+    "explanation": "CloudTrail is the API audit log. Config tracks resource configuration changes and checks them against rules. Artifact is a self-service portal for compliance documents. Security Hub centralizes findings from multiple security services into a single prioritized view."
+  },
+  {
+    "id": 233,
+    "domain": "Cloud Technology and Services",
+    "type": "matching",
+    "question": "Match each AWS service to its correct service category:",
+    "itemsLeft": [
+      "Amazon EC2",
+      "Amazon RDS",
+      "Amazon S3",
+      "Amazon VPC"
+    ],
+    "itemsRight": [
+      "Networking — an isolated virtual network environment in the AWS cloud",
+      "Compute — resizable virtual machines (instances) in the cloud",
+      "Storage — highly durable object storage with 11 nines of durability",
+      "Database — managed relational database supporting MySQL, PostgreSQL, Oracle, and more"
+    ],
+    "correctMatches": [
+      1,
+      3,
+      2,
+      0
+    ],
+    "explanation": "EC2 is AWS foundational compute providing virtual machines. RDS is a managed relational database. S3 provides highly durable object storage. VPC is the networking layer for provisioning an isolated network."
+  },
+  {
+    "id": 234,
+    "domain": "Cloud Technology and Services",
+    "type": "matching",
+    "question": "Match each Amazon S3 storage class to its primary use case:",
+    "itemsLeft": [
+      "S3 Standard",
+      "S3 Standard-Infrequent Access",
+      "S3 Glacier Instant Retrieval",
+      "S3 Intelligent-Tiering"
+    ],
+    "itemsRight": [
+      "Archive data that is rarely accessed but requires millisecond retrieval when needed",
+      "Automatically moves objects between access tiers based on changing access patterns to optimize cost",
+      "Frequently accessed data requiring high throughput and low latency",
+      "Long-lived data accessed less than once a month; lower storage cost with a per-retrieval charge"
+    ],
+    "correctMatches": [
+      2,
+      3,
+      0,
+      1
+    ],
+    "explanation": "S3 Standard is for frequently accessed data. S3-IA costs less per GB stored but charges per retrieval, suited to monthly or less frequent access. Glacier Instant Retrieval stores archive data that still needs millisecond access. Intelligent-Tiering automatically moves objects between tiers based on observed access patterns."
+  },
+  {
+    "id": 235,
+    "domain": "Cloud Technology and Services",
+    "type": "matching",
+    "question": "Match each AWS compute service to its correct description:",
+    "itemsLeft": [
+      "AWS Lambda",
+      "Amazon ECS",
+      "AWS Elastic Beanstalk",
+      "Amazon Lightsail"
+    ],
+    "itemsRight": [
+      "Simplified VPS-like cloud service with predictable pricing for developers who want a straightforward experience",
+      "Serverless function-as-a-service that runs code in response to events without provisioning servers",
+      "PaaS that automatically handles deployment, capacity provisioning, load balancing, and health monitoring",
+      "Managed container orchestration for running Docker containers on EC2 or Fargate"
+    ],
+    "correctMatches": [
+      1,
+      3,
+      2,
+      0
+    ],
+    "explanation": "Lambda is serverless — you provide code and AWS manages all infrastructure. ECS manages containerized workloads. Elastic Beanstalk is a PaaS that abstracts infrastructure for application developers. Lightsail provides simplified VPS instances with bundled networking and storage at fixed monthly prices."
+  },
+  {
+    "id": 236,
+    "domain": "Billing, Pricing and Support",
+    "type": "matching",
+    "question": "Match each AWS cost management tool to its primary function:",
+    "itemsLeft": [
+      "AWS Cost Explorer",
+      "AWS Budgets",
+      "AWS Trusted Advisor",
+      "AWS Pricing Calculator"
+    ],
+    "itemsRight": [
+      "Estimates the monthly cost of a proposed AWS architecture before building it",
+      "Sets spending or usage thresholds and sends alerts when they are forecasted or exceeded",
+      "Provides recommendations across cost optimization, security, fault tolerance, and performance",
+      "Visualizes historical AWS spending and forecasts future costs using interactive graphs"
+    ],
+    "correctMatches": [
+      3,
+      1,
+      2,
+      0
+    ],
+    "explanation": "Cost Explorer visualizes past and forecasted spend. Budgets proactively alerts before overspending. Trusted Advisor is a broad advisory tool covering cost alongside security and performance. The Pricing Calculator is a pre-purchase planning tool for estimating new architecture costs."
   }
 ]

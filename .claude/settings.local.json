@@ -15,7 +15,11 @@
       "WebFetch(domain:github.com)",
       "Bash(node -e \":*)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(npm test:*)"
+      "Bash(npm test:*)",
+      "Bash(python3 -:*)",
+      "Bash(node -e \"const d=require\\(''./src/data/questions.json''\\); console.log\\(''count:'',d.length,''lastId:'',d[d.length-1].id\\)\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\); const d=JSON.parse\\(fs.readFileSync\\(''C:/Users/spide/Documents/freecertprep/src/data/questions.json'',''utf8''\\)\\); console.log\\(''count:'',d.length,''lastId:'',d[d.length-1].id\\)\")",
+      "Bash(node -e \"const fs=require\\(''fs''\\); const d=JSON.parse\\(fs.readFileSync\\(''C:/Users/spide/Documents/freecertprep/src/data/nca-aiio-questions.json'',''utf8''\\)\\); console.log\\(''count:'',d.length,''lastId:'',d[d.length-1].id\\)\")"
     ]
   }
 }
