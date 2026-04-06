@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react'
+import { fisherYates } from '../utils/shuffle'
+import { isAnswerCorrect } from '../utils/scoring'
 
-export default function QuestionCard({ question, onAnswer, answered, selectedChoice, examMode = false }) {
+export default function QuestionCard({ question, onAnswer, answered, selectedChoice, examMode = false, reviewMode = false, isBookmarked = false, onToggleBookmark = null }) {
   const isMultiple = question.type === 'multiple-response'
   const isStatement = question.type === 'statement-block'
   const isOrdering = question.type === 'ordering'
@@ -12,13 +14,10 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   const shuffledChoices = useMemo(() => {
     if (!question.choices) return []
     const indices = question.choices.map((_, i) => i)
-    // Fisher-Yates shuffle
-    for (let i = indices.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]]
-    }
-    return indices.map(origIdx => ({ origIdx, text: question.choices[origIdx] }))
-  }, [question.id]) // re-shuffle only when question changes
+    // In review mode, show original order so correct answer labels are stable
+    const ordered = reviewMode ? indices : fisherYates(indices)
+    return ordered.map(origIdx => ({ origIdx, text: question.choices[origIdx] }))
+  }, [question.id, reviewMode]) // re-shuffle only when question changes
 
   // Local state for interactive questions before they are submitted (only used in Quiz Mode)
   const [localMulti, setLocalMulti] = useState(() =>
@@ -97,9 +96,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
     else if (isMatching) onAnswer([...localMatches])
   }
 
-  const isCorrect = Array.isArray(selectedChoice)
-    ? JSON.stringify(selectedChoice) === JSON.stringify(question.correctAnswers ?? question.correctOrder ?? question.correctMatches)
-    : selectedChoice === question.correctAnswer
+  const isCorrect = isAnswerCorrect(selectedChoice, question)
 
   // Derived display state for ordering
   const activeOrder = (examMode || answered) ? (selectedChoice || []) : localOrder
@@ -112,13 +109,32 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   return (
     <div className="glass-panel rounded-2xl p-6 md:p-8 space-y-8 relative overflow-hidden">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <span className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 uppercase tracking-widest shadow-[0_0_15px_-3px_rgba(99,102,241,0.2)]">
-          {question.domain}
-        </span>
-        {isMultiple && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Select {question.correctAnswers.length}</span>}
-        {isStatement && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Yes / No required</span>}
-        {isOrdering && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Click to order ({activeOrder.length}/{question.items?.length})</span>}
-        {isMatching && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Match each item</span>}
+        <div className="flex items-center gap-3 flex-wrap">
+          <span className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 uppercase tracking-widest shadow-[0_0_15px_-3px_rgba(99,102,241,0.2)]">
+            {question.domain}
+          </span>
+          {onToggleBookmark && (
+            <button
+              onClick={() => onToggleBookmark(question.id)}
+              title={isBookmarked ? 'Remove bookmark' : 'Bookmark this question'}
+              className={`p-1.5 rounded-lg border transition-all duration-200 ${
+                isBookmarked
+                  ? 'border-amber-500/40 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20'
+                  : 'border-white/10 bg-transparent text-zinc-600 hover:text-amber-400 hover:border-amber-500/30'
+              }`}
+            >
+              <svg className="w-4 h-4" fill={isBookmarked ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+            </button>
+          )}
+        </div>
+        <div className="flex items-center gap-2">
+          {isMultiple && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Select {question.correctAnswers.length}</span>}
+          {isStatement && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Yes / No required</span>}
+          {isOrdering && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Click to order ({activeOrder.length}/{question.items?.length})</span>}
+          {isMatching && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Match each item</span>}
+        </div>
       </div>
 
       <p className="text-zinc-100 text-xl font-medium leading-relaxed">{question.question}</p>

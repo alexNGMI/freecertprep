@@ -1,12 +1,16 @@
 import { useState, useMemo } from 'react'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
+import { useBookmarks } from '../hooks/useBookmarks'
 import QuestionCard from '../components/QuestionCard'
+import { fisherYates } from '../utils/shuffle'
+import { isAnswerCorrect } from '../utils/scoring'
 
 export default function Quiz() {
   const cert = useCert()
   const questions = cert.questions
-  const domainNames = ['All Domains', ...cert.domains.map((d) => d.name)]
+  const { bookmarkedIds, toggle: toggleBookmark, isBookmarked } = useBookmarks(cert.id)
+  const domainNames = ['All Domains', 'Bookmarked', ...cert.domains.map((d) => d.name)]
 
   const [selectedDomain, setSelectedDomain] = useState('All Domains')
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -17,18 +21,16 @@ export default function Quiz() {
   const { addQuizResult } = useProgress(cert.id)
 
   const filteredQuestions = useMemo(() => {
-    const pool = selectedDomain === 'All Domains'
-      ? questions
-      : questions.filter((q) => q.domain === selectedDomain)
-    // Shuffle on every new session (sessionKey changes) and on domain change.
-    // useMemo keeps order stable within a session.
-    const shuffled = [...pool]
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    let pool
+    if (selectedDomain === 'All Domains') {
+      pool = questions
+    } else if (selectedDomain === 'Bookmarked') {
+      pool = questions.filter((q) => bookmarkedIds.includes(q.id))
+    } else {
+      pool = questions.filter((q) => q.domain === selectedDomain)
     }
-    return shuffled
-  }, [selectedDomain, questions, sessionKey])
+    return fisherYates(pool)
+  }, [selectedDomain, questions, sessionKey, bookmarkedIds])
 
   const startQuiz = () => {
     setCurrentIndex(0)
@@ -41,10 +43,7 @@ export default function Quiz() {
   const handleAnswer = (selectedChoice) => {
     const question = filteredQuestions[currentIndex]
     
-    // Check correctness: Handle arrays (multiple-response/statement-block) or primitive integers (single-choice)
-    const correct = Array.isArray(selectedChoice)
-      ? JSON.stringify(selectedChoice) === JSON.stringify(question.correctAnswers)
-      : selectedChoice === question.correctAnswer
+    const correct = isAnswerCorrect(selectedChoice, question)
 
     setAnswers((prev) => [
       ...prev,
@@ -106,7 +105,11 @@ export default function Quiz() {
               <span className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/20">
                 {filteredQuestions.length}
               </span>
-              <span className="text-zinc-400 text-sm font-medium">Questions available</span>
+              <span className="text-zinc-400 text-sm font-medium">
+                {selectedDomain === 'Bookmarked' && filteredQuestions.length === 0
+                  ? 'No bookmarks yet — star questions during a quiz'
+                  : 'Questions available'}
+              </span>
             </div>
             
             <button
@@ -193,6 +196,8 @@ export default function Quiz() {
           onAnswer={handleAnswer}
           answered={!!currentAnswer}
           selectedChoice={currentAnswer?.selected}
+          isBookmarked={isBookmarked(currentQuestion.id)}
+          onToggleBookmark={toggleBookmark}
         />
       </div>
       

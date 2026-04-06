@@ -6,19 +6,27 @@ Free cloud certification exam prep — practice with realistic questions, timed 
 
 | Cert | Provider | Code | Difficulty | Questions | Exam Time |
 |------|----------|------|------------|-----------|-----------|
-| AWS Cloud Practitioner | AWS | CLF-C02 | Foundational | 150 | 90 min |
-| Google Cloud Digital Leader | Google Cloud | CDL | Foundational | 150 | 90 min |
-| Microsoft Azure Fundamentals | Microsoft Azure | AZ-900 | Foundational | 40 | 45 min |
-| NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 150 | 60 min |
-| NVIDIA Generalist AI | NVIDIA | NCA-GENL | Associate | 150 | 60 min |
+| Microsoft Azure Fundamentals | Microsoft Azure | AZ-900 | Foundational | 300 | 45 min |
+| AWS Cloud Practitioner | AWS | CLF-C02 | Foundational | 216 | 90 min |
+| Google Cloud Digital Leader | Google Cloud | CDL | Foundational | 170 | 90 min |
+| NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 256 | 60 min |
+| NVIDIA Generalist AI | NVIDIA | NCA-GENL | Associate | 170 | 60 min |
 
 ## Features
 
 - **Home** — Browse available certifications with at-a-glance stats
-- **Dashboard** — Progress tracking by domain and overall stats
-- **Practice Quiz** — Multiple choice with scoring, explanations, and domain filtering
-- **Exam Simulator** — Timed simulation with question navigator, matching real exam format
+- **Dashboard** — Progress tracking by domain with weighted readiness scores
+- **Practice Quiz** — Domain-filtered practice with instant feedback, explanations, and per-session question shuffling
+- **Exam Simulator** — Timed simulation with domain-weighted question selection, question navigator, and type coverage guarantees matching real exam format
 - **Results** — Score breakdown highlighting weak domains
+
+## Question Types
+
+- **Single-choice** — Pick one correct answer from multiple options
+- **Multiple-response** — Select all correct answers (e.g., "Select two")
+- **Statement-block** — Evaluate a series of Yes/No statements
+- **Ordering** — Arrange items in the correct sequence (AZ-900)
+- **Matching** — Match left-column items to right-column categories (AZ-900)
 
 ## Tech Stack
 
@@ -37,17 +45,23 @@ npm run dev
 
 ## Adding Questions
 
-Create or edit a JSON file in `src/data/`. Each question follows this format:
+Create or edit a JSON file in `src/data/`. Questions use one of these formats:
 
 ```json
-{
-  "id": 1,
-  "domain": "Domain Name",
-  "question": "Your question here?",
-  "choices": ["A", "B", "C", "D"],
-  "correctAnswer": 0,
-  "explanation": "Why this answer is correct."
-}
+// Single-choice (default if type omitted)
+{ "id": "cert-1", "domain": "Domain Name", "question": "...", "choices": ["A", "B", "C", "D"], "correctAnswer": 0, "explanation": "..." }
+
+// Multiple-response
+{ "id": "cert-2", "domain": "...", "type": "multiple-response", "question": "... (Select two)", "choices": ["A", "B", "C", "D"], "correctAnswers": [0, 2], "explanation": "..." }
+
+// Statement-block
+{ "id": "cert-3", "domain": "...", "type": "statement-block", "question": "...", "statements": ["Statement 1", "Statement 2"], "correctAnswers": [true, false], "explanation": "..." }
+
+// Ordering
+{ "id": "cert-4", "domain": "...", "type": "ordering", "question": "Place in correct order:", "items": ["Step A", "Step B", "Step C"], "correctOrder": [2, 0, 1], "explanation": "..." }
+
+// Matching
+{ "id": "cert-5", "domain": "...", "type": "matching", "question": "Match each item:", "itemsLeft": ["X", "Y"], "itemsRight": ["Cat A", "Cat B"], "correctMatches": [1, 0], "explanation": "..." }
 ```
 
 Then register it in `src/data/certs.js` with a `loadQuestions` dynamic import.

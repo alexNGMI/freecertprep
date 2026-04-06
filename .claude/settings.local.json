@@ -13,7 +13,9 @@
       "WebFetch(domain:design-style-guide.freecodecamp.org)",
       "WebFetch(domain:forum.freecodecamp.org)",
       "WebFetch(domain:github.com)",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm test:*)"
     ]
   }
 }

@@ -1,12 +1,48 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 
+const PROGRESS_KEY = 'freecertprep-progress'
+
+function exportProgress() {
+  try {
+    const data = localStorage.getItem(PROGRESS_KEY) || '{}'
+    const blob = new Blob([data], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `freecertprep-progress-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  } catch {
+    alert('Export failed.')
+  }
+}
+
 export default function Dashboard() {
   const cert = useCert()
-  const { getDomainStats, getOverallStats } = useProgress(cert.id)
+  const { getDomainStats, getOverallStats, resetProgress } = useProgress(cert.id)
   const domainStats = getDomainStats(cert.domains)
   const overall = getOverallStats
+  const importRef = useRef(null)
+
+  function handleImport(e) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      try {
+        JSON.parse(ev.target.result) // validate JSON
+        localStorage.setItem(PROGRESS_KEY, ev.target.result)
+        window.location.reload()
+      } catch {
+        alert('Invalid progress file.')
+      }
+    }
+    reader.readAsText(file)
+    e.target.value = ''
+  }
 
   return (
     <div className="space-y-12 animate-fade-up">
@@ -74,6 +110,29 @@ export default function Dashboard() {
             )
           })}
         </div>
+      </div>
+
+      {/* Progress Management */}
+      <div className="flex flex-wrap gap-3 justify-end">
+        <button
+          onClick={exportProgress}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Export Progress
+        </button>
+        <button
+          onClick={() => importRef.current?.click()}
+          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12" />
+          </svg>
+          Import Progress
+        </button>
+        <input ref={importRef} type="file" accept=".json" className="hidden" onChange={handleImport} />
       </div>
 
       {/* Quick Actions */}

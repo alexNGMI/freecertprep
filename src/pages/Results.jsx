@@ -1,10 +1,14 @@
+import { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useCert } from '../hooks/useCert'
+import QuestionCard from '../components/QuestionCard'
 
 export default function Results() {
   const cert = useCert()
   const location = useLocation()
-  const { answers } = location.state || {}
+  const { answers, questions: examQuestions } = location.state || {}
+  const [reviewMode, setReviewMode] = useState(false)
+  const [reviewFilter, setReviewFilter] = useState('all') // 'all', 'incorrect', 'correct'
 
   if (!answers) {
     return (
@@ -113,7 +117,7 @@ export default function Results() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 pb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
         <Link
           id="results-dashboard-btn"
           to={`/${cert.id}`}
@@ -136,6 +140,82 @@ export default function Results() {
           Retake Exam
         </Link>
       </div>
+
+      {/* Review Questions Section */}
+      {examQuestions && (
+        <div className="space-y-6 pb-12">
+          <button
+            onClick={() => setReviewMode(prev => !prev)}
+            className="w-full px-6 py-4 rounded-xl font-bold text-center border border-amber-500/30 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 hover:border-amber-400/50 transition-all flex items-center justify-center gap-3"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            {reviewMode ? 'Hide Question Review' : 'Review All Questions'}
+            <svg className={`w-4 h-4 transition-transform duration-300 ${reviewMode ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {reviewMode && (
+            <div className="space-y-6 animate-fade-up">
+              {/* Filter tabs */}
+              <div className="flex gap-2 justify-center">
+                {[
+                  { key: 'all', label: `All (${answers.length})` },
+                  { key: 'incorrect', label: `Incorrect (${answers.filter(a => !a.correct).length})` },
+                  { key: 'correct', label: `Correct (${answers.filter(a => a.correct).length})` },
+                ].map(({ key, label }) => (
+                  <button
+                    key={key}
+                    onClick={() => setReviewFilter(key)}
+                    className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all border ${
+                      reviewFilter === key
+                        ? 'bg-zinc-100 text-zinc-900 border-zinc-100'
+                        : 'border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20'
+                    }`}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Question list */}
+              {examQuestions.map((question, i) => {
+                const answer = answers[i]
+                if (reviewFilter === 'incorrect' && answer.correct) return null
+                if (reviewFilter === 'correct' && !answer.correct) return null
+
+                return (
+                  <div key={question.id} className="space-y-2">
+                    <div className="flex items-center gap-3 px-2">
+                      <span className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
+                        answer.correct
+                          ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                          : 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                      }`}>
+                        {i + 1}
+                      </span>
+                      <span className="text-xs text-zinc-500 font-medium uppercase tracking-wider">{question.domain}</span>
+                      {answer.selected === -1 && (
+                        <span className="text-xs text-zinc-500 bg-zinc-800 px-2 py-0.5 rounded">Unanswered</span>
+                      )}
+                    </div>
+                    <QuestionCard
+                      question={question}
+                      onAnswer={() => {}}
+                      answered={true}
+                      selectedChoice={answer.selected === -1 ? undefined : answer.selected}
+                      reviewMode={true}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }
