@@ -31,7 +31,7 @@ const certs = {
     description: 'Foundational understanding of AWS Cloud, services, and terminology',
     difficulty: 'Foundational',
     color: '#f1be32',
-    questionCount: 236,
+    questionCount: 256,
     examQuestions: 65,
     examTime: 90,
     passingScore: 70,
