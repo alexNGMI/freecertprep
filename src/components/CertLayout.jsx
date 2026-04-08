@@ -15,17 +15,11 @@ export default function CertLayout() {
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Dynamic Background Mesh specific to the cert's color family */}
-      <div className="absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div 
-          className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full blur-[140px] animate-float opacity-30" 
-          style={{ backgroundColor: cert.color }} 
-        />
-        <div 
-          className="absolute -bottom-[20%] right-[10%] w-[50%] h-[50%] rounded-full blur-[150px] animate-float-delayed opacity-20" 
-          style={{ backgroundColor: cert.color }} 
-        />
-      </div>
+      {/* Clean top accent bar for the layout */}
+      <div 
+        className="absolute top-0 left-0 w-full h-1 opacity-80" 
+        style={{ backgroundColor: cert.color }} 
+      />
 
       <header className="border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">

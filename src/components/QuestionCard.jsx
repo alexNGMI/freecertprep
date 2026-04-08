@@ -110,7 +110,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
     <div className="glass-panel rounded-2xl p-6 md:p-8 space-y-8 relative overflow-hidden">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="flex items-center gap-3 flex-wrap">
-          <span className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-300 uppercase tracking-widest shadow-[0_0_15px_-3px_rgba(99,102,241,0.2)]">
+          <span className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-500/50 bg-indigo-500/10 text-indigo-300 uppercase tracking-widest">
             {question.domain}
           </span>
           {onToggleBookmark && (
@@ -152,14 +152,14 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
           if (answered) {
             if (isCorrectChoice) {
-              style = 'border-emerald-500/50 bg-emerald-500/10 text-emerald-100 animate-answer-pop shadow-[0_0_20px_-5px_rgba(16,185,129,0.3)]';
+              style = 'border-emerald-500/50 bg-emerald-500/10 text-emerald-100 animate-answer-pop';
             } else if (isSelected && !isCorrectChoice) {
-              style = 'border-rose-500/50 bg-rose-500/10 text-rose-200 animate-answer-pop shadow-[0_0_15px_-5px_rgba(244,63,94,0.3)]';
+              style = 'border-rose-500/50 bg-rose-500/10 text-rose-200 animate-answer-pop';
             } else {
               style = 'border-white/5 bg-zinc-900/20 text-zinc-600 opacity-60';
             }
           } else if (isSelected) {
-            style = 'border-indigo-500/50 bg-indigo-500/10 text-indigo-100 shadow-[0_0_15px_-5px_rgba(99,102,241,0.3)]';
+            style = 'border-indigo-500/50 bg-indigo-500/10 text-indigo-100';
           }
 
           return (
@@ -186,8 +186,8 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
           let rowStyle = 'border-white/5 bg-zinc-900/50';
 
           if (answered) {
-            if (ans === correctAns) rowStyle = 'border-emerald-500/50 bg-emerald-500/10 shadow-[0_0_15px_-5px_rgba(16,185,129,0.2)]';
-            else rowStyle = 'border-rose-500/50 bg-rose-500/10 shadow-[0_0_15px_-5px_rgba(244,63,94,0.2)]';
+            if (ans === correctAns) rowStyle = 'border-emerald-500/50 bg-emerald-500/10';
+            else rowStyle = 'border-rose-500/50 bg-rose-500/10';
           }
 
           return (
@@ -197,14 +197,14 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                 <button
                   disabled={answered}
                   onClick={() => setStatement(index, true)}
-                  className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === true ? 'bg-indigo-500 border-indigo-500 text-white shadow-[0_0_15px_-3px_rgba(99,102,241,0.5)]' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
+                  className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === true ? 'bg-indigo-500 border-indigo-500 text-white' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
                 >
                   Yes
                 </button>
                 <button
                   disabled={answered}
                   onClick={() => setStatement(index, false)}
-                  className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === false ? 'bg-indigo-500 border-indigo-500 text-white shadow-[0_0_15px_-3px_rgba(99,102,241,0.5)]' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
+                  className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === false ? 'bg-indigo-500 border-indigo-500 text-white' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
                 >
                   No
                 </button>
@@ -361,7 +361,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
               (isOrdering && !orderingReady) ||
               (isMatching && !matchingReady)
             }
-            className="px-8 py-3 rounded-lg text-sm font-semibold bg-indigo-500 text-white shadow-[0_0_20px_-5px_rgba(99,102,241,0.5)] hover:bg-indigo-400 hover:shadow-[0_0_25px_-3px_rgba(99,102,241,0.6)] hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+            className="px-8 py-3 rounded-lg text-sm font-semibold bg-indigo-500 text-white hover:bg-indigo-400 hover:-translate-y-0.5 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
             Submit Answer
           </button>
@@ -372,8 +372,8 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
       {answered && (
         <div className={`p-6 rounded-xl text-sm sm:text-base leading-relaxed animate-fade-up flex gap-4 ${
           isCorrect
-            ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-100 shadow-[0_0_30px_-10px_rgba(16,185,129,0.2)]'
-            : 'bg-rose-500/10 border border-rose-500/30 text-rose-100 shadow-[0_0_30px_-10px_rgba(244,63,94,0.2)]'
+            ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-100'
+            : 'bg-rose-500/10 border border-rose-500/30 text-rose-100'
         }`}>
           <div className="shrink-0 mt-0.5">
             {isCorrect ? (

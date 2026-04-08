@@ -50,7 +50,7 @@ export default function Dashboard() {
         <h1 className="text-5xl font-bold text-zinc-100 flex items-center justify-center gap-4">
           <span 
             className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-zinc-900 border" 
-            style={{ color: cert.color, borderColor: `${cert.color}40`, boxShadow: `0 0 20px -5px ${cert.color}60` }}
+            style={{ color: cert.color, borderColor: `${cert.color}40` }}
           >
             {cert.code.charAt(0)}
           </span>
@@ -74,8 +74,6 @@ export default function Dashboard() {
 
       {/* Domain Progress */}
       <div className="glass-panel rounded-2xl p-8 space-y-8 relative overflow-hidden">
-        {/* Subtle decorative glow */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px]" />
         
         <h2 className="text-2xl font-bold text-zinc-100 relative z-10">Domain Readiness</h2>
         <div className="space-y-6 relative z-10">
@@ -161,7 +159,7 @@ export default function Dashboard() {
           to="exam"
           id="dashboard-exam-btn"
           className="glass-panel glass-panel-hover rounded-2xl p-8 text-center space-y-5 flex flex-col justify-between"
-          style={{ borderColor: `${cert.color}40`, boxShadow: `0 10px 40px -10px ${cert.color}20` }}
+          style={{ borderColor: `${cert.color}40` }}
         >
           <div>
             <div 
@@ -192,15 +190,13 @@ export default function Dashboard() {
 function StatCard({ label, value, highlight, glowColor }) {
   return (
     <div
-      className={`glass-panel rounded-2xl p-6 text-center transition-all duration-300 flex flex-col justify-center ${
-        highlight ? 'backdrop-blur-2xl' : ''
-      }`}
-      style={highlight ? { borderColor: `${glowColor}50`, background: `${glowColor}10`, boxShadow: `0 0 30px -5px ${glowColor}40` } : {}}
+      className="glass-panel rounded-2xl p-6 text-center transition-all duration-300 flex flex-col justify-center"
+      style={highlight ? { borderColor: `${glowColor}50`, background: `${glowColor}10` } : {}}
     >
       <p className="text-[11px] text-zinc-500 uppercase tracking-widest font-semibold mb-3">{label}</p>
       <p
         className={`text-4xl font-black tracking-tight ${highlight ? '' : 'text-zinc-100'}`}
-        style={highlight ? { color: glowColor, textShadow: `0 0 20px ${glowColor}80` } : {}}
+        style={highlight ? { color: glowColor } : {}}
       >
         {value}
       </p>
