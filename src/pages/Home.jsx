@@ -14,12 +14,7 @@ const providerStyles = {
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Dynamic Background Mesh */}
-      <div className="absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-indigo-600/10 blur-[120px] animate-float" />
-        <div className="absolute top-[20%] -right-[10%] w-[40%] h-[60%] rounded-full bg-sky-500/10 blur-[120px] animate-float-delayed" />
-        <div className="absolute -bottom-[20%] left-[20%] w-[60%] h-[50%] rounded-full bg-emerald-500/5 blur-[120px] animate-float" />
-      </div>
+      {/* Subdued structural background handled by index.css body grid */}
 
       <header className="border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-20 transition-all">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -36,11 +31,11 @@ export default function Home() {
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative max-w-5xl mx-auto px-6 pt-32 pb-24 text-center">
-          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-300 text-sm font-medium animate-fade-up">
+          <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-zinc-700 bg-zinc-900/50 text-zinc-300 text-sm font-medium animate-fade-up">
             ✨ Free, High-Quality Mock Exams
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
-            Master your <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Cloud Career</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 animate-fade-up text-zinc-100" style={{ animationDelay: '100ms' }}>
+            Master your Cloud Career
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
             Practice for AWS, Google Cloud, Azure, and NVIDIA certifications with deeply realistic questions, timed visual simulations, and intelligent progress tracking.
@@ -49,7 +44,7 @@ export default function Home() {
             <a
               href="#certs"
               id="hero-start-btn"
-              className="group relative inline-flex items-center justify-center bg-zinc-100 text-zinc-950 font-semibold text-lg px-8 py-3.5 rounded-xl hover:bg-white transition-all duration-300 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.4)] hover:-translate-y-0.5"
+              className="group relative inline-flex items-center justify-center bg-zinc-100 text-zinc-950 font-semibold text-lg px-8 py-3.5 rounded-xl hover:bg-white transition-all duration-300 border border-transparent hover:border-zinc-300"
             >
               Explore Certs
               <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,10 +101,10 @@ function CertCard({ cert, index }) {
       className="glass-panel glass-panel-hover rounded-2xl p-8 group flex flex-col min-h-[340px] animate-fade-up relative overflow-hidden"
       style={{ animationDelay: `${index * 80 + 300}ms` }}
     >
-      {/* Subtle top gradient line to give the card identity */}
+      {/* Clean top accent border */}
       <div 
-        className="absolute top-0 left-0 w-full h-1 opacity-50 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ backgroundColor: cert.color, boxShadow: `0 0 20px ${cert.color}` }}
+        className="absolute top-0 left-0 w-full h-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ backgroundColor: cert.color }}
       />
       
       <div className="flex items-start justify-between mb-6">
@@ -122,14 +117,14 @@ function CertCard({ cert, index }) {
           </span>
         </div>
         <span
-          className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-zinc-900/80 border"
+          className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border"
           style={{ borderColor: `${cert.color}40`, color: cert.color }}
         >
           {cert.difficulty}
         </span>
       </div>
 
-      <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300" style={{ backgroundImage: `linear-gradient(to right, #ffffff, ${cert.color})` }}>
+      <h3 className="text-2xl font-bold mb-3 text-zinc-100 group-hover:text-white transition-colors duration-300">
         {cert.title}
       </h3>
       <p className="text-sm text-zinc-400 mb-8 flex-1 leading-relaxed">
@@ -152,8 +147,8 @@ function CertCard({ cert, index }) {
       </div>
 
       <span
-        className="text-sm font-semibold py-3 rounded-lg text-center transition-all duration-300 border bg-zinc-900/50 hover:bg-zinc-800"
-        style={{ color: cert.color, borderColor: `${cert.color}30`, boxShadow: `0 0 15px -5px ${cert.color}40` }}
+        className="text-sm font-semibold py-3 rounded-lg text-center transition-all duration-300 border bg-zinc-900 hover:bg-zinc-800"
+        style={{ color: cert.color, borderColor: '#27272a' }}
       >
         View Detail &rarr;
       </span>

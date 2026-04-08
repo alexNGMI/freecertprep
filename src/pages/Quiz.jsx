@@ -73,7 +73,7 @@ export default function Quiz() {
           <p className="text-xl text-zinc-400">Target a specific domain or practice them all.</p>
         </div>
         
-        <div className="glass-panel rounded-2xl p-8 md:p-12 space-y-8 max-w-3xl mx-auto shadow-xl" style={{ boxShadow: `0 20px 60px -15px ${cert.color}25` }}>
+        <div className="glass-panel rounded-2xl p-8 md:p-12 space-y-8 max-w-3xl mx-auto">
           <div className="space-y-4">
             <label className="block text-xs font-bold text-zinc-500 uppercase tracking-widest pl-1">
               Select Focus Area
@@ -89,7 +89,7 @@ export default function Quiz() {
                       ? 'bg-zinc-100 text-zinc-950 scale-[1.01]'
                       : 'border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800'
                   }`}
-                  style={selectedDomain === domain ? { boxShadow: `0 0 20px -5px ${cert.color}80` } : {}}
+                  style={selectedDomain === domain ? { borderColor: cert.color } : {}}
                 >
                   <span>{domain}</span>
                   <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${selectedDomain === domain ? 'border-zinc-950' : 'border-zinc-600 group-hover:border-zinc-400'}`}>
@@ -117,7 +117,7 @@ export default function Quiz() {
               onClick={startQuiz}
               disabled={filteredQuestions.length === 0}
               className="w-full md:w-auto font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
-              style={{ backgroundColor: cert.color, boxShadow: `0 10px 30px -10px ${cert.color}` }}
+              style={{ backgroundColor: cert.color }}
             >
               Start Practice Session
             </button>
@@ -140,10 +140,10 @@ export default function Quiz() {
         <div className="glass-panel rounded-2xl p-10 md:p-14 text-center max-w-lg mx-auto relative overflow-hidden">
           <div 
             className="absolute top-0 left-0 w-full h-2 opacity-80" 
-            style={{ backgroundColor: passed ? '#34d399' : '#f43f5e', boxShadow: `0 0 30px ${passed ? '#34d399' : '#f43f5e'}` }} 
+            style={{ backgroundColor: passed ? '#34d399' : '#f43f5e' }} 
           />
           
-          <p className={`text-7xl font-black mb-6 tracking-tighter ${passed ? 'text-emerald-400' : 'text-rose-400'}`} style={{ textShadow: `0 0 30px ${passed ? 'rgba(52,211,153,0.3)' : 'rgba(244,63,94,0.3)'}` }}>
+          <p className={`text-7xl font-black mb-6 tracking-tighter ${passed ? 'text-emerald-400' : 'text-rose-400'}`}>
             {pct}%
           </p>
           <p className="text-zinc-400 text-xl font-medium mb-10">
@@ -153,7 +153,7 @@ export default function Quiz() {
           <button
             id="quiz-try-again-btn"
             onClick={() => setQuizStarted(false)}
-            className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 bg-zinc-100 text-zinc-950 hover:bg-white hover:scale-105 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)] w-full"
+            className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 bg-zinc-100 text-zinc-950 hover:bg-white hover:scale-105 border border-zinc-200 w-full"
           >
             Practice Again
           </button>
@@ -181,11 +181,10 @@ export default function Quiz() {
           className="h-full rounded-full transition-all duration-500 ease-out flex justify-end"
           style={{
             width: `${((currentIndex + 1) / filteredQuestions.length) * 100}%`,
-            backgroundColor: cert.color,
-            boxShadow: `0 0 10px ${cert.color}80`
+            backgroundColor: cert.color
           }}
         >
-          <div className="w-10 h-full bg-white/30 blur-sm" />
+          <div className="w-10 h-full bg-white/30" />
         </div>
       </div>
       
@@ -206,8 +205,8 @@ export default function Quiz() {
           <button
             id="quiz-next-btn"
             onClick={handleNext}
-            className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 hover:scale-105 shadow-xl flex items-center justify-center min-w-[200px]"
-            style={{ backgroundColor: cert.color, boxShadow: `0 10px 25px -5px ${cert.color}80` }}
+            className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 hover:scale-105 flex items-center justify-center min-w-[200px]"
+            style={{ backgroundColor: cert.color }}
           >
             {currentIndex < filteredQuestions.length - 1 ? (
               <>

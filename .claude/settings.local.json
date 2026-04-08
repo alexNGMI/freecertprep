@@ -19,7 +19,30 @@
       "Bash(python3 -:*)",
       "Bash(node -e \"const d=require\\(''./src/data/questions.json''\\); console.log\\(''count:'',d.length,''lastId:'',d[d.length-1].id\\)\")",
       "Bash(node -e \"const fs=require\\(''fs''\\); const d=JSON.parse\\(fs.readFileSync\\(''C:/Users/spide/Documents/freecertprep/src/data/questions.json'',''utf8''\\)\\); console.log\\(''count:'',d.length,''lastId:'',d[d.length-1].id\\)\")",
-      "Bash(node -e \"const fs=require\\(''fs''\\); const d=JSON.parse\\(fs.readFileSync\\(''C:/Users/spide/Documents/freecertprep/src/data/nca-aiio-questions.json'',''utf8''\\)\\); console.log\\(''count:'',d.length,''lastId:'',d[d.length-1].id\\)\")"
+      "Bash(node -e \"const fs=require\\(''fs''\\); const d=JSON.parse\\(fs.readFileSync\\(''C:/Users/spide/Documents/freecertprep/src/data/nca-aiio-questions.json'',''utf8''\\)\\); console.log\\(''count:'',d.length,''lastId:'',d[d.length-1].id\\)\")",
+      "Bash(node -e \"const q=require\\(''./src/data/questions.json''\\); console.log\\(''Total:'', q.length\\); console.log\\(''Last ID:'', q[q.length-1].id\\); console.log\\(''Domains:'', [...new Set\\(q.map\\(x=>x.domain\\)\\)]\\); console.log\\(''Types:'', [...new Set\\(q.map\\(x=>x.type\\)\\)]\\)\")",
+      "Bash(node add-scenario-batch2.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch2.cjs\")",
+      "Bash(node add-scenario-batch3.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch3.cjs\")",
+      "Bash(node add-scenario-batch4.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch4.cjs\")",
+      "Bash(node add-scenario-batch5.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch5.cjs\")",
+      "Bash(node add-scenario-batch6.cjs)",
+      "Bash(node add-scenario-batch7.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch7.cjs\")",
+      "Bash(node add-scenario-batch8.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch8.cjs\")",
+      "Bash(node add-scenario-batch10.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch10.cjs\")",
+      "Bash(node add-scenario-batch12.cjs)",
+      "Bash(node add-scenario-batch14.cjs)",
+      "Bash(node add-scenario-batch15.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch15.cjs\")",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch16.cjs\")",
+      "Bash(node add-scenario-batch17.cjs)",
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch17.cjs\")"
     ]
   }
 }

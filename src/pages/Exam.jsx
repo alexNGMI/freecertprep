@@ -80,7 +80,7 @@ export default function Exam() {
           <p className="text-xl text-zinc-400">Simulate the real <span className="text-zinc-200 font-semibold">{cert.title}</span> experience</p>
         </div>
         
-        <div className="glass-panel rounded-2xl p-8 md:p-12 space-y-10 shadow-xl" style={{ boxShadow: `0 20px 60px -15px ${cert.color}20` }}>
+        <div className="glass-panel rounded-2xl p-8 md:p-12 space-y-10">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="bg-zinc-900/50 border border-white/5 rounded-2xl p-6 text-center shadow-inner">
               <p className="text-xs text-zinc-500 uppercase tracking-widest font-bold mb-2">Questions</p>
@@ -103,8 +103,8 @@ export default function Exam() {
             <button
               id="begin-exam-btn"
               onClick={() => setStarted(true)}
-              className="font-bold px-12 py-4 rounded-xl transition-all duration-300 text-zinc-950 hover:scale-105 shadow-xl text-lg w-full sm:w-auto"
-              style={{ backgroundColor: cert.color, boxShadow: `0 10px 30px -5px ${cert.color}` }}
+              className="font-bold px-12 py-4 rounded-xl transition-all duration-300 text-zinc-950 hover:scale-105 text-lg w-full sm:w-auto"
+              style={{ backgroundColor: cert.color }}
             >
               Begin Certification Exam
             </button>
@@ -128,7 +128,6 @@ export default function Exam() {
           className={`font-mono font-bold text-2xl tracking-tighter transition-all duration-300 ${
             timerWarning ? 'text-rose-400 animate-timer-pulse scale-105' : 'text-zinc-100'
           }`}
-          style={!timerWarning ? { textShadow: `0 0 20px ${cert.color}80` } : { textShadow: '0 0 20px rgba(244,63,94,0.6)' }}
           aria-label={`Time remaining: ${formatTime(timeLeft)}`}
         >
           {formatTime(timeLeft)}
@@ -150,7 +149,7 @@ export default function Exam() {
       <div className="h-1.5 bg-zinc-900/80 rounded-full overflow-hidden shadow-inner">
         <div
           className="h-full rounded-full transition-all duration-300 ease-out"
-          style={{ width: `${((currentIndex + 1) / EXAM_QUESTIONS) * 100}%`, backgroundColor: cert.color, boxShadow: `0 0 10px ${cert.color}` }}
+          style={{ width: `${((currentIndex + 1) / EXAM_QUESTIONS) * 100}%`, backgroundColor: cert.color }}
         />
       </div>
 
@@ -167,7 +166,7 @@ export default function Exam() {
                 aria-label={`Go to question ${i + 1}${isAnswered ? ' (answered)' : ''}`}
                 className={`w-10 h-10 rounded-lg text-sm font-bold transition-all duration-200 ${
                   isCurrent
-                    ? 'scale-110 shadow-[0_0_15px_-3px_currentColor] z-10 text-zinc-900'
+                    ? 'scale-110 ring-2 ring-offset-2 ring-offset-[#09090b] z-10 text-zinc-900 border-transparent'
                     : isAnswered
                       ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20'
                       : 'bg-zinc-900/80 text-zinc-500 border border-zinc-700/50 hover:border-zinc-500 hover:text-zinc-300'
@@ -205,7 +204,7 @@ export default function Exam() {
             id="exam-next-btn"
             onClick={() => setCurrentIndex((prev) => prev + 1)}
             className="px-8 py-3 rounded-lg text-sm font-bold transition-all duration-300 text-zinc-950 hover:scale-105"
-            style={{ backgroundColor: cert.color, boxShadow: `0 10px 20px -5px ${cert.color}80` }}
+            style={{ backgroundColor: cert.color }}
           >
             Next Question
           </button>
@@ -213,7 +212,7 @@ export default function Exam() {
           <button
             id="exam-submit-btn"
             onClick={finishExam}
-            className="px-8 py-3 rounded-lg text-sm font-bold bg-indigo-500 hover:bg-indigo-400 text-white transition-all duration-300 shadow-[0_10px_20px_-5px_#6366f1]"
+            className="px-8 py-3 rounded-lg text-sm font-bold bg-indigo-500 hover:bg-indigo-400 text-white transition-all duration-300"
           >
             Submit Entire Exam
           </button>
