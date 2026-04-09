@@ -6468,5 +6468,1955 @@
     ],
     "correctAnswer": 3,
     "explanation": "Azure Advisor provides personalized best-practice recommendations across all five pillars: Reliability, Security, Cost Optimization, Performance, and Operational Excellence. It analyzes your actual Azure resource configuration and provides prioritized, actionable recommendations with estimated impact."
+  },
+  {
+    "id": "az900-451",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to provide secure, browser-based access to their internal web applications for remote employees — without requiring a VPN client installation. Employees should authenticate with Azure AD and access apps from any device. Which Azure service enables this?",
+    "choices": [
+      "Azure Application Proxy",
+      "Azure VPN Gateway",
+      "Azure Bastion",
+      "Azure ExpressRoute"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Application Proxy publishes on-premises web applications securely through Azure AD, enabling browser-based access without a VPN client. Users authenticate via Azure AD (supporting MFA and Conditional Access) and access internal apps from any device, anywhere."
+  },
+  {
+    "id": "az900-452",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to build a recommendation engine that suggests products to customers based on their purchase history. They have labeled training data and want to train, evaluate, and deploy a custom ML model. Which Azure service provides the full ML lifecycle?",
+    "choices": [
+      "Azure Cognitive Services pre-built APIs",
+      "Azure HDInsight Hadoop cluster",
+      "Azure Machine Learning workspace",
+      "Azure Synapse Analytics SQL pools"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Machine Learning provides the full ML lifecycle: data preparation, experiment tracking, model training, evaluation, and deployment as a scalable REST API endpoint. Unlike Cognitive Services (pre-built models), Azure ML supports fully custom model development with any framework."
+  },
+  {
+    "id": "az900-453",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company stores terabytes of unstructured research files — PDFs, images, and videos — in Azure Blob Storage. They want to extract text, recognize objects in images, and make all content searchable via a single search interface. Which Azure service enables this AI-enriched search?",
+    "choices": [
+      "Azure Cosmos DB",
+      "Azure Synapse Analytics",
+      "Azure AI Search (Cognitive Search)",
+      "Azure Data Factory"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure AI Search (formerly Cognitive Search) indexes content from Blob Storage and applies AI enrichment skills — OCR, entity extraction, image analysis — to make unstructured content fully searchable. It provides a rich search API over heterogeneous content types."
+  },
+  {
+    "id": "az900-454",
+    "domain": "Describe cloud concepts",
+    "question": "A company's on-premises infrastructure takes 6 weeks to provision new servers. Competitors using Azure deploy new environments in under 10 minutes, enabling faster product releases. Which cloud advantage gives competitors this speed advantage?",
+    "choices": [
+      "Lower electricity costs in cloud datacenters",
+      "Automatic compliance with industry regulations",
+      "On-demand self-service provisioning without manual procurement",
+      "Better physical security than on-premises"
+    ],
+    "correctAnswer": 2,
+    "explanation": "On-demand self-service is a fundamental cloud characteristic — users can provision resources immediately through a portal, CLI, or API without procurement processes, purchase orders, or physical installation. This speed advantage enables faster development cycles and competitive advantage."
+  },
+  {
+    "id": "az900-455",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's Azure subscription has been running for 6 months and the operations team wants to understand which services are generating the most cost, broken down by service type, resource group, and tag. Which Azure tool provides this cost breakdown analysis?",
+    "choices": [
+      "Azure Pricing Calculator",
+      "Azure TCO Calculator",
+      "Azure Cost Management — Cost Analysis",
+      "Azure Advisor recommendations"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Cost Management's Cost Analysis feature provides detailed breakdowns of actual spending by service type, resource group, location, tag, or subscription. It shows historical trends and allows filtering to identify the exact resources or services driving costs."
+  },
+  {
+    "id": "az900-456",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company is deploying a multi-tier application in Azure. The web tier should be publicly accessible, but the database tier must only accept connections from the application tier — never from the internet. What is the BEST way to enforce this network isolation?",
+    "choices": [
+      "Deploy all tiers in separate Azure subscriptions",
+      "Use separate subnets with Network Security Group rules restricting database subnet access to only the app subnet",
+      "Place a VPN Gateway between each tier",
+      "Use Azure DNS private zones for each tier"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Placing each tier in a separate subnet and applying NSG rules to the database subnet that only allow inbound traffic from the application subnet's IP range enforces network isolation. The database subnet has no public internet inbound rules, protecting it from direct internet access."
+  },
+  {
+    "id": "az900-457",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs a managed MySQL database on Azure where Microsoft handles backups, patching, and high availability. Their developers should only interact with the database engine, not manage server infrastructure. Which service should they choose?",
+    "choices": [
+      "MySQL installed on an Azure Virtual Machine",
+      "Azure Database for MySQL – Flexible Server",
+      "Azure SQL Database",
+      "Azure Cosmos DB for MySQL"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Database for MySQL – Flexible Server is a fully managed PaaS service where Microsoft handles all infrastructure operations — OS patching, backups, and HA. Developers connect to MySQL as normal but never manage the underlying server infrastructure."
+  },
+  {
+    "id": "az900-458",
+    "domain": "Describe Azure architecture and services",
+    "question": "A retail company needs to run complex analytical queries against years of sales transaction data — billions of rows — and return results within seconds for business intelligence dashboards. Which Azure service is optimized for this massively parallel analytical workload?",
+    "choices": [
+      "Azure SQL Database General Purpose tier",
+      "Azure Cosmos DB",
+      "Azure Cache for Redis",
+      "Azure Synapse Analytics dedicated SQL pool"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Azure Synapse Analytics dedicated SQL pools (formerly SQL DW) use massively parallel processing (MPP) architecture to distribute query execution across many nodes, enabling sub-second results on billions of rows. Standard Azure SQL Database is designed for OLTP, not large-scale analytical queries."
+  },
+  {
+    "id": "az900-459",
+    "domain": "Describe cloud concepts",
+    "question": "A company's on-premises servers go down during a regional power outage, taking their business with them. After migrating critical workloads to Azure with geo-redundant replication, a similar regional outage has no impact. Which cloud concept protects against regional failures?",
+    "choices": [
+      "Vertical scaling to larger VM sizes",
+      "Consumption-based billing",
+      "Geo-redundancy and disaster recovery across Azure regions",
+      "Azure Resource Locks preventing deletion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Geo-redundancy replicates data and workloads across geographically separate Azure regions. If one region experiences an outage (power failure, natural disaster), traffic fails over to the secondary region automatically. This provides disaster recovery beyond what single-datacenter on-premises can offer."
+  },
+  {
+    "id": "az900-460",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to enforce that all Azure Virtual Machines must have the 'Environment' tag with values of either 'Production', 'Staging', or 'Development'. VMs without valid tags should be denied. Which Azure feature implements this?",
+    "choices": [
+      "Azure RBAC custom role with tag conditions",
+      "Azure Resource Locks on untagged resources",
+      "Azure Policy with a Deny effect and allowed tag values",
+      "Azure Advisor tag recommendations"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Policy with a Deny effect can enforce that VMs must have the 'Environment' tag with a value from an allowed list. Any VM creation request that doesn't meet this condition is automatically rejected. RBAC controls who can perform actions, not what configuration those actions must have."
+  },
+  {
+    "id": "az900-461",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company builds a real-time fraud detection system. When a transaction occurs, it must be checked against fraud rules within 200ms before approving. The check requires querying a cached dataset of 50GB of fraud patterns. Which Azure service provides in-memory storage of this dataset with sub-millisecond query times?",
+    "choices": [
+      "Azure Cosmos DB",
+      "Azure SQL Database In-Memory OLTP",
+      "Azure Cache for Redis",
+      "Azure Table Storage"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Cache for Redis stores data entirely in memory, providing sub-millisecond read latency at any scale. For a 50GB dataset of fraud patterns that must be queried in under 200ms, Redis is ideal — it can hold the entire working dataset in RAM and serve lookups in microseconds."
+  },
+  {
+    "id": "az900-462",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company uses Azure DevOps for CI/CD pipelines and wants their pipelines to automatically deploy infrastructure changes to Azure using code. Which Azure resource deployment approach integrates best with DevOps pipelines for repeatable, version-controlled deployments?",
+    "choices": [
+      "Manual deployments via the Azure portal",
+      "ARM templates or Bicep files stored in a Git repository",
+      "Azure Advisor automated remediation",
+      "Azure Policy auto-remediation tasks"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ARM templates and Bicep files stored in Git repositories integrate directly with Azure DevOps pipelines using the AzureResourceManagerTemplateDeployment task. This enables Infrastructure as Code practices where infrastructure changes go through pull requests, code review, and automated deployment — the foundation of GitOps."
+  },
+  {
+    "id": "az900-463",
+    "domain": "Describe Azure management and governance",
+    "question": "A company needs to demonstrate to auditors that their Azure resources comply with GDPR and ISO 27001 requirements. They need a report showing which Azure resources are compliant or non-compliant with specific regulatory standards. Which Azure service generates this compliance report?",
+    "choices": [
+      "Azure Advisor security recommendations",
+      "Microsoft Defender for Cloud regulatory compliance dashboard",
+      "Azure Monitor activity logs",
+      "Azure Resource Graph compliance queries"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Microsoft Defender for Cloud's Regulatory Compliance dashboard maps your Azure resource configurations against specific compliance standards (GDPR, ISO 27001, PCI DSS, SOC 2, etc.) and shows which controls are passing or failing, providing the compliance evidence auditors need."
+  },
+  {
+    "id": "az900-464",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to detect when sensitive data such as credit card numbers or social security numbers is stored in Azure SQL Database and flag these columns automatically. Which Azure SQL feature provides automated sensitive data discovery and classification?",
+    "choices": [
+      "Azure SQL Transparent Data Encryption",
+      "Azure SQL Data Discovery & Classification",
+      "Azure SQL Always Encrypted",
+      "Azure SQL Dynamic Data Masking"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure SQL Data Discovery & Classification automatically scans database columns, identifies potentially sensitive data using built-in patterns (credit card numbers, SSNs, etc.), and recommends classification labels. This helps organizations understand their sensitive data footprint for compliance purposes."
+  },
+  {
+    "id": "az900-465",
+    "domain": "Describe cloud concepts",
+    "question": "A company's application team can now deploy to production 10 times per day instead of once per month, because Azure provides infrastructure on demand without tickets to the infrastructure team. Which transformation does cloud most directly enable here?",
+    "choices": [
+      "Shifting from OpEx to CapEx spending model",
+      "Reduced need for application security testing",
+      "Developer agility through self-service infrastructure",
+      "Automatic code quality improvement"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cloud enables developer agility by giving application teams self-service access to infrastructure — they can provision environments, deploy code, and scale resources without waiting for IT tickets. This removes infrastructure bottlenecks and enables frequent deployments, a key DevOps benefit."
+  },
+  {
+    "id": "az900-466",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company receives thousands of support tickets daily in different languages. They want to automatically categorize tickets by urgency and route them to the right team. The solution should understand the intent and sentiment of the message text. Which Azure AI service is MOST relevant?",
+    "choices": [
+      "Azure AI Language (text analytics, intent recognition)",
+      "Azure AI Vision",
+      "Azure Machine Learning regression model",
+      "Azure AI Speech"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure AI Language provides text analytics capabilities including sentiment analysis, key phrase extraction, entity recognition, and intent classification. These capabilities can automatically categorize support tickets by urgency and route them based on detected intent and sentiment without custom ML model training."
+  },
+  {
+    "id": "az900-467",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company has 500TB of on-premises data they want to move to Azure Data Lake Storage. Their internet connection is 1 Gbps. They need to complete the transfer in under 2 weeks. Given the bandwidth constraint, which Azure service offers the fastest migration path?",
+    "choices": [
+      "Azure Storage Explorer with parallel uploads",
+      "Azure Data Box (physical device shipped to their location)",
+      "AzCopy with 100 parallel threads",
+      "Azure ExpressRoute 1 Gbps circuit"
+    ],
+    "correctAnswer": 1,
+    "explanation": "At 1 Gbps, uploading 500TB online would take ~46 days. Azure Data Box ships a physical device with 80-800TB capacity. Data is copied locally at full LAN speed (1 Gbps to the device), then the device is shipped to Microsoft for rapid upload to Azure — completing in days, not months."
+  },
+  {
+    "id": "az900-468",
+    "domain": "Describe Azure management and governance",
+    "question": "A large enterprise wants all new Azure subscriptions for business units to automatically include: a Log Analytics workspace, baseline security policies, and a designated network topology. Changes to the blueprint should version-controlled and re-applied to existing subscriptions. Which Azure service best supports this?",
+    "choices": [
+      "Azure ARM Templates deployed manually per subscription",
+      "Azure Blueprints with versioned artifact assignments",
+      "Azure Policy with DeployIfNotExists effects",
+      "Azure Management Groups with inherited RBAC"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Blueprints packages ARM templates, policies, and RBAC into versioned definitions that can be assigned to subscriptions. When the blueprint is updated to a new version, existing assignments can be updated — ensuring all subscriptions stay consistent with the current organizational standard."
+  },
+  {
+    "id": "az900-469",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company hosts their application on Azure App Service and wants to gradually roll out a new version to 10% of users first, monitor for errors, then increase to 100% if stable. Which App Service feature enables this traffic-split deployment?",
+    "choices": [
+      "Azure Traffic Manager geographic routing",
+      "Azure Load Balancer health probes",
+      "App Service deployment slots with traffic routing percentage",
+      "Azure Front Door weighted routing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure App Service deployment slots allow you to deploy to a staging slot and then configure a percentage of production traffic to route to the staging slot. This enables canary deployments — 10% of users hit the new version, allowing monitoring before a full swap."
+  },
+  {
+    "id": "az900-470",
+    "domain": "Describe cloud concepts",
+    "question": "Two companies are comparing cloud options. Company A says: 'We must own our hardware for compliance.' Company B says: 'We use Azure and don't own any hardware, but Microsoft's compliance certifications cover our requirements.' What does this demonstrate about cloud compliance?",
+    "choices": [
+      "Cloud is never suitable for regulated industries",
+      "Physical hardware ownership is required for all compliance frameworks",
+      "Cloud providers obtain compliance certifications that customers can inherit, satisfying many regulatory requirements",
+      "Compliance is solely the customer's responsibility in the cloud"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure maintains compliance certifications for hundreds of standards (GDPR, HIPAA, PCI DSS, FedRAMP, ISO 27001, etc.). Customers deploying workloads on Azure can leverage Microsoft's certifications for the underlying infrastructure. This inheritance model satisfies many regulatory requirements without customers needing physical hardware ownership."
+  },
+  {
+    "id": "az900-471",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's application needs to read configuration values like feature flags and connection strings that change frequently without requiring a redeployment. The values should be centrally managed and pushed to the app in real time. Which Azure service is designed for this?",
+    "choices": [
+      "Azure Key Vault",
+      "Azure App Configuration",
+      "Azure Cosmos DB",
+      "Azure Service Bus"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure App Configuration is a managed service for centrally storing application settings and feature flags. It supports real-time configuration updates that apps can receive without redeployment. Key Vault is for secrets (passwords, keys); App Configuration is for non-secret settings and feature flags."
+  },
+  {
+    "id": "az900-472",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to protect their internet-facing Azure VMs from network-level DDoS attacks that target the Azure platform itself. Basic DDoS protection is included free, but they need enhanced mitigation with attack analytics and SLA guarantees. Which Azure offering provides this?",
+    "choices": [
+      "Azure Firewall Premium tier",
+      "Network Security Groups with deny-all inbound",
+      "Azure Web Application Firewall on Application Gateway",
+      "Azure DDoS Protection Standard (Network Protection)"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Azure DDoS Protection Network Protection (Standard) provides enhanced DDoS mitigation with adaptive tuning, real-time attack analytics, post-attack reports, and a cost protection SLA guarantee. The free Basic tier provides automatic protection but without these advanced capabilities and guarantees."
+  },
+  {
+    "id": "az900-473",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's security team wants to be notified immediately when an Azure VM is accessed from an unusual geographic location or when a potential brute-force attack is detected against their Azure SQL Database. Which Azure service provides these intelligent threat detection alerts?",
+    "choices": [
+      "Azure Monitor metric alerts",
+      "Azure Policy audit reports",
+      "Microsoft Defender for Cloud threat protection alerts",
+      "Azure Service Health notifications"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Microsoft Defender for Cloud includes threat protection that uses intelligence to detect anomalous activity — unusual login locations, brute-force attacks, SQL injection attempts, and more. It generates security alerts with details and remediation steps, unlike Monitor (infrastructure metrics) or Policy (compliance)."
+  },
+  {
+    "id": "az900-474",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company processes medical images that must remain within a specific Azure region due to healthcare data sovereignty laws. They need geo-redundant storage for disaster recovery, but ONLY within the same country. Which Azure storage redundancy option satisfies this?",
+    "choices": [
+      "Locally Redundant Storage (LRS) — 3 copies in one datacenter",
+      "Zone-Redundant Storage (ZRS) — copies across availability zones in one region",
+      "Geo-Redundant Storage (GRS) — paired regions in the same country",
+      "Read-Access Geo-Redundant Storage (RA-GRS) across continents"
+    ],
+    "correctAnswer": 2,
+    "explanation": "GRS replicates data to a paired secondary region. Azure regional pairs are designed within the same geopolitical boundary (e.g., UK South paired with UK West, or Brazil South paired within Brazil). Choosing a paired region in the same country satisfies data sovereignty while providing geo-redundancy."
+  },
+  {
+    "id": "az900-475",
+    "domain": "Describe Azure architecture and services",
+    "question": "A startup is building a mobile app backend that needs a database requiring no schema definition — each document can have different fields. The app must scale globally as it grows. Which Azure database service is BEST suited for schema-flexible, globally distributed document storage?",
+    "choices": [
+      "Azure SQL Database",
+      "Azure Database for PostgreSQL",
+      "Azure Cosmos DB for NoSQL (document model)",
+      "Azure Table Storage"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Cosmos DB for NoSQL stores documents (JSON) with flexible schemas — each document can have different fields. It provides automatic global distribution, horizontal scaling, and single-digit millisecond latency worldwide. It's purpose-built for schema-flexible, globally distributed applications."
+  },
+  {
+    "id": "az900-476",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's application needs to authenticate users and authorize access to APIs. Rather than building their own identity system, they want a managed cloud identity platform that supports OAuth 2.0, OpenID Connect, and integrates with Microsoft 365. Which service should they use?",
+    "choices": [
+      "Azure Active Directory (Microsoft Entra ID)",
+      "Azure Key Vault certificate management",
+      "Azure API Management",
+      "Azure Service Bus"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Active Directory (Microsoft Entra ID) is Microsoft's cloud identity platform. It supports OAuth 2.0 and OpenID Connect for modern authentication, integrates with Microsoft 365 and thousands of SaaS apps, and provides SSO, MFA, and Conditional Access — eliminating the need to build a custom identity system."
+  },
+  {
+    "id": "az900-477",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to expose their backend microservices as a single, unified API to external developers. They need rate limiting, API key authentication, request transformation, and a developer portal with documentation. Which Azure service provides this API gateway functionality?",
+    "choices": [
+      "Azure Load Balancer",
+      "Azure Application Gateway",
+      "Azure API Management",
+      "Azure Service Fabric"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure API Management is a fully managed API gateway that provides rate limiting, authentication (API keys, OAuth), request/response transformation, caching, and a customizable developer portal with interactive documentation. It acts as a single entry point for all backend microservices."
+  },
+  {
+    "id": "az900-478",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company runs a 3-tier application on Azure VMs. The database VM is the most critical component — if it fails, the entire application goes down. They want the database to automatically failover to a standby VM with minimal data loss if the primary fails. Which Azure feature addresses this for VMs?",
+    "choices": [
+      "Azure Site Recovery with replication to a secondary region",
+      "Azure Backup with daily restore points",
+      "Azure Availability Sets with fault domain separation",
+      "SQL Server Always On Availability Groups on Azure VMs"
+    ],
+    "correctAnswer": 3,
+    "explanation": "SQL Server Always On Availability Groups provide synchronous replication between a primary and secondary SQL Server VM. On primary failure, automatic failover to the secondary occurs with minimal data loss (near-zero RPO). Azure Backup and Site Recovery are for DR, not real-time HA failover."
+  },
+  {
+    "id": "az900-479",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's CTO asks: 'If an Azure region goes down today, how long until our critical workloads are restored in the secondary region?' This question refers to which disaster recovery metric?",
+    "choices": [
+      "Recovery Point Objective (RPO) — maximum acceptable data loss",
+      "Mean Time Between Failures (MTBF)",
+      "Recovery Time Objective (RTO) — maximum acceptable downtime duration",
+      "Service Level Agreement (SLA) availability percentage"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Recovery Time Objective (RTO) defines the maximum acceptable time from a disaster event to full service restoration. The CTO's question — 'how long until workloads are restored?' — is precisely what RTO measures. RPO measures how much data loss is acceptable (time since last backup/replication)."
+  },
+  {
+    "id": "az900-480",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to know the maximum amount of data they could lose if their Azure SQL Database had to be restored from a backup after a failure. This is defined by which disaster recovery concept?",
+    "choices": [
+      "Recovery Time Objective (RTO)",
+      "Service Level Agreement (SLA)",
+      "Recovery Point Objective (RPO)",
+      "Mean Time to Recovery (MTTR)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Recovery Point Objective (RPO) defines the maximum acceptable amount of data loss measured in time — for example, if backups run every hour, the RPO is up to 1 hour of data loss. RPO drives decisions about backup frequency and replication strategies for Azure SQL Database."
+  },
+  {
+    "id": "az900-481",
+    "domain": "Describe cloud concepts",
+    "question": "A company's architect explains that Azure achieves high availability not by preventing failures — which are inevitable — but by designing systems to automatically detect failures and route around them. Which principle of reliability does this describe?",
+    "choices": [
+      "Zero failures through perfect hardware",
+      "Fault tolerance — continuing operation despite component failures",
+      "Elasticity — scaling to handle increased load",
+      "Data sovereignty — keeping data within borders"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Fault tolerance is the ability of a system to continue operating despite failures of individual components. Cloud providers design for fault tolerance rather than failure prevention — using redundant hardware, automatic failover, and health monitoring to route around failures without service interruption."
+  },
+  {
+    "id": "az900-482",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company has a serverless function in Azure that needs to read from a SQL database, call an external REST API, and then write results to Blob Storage — with each step potentially taking minutes. They need to manage state across these long-running steps without timeouts. Which Azure service handles this?",
+    "choices": [
+      "Azure Logic Apps",
+      "Azure Service Bus with message sessions",
+      "Azure Durable Functions",
+      "Azure Event Grid with retry policies"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Durable Functions is an extension of Azure Functions that enables stateful, long-running workflows using orchestration patterns. It manages state checkpoints automatically, so workflows can pause waiting for async operations (API calls, human approval) and resume without timeout issues."
+  },
+  {
+    "id": "az900-483",
+    "domain": "Describe Azure architecture and services",
+    "question": "A financial company needs to store transaction records that must never be modified or deleted for 7 years to meet regulatory requirements. Once written, no one — not even administrators — should be able to change the data. Which Azure Blob Storage feature enforces this?",
+    "choices": [
+      "Azure Resource Lock (ReadOnly) on the storage account",
+      "Azure Blob Storage immutability policies (WORM storage)",
+      "Azure Key Vault access policy restricting deletes",
+      "Azure Policy denying delete operations on storage"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Blob Storage immutability policies implement WORM (Write Once, Read Many) storage. A time-based retention policy prevents blobs from being modified or deleted for the specified retention period — even by admins or storage account owners — satisfying SEC 17a-4 and similar regulatory requirements."
+  },
+  {
+    "id": "az900-484",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to build a pipeline that ingests raw sales data from multiple sources daily, transforms it into a standardized format, and stores it in a central data lake for analysts. Which category of Azure service is specifically designed for this data ingestion and transformation at scale?",
+    "choices": [
+      "Azure Stream Analytics for real-time ingestion only",
+      "Azure Service Bus for message queuing",
+      "Azure Data Factory for batch ETL pipeline orchestration",
+      "Azure Event Grid for event-driven ingestion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Data Factory is Azure's managed ETL/ELT service for building data pipelines at scale. It connects to 90+ data sources, applies transformations via Data Flows (code-free) or custom code, and loads results into a data lake or warehouse on a scheduled basis — exactly the described use case."
+  },
+  {
+    "id": "az900-485",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's operations team manages Azure resources daily using the Azure portal. For quick checks while away from their desk, they want to view resource health, approve deployments, and receive alerts on their smartphone. Which Microsoft offering enables this?",
+    "choices": [
+      "Azure Cloud Shell accessed via mobile browser",
+      "Azure Mobile App",
+      "Azure Monitor mobile notifications only",
+      "Azure DevOps mobile application"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Azure Mobile App (available for iOS and Android) allows viewing resource health, receiving and responding to alerts, running Azure Cloud Shell commands, and managing resources from a smartphone. It's purpose-built for operations teams who need Azure management capabilities on the go."
+  },
+  {
+    "id": "az900-486",
+    "domain": "Describe Azure management and governance",
+    "question": "A developer wants to quickly run Azure CLI commands and PowerShell scripts without installing anything locally — accessing them directly from the Azure portal browser window. Which Azure feature enables this browser-based command-line experience?",
+    "choices": [
+      "Azure Cloud Shell",
+      "Azure DevOps Pipelines",
+      "Azure Resource Graph Explorer",
+      "Azure Automation Runbooks"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Cloud Shell provides an authenticated, browser-based shell environment (Bash or PowerShell) accessible directly from the Azure portal. It comes pre-installed with Azure CLI, Azure PowerShell, and common tools — requiring zero local installation and persisting files in an Azure storage account."
+  },
+  {
+    "id": "az900-487",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to run automated scripts on a schedule in Azure — for example, shutting down development VMs every night at 10 PM and starting them at 7 AM. They want a managed service to execute these PowerShell scripts without maintaining script execution infrastructure. Which Azure service is designed for this?",
+    "choices": [
+      "Azure Functions with timer trigger",
+      "Azure Logic Apps with scheduled trigger",
+      "Azure Automation with runbooks and schedules",
+      "Azure DevOps scheduled pipelines"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Automation provides process automation through PowerShell or Python runbooks that can be scheduled, triggered by events, or run on demand. It's purpose-built for IT operations automation tasks like managing VM state, applying updates, and enforcing configurations — without managing execution infrastructure."
+  },
+  {
+    "id": "az900-488",
+    "domain": "Describe cloud concepts",
+    "question": "A company previously needed a full-time team to manage server hardware — ordering parts, replacing failed drives, applying firmware updates. After moving to Azure, those responsibilities shifted to Microsoft. Which aspect of the shared responsibility model does this reflect?",
+    "choices": [
+      "Microsoft now manages the company's application code",
+      "The customer manages physical hardware in Azure datacenters",
+      "Microsoft is responsible for physical infrastructure; customer focus shifts to applications and data",
+      "Security becomes Microsoft's sole responsibility in the cloud"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The shared responsibility model assigns physical infrastructure management (hardware, datacenter facilities, networking equipment, physical security) to the cloud provider. Customers are freed from hardware operations and can redirect that team's effort toward higher-value application and data work."
+  },
+  {
+    "id": "az900-489",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to analyze the sentiment of product reviews posted on their website in real time as they are submitted. Each review should be scored as positive, negative, or neutral within 1 second. Which Azure service provides this without custom model training?",
+    "choices": [
+      "Azure Machine Learning real-time inference endpoint",
+      "Azure Databricks streaming job",
+      "Azure AI Language — Sentiment Analysis",
+      "Azure HDInsight Spark streaming"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure AI Language's Sentiment Analysis is a pre-built API that analyzes text and returns sentiment scores (positive, negative, neutral, mixed) in real time. No model training is required — you call the API with the review text and receive results within milliseconds, making it ideal for real-time review analysis."
+  },
+  {
+    "id": "az900-490",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to provide their field technicians with turn-by-turn navigation and location-based services within a custom mobile app. They want to embed mapping, routing, and geofencing capabilities using Azure rather than third-party mapping APIs. Which Azure service provides this?",
+    "choices": [
+      "Azure Location Based Services",
+      "Azure Spatial Anchors",
+      "Azure Maps",
+      "Azure Digital Twins"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Maps provides geospatial services including maps, search, routing, traffic data, time zones, and geofencing through REST APIs. It can be embedded in custom mobile apps to provide navigation and location-based services without relying on third-party mapping platforms."
+  },
+  {
+    "id": "az900-491",
+    "domain": "Describe Azure architecture and services",
+    "question": "A manufacturing company wants to create a digital model of their factory floor — tracking the real-time state of machines, sensors, and production lines — to simulate, monitor, and optimize operations. Which Azure service is designed for modeling real-world environments as digital representations?",
+    "choices": [
+      "Azure IoT Hub",
+      "Azure Digital Twins",
+      "Azure Time Series Insights",
+      "Azure Stream Analytics"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Digital Twins is a platform for creating digital models (twins) of real-world environments — factories, buildings, cities. It models relationships between spaces, assets, and sensors, integrates with IoT data, and enables simulation and optimization of physical environments virtually."
+  },
+  {
+    "id": "az900-492",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company deploys thousands of IoT sensors across their smart building network. These devices send telemetry data to the cloud every 30 seconds. Which Azure service is purpose-built for securely connecting, managing, and ingesting telemetry from large fleets of IoT devices?",
+    "choices": [
+      "Azure Event Hubs",
+      "Azure Service Bus",
+      "Azure IoT Hub",
+      "Azure Notification Hubs"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure IoT Hub is a managed service for bidirectional communication between IoT devices and the cloud. It handles device authentication, device-to-cloud telemetry ingestion, cloud-to-device commands, device management (firmware updates), and scales to millions of simultaneously connected devices."
+  },
+  {
+    "id": "az900-493",
+    "domain": "Describe cloud concepts",
+    "question": "A company's Azure VMs are distributed across multiple Azure regions so that if Region A fails, Region B serves all traffic. Their SLA commitments require no more than 52 minutes of downtime per year. Which cloud metric expresses this as a percentage?",
+    "choices": [
+      "99.9% availability (8.7 hours downtime/year)",
+      "99.99% availability (52 minutes downtime/year)",
+      "99.95% availability (4.4 hours downtime/year)",
+      "99.999% availability (5 minutes downtime/year)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "99.99% availability allows approximately 52.6 minutes of downtime per year (1 - 0.9999 = 0.0001 × 525,960 minutes/year ≈ 52.6 minutes). This is the SLA Azure guarantees for VMs deployed across multiple Availability Zones, matching the company's requirement."
+  },
+  {
+    "id": "az900-494",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to automatically apply a standard configuration to any new Azure VM that is deployed — installing the monitoring agent and configuring firewall settings — without requiring manual post-deployment steps. Which Azure Policy feature enables this automated remediation?",
+    "choices": [
+      "Deny effect preventing non-compliant VM creation",
+      "Audit effect flagging non-compliant VMs for review",
+      "DeployIfNotExists effect automatically deploying missing configurations",
+      "Append effect adding tags to new VMs"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The DeployIfNotExists policy effect automatically triggers a deployment when a resource is created or updated and the specified condition isn't met. For example, if a VM is deployed without the monitoring agent, the policy automatically deploys it — eliminating manual post-deployment configuration steps."
+  },
+  {
+    "id": "az900-495",
+    "domain": "Describe Azure architecture and services",
+    "question": "A SaaS company wants to offer their application to customers in different countries, with each customer's data completely isolated from others. Each customer should have their own Azure SQL Database instance, but the company wants centralized management of hundreds of databases at reduced cost. Which Azure SQL feature supports this?",
+    "choices": [
+      "Azure SQL Database Elastic Pools",
+      "Azure SQL Managed Instance",
+      "Azure SQL Database Hyperscale tier",
+      "Azure Synapse Analytics SQL pool"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure SQL Database Elastic Pools share a set of compute and storage resources (eDTUs or vCores) across multiple databases. For SaaS scenarios with many customer databases that have varying and unpredictable usage, elastic pools provide cost efficiency — databases that are idle share resources with active ones."
+  },
+  {
+    "id": "az900-496",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company migrates their on-premises SQL Server to Azure but requires full SQL Server compatibility — including SQL Agent jobs, cross-database queries, linked servers, and features not available in Azure SQL Database. Which Azure service provides the highest SQL Server compatibility in a managed offering?",
+    "choices": [
+      "Azure SQL Database serverless tier",
+      "Azure SQL Database Hyperscale",
+      "SQL Server on Azure Virtual Machine",
+      "Azure SQL Managed Instance"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Azure SQL Managed Instance provides near 100% compatibility with on-premises SQL Server, including SQL Agent, cross-database queries, linked servers, CLR, and Service Broker. It's a fully managed PaaS service — unlike SQL Server on a VM (IaaS) — while maintaining feature parity with on-premises SQL Server."
+  },
+  {
+    "id": "az900-497",
+    "domain": "Describe cloud concepts",
+    "question": "A company notices that Azure's pricing for compute has decreased three times in the past two years, even though they didn't renegotiate their contract. Microsoft passes operational savings to customers as their infrastructure efficiency improves. Which cloud economic principle explains this?",
+    "choices": [
+      "Reserved instance discounts for long-term commitments",
+      "Spot instance pricing for interruptible workloads",
+      "Economies of scale — cloud providers pass savings to customers over time",
+      "Consumption-based billing for pay-as-you-go pricing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "As cloud providers grow, they achieve greater economies of scale — negotiating better hardware prices, improving energy efficiency, and optimizing operations. Microsoft passes these savings to customers through regular price reductions. This is a fundamental cloud economic benefit that on-premises customers don't experience."
+  },
+  {
+    "id": "az900-498",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to prevent their Azure subscription from being used to deploy resources in regions outside of Europe for data residency compliance. However, they still need to allow global services like Azure Active Directory and Azure CDN that don't have a specific region. How should they configure Azure Policy?",
+    "choices": [
+      "Deny all resources with a location property set to non-EU regions, while exempting global services",
+      "Use Azure RBAC to block users from selecting non-EU regions in the portal",
+      "Create a separate subscription for all global services",
+      "Apply Resource Locks to EU-region resource groups only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Azure Policy built-in 'Allowed locations' definition can deny resources with specific location values while exempting 'global' as an allowed location value. This lets Azure AD, CDN, and other global services continue working while blocking deployment of region-specific resources outside EU regions."
+  },
+  {
+    "id": "az900-499",
+    "domain": "Describe Azure architecture and services",
+    "question": "A startup wants to use pre-built AI models to add features to their app: object detection in photos, key phrase extraction from documents, and anomaly detection in time-series data — each as a separate REST API call. Where are all of these available under one umbrella?",
+    "choices": [
+      "Azure Machine Learning automated ML endpoints",
+      "Azure Cognitive Services / Azure AI Services",
+      "Azure Databricks ML runtime",
+      "Azure Synapse Analytics ML integration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Cognitive Services (rebranded as Azure AI Services) is an umbrella of pre-built AI APIs covering Vision (object detection), Language (key phrase extraction), Speech, Decision (anomaly detection), and more. Each capability is a separate REST API requiring no ML training — perfect for startups adding AI features quickly."
+  },
+  {
+    "id": "az900-500",
+    "domain": "Describe Azure management and governance",
+    "question": "A company is evaluating Microsoft's commitments around Azure service uptime. They want to understand what financial remedy Microsoft provides if Azure fails to meet its stated uptime percentage for Azure Virtual Machines. What document and mechanism covers this?",
+    "choices": [
+      "Azure Trust Center compliance documentation",
+      "Microsoft Privacy Statement",
+      "Azure Service Level Agreement (SLA) with service credits",
+      "Azure Support plan incident response commitments"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Service Level Agreements (SLAs) define the uptime percentage Microsoft commits to for each service. If Microsoft fails to meet the SLA, customers receive service credits (a percentage of their monthly bill) as financial remedy. SLAs are the formal contractual commitment for service availability."
+  },
+  {
+    "id": "az900-501",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's security team wants a centralized SIEM (Security Information and Event Management) solution that collects security logs from all Azure resources, on-premises servers, and third-party tools, then uses AI to detect threats and automate incident response. Which Azure service provides this?",
+    "choices": [
+      "Microsoft Sentinel",
+      "Microsoft Defender for Cloud",
+      "Azure Monitor Log Analytics",
+      "Azure Security Center compliance dashboard"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Microsoft Sentinel is Azure's cloud-native SIEM and SOAR (Security Orchestration, Automation, and Response) solution. It ingests security data from Azure, on-premises, and third-party sources, applies AI/ML to detect threats, and automates incident response through playbooks — far beyond what Monitor or Defender for Cloud alone provide."
+  },
+  {
+    "id": "az900-502",
+    "domain": "Describe Azure management and governance",
+    "question": "A company runs a mix of Azure VMs, on-premises servers, and VMs on other cloud providers. They want a single control plane to apply Azure Policy, RBAC, and inventory management across ALL of these resources — not just native Azure resources. Which Azure service enables this?",
+    "choices": [
+      "Azure Management Groups",
+      "Azure Arc",
+      "Azure Migrate",
+      "Azure Lighthouse"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Arc extends Azure management capabilities to resources outside of Azure — including on-premises servers, VMs on other clouds (AWS, GCP), and Kubernetes clusters anywhere. With Arc, you can apply Azure Policy, RBAC, Defender for Cloud, and Monitor to non-Azure resources through the Azure portal."
+  },
+  {
+    "id": "az900-503",
+    "domain": "Describe Azure management and governance",
+    "question": "A managed service provider (MSP) manages Azure environments for 50 different customer tenants. Rather than switching between 50 different Azure portals, they want to manage all customer subscriptions from their own Azure tenant without being added as a guest user to each customer's directory. Which Azure service enables this?",
+    "choices": [
+      "Azure Arc multi-cloud management",
+      "Azure Blueprints cross-tenant deployment",
+      "Azure Lighthouse delegated resource management",
+      "Azure Management Groups cross-tenant hierarchy"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Lighthouse enables managed service providers to manage multiple customer tenants from their own Azure tenant through delegated resource management. MSPs get a unified view and management capability across all customer subscriptions without needing guest accounts in each customer directory."
+  },
+  {
+    "id": "az900-504",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's administrator needs temporary elevated access to an Azure subscription to perform a critical maintenance task. Once the task is complete, the elevated permissions should automatically expire. Permanently assigning admin rights violates the principle of least privilege. Which Azure AD feature enables time-limited privileged access?",
+    "choices": [
+      "Azure AD Conditional Access with session controls",
+      "Azure AD Privileged Identity Management (PIM)",
+      "Azure Role-Based Access Control with expiring assignments",
+      "Azure AD Multi-Factor Authentication enforcement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure AD Privileged Identity Management (PIM) enables just-in-time privileged access. Users are eligible for roles but must activate them when needed (with MFA and justification), and the elevated access automatically expires after a configured time. This follows least privilege without permanently assigning admin rights."
+  },
+  {
+    "id": "az900-505",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to enforce that employees can only access Azure resources from corporate-managed devices and only from within specific geographic regions. Users attempting access from personal devices or from outside approved countries should be blocked. Which Azure AD feature enforces these context-based access policies?",
+    "choices": [
+      "Azure AD Conditional Access policies",
+      "Azure AD Multi-Factor Authentication only",
+      "Azure AD B2C custom policies",
+      "Azure AD Domain Services Group Policy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure AD Conditional Access evaluates contextual signals (device compliance, location, user risk, app being accessed) to enforce access policies. You can require compliant devices, block specific countries, require MFA based on risk level, and restrict access to specific apps — all configurable without code."
+  },
+  {
+    "id": "az900-506",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's security team needs to perform vulnerability assessments on their Azure VMs to identify unpatched operating systems and exposed ports. They want automated scanning without deploying separate agent software on each VM. Which Azure service provides integrated VM vulnerability assessment?",
+    "choices": [
+      "Azure Policy compliance scanning",
+      "Azure Monitor agent diagnostics",
+      "Microsoft Defender for Servers vulnerability assessment",
+      "Azure Advisor security recommendations only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Microsoft Defender for Servers includes integrated vulnerability assessment powered by Qualys or Microsoft's own scanner. It automatically scans Azure VMs for OS vulnerabilities, missing patches, and exposed services — without requiring separate agent deployment — and reports findings in Defender for Cloud."
+  },
+  {
+    "id": "az900-507",
+    "domain": "Describe cloud concepts",
+    "question": "A company asks why Azure is able to offer enterprise-grade compliance certifications (HIPAA, FedRAMP, PCI DSS) that would cost tens of millions of dollars to achieve independently. Their consultant explains the cloud economic advantage. What is the BEST explanation?",
+    "choices": [
+      "Azure provides compliance certifications only to enterprise customers",
+      "Microsoft waives compliance requirements for cloud deployments",
+      "Cloud providers spread the cost of certifications across millions of customers, making compliance accessible at scale",
+      "Azure automates compliance so no certification work is needed"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Achieving and maintaining compliance certifications (HIPAA, FedRAMP, SOC 2, PCI DSS) costs millions of dollars annually in audits, controls, and dedicated staff. By spreading this cost across millions of Azure customers, Microsoft makes enterprise compliance accessible to organizations of any size — a key economy of scale benefit."
+  },
+  {
+    "id": "az900-508",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company deploys an Azure Static Web App for their React frontend and Azure Functions for their API backend. Both are deployed together as part of the same project. Which Azure service was MOST likely used to host this modern web application architecture?",
+    "choices": [
+      "Azure Static Web Apps",
+      "Azure App Service with multiple deployment slots",
+      "Azure Kubernetes Service with nginx ingress",
+      "Azure Virtual Machines with IIS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Static Web Apps is specifically designed for modern web apps combining a static frontend (React, Vue, Angular) with an integrated serverless API backend (Azure Functions). It provides global CDN distribution, GitHub/Azure DevOps CI/CD integration, and free SSL — all in one managed service."
+  },
+  {
+    "id": "az900-509",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company uses a Bicep template instead of ARM JSON to deploy their Azure infrastructure. A new team member asks what Bicep is. Which description is MOST accurate?",
+    "choices": [
+      "A third-party infrastructure-as-code tool unrelated to Azure",
+      "A domain-specific language (DSL) that compiles to ARM JSON, providing a simpler syntax for Azure IaC",
+      "A Python library for calling Azure REST APIs",
+      "A visual drag-and-drop designer for ARM templates"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bicep is Microsoft's domain-specific language (DSL) for Azure Infrastructure as Code. It compiles transparently to ARM JSON templates, providing a cleaner, more concise syntax with better tooling support. Bicep is a first-class Azure IaC option and the recommended alternative to raw ARM JSON."
+  },
+  {
+    "id": "az900-510",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to ensure that all Azure resources can be traced back to a specific project, environment, and cost center for chargeback reporting. They need this metadata attached to every resource. Currently resources are created without consistent metadata. Which Azure capability enforces metadata requirements?",
+    "choices": [
+      "Azure Resource Locks preventing resource modification",
+      "Azure Monitor activity log tracking all deployments",
+      "Azure Policy requiring mandatory resource tags at creation",
+      "Azure Blueprints with pre-defined resource groups"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Policy with a Deny effect can require that specific tags (Project, Environment, CostCenter) are present when any resource is created. Resources created without these tags are automatically rejected. This enforces consistent metadata across all resources for chargeback and cost tracking."
+  },
+  {
+    "id": "az900-511",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to understand their overall data landscape in Azure — what sensitive data exists across hundreds of storage accounts, SQL databases, and data lakes, how it's classified, and where it flows. Which Azure service provides unified data governance and discovery?",
+    "choices": [
+      "Azure Purview (Microsoft Purview)",
+      "Azure Security Center data recommendations",
+      "Azure Monitor Log Analytics",
+      "Azure SQL Data Discovery & Classification only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Microsoft Purview (formerly Azure Purview) is a unified data governance service that automatically scans and classifies data across Azure storage, databases, and even multi-cloud/on-premises sources. It provides a data map, data catalog, sensitivity labels, and data lineage — giving a complete view of your data estate."
+  },
+  {
+    "id": "az900-512",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company currently pays for 100 Azure VMs running 24/7 at pay-as-you-go rates. After analysis, they find that 80 of these VMs run continuously for 3+ years with predictable load. What purchasing option would MOST reduce their monthly costs for these 80 VMs?",
+    "choices": [
+      "Convert to Spot VMs for maximum discount",
+      "Use Azure Dev/Test subscription pricing",
+      "Purchase 3-year Reserved VM Instances for the 80 stable VMs",
+      "Enable auto-shutdown during weekends only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Reserved VM Instances for 3 years provide up to 72% savings over pay-as-you-go for stable, predictable workloads. Spot VMs offer larger discounts but can be evicted at any time, making them unsuitable for production workloads. Reserved Instances are the optimal choice for long-running predictable VMs."
+  },
+  {
+    "id": "az900-513",
+    "domain": "Describe cloud concepts",
+    "question": "A company's SLA with their customers requires 99.95% monthly uptime. Their Azure application is deployed across multiple Availability Zones. Azure's VM SLA for zone-redundant deployments is 99.99%. Which statement about SLA composition is correct?",
+    "choices": [
+      "The composite SLA is always higher than any individual component SLA",
+      "Adding more Azure services always increases the composite SLA",
+      "When multiple services are chained (each required for the app to work), the composite SLA is the product of individual SLAs and is lower",
+      "Azure guarantees that any application SLA matches the underlying VM SLA"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Composite SLA for dependent services is calculated by multiplying individual SLAs. If your app requires VM (99.99%) AND SQL Database (99.99%) AND Storage (99.99%), the composite SLA is 99.99% × 99.99% × 99.99% ≈ 99.97% — lower than any individual component. More dependencies mean lower composite SLA."
+  },
+  {
+    "id": "az900-514",
+    "domain": "Describe Azure architecture and services",
+    "question": "A university research team needs to run extremely computationally intensive quantum chemistry simulations. Classical computers would take years to solve these problems. They want to explore Azure's quantum computing capabilities. Which Azure service provides access to quantum hardware and quantum-inspired solvers?",
+    "choices": [
+      "Azure High Performance Computing (HPC) VMs",
+      "Azure Quantum",
+      "Azure Databricks GPU clusters",
+      "Azure Batch with GPU nodes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Quantum provides access to quantum hardware from multiple providers (IonQ, Quantinuum, etc.) and quantum-inspired optimization solvers. Researchers can run quantum algorithms and quantum-inspired classical algorithms for problems like molecular simulation, optimization, and cryptography that classical computers struggle with."
+  },
+  {
+    "id": "az900-515",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to deploy their containerized application to Azure but their developers are already familiar with Kubernetes manifests (YAML files). They want a managed environment that accepts standard Kubernetes configurations without proprietary abstractions. Which Azure service is MOST appropriate?",
+    "choices": [
+      "Azure Container Instances (ACI)",
+      "Azure App Service with containers",
+      "Azure Kubernetes Service (AKS)",
+      "Azure Container Apps"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Kubernetes Service (AKS) is Azure's managed Kubernetes service that accepts standard Kubernetes YAML manifests and kubectl commands. Developers use the same Kubernetes APIs they know, while Azure manages the control plane. ACI and Container Apps are higher-level abstractions that don't expose raw Kubernetes."
+  },
+  {
+    "id": "az900-516",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's finance team runs month-end reports that require intensive database queries — consuming 10x normal compute capacity for 48 hours, then returning to baseline. They want to avoid paying for peak capacity all month. Which Azure SQL Database compute option BEST handles this variable demand cost-effectively?",
+    "choices": [
+      "Azure SQL Database Serverless — automatically scales compute and pauses when idle",
+      "Azure SQL Database Business Critical tier at peak sizing",
+      "SQL Server on a large Azure VM with manual scaling",
+      "Azure SQL Database with maximum DTUs provisioned permanently"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure SQL Database Serverless tier automatically scales compute resources based on demand and pauses (billing only for storage) during idle periods. This is ideal for workloads with intermittent, unpredictable usage — the finance team's month-end spikes are handled automatically, and they pay only for compute actually used."
+  },
+  {
+    "id": "az900-517",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to process a large volume of images in parallel — 1 million images need resizing within 4 hours. Each image takes 2 seconds to process independently. They need a solution that can spin up hundreds of compute instances temporarily, distribute the work, then shut down. Which Azure service is designed for this HPC-style workload?",
+    "choices": [
+      "Azure App Service with multiple instances",
+      "Azure Functions with a Consumption plan",
+      "Azure Batch with auto-scaling compute pools",
+      "Azure Logic Apps with parallel branches"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Batch is designed for large-scale parallel and HPC workloads. It automatically provisions compute node pools, schedules tasks across nodes, and tears down the pool when complete. For 1 million images with 2-second each, Batch can distribute work across hundreds of nodes to meet the 4-hour deadline."
+  },
+  {
+    "id": "az900-518",
+    "domain": "Describe cloud concepts",
+    "question": "A company's development team previously waited 3 weeks for hardware procurement before starting new projects. In Azure, they can have servers running in minutes. This speed advantage means they can test ideas quickly, fail fast, and iterate. Which overarching cloud benefit does this most directly enable?",
+    "choices": [
+      "Reduced regulatory compliance burden",
+      "Innovation through rapid experimentation and iteration",
+      "Elimination of all security vulnerabilities",
+      "Guaranteed 100% application uptime"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cloud dramatically accelerates innovation by enabling rapid provisioning of test environments, prototypes, and experiments. Teams can test ideas in minutes rather than weeks, fail fast, learn quickly, and iterate — all without large capital commitments. This speed of experimentation is a transformative advantage of cloud adoption."
+  },
+  {
+    "id": "az900-519",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to give a junior developer access to view (but not modify) resources in only one specific resource group, while their senior developer has full access to the entire subscription. Which Azure RBAC principle allows this granular, different-level access assignment?",
+    "choices": [
+      "Scope-based role assignment — RBAC roles can be assigned at subscription, resource group, or resource scope",
+      "Azure Policy with allowed actions per user",
+      "Management Group inheritance forcing uniform permissions",
+      "Azure AD group membership determining resource group access"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure RBAC supports scope-based assignments — you assign roles at the management group, subscription, resource group, or individual resource level. The junior developer gets Reader at the specific resource group scope; the senior developer gets Contributor/Owner at the subscription scope. Permissions are inherited downward."
+  },
+  {
+    "id": "az900-520",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to deploy Azure services in their own datacenter to meet data sovereignty requirements — they need Azure's services but the hardware must physically reside on-premises. Which Azure offering enables running Azure services in a company's own datacenter?",
+    "choices": [
+      "Azure Arc for on-premises management",
+      "Azure Stack Hub",
+      "Azure ExpressRoute private peering",
+      "Azure Dedicated Host"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Stack Hub is an extension of Azure that lets organizations run Azure services from their own datacenters. It provides a subset of Azure services on-premises with the same APIs, portal, and tooling — enabling true hybrid cloud with data sovereignty guarantees for regulated industries with strict data residency requirements."
+  },
+  {
+    "id": "az900-521",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company processes highly sensitive financial calculations and needs to ensure that data remains encrypted even while being processed in memory — protecting against privileged access by cloud operators or hypervisor-level attacks. Which Azure capability addresses this?",
+    "choices": [
+      "Azure Disk Encryption with customer-managed keys",
+      "Azure Confidential Computing with Trusted Execution Environments",
+      "Azure Key Vault HSM-protected keys",
+      "Azure Firewall with IDPS enabled"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Confidential Computing uses hardware-based Trusted Execution Environments (TEEs) — such as Intel SGX enclaves — to protect data while it's being processed in memory. Even Microsoft operators and hypervisor-level processes cannot access the data during computation, enabling 'encrypt everywhere' including in-use."
+  },
+  {
+    "id": "az900-522",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to deploy Azure Virtual Machines on physical servers that are not shared with any other Azure customer. They need this for compliance requirements mandating hardware isolation. Which Azure offering provides single-tenant dedicated physical servers?",
+    "choices": [
+      "Azure Reserved VM Instances",
+      "Azure Spot VMs with isolation flag",
+      "Azure Dedicated Host",
+      "Azure Isolated VM sizes"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Dedicated Host provisions physical servers dedicated exclusively to one Azure customer. No other customer's VMs run on the same physical host. This satisfies compliance requirements for hardware isolation. Azure Isolated VM sizes run on isolated hardware but still share infrastructure management; Dedicated Host provides full physical server dedication."
+  },
+  {
+    "id": "az900-523",
+    "domain": "Describe Azure management and governance",
+    "question": "A company has an Azure subscription with no spending limit set. They are worried about runaway costs from misconfigured auto-scaling. What Azure feature can proactively stop new resource deployments when a defined spending threshold is exceeded?",
+    "choices": [
+      "Azure Cost Management budget with action group to disable a subscription",
+      "Azure Policy with cost-based deny effects",
+      "Azure Advisor automatic resource termination",
+      "Azure spending limits on pay-as-you-go subscriptions"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Cost Management budgets support action groups that can trigger automated responses when thresholds are reached — including running a Logic App or Automation Runbook that disables a subscription or stops resources. Note: Azure spending limits only apply to free trial and some Visual Studio subscriptions, not pay-as-you-go."
+  },
+  {
+    "id": "az900-524",
+    "domain": "Describe cloud concepts",
+    "question": "A company's CTO is presenting to the board about cloud migration. She states: 'By moving to Azure, we shift from a model where we must predict and purchase capacity years ahead, to one where capacity is always available when needed, and we pay only as we consume it.' Which two cloud concepts is she describing?",
+    "choices": [
+      "High availability and fault tolerance",
+      "On-demand scalability and consumption-based pricing",
+      "Geographic distribution and data sovereignty",
+      "Shared responsibility and platform compliance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The CTO is describing two fundamental cloud concepts: on-demand scalability (capacity is always available when needed, no upfront capacity planning) and consumption-based pricing (pay only for what you use, eliminating waste from over-provisioning). Together these transform the economics of IT infrastructure."
+  },
+  {
+    "id": "az900-525",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's IT team wants to track all changes made to Azure resources over the past 90 days — who created or deleted what resource, when, and from which IP address — to support a security investigation. Which Azure service provides this audit trail?",
+    "choices": [
+      "Azure Monitor Metrics",
+      "Azure Activity Log",
+      "Azure Resource Graph",
+      "Azure Advisor history"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Azure Activity Log records all control-plane operations performed in an Azure subscription — resource creation, modification, deletion, policy assignments, and RBAC changes — including who performed the action, when, and from where. It retains data for 90 days by default and can be exported for longer retention."
+  },
+  {
+    "id": "az900-526",
+    "domain": "Describe Azure management and governance",
+    "question": "A US federal government agency needs to use Azure cloud services but requires that their data and workloads stay within the United States and are handled only by US-screened personnel. Which Azure environment is specifically designed for US government compliance requirements?",
+    "choices": [
+      "Azure Government Cloud (Azure for US Government)",
+      "Standard Azure US East region with geo-redundancy disabled",
+      "Azure with Azure Policy restricting regions to US only",
+      "Azure Sovereign with FedRAMP certification applied"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Government is a physically separate cloud environment exclusively for US federal, state, local, and tribal government entities. It meets FedRAMP High, DoD IL2/IL4/IL5, and other government compliance requirements. Data is handled only by US-screened Microsoft personnel, separate from the commercial Azure cloud."
+  },
+  {
+    "id": "az900-527",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's legal team wants to review all third-party audit reports, penetration test results, and compliance documentation for Azure services before approving cloud adoption. Where should they access these official Microsoft compliance documents?",
+    "choices": [
+      "Azure Advisor compliance dashboard",
+      "Microsoft Defender for Cloud regulatory reports",
+      "Microsoft Service Trust Portal",
+      "Azure Policy compliance history"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Microsoft Service Trust Portal (STP) provides access to independent audit reports, compliance guides, penetration test results, and other trust documents for Microsoft cloud services including Azure. It's the official repository for third-party compliance documentation that legal and compliance teams need for due diligence."
+  },
+  {
+    "id": "az900-528",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to understand Microsoft's specific commitments regarding how Azure handles customer data — what data Microsoft collects, how it's used, and how long it's retained. Which document provides these data handling commitments?",
+    "choices": [
+      "Azure Service Level Agreement (SLA)",
+      "Azure Trust Center and Microsoft Privacy Statement",
+      "Azure Compliance Manager assessment",
+      "Microsoft Defender for Cloud data classification report"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Microsoft Privacy Statement describes how Microsoft collects, uses, and protects customer data across all Microsoft services including Azure. The Azure Trust Center provides additional resources on security, privacy, compliance, and transparency. Together they document Microsoft's data handling commitments."
+  },
+  {
+    "id": "az900-529",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company deploys two Azure VMs for their web application and uses an Availability Set. One VM is in Fault Domain 0, the other in Fault Domain 1. A rack-level power failure takes down Fault Domain 0. What happens?",
+    "choices": [
+      "Both VMs go down because they're in the same Availability Set",
+      "The VM in Fault Domain 1 continues serving traffic while Fault Domain 0 recovers",
+      "Azure automatically moves the Fault Domain 0 VM to Fault Domain 1",
+      "The Availability Set provides automatic IP failover between VMs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Fault Domains represent separate physical racks with independent power and networking. When Fault Domain 0's rack loses power, only the VM in that fault domain is affected. The VM in Fault Domain 1 (different rack, different power) continues running, keeping the application available — this is the purpose of Availability Sets."
+  },
+  {
+    "id": "az900-530",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's Azure VMs need to receive OS updates without all VMs rebooting simultaneously, which would cause downtime. They use an Availability Set with 5 Update Domains. How does this protect against update-related downtime?",
+    "choices": [
+      "Azure patches all 5 update domains simultaneously for speed",
+      "Azure never applies updates to VMs in Availability Sets",
+      "Azure sequentially updates one update domain at a time, keeping other domains running during maintenance",
+      "Update Domains only protect against hardware failures, not software updates"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Update Domains define groups of VMs that Azure reboots together during planned maintenance. With 5 Update Domains, only 1/5 of VMs reboot at a time during platform updates. The other 4 Update Domains remain running, ensuring the application stays available throughout the maintenance window."
+  },
+  {
+    "id": "az900-531",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company is building a real-time collaborative application (like Google Docs) where changes made by one user must be instantly pushed to all other connected users. Which Azure service enables this real-time bidirectional communication between server and browser clients?",
+    "choices": [
+      "Azure Service Bus for message queuing",
+      "Azure Event Grid for event routing",
+      "Azure SignalR Service",
+      "Azure Queue Storage for polling"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure SignalR Service provides real-time bidirectional communication between server and clients using WebSockets (with fallbacks). It enables server-side push of updates to connected browser clients instantly — ideal for collaborative apps, live dashboards, chat, and real-time notifications without client polling."
+  },
+  {
+    "id": "az900-532",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to extract structured data from thousands of scanned invoice PDFs — pulling out vendor name, invoice number, line items, and totals — automatically without custom code. Which Azure AI service is designed for document data extraction?",
+    "choices": [
+      "Azure AI Document Intelligence (Form Recognizer)",
+      "Azure AI Vision OCR basic text extraction",
+      "Azure Machine Learning custom model training",
+      "Azure AI Language key phrase extraction"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure AI Document Intelligence (formerly Form Recognizer) uses pre-built and custom models to extract structured fields from documents like invoices, receipts, tax forms, and contracts. Its pre-built invoice model can extract vendor, amounts, line items, and totals without any custom model training."
+  },
+  {
+    "id": "az900-533",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to enable their developers to create and test Azure-based applications using their Visual Studio subscriptions at significantly reduced rates for development and testing purposes only. Which Azure offering provides discounted rates specifically for non-production dev/test environments?",
+    "choices": [
+      "Azure Spot VMs for interruptible development workloads",
+      "Azure Reserved Instances for development VMs",
+      "Azure Dev/Test pricing through Visual Studio subscriptions",
+      "Azure Free Account 12-month trial services"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Dev/Test pricing provides significantly reduced rates for Windows VMs and other Azure services when used through Visual Studio (MSDN) subscriptions for development and testing purposes. These discounts don't apply to production workloads — only to non-production dev/test environments."
+  },
+  {
+    "id": "az900-534",
+    "domain": "Describe Azure management and governance",
+    "question": "A small company just signed up for Azure with a pay-as-you-go subscription. They experience a critical production issue at 2 AM and need to call Microsoft for immediate phone support. Which Azure support plan is the MINIMUM level that includes 24/7 phone support for critical issues?",
+    "choices": [
+      "Basic support (free, included with all subscriptions)",
+      "Developer support ($29/month, business hours only)",
+      "Standard support ($100/month, 24/7 critical support)",
+      "Professional Direct ($1,000/month)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Standard support ($100/month) is the minimum tier that includes 24/7 phone and web support for critical production issues (Severity A) with a 1-hour initial response time. Basic support only includes billing and subscription support. Developer support is limited to business hours and non-production scenarios."
+  },
+  {
+    "id": "az900-535",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to try a new Azure service that is in public preview before committing to it for production. Their architect warns that preview services have certain limitations. Which statement about Azure preview services is MOST accurate?",
+    "choices": [
+      "Preview services are fully covered by the same SLAs as generally available services",
+      "Preview services may have limited functionality, no SLA, and are not recommended for production workloads",
+      "Preview services are only available to Enterprise Agreement customers",
+      "Preview services automatically become generally available after 30 days"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure preview services (public or private preview) are released for evaluation and feedback. They typically have limited or no SLA, may have reduced functionality, can change significantly before GA, and Microsoft recommends against using them for production workloads. Generally Available (GA) services have full SLA support."
+  },
+  {
+    "id": "az900-536",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to use Azure to help employees with complex HR questions in natural language — 'How many vacation days do I have left?' or 'What's the process for parental leave?' — by building a bot that searches internal HR documents. Which Azure service stack would BEST enable this?",
+    "choices": [
+      "Azure OpenAI Service with document grounding (RAG pattern)",
+      "Azure Machine Learning custom NLP pipeline",
+      "Azure Databricks language model fine-tuning",
+      "Azure HDInsight with natural language processing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure OpenAI Service provides access to GPT models that can answer questions grounded in specific documents using Retrieval Augmented Generation (RAG). Combined with Azure AI Search to index HR documents, the bot can answer HR questions in natural language based on actual company policies — without fine-tuning."
+  },
+  {
+    "id": "az900-537",
+    "domain": "Describe cloud concepts",
+    "question": "A company evaluates moving workloads to Azure and asks: 'What happens to our Azure services if the internet goes down between our office and Azure?' Their architect explains that while connectivity could be an issue, Azure itself continues operating. What does this illustrate about Azure's reliability design?",
+    "choices": [
+      "Azure requires constant internet connectivity to operate its internal systems",
+      "Azure's internal infrastructure operates independently — connectivity issues affect access, not Azure's internal operations",
+      "Azure automatically moves workloads to on-premises when internet fails",
+      "Azure VMs shut down automatically when client connectivity is lost"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure's internal datacenter infrastructure operates independently of customer internet connections. If a company's internet fails, they lose access to manage Azure resources, but the Azure VMs, databases, and services continue running internally. The reliability of Azure's infrastructure is separate from network connectivity to it."
+  },
+  {
+    "id": "az900-538",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company has on-premises file servers that employees use to access shared files. They want to extend these file shares to Azure so that both on-premises servers and Azure VMs can access the same files, with the most frequently accessed files cached on-premises for fast local access. Which Azure service enables this hybrid file sharing with local caching?",
+    "choices": [
+      "Azure Blob Storage with CDN acceleration",
+      "Azure Files with Azure File Sync",
+      "Azure NetApp Files with on-premises replication",
+      "Azure Data Box for regular file transfers"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure File Sync extends Azure Files to on-premises by installing an agent on Windows Server. It replicates file shares to Azure Files, provides cloud tiering (keeping frequently accessed files cached locally while tiering rarely accessed files to Azure), and enables branch office file consolidation with local performance."
+  },
+  {
+    "id": "az900-539",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to run their application on Azure VMs but requires that the VMs are physically located close together in the same datacenter to achieve the lowest possible network latency between them (single-digit microsecond latency). Which Azure feature ensures this physical co-location?",
+    "choices": [
+      "Availability Set with multiple fault domains",
+      "Proximity Placement Group",
+      "Availability Zone with co-location flag",
+      "Azure Dedicated Host with VM affinity"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Proximity Placement Groups (PPG) constrain Azure VMs to be deployed within the same physical datacenter or cluster, minimizing network latency between them. This is critical for latency-sensitive applications like SAP HANA or high-frequency trading where even microseconds matter between application tiers."
+  },
+  {
+    "id": "az900-540",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company runs a database workload on Azure VMs that requires extremely high disk throughput (millions of IOPS) and sub-millisecond latency. Standard managed disks are insufficient. Which Azure disk storage option provides the highest performance for I/O intensive workloads?",
+    "choices": [
+      "Azure Ultra Disk",
+      "Azure Premium SSD managed disk",
+      "Azure Standard SSD managed disk",
+      "Azure Standard HDD managed disk"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Ultra Disk provides the highest disk performance available in Azure — up to 160,000 IOPS and 2,000 MB/s throughput per disk with sub-millisecond latency. It can be dynamically configured without detaching the disk, making it ideal for the most demanding database and analytics workloads."
+  },
+  {
+    "id": "az900-541",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company uses Azure DevTest Labs to manage their development environments. A developer wants to create a new VM but the lab policy limits VM size to Standard_B2s and Standard_D2s_v3. When the developer tries to create a larger VM, what happens?",
+    "choices": [
+      "The larger VM is created but flagged for review",
+      "An exception request is automatically submitted to the lab owner",
+      "The VM creation is blocked by the lab policy — only allowed sizes can be selected",
+      "The developer is charged a premium rate for the larger VM size"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure DevTest Labs enforces policies on allowed VM sizes, maximum VMs per user, auto-shutdown schedules, and other controls. When a developer attempts to create a VM outside the allowed sizes policy, the creation is blocked — the disallowed sizes are simply not available for selection in the lab."
+  },
+  {
+    "id": "az900-542",
+    "domain": "Describe Azure management and governance",
+    "question": "A company is assessing which of their on-premises servers are suitable for migration to Azure. They want Azure to automatically discover their on-premises VMs, analyze their performance data over 30 days, and recommend the right Azure VM size and estimated monthly cost. Which service provides this migration assessment?",
+    "choices": [
+      "Azure Pricing Calculator for manual size selection",
+      "Azure Migrate — Discovery and Assessment tool",
+      "Azure Cost Management migration planner",
+      "Azure Advisor for right-sizing recommendations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Migrate provides a hub for discovering, assessing, and migrating on-premises workloads to Azure. The Discovery and Assessment tool analyzes on-premises VMs over time (30+ days), recommends appropriate Azure VM sizes based on actual performance data, and estimates monthly costs before any migration occurs."
+  },
+  {
+    "id": "az900-543",
+    "domain": "Describe cloud concepts",
+    "question": "A company's architect states: 'We chose Azure because Microsoft has physically separate datacenters in the same region with independent power and networking, so we can survive a datacenter failure without going to another region.' What Azure infrastructure concept is the architect describing?",
+    "choices": [
+      "Azure Region Pairs for geo-redundancy",
+      "Azure Availability Zones — physically separate datacenters within a region",
+      "Azure Availability Sets — separate fault domains within a datacenter",
+      "Azure Edge Zones for low latency"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Availability Zones are physically separate datacenter facilities within a single Azure region, each with independent power, cooling, and networking. Deploying across zones protects against single-datacenter failures without requiring cross-region replication. They're distinct from Availability Sets (which operate within one datacenter)."
+  },
+  {
+    "id": "az900-544",
+    "domain": "Describe Azure management and governance",
+    "question": "A company receives an email alert that their Azure subscription spending has reached 80% of their $10,000 monthly budget. They configured the budget 3 months ago. Looking at their resources, they find several forgotten test VMs still running. Which Azure tool would have helped them identify these idle resources BEFORE receiving the budget alert?",
+    "choices": [
+      "Azure Policy compliance reports",
+      "Azure Service Health cost tracking",
+      "Azure Advisor cost optimization recommendations",
+      "Azure Monitor performance dashboards"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Advisor proactively analyzes resource utilization and identifies idle, underutilized, or forgotten resources — such as VMs with low CPU utilization — and recommends shutting them down or resizing. Regularly reviewing Advisor's cost recommendations would have identified the forgotten test VMs before they accumulated significant cost."
+  },
+  {
+    "id": "az900-545",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company builds a microservices application where each service needs to discover and communicate with other services using service name rather than IP address, and they need load balancing, retries, and circuit breaking between services. Which Azure service provides this service mesh and microservices infrastructure?",
+    "choices": [
+      "Azure Service Fabric",
+      "Azure API Management gateway",
+      "Azure Load Balancer with health probes",
+      "Azure Traffic Manager DNS routing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Service Fabric is a distributed systems platform for building and managing microservices. It provides service discovery, load balancing, health monitoring, automatic failover, rolling upgrades, and stateful service management. It was built from Microsoft's own experience running large-scale cloud services like Azure SQL Database."
+  },
+  {
+    "id": "az900-546",
+    "domain": "Describe cloud concepts",
+    "question": "A company runs 100 VMs in Azure that cost $15,000/month combined. They discover 30 of these VMs are development VMs that only run 8 hours/day and could be shut down nights and weekends. If they implement auto-shutdown, how does this reflect cloud's pricing model?",
+    "choices": [
+      "There is no cost savings — reserved VMs are billed regardless of running state",
+      "Auto-shutdown reduces the hours VMs consume compute, directly reducing pay-as-you-go costs",
+      "VMs in Azure always run — you cannot stop billing by shutting down",
+      "Shutting down VMs increases costs due to restart overhead charges"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pay-as-you-go VMs are billed for compute only while running. Shutting down (deallocating) a VM stops compute billing — you only pay for attached storage. If dev VMs run 8 hours/day on weekdays (~40% of month), compute costs drop by ~60% for those VMs, demonstrating the cloud consumption-based pricing model."
+  },
+  {
+    "id": "az900-547",
+    "domain": "Describe Azure architecture and services",
+    "question": "A media streaming company wants to encode video files uploaded by users into multiple quality formats (1080p, 720p, 480p) and stream them globally to viewers. Which Azure service is purpose-built for video encoding, packaging, and streaming at scale?",
+    "choices": [
+      "Azure Blob Storage with CDN for direct streaming",
+      "Azure Media Services",
+      "Azure Content Delivery Network with video optimization",
+      "Azure Video Indexer standalone"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Media Services provides end-to-end video workflows — ingestion, encoding (transcoding to multiple formats/bitrates), content protection (DRM), and global streaming delivery via streaming endpoints. It handles the full pipeline from upload to viewer playback at scale, unlike raw Blob+CDN which only handles storage and delivery."
+  },
+  {
+    "id": "az900-548",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's operations team receives hundreds of Azure Monitor alerts per day, many of which are duplicates or low priority. They want to group related alerts, suppress noise during maintenance windows, and route critical alerts to PagerDuty. Which Azure Monitor feature manages alert processing?",
+    "choices": [
+      "Azure Monitor action groups only",
+      "Azure Advisor alert digest",
+      "Azure Monitor alert processing rules and action groups",
+      "Microsoft Sentinel alert correlation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Monitor alert processing rules allow suppressing alerts during maintenance windows, redirecting alerts to different action groups, and filtering by severity or resource. Action groups define what happens when an alert fires (email, SMS, webhook to PagerDuty, Azure Function). Together they provide complete alert management."
+  },
+  {
+    "id": "az900-549",
+    "domain": "Describe Azure architecture and services",
+    "question": "A global e-commerce company needs to detect fraud in real time across transactions processed in multiple Azure regions. Each region's fraud detection model must share learning from patterns detected worldwide, requiring low-latency read access everywhere. Which Azure service BEST supports this globally distributed, low-latency read requirement?",
+    "choices": [
+      "Azure SQL Database with active geo-replication read replicas",
+      "Azure Cosmos DB with multi-region write and read",
+      "Azure Cache for Redis with manual cross-region sync",
+      "Azure Synapse Analytics with global distribution"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Cosmos DB with multi-region configuration provides low-latency reads (and writes) from any Azure region simultaneously. Data is automatically replicated across all configured regions. For fraud detection requiring global pattern sharing with sub-10ms reads worldwide, Cosmos DB's global distribution is purpose-built for this scenario."
+  },
+  {
+    "id": "az900-550",
+    "domain": "Describe Azure management and governance",
+    "question": "A company has been running Azure workloads for 6 months and wants to understand their total cloud spend by business unit using resource tags. However, they notice that 40% of resources have no tags. Going forward, how can they ensure ALL new resources are tagged, while also identifying and flagging existing untagged resources?",
+    "choices": [
+      "Azure Policy: Deny effect for new resources without tags + Audit effect report for existing resources",
+      "Azure Advisor will automatically tag resources based on usage patterns",
+      "Azure Monitor alerts when resources without tags are created",
+      "Azure Blueprints retroactively applies tags to existing resources"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A two-policy approach works best: a Deny policy prevents new resources from being created without required tags, and an Audit policy generates a compliance report identifying existing untagged resources for remediation. This combination enforces tags going forward while surfacing the existing non-compliance for cleanup."
+  },
+  {
+    "id": "az900-551",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company already owns Windows Server licenses with active Software Assurance. When moving those workloads to Azure VMs running Windows Server, they want to avoid paying for the Windows license a second time. Which Azure program allows them to use their existing licenses in Azure?",
+    "choices": [
+      "Azure Hybrid Benefit",
+      "Azure Reserved Instances discount",
+      "Azure Dev/Test pricing",
+      "Azure Spot VM pricing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Hybrid Benefit allows customers with Windows Server or SQL Server licenses covered by Software Assurance to use those licenses on Azure VMs instead of paying the full Azure rate. This can reduce VM costs by up to 40-49%, as customers only pay for the base compute rather than compute plus license."
+  },
+  {
+    "id": "az900-552",
+    "domain": "Describe Azure architecture and services",
+    "question": "A data analytics company needs to run large-scale Spark jobs that may run for hours. To minimize cost, they are willing to have jobs interrupted if Azure needs the capacity back, and they can checkpoint progress and resume. Which Azure VM pricing model offers the deepest discount for this interruptible workload?",
+    "choices": [
+      "Azure Spot Virtual Machines",
+      "Azure Reserved VM Instances (1-year)",
+      "Azure Dev/Test subscription VMs",
+      "Azure Burstable B-series VMs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Spot VMs offer up to 90% discount over pay-as-you-go pricing by using Azure's excess capacity. The trade-off is eviction — Azure can reclaim Spot VMs with 30 seconds notice when capacity is needed. For fault-tolerant, checkpointing Spark jobs, this trade-off is acceptable for maximum cost savings."
+  },
+  {
+    "id": "az900-553",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company stores critical business documents in Azure Blob Storage. The IT manager asks: 'If the entire Azure West Europe region is destroyed by a natural disaster, can we still access our data?' They configured Geo-Redundant Storage (GRS). What happens to their data?",
+    "choices": [
+      "Data is permanently lost because it only exists in one region",
+      "Data is replicated to the paired region (e.g., North Europe) and remains accessible after failover",
+      "Data is distributed across all Azure regions automatically",
+      "Data is cached in Azure CDN globally so it remains available"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GRS replicates data asynchronously to a paired Azure region (West Europe pairs with North Europe). If West Europe is destroyed, Microsoft can initiate a failover to the paired region, making the data accessible. GRS provides cross-region durability with 16 nines (16 9s) of annual durability."
+  },
+  {
+    "id": "az900-554",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs their Azure storage to survive both an Availability Zone failure AND to have data replicated to a secondary region for disaster recovery. Which storage redundancy option satisfies BOTH requirements simultaneously?",
+    "choices": [
+      "Zone-Redundant Storage (ZRS) — zone redundancy only, no geo-replication",
+      "Geo-Redundant Storage (GRS) — geo-replication only, no zone redundancy",
+      "Geo-Zone-Redundant Storage (GZRS) — zone redundancy in primary + geo-replication to secondary",
+      "Locally Redundant Storage (LRS) with manual backup to secondary region"
+    ],
+    "correctAnswer": 2,
+    "explanation": "GZRS (Geo-Zone-Redundant Storage) combines ZRS in the primary region (distributing data across 3 availability zones) with asynchronous geo-replication to a paired secondary region. This provides protection against both zone-level failures AND full regional disasters in a single storage configuration."
+  },
+  {
+    "id": "az900-555",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's operations team receives a notification that their Azure SQL Database is experiencing degraded performance due to an ongoing Azure platform issue in their region. Which Azure service sent this proactive notification about the platform-level incident?",
+    "choices": [
+      "Azure Monitor metric alert for DTU consumption",
+      "Azure Service Health — Service Issues notification",
+      "Microsoft Defender for Cloud security alert",
+      "Azure Resource Health VM restart notification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Service Health — Service Issues provides notifications about active Azure platform incidents affecting services in your regions. It's distinct from Azure Resource Health (which shows the health of your specific resource) and Azure Monitor (which tracks your application metrics). Service Health notifies about Microsoft-side platform problems."
+  },
+  {
+    "id": "az900-556",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's VM was unavailable for 2 hours last Tuesday. They want to determine if the outage was caused by an Azure platform issue or by something within their own VM configuration. Which Azure service shows the health history of their specific VM resource?",
+    "choices": [
+      "Azure Service Health — shows platform-wide issues",
+      "Azure Resource Health — shows health of their specific resource",
+      "Azure Advisor — shows best practice recommendations",
+      "Azure Monitor activity log — shows all resource operations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Resource Health provides the health status and history of your specific Azure resource (VM, SQL Database, App Service, etc.). It shows whether the resource was healthy, unavailable, or degraded and indicates whether the cause was platform-initiated or user-initiated — helping distinguish Azure issues from customer configuration issues."
+  },
+  {
+    "id": "az900-557",
+    "domain": "Describe Azure management and governance",
+    "question": "A company receives an Azure Service Health notification about planned maintenance that will cause a brief VM reboot in their region next Tuesday between 2-4 AM. They need to prepare their application for this. What is the BEST response to this planned maintenance notification?",
+    "choices": [
+      "Ignore it — Azure planned maintenance never causes downtime",
+      "Immediately move all VMs to a different region",
+      "Acknowledge the maintenance window, validate application failover, and inform stakeholders",
+      "Delete and recreate VMs to reset the maintenance schedule"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Planned maintenance notifications from Azure Service Health give advance notice of scheduled infrastructure updates. The correct response is to acknowledge the window, validate that your application handles the brief downtime gracefully (especially if you have multiple VMs across Update Domains/Availability Zones), and inform relevant stakeholders."
+  },
+  {
+    "id": "az900-558",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company uses Azure Container Registry to store their Docker container images. Their development pipeline needs to build, store, and pull images securely. What is the PRIMARY benefit of using Azure Container Registry over Docker Hub for enterprise Azure deployments?",
+    "choices": [
+      "Azure Container Registry supports more container formats than Docker Hub",
+      "Docker Hub does not support Linux containers",
+      "Azure Container Registry provides private storage integrated with Azure AD authentication, RBAC, and Azure networking",
+      "Azure Container Registry automatically compiles application code into containers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Container Registry (ACR) provides a private Docker registry fully integrated with Azure AD for authentication, RBAC for access control, private networking (no public internet exposure), geo-replication, and direct integration with AKS and other Azure services. This enterprise integration is not available with public Docker Hub."
+  },
+  {
+    "id": "az900-559",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's application on Azure App Service uses Application Insights. During a production incident, a developer queries logs using a structured query language to find all requests that failed with a 500 error in the last hour, grouped by URL. Which query language does Application Insights / Azure Monitor use for log queries?",
+    "choices": [
+      "Standard SQL (Structured Query Language)",
+      "Kusto Query Language (KQL)",
+      "Azure Resource Graph query language",
+      "Azure Monitor Query Language (AMQL)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Monitor, Application Insights, and Microsoft Sentinel all use Kusto Query Language (KQL) for querying log data. KQL is a read-only query language optimized for time-series log analysis with powerful filtering, aggregation, and visualization capabilities — distinct from SQL though similar in concept."
+  },
+  {
+    "id": "az900-560",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to apply a comprehensive set of Azure Policies covering security, tagging, and allowed locations — all as a single unit that can be assigned to subscriptions at once. Instead of assigning 20 individual policies, they want to package them together. Which Azure Policy feature supports this?",
+    "choices": [
+      "Azure Policy Sets (Initiatives)",
+      "Azure Blueprints definition",
+      "Azure Management Group policy inheritance",
+      "Azure ARM template policy resources"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Policy Initiatives (also called Policy Sets) group multiple policy definitions into a single assignable unit. Instead of assigning 20 policies separately, you create one initiative containing all 20 and assign it once. Built-in initiatives include 'Azure Security Benchmark' and regulatory standards like CIS, NIST, and PCI DSS."
+  },
+  {
+    "id": "az900-561",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to automatically enforce that all Azure Windows VMs have a specific security configuration — antivirus enabled, Windows Firewall on, specific registry keys set. They want Azure to continuously check and remediate drift from this desired state. Which Azure service provides this configuration management?",
+    "choices": [
+      "Azure Policy DeployIfNotExists for VM extensions",
+      "Azure Automation State Configuration (DSC)",
+      "Azure Monitor agent with custom data collection",
+      "Azure Update Manager patch compliance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Automation State Configuration uses PowerShell Desired State Configuration (DSC) to define and enforce the desired configuration state of VMs. It continuously monitors VMs for configuration drift and can automatically remediate machines that deviate from the defined state — keeping security settings consistent."
+  },
+  {
+    "id": "az900-562",
+    "domain": "Describe cloud concepts",
+    "question": "A company migrates their application from a single on-premises server to Azure, deploying across multiple VMs in multiple Availability Zones with auto-scaling and health monitoring. Their previous on-premises setup had 98% uptime (about 175 hours of downtime/year). What does the migration to a properly designed multi-zone Azure architecture MOST likely achieve?",
+    "choices": [
+      "No improvement — cloud has the same reliability as on-premises",
+      "Worse reliability because cloud depends on internet connectivity",
+      "Higher availability (99.99%+) through redundancy, eliminating single points of failure",
+      "Exactly 100% uptime guaranteed by Azure SLA"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A properly designed multi-zone Azure architecture with load balancing, auto-scaling, and health monitoring eliminates the single points of failure that caused the on-premises 98% uptime. Azure SLAs for multi-zone VM deployments reach 99.99% (~52 minutes/year downtime), dramatically better than a single server's 175 hours/year."
+  },
+  {
+    "id": "az900-563",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's security policy requires that all Azure VM OS patches be applied within 48 hours of release for critical vulnerabilities. They manage 500 VMs. Which Azure service provides centralized patch management with compliance reporting across all VMs?",
+    "choices": [
+      "Azure Policy DeployIfNotExists for patch deployment",
+      "Azure Automation Update Management / Azure Update Manager",
+      "Microsoft Defender for Cloud vulnerability assessment only",
+      "Azure Monitor agent with update metric collection"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Update Manager (formerly Azure Automation Update Management) provides centralized patch management for Windows and Linux VMs both in Azure and on-premises (via Arc). It schedules patch deployments, tracks compliance against patching SLAs, and provides reports showing which VMs are missing critical updates."
+  },
+  {
+    "id": "az900-564",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to reduce their Azure costs by committing to a consistent amount of compute usage (measured in $/hour) across any Azure compute services for 1 or 3 years, with the flexibility to apply the discount to different VM families or even Azure App Service. Which Azure cost saving option provides this flexibility?",
+    "choices": [
+      "Azure Reserved VM Instances — locked to specific VM family and region",
+      "Azure Spot Instances — maximum discount but interruptible",
+      "Azure Savings Plans for Compute — flexible discount across compute services",
+      "Azure Hybrid Benefit — applies only to Windows/SQL licenses"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Savings Plans for Compute provide a discount (up to 65%) in exchange for committing to a fixed hourly spend over 1 or 3 years. Unlike Reserved Instances (locked to a VM family/region), Savings Plans automatically apply to any eligible compute: VMs of any size/family/region, App Service, and AKS — providing maximum flexibility."
+  },
+  {
+    "id": "az900-565",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's application needs to send emails, SMS messages, and make voice calls to customers — all from Azure without using third-party communication providers. Which Azure service provides these multi-channel communication capabilities?",
+    "choices": [
+      "Azure Notification Hubs for push notifications only",
+      "Azure Communication Services (email, SMS, voice, chat)",
+      "Azure Service Bus with notification routing",
+      "Azure Logic Apps with communication connectors"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Communication Services provides cloud-based communication capabilities directly from Azure: email delivery, SMS messaging, voice/video calling, and chat. It's an Azure-native platform eliminating the need for third-party providers like Twilio or SendGrid for multi-channel customer communications."
+  },
+  {
+    "id": "az900-566",
+    "domain": "Describe cloud concepts",
+    "question": "A company's CTO explains to the board: 'When we ran our own datacenter, we had to hire security guards, install cameras, implement badge access, and manage facility operations — none of which differentiates our product. Azure handles all of this.' This is an example of which cloud advantage?",
+    "choices": [
+      "Elasticity — scaling resources on demand",
+      "Eliminating undifferentiated heavy lifting — focusing on business value instead of infrastructure operations",
+      "Geographic distribution — deploying globally",
+      "Consumption-based billing — paying only for use"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Eliminating undifferentiated heavy lifting' is a key cloud value proposition — tasks like physical security, hardware maintenance, power management, and facility operations don't differentiate a company's product. Cloud handles these so teams can focus entirely on what makes their business unique, accelerating innovation."
+  },
+  {
+    "id": "az900-567",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's finance team needs a monthly export of all Azure resource costs with resource IDs, tags, and service names sent to a storage account automatically for integration with their financial reporting system. Which Azure Cost Management feature enables scheduled cost data exports?",
+    "choices": [
+      "Azure Pricing Calculator monthly report",
+      "Azure Cost Management scheduled exports to a storage account",
+      "Azure Monitor cost metrics export",
+      "Azure Advisor cost report email digest"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Cost Management supports scheduled exports that automatically generate CSV files containing detailed cost and usage data (including resource IDs, tags, meter names, and costs) and store them in an Azure Storage account on a daily, weekly, or monthly schedule — enabling integration with financial reporting systems."
+  },
+  {
+    "id": "az900-568",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company discovers that their Azure VM running a legacy application is 85% memory constrained but only 10% CPU utilized. The current VM size has 4 vCPUs and 8 GB RAM. What does Azure Advisor likely recommend to optimize both cost and performance?",
+    "choices": [
+      "Upgrade to a larger VM with more vCPUs and same memory ratio",
+      "Move the VM to a different Azure region",
+      "Right-size to a memory-optimized VM SKU with higher RAM-to-CPU ratio",
+      "Enable auto-scaling to add more VMs during peak memory usage"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Advisor's right-sizing recommendations analyze actual performance metrics. A VM that is memory-constrained but CPU-idle should be moved to a memory-optimized SKU (M-series or E-series) with a higher RAM-to-vCPU ratio. This addresses the bottleneck while potentially reducing cost by not paying for unused CPU."
+  },
+  {
+    "id": "az900-569",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to add AI-powered content moderation to their user-generated content platform — automatically detecting and flagging explicit images, hate speech in text, and violent video content. Which Azure AI service provides multi-modal content moderation?",
+    "choices": [
+      "Azure AI Content Safety",
+      "Azure Machine Learning custom classifier",
+      "Azure AI Vision object detection only",
+      "Azure AI Language sentiment analysis only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure AI Content Safety is a purpose-built service for detecting harmful content across images, text, and video. It classifies content into harm categories (violence, sexual content, hate, self-harm) with severity levels. It's the unified moderation service across modalities, unlike Vision or Language which handle only one content type."
+  },
+  {
+    "id": "az900-570",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's developers need a pre-configured cloud development environment with all required tools, extensions, and dependencies for their project — accessible from any browser without local setup. Which Azure service provides cloud-hosted development environments?",
+    "choices": [
+      "Azure DevTest Labs with VM templates",
+      "Azure DevOps pipelines with build agents",
+      "Microsoft Dev Box",
+      "Azure Cloud Shell for scripting"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Microsoft Dev Box provides cloud-based, pre-configured developer workstations accessible via browser or Remote Desktop. Dev teams define workstation configurations (tools, SDKs, extensions) as images, and developers self-provision ready-to-code environments in minutes without IT setup — supporting work from any device."
+  },
+  {
+    "id": "az900-571",
+    "domain": "Describe Azure management and governance",
+    "question": "A company needs to ensure developers cannot exceed $500 per month in Azure spending in their individual sandbox subscriptions. If a developer's spending approaches $500, Azure should automatically trigger a notification. What should they configure?",
+    "choices": [
+      "Azure Policy with a cost-limit deny effect per subscription",
+      "Azure Cost Management budget at $500 with email alert at 90% threshold",
+      "Azure Advisor budget recommendation per developer",
+      "Azure resource locks preventing new resource creation over budget"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Cost Management budgets can be set per subscription with alert thresholds (e.g., notify when 90% = $450 is reached). Budget alerts send email notifications to specified recipients automatically when the threshold is crossed. Azure Policy cannot block based on cost; it blocks based on resource configuration."
+  },
+  {
+    "id": "az900-572",
+    "domain": "Describe cloud concepts",
+    "question": "A company's single on-premises database server failed last year, causing 6 hours of downtime. After migration to Azure SQL Database with zone-redundant configuration, a similar hardware failure occurred — but customers experienced zero downtime because Azure automatically failed over. Which cloud design principle enabled this?",
+    "choices": [
+      "Vertical scaling — using a larger, more reliable database server",
+      "Redundancy — automatic failover to a healthy replica eliminated the single point of failure",
+      "Manual monitoring — the ops team responded within minutes",
+      "Data archiving — regular backups prevented data loss"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Redundancy is the cloud design principle that eliminates single points of failure. Azure SQL Database with zone-redundant configuration maintains multiple synchronous replicas across availability zones. When hardware fails, an automatic failover to a healthy replica occurs in seconds — with no customer-visible downtime."
+  },
+  {
+    "id": "az900-573",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's custom machine learning model needs to be deployed and served as a scalable REST API endpoint that automatically handles traffic spikes, with versioning, monitoring, and A/B testing capabilities. Which Azure service manages this ML model serving infrastructure?",
+    "choices": [
+      "Azure Machine Learning managed online endpoints",
+      "Azure Functions with custom ML inference code",
+      "Azure App Service with ML model file hosting",
+      "Azure Container Instances with manual scaling"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Machine Learning managed online endpoints provide a fully managed REST API infrastructure for serving ML models. They handle auto-scaling, authentication, monitoring, logging, and support traffic splitting between model versions for A/B testing — all managed by Azure ML without manual infrastructure configuration."
+  },
+  {
+    "id": "az900-574",
+    "domain": "Describe Azure architecture and services",
+    "question": "A healthcare ISV builds a solution on Azure that processes patient data covered by HIPAA. Their hospital customers want assurance that Microsoft will sign a HIPAA Business Associate Agreement (BAA) covering Azure services. What is Microsoft's position on HIPAA BAAs for Azure?",
+    "choices": [
+      "Microsoft does not sign BAAs — healthcare data cannot be stored in Azure",
+      "BAAs are only available to Azure Government customers",
+      "Microsoft signs BAAs for Azure, covering HIPAA-eligible services, enabling healthcare customers to use Azure for PHI",
+      "Healthcare data requires a separate Azure Healthcare Cloud subscription"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Microsoft will sign a HIPAA Business Associate Agreement (BAA) for Azure services, making Azure a viable platform for Protected Health Information (PHI). The Azure compliance documentation lists which services are covered under the BAA. This enables healthcare ISVs and providers to use Azure for HIPAA-regulated workloads."
+  },
+  {
+    "id": "az900-575",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to understand their security posture across their entire Azure estate with a single numeric score that represents how well they're implementing security best practices. When they implement a recommended control, the score should increase. Which Azure feature provides this security posture measurement?",
+    "choices": [
+      "Azure Policy compliance percentage",
+      "Azure Monitor health score",
+      "Microsoft Defender for Cloud Secure Score",
+      "Azure Advisor overall score"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Microsoft Defender for Cloud's Secure Score provides a single percentage that measures how well you're implementing security recommendations across your Azure subscription(s). Each recommendation has a weighted point value — implementing recommendations directly increases the score, giving a measurable indication of security posture improvement."
+  },
+  {
+    "id": "az900-576",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's application tier VMs need to communicate securely with Azure SQL Database without any traffic ever leaving the Microsoft network backbone. The SQL Database should have no public internet endpoint. Which combination achieves this?",
+    "choices": [
+      "Azure Private Endpoint for SQL Database + VNet integration for the app tier",
+      "Azure SQL Firewall with VNet service endpoint rules only",
+      "Network Security Group rules blocking internet traffic to SQL",
+      "Azure VPN Gateway between the app subnet and SQL Database"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Private Endpoint places a private IP for the SQL Database inside the VNet, completely removing the public endpoint. Combined with VNet integration for the app tier, all traffic between the application and database flows over the Microsoft backbone — never touching the public internet."
+  },
+  {
+    "id": "az900-577",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's security team applies the 'defense in depth' security strategy to their Azure workloads. Which statement BEST describes what defense in depth means in practice?",
+    "choices": [
+      "Relying on a single strong perimeter firewall to block all threats",
+      "Using only Microsoft Defender products for all security needs",
+      "Layering multiple independent security controls so that if one layer fails, others still protect the asset",
+      "Encrypting all data at rest as the sole security measure"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Defense in depth applies multiple independent security layers — perimeter (firewall/DDoS), network (NSGs), compute (patching/antivirus), application (input validation/WAF), data (encryption), identity (MFA/RBAC) — so that bypassing one layer doesn't expose the asset. No single control is trusted as the only protection."
+  },
+  {
+    "id": "az900-578",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company moves to a Zero Trust security model for their Azure environment. Under Zero Trust, what is the core principle that changes from traditional perimeter-based security?",
+    "choices": [
+      "All traffic inside the corporate network is automatically trusted",
+      "Only external traffic requires authentication",
+      "Never trust, always verify — every request must be authenticated and authorized regardless of network location",
+      "VPN connections provide implicit trust for all resources"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Zero Trust operates on the principle of 'never trust, always verify' — no user, device, or network location is implicitly trusted. Every access request must be authenticated (MFA), authorized (least privilege RBAC), and continuously validated regardless of whether the request comes from inside or outside the corporate network."
+  },
+  {
+    "id": "az900-579",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants their Azure web application's service identity to access Azure Key Vault secrets without storing any credentials in code or configuration files. The identity should be automatically managed by Azure. Which Azure feature enables credential-free service-to-service authentication?",
+    "choices": [
+      "Azure AD service principal with client secret stored in app settings",
+      "Azure Managed Identity (system-assigned or user-assigned)",
+      "Azure Key Vault access policy with IP restriction",
+      "Azure AD B2C service account"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Managed Identity provides an automatically managed identity in Azure AD for Azure services. Applications use this identity to authenticate to any service supporting Azure AD authentication (like Key Vault) without any credentials in code. Azure handles token issuance and rotation — eliminating secrets entirely from application configuration."
+  },
+  {
+    "id": "az900-580",
+    "domain": "Describe cloud concepts",
+    "question": "A company is structuring their Azure environment for a large enterprise. They have multiple business units, each with multiple teams, each requiring separate billing and policy controls. Which Azure hierarchy correctly represents the relationship between management levels from BROADEST to most specific?",
+    "choices": [
+      "Subscriptions → Management Groups → Resource Groups → Resources",
+      "Management Groups → Subscriptions → Resource Groups → Resources",
+      "Resource Groups → Subscriptions → Management Groups → Resources",
+      "Resources → Resource Groups → Management Groups → Subscriptions"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The correct Azure hierarchy from broadest to most specific is: Management Groups (top-level governance) → Subscriptions (billing and access boundary) → Resource Groups (logical containers) → Resources (individual Azure services). Policies and RBAC applied at higher levels inherit downward through this hierarchy."
+  },
+  {
+    "id": "az900-581",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's network team uses Azure Network Watcher to troubleshoot connectivity issues. A developer reports that their VM cannot reach a specific IP address on port 443. Which Network Watcher feature can verify whether the NSG rules allow or deny this specific traffic flow?",
+    "choices": [
+      "Azure Network Watcher IP flow verify",
+      "Azure Network Watcher connection monitor",
+      "Azure Network Watcher packet capture",
+      "Azure Network Watcher topology view"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Azure Network Watcher's IP Flow Verify checks whether traffic from a source to a destination (specific IP, port, and protocol) is allowed or denied by the NSGs applied to the VM's NIC and subnet. It identifies which specific NSG rule is allowing or blocking the traffic — without needing to manually review all rules."
+  },
+  {
+    "id": "az900-582",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to use passwordless authentication for their Azure AD users — eliminating passwords entirely to reduce phishing risk. Employees would authenticate using biometrics on their corporate laptops. Which Azure AD authentication method enables biometric passwordless sign-in?",
+    "choices": [
+      "Azure AD Multi-Factor Authentication via SMS",
+      "Azure AD Password Hash Synchronization",
+      "Windows Hello for Business with biometric authentication",
+      "Azure AD smart card authentication"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Windows Hello for Business provides passwordless authentication using biometrics (fingerprint or facial recognition) or a PIN backed by a cryptographic key. It integrates with Azure AD to replace passwords with phishing-resistant biometric authentication on corporate devices — eliminating the password attack surface."
+  },
+  {
+    "id": "az900-583",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company invites external business partners to collaborate on documents in Microsoft 365 and access specific Azure resources. The partners use their own company's Azure AD credentials. Which Azure AD feature manages this cross-organization, B2B collaboration?",
+    "choices": [
+      "Azure AD B2C for external consumer identities",
+      "Azure AD B2B collaboration with guest user invitations",
+      "Azure AD Domain Services for cross-forest trust",
+      "Azure AD Connect for partner directory synchronization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure AD B2B (Business-to-Business) collaboration allows inviting external users from partner organizations as guest users in your Azure AD tenant. Partners authenticate with their own organization's credentials (federated identity) and receive scoped access to your Azure resources — without creating new accounts for them."
+  },
+  {
+    "id": "az900-584",
+    "domain": "Describe Azure management and governance",
+    "question": "A company follows the Azure Cloud Adoption Framework (CAF) for their Azure migration. Their team asks what the CAF primarily provides. Which description is MOST accurate?",
+    "choices": [
+      "A billing model for enterprise Azure subscriptions",
+      "A set of tools for automatically migrating on-premises VMs to Azure",
+      "Microsoft's proven guidance, best practices, and documentation for adopting Azure throughout an organization",
+      "A compliance certification program for Azure workloads"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Azure Cloud Adoption Framework (CAF) is Microsoft's comprehensive guidance for cloud adoption journeys — covering strategy, planning, migration, governance, security, and management best practices. It provides decision frameworks, templates, and reference architectures to help organizations adopt Azure effectively and at scale."
+  },
+  {
+    "id": "az900-585",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's architect wants to design their new Azure workload to be reliable, secure, cost-optimized, performant, and operationally excellent. Which Microsoft framework provides architectural best practices and review questions across these five pillars?",
+    "choices": [
+      "Azure Cloud Adoption Framework (CAF)",
+      "Microsoft Azure Well-Architected Framework (WAF)",
+      "Azure Landing Zone reference architecture",
+      "Azure Security Benchmark control set"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Azure Well-Architected Framework (WAF) provides architectural best practices across five pillars: Reliability, Security, Cost Optimization, Operational Excellence, and Performance Efficiency. It includes assessment tools, design principles, and specific Azure service recommendations to help architects build high-quality workloads."
+  },
+  {
+    "id": "az900-586",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company hosts their application's backend API on Azure App Service. They want to enable CORS, rate limiting, request transformation, and expose a unified API to mobile clients regardless of how many backend services exist. Which Azure service sits in front of their APIs to provide these capabilities?",
+    "choices": [
+      "Azure Application Gateway with URL routing",
+      "Azure API Management (APIM)",
+      "Azure Front Door with WAF policies",
+      "Azure Load Balancer with HTTP rules"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure API Management sits as a gateway in front of backend APIs providing: CORS policies, rate limiting and throttling, request/response transformation, API versioning, caching, authentication (OAuth/API keys), and a developer portal. It decouples API consumers from backend implementation details."
+  },
+  {
+    "id": "az900-587",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs to store encryption keys in hardware security modules (HSMs) that are physically dedicated to them — not shared with other Azure customers — for the highest level of cryptographic key security and compliance with regulations requiring FIPS 140-2 Level 3. Which Azure service provides this?",
+    "choices": [
+      "Azure Key Vault with customer-managed keys",
+      "Azure Key Vault Managed HSM",
+      "Azure Dedicated HSM",
+      "Azure Confidential Computing with encrypted memory"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Dedicated HSM provides customer-dedicated, single-tenant hardware security modules certified to FIPS 140-2 Level 3. Unlike Key Vault Managed HSM (multi-tenant at the logical level), Dedicated HSM gives customers full administrative control of a physical HSM device — satisfying the most stringent regulatory requirements for key custody."
+  },
+  {
+    "id": "az900-588",
+    "domain": "Describe cloud concepts",
+    "question": "A company's IT director argues: 'Our on-premises data is safer because we control the physical hardware.' A cloud architect counters that Azure provides multiple security advantages. Which Azure security advantage is MOST difficult for a typical company to match on-premises?",
+    "choices": [
+      "Password policies for administrator accounts",
+      "Network firewall rules between subnets",
+      "Threat intelligence from trillions of global signals analyzed by Microsoft's security research team",
+      "Disk encryption for virtual machine storage"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Microsoft processes trillions of signals daily from Windows, Azure, Microsoft 365, and Xbox to feed their threat intelligence. This global-scale security research — feeding services like Defender for Cloud and Sentinel — provides threat detection capabilities that no individual company could replicate with their own on-premises infrastructure and team."
+  },
+  {
+    "id": "az900-589",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company connects multiple Azure regions and on-premises locations in a hub-and-spoke network topology. Managing VPN gateways, ExpressRoute circuits, and routing across dozens of sites has become complex. Which Azure service simplifies this through a managed global network with built-in routing and security?",
+    "choices": [
+      "Azure VNet Peering between all sites",
+      "Azure Virtual WAN",
+      "Azure Traffic Manager for DNS routing",
+      "Azure ExpressRoute Global Reach"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Virtual WAN is a managed networking service that provides optimized, automated hub-and-spoke connectivity between Azure regions, branch offices, and on-premises sites. It consolidates VPN, ExpressRoute, and VNet connections into a single managed hub with built-in routing, security, and monitoring — simplifying large-scale network management."
+  },
+  {
+    "id": "az900-590",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's Azure DNS is configured to resolve their custom domain 'api.contoso.com' to their Azure API Management instance. They want to also use Azure Private DNS zones to resolve an internal hostname 'internal.contoso.local' only within their VNet — not publicly. Which Azure feature enables split-horizon DNS for private name resolution?",
+    "choices": [
+      "Azure DNS public zone with access restrictions",
+      "Azure Private DNS zones linked to the VNet",
+      "Network Security Group DNS rules",
+      "Azure Traffic Manager with VNet-scoped profiles"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Private DNS zones provide name resolution for hostnames within a Virtual Network without exposing records publicly. By linking a private DNS zone to the VNet, resources resolve 'internal.contoso.local' to private IPs automatically. This enables split-horizon DNS — different resolution for the same name depending on where the query originates."
+  },
+  {
+    "id": "az900-591",
+    "domain": "Describe Azure management and governance",
+    "question": "An Azure administrator needs to find all Public IP addresses across all subscriptions in their tenant that are not associated with any resource (orphaned). Running this query across hundreds of subscriptions manually would take hours. Which Azure capability enables querying the entire tenant's resource inventory in seconds?",
+    "choices": [
+      "Azure Monitor with a cross-subscription query",
+      "Azure Resource Graph with a KQL query across all subscriptions",
+      "Azure Policy compliance scan for orphaned resources",
+      "Azure Cost Management with orphaned resource filter"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Resource Graph enables fast KQL queries across your entire Azure tenant — all subscriptions simultaneously — returning results in seconds. A single query like 'Resources | where type == \"microsoft.network/publicipaddresses\" and isnull(properties.ipConfiguration)' finds all unassociated public IPs across all subscriptions instantly."
+  },
+  {
+    "id": "az900-592",
+    "domain": "Describe cloud concepts",
+    "question": "A company plans to expand from operating in 2 countries to 50 countries within 18 months. On-premises, this would require procuring, shipping, and installing hardware in 48 new locations — taking years. With Azure, they can deploy workloads to new regions within hours. Which cloud benefit makes this global expansion possible?",
+    "choices": [
+      "Azure provides free datacenter space to customers globally",
+      "Global reach — Azure operates datacenters in 60+ regions worldwide, enabling instant global deployment",
+      "Azure automatically translates applications into local languages",
+      "Cloud eliminates the need for compliance with local data regulations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure's global infrastructure spans 60+ regions in 140+ countries. This means a company can deploy workloads to any region within hours — serving customers in new geographies with low latency and local data residency — without any physical hardware procurement or installation. This global reach is a transformational competitive advantage."
+  },
+  {
+    "id": "az900-593",
+    "domain": "Describe Azure management and governance",
+    "question": "A company wants to buy Azure services through a Microsoft partner who will provide additional managed services, custom support, and consolidated billing. Which Azure purchasing channel enables customers to buy Azure through Microsoft partners?",
+    "choices": [
+      "Azure Marketplace for third-party solutions",
+      "Cloud Solution Provider (CSP) program",
+      "Azure Enterprise Agreement direct enrollment",
+      "Azure Dev/Test subscription through MSDN"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Cloud Solution Provider (CSP) program allows Microsoft partners to resell Azure services with value-added managed services, custom support SLAs, and consolidated billing. Customers get Azure services plus the partner's expertise and support, often at competitive rates — distinct from direct EA enrollment or pay-as-you-go."
+  },
+  {
+    "id": "az900-594",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company wants to find and deploy a third-party network virtual appliance (NVA) from a security vendor directly through the Azure portal, with billing consolidated into their Azure invoice. Where should they look for these third-party Azure-certified solutions?",
+    "choices": [
+      "Azure Advisor partner recommendations",
+      "Azure Marketplace",
+      "Azure DevOps extension marketplace",
+      "Microsoft AppSource for business applications only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure Marketplace is the online store for Microsoft-certified third-party solutions that deploy directly into Azure subscriptions. It includes thousands of offerings — VMs, containers, SaaS apps, security appliances, databases — from ISVs and partners. Billing for paid listings is consolidated into the customer's Azure invoice."
+  },
+  {
+    "id": "az900-595",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company's Azure AD Identity Protection detects that a user account is signing in from two different countries within 1 hour — an impossible travel anomaly. The system automatically requires the user to complete MFA before proceeding. Which Azure AD capability enables this risk-based, automated access response?",
+    "choices": [
+      "Azure AD Privileged Identity Management activation",
+      "Azure AD Identity Protection risk-based Conditional Access policies",
+      "Azure AD Multi-Factor Authentication per-user enforcement",
+      "Azure AD access reviews for suspicious accounts"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure AD Identity Protection detects risk signals (impossible travel, unfamiliar locations, leaked credentials, anonymous IPs) and feeds risk levels into Conditional Access policies. A policy can automatically require MFA for medium-risk sign-ins or block access for high-risk events — without manual intervention from the security team."
+  },
+  {
+    "id": "az900-596",
+    "domain": "Describe Azure management and governance",
+    "question": "A company's governance team wants to review all role assignments in their Azure subscriptions to ensure that former employees and contractors no longer have access, and that existing users still need the permissions they were granted. Which Azure AD feature enables this periodic access review process?",
+    "choices": [
+      "Azure AD Conditional Access policy review",
+      "Azure AD Access Reviews",
+      "Azure RBAC role assignment export and manual audit",
+      "Azure AD PIM just-in-time access logs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Azure AD Access Reviews enable automated, periodic reviews of group memberships and role assignments. Reviewers (managers or resource owners) are notified to confirm or revoke access for each user. Users who don't receive approval can be automatically removed — ensuring access remains current and appropriate over time."
+  },
+  {
+    "id": "az900-597",
+    "domain": "Describe Azure architecture and services",
+    "question": "A company needs an internal-facing load balancer in Azure that distributes traffic from their application tier to their database tier — the load balancer itself should have only a private IP address and never be accessible from the internet. Which Azure Load Balancer configuration supports this?",
+    "choices": [
+      "External Azure Load Balancer with NSG blocking internet traffic",
+      "Azure Application Gateway in private mode",
+      "Internal (private) Azure Load Balancer with a frontend private IP",
+      "Azure Traffic Manager with VNet-restricted endpoints"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Azure Load Balancer can be configured as an internal (private) load balancer with a frontend IP address from a private subnet range. Internal load balancers have no public IP and are unreachable from the internet — used exclusively for traffic distribution within a VNet between application tiers."
+  },
+  {
+    "id": "az900-598",
+    "domain": "Describe cloud concepts",
+    "question": "A small business owner asks: 'Why would I choose Azure over building my own server room?' Their IT consultant provides several reasons. Which combination represents the STRONGEST advantages of Azure over a self-managed server room for a small business?",
+    "choices": [
+      "Azure allows the business to own physical hardware and control all software",
+      "Azure provides 100% uptime guarantee with no maintenance windows",
+      "Azure eliminates upfront hardware costs, provides enterprise security/reliability without dedicated IT staff, and scales with business growth",
+      "Azure is always cheaper than on-premises regardless of workload size"
+    ],
+    "correctAnswer": 2,
+    "explanation": "For small businesses, Azure's key advantages are: no upfront hardware CapEx, access to enterprise-grade security and reliability without a dedicated IT team, pay-as-you-go scaling as the business grows, and built-in disaster recovery. This lets small businesses focus on their core business rather than IT operations."
+  },
+  {
+    "id": "az900-599",
+    "domain": "Describe Azure management and governance",
+    "question": "An organization is completing an Azure AZ-900 exam preparation. They want to know where to find Microsoft's official documentation on Azure pricing, SLAs, and lifecycle policies for planning purposes. Which resource provides authoritative Azure pricing and SLA information?",
+    "choices": [
+      "Third-party Azure pricing comparison websites",
+      "Azure portal billing section only",
+      "Microsoft's official Azure website: azure.microsoft.com — pricing pages, SLA documents, and product documentation",
+      "Azure Advisor pricing recommendations"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Microsoft's official Azure website (azure.microsoft.com) provides authoritative pricing pages (with the Pricing Calculator), downloadable SLA documents for each service, product documentation, and lifecycle information. These are the definitive references for planning Azure deployments and understanding Microsoft's commitments."
+  },
+  {
+    "id": "az900-600",
+    "domain": "Describe Azure management and governance",
+    "question": "A company has successfully completed their Azure migration. Looking back, which combination of Azure management tools forms the CORE governance foundation that most organizations implement first to maintain control, visibility, and cost management across their Azure estate?",
+    "choices": [
+      "Azure Sentinel + Azure Arc + Azure Blueprints",
+      "Azure Chaos Studio + Azure DevTest Labs + Azure Migrate",
+      "Azure Policy + Azure RBAC + Azure Cost Management + Azure Monitor",
+      "Azure Purview + Azure Dedicated HSM + Azure Confidential Computing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The four foundational Azure governance tools are: Azure Policy (enforce compliance and standards), Azure RBAC (control who can do what), Azure Cost Management (track and optimize spending), and Azure Monitor (observe health and performance). Together they provide the governance, security, financial, and operational visibility every Azure organization needs."
   }
 ]

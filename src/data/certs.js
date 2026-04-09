@@ -7,7 +7,7 @@ const certs = {
     description: 'Foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.',
     difficulty: 'Foundational',
     color: '#0078d4',
-    questionCount: 450,
+    questionCount: 600,
     examQuestions: 40,
     examTime: 45,
     passingScore: 70,
