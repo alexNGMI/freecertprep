@@ -57,7 +57,7 @@ const certs = {
     description: 'Foundational knowledge of cloud concepts and Google Cloud products and services',
     difficulty: 'Foundational',
     color: '#4285f4',
-    questionCount: 300,
+    questionCount: 450,
     examQuestions: 50,
     examTime: 90,
     passingScore: 70,
