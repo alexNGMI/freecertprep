@@ -193,7 +193,7 @@ export default function Dashboard() {
       </div>
 
       {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
         <Link
           to="quiz"
           id="dashboard-quiz-btn"
@@ -207,13 +207,35 @@ export default function Dashboard() {
             </div>
             <h3 className="text-2xl font-bold text-zinc-100">Practice Quiz</h3>
             <p className="text-zinc-400 mt-2 leading-relaxed">
-              Target specifically weak domains with instant feedback, interactive layouts, and detailed explanations.
+              Smart Practice or domain focus — 10 questions with instant feedback and explanations.
             </p>
           </div>
           <span className="inline-block font-semibold px-8 py-3.5 rounded-lg transition-all border border-indigo-500/30 bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500 hover:text-white hover:shadow-[0_0_20px_-5px_#6366f1]">
-            Start Learning
+            Start Quiz
           </span>
         </Link>
+
+        <Link
+          to="drill"
+          id="dashboard-drill-btn"
+          className="glass-panel glass-panel-hover rounded-2xl p-8 text-center space-y-5 flex flex-col justify-between border-rose-500/10"
+        >
+          <div>
+            <div className="w-16 h-16 mx-auto rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6">
+              <svg className="w-8 h-8 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-zinc-100">Timed Drill</h3>
+            <p className="text-zinc-400 mt-2 leading-relaxed">
+              10 questions, 10 minutes. Weighted by your weakest areas — beat the clock.
+            </p>
+          </div>
+          <span className="inline-block font-semibold px-8 py-3.5 rounded-lg transition-all border border-rose-500/30 bg-rose-500/10 text-rose-300 hover:bg-rose-500 hover:text-white hover:shadow-[0_0_20px_-5px_#f43f5e]">
+            Start Drill
+          </span>
+        </Link>
+
         <Link
           to="exam"
           id="dashboard-exam-btn"
@@ -221,21 +243,21 @@ export default function Dashboard() {
           style={{ borderColor: `${cert.color}40` }}
         >
           <div>
-            <div 
+            <div
               className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 border"
               style={{ backgroundColor: `${cert.color}15`, borderColor: `${cert.color}30`, color: cert.color }}
             >
               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
             </div>
             <h3 className="text-2xl font-bold text-zinc-100">Live Simulator</h3>
             <p className="text-zinc-400 mt-2 leading-relaxed">
-              {cert.examQuestions} unique questions mapped correctly across domains on a strict {cert.examTime}-minute countdown.
+              {cert.examQuestions} questions across all domains on a strict {cert.examTime}-minute countdown.
             </p>
           </div>
           <span
-            className="inline-block bg-zinc-100 text-zinc-950 font-semibold px-8 py-3.5 rounded-lg hover:bg-white hover:scale-105 transition-all shadow-[0_0_15px_-3px_rgba(255,255,255,0.4)]"
+            className="inline-block bg-zinc-100 text-zinc-950 font-semibold px-8 py-3.5 rounded-lg hover:bg-white hover:scale-105 transition-all"
             style={{ boxShadow: `0 0 20px -3px ${cert.color}80` }}
           >
             Start Exam
