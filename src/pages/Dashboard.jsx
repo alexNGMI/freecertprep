@@ -1,7 +1,8 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
+import { useQuestionStats } from '../hooks/useQuestionStats'
 
 const PROGRESS_KEY = 'freecertprep-progress'
 
@@ -23,9 +24,11 @@ function exportProgress() {
 export default function Dashboard() {
   const cert = useCert()
   const { getDomainStats, getOverallStats, resetProgress } = useProgress(cert.id)
+  const { trackedCount, resetStats } = useQuestionStats(cert.id)
   const domainStats = getDomainStats(cert.domains)
   const overall = getOverallStats
   const importRef = useRef(null)
+  const [confirmReset, setConfirmReset] = useState(null) // 'progress' | 'smart' | null
 
   function handleImport(e) {
     const file = e.target.files?.[0]
@@ -111,26 +114,82 @@ export default function Dashboard() {
       </div>
 
       {/* Progress Management */}
-      <div className="flex flex-wrap gap-3 justify-end">
-        <button
-          onClick={exportProgress}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-          Export Progress
-        </button>
-        <button
-          onClick={() => importRef.current?.click()}
-          className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12" />
-          </svg>
-          Import Progress
-        </button>
-        <input ref={importRef} type="file" accept=".json" className="hidden" onChange={handleImport} />
+      <div className="glass-panel rounded-2xl p-6 space-y-4">
+        <h2 className="text-sm font-bold text-zinc-500 uppercase tracking-widest">Data & Resets</h2>
+
+        {/* Confirm overlay */}
+        {confirmReset && (
+          <div className="bg-rose-500/10 border border-rose-500/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-sm text-rose-200 font-medium">
+              {confirmReset === 'progress'
+                ? 'Reset all quiz & exam history for this cert? This cannot be undone.'
+                : 'Reset all Smart Practice stats for this cert? Your weak-question history will be lost.'}
+            </p>
+            <div className="flex gap-2 shrink-0">
+              <button
+                onClick={() => {
+                  if (confirmReset === 'progress') resetProgress()
+                  else resetStats()
+                  setConfirmReset(null)
+                }}
+                className="px-4 py-1.5 rounded-lg text-xs font-bold bg-rose-500 text-white hover:bg-rose-400 transition-all"
+              >
+                Yes, Reset
+              </button>
+              <button
+                onClick={() => setConfirmReset(null)}
+                className="px-4 py-1.5 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 transition-all"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+
+        <div className="flex flex-wrap gap-3">
+          <button
+            onClick={exportProgress}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Export Progress
+          </button>
+          <button
+            onClick={() => importRef.current?.click()}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12" />
+            </svg>
+            Import Progress
+          </button>
+          <input ref={importRef} type="file" accept=".json" className="hidden" onChange={handleImport} />
+
+          <div className="flex-1" />
+
+          {trackedCount > 0 && (
+            <button
+              onClick={() => setConfirmReset('smart')}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-rose-500/20 text-rose-400/70 hover:text-rose-400 hover:border-rose-500/40 transition-all"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Reset Smart Practice
+            </button>
+          )}
+          <button
+            onClick={() => setConfirmReset('progress')}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-rose-500/20 text-rose-400/70 hover:text-rose-400 hover:border-rose-500/40 transition-all"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+            Reset Progress
+          </button>
+        </div>
       </div>
 
       {/* Quick Actions */}

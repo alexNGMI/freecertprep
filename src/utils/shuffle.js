@@ -9,3 +9,25 @@ export function fisherYates(arr) {
   }
   return a
 }
+
+/**
+ * Weighted random sample without replacement (Efraimidis-Spirakis algorithm).
+ *
+ * weightedItems: [{ q: question, weight: number }]
+ *   weight = 1.0  → full probability (never seen, or always wrong)
+ *   weight = 0.05 → low probability (consistently correct)
+ *
+ * Each item gets a random key = random() ** (1 / weight).
+ * Higher weight → higher expected key → more likely to be selected.
+ * Returns up to n question objects in random order.
+ */
+export function weightedSample(weightedItems, n) {
+  return weightedItems
+    .map(({ q, weight }) => ({
+      q,
+      key: Math.random() ** (1 / Math.max(weight, 0.001)),
+    }))
+    .sort((a, b) => b.key - a.key)
+    .slice(0, n)
+    .map(({ q }) => q)
+}
