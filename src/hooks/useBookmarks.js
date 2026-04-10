@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useMemo } from 'react'
 
 const STORAGE_KEY = 'freecertprep-bookmarks'
 
@@ -18,7 +18,7 @@ function saveBookmarks(bookmarks) {
 export function useBookmarks(certId) {
   const [bookmarks, setBookmarks] = useState(loadBookmarks)
 
-  const certBookmarks = bookmarks[certId] || []
+  const certBookmarks = useMemo(() => bookmarks[certId] || [], [bookmarks, certId])
 
   const toggle = useCallback((questionId) => {
     setBookmarks(prev => {
