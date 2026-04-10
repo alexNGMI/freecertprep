@@ -128,8 +128,8 @@ export default function Home() {
           </Link>
 
           {visitorCount !== null && (
-            <div className="flex items-center gap-1.5 text-xs text-zinc-600">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/60 animate-pulse" />
+            <div className="flex items-center gap-2 text-xs text-zinc-400 bg-zinc-900/60 border border-white/5 px-3 py-1.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
               {visitorCount.toLocaleString()} visitors
             </div>
           )}
