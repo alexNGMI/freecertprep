@@ -99,8 +99,8 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   const isCorrect = isAnswerCorrect(selectedChoice, question)
 
   // Derived display state for ordering
-  const activeOrder = (examMode || answered) ? (selectedChoice || []) : localOrder
-  const activeMatches = (examMode || answered) ? (selectedChoice || new Array(question.itemsLeft?.length).fill(null)) : localMatches
+  const activeOrder = isOrdering ? ((examMode || answered) ? (selectedChoice || []) : localOrder) : []
+  const activeMatches = isMatching ? ((examMode || answered) ? (selectedChoice || new Array(question.itemsLeft?.length).fill(null)) : localMatches) : []
 
   // Submit readiness
   const orderingReady = activeOrder.length === question.items?.length

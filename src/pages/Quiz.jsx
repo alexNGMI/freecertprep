@@ -6,6 +6,8 @@ import QuestionCard from '../components/QuestionCard'
 import { fisherYates } from '../utils/shuffle'
 import { isAnswerCorrect } from '../utils/scoring'
 
+const BLOCK_SIZE = 10
+
 export default function Quiz() {
   const cert = useCert()
   const questions = cert.questions
@@ -20,17 +22,17 @@ export default function Quiz() {
   const [sessionKey, setSessionKey] = useState(0)
   const { addQuizResult } = useProgress(cert.id)
 
+  // Full pool (for showing available count on setup screen)
+  const poolQuestions = useMemo(() => {
+    if (selectedDomain === 'All Domains') return questions
+    if (selectedDomain === 'Bookmarked') return questions.filter((q) => bookmarkedIds.includes(q.id))
+    return questions.filter((q) => q.domain === selectedDomain)
+  }, [selectedDomain, questions, bookmarkedIds])
+
+  // Shuffled 10-question block for the active session
   const filteredQuestions = useMemo(() => {
-    let pool
-    if (selectedDomain === 'All Domains') {
-      pool = questions
-    } else if (selectedDomain === 'Bookmarked') {
-      pool = questions.filter((q) => bookmarkedIds.includes(q.id))
-    } else {
-      pool = questions.filter((q) => q.domain === selectedDomain)
-    }
-    return fisherYates(pool)
-  }, [selectedDomain, questions, sessionKey, bookmarkedIds])
+    return fisherYates(poolQuestions).slice(0, BLOCK_SIZE)
+  }, [poolQuestions, sessionKey]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const startQuiz = () => {
     setCurrentIndex(0)
@@ -101,21 +103,26 @@ export default function Quiz() {
           </div>
           
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-white/5">
-            <div className="flex items-center gap-3">
-              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/20">
-                {filteredQuestions.length}
-              </span>
-              <span className="text-zinc-400 text-sm font-medium">
-                {selectedDomain === 'Bookmarked' && filteredQuestions.length === 0
-                  ? 'No bookmarks yet — star questions during a quiz'
-                  : 'Questions available'}
-              </span>
+            <div className="space-y-1">
+              {selectedDomain === 'Bookmarked' && poolQuestions.length === 0 ? (
+                <p className="text-zinc-400 text-sm font-medium">No bookmarks yet — star questions during a quiz</p>
+              ) : (
+                <>
+                  <div className="flex items-center gap-3">
+                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/20 text-sm">
+                      {Math.min(BLOCK_SIZE, poolQuestions.length)}
+                    </span>
+                    <span className="text-zinc-300 text-sm font-semibold">Questions per session</span>
+                  </div>
+                  <p className="text-zinc-500 text-xs pl-1">{poolQuestions.length} total available · randomly selected each time</p>
+                </>
+              )}
             </div>
-            
+
             <button
               id="start-quiz-btn"
               onClick={startQuiz}
-              disabled={filteredQuestions.length === 0}
+              disabled={poolQuestions.length === 0}
               className="w-full md:w-auto font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
               style={{ backgroundColor: cert.color }}
             >
@@ -149,14 +156,23 @@ export default function Quiz() {
           <p className="text-zinc-400 text-xl font-medium mb-10">
             You got <span className="text-zinc-200 font-bold">{correct}</span> out of <span className="text-zinc-200 font-bold">{total}</span> correct
           </p>
-          
-          <button
-            id="quiz-try-again-btn"
-            onClick={() => setQuizStarted(false)}
-            className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 bg-zinc-100 text-zinc-950 hover:bg-white hover:scale-105 border border-zinc-200 w-full"
-          >
-            Practice Again
-          </button>
+
+          <div className="flex flex-col gap-3">
+            <button
+              id="quiz-try-again-btn"
+              onClick={startQuiz}
+              className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 hover:scale-105 w-full"
+              style={{ backgroundColor: cert.color }}
+            >
+              New 10-Question Block
+            </button>
+            <button
+              onClick={() => setQuizStarted(false)}
+              className="font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:scale-105 border border-white/5 w-full"
+            >
+              Change Focus Area
+            </button>
+          </div>
         </div>
       </div>
     )
