@@ -104,7 +104,7 @@ export default function Docs() {
   const [activeSection, setActiveSection] = useState('overview')
 
   return (
-    <div className="min-h-screen bg-[#0a0a23] flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
