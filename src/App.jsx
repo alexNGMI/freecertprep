@@ -6,6 +6,7 @@ import { CertProvider } from './hooks/useCert'
 
 const Dashboard = lazy(() => import('./pages/Dashboard'))
 const Quiz = lazy(() => import('./pages/Quiz'))
+const Drill = lazy(() => import('./pages/Drill'))
 const Exam = lazy(() => import('./pages/Exam'))
 const Results = lazy(() => import('./pages/Results'))
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/:certId" element={<CertRoutes />}>
           <Route index element={<Dashboard />} />
           <Route path="quiz" element={<Quiz />} />
+          <Route path="drill" element={<Drill />} />
           <Route path="exam" element={<Exam />} />
           <Route path="results" element={<Results />} />
         </Route>

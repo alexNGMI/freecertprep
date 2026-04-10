@@ -5,6 +5,7 @@ import BrandedName from './BrandedName'
 const navItems = [
   { to: '', label: 'Dashboard', end: true },
   { to: 'quiz', label: 'Quiz' },
+  { to: 'drill', label: 'Timed Drill' },
   { to: 'exam', label: 'Exam Simulator' },
 ]
 
