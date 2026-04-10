@@ -1,6 +1,21 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import { getAllCerts } from '../data/certs'
 import BrandedName from '../components/BrandedName'
+
+function useVisitorCount() {
+  const [count, setCount] = useState(null)
+
+  useEffect(() => {
+    // Hit the counter once per page load — increments and returns total
+    fetch('https://api.counterapi.dev/v1/freecertprep/homepage/up')
+      .then(r => r.json())
+      .then(data => { if (data?.count) setCount(data.count) })
+      .catch(() => {}) // silent fail — counter just won't show
+  }, [])
+
+  return count
+}
 
 const certs = getAllCerts()
 
@@ -12,6 +27,8 @@ const providerStyles = {
 }
 
 export default function Home() {
+  const visitorCount = useVisitorCount()
+
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* Subdued structural background handled by index.css body grid */}
@@ -104,11 +121,19 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-white/5 bg-zinc-950/50 py-10 mt-12 text-center text-zinc-500">
+      <footer className="border-t border-white/5 bg-zinc-950/50 py-10 mt-12 text-zinc-500">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <BrandedName size="text-lg" />
           </Link>
+
+          {visitorCount !== null && (
+            <div className="flex items-center gap-1.5 text-xs text-zinc-600">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/60 animate-pulse" />
+              {visitorCount.toLocaleString()} visitors
+            </div>
+          )}
+
           <p className="text-sm">Built for the community. Free forever.</p>
         </div>
       </footer>
