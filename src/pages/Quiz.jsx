@@ -17,14 +17,20 @@ export default function Quiz() {
   const { addQuizResult } = useProgress(cert.id)
   const { getWeightedPool, recordSession, trackedCount } = useQuestionStats(cert.id)
 
-  const domainNames = [SMART_PRACTICE, 'All Domains', 'Bookmarked', ...cert.domains.map((d) => d.name)]
+  const certDomains = cert.domains.map((d) => d.name)
 
   const [selectedDomain, setSelectedDomain] = useState(SMART_PRACTICE)
+  const [setupStep, setSetupStep] = useState(1)      // 1 = mode picker, 2 = domain picker
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState([])
   const [showResult, setShowResult] = useState(false)
   const [quizStarted, setQuizStarted] = useState(false)
   const [sessionKey, setSessionKey] = useState(0)
+
+  // Derived: which top-level mode is active
+  const activeMode = selectedDomain === SMART_PRACTICE ? 'smart'
+    : selectedDomain === 'Bookmarked' ? 'bookmarked'
+    : 'domain'
 
   // Full unshuffled pool — used for count display on setup screen
   const poolQuestions = useMemo(() => {
@@ -75,110 +81,205 @@ export default function Quiz() {
 
   // ─── Setup screen ────────────────────────────────────────────────────────────
   if (!quizStarted) {
-    const isSmartPractice = selectedDomain === SMART_PRACTICE
-    const blockSize = Math.min(BLOCK_SIZE, poolQuestions.length)
+    const accentColor = activeMode === 'smart' ? '#6366f1' : cert.color
 
-    return (
-      <div className="space-y-12 animate-fade-up pt-4">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-zinc-100">Practice Quiz</h1>
-          <p className="text-xl text-zinc-400">Target a specific domain or let Smart Practice find your weak spots.</p>
-        </div>
-
-        <div className="glass-panel rounded-2xl p-8 md:p-12 space-y-8 max-w-3xl mx-auto">
-          <div className="space-y-4">
-            <label className="block text-xs font-bold text-zinc-500 uppercase tracking-widest pl-1">
-              Select Mode
-            </label>
-            <div className="flex flex-col gap-3">
-              {domainNames.map((domain) => {
-                const isSelected = selectedDomain === domain
-                const isSmart = domain === SMART_PRACTICE
-                return (
-                  <button
-                    key={domain}
-                    onClick={() => setSelectedDomain(domain)}
-                    className={`px-6 py-4 rounded-xl text-left font-medium transition-all duration-300 border shadow-sm flex items-center justify-between group ${
-                      isSelected
-                        ? isSmart
-                          ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-100 scale-[1.01]'
-                          : 'bg-zinc-100 text-zinc-950 scale-[1.01]'
-                        : 'border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800'
-                    }`}
-                    style={isSelected && !isSmart ? { borderColor: cert.color } : {}}
-                  >
-                    <div className="flex items-center gap-3">
-                      {isSmart && (
-                        <svg className={`w-4 h-4 shrink-0 ${isSelected ? 'text-indigo-400' : 'text-zinc-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      )}
-                      <div>
-                        <span>{domain}</span>
-                        {isSmart && (
-                          <span className={`ml-2 text-xs font-normal ${isSelected ? 'text-indigo-300' : 'text-zinc-600'}`}>
-                            {trackedCount > 0 ? `· ${trackedCount} questions tracked` : '· builds as you practice'}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors shrink-0 ${
-                      isSelected
-                        ? isSmart ? 'border-indigo-400' : 'border-zinc-950'
-                        : 'border-zinc-600 group-hover:border-zinc-400'
-                    }`}>
-                      {isSelected && (
-                        <div className={`w-2.5 h-2.5 rounded-full ${isSmart ? 'bg-indigo-400' : 'bg-zinc-950'}`} />
-                      )}
-                    </div>
-                  </button>
-                )
-              })}
-            </div>
+    // ── Step 2: domain picker ─────────────────────────────────────────────────
+    if (setupStep === 2) {
+      const allDomains = ['All Domains', ...certDomains]
+      return (
+        <div className="space-y-10 animate-fade-up pt-4 max-w-3xl mx-auto">
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => { setSetupStep(1); setSelectedDomain(SMART_PRACTICE) }}
+              className="flex items-center gap-2 text-sm text-zinc-400 hover:text-zinc-200 transition-colors font-medium"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
+            </button>
+            <h1 className="text-2xl font-bold text-zinc-100">Select a Domain</h1>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-6 border-t border-white/5">
-            <div className="space-y-1">
-              {selectedDomain === 'Bookmarked' && poolQuestions.length === 0 ? (
-                <p className="text-zinc-400 text-sm font-medium">No bookmarks yet — star questions during a quiz</p>
-              ) : isSmartPractice ? (
-                <>
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-500/10 text-indigo-400 font-bold border border-indigo-500/20 text-sm">
-                      {BLOCK_SIZE}
-                    </span>
-                    <span className="text-zinc-300 text-sm font-semibold">Questions per session</span>
+          <div className="glass-panel rounded-2xl p-6 space-y-3">
+            {allDomains.map((domain) => {
+              const isSelected = selectedDomain === domain
+              return (
+                <button
+                  key={domain}
+                  onClick={() => setSelectedDomain(domain)}
+                  className={`w-full px-6 py-4 rounded-xl text-left font-medium transition-all duration-200 border flex items-center justify-between group ${
+                    isSelected
+                      ? 'text-zinc-950 scale-[1.01]'
+                      : 'border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800'
+                  }`}
+                  style={isSelected ? { backgroundColor: cert.color, borderColor: cert.color } : {}}
+                >
+                  <span>{domain}</span>
+                  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
+                    isSelected ? 'border-zinc-950' : 'border-zinc-600 group-hover:border-zinc-400'
+                  }`}>
+                    {isSelected && <div className="w-2.5 h-2.5 rounded-full bg-zinc-950" />}
                   </div>
-                  <p className="text-zinc-500 text-xs pl-1">
-                    {trackedCount > 0
-                      ? `Prioritising your ${trackedCount} weakest questions across all domains`
-                      : 'Randomly selected until you build a history — then weighted by weakness'}
-                  </p>
-                </>
-              ) : (
-                <>
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/20 text-sm">
-                      {blockSize}
-                    </span>
-                    <span className="text-zinc-300 text-sm font-semibold">Questions per session</span>
-                  </div>
-                  <p className="text-zinc-500 text-xs pl-1">{poolQuestions.length} total available · randomly selected each time</p>
-                </>
-              )}
-            </div>
+                </button>
+              )
+            })}
+          </div>
 
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 px-1">
+            <p className="text-zinc-500 text-sm">
+              {poolQuestions.length} questions available · 10 selected randomly each session
+            </p>
             <button
               id="start-quiz-btn"
               onClick={startQuiz}
               disabled={poolQuestions.length === 0}
-              className="w-full md:w-auto font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
-              style={{ backgroundColor: isSmartPractice ? '#6366f1' : cert.color }}
+              className="w-full sm:w-auto font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
+              style={{ backgroundColor: cert.color }}
             >
               Start Practice Session
             </button>
           </div>
         </div>
+      )
+    }
+
+    // ── Step 1: mode picker ───────────────────────────────────────────────────
+    const modes = [
+      {
+        id: 'smart',
+        label: 'Smart Practice',
+        description: trackedCount > 0
+          ? `Weighted by your ${trackedCount} tracked questions — wrong answers surface more`
+          : 'Builds a weakness profile as you practice — wrong answers surface more',
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        ),
+        accent: '#6366f1',
+        action: () => setSelectedDomain(SMART_PRACTICE),
+      },
+      {
+        id: 'bookmarked',
+        label: 'Bookmarked',
+        description: bookmarkedIds.length > 0
+          ? `${bookmarkedIds.length} starred question${bookmarkedIds.length === 1 ? '' : 's'} — great for targeted review`
+          : 'Star questions during a quiz to build your review list',
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+          </svg>
+        ),
+        accent: cert.color,
+        action: () => setSelectedDomain('Bookmarked'),
+      },
+      {
+        id: 'domain',
+        label: 'Specific Domain',
+        description: 'Focus your session on one exam domain',
+        icon: (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        ),
+        accent: cert.color,
+        action: () => { setSetupStep(2); setSelectedDomain(certDomains[0]) },
+      },
+    ]
+
+    return (
+      <div className="space-y-10 animate-fade-up pt-4">
+        <div className="text-center space-y-3">
+          <h1 className="text-4xl md:text-5xl font-bold text-zinc-100">Practice Quiz</h1>
+          <p className="text-lg text-zinc-400">Choose how you want to practice.</p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 max-w-3xl mx-auto">
+          {modes.map(({ id, label, description, icon, accent, action }) => {
+            const isSelected = activeMode === id
+            return (
+              <button
+                key={id}
+                onClick={action}
+                className={`w-full text-left px-7 py-6 rounded-2xl border transition-all duration-200 flex items-center gap-5 group ${
+                  isSelected
+                    ? 'scale-[1.01]'
+                    : 'border-white/5 bg-zinc-900/50 hover:border-white/15 hover:bg-zinc-800/60'
+                }`}
+                style={isSelected
+                  ? { borderColor: `${accent}60`, backgroundColor: `${accent}15` }
+                  : {}
+                }
+              >
+                {/* Icon */}
+                <div
+                  className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border transition-all"
+                  style={isSelected
+                    ? { color: accent, backgroundColor: `${accent}20`, borderColor: `${accent}40` }
+                    : { color: '#52525b', backgroundColor: '#18181b', borderColor: '#27272a' }
+                  }
+                >
+                  {icon}
+                </div>
+
+                {/* Text */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className={`font-bold text-lg leading-tight ${isSelected ? 'text-zinc-100' : 'text-zinc-300'}`}>
+                      {label}
+                    </span>
+                    {id === 'domain' && (
+                      <svg className={`w-4 h-4 shrink-0 transition-colors ${isSelected ? 'text-zinc-400' : 'text-zinc-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    )}
+                  </div>
+                  <p className={`text-sm mt-0.5 leading-snug ${isSelected ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                    {description}
+                  </p>
+                </div>
+
+                {/* Selection indicator (not for domain since it goes to step 2) */}
+                {id !== 'domain' && (
+                  <div
+                    className="shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all"
+                    style={isSelected
+                      ? { borderColor: accent }
+                      : { borderColor: '#52525b' }
+                    }
+                  >
+                    {isSelected && (
+                      <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: accent }} />
+                    )}
+                  </div>
+                )}
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Start button — only for smart/bookmarked (domain goes to step 2 on click) */}
+        {activeMode !== 'domain' && (
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-3xl mx-auto px-1">
+            <p className="text-zinc-500 text-sm">
+              {activeMode === 'bookmarked' && poolQuestions.length === 0
+                ? 'No bookmarks yet — star questions during a quiz to build your list'
+                : activeMode === 'smart'
+                  ? '10 questions per session · weighted by your weakest areas'
+                  : `${poolQuestions.length} available · 10 randomly selected`}
+            </p>
+            <button
+              id="start-quiz-btn"
+              onClick={startQuiz}
+              disabled={poolQuestions.length === 0}
+              className="w-full sm:w-auto font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-0.5"
+              style={{ backgroundColor: accentColor }}
+            >
+              Start Practice Session
+            </button>
+          </div>
+        )}
       </div>
     )
   }
@@ -224,7 +325,7 @@ export default function Quiz() {
               {isSmartPractice ? 'Next Smart Practice Block' : 'New 10-Question Block'}
             </button>
             <button
-              onClick={() => setQuizStarted(false)}
+              onClick={() => { setQuizStarted(false); setSetupStep(1); setSelectedDomain(SMART_PRACTICE) }}
               className="font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 bg-zinc-800 text-zinc-300 hover:bg-zinc-700 border border-white/5 w-full"
             >
               Change Mode
