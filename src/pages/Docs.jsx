@@ -55,34 +55,34 @@ function Tag({ children }) {
   )
 }
 
-function Callout({ icon, color = '#a1a1aa', title, children }) {
+function Callout({ icon, title, children }) {
   return (
-    <div className="rounded-xl border p-5 space-y-2" style={{ borderColor: `${color}30`, backgroundColor: `${color}08` }}>
-      <div className="flex items-center gap-2" style={{ color }}>
+    <div className="glass-panel rounded-xl p-5 space-y-2">
+      <div className="flex items-center gap-2 text-zinc-300">
         <span>{icon}</span>
         <span className="text-sm font-bold uppercase tracking-widest">{title}</span>
       </div>
-      <p className="text-sm text-zinc-400 leading-relaxed">{children}</p>
+      <p className="text-sm text-zinc-500 leading-relaxed">{children}</p>
     </div>
   )
 }
 
 function Table({ headers, rows }) {
   return (
-    <div className="overflow-x-auto rounded-xl border border-white/5">
+    <div className="overflow-x-auto glass-panel rounded-xl">
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-white/5 bg-zinc-900/60">
+          <tr className="border-b border-white/5">
             {headers.map(h => (
-              <th key={h} className="text-left px-4 py-3 text-[11px] font-bold text-zinc-500 uppercase tracking-widest">{h}</th>
+              <th key={h} className="text-left px-4 py-3 text-[11px] font-bold text-zinc-600 uppercase tracking-widest">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={i} className="border-b border-white/5 last:border-0 hover:bg-zinc-900/40 transition-colors">
+            <tr key={i} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors">
               {row.map((cell, j) => (
-                <td key={j} className="px-4 py-3 text-zinc-300">{cell}</td>
+                <td key={j} className="px-4 py-3 text-zinc-400">{cell}</td>
               ))}
             </tr>
           ))}
@@ -94,7 +94,7 @@ function Table({ headers, rows }) {
 
 function CodeBlock({ children }) {
   return (
-    <pre className="bg-zinc-900/80 border border-white/5 rounded-xl p-5 text-sm text-zinc-300 overflow-x-auto font-mono leading-relaxed">
+    <pre className="glass-panel rounded-xl p-5 text-sm text-zinc-400 overflow-x-auto font-mono leading-relaxed">
       {children}
     </pre>
   )
@@ -145,7 +145,7 @@ export default function Docs() {
 
           {/* Page title */}
           <div className="mb-14">
-            <div className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-lg border border-white/10 bg-zinc-800/60 text-zinc-400 uppercase tracking-widest mb-4">
+            <div className="inline-block text-sm font-medium px-4 py-1.5 rounded-full border border-zinc-700 bg-zinc-900/50 text-zinc-300 mb-4">
               Documentation
             </div>
             <h1 className="text-4xl font-bold text-zinc-100 mb-3">freecertprep</h1>
@@ -180,7 +180,7 @@ export default function Docs() {
                 { n: '3', label: 'Study modes: Quiz, Drill, Exam' },
                 { n: '5', label: 'Question types including ordering & matching' },
               ].map(({ n, label }) => (
-                <div key={label} className="bg-zinc-900/50 border border-white/5 rounded-xl p-5">
+                <div key={label} className="glass-panel rounded-xl p-5">
                   <p className="text-3xl font-black text-zinc-100 mb-1">{n}</p>
                   <p className="text-sm text-zinc-500">{label}</p>
                 </div>
@@ -226,7 +226,7 @@ export default function Docs() {
                 { provider: 'Microsoft Azure', color: '#0078d4', certs: ['SC-900 · Security Fundamentals', 'MS-900 · Microsoft 365 Fundamentals', 'DP-900 · Data Fundamentals'] },
                 { provider: 'CompTIA', color: '#c8202f', certs: ['A+ · Core Hardware & OS', 'Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'] },
               ].map(({ provider, color, certs }) => (
-                <div key={provider} className="bg-zinc-900/50 border border-white/5 rounded-xl p-5 space-y-3">
+                <div key={provider} className="glass-panel rounded-xl p-5 space-y-3">
                   <p className="text-xs font-bold uppercase tracking-widest" style={{ color }}>{provider}</p>
                   {certs.map(c => (
                     <div key={c} className="flex items-center gap-2 text-sm text-zinc-500">
@@ -258,7 +258,7 @@ export default function Docs() {
                 { label: 'Bookmarked', desc: 'Only questions you have starred during previous sessions. Ideal for targeted review before an exam.' },
                 { label: 'Specific Domain', desc: 'Pick a single exam domain to focus on. Useful when the dashboard shows a weak area that needs dedicated work.' },
               ].map(({ label, desc }) => (
-                <li key={label} className="flex gap-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4">
+                <li key={label} className="flex gap-4 glass-panel rounded-xl p-4">
                   <span className="w-2 h-2 rounded-full bg-zinc-500 mt-2 shrink-0" />
                   <div>
                     <p className="font-semibold text-zinc-200 mb-1">{label}</p>
@@ -344,8 +344,8 @@ key = random() ** (1 / weight)
 }`}
             </CodeBlock>
             <P>
-              Stored in localStorage under the key <code className="text-zinc-300 bg-zinc-800/60 px-1.5 py-0.5 rounded text-xs">freecertprep-question-stats-local</code>.
-              The <code className="text-zinc-300 bg-zinc-800/60 px-1.5 py-0.5 rounded text-xs">-local</code> suffix is intentional — it reserves the migration path for when
+              Stored in localStorage under the key <code className="text-zinc-300 bg-zinc-900 px-1.5 py-0.5 rounded text-xs">freecertprep-question-stats-local</code>.
+              The <code className="text-zinc-300 bg-zinc-900 px-1.5 py-0.5 rounded text-xs">-local</code> suffix is intentional — it reserves the migration path for when
               user accounts are added. On first login, local stats can be merged into the user's account without data loss.
             </P>
 
@@ -402,13 +402,13 @@ key = random() ** (1 / weight)
                 example: 'Match: S3 → Object storage  EC2 → Virtual compute  RDS → Managed database',
               },
             ].map(({ type, tag, desc, example }) => (
-              <div key={type} className="bg-zinc-900/40 border border-white/5 rounded-xl p-6 space-y-3">
+              <div key={type} className="glass-panel rounded-xl p-6 space-y-3">
                 <div className="flex items-center gap-3">
                   <h3 className="font-bold text-zinc-100 text-base">{type}</h3>
                   <Tag>{tag}</Tag>
                 </div>
                 <p className="text-sm text-zinc-400 leading-relaxed">{desc}</p>
-                <div className="bg-zinc-950/60 rounded-lg px-4 py-3 border border-white/5">
+                <div className="glass-panel rounded-lg px-4 py-3">
                   <p className="text-xs text-zinc-600 uppercase tracking-widest font-bold mb-1">Example</p>
                   <p className="text-xs text-zinc-400 font-mono leading-relaxed">{example}</p>
                 </div>
@@ -450,7 +450,7 @@ key = random() ** (1 / weight)
                 { label: 'Reset Progress', desc: 'Clears quiz and exam session history. Domain readiness bars and overall stats reset to zero. Smart Practice history is unaffected.' },
                 { label: 'Reset Smart Practice', desc: 'Clears per-question performance data. The weighted pool reverts to treating all questions as equally unknown. Only visible when you have tracked questions.' },
               ].map(({ label, desc }) => (
-                <li key={label} className="flex gap-4 bg-zinc-900/40 border border-rose-500/10 rounded-xl p-4">
+                <li key={label} className="flex gap-4 glass-panel rounded-xl p-4">
                   <span className="w-2 h-2 rounded-full bg-rose-500 mt-2 shrink-0" />
                   <div>
                     <p className="font-semibold text-zinc-200 mb-1">{label}</p>
