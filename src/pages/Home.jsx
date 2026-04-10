@@ -40,6 +40,7 @@ export default function Home() {
           </Link>
           <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
             <a href="#certs" className="hover:text-zinc-100 transition-colors">Certifications</a>
+            <Link to="/docs" className="hover:text-zinc-100 transition-colors">Docs</Link>
             <a href="https://github.com/alexNGMI/freecertprep" target="_blank" rel="noreferrer" className="hover:text-zinc-100 transition-colors">GitHub</a>
           </div>
         </div>

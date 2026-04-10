@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
+import Docs from './pages/Docs'
 import CertLayout from './components/CertLayout'
 import { CertProvider } from './hooks/useCert'
 
@@ -31,6 +32,7 @@ function App() {
     <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/docs" element={<Docs />} />
         <Route path="/:certId" element={<CertRoutes />}>
           <Route index element={<Dashboard />} />
           <Route path="quiz" element={<Quiz />} />
