@@ -64,7 +64,7 @@ export default function CertLayout() {
         <Outlet />
       </main>
       <footer className="border-t border-white/5 bg-zinc-950/50 py-8 mt-auto text-center text-sm text-zinc-500 backdrop-blur-md">
-        <p>FreeCertPrep &mdash; {cert.title} Premium Exam Engine</p>
+        <p>freecertprep &mdash; {cert.title} Premium Exam Engine</p>
       </footer>
     </div>
   )
