@@ -66,14 +66,39 @@ export default function Home() {
               <CertCard key={cert.id} cert={cert} index={i} />
             ))}
 
-            <div className="glass-panel rounded-2xl p-8 flex flex-col items-center justify-center text-center min-h-[340px] border-dashed animate-fade-up" style={{ animationDelay: `${certs.length * 80 + 300}ms` }}>
-              <div className="w-14 h-14 rounded-full border-2 border-dashed border-zinc-600 flex items-center justify-center mb-6 bg-zinc-900/50">
-                <span className="text-zinc-500 text-2xl font-light">+</span>
+            <div className="glass-panel rounded-2xl p-8 flex flex-col min-h-[340px] border-dashed animate-fade-up" style={{ animationDelay: `${certs.length * 80 + 300}ms` }}>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-full border-2 border-dashed border-zinc-600 flex items-center justify-center bg-zinc-900/50 shrink-0">
+                  <span className="text-zinc-500 text-xl font-light">+</span>
+                </div>
+                <h3 className="text-zinc-300 font-semibold text-lg">Coming soon</h3>
               </div>
-              <h3 className="text-zinc-300 font-semibold text-lg">More coming soon</h3>
-              <p className="text-zinc-500 text-sm mt-3 leading-relaxed">
-                We're actively adding new question banks for Solutions Architect, DevOps, and more.
-              </p>
+
+              <div className="space-y-4 flex-1">
+                <div>
+                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-2">Microsoft Azure</p>
+                  <div className="space-y-1.5">
+                    {['SC-900 · Security Fundamentals', 'MS-900 · Microsoft 365 Fundamentals', 'DP-900 · Data Fundamentals'].map(name => (
+                      <div key={name} className="flex items-center gap-2 text-sm text-zinc-500">
+                        <div className="w-1 h-1 rounded-full bg-zinc-700 shrink-0" />
+                        {name}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="border-t border-white/5 pt-4">
+                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-2">CompTIA</p>
+                  <div className="space-y-1.5">
+                    {['A+ · Core Hardware & OS', 'Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'].map(name => (
+                      <div key={name} className="flex items-center gap-2 text-sm text-zinc-500">
+                        <div className="w-1 h-1 rounded-full bg-zinc-700 shrink-0" />
+                        {name}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
