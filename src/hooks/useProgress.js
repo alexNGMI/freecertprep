@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
+import { aggregateDomainStats, aggregateOverallStats } from '../utils/progress-stats.js'
 
 const STORAGE_KEY = 'freecertprep-progress'
 
@@ -51,36 +52,14 @@ export function useProgress(certId) {
   }, [certId])
 
   const getDomainStats = useCallback((domains) => {
-    const allResults = [...certProgress.quizHistory, ...certProgress.examHistory]
-
-    return domains.map(({ name: domain }) => {
-      const domainResults = allResults.flatMap((r) =>
-        (r.answers || []).filter((a) => a.domain === domain)
-      )
-      const total = domainResults.length
-      const correct = domainResults.filter((a) => a.correct).length
-      return {
-        domain,
-        total,
-        correct,
-        percentage: total > 0 ? Math.round((correct / total) * 100) : 0,
-      }
-    })
+    const allSessions = [...certProgress.quizHistory, ...certProgress.examHistory]
+    return aggregateDomainStats(allSessions, domains)
   }, [certProgress.quizHistory, certProgress.examHistory])
 
-  const getOverallStats = useMemo(() => {
-    const allResults = [...certProgress.quizHistory, ...certProgress.examHistory]
-    const allAnswers = allResults.flatMap((r) => r.answers || [])
-    const total = allAnswers.length
-    const correct = allAnswers.filter((a) => a.correct).length
-    return {
-      totalQuestions: total,
-      correctAnswers: correct,
-      percentage: total > 0 ? Math.round((correct / total) * 100) : 0,
-      quizzesTaken: certProgress.quizHistory.length,
-      examsTaken: certProgress.examHistory.length,
-    }
-  }, [certProgress.quizHistory, certProgress.examHistory])
+  const getOverallStats = useMemo(
+    () => aggregateOverallStats(certProgress.quizHistory, certProgress.examHistory),
+    [certProgress.quizHistory, certProgress.examHistory]
+  )
 
   const resetProgress = useCallback(() => {
     setProgress((prev) => ({

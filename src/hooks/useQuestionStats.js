@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
+import { buildWeightedPool } from '../utils/smart-practice.js'
 
 // Separate key from quiz/exam history so the two can evolve independently.
 // Suffix "-local" reserves space for a future userId-keyed version when
@@ -46,19 +47,10 @@ export function useQuestionStats(certId) {
 
   /**
    * Returns weighted items ready for weightedSample().
-   * Weight formula:
-   *   - Never seen (0 attempts) → 1.0  (neutral, treated same as "wrong")
-   *   - Seen → 1 - (correct / attempts), clamped to min 0.05
-   *     so mastered questions still occasionally appear
+   * Weight formula lives in utils/smart-practice.js (pure, testable).
    */
   const getWeightedPool = useCallback((questions) => {
-    return questions.map(q => {
-      const s = certStats[q.id]
-      const weight = s
-        ? Math.max(0.05, 1 - s.correct / s.attempts)
-        : 1.0
-      return { q, weight }
-    })
+    return buildWeightedPool(questions, certStats)
   }, [certStats])
 
   /**
