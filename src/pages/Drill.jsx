@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
@@ -48,20 +48,31 @@ export default function Drill() {
     setShowResult(true)
   }, [addQuizResult, recordSession])
 
-  // Countdown timer
+  // Keep a ref to the latest answers so the hard-stop timeout can read them
+  // without needing answers in the effect dependency array.
+  const answersRef = useRef(answers)
+  useEffect(() => { answersRef.current = answers }, [answers])
+
+  // Countdown + hard stop — scheduled once per drill start, not every tick.
+  // setInterval handles display; setTimeout fires endDrill asynchronously
+  // after the full drill duration so setState is never called synchronously
+  // in the effect body.
   useEffect(() => {
     if (!drillStarted || showResult) return
-    if (timeLeft <= 0) { endDrill(answers); return }
 
-    const tick = setInterval(() => {
-      setTimeLeft(t => {
-        if (t <= 1) { clearInterval(tick); return 0 }
-        return t - 1
-      })
+    const tickId = setInterval(() => {
+      setTimeLeft(t => Math.max(0, t - 1))
     }, 1000)
 
-    return () => clearInterval(tick)
-  }, [drillStarted, showResult, timeLeft, answers, endDrill])
+    const stopId = setTimeout(() => {
+      endDrill(answersRef.current)
+    }, DRILL_TIME * 1000)
+
+    return () => {
+      clearInterval(tickId)
+      clearTimeout(stopId)
+    }
+  }, [drillStarted, showResult, endDrill])
 
   const startDrill = () => {
     setCurrentIndex(0)

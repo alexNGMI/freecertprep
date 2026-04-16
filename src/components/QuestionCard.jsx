@@ -11,13 +11,16 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   // Shuffle answer choices once per question so correct answer isn't always position B.
   // shuffledChoices is an array of { origIdx, text } — display order is shuffled,
   // but all answer storage/validation uses original indices unchanged.
+  // question.choices is a stable reference (comes from JSON) and QuestionCard is
+  // remounted per question via `key={question.id}` in the parent, so this memo
+  // runs once per mount.
   const shuffledChoices = useMemo(() => {
     if (!question.choices) return []
     const indices = question.choices.map((_, i) => i)
     // In review mode, show original order so correct answer labels are stable
     const ordered = reviewMode ? indices : fisherYates(indices)
     return ordered.map(origIdx => ({ origIdx, text: question.choices[origIdx] }))
-  }, [question.id, reviewMode]) // re-shuffle only when question changes
+  }, [question.choices, reviewMode])
 
   // Local state for interactive questions before they are submitted (only used in Quiz Mode)
   const [localMulti, setLocalMulti] = useState(() =>
