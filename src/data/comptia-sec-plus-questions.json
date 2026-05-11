@@ -5608,7 +5608,7 @@
       "Prevents credential theft because passwords are never transmitted",
       "Automatically enforces least privilege across all connected applications"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "SSO centralizes authentication — organizations can invest heavily in securing one identity provider (strong MFA, monitoring, hardened infrastructure) rather than many disparate login systems with inconsistent security. SSO does not eliminate MFA (A); MFA is typically applied at the SSO login. Credentials are still transmitted (C) — just once. SSO does not control authorization within applications (D)."
   },
   {
@@ -5656,7 +5656,7 @@
       "Right to audit",
       "Due diligence"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Chain of custody documents the chronological history of evidence — who collected it, who handled it, and how it was stored — to ensure its integrity is defensible in court. A legal hold (B) instructs custodians to preserve records related to anticipated litigation. Right to audit (C) is a contractual clause. Due diligence (D) is a broad risk management concept."
   },
   {
@@ -5684,7 +5684,7 @@
       "Faraday cage",
       "Forensic duplicator software"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "A hardware write blocker sits between the forensic workstation and the source drive, intercepting write commands and preventing any modification to the original evidence. Software write blocking (D) exists but hardware blockers are preferred because they operate independently of the OS. A RAID controller (A) manages disk arrays. A Faraday cage (C) blocks wireless signals."
   },
   {
@@ -5811,7 +5811,7 @@
       "Cloud Security Posture Management (CSPM)",
       "Endpoint Detection and Response (EDR)"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "CSPM tools continuously assess cloud resource configurations against security baselines and compliance frameworks, flagging misconfigured resources like public buckets and overly permissive security groups. A CASB (A) controls access to cloud services and enforces policy at the user-to-cloud boundary. A WAF (B) protects web applications from layer 7 attacks. EDR (D) monitors endpoints."
   },
   {
@@ -6111,7 +6111,7 @@
       "Incremental backup",
       "Snapshot backup"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Incremental backups capture only changes since the last backup of any type (full or incremental). Restoring requires the last full backup plus every incremental since then. Differential backups (B) capture changes since the last full backup — they grow daily, but restoration only requires the full + the latest differential (two sets, but differentials accumulate more data). Snapshots (D) capture volume state at a point in time, often used in virtualization."
   },
   {
@@ -6308,7 +6308,7 @@
       "Preventing personal apps from accessing corporate data stored on the same device",
       "Requiring device encryption"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "On personal devices, corporate MDM cannot control what other apps are installed or how the OS shares data between apps — a malicious or poorly coded personal app may access corporate data in shared storage. Screen lock (A), app deployment (B), and encryption (D) can all be enforced via MDM profiles, but cross-app data isolation on personal devices remains a fundamental challenge."
   },
   {
@@ -6426,7 +6426,7 @@
       "Inability to use site-to-site VPN tunnels",
       "Reduced bandwidth at the headquarters uplink"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 1,
     "explanation": "When branches break out internet traffic locally, that traffic no longer passes through the central firewall and security stack — branches are individually exposed to internet threats without centralized inspection. This is typically addressed by deploying cloud-based security (SASE) at each breakout point. The other options are either benefits of SD-WAN (reduced latency, HQ bandwidth) or incorrect (SD-WAN still supports VPN)."
   },
   {
@@ -6497,7 +6497,7 @@
       "Red team, blue team, and purple team",
       "Threat intel, SOC, and IR teams"
     ],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "explanation": "Red team simulates attackers; blue team defends and detects; purple team bridges both — facilitating real-time collaboration so defenders learn from attacker findings and red team validates defensive coverage gaps. The other options describe functional security roles, not adversarial exercise team structures."
   },
   {
@@ -8568,7 +8568,7 @@
       "High false positive rates indicate the IDS is more secure than a low-rate system",
       "False positives improve detection coverage by ensuring all traffic is reviewed"
     ],
-    "correctAnswer": 1,
+    "correctAnswer": 0,
     "explanation": "Alert fatigue occurs when analysts are overwhelmed by false positives — they begin ignoring or bulk-closing alerts, dramatically increasing the risk that real threats slip through. This is the primary security risk of high false positive rates, not just an efficiency problem. Reducing false positives through tuning, allowlisting, and better correlation rules directly improves detection quality."
   },
   {
