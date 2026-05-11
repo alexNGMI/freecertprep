@@ -588,7 +588,7 @@ key = random() ** (1 / weight)
                 color: '#fbbf24',
                 items: [
                   'User accounts + Supabase backend — cloud-synced progress, Smart Practice history across devices',
-                  'Custom domain',
+                  'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable',
                 ],
               },

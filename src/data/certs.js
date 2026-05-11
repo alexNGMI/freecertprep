@@ -127,13 +127,85 @@ const certs = {
       'GPU Infrastructure for LLMs': { dot: 'bg-[#e91e63]', bar: 'bg-[#e91e63]', text: 'text-[#e91e63]', hex: '#e91e63' },
     },
   },
+  'comptia-net-plus': {
+    id: 'comptia-net-plus',
+    title: 'CompTIA Network+',
+    code: 'N10-009',
+    provider: 'CompTIA',
+    description: 'Establishes foundational networking knowledge — protocols, topologies, troubleshooting, and security — for entry-level network roles.',
+    difficulty: 'Foundational',
+    color: '#c8202f',
+    questionCount: 0,
+    examQuestions: 90,
+    examTime: 90,
+    passingScore: 80,
+    published: false,
+    loadQuestions: () => import('./comptia-net-plus-questions.json'),
+    domains: [
+      { name: 'Networking Concepts', weight: 23 },
+      { name: 'Network Implementation', weight: 20 },
+      { name: 'Network Operations', weight: 19 },
+      { name: 'Network Security', weight: 14 },
+      { name: 'Network Troubleshooting', weight: 24 },
+    ],
+    domainColors: {
+      'Networking Concepts': { dot: 'bg-[#c8202f]', bar: 'bg-[#c8202f]', text: 'text-[#c8202f]', hex: '#c8202f' },
+      'Network Implementation': { dot: 'bg-[#e74c3c]', bar: 'bg-[#e74c3c]', text: 'text-[#e74c3c]', hex: '#e74c3c' },
+      'Network Operations': { dot: 'bg-[#f39c12]', bar: 'bg-[#f39c12]', text: 'text-[#f39c12]', hex: '#f39c12' },
+      'Network Security': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
+      'Network Troubleshooting': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
+    },
+  },
+  'comptia-sec-plus': {
+    id: 'comptia-sec-plus',
+    title: 'CompTIA Security+',
+    code: 'SY0-701',
+    provider: 'CompTIA',
+    description: 'Validates baseline cybersecurity skills — threats, architecture, operations, and governance — for entry-level security roles.',
+    difficulty: 'Foundational',
+    color: '#c8202f',
+    questionCount: 0,
+    examQuestions: 90,
+    examTime: 90,
+    passingScore: 83,
+    published: false,
+    loadQuestions: () => import('./comptia-sec-plus-questions.json'),
+    domains: [
+      { name: 'General Security Concepts', weight: 12 },
+      { name: 'Threats, Vulnerabilities, and Mitigations', weight: 22 },
+      { name: 'Security Architecture', weight: 18 },
+      { name: 'Security Operations', weight: 28 },
+      { name: 'Security Program Management and Oversight', weight: 20 },
+    ],
+    domainColors: {
+      'General Security Concepts': { dot: 'bg-[#c8202f]', bar: 'bg-[#c8202f]', text: 'text-[#c8202f]', hex: '#c8202f' },
+      'Threats, Vulnerabilities, and Mitigations': { dot: 'bg-[#e74c3c]', bar: 'bg-[#e74c3c]', text: 'text-[#e74c3c]', hex: '#e74c3c' },
+      'Security Architecture': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
+      'Security Operations': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
+      'Security Program Management and Oversight': { dot: 'bg-[#f39c12]', bar: 'bg-[#f39c12]', text: 'text-[#f39c12]', hex: '#f39c12' },
+    },
+  },
 }
 
 export function getCert(certId) {
   return certs[certId] || null
 }
 
+/**
+ * Returns only certs with content ready for users. Certs with
+ * `published: false` are registered for content authoring but hidden
+ * from the home catalog, navigation, and Smart Practice pools until
+ * their question pool is ready to ship.
+ */
 export function getAllCerts() {
+  return Object.values(certs).filter(c => c.published !== false)
+}
+
+/**
+ * Returns every cert including unpublished — useful for content tooling
+ * and tests that need to validate work-in-progress certs.
+ */
+export function getAllCertsIncludingUnpublished() {
   return Object.values(certs)
 }
 

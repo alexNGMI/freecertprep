@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Claude Code agent state — local-only, never commit
+.claude/worktrees/
+.claude/settings.local.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

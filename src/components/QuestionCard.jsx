@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react'
 import { fisherYates } from '../utils/shuffle'
 import { isAnswerCorrect } from '../utils/scoring'
+import { RichText, InlineRichText } from './RichText'
+import { stripMarkdown } from '../utils/markdown'
 
 export default function QuestionCard({ question, onAnswer, answered, selectedChoice, examMode = false, reviewMode = false, isBookmarked = false, onToggleBookmark = null }) {
   const isMultiple = question.type === 'multiple-response'
@@ -140,7 +142,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
         </div>
       </div>
 
-      <p className="text-zinc-100 text-xl font-medium leading-relaxed">{question.question}</p>
+      <RichText text={question.question} className="text-zinc-100 text-xl font-medium leading-relaxed" />
 
       <div className="space-y-4">
         {/* Single Choice or Multiple Response — uses shuffledChoices for display,
@@ -176,7 +178,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                 <span className={`font-bold mr-4 shrink-0 flex items-center justify-center w-6 h-6 rounded ${isSelected ? 'bg-indigo-500/20 text-indigo-300' : 'bg-zinc-800 text-zinc-500'}`}>
                   {isMultiple ? (isSelected ? '✓' : '') : String.fromCharCode(65 + displayIdx)}
                 </span>
-                <span className="flex-1 mt-0.5 leading-snug text-sm sm:text-base">{text}</span>
+                <InlineRichText text={text} className="flex-1 mt-0.5 leading-snug text-sm sm:text-base" />
               </div>
             </button>
           )
@@ -195,7 +197,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
           return (
             <div key={index} className={`flex flex-col md:flex-row justify-between items-start md:items-center px-6 py-4 rounded-xl border transition-all ${rowStyle}`}>
-              <span className="text-sm sm:text-base text-zinc-200 flex-1 pr-6 leading-relaxed mb-4 md:mb-0">{stmt}</span>
+              <InlineRichText text={stmt} className="text-sm sm:text-base text-zinc-200 flex-1 pr-6 leading-relaxed mb-4 md:mb-0" />
               <div className="flex gap-2 w-full md:w-auto">
                 <button
                   disabled={answered}
@@ -243,7 +245,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                             ? isCorrectPos ? 'bg-emerald-500/30 text-emerald-300' : 'bg-rose-500/30 text-rose-300'
                             : 'bg-indigo-500/30 text-indigo-300'
                         }`}>{seqPos + 1}</span>
-                        <span className="text-sm sm:text-base leading-snug flex-1">{question.items[itemIndex]}</span>
+                        <InlineRichText text={question.items[itemIndex]} className="text-sm sm:text-base leading-snug flex-1" />
                         {answered && isWrongPos && (
                           <span className="text-xs text-zinc-400 shrink-0">should be #{question.correctOrder.indexOf(itemIndex) + 1}</span>
                         )}
@@ -276,7 +278,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                         onClick={() => toggleOrderItem(index)}
                         className="w-full text-left px-6 py-4 rounded-xl border border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800 hover:text-zinc-100 hover:-translate-y-0.5 transition-all duration-200"
                       >
-                        <span className="text-sm sm:text-base leading-snug">{item}</span>
+                        <InlineRichText text={item} className="text-sm sm:text-base leading-snug" />
                       </button>
                     )
                   })}
@@ -292,7 +294,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                   {question.correctOrder.map((itemIndex, seqPos) => (
                     <div key={seqPos} className="flex items-center gap-4 px-4 py-3 rounded-xl border border-emerald-500/20 bg-emerald-500/5 text-zinc-300">
                       <span className="shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold bg-emerald-500/20 text-emerald-400">{seqPos + 1}</span>
-                      <span className="text-sm sm:text-base leading-snug">{question.items[itemIndex]}</span>
+                      <InlineRichText text={question.items[itemIndex]} className="text-sm sm:text-base leading-snug" />
                     </div>
                   ))}
                 </div>
@@ -323,7 +325,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                         : 'border-white/5 bg-zinc-900/50'
                   }`}
                 >
-                  <span className="text-sm sm:text-base text-zinc-200 flex-1 leading-snug">{leftItem}</span>
+                  <InlineRichText text={leftItem} className="text-sm sm:text-base text-zinc-200 flex-1 leading-snug" />
                   <div className="flex items-center gap-3 w-full sm:w-auto">
                     <select
                       disabled={answered}
@@ -341,11 +343,11 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                     >
                       <option value="">— select —</option>
                       {question.itemsRight.map((rightItem, rightIndex) => (
-                        <option key={rightIndex} value={rightIndex}>{rightItem}</option>
+                        <option key={rightIndex} value={rightIndex}>{stripMarkdown(rightItem)}</option>
                       ))}
                     </select>
                     {answered && isWrongMatch && (
-                      <span className="text-xs text-emerald-400 shrink-0 whitespace-nowrap">→ {question.itemsRight[correct]}</span>
+                      <span className="text-xs text-emerald-400 shrink-0 whitespace-nowrap">→ {stripMarkdown(question.itemsRight[correct])}</span>
                     )}
                   </div>
                 </div>
@@ -393,7 +395,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
             <p className="font-bold mb-2">
               {isCorrect ? 'Correct!' : 'Incorrect'}
             </p>
-            <p className="text-zinc-300/90 pr-4">{question.explanation}</p>
+            <RichText text={question.explanation} className="text-zinc-300/90 pr-4" />
           </div>
         </div>
       )}
