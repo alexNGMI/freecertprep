@@ -221,9 +221,8 @@ export default function Docs() {
             </P>
 
             <H3>Coming soon</H3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               {[
-                { provider: 'Microsoft Azure', color: '#0078d4', certs: ['SC-900 · Security Fundamentals', 'MS-900 · Microsoft 365 Fundamentals', 'DP-900 · Data Fundamentals'] },
                 { provider: 'CompTIA', color: '#c8202f', certs: ['A+ · Core Hardware & OS', 'Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'] },
               ].map(({ provider, color, certs }) => (
                 <div key={provider} className="glass-panel rounded-xl p-5 space-y-3">
@@ -572,7 +571,6 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'Microsoft Azure 900-series — SC-900, MS-900, DP-900 (same structure as AZ-900)',
                   'CompTIA — A+, Network+, Security+ (large self-funded audience)',
                 ],
               },
@@ -580,7 +578,6 @@ key = random() ** (1 / weight)
                 status: 'Planned',
                 color: '#fbbf24',
                 items: [
-                  'NVIDIA cert expansion — NCA-AIIO and NCA-GENL (paused pending NVIDIA webinar on cert direction)',
                   'User accounts + Supabase backend — cloud-synced progress, Smart Practice history across devices',
                   'Custom domain',
                   'Mobile PWA — offline support, installable',

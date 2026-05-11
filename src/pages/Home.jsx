@@ -94,18 +94,6 @@ export default function Home() {
 
               <div className="space-y-4 flex-1">
                 <div>
-                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-2">Microsoft Azure</p>
-                  <div className="space-y-1.5">
-                    {['SC-900 · Security Fundamentals', 'MS-900 · Microsoft 365 Fundamentals', 'DP-900 · Data Fundamentals'].map(name => (
-                      <div key={name} className="flex items-center gap-2 text-sm text-zinc-500">
-                        <div className="w-1 h-1 rounded-full bg-zinc-700 shrink-0" />
-                        {name}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="border-t border-white/5 pt-4">
                   <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-2">CompTIA</p>
                   <div className="space-y-1.5">
                     {['A+ · Core Hardware & OS', 'Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'].map(name => (
