@@ -51,7 +51,18 @@ export function weightedSelect(questions, count, domains) {
     for (const missing of missingTypes) {
       const candidates = fisherYates(questions.filter(q => !pickedIds.has(q.id) && (q.type || 'single-choice') === missing))
       if (candidates.length === 0) continue
-      const swapIdx = picked.findIndex(q => (q.type || 'single-choice') === 'single-choice')
+      // Build current type counts so we swap from the most over-represented type
+      // (never reducing any type below 1 occurrence).
+      const typeCounts = {}
+      for (const q of picked) {
+        const t = q.type || 'single-choice'
+        typeCounts[t] = (typeCounts[t] || 0) + 1
+      }
+      const swapSourceType = Object.entries(typeCounts)
+        .filter(([, count]) => count > 1)
+        .sort((a, b) => b[1] - a[1])[0]?.[0]
+      if (!swapSourceType) continue  // every type has exactly 1 representative — cannot swap safely
+      const swapIdx = picked.findIndex(q => (q.type || 'single-choice') === swapSourceType)
       if (swapIdx === -1) continue
       pickedIds.delete(picked[swapIdx].id)
       picked[swapIdx] = candidates[0]
