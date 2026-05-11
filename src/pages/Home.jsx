@@ -50,13 +50,13 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative max-w-5xl mx-auto px-6 pt-32 pb-24 text-center">
           <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-zinc-700 bg-zinc-900/50 text-zinc-300 text-sm font-medium animate-fade-up">
-            ✨ Free, High-Quality Mock Exams
+            Free Forever · No Signup · No Paywall
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 animate-fade-up text-zinc-100" style={{ animationDelay: '100ms' }}>
-            Begin your Cloud Career
+            Certs that change careers.
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
-            Practice for AWS, Google Cloud, Azure, and NVIDIA certifications with deeply realistic questions, timed visual simulations, and intelligent progress tracking.
+            Whether you're breaking into tech or pivoting toward something better, the right certification opens the door. Deep practice for AWS, Google Cloud, Azure, NVIDIA, and CompTIA — free forever.
           </p>
           <div className="mt-12 flex items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '300ms' }}>
             <a
@@ -75,30 +75,30 @@ export default function Home() {
         {/* What makes it different */}
         <section className="max-w-7xl mx-auto px-6 py-16 border-y border-white/5">
           <div className="text-center mb-12">
-            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Why freecertprep</p>
+            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Why it works</p>
             <h2 className="text-3xl font-bold text-zinc-100">
-              Built to <span className="text-zinc-500">actually teach you</span>
+              Built for the <span className="text-zinc-500">journey, not just the test</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 title: 'Smart Practice',
-                desc: 'Questions are weighted by your weakest areas. The more you miss something, the more often it comes back — automatically.',
+                desc: 'The questions you keep missing come back more often. The ones you\'ve mastered fade. Your weak spots get the reps — automatically.',
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
                 ),
               },
               {
                 title: 'Real Exam Formats',
-                desc: 'Five native question types: single-choice, multi-response, drag-and-drop matching, ordering, and statement blocks. Not just flashcards.',
+                desc: 'Five native question types that match how the real exam actually tests you. You won\'t see your first drag-and-drop on test day.',
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 ),
               },
               {
                 title: '100% Free, No Signup',
-                desc: 'Every cert, every mode, every feature. Progress saves locally in your browser. No email required, no upsell, no paywall.',
+                desc: 'Career change is expensive enough. No paywall, no email, no subscription. Every feature works the day you arrive.',
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4" />
                 ),
@@ -123,10 +123,13 @@ export default function Home() {
 
         {/* Cert Catalog */}
         <section id="certs" className="max-w-7xl mx-auto px-6 py-24">
-          <div className="flex items-center justify-between mb-12">
+          <div className="mb-12">
             <h2 className="text-3xl font-bold text-zinc-100">
-              Available <span className="text-zinc-500">Certifications</span>
+              Choose your next step
             </h2>
+            <p className="text-sm text-zinc-500 mt-3">
+              Seven certifications across cloud, AI, networking, and security — each one a real credential that hiring managers know.
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certs.map((cert, i) => (
@@ -163,10 +166,10 @@ export default function Home() {
           <div className="text-center mb-12">
             <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">What a session looks like</p>
             <h2 className="text-3xl font-bold text-zinc-100">
-              A real question, <span className="text-zinc-500">not a quiz toy</span>
+              No surprises <span className="text-zinc-500">on exam day</span>
             </h2>
             <p className="text-sm text-zinc-500 max-w-xl mx-auto mt-4 leading-relaxed">
-              Every question is written to match the depth, phrasing, and answer-pattern style of the real exam. Explanations included.
+              Every question matches the real exam in depth, phrasing, and format. Train the way you'll be tested — then walk in ready.
             </p>
           </div>
 
@@ -243,19 +246,35 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-white/5 bg-zinc-950/50 py-10 mt-12 text-zinc-500">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <Link to="/" className="hover:opacity-80 transition-opacity">
-            <BrandedName size="text-lg" />
-          </Link>
+        <div className="max-w-7xl mx-auto px-6 flex flex-col gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <Link to="/" className="hover:opacity-80 transition-opacity">
+              <BrandedName size="text-lg" />
+            </Link>
 
-          {visitorCount !== null && (
-            <div className="flex items-center gap-2 text-xs text-zinc-400 bg-zinc-900/60 border border-white/5 px-3 py-1.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              {visitorCount.toLocaleString()} visitors
-            </div>
-          )}
+            {visitorCount !== null && (
+              <div className="flex items-center gap-2 text-xs text-zinc-400 bg-zinc-900/60 border border-white/5 px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                {visitorCount.toLocaleString()} visitors
+              </div>
+            )}
 
-          <p className="text-sm">Built for the community. Free forever.</p>
+            <p className="text-sm">Built for the leap. Free forever.</p>
+          </div>
+
+          {/* Sister site teaser */}
+          <div className="flex justify-center pt-2 border-t border-white/5">
+            <span
+              className="inline-flex items-center gap-2 text-xs text-zinc-500 bg-zinc-900/40 border border-white/5 px-3 py-1.5 rounded-full"
+              title="Same approach, different career path. Coming soon."
+            >
+              <svg className="w-3.5 h-3.5 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              <span>Real Estate Exam Prep</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Coming soon</span>
+            </span>
+          </div>
         </div>
       </footer>
     </div>
