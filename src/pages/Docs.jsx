@@ -150,21 +150,23 @@ export default function Docs() {
             </div>
             <h1 className="text-4xl font-bold text-zinc-100 mb-3">freecertprep</h1>
             <p className="text-lg text-zinc-400 max-w-2xl">
-              A free, open-source cloud certification exam prep platform. Realistic questions, intelligent practice modes, and zero paywalls.
+              Open-source exam prep built for the career changer. Deep practice for the IT certifications that open new doors — AWS, Google Cloud, Azure, NVIDIA, and CompTIA — completely free.
             </p>
           </div>
 
           {/* ── Overview ───────────────────────────────────────────────────── */}
           <Section id="overview" title="Overview">
             <P>
-              freecertprep was built to address a real gap: entry-level cloud certifications are increasingly required by employers,
-              but most high-quality practice tools sit behind $30–50/month subscriptions. The people who need them most — career changers,
-              students, and self-funders — are exactly who can't afford them.
+              freecertprep was built to address a real gap: entry-level IT certifications — cloud, AI, networking, security — are
+              increasingly required by employers, but most high-quality practice tools sit behind $30–50/month subscriptions. The people
+              who need them most — career changers, students, and self-funders studying after work — are exactly the ones who can't
+              afford them.
             </P>
             <P>
-              The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, and NVIDIA. Every cert is
-              chosen deliberately: these are exams where the person is typically paying out of pocket, studying independently, and has no
-              employer tuition pipeline to rely on.
+              The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, NVIDIA, and (soon)
+              CompTIA. Every cert is chosen deliberately: these are exams where the test-taker is typically paying out of pocket,
+              studying independently, with no employer tuition pipeline to lean on. The catalog is intentionally small so each cert
+              gets the depth it deserves rather than being one of fifty shallow course pages.
             </P>
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
@@ -175,8 +177,8 @@ export default function Docs() {
             <H3>What's included</H3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { n: '2,656', label: 'Total questions across all certs' },
-                { n: '5', label: 'Certifications available today' },
+                { n: '2,686', label: 'Total questions across all certs' },
+                { n: '5', label: 'Certifications available today (7 when complete)' },
                 { n: '3', label: 'Study modes: Quiz, Drill, Exam' },
                 { n: '5', label: 'Question types including ordering & matching' },
               ].map(({ n, label }) => (
@@ -201,7 +203,7 @@ export default function Docs() {
                 [<Badge color="#f1be32">CLF-C02</Badge>, 'AWS', '731', '65', '90 min', '70%', '65%'],
                 [<Badge color="#0078d4">AZ-900</Badge>, 'Microsoft Azure', '600', '40', '45 min', '70%', '50%'],
                 [<Badge color="#4285f4">CDL</Badge>, 'Google Cloud', '749', '50', '90 min', '70%', '60%'],
-                [<Badge color="#76b900">NCA-AIIO</Badge>, 'NVIDIA', '276', '50', '60 min', '70%', '—'],
+                [<Badge color="#76b900">NCA-AIIO</Badge>, 'NVIDIA', '306', '50', '60 min', '70%', '—'],
                 [<Badge color="#76b900">NCA-GENL</Badge>, 'NVIDIA', '300', '50', '60 min', '70%', '—'],
               ]}
             />
@@ -541,22 +543,29 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              27 Vitest tests cover the three core utility modules — shuffle, scoring, and exam-selection. These are the functions
-              where correctness matters most: a bug in domain allocation silently distorts every exam, and a bug in scoring
-              silently marks right answers wrong. UI behaviour is verified manually given the component-level complexity.
+              114 Vitest tests across six modules cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              and a content sanity sweep over every question across every cert. These are the functions where correctness matters
+              most: a bug in domain allocation silently distorts every exam, a bug in scoring silently marks right answers wrong,
+              and a bad question slips past 200,000 silent reads. UI behaviour is verified manually given the component-level
+              complexity.
             </P>
             <CodeBlock>{`src/__tests__/
-├── shuffle.test.js        — Fisher-Yates distribution, weightedSample bias
-├── scoring.test.js        — All 5 question types, edge cases
-└── exam-selection.test.js — Domain allocation, largest-remainder correctness`}
+├── shuffle.test.js         — Fisher-Yates distribution, weightedSample bias
+├── scoring.test.js         — All 5 question types, edge cases
+├── exam-selection.test.js  — Domain allocation, largest-remainder correctness
+├── smart-practice.test.js  — Weight formula, mastered-question clamping
+├── progress-stats.test.js  — Domain and overall rollups, percentage rounding
+└── content-sanity.test.js  — Every question across every cert: ids unique,
+                              domains valid, types recognized, shape correct`}
             </CodeBlock>
           </Section>
 
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today. The roadmap focuses on depth before breadth — making the existing study
-              experience better before adding more certifications.
+              The product is live and usable today. The cert catalog locks at seven once Network+ and Security+ ship — after that,
+              focus shifts entirely to platform features: cross-device sync, mobile support, and study tools that complement the
+              practice itself. Depth over breadth, always.
             </P>
 
             {[
