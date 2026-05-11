@@ -223,7 +223,7 @@ export default function Docs() {
             <H3>Coming soon</H3>
             <div className="grid grid-cols-1 gap-4">
               {[
-                { provider: 'CompTIA', color: '#c8202f', certs: ['A+ · Core Hardware & OS', 'Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'] },
+                { provider: 'CompTIA', color: '#c8202f', certs: ['Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'] },
               ].map(({ provider, color, certs }) => (
                 <div key={provider} className="glass-panel rounded-xl p-5 space-y-3">
                   <p className="text-xs font-bold uppercase tracking-widest" style={{ color }}>{provider}</p>
@@ -571,7 +571,7 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'CompTIA — A+, Network+, Security+ (large self-funded audience)',
+                  'CompTIA — Network+ and Security+ (focused scope, complements the cloud ladder)',
                 ],
               },
               {

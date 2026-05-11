@@ -145,7 +145,7 @@ export default function Home() {
                 <div>
                   <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-2">CompTIA</p>
                   <div className="space-y-1.5">
-                    {['A+ · Core Hardware & OS', 'Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'].map(name => (
+                    {['Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'].map(name => (
                       <div key={name} className="flex items-center gap-2 text-sm text-zinc-500">
                         <div className="w-1 h-1 rounded-full bg-zinc-700 shrink-0" />
                         {name}
