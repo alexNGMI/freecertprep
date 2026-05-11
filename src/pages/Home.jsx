@@ -53,7 +53,7 @@ export default function Home() {
             ✨ Free, High-Quality Mock Exams
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 animate-fade-up text-zinc-100" style={{ animationDelay: '100ms' }}>
-            Master your Cloud Career
+            Begin your Cloud Career
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
             Practice for AWS, Google Cloud, Azure, and NVIDIA certifications with deeply realistic questions, timed visual simulations, and intelligent progress tracking.
