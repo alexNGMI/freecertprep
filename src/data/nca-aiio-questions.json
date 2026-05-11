@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which NVIDIA GPU architecture introduced the Transformer Engine specifically designed to accelerate transformer-based AI models?",
     "choices": [
       "Ampere",
@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the primary function of Tensor Cores in NVIDIA GPUs?",
     "choices": [
       "Rendering 3D graphics at high frame rates",
@@ -27,7 +27,7 @@
   },
   {
     "id": 3,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "How much HBM3 memory does the NVIDIA H100 SXM GPU provide?",
     "choices": [
       "40 GB",
@@ -40,7 +40,7 @@
   },
   {
     "id": 4,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the primary advantage of NVLink over PCIe for multi-GPU communication?",
     "choices": [
       "NVLink uses less power than PCIe",
@@ -53,7 +53,7 @@
   },
   {
     "id": 5,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which component in an NVIDIA DGX system enables all-to-all GPU communication within a single node?",
     "choices": [
       "PCIe switch",
@@ -66,7 +66,7 @@
   },
   {
     "id": 6,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What type of memory is used in the NVIDIA A100 GPU?",
     "choices": [
       "GDDR6",
@@ -79,7 +79,7 @@
   },
   {
     "id": 7,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Why are GPUs better suited than CPUs for deep learning training workloads?",
     "choices": [
       "GPUs have higher clock speeds than CPUs",
@@ -92,7 +92,7 @@
   },
   {
     "id": 8,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which NVIDIA GPU is specifically designed for AI inference and visualization workloads in enterprise data centers?",
     "choices": [
       "A100",
@@ -105,7 +105,7 @@
   },
   {
     "id": 9,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What does Multi-Instance GPU (MIG) technology allow on the NVIDIA A100 and H100?",
     "choices": [
       "Running multiple operating systems on a single GPU",
@@ -118,7 +118,7 @@
   },
   {
     "id": 10,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the approximate aggregate GPU-to-GPU bandwidth provided by NVLink in an 8-GPU NVIDIA DGX H100 system?",
     "choices": [
       "600 GB/s",
@@ -131,7 +131,7 @@
   },
   {
     "id": 11,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which precision format was introduced with the Hopper architecture to improve transformer model performance?",
     "choices": [
       "FP32",
@@ -144,7 +144,7 @@
   },
   {
     "id": 12,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of GPU memory bandwidth in AI workloads?",
     "choices": [
       "It determines the maximum number of GPUs that can be connected",
@@ -157,7 +157,7 @@
   },
   {
     "id": 13,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "How many SMs (Streaming Multiprocessors) does the NVIDIA H100 SXM GPU contain?",
     "choices": [
       "80",
@@ -170,7 +170,7 @@
   },
   {
     "id": 14,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which NVIDIA architecture first introduced Tensor Cores?",
     "choices": [
       "Pascal",
@@ -183,7 +183,7 @@
   },
   {
     "id": 15,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the key difference between the A100 PCIe and A100 SXM form factors?",
     "choices": [
       "The PCIe version has more memory",
@@ -196,7 +196,7 @@
   },
   {
     "id": 16,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is sparsity support in NVIDIA Ampere and Hopper GPUs used for?",
     "choices": [
       "Compressing data stored on disk",
@@ -209,7 +209,7 @@
   },
   {
     "id": 17,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "How many GPUs does a standard NVIDIA DGX A100 system contain?",
     "choices": [
       "4",
@@ -222,7 +222,7 @@
   },
   {
     "id": 18,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What does HBM stand for in the context of GPU memory?",
     "choices": [
       "Hybrid Bandwidth Module",
@@ -235,7 +235,7 @@
   },
   {
     "id": 19,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which of the following best describes the NVIDIA Grace Hopper Superchip?",
     "choices": [
       "A standalone GPU for gaming workloads",
@@ -248,7 +248,7 @@
   },
   {
     "id": 20,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the primary purpose of CUDA cores in an NVIDIA GPU?",
     "choices": [
       "To perform dedicated ray tracing calculations",
@@ -261,7 +261,7 @@
   },
   {
     "id": 21,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the maximum number of MIG instances that can be created on a single NVIDIA A100 80 GB GPU?",
     "choices": [
       "3",
@@ -274,7 +274,7 @@
   },
   {
     "id": 22,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which memory type is used by the NVIDIA L40 GPU?",
     "choices": [
       "HBM2e",
@@ -287,7 +287,7 @@
   },
   {
     "id": 23,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of the GPU's L2 cache in AI training workloads?",
     "choices": [
       "To store the operating system kernel",
@@ -300,7 +300,7 @@
   },
   {
     "id": 24,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is TF32 (TensorFloat-32) and which architecture introduced it?",
     "choices": [
       "A 32-bit integer format introduced with Volta",
@@ -313,7 +313,7 @@
   },
   {
     "id": 25,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which NVIDIA DGX system uses the Grace Hopper Superchip architecture?",
     "choices": [
       "DGX A100",
@@ -326,7 +326,7 @@
   },
   {
     "id": 26,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the role of a GPU baseboard in an HGX platform?",
     "choices": [
       "It provides the operating system for GPU management",
@@ -339,7 +339,7 @@
   },
   {
     "id": 27,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What advantage does mixed-precision training provide for AI workloads?",
     "choices": [
       "It eliminates the need for Tensor Cores",
@@ -352,7 +352,7 @@
   },
   {
     "id": 28,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "How does the NVIDIA A100's third-generation Tensor Core improve over the previous generation?",
     "choices": [
       "It only supports FP64 operations",
@@ -365,7 +365,7 @@
   },
   {
     "id": 29,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the NVIDIA DGX SuperPOD?",
     "choices": [
       "A single-GPU workstation for developers",
@@ -378,7 +378,7 @@
   },
   {
     "id": 30,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the peak FP8 Tensor Core performance of the NVIDIA H100 SXM GPU?",
     "choices": [
       "312 TFLOPS",
@@ -391,7 +391,7 @@
   },
   {
     "id": 31,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the primary purpose of NVIDIA Base Command Manager?",
     "choices": [
       "To design neural network architectures",
@@ -404,7 +404,7 @@
   },
   {
     "id": 32,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which Kubernetes component is required to enable GPU scheduling in a Kubernetes cluster?",
     "choices": [
       "kube-proxy",
@@ -417,7 +417,7 @@
   },
   {
     "id": 33,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the function of the NVIDIA device plugin for Kubernetes?",
     "choices": [
       "It installs GPU drivers on all cluster nodes",
@@ -430,7 +430,7 @@
   },
   {
     "id": 34,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which workload manager is commonly used for scheduling GPU jobs in HPC and AI clusters?",
     "choices": [
       "Apache Kafka",
@@ -443,7 +443,7 @@
   },
   {
     "id": 35,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the purpose of NVIDIA's container runtime (nvidia-container-runtime)?",
     "choices": [
       "To build Docker images with GPU support",
@@ -456,7 +456,7 @@
   },
   {
     "id": 36,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "In Slurm, how do you request 4 GPUs for a training job?",
     "choices": [
       "--gpu-count=4",
@@ -469,7 +469,7 @@
   },
   {
     "id": 37,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the benefit of using GPU time-slicing in Kubernetes?",
     "choices": [
       "It increases the clock speed of each GPU",
@@ -482,7 +482,7 @@
   },
   {
     "id": 38,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "How does MIG differ from GPU time-slicing for workload isolation in Kubernetes?",
     "choices": [
       "MIG is software-only while time-slicing is hardware-based",
@@ -495,7 +495,7 @@
   },
   {
     "id": 39,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the NVIDIA GPU Operator's relationship with Kubernetes?",
     "choices": [
       "It replaces the Kubernetes scheduler entirely",
@@ -508,7 +508,7 @@
   },
   {
     "id": 40,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the recommended approach for running multi-node distributed training in Kubernetes?",
     "choices": [
       "Run individual pods on each node and manage communication manually",
@@ -521,7 +521,7 @@
   },
   {
     "id": 41,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is NVIDIA Base Command Platform designed for?",
     "choices": [
       "A local development IDE for CUDA programming",
@@ -534,7 +534,7 @@
   },
   {
     "id": 42,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What happens when a Kubernetes pod requests more GPUs than are available on any single node?",
     "choices": [
       "Kubernetes automatically distributes the pod across multiple nodes",
@@ -547,7 +547,7 @@
   },
   {
     "id": 43,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which container registry provides pre-built, optimized AI containers from NVIDIA?",
     "choices": [
       "Docker Hub",
@@ -560,7 +560,7 @@
   },
   {
     "id": 44,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the purpose of resource quotas for GPU workloads in Kubernetes?",
     "choices": [
       "To increase the total number of available GPUs",
@@ -573,7 +573,7 @@
   },
   {
     "id": 45,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is a common strategy for maximizing GPU cluster utilization during off-peak hours?",
     "choices": [
       "Power off unused GPU nodes to save energy",
@@ -586,7 +586,7 @@
   },
   {
     "id": 46,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the NVIDIA Container Toolkit?",
     "choices": [
       "A set of tools for building GPU-accelerated container images from scratch",
@@ -599,7 +599,7 @@
   },
   {
     "id": 47,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "In a Slurm-managed GPU cluster, what does the --exclusive flag do when requesting GPU nodes?",
     "choices": [
       "It requests GPUs from a dedicated partition only",
@@ -612,7 +612,7 @@
   },
   {
     "id": 48,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the recommended way to handle GPU driver upgrades on a Kubernetes cluster managed by the GPU Operator?",
     "choices": [
       "Manually SSH into each node and upgrade drivers",
@@ -625,7 +625,7 @@
   },
   {
     "id": 49,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the primary benefit of using Enroot as a container runtime for AI workloads?",
     "choices": [
       "It replaces Docker entirely for all containerization needs",
@@ -638,7 +638,7 @@
   },
   {
     "id": 50,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is gang scheduling and why is it important for distributed AI training?",
     "choices": [
       "It schedules jobs alphabetically by user name",
@@ -651,7 +651,7 @@
   },
   {
     "id": 51,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "How do you specify which type of NVIDIA GPU a Kubernetes pod should use?",
     "choices": [
       "Add a gpu-type label to the pod spec",
@@ -664,7 +664,7 @@
   },
   {
     "id": 52,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is Pyxis in the context of NVIDIA AI workload management?",
     "choices": [
       "A GPU monitoring dashboard",
@@ -677,7 +677,7 @@
   },
   {
     "id": 53,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the purpose of CUDA_VISIBLE_DEVICES environment variable?",
     "choices": [
       "To set the CUDA compiler optimization level",
@@ -690,7 +690,7 @@
   },
   {
     "id": 54,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the advantage of using Kubernetes with GPU topology awareness?",
     "choices": [
       "It reduces the number of required GPUs",
@@ -703,7 +703,7 @@
   },
   {
     "id": 55,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What does the NVIDIA Run:ai platform provide for AI workload management?",
     "choices": [
       "A code editor for AI model development",
@@ -716,7 +716,7 @@
   },
   {
     "id": 56,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the primary challenge of running AI inference workloads at scale in production?",
     "choices": [
       "Inference only works on single GPUs",
@@ -729,7 +729,7 @@
   },
   {
     "id": 57,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "How does Kubernetes Cluster Autoscaler work with GPU nodes?",
     "choices": [
       "It partitions existing GPUs into smaller slices",
@@ -742,7 +742,7 @@
   },
   {
     "id": 58,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the benefit of using node taints and tolerations for GPU nodes in Kubernetes?",
     "choices": [
       "They increase GPU clock speeds",
@@ -755,7 +755,7 @@
   },
   {
     "id": 59,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is a preemptible or spot instance strategy for AI training workloads?",
     "choices": [
       "Using the fastest available GPU regardless of cost",
@@ -768,7 +768,7 @@
   },
   {
     "id": 60,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the role of a job scheduler's fair-share policy in a multi-tenant GPU cluster?",
     "choices": [
       "To give all users equal GPU speed",
@@ -781,7 +781,7 @@
   },
   {
     "id": 61,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the primary advantage of InfiniBand over Ethernet for AI training cluster networking?",
     "choices": [
       "InfiniBand cables are cheaper than Ethernet cables",
@@ -794,7 +794,7 @@
   },
   {
     "id": 62,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is GPUDirect RDMA?",
     "choices": [
       "A method to directly connect GPUs to storage via USB",
@@ -807,7 +807,7 @@
   },
   {
     "id": 63,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the NVIDIA ConnectX-7 adapter primarily used for in AI infrastructure?",
     "choices": [
       "Providing video output for GPU workstations",
@@ -820,7 +820,7 @@
   },
   {
     "id": 64,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What differentiates a BlueField DPU from a ConnectX SmartNIC?",
     "choices": [
       "BlueField only supports Ethernet while ConnectX supports InfiniBand",
@@ -833,7 +833,7 @@
   },
   {
     "id": 65,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is RDMA and why is it important for distributed AI training?",
     "choices": [
       "Random Data Memory Allocation - a method for random memory access",
@@ -846,7 +846,7 @@
   },
   {
     "id": 66,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is GPUDirect Storage?",
     "choices": [
       "A GPU-based file system",
@@ -859,7 +859,7 @@
   },
   {
     "id": 67,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which InfiniBand speed generation provides 400 Gb/s per port?",
     "choices": [
       "HDR (High Data Rate)",
@@ -872,7 +872,7 @@
   },
   {
     "id": 68,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Why is a parallel file system preferred over a standard NFS for large-scale AI training?",
     "choices": [
       "NFS is not compatible with Linux",
@@ -885,7 +885,7 @@
   },
   {
     "id": 69,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the role of Adaptive Routing in InfiniBand networks?",
     "choices": [
       "It adapts the network speed based on power availability",
@@ -898,7 +898,7 @@
   },
   {
     "id": 70,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is SHARP (Scalable Hierarchical Aggregation and Reduction Protocol) in NVIDIA InfiniBand networks?",
     "choices": [
       "A data compression protocol for storage",
@@ -911,7 +911,7 @@
   },
   {
     "id": 71,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the typical network topology used in NVIDIA DGX SuperPOD deployments?",
     "choices": [
       "Star topology with a single switch",
@@ -924,7 +924,7 @@
   },
   {
     "id": 72,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is RoCE (RDMA over Converged Ethernet)?",
     "choices": [
       "A type of Ethernet cable for data centers",
@@ -937,7 +937,7 @@
   },
   {
     "id": 73,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of a subnet manager in an InfiniBand network?",
     "choices": [
       "To assign IP addresses to InfiniBand devices",
@@ -950,7 +950,7 @@
   },
   {
     "id": 74,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is NVIDIA UFM (Unified Fabric Manager)?",
     "choices": [
       "A GPU driver update utility",
@@ -963,7 +963,7 @@
   },
   {
     "id": 75,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Why is NVMe storage preferred over traditional SAS/SATA for AI data pipelines?",
     "choices": [
       "NVMe drives are physically smaller",
@@ -976,7 +976,7 @@
   },
   {
     "id": 76,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of data caching in AI training storage architectures?",
     "choices": [
       "To backup training data in case of hardware failure",
@@ -989,7 +989,7 @@
   },
   {
     "id": 77,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the NVIDIA Quantum-2 InfiniBand platform?",
     "choices": [
       "A quantum computing accelerator",
@@ -1002,7 +1002,7 @@
   },
   {
     "id": 78,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the concept of a non-blocking network fabric and why does it matter for AI training?",
     "choices": [
       "A network that never drops packets under any conditions",
@@ -1015,7 +1015,7 @@
   },
   {
     "id": 79,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "How does GPUDirect Peer-to-Peer (P2P) differ from GPUDirect RDMA?",
     "choices": [
       "They are the same technology with different names",
@@ -1028,7 +1028,7 @@
   },
   {
     "id": 80,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the primary consideration when designing storage for AI model checkpointing?",
     "choices": [
       "Maximum storage capacity at lowest cost",
@@ -1041,7 +1041,7 @@
   },
   {
     "id": 81,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What role does lossless Ethernet play in RoCE deployments for AI?",
     "choices": [
       "It reduces cable costs",
@@ -1054,7 +1054,7 @@
   },
   {
     "id": 82,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the typical impact of network bandwidth on large language model (LLM) training scalability?",
     "choices": [
       "Network bandwidth has no impact on LLM training",
@@ -1067,7 +1067,7 @@
   },
   {
     "id": 83,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "How many InfiniBand NDR ports are typically connected per GPU in an NVIDIA DGX H100 system?",
     "choices": [
       "One 400 Gb/s port per GPU",
@@ -1080,7 +1080,7 @@
   },
   {
     "id": 84,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the benefit of using WekaFS or similar flash-optimized parallel file systems for AI workloads?",
     "choices": [
       "They are free and open-source",
@@ -1093,7 +1093,7 @@
   },
   {
     "id": 85,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is network congestion control and why is it critical in AI training clusters?",
     "choices": [
       "It limits the number of users on the network",
@@ -1106,7 +1106,7 @@
   },
   {
     "id": 86,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the data path when GPUDirect Storage is NOT available and training data must be loaded from storage to GPU?",
     "choices": [
       "Storage to GPU memory directly via PCIe",
@@ -1119,7 +1119,7 @@
   },
   {
     "id": 87,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is a common challenge with using NFS for distributed AI training data?",
     "choices": [
       "NFS does not support file locking",
@@ -1132,7 +1132,7 @@
   },
   {
     "id": 88,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of NVIDIA Magnum IO?",
     "choices": [
       "A GPU overclocking utility",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": 89,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is in-band vs. out-of-band network management for InfiniBand?",
     "choices": [
       "In-band uses wireless while out-of-band uses wired connections",
@@ -1158,7 +1158,7 @@
   },
   {
     "id": 90,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What storage capacity planning consideration is unique to large language model training?",
     "choices": [
       "LLM training only requires a few megabytes of storage",
@@ -1171,7 +1171,7 @@
   },
   {
     "id": 91,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NVIDIA TensorRT used for?",
     "choices": [
       "Training deep learning models from scratch",
@@ -1184,7 +1184,7 @@
   },
   {
     "id": 92,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NVIDIA Triton Inference Server?",
     "choices": [
       "A training framework for computer vision models",
@@ -1197,7 +1197,7 @@
   },
   {
     "id": 93,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NCCL (NVIDIA Collective Communications Library)?",
     "choices": [
       "A compiler for CUDA programs",
@@ -1210,7 +1210,7 @@
   },
   {
     "id": 94,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the NVIDIA NGC Catalog?",
     "choices": [
       "A hardware catalog for purchasing NVIDIA GPUs",
@@ -1223,7 +1223,7 @@
   },
   {
     "id": 95,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is cuDNN and what role does it play in deep learning?",
     "choices": [
       "A neural network architecture design tool",
@@ -1236,7 +1236,7 @@
   },
   {
     "id": 96,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NVIDIA RAPIDS?",
     "choices": [
       "A fast data transfer protocol for GPU clusters",
@@ -1249,7 +1249,7 @@
   },
   {
     "id": 97,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NVIDIA AI Enterprise?",
     "choices": [
       "A free open-source AI toolkit",
@@ -1262,7 +1262,7 @@
   },
   {
     "id": 98,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "How does dynamic batching in Triton Inference Server improve inference performance?",
     "choices": [
       "It reduces the model size automatically",
@@ -1275,7 +1275,7 @@
   },
   {
     "id": 99,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the purpose of the CUDA Toolkit?",
     "choices": [
       "To design GPU hardware circuits",
@@ -1288,7 +1288,7 @@
   },
   {
     "id": 100,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What optimization does TensorRT's layer fusion perform?",
     "choices": [
       "It fuses multiple GPUs into a single logical device",
@@ -1301,7 +1301,7 @@
   },
   {
     "id": 101,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the difference between TensorRT and TensorRT-LLM?",
     "choices": [
       "They are the same product with different names",
@@ -1314,7 +1314,7 @@
   },
   {
     "id": 102,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NVIDIA NeMo?",
     "choices": [
       "A network monitoring tool",
@@ -1327,7 +1327,7 @@
   },
   {
     "id": 103,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "How does PyTorch leverage NVIDIA GPUs for training acceleration?",
     "choices": [
       "PyTorch has its own GPU hardware",
@@ -1340,7 +1340,7 @@
   },
   {
     "id": 104,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the purpose of NVIDIA Nsight Systems?",
     "choices": [
       "Managing GPU cluster networking",
@@ -1353,7 +1353,7 @@
   },
   {
     "id": 105,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is INT8 quantization in the context of TensorRT inference optimization?",
     "choices": [
       "An 8-integer encryption method for model security",
@@ -1366,7 +1366,7 @@
   },
   {
     "id": 106,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the NVIDIA CUDA compiler (nvcc)?",
     "choices": [
       "A C++ compiler for CPU-only code",
@@ -1379,7 +1379,7 @@
   },
   {
     "id": 107,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is model parallelism and when is it necessary?",
     "choices": [
       "Running the same model on multiple datasets simultaneously",
@@ -1392,7 +1392,7 @@
   },
   {
     "id": 108,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What does NVIDIA DeepStream SDK provide?",
     "choices": [
       "Deep learning model training capabilities",
@@ -1405,7 +1405,7 @@
   },
   {
     "id": 109,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the difference between data parallelism and model parallelism?",
     "choices": [
       "They are the same approach with different names",
@@ -1418,7 +1418,7 @@
   },
   {
     "id": 110,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NVIDIA cuBLAS?",
     "choices": [
       "A tool for creating GPU clusters",
@@ -1431,7 +1431,7 @@
   },
   {
     "id": 111,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the role of ONNX (Open Neural Network Exchange) in the AI software ecosystem?",
     "choices": [
       "A GPU driver standard",
@@ -1444,7 +1444,7 @@
   },
   {
     "id": 112,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is continuous batching (in-flight batching) in LLM inference serving?",
     "choices": [
       "Batching all requests and processing them at once",
@@ -1457,7 +1457,7 @@
   },
   {
     "id": 113,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the purpose of NVIDIA Nsight Compute?",
     "choices": [
       "Computing cluster resource utilization",
@@ -1470,7 +1470,7 @@
   },
   {
     "id": 114,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is NVIDIA DALI (Data Loading Library)?",
     "choices": [
       "A deep learning framework for artists",
@@ -1483,7 +1483,7 @@
   },
   {
     "id": 115,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What are the key components of the NVIDIA AI Enterprise software suite?",
     "choices": [
       "Only TensorRT and Triton",
@@ -1496,7 +1496,7 @@
   },
   {
     "id": 116,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is KV-cache (key-value cache) in LLM inference and why is it important?",
     "choices": [
       "A database caching system for storing AI models",
@@ -1509,7 +1509,7 @@
   },
   {
     "id": 117,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What does the torch.compile() function in PyTorch 2.0+ do?",
     "choices": [
       "Compiles the model to run on CPUs only",
@@ -1522,7 +1522,7 @@
   },
   {
     "id": 118,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is pipeline parallelism in the context of training large neural networks?",
     "choices": [
       "Processing data through multiple preprocessing steps in parallel",
@@ -1535,7 +1535,7 @@
   },
   {
     "id": 119,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What is the NVIDIA Triton Model Analyzer used for?",
     "choices": [
       "Analyzing model accuracy and bias",
@@ -1548,7 +1548,7 @@
   },
   {
     "id": 120,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "What does ZeRO (Zero Redundancy Optimizer) achieve in distributed training?",
     "choices": [
       "It eliminates the need for gradient computation",
@@ -1561,7 +1561,7 @@
   },
   {
     "id": 121,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the nvidia-smi command used for?",
     "choices": [
       "Installing NVIDIA GPU drivers",
@@ -1574,7 +1574,7 @@
   },
   {
     "id": 122,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is NVIDIA DCGM (Data Center GPU Manager)?",
     "choices": [
       "A GPU purchasing management system",
@@ -1587,7 +1587,7 @@
   },
   {
     "id": 123,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which nvidia-smi command shows detailed GPU memory usage breakdown?",
     "choices": [
       "nvidia-smi --query-memory",
@@ -1600,7 +1600,7 @@
   },
   {
     "id": 124,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What does GPU utilization percentage indicate in nvidia-smi?",
     "choices": [
       "The percentage of GPU memory in use",
@@ -1613,7 +1613,7 @@
   },
   {
     "id": 125,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the purpose of GPU health checks using DCGM diagnostics?",
     "choices": [
       "To upgrade GPU firmware automatically",
@@ -1626,7 +1626,7 @@
   },
   {
     "id": 126,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is ECC memory and why is it important for AI training GPUs?",
     "choices": [
       "Enhanced Computing Cache for faster AI operations",
@@ -1639,7 +1639,7 @@
   },
   {
     "id": 127,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "How can you monitor GPU metrics in a Kubernetes environment using DCGM?",
     "choices": [
       "By running nvidia-smi manually on each node",
@@ -1652,7 +1652,7 @@
   },
   {
     "id": 128,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is thermal throttling and how does it affect GPU performance?",
     "choices": [
       "A method to boost GPU clock speed in cold environments",
@@ -1665,7 +1665,7 @@
   },
   {
     "id": 129,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the recommended approach for troubleshooting a sudden drop in GPU training throughput?",
     "choices": [
       "Immediately restart all GPU nodes",
@@ -1678,7 +1678,7 @@
   },
   {
     "id": 130,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What are XID errors in the context of NVIDIA GPU operations?",
     "choices": [
       "User authentication error codes",
@@ -1691,7 +1691,7 @@
   },
   {
     "id": 131,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the purpose of GPU persistence mode (nvidia-smi -pm 1)?",
     "choices": [
       "To persist GPU data across reboots",
@@ -1704,7 +1704,7 @@
   },
   {
     "id": 132,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "How does multi-node distributed training typically communicate gradients between nodes?",
     "choices": [
       "By writing gradients to a shared file system",
@@ -1717,7 +1717,7 @@
   },
   {
     "id": 133,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What power consumption considerations are important for GPU data center design?",
     "choices": [
       "GPUs consume very little power, so no special planning is needed",
@@ -1730,7 +1730,7 @@
   },
   {
     "id": 134,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the purpose of nvidia-smi dmon command?",
     "choices": [
       "To monitor network daemon processes",
@@ -1743,7 +1743,7 @@
   },
   {
     "id": 135,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is liquid cooling's role in modern AI GPU data centers?",
     "choices": [
       "It is used only for aesthetic purposes",
@@ -1756,7 +1756,7 @@
   },
   {
     "id": 136,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the significance of GPU memory utilization vs GPU compute utilization?",
     "choices": [
       "They always increase and decrease together",
@@ -1769,7 +1769,7 @@
   },
   {
     "id": 137,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "How do you scale AI training from a single node to multiple nodes?",
     "choices": [
       "Simply add more GPUs to the existing server",
@@ -1782,7 +1782,7 @@
   },
   {
     "id": 138,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the purpose of DCGM policy-based management?",
     "choices": [
       "To manage GPU purchasing policies",
@@ -1795,7 +1795,7 @@
   },
   {
     "id": 139,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the recommended practice for GPU firmware and driver updates in production AI clusters?",
     "choices": [
       "Update all nodes simultaneously to minimize total downtime",
@@ -1808,7 +1808,7 @@
   },
   {
     "id": 140,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What metrics should be monitored to detect GPU degradation over time?",
     "choices": [
       "Only GPU temperature",
@@ -1821,7 +1821,7 @@
   },
   {
     "id": 141,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the purpose of setting GPU clock frequency using nvidia-smi -lgc?",
     "choices": [
       "To overclock GPUs beyond their rated speed",
@@ -1834,7 +1834,7 @@
   },
   {
     "id": 142,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the typical process for troubleshooting a GPU that shows as fallen off the bus (XID 79)?",
     "choices": [
       "Reinstall the GPU drivers",
@@ -1847,7 +1847,7 @@
   },
   {
     "id": 143,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the benefit of using CUDA MPS (Multi-Process Service) for inference workloads?",
     "choices": [
       "It enables GPUs to run without drivers",
@@ -1860,7 +1860,7 @@
   },
   {
     "id": 144,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the importance of NVLink error monitoring in multi-GPU systems?",
     "choices": [
       "NVLink errors only affect display output",
@@ -1873,7 +1873,7 @@
   },
   {
     "id": 145,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What factors affect power consumption of GPU servers under AI workloads?",
     "choices": [
       "Only the number of GPUs installed",
@@ -1886,7 +1886,7 @@
   },
   {
     "id": 146,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the role of Prometheus and Grafana in GPU infrastructure monitoring?",
     "choices": [
       "They replace nvidia-smi entirely",
@@ -1899,7 +1899,7 @@
   },
   {
     "id": 147,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is model checkpointing and why is it critical for long-running training jobs?",
     "choices": [
       "It checks the model accuracy during training",
@@ -1912,7 +1912,7 @@
   },
   {
     "id": 148,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the recommended approach for managing GPU driver versions across a large AI cluster?",
     "choices": [
       "Let each user install their preferred driver version",
@@ -1925,7 +1925,7 @@
   },
   {
     "id": 149,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "How does GPU row remapping work and when is it triggered?",
     "choices": [
       "It remaps keyboard rows to GPU functions",
@@ -1938,7 +1938,7 @@
   },
   {
     "id": 150,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "What is the significance of the nvidia-smi --query-gpu flag and how is it useful for operations?",
     "choices": [
       "It only queries GPU serial numbers",
@@ -1952,7 +1952,7 @@
   {
     "id": 151,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO components are critical for building a high-performance AI training server? (Select TWO)",
     "choices": [
       "Multiple GPUs with high-bandwidth interconnects like NVLink",
@@ -1970,7 +1970,7 @@
   {
     "id": 152,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO NVIDIA GPU architectures are designed specifically for data center AI workloads? (Select TWO)",
     "choices": [
       "NVIDIA Hopper (H100/H200)",
@@ -1988,7 +1988,7 @@
   {
     "id": 153,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO specifications are most important when comparing GPUs for deep learning training? (Select TWO)",
     "choices": [
       "GPU memory capacity and bandwidth (e.g., 80 GB HBM3 at 3.35 TB/s)",
@@ -2006,7 +2006,7 @@
   {
     "id": 154,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO are key characteristics of the NVIDIA DGX platform? (Select TWO)",
     "choices": [
       "Pre-integrated system with multiple GPUs, NVLink, and optimized AI software stack",
@@ -2024,7 +2024,7 @@
   {
     "id": 155,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO factors determine the total GPU memory required for training a deep learning model? (Select TWO)",
     "choices": [
       "Model parameters and optimizer states (e.g., Adam stores momentum and variance)",
@@ -2042,7 +2042,7 @@
   {
     "id": 156,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO types of parallelism are commonly combined when training large AI models? (Select TWO)",
     "choices": [
       "Data parallelism (replicating the model across GPUs with different data shards)",
@@ -2060,7 +2060,7 @@
   {
     "id": 157,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO cooling strategies are used in data centers housing GPU-intensive AI workloads? (Select TWO)",
     "choices": [
       "Direct liquid cooling to GPU cold plates for efficient heat removal",
@@ -2078,7 +2078,7 @@
   {
     "id": 158,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO are benefits of using mixed-precision training (FP16/BF16) on NVIDIA GPUs? (Select TWO)",
     "choices": [
       "Reduced memory consumption allowing larger batch sizes or models",
@@ -2096,7 +2096,7 @@
   {
     "id": 159,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO features does Kubernetes provide for managing GPU workloads in an AI cluster? (Select TWO)",
     "choices": [
       "GPU resource scheduling via the NVIDIA device plugin",
@@ -2114,7 +2114,7 @@
   {
     "id": 160,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO job scheduling features are important for managing AI training workloads in a shared cluster? (Select TWO)",
     "choices": [
       "Priority-based queuing to ensure critical jobs run first",
@@ -2132,7 +2132,7 @@
   {
     "id": 161,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO NVIDIA tools help monitor GPU utilization and health in production environments? (Select TWO)",
     "choices": [
       "nvidia-smi for real-time GPU status and metrics",
@@ -2150,7 +2150,7 @@
   {
     "id": 162,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO container technologies are commonly used to package and deploy AI training workloads? (Select TWO)",
     "choices": [
       "Docker containers with the NVIDIA Container Toolkit",
@@ -2168,7 +2168,7 @@
   {
     "id": 163,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO strategies improve GPU utilization efficiency in a multi-tenant AI cluster? (Select TWO)",
     "choices": [
       "GPU time-slicing to share a single GPU across multiple smaller workloads",
@@ -2186,7 +2186,7 @@
   {
     "id": 164,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO aspects should be monitored when running distributed AI training jobs? (Select TWO)",
     "choices": [
       "GPU memory utilization and out-of-memory events",
@@ -2204,7 +2204,7 @@
   {
     "id": 165,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO features of Slurm make it suitable for managing AI workloads in HPC clusters? (Select TWO)",
     "choices": [
       "Native GPU-aware scheduling with GRES (Generic Resource Scheduling)",
@@ -2222,7 +2222,7 @@
   {
     "id": 166,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO techniques help optimize the throughput of AI inference workloads? (Select TWO)",
     "choices": [
       "Dynamic batching to combine multiple inference requests",
@@ -2240,7 +2240,7 @@
   {
     "id": 167,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO network technologies provide the high bandwidth needed for distributed AI training? (Select TWO)",
     "choices": [
       "InfiniBand NDR (400 Gb/s) for low-latency RDMA communication",
@@ -2258,7 +2258,7 @@
   {
     "id": 168,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO characteristics of RDMA (Remote Direct Memory Access) make it valuable for AI training clusters? (Select TWO)",
     "choices": [
       "Bypasses the CPU and OS kernel for direct memory-to-memory data transfer",
@@ -2276,7 +2276,7 @@
   {
     "id": 169,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO storage characteristics are critical for AI training data pipelines? (Select TWO)",
     "choices": [
       "High sequential read throughput to feed GPU batch loading",
@@ -2294,7 +2294,7 @@
   {
     "id": 170,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO parallel file systems are commonly used for AI training storage? (Select TWO)",
     "choices": [
       "Lustre for high-throughput parallel I/O across thousands of clients",
@@ -2312,7 +2312,7 @@
   {
     "id": 171,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO network topology features are important for large-scale AI training clusters? (Select TWO)",
     "choices": [
       "Fat-tree or Clos topology for non-blocking full bisection bandwidth",
@@ -2330,7 +2330,7 @@
   {
     "id": 172,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO strategies help prevent storage I/O from becoming a bottleneck during AI training? (Select TWO)",
     "choices": [
       "Caching frequently accessed data in local NVMe SSDs or RAM",
@@ -2348,7 +2348,7 @@
   {
     "id": 173,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO NVIDIA networking products are designed for AI data center connectivity? (Select TWO)",
     "choices": [
       "NVIDIA ConnectX SmartNICs for high-speed RDMA networking",
@@ -2366,7 +2366,7 @@
   {
     "id": 174,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO collective communication operations are most frequently used during distributed AI training? (Select TWO)",
     "choices": [
       "All-reduce for aggregating gradients across all GPUs",
@@ -2384,7 +2384,7 @@
   {
     "id": 175,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO deep learning frameworks are widely used for AI training on NVIDIA GPUs? (Select TWO)",
     "choices": [
       "PyTorch with CUDA acceleration",
@@ -2402,7 +2402,7 @@
   {
     "id": 176,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO NVIDIA software libraries accelerate deep learning operations on GPUs? (Select TWO)",
     "choices": [
       "cuDNN (CUDA Deep Neural Network library) for optimized primitives",
@@ -2420,7 +2420,7 @@
   {
     "id": 177,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO components are part of the NVIDIA NGC (GPU Cloud) catalog? (Select TWO)",
     "choices": [
       "Pre-built, GPU-optimized containers for AI frameworks",
@@ -2438,7 +2438,7 @@
   {
     "id": 178,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO features does NVIDIA Triton Inference Server provide? (Select TWO)",
     "choices": [
       "Support for multiple framework backends (PyTorch, TensorFlow, TensorRT, ONNX)",
@@ -2456,7 +2456,7 @@
   {
     "id": 179,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO NVIDIA software tools are used for profiling and optimizing AI workload performance? (Select TWO)",
     "choices": [
       "Nsight Systems for system-wide performance analysis and timeline visualization",
@@ -2474,7 +2474,7 @@
   {
     "id": 180,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO capabilities does CUDA provide for AI developers? (Select TWO)",
     "choices": [
       "A programming model for writing custom GPU-accelerated kernels",
@@ -2492,7 +2492,7 @@
   {
     "id": 181,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO benefits does the NVIDIA AI Enterprise software platform provide? (Select TWO)",
     "choices": [
       "Enterprise support and certified, production-ready AI software",
@@ -2510,7 +2510,7 @@
   {
     "id": 182,
     "type": "multiple-response",
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "question": "Which TWO features of NVIDIA RAPIDS accelerate data science workflows? (Select TWO)",
     "choices": [
       "GPU-accelerated dataframe operations via cuDF (similar to pandas)",
@@ -2528,7 +2528,7 @@
   {
     "id": 183,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO practices are essential for maintaining GPU cluster reliability in production? (Select TWO)",
     "choices": [
       "Monitoring ECC memory errors and replacing GPUs with uncorrectable errors",
@@ -2546,7 +2546,7 @@
   {
     "id": 184,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO strategies help ensure AI training jobs can recover from hardware failures? (Select TWO)",
     "choices": [
       "Regular model checkpointing to persistent storage",
@@ -2564,7 +2564,7 @@
   {
     "id": 185,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO operational concerns must be addressed when deploying GPU infrastructure at scale? (Select TWO)",
     "choices": [
       "Power delivery and consumption management (GPUs can draw 700W+ each)",
@@ -2582,7 +2582,7 @@
   {
     "id": 186,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO NVIDIA tools help manage GPU driver and software lifecycle across a cluster? (Select TWO)",
     "choices": [
       "NVIDIA GPU Operator for Kubernetes-based automated driver and plugin management",
@@ -2600,7 +2600,7 @@
   {
     "id": 187,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO security practices are important when operating GPU infrastructure for AI workloads? (Select TWO)",
     "choices": [
       "Isolating GPU resources between tenants using MIG or container namespaces",
@@ -2618,7 +2618,7 @@
   {
     "id": 188,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO metrics should be tracked to optimize GPU cluster cost efficiency? (Select TWO)",
     "choices": [
       "GPU utilization rate across the cluster (target >80%)",
@@ -2636,7 +2636,7 @@
   {
     "id": 189,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO approaches help automate GPU infrastructure provisioning and management? (Select TWO)",
     "choices": [
       "Infrastructure as Code (Terraform, Ansible) for declarative cluster provisioning",
@@ -2654,7 +2654,7 @@
   {
     "id": 190,
     "type": "multiple-response",
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "question": "Which TWO capabilities does NVIDIA Base Command provide for AI infrastructure management? (Select TWO)",
     "choices": [
       "Centralized cluster management with job scheduling and resource allocation",
@@ -2671,7 +2671,7 @@
   },
   {
     "id": 191,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the primary advantage of HBM3 memory over GDDR6 for AI training workloads?",
     "choices": [
       "HBM3 has lower cost per gigabyte",
@@ -2684,7 +2684,7 @@
   },
   {
     "id": 192,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What role do Tensor Cores play in NVIDIA data center GPUs?",
     "choices": [
       "They manage network traffic between GPUs",
@@ -2697,7 +2697,7 @@
   },
   {
     "id": 193,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of NVSwitch in NVIDIA's GPU systems?",
     "choices": [
       "It provides Ethernet connectivity to external networks",
@@ -2710,7 +2710,7 @@
   },
   {
     "id": 194,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the Transformer Engine feature introduced in the NVIDIA Hopper architecture?",
     "choices": [
       "A separate CPU for running transformer models",
@@ -2723,7 +2723,7 @@
   },
   {
     "id": 195,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the NVIDIA Grace Hopper Superchip?",
     "choices": [
       "A standalone CPU for general-purpose computing",
@@ -2736,7 +2736,7 @@
   },
   {
     "id": 196,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Why is ECC (Error Correcting Code) memory important for AI training GPUs?",
     "choices": [
       "It makes memory faster by compressing data",
@@ -2749,7 +2749,7 @@
   },
   {
     "id": 197,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of PCIe Gen5 in modern AI servers?",
     "choices": [
       "It provides the only interconnect between GPUs",
@@ -2762,7 +2762,7 @@
   },
   {
     "id": 198,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What distinguishes an NVIDIA DGX H100 system from a standard server with GPUs?",
     "choices": [
       "DGX only runs Windows operating systems",
@@ -2775,7 +2775,7 @@
   },
   {
     "id": 199,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is unified memory in CUDA and when is it useful?",
     "choices": [
       "A marketing name for GPU memory",
@@ -2788,7 +2788,7 @@
   },
   {
     "id": 200,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the significance of GPU memory bandwidth for AI workloads?",
     "choices": [
       "It only affects how fast data is saved to disk",
@@ -2801,7 +2801,7 @@
   },
   {
     "id": 201,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the role of BMC (Baseboard Management Controller) in GPU servers?",
     "choices": [
       "It accelerates AI training workloads",
@@ -2814,7 +2814,7 @@
   },
   {
     "id": 202,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Why do AI training clusters typically use redundant power supplies?",
     "choices": [
       "To increase GPU clock speeds",
@@ -2828,7 +2828,7 @@
   {
     "id": 203,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO are advantages of using NVIDIA DGX SuperPOD for large-scale AI training? (Select TWO)",
     "choices": [
       "Pre-validated, scalable architecture that connects multiple DGX nodes with optimized networking",
@@ -2846,7 +2846,7 @@
   {
     "id": 204,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO power and cooling considerations are unique to GPU-dense AI infrastructure? (Select TWO)",
     "choices": [
       "Rack power density often exceeds 40 kW, requiring enhanced power distribution",
@@ -2864,7 +2864,7 @@
   {
     "id": 205,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO are key differences between GPU compute for AI training versus traditional CPU compute? (Select TWO)",
     "choices": [
       "GPUs have thousands of parallel cores optimized for matrix operations",
@@ -2882,7 +2882,7 @@
   {
     "id": 206,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO factors should be evaluated when selecting a GPU for AI inference (as opposed to training)? (Select TWO)",
     "choices": [
       "Inference latency and throughput at the target batch size",
@@ -2900,7 +2900,7 @@
   {
     "id": 207,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO memory technologies are found in modern NVIDIA data center GPUs? (Select TWO)",
     "choices": [
       "HBM3 for high-bandwidth main GPU memory",
@@ -2918,7 +2918,7 @@
   {
     "id": 208,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO are benefits of NVLink over PCIe for GPU-to-GPU communication? (Select TWO)",
     "choices": [
       "NVLink provides significantly higher bandwidth (900 GB/s vs. 128 GB/s per direction)",
@@ -2935,7 +2935,7 @@
   },
   {
     "id": 209,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the NVIDIA Device Plugin for Kubernetes?",
     "choices": [
       "A plugin that installs NVIDIA drivers on Kubernetes nodes",
@@ -2948,7 +2948,7 @@
   },
   {
     "id": 210,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is MIG (Multi-Instance GPU) and when should it be used?",
     "choices": [
       "A technique for connecting multiple GPUs together",
@@ -2961,7 +2961,7 @@
   },
   {
     "id": 211,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the difference between GPU time-slicing and MIG for sharing GPUs?",
     "choices": [
       "They are the same technology with different names",
@@ -2974,7 +2974,7 @@
   },
   {
     "id": 212,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is gang scheduling and why is it important for distributed AI training?",
     "choices": [
       "Scheduling jobs alphabetically by name",
@@ -2987,7 +2987,7 @@
   },
   {
     "id": 213,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is preemption in GPU job scheduling?",
     "choices": [
       "Permanently deleting a running job",
@@ -3000,7 +3000,7 @@
   },
   {
     "id": 214,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the purpose of GPU affinity in workload scheduling?",
     "choices": [
       "Ensuring GPUs are always idle",
@@ -3013,7 +3013,7 @@
   },
   {
     "id": 215,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is a fair-share scheduling policy in an AI cluster?",
     "choices": [
       "Giving all jobs exactly the same amount of time",
@@ -3026,7 +3026,7 @@
   },
   {
     "id": 216,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the NVIDIA GPU Operator and what problem does it solve?",
     "choices": [
       "A human operator who manually manages GPUs",
@@ -3039,7 +3039,7 @@
   },
   {
     "id": 217,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the purpose of resource quotas for GPUs in a Kubernetes cluster?",
     "choices": [
       "To limit the number of CPU cores per node",
@@ -3052,7 +3052,7 @@
   },
   {
     "id": 218,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is elastic training and how does it benefit GPU cluster utilization?",
     "choices": [
       "Training with elastic bands for hardware",
@@ -3065,7 +3065,7 @@
   },
   {
     "id": 219,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the difference between NVIDIA DCGM and nvidia-smi for GPU monitoring?",
     "choices": [
       "They are identical tools with different names",
@@ -3078,7 +3078,7 @@
   },
   {
     "id": 220,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "How does Kubernetes handle GPU resource requests differently from CPU requests?",
     "choices": [
       "GPU requests work exactly like CPU requests with fractional allocation",
@@ -3092,7 +3092,7 @@
   {
     "id": 221,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO Kubernetes features help manage node heterogeneity in a mixed GPU cluster? (Select TWO)",
     "choices": [
       "Node labels and selectors for targeting specific GPU types (e.g., A100 vs. H100)",
@@ -3110,7 +3110,7 @@
   {
     "id": 222,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO are common causes of low GPU utilization in AI clusters? (Select TWO)",
     "choices": [
       "Data loading bottlenecks where GPUs wait for the CPU to prepare batches",
@@ -3128,7 +3128,7 @@
   {
     "id": 223,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO features should an AI cluster job scheduler support for production workloads? (Select TWO)",
     "choices": [
       "Job queuing with priority levels and fair-share policies",
@@ -3146,7 +3146,7 @@
   {
     "id": 224,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO container runtime features are needed for GPU-accelerated AI workloads? (Select TWO)",
     "choices": [
       "GPU driver and library passthrough from host to container",
@@ -3163,7 +3163,7 @@
   },
   {
     "id": 225,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is RDMA (Remote Direct Memory Access) and why is it important for AI training?",
     "choices": [
       "A disk storage technology",
@@ -3176,7 +3176,7 @@
   },
   {
     "id": 226,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the difference between InfiniBand and RoCE for AI cluster networking?",
     "choices": [
       "They are identical technologies from different vendors",
@@ -3189,7 +3189,7 @@
   },
   {
     "id": 227,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is GPUDirect RDMA?",
     "choices": [
       "A technique for connecting GPUs to monitors",
@@ -3202,7 +3202,7 @@
   },
   {
     "id": 228,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is GPUDirect Storage?",
     "choices": [
       "Using GPUs as storage devices",
@@ -3215,7 +3215,7 @@
   },
   {
     "id": 229,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is adaptive routing in InfiniBand networks?",
     "choices": [
       "Routing traffic based on the time of day",
@@ -3228,7 +3228,7 @@
   },
   {
     "id": 230,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Why is lossless networking important for distributed AI training?",
     "choices": [
       "It prevents data loss on hard drives",
@@ -3241,7 +3241,7 @@
   },
   {
     "id": 231,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is SHARP (Scalable Hierarchical Aggregation and Reduction Protocol)?",
     "choices": [
       "A security protocol for encrypting GPU traffic",
@@ -3254,7 +3254,7 @@
   },
   {
     "id": 232,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the role of a subnet manager in an InfiniBand fabric?",
     "choices": [
       "It manages IP address allocation like DHCP",
@@ -3267,7 +3267,7 @@
   },
   {
     "id": 233,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the benefit of NVMe-oF (NVMe over Fabrics) for AI storage?",
     "choices": [
       "It makes NVMe drives larger",
@@ -3280,7 +3280,7 @@
   },
   {
     "id": 234,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of network rail optimization in AI server design?",
     "choices": [
       "Optimizing the physical placement of network cables on rails",
@@ -3293,7 +3293,7 @@
   },
   {
     "id": 235,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is UFM (Unified Fabric Manager) used for in InfiniBand AI clusters?",
     "choices": [
       "Managing user accounts on GPU servers",
@@ -3306,7 +3306,7 @@
   },
   {
     "id": 236,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the importance of network topology awareness for NCCL performance?",
     "choices": [
       "NCCL does not consider network topology",
@@ -3320,7 +3320,7 @@
   {
     "id": 237,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO storage caching strategies help improve AI training data pipeline performance? (Select TWO)",
     "choices": [
       "Using local NVMe SSDs as a read cache tier in front of parallel file systems",
@@ -3338,7 +3338,7 @@
   {
     "id": 238,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO metrics are most important when evaluating network fabric performance for AI training? (Select TWO)",
     "choices": [
       "Bisection bandwidth (total bandwidth available between any two halves of the cluster)",
@@ -3356,7 +3356,7 @@
   {
     "id": 239,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO are benefits of using NVIDIA Spectrum Ethernet switches for AI clusters? (Select TWO)",
     "choices": [
       "Support for RoCE with advanced congestion control for lossless RDMA over Ethernet",
@@ -3374,7 +3374,7 @@
   {
     "id": 240,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO checkpoint storage requirements are critical for large-scale AI training? (Select TWO)",
     "choices": [
       "High write throughput to save checkpoints quickly without stalling training for too long",
@@ -3392,7 +3392,7 @@
   {
     "id": 241,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO GPUDirect technologies improve data movement performance in AI systems? (Select TWO)",
     "choices": [
       "GPUDirect RDMA for direct network-to-GPU-memory transfers",
@@ -3409,7 +3409,7 @@
   },
   {
     "id": 242,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the purpose of traffic isolation in AI cluster networks?",
     "choices": [
       "Blocking all network traffic for security",
@@ -3423,7 +3423,7 @@
   {
     "id": 243,
     "type": "multiple-response",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Which TWO are important considerations when designing storage for AI model checkpointing? (Select TWO)",
     "choices": [
       "Parallel write capability to handle simultaneous checkpoint writes from many nodes",
@@ -3441,7 +3441,7 @@
   {
     "id": 244,
     "type": "single-choice",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "What is the primary advantage of using liquid cooling over air cooling in dense GPU clusters?",
     "choices": [
       "Liquid cooling requires no maintenance",
@@ -3455,7 +3455,7 @@
   {
     "id": 245,
     "type": "single-choice",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "In an NVIDIA DGX system, what is the role of the baseboard management controller (BMC)?",
     "choices": [
       "It schedules GPU training jobs across nodes",
@@ -3469,7 +3469,7 @@
   {
     "id": 246,
     "type": "single-choice",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Why is ECC (Error-Correcting Code) memory important for AI training workloads?",
     "choices": [
       "ECC memory is twice as fast as non-ECC memory",
@@ -3483,7 +3483,7 @@
   {
     "id": 247,
     "type": "multiple-response",
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "question": "Which TWO factors determine the theoretical peak FLOPS of a GPU? (Select TWO)",
     "choices": [
       "The number of CUDA cores (or Tensor Cores) and their clock speed",
@@ -3501,7 +3501,7 @@
   {
     "id": 248,
     "type": "single-choice",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "In Kubernetes GPU scheduling, what does the NVIDIA device plugin do?",
     "choices": [
       "It replaces the container runtime with a GPU-optimized alternative",
@@ -3515,7 +3515,7 @@
   {
     "id": 249,
     "type": "single-choice",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the purpose of gang scheduling in the context of distributed AI training?",
     "choices": [
       "It ensures all workers of a distributed job start simultaneously so no worker blocks waiting for peers to join the communication group",
@@ -3529,7 +3529,7 @@
   {
     "id": 250,
     "type": "single-choice",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What does NVIDIA MPS (Multi-Process Service) enable?",
     "choices": [
       "Running multiple CUDA processes on a single GPU with shared GPU context, improving utilization for small workloads",
@@ -3543,7 +3543,7 @@
   {
     "id": 251,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO are valid strategies for handling GPU job preemption in a shared cluster? (Select TWO)",
     "choices": [
       "Checkpointing the model state so the preempted job can resume from the last saved point",
@@ -3561,7 +3561,7 @@
   {
     "id": 252,
     "type": "single-choice",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "What is the benefit of using NVIDIA MIG (Multi-Instance GPU) over time-slicing for inference workloads?",
     "choices": [
       "MIG provides guaranteed compute and memory isolation between tenants at the hardware level",
@@ -3575,7 +3575,7 @@
   {
     "id": 253,
     "type": "multiple-response",
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "question": "Which TWO metrics are most useful for determining if a GPU is underutilized during an AI workload? (Select TWO)",
     "choices": [
       "GPU SM (streaming multiprocessor) occupancy percentage",
@@ -3593,7 +3593,7 @@
   {
     "id": 254,
     "type": "single-choice",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is adaptive routing in the context of InfiniBand networks for AI clusters?",
     "choices": [
       "A technique that dynamically selects the least-congested path for each packet, reducing hotspots in fat-tree topologies",
@@ -3607,7 +3607,7 @@
   {
     "id": 255,
     "type": "single-choice",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "Why is GPUDirect RDMA important for distributed AI training?",
     "choices": [
       "It allows data to be transferred directly between a remote GPU and a local GPU's memory via the network adapter, bypassing CPU and system memory copies",
@@ -3621,7 +3621,7 @@
   {
     "id": 256,
     "type": "single-choice",
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "question": "What is the primary advantage of using a parallel file system like Lustre or GPFS for AI training data?",
     "choices": [
       "It stores data on a single server for simplicity",
@@ -3634,7 +3634,7 @@
   },
   {
     "id": 257,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "type": "ordering",
     "question": "Arrange the following steps to set up a multi-node NVIDIA GPU cluster for distributed training:",
     "items": [
@@ -3653,7 +3653,7 @@
   },
   {
     "id": 258,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "type": "ordering",
     "question": "Arrange the following steps to configure DCGM (Data Center GPU Manager) monitoring on a GPU node:",
     "items": [
@@ -3672,7 +3672,7 @@
   },
   {
     "id": 259,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "type": "ordering",
     "question": "Arrange the following steps to deploy an AI inference workload on Kubernetes using the NVIDIA GPU Operator:",
     "items": [
@@ -3691,7 +3691,7 @@
   },
   {
     "id": 260,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "type": "ordering",
     "question": "Arrange the stages of a model training pipeline in the correct sequence:",
     "items": [
@@ -3710,7 +3710,7 @@
   },
   {
     "id": 261,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "type": "ordering",
     "question": "Arrange the steps to configure an InfiniBand fabric for a GPU cluster:",
     "items": [
@@ -3729,7 +3729,7 @@
   },
   {
     "id": 262,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "type": "ordering",
     "question": "Arrange the following steps to provision a Lustre parallel file system for AI training data:",
     "items": [
@@ -3748,7 +3748,7 @@
   },
   {
     "id": 263,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "type": "ordering",
     "question": "Arrange the steps to optimize a trained PyTorch model for production inference using TensorRT:",
     "items": [
@@ -3767,7 +3767,7 @@
   },
   {
     "id": 264,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "type": "ordering",
     "question": "Arrange the steps to serve a model using NVIDIA Triton Inference Server:",
     "items": [
@@ -3786,7 +3786,7 @@
   },
   {
     "id": 265,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "type": "ordering",
     "question": "Arrange the steps to fine-tune an LLM using NVIDIA NeMo:",
     "items": [
@@ -3805,7 +3805,7 @@
   },
   {
     "id": 266,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "type": "ordering",
     "question": "Arrange the following steps to implement a rolling upgrade of GPU driver software across a production AI cluster:",
     "items": [
@@ -3824,7 +3824,7 @@
   },
   {
     "id": 267,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "type": "matching",
     "question": "Match each NVIDIA GPU model to its primary use case or key specification:",
     "itemsLeft": [
@@ -3849,7 +3849,7 @@
   },
   {
     "id": 268,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "type": "matching",
     "question": "Match each GPU memory technology to its key characteristic:",
     "itemsLeft": [
@@ -3874,7 +3874,7 @@
   },
   {
     "id": 269,
-    "domain": "AI Infrastructure Fundamentals",
+    "domain": "AI Infrastructure",
     "type": "matching",
     "question": "Match each NVIDIA system or component to its description:",
     "itemsLeft": [
@@ -3899,7 +3899,7 @@
   },
   {
     "id": 270,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "type": "matching",
     "question": "Match each Kubernetes GPU scheduling feature to its purpose:",
     "itemsLeft": [
@@ -3924,7 +3924,7 @@
   },
   {
     "id": 271,
-    "domain": "AI Workload Management",
+    "domain": "AI Operations",
     "type": "matching",
     "question": "Match each distributed training parallelism strategy to its description:",
     "itemsLeft": [
@@ -3949,7 +3949,7 @@
   },
   {
     "id": 272,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "type": "matching",
     "question": "Match each networking technology to its bandwidth or primary use case in AI clusters:",
     "itemsLeft": [
@@ -3974,7 +3974,7 @@
   },
   {
     "id": 273,
-    "domain": "Networking and Storage for AI",
+    "domain": "AI Infrastructure",
     "type": "matching",
     "question": "Match each storage protocol or system to its best-fit AI workload type:",
     "itemsLeft": [
@@ -3999,7 +3999,7 @@
   },
   {
     "id": 274,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "type": "matching",
     "question": "Match each NVIDIA AI software tool to its primary purpose:",
     "itemsLeft": [
@@ -4024,7 +4024,7 @@
   },
   {
     "id": 275,
-    "domain": "AI Software and Frameworks",
+    "domain": "Essential AI Knowledge",
     "type": "matching",
     "question": "Match each deep learning precision format to its primary trade-off in AI training:",
     "itemsLeft": [
@@ -4049,7 +4049,7 @@
   },
   {
     "id": 276,
-    "domain": "Deployment and Operations",
+    "domain": "AI Operations",
     "type": "matching",
     "question": "Match each DCGM (Data Center GPU Manager) feature to its operational purpose:",
     "itemsLeft": [
@@ -4071,5 +4071,395 @@
       0
     ],
     "explanation": "dcgmi diag runs active diagnostic tests to validate GPU hardware health — useful before workloads or after maintenance. DCGM Exporter publishes metrics to Prometheus for observability dashboards. DCGM Health Checks provide passive continuous monitoring and report subsystem status. The Policy Manager allows operators to define automated remediation actions triggered when GPU metrics breach defined thresholds."
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is NVIDIA NIM (NVIDIA Inference Microservices)?",
+    "choices": [
+      "A monitoring tool for tracking GPU utilization across a data center",
+      "A set of optimized, containerized inference microservices that expose pre-built AI models behind a standard API for production deployment",
+      "A training framework for fine-tuning foundation models",
+      "A storage solution for AI training datasets"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NIM packages pre-optimized models (often using TensorRT-LLM or Triton under the hood) as containerized microservices with a standard, OpenAI-compatible REST API, so enterprises can deploy production inference with minimal integration work.",
+    "id": 277
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which API standard does NVIDIA NIM expose for LLM inference to simplify integration with existing applications?",
+    "choices": [
+      "A proprietary NVIDIA-only API",
+      "gRPC-only with custom protobuf schemas",
+      "An OpenAI-compatible REST API",
+      "SOAP/XML web services"
+    ],
+    "correctAnswer": 2,
+    "explanation": "NIM exposes an OpenAI-compatible REST API for LLM endpoints (chat/completions, embeddings), so applications written for the OpenAI API can swap to NIM with minimal code changes.",
+    "id": 278
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "How does NIM differ from deploying Triton Inference Server directly?",
+    "choices": [
+      "NIM does not use Triton or TensorRT internally",
+      "NIM is only available on bare-metal Linux installations",
+      "NIM bundles pre-optimized models, runtime engines, and a standard API into a turnkey container, removing the model-conversion and engine-tuning steps Triton users typically perform themselves",
+      "NIM is exclusively for training, not inference"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Triton is a general-purpose inference server where users supply and tune their own model artifacts. NIM is opinionated: each microservice ships with a specific model already optimized (engines built, batching tuned) so it runs out of the box.",
+    "id": 279
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which deployment environments does NVIDIA NIM support?",
+    "choices": [
+      "Only the NVIDIA DGX Cloud",
+      "Self-hosted Kubernetes, on-premises servers, and major cloud providers wherever NVIDIA GPUs are available",
+      "Only public-cloud SaaS endpoints managed by NVIDIA",
+      "Only Windows-based GPU workstations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NIM ships as standard OCI containers, so it runs on any NVIDIA-GPU-equipped environment: self-managed Kubernetes, bare-metal servers, hyperscaler GPU instances, or NVIDIA DGX Cloud.",
+    "id": 280
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is the primary value proposition of NVIDIA NIM for enterprise AI adoption?",
+    "choices": [
+      "It eliminates the need for any GPU hardware",
+      "It reduces time-to-deployment for production inference by providing pre-optimized, model-specific microservices with a stable API",
+      "It replaces the need for fine-tuning on custom data",
+      "It is a free alternative to all other NVIDIA software"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NIM compresses the gap between a trained model and a production endpoint. Enterprises get optimized inference (often near hardware-peak throughput) without the infrastructure team building and tuning a custom serving stack.",
+    "id": 281
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is the key difference between supervised and unsupervised learning?",
+    "choices": [
+      "Supervised learning runs on GPUs while unsupervised learning runs on CPUs",
+      "Supervised learning trains on labeled examples (input + correct output), while unsupervised learning finds structure in data without labels",
+      "Supervised learning is for classification and unsupervised learning is for regression",
+      "Unsupervised learning always produces more accurate models"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Supervised learning requires labeled training data so the model can learn the input-to-output mapping. Unsupervised learning (clustering, dimensionality reduction) discovers patterns or groupings without explicit labels.",
+    "id": 282
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "In a deep neural network, what are the \"parameters\" (weights) that get updated during training?",
+    "choices": [
+      "The hyperparameters such as learning rate and batch size",
+      "The numerical values inside the network layers (e.g., matrix entries) that the optimizer adjusts to minimize the loss function",
+      "The training dataset itself",
+      "The network architecture (number of layers, layer types)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Parameters are the learned numerical values (weights and biases) inside layers. Training updates them via backpropagation and an optimizer to reduce the loss. Hyperparameters and architecture are fixed by the engineer.",
+    "id": 283
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is transfer learning and why is it commonly used in modern AI workflows?",
+    "choices": [
+      "Moving a model from one GPU to another without retraining",
+      "Starting from a pre-trained model and adapting it to a new task with a smaller dataset, dramatically reducing training time and data requirements",
+      "Transferring training data between cloud regions",
+      "Running inference on data that was not seen during training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Transfer learning leverages representations already learned by a large pre-trained model (e.g., a foundation model) and fine-tunes the final layers or full model on a smaller domain-specific dataset, often achieving better results than training from scratch.",
+    "id": 284
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Why are GPUs particularly well-suited to deep learning compared to traditional CPUs?",
+    "choices": [
+      "GPUs run at higher clock speeds than CPUs",
+      "Deep learning workloads consist largely of dense matrix and tensor operations that map naturally to the massive parallel arithmetic throughput GPUs provide",
+      "GPUs have more cache memory than CPUs",
+      "CPUs cannot execute floating-point operations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Neural network forward and backward passes are dominated by matrix multiplications and convolutions, which are highly parallel. GPUs (with thousands of cores and Tensor Cores) deliver orders-of-magnitude higher throughput on these operations than CPUs.",
+    "id": 285
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is generative AI, and how does it differ from traditional predictive AI?",
+    "choices": [
+      "Generative AI runs only on consumer GPUs while predictive AI runs on data center GPUs",
+      "Generative AI produces new content (text, images, code, audio) from learned distributions, while predictive AI outputs a label, score, or value for a given input",
+      "There is no meaningful difference between the two",
+      "Predictive AI is always more accurate than generative AI"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Predictive models (classifiers, regressors, recommenders) map inputs to a fixed output type. Generative models (LLMs, diffusion models) sample from a learned distribution to synthesize novel content that resembles the training data.",
+    "id": 286
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is the fundamental architectural difference between a CPU and a GPU?",
+    "choices": [
+      "CPUs use silicon while GPUs use a different material",
+      "CPUs have a few powerful cores optimized for low-latency serial execution and complex control flow; GPUs have thousands of simpler cores optimized for high-throughput parallel arithmetic",
+      "GPUs cannot perform floating-point math",
+      "CPUs have more memory bandwidth than GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CPUs prioritize per-thread latency with deep pipelines, large caches, and branch prediction. GPUs sacrifice per-thread complexity to fit thousands of arithmetic units that execute the same instruction across many data elements (SIMT), maximizing aggregate throughput.",
+    "id": 287
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which execution model do NVIDIA GPUs use to run thousands of threads efficiently?",
+    "choices": [
+      "MIMD — every core runs an entirely independent program",
+      "SIMT (Single Instruction, Multiple Threads) — groups of threads (warps) execute the same instruction on different data",
+      "Pure scalar execution like a 1980s CPU",
+      "VLIW — packing multiple operations into a single instruction word"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NVIDIA GPUs execute groups of 32 threads called warps in lockstep under SIMT. All threads in a warp execute the same instruction on different data, which is why GPUs excel at vectorizable, data-parallel workloads.",
+    "id": 288
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Why does memory bandwidth matter more for AI workloads than raw clock speed?",
+    "choices": [
+      "Higher clock speeds always lower bandwidth",
+      "Training and inference are often memory-bound — they spend significant time reading weights and activations, so feeding the compute units with data is the throughput bottleneck",
+      "AI workloads do not actually use memory",
+      "Clock speed determines model accuracy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Modern AI accelerators expose enormous compute throughput (TFLOPS), but actually delivering that throughput requires moving weights and activations through memory fast enough. HBM and large caches address this; raw clock speed has diminishing returns.",
+    "id": 289
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which type of workload is typically a poor fit for GPU acceleration?",
+    "choices": [
+      "Dense matrix multiplications in deep learning",
+      "Highly branchy, single-threaded logic with frequent unpredictable conditionals and small data",
+      "Image and video processing pipelines",
+      "Large-scale data analytics on tabular data"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GPUs excel at data-parallel, regular workloads. Code dominated by unpredictable branching, fine-grained synchronization, or tiny data sizes does not amortize the cost of moving data to the GPU and pays a penalty from warp divergence.",
+    "id": 290
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What role do Tensor Cores play that distinguishes them from a GPU's general-purpose CUDA cores?",
+    "choices": [
+      "Tensor Cores handle display output while CUDA cores handle compute",
+      "Tensor Cores execute mixed-precision matrix-multiply-and-accumulate (MMA) operations as a fused instruction, dramatically accelerating the linear algebra at the heart of deep learning",
+      "Tensor Cores are slower but more accurate than CUDA cores",
+      "Tensor Cores can only run inference, never training"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Tensor Cores are specialized units that compute D = A × B + C on small matrix tiles in a single instruction at reduced precision (FP16/BF16/FP8/INT8) with FP32 accumulation, delivering far higher throughput than equivalent FP32 work on CUDA cores.",
+    "id": 291
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Why does training a neural network typically require more GPU memory than inference on the same model?",
+    "choices": [
+      "Training datasets are stored entirely in GPU memory",
+      "Training must hold the model weights, activations from the forward pass, gradients, and optimizer state — typically several times the memory of weights alone — while inference holds only the weights and activations",
+      "Inference uses higher precision than training",
+      "GPUs allocate extra memory for training as a hardware feature"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Training memory ≈ weights + gradients + optimizer state (e.g., Adam keeps two extra copies) + cached activations for backprop. Inference only needs weights and the current activations, so the same model needs 4–8× less memory for inference.",
+    "id": 292
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which precision is most commonly used for production LLM inference to balance speed and accuracy?",
+    "choices": [
+      "FP64 (double precision) — the highest accuracy available",
+      "FP16, BF16, FP8, or INT8 — reduced-precision formats that fit larger models in memory and exploit Tensor Cores for higher throughput, with negligible quality loss",
+      "INT4 only — the smallest possible representation",
+      "FP32 — required for any inference workload"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Inference engines like TensorRT-LLM ship most production LLMs in FP16/BF16/FP8/INT8. These formats dramatically increase throughput on Tensor Cores and reduce memory footprint, with calibration techniques keeping accuracy close to the FP32 baseline.",
+    "id": 293
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is the primary throughput strategy for inference servers, and how does it differ from training?",
+    "choices": [
+      "Inference uses single-sample requests; training uses batches — and they can never be combined",
+      "Both use a fixed global batch size set in hardware",
+      "Inference servers dynamically batch incoming requests to amortize per-step GPU cost across users, while training uses pre-shuffled mini-batches over a fixed dataset",
+      "Inference cannot be batched at all"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Training iterates over a known dataset with fixed mini-batches. Inference receives an unpredictable stream of requests, so servers like Triton group concurrent requests into dynamic batches (and, for LLMs, continuous/in-flight batches) to maximize GPU utilization.",
+    "id": 294
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Why is checkpointing important during long training runs on large models?",
+    "choices": [
+      "Checkpointing speeds up the forward pass",
+      "Checkpoints periodically save model weights and optimizer state to durable storage so a crash or preemption does not lose hours or days of training progress",
+      "Checkpointing is required to enable inference",
+      "It is purely a debugging convenience with no production value"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Foundation-model training spans days to weeks across thousands of GPUs. Hardware faults, network failures, and preemption are inevitable, so periodic checkpoints to high-throughput storage allow training to resume from the last saved state instead of restarting.",
+    "id": 295
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What metric is the primary optimization target for an interactive LLM inference deployment, and what is the primary target for training?",
+    "choices": [
+      "Both optimize for raw FLOPS",
+      "Inference primarily optimizes latency (and throughput per GPU); training primarily optimizes time-to-train (samples per second across the cluster)",
+      "Inference optimizes power consumption; training optimizes accuracy",
+      "They share the exact same target — total job runtime"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Interactive inference is user-facing, so first-token and per-token latency dominate, with throughput as a cost metric. Training is a batch job, so the goal is reaching the target loss as fast as possible, measured in cluster-wide samples or tokens per second.",
+    "id": 296
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which combination of factors most directly enabled the recent acceleration of practical AI adoption?",
+    "choices": [
+      "Cheaper consumer monitors and faster home internet",
+      "Massive datasets, scalable GPU compute, and modern architectures (transformers, diffusion) — together enabling the training of foundation models",
+      "A single algorithmic breakthrough with no hardware changes",
+      "The decline of cloud computing in favor of local-only workloads"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The current AI wave is the convergence of three trends: web-scale labeled and unlabeled data, GPU clusters that can train trillion-parameter models, and architectures (notably the transformer) that scale predictably with data and compute.",
+    "id": 297
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which of the following is a representative enterprise AI use case for generative models?",
+    "choices": [
+      "Defragmenting a hard disk",
+      "Customer-support copilots, code generation, document summarization, and synthetic-data creation for training other models",
+      "Replacing the operating-system kernel",
+      "Compiling C++ source code"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Enterprise generative-AI deployments cluster around natural-language assistance (support, internal copilots), code intelligence, document understanding/summarization, and synthetic data generation for ML pipelines.",
+    "id": 298
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "A healthcare provider wants AI for medical-image triage. Which class of model is most appropriate?",
+    "choices": [
+      "A small linear regression model",
+      "A convolutional neural network or vision transformer trained or fine-tuned on labeled medical imaging data",
+      "A rule-based expert system from the 1980s",
+      "A generic large language model with no vision component"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Medical-image classification and segmentation are computer-vision problems. CNNs and vision transformers, trained or fine-tuned on domain-specific labeled imagery, are the standard architectures and what NVIDIA Clara/MONAI workflows target.",
+    "id": 299
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Why might an enterprise choose to fine-tune or self-host an open foundation model instead of calling a hosted third-party API?",
+    "choices": [
+      "Open models are always more accurate than hosted ones",
+      "Data residency, cost predictability, customization on proprietary data, and avoiding sending sensitive information to a third party",
+      "Hosted APIs cannot be used in production at all",
+      "Open models do not require any GPUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Common enterprise drivers are regulatory or contractual data residency, the ability to fine-tune on proprietary data without leaking it, predictable per-token cost as scale grows, and full control over model versioning.",
+    "id": 300
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "Which industries are commonly cited as early adopters of large-scale AI infrastructure?",
+    "choices": [
+      "Only consumer entertainment companies",
+      "Financial services, healthcare and life sciences, manufacturing/industrial, automotive (autonomous systems), telecommunications, and retail",
+      "Only public-sector defense organizations",
+      "No industries have adopted AI at scale"
+    ],
+    "correctAnswer": 1,
+    "explanation": "AI infrastructure investment is broad: finance (fraud, trading), healthcare (imaging, drug discovery), manufacturing (predictive maintenance, robotics), automotive (autonomy), telco (network ops), and retail (personalization, demand forecasting).",
+    "id": 301
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is the NVIDIA TAO Toolkit primarily used for?",
+    "choices": [
+      "Compiling CUDA kernels",
+      "A low-code framework for fine-tuning and customizing pre-trained vision and conversational AI models without writing model code from scratch",
+      "Monitoring GPU temperature in a data center",
+      "Provisioning Kubernetes clusters"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TAO (Train, Adapt, Optimize) lets practitioners take NVIDIA pre-trained models, fine-tune them on their own data through configuration files, and export optimized models — abstracting away most low-level training code.",
+    "id": 302
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What domain does NVIDIA Morpheus target?",
+    "choices": [
+      "Genomic sequencing pipelines",
+      "GPU-accelerated cybersecurity AI — analyzing massive volumes of network and telemetry data in real time to detect threats",
+      "Real-time ray-traced graphics",
+      "Speech-to-text transcription"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Morpheus is an open application framework for cybersecurity that uses GPU acceleration and AI models to inspect huge data streams (packets, logs, telemetry) at speeds traditional CPU-based SIEMs cannot reach.",
+    "id": 303
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is NVIDIA Holoscan designed for?",
+    "choices": [
+      "Cloud-only batch analytics",
+      "Building real-time, low-latency AI applications at the edge for streaming sensor data — used heavily in medical instruments, robotics, and industrial inspection",
+      "A replacement for CUDA",
+      "A consumer photo-editing application"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Holoscan is an SDK and reference platform for streaming AI at the edge. Its pipeline model handles continuous sensor input (ultrasound, endoscopy, robotics cameras, lidar) with the latency budget those domains require.",
+    "id": 304
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "What is the role of NVIDIA DOCA in modern AI infrastructure?",
+    "choices": [
+      "A package manager for Linux distributions",
+      "The software framework for programming NVIDIA BlueField DPUs — offloading networking, storage, and security functions from host CPUs onto the DPU",
+      "A replacement for CUDA on consumer GPUs",
+      "A web-based GPU monitoring dashboard"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DOCA is to BlueField DPUs what CUDA is to GPUs: it is the SDK and runtime for building DPU applications that handle networking, storage acceleration, and zero-trust security at line rate, freeing host CPU cycles for AI workloads.",
+    "id": 305
+  },
+  {
+    "domain": "Essential AI Knowledge",
+    "question": "In a GPU-accelerated AI cluster, what is the primary function of an NVIDIA BlueField DPU?",
+    "choices": [
+      "Replace the GPU as the main compute device",
+      "Offload infrastructure services (networking, storage, security, virtualization) from host CPUs, isolating tenant workloads and freeing CPU cycles for application work",
+      "Act as the cluster's primary file server",
+      "Provide display output for connected monitors"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BlueField DPUs are programmable network adapters with Arm cores that run the data center's infrastructure plane: virtual networking, encrypted storage transports, firewall/IDS, and tenant isolation — workloads that otherwise consume host CPUs in AI servers.",
+    "id": 306
   }
 ]
