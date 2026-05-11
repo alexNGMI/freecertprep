@@ -1,1 +1,676 @@
-[]
+[
+  {
+    "id": "secplus-1",
+    "domain": "General Security Concepts",
+    "question": "Bollards installed in front of a building's main entrance are an example of which security control category and type?",
+    "choices": [
+      "Technical, preventive",
+      "Physical, preventive",
+      "Operational, deterrent",
+      "Managerial, directive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bollards are physical barriers that prevent vehicles from approaching a building. They are classified as physical (the category, because they're tangible objects) and preventive (the type, because they stop the threat before it can occur)."
+  },
+  {
+    "id": "secplus-2",
+    "domain": "General Security Concepts",
+    "question": "A company's published acceptable use policy that defines what employees can and cannot do on corporate systems is BEST classified as which type of security control?",
+    "choices": [
+      "Technical",
+      "Operational",
+      "Managerial",
+      "Physical"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Managerial controls are administrative and policy-based — the documented rules of the road. They guide human behavior through written governance. Technical controls are enforced by technology, operational controls are day-to-day human practices, and physical controls are tangible barriers."
+  },
+  {
+    "id": "secplus-3",
+    "domain": "General Security Concepts",
+    "question": "After a successful intrusion, the security team restores affected servers from clean backups. This activity is an example of which control type?",
+    "choices": [
+      "Preventive",
+      "Detective",
+      "Corrective",
+      "Deterrent"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Corrective controls act AFTER a security event has occurred to restore normal operations. Restoring from backup, isolating infected hosts, and applying emergency patches are all corrective. Preventive blocks the event; detective identifies it; deterrent discourages the actor."
+  },
+  {
+    "id": "secplus-4",
+    "domain": "General Security Concepts",
+    "question": "A bank cannot deploy hardware tokens to all of its millions of customers, so it uses SMS-based one-time codes as a secondary authentication factor. The SMS authentication is BEST classified as which type of control?",
+    "choices": [
+      "Preventive",
+      "Compensating",
+      "Detective",
+      "Directive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Compensating controls substitute for a primary control that is not feasible to implement. SMS authentication compensates for the bank's inability to issue hardware tokens to every consumer. The control still provides MFA value despite not being the strongest option."
+  },
+  {
+    "id": "secplus-5",
+    "type": "multiple-response",
+    "domain": "General Security Concepts",
+    "question": "Which TWO of the following are examples of detective security controls? (Select TWO)",
+    "choices": [
+      "Firewall blocking inbound traffic",
+      "CCTV camera recording the data center entrance",
+      "Network-based intrusion detection system (NIDS)",
+      "Mantrap at the data center door",
+      "Account lockout after failed login attempts"
+    ],
+    "correctAnswers": [1, 2],
+    "explanation": "Detective controls identify that a security event has happened or is happening. CCTV records evidence of physical entry for later review, and NIDS alerts on suspicious traffic. Firewalls and mantraps PREVENT; account lockout is preventive/corrective (it stops the brute force attempt itself)."
+  },
+  {
+    "id": "secplus-6",
+    "domain": "General Security Concepts",
+    "question": "A large warning sign reading 'Premises monitored by 24/7 video surveillance — trespassers will be prosecuted' is primarily acting as which type of control?",
+    "choices": [
+      "Detective",
+      "Corrective",
+      "Deterrent",
+      "Compensating"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Deterrent controls discourage adversary action by communicating consequences. The sign itself doesn't detect or prevent anything technically — it changes attacker behavior by making them aware of monitoring and legal risk. The CAMERA behind it is detective."
+  },
+  {
+    "id": "secplus-7",
+    "domain": "General Security Concepts",
+    "question": "Which of the following is the BEST example of a directive control?",
+    "choices": [
+      "Firewall access control list",
+      "Mandatory annual security awareness training",
+      "Motion-activated security camera",
+      "Daily server log review"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Directive controls instruct individuals on what to do or how to behave. Mandatory training directs employees toward correct security practices. The firewall ACL is technical/preventive, the camera is detective, and log review is detective/operational."
+  },
+  {
+    "id": "secplus-8",
+    "domain": "General Security Concepts",
+    "question": "Which security control category includes the actual configuration of technology such as firewalls, IDS, encryption, and access control lists?",
+    "choices": [
+      "Managerial",
+      "Technical",
+      "Physical",
+      "Operational"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Technical controls (sometimes called logical controls) are implemented through technology: firewalls, encryption, ACLs, anti-malware, MFA software. Managerial controls are policies, operational controls are day-to-day human practices, and physical controls are tangible barriers."
+  },
+  {
+    "id": "secplus-9",
+    "type": "matching",
+    "domain": "General Security Concepts",
+    "question": "Match each security control example with its primary control TYPE:",
+    "itemsLeft": [
+      "Quarterly penetration test report identifying weaknesses",
+      "Activating the disaster recovery plan after a flood",
+      "Mandatory password complexity policy",
+      "Building access badge reader at the front door"
+    ],
+    "itemsRight": [
+      "Detective",
+      "Corrective",
+      "Directive",
+      "Preventive"
+    ],
+    "correctMatches": [0, 1, 2, 3],
+    "explanation": "A pen test report DETECTS weaknesses. Activating DR CORRECTS the impact of a disaster after it occurs. A password policy DIRECTS user behavior. A badge reader PREVENTS unauthorized entry. Each control example aligns with one primary control type."
+  },
+  {
+    "id": "secplus-10",
+    "domain": "General Security Concepts",
+    "question": "Hot site, warm site, and cold site arrangements for business continuity are MOST accurately classified as which control type?",
+    "choices": [
+      "Preventive",
+      "Detective",
+      "Corrective",
+      "Deterrent"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Alternate processing sites are corrective controls — they restore operations AFTER a disaster has impacted the primary site. They don't prevent the disaster itself. The hot/warm/cold distinction is about how quickly they can take over (hot = immediate, cold = weeks)."
+  },
+  {
+    "id": "secplus-11",
+    "domain": "General Security Concepts",
+    "question": "An organization deploys a Web Application Firewall (WAF) in front of a legacy application because the source code can't be refactored to fix several known SQL injection vulnerabilities. The WAF is BEST classified as:",
+    "choices": [
+      "A preventive control",
+      "A compensating control",
+      "A detective control",
+      "A managerial control"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A compensating control fills in when the primary control (in this case, fixing the application code) isn't feasible. The WAF compensates for the inability to remediate vulnerabilities at the source. Compensating controls are common when legacy systems can't be modified directly."
+  },
+  {
+    "id": "secplus-12",
+    "domain": "General Security Concepts",
+    "question": "Which of the following is BEST classified as an operational control?",
+    "choices": [
+      "Full-disk encryption on all laptops",
+      "Annual security awareness training",
+      "Quarterly user access review performed by managers",
+      "Locked server room with biometric entry"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Operational controls are recurring, human-driven security practices that maintain the security posture day-to-day. A quarterly access review is exactly that. Encryption is technical, training is managerial/directive, and the locked room is physical."
+  },
+  {
+    "id": "secplus-13",
+    "domain": "General Security Concepts",
+    "question": "Which element of the CIA triad is PRIMARILY violated when an attacker successfully alters log files to hide evidence of their activity?",
+    "choices": [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Non-repudiation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Integrity is violated when data is modified without authorization. The attacker did not just read the logs (that would be a confidentiality issue) — they changed them. Non-repudiation is related but separate; it ensures actions can be tied to actors."
+  },
+  {
+    "id": "secplus-14",
+    "domain": "General Security Concepts",
+    "question": "A ransomware attack encrypts thousands of critical files on a file server, making them unreadable to authorized users. Which CIA element is MOST directly affected from the business's perspective?",
+    "choices": [
+      "Confidentiality",
+      "Integrity",
+      "Availability",
+      "Authorization"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Ransomware blocks legitimate access to data — authorized users can no longer reach the files they need to do their jobs. While integrity is also impacted (the data is altered), the PRIMARY business impact is availability: operations halt until restoration or ransom payment."
+  },
+  {
+    "id": "secplus-15",
+    "domain": "General Security Concepts",
+    "question": "In the AAA framework (Authentication, Authorization, Accounting), which step verifies that a user IS who they claim to be?",
+    "choices": [
+      "Authentication",
+      "Authorization",
+      "Accounting",
+      "Auditing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Authentication verifies identity — proving you are who you say you are. Authorization grants the authenticated user specific permissions (what you can do). Accounting logs the activity for later review. Auditing is sometimes used interchangeably with accounting."
+  },
+  {
+    "id": "secplus-16",
+    "domain": "General Security Concepts",
+    "question": "Which security principle states 'never trust, always verify' — requiring strict identity verification for every access request regardless of network location?",
+    "choices": [
+      "Defense in depth",
+      "Zero trust",
+      "Least privilege",
+      "Separation of duties"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Zero Trust eliminates implicit trust based on network position. Every request is authenticated, authorized, and validated — whether the user is on the corporate LAN or the public internet. The 'castle and moat' model assumes internal trust; Zero Trust explicitly rejects that."
+  },
+  {
+    "id": "secplus-17",
+    "type": "multiple-response",
+    "domain": "General Security Concepts",
+    "question": "Which TWO are core architectural components of a Zero Trust model? (Select TWO)",
+    "choices": [
+      "Trusted internal network zones",
+      "Policy Decision Point (PDP)",
+      "Implicit trust for already-authenticated users",
+      "Policy Enforcement Point (PEP)",
+      "Single static authorization granted at login"
+    ],
+    "correctAnswers": [1, 3],
+    "explanation": "Zero Trust uses a Policy Decision Point (PDP) to evaluate access requests against policy, and a Policy Enforcement Point (PEP) to apply the decision at the resource boundary. Trusted internal zones, implicit trust, and static authorization are exactly what Zero Trust rejects."
+  },
+  {
+    "id": "secplus-18",
+    "domain": "General Security Concepts",
+    "question": "Non-repudiation in security MOST accurately means:",
+    "choices": [
+      "Preventing data from being deleted",
+      "Ensuring an actor cannot credibly deny having performed an action",
+      "Allowing multiple users to share an identity",
+      "Encrypting data at rest"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Non-repudiation provides proof of origin so a sender can't later deny sending a message and a signer can't deny signing a document. Digital signatures and detailed, tamper-evident audit logs are the main mechanisms used to achieve non-repudiation."
+  },
+  {
+    "id": "secplus-19",
+    "domain": "General Security Concepts",
+    "question": "Which of the following is the BEST example of physical security defense in depth?",
+    "choices": [
+      "Multiple firewalls operating in serial",
+      "Perimeter fence, then security guard, then badge reader, then mantrap",
+      "Three different antivirus products on every endpoint",
+      "A hot site combined with a warm site for backup"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Defense in depth applied physically means layered barriers an attacker must defeat in sequence — fence, guard, badge, mantrap. Multiple firewalls is defense in depth, but TECHNICAL. The physical equivalent stacks tangible controls so a single bypass doesn't grant access."
+  },
+  {
+    "id": "secplus-20",
+    "domain": "General Security Concepts",
+    "question": "A honeypot is BEST described as:",
+    "choices": [
+      "A backup server containing current production data",
+      "A decoy system designed to attract attackers, observe their techniques, and divert them from real assets",
+      "A firewall rule that temporarily allows all inbound traffic for testing",
+      "An encrypted volume used to store sensitive corporate files"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Honeypots are deliberately vulnerable, isolated systems placed in the network to attract attackers. They waste attacker time, allow defenders to study techniques, and generate high-fidelity alerts because any interaction with them is by definition suspicious."
+  },
+  {
+    "id": "secplus-21",
+    "domain": "General Security Concepts",
+    "question": "A honeytoken differs from a honeypot in that a honeytoken is:",
+    "choices": [
+      "A piece of fake data planted to trigger an alert when accessed",
+      "A hardware appliance for inline network monitoring",
+      "A type of behavioral biometric authentication",
+      "An asymmetric encryption algorithm"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A honeytoken is fake data — a credit card number, a credential, a document, a database row — that should NEVER be touched legitimately. Any access to it is an immediate high-confidence breach signal. A honeypot is a whole decoy system; a honeytoken is just a piece of data."
+  },
+  {
+    "id": "secplus-22",
+    "domain": "General Security Concepts",
+    "question": "An organization compares its current security posture against the NIST Cybersecurity Framework requirements to identify deficiencies that need to be addressed. This activity is called:",
+    "choices": [
+      "Penetration testing",
+      "Vulnerability assessment",
+      "Gap analysis",
+      "Risk register review"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Gap analysis identifies the difference between an organization's current state and a desired state — often a regulatory framework, industry standard, or internal target. Penetration testing finds technical weaknesses; vulnerability assessment scans for known issues; a risk register lists tracked risks."
+  },
+  {
+    "id": "secplus-23",
+    "type": "statement-block",
+    "domain": "General Security Concepts",
+    "question": "Evaluate whether each of the following statements correctly describes one of the CIA triad elements:",
+    "statements": [
+      "Confidentiality ensures that only authorized parties can read information",
+      "Integrity ensures that data is available when authorized users need it",
+      "Availability ensures that information has not been altered without authorization"
+    ],
+    "correctAnswers": [true, false, false],
+    "explanation": "Confidentiality is correctly defined. The second statement describes AVAILABILITY (not integrity), and the third describes INTEGRITY (not availability) — the definitions are swapped. Correct: Integrity = data has not been altered; Availability = data is accessible when needed."
+  },
+  {
+    "id": "secplus-24",
+    "domain": "General Security Concepts",
+    "question": "Which of the following is NOT a typical element of physical security?",
+    "choices": [
+      "Bollards in front of a building",
+      "A mantrap (access control vestibule)",
+      "IDS signatures on the network",
+      "Locked server cabinets"
+    ],
+    "correctAnswer": 2,
+    "explanation": "IDS signatures are TECHNICAL controls (network- or host-based intrusion detection). Bollards, mantraps, and locked cabinets are tangible physical security mechanisms protecting people, equipment, and facilities."
+  },
+  {
+    "id": "secplus-25",
+    "domain": "General Security Concepts",
+    "question": "The three traditional authentication factors are 'something you know, something you have, something you are.' Which of the following is the MOST commonly cited fourth factor that uses geographic or network context?",
+    "choices": [
+      "Something you wear",
+      "Somewhere you are",
+      "Something you trust",
+      "Someone you know"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The fourth factor most consistently cited in modern frameworks (including the SY0-701 objectives) is 'somewhere you are' — geolocation or network context (e.g., requiring access only from the corporate office or a specific country). A fifth factor sometimes cited is 'something you do' (behavioral biometrics)."
+  },
+  {
+    "id": "secplus-26",
+    "domain": "General Security Concepts",
+    "question": "An organization splits responsibilities so that the developer writing code, the engineer deploying it to production, and the administrator provisioning access are three different people. This is an example of:",
+    "choices": [
+      "Defense in depth",
+      "Separation of duties",
+      "Zero trust",
+      "Least privilege"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Separation of duties divides critical tasks across multiple people so no single individual can compromise an entire process. Least privilege limits each person's permissions to only what they need. Defense in depth uses layered controls; Zero Trust is about continuous verification."
+  },
+  {
+    "id": "secplus-27",
+    "domain": "General Security Concepts",
+    "question": "Which document outlines the exact steps an administrator should take to perform a specific recurring operational task identically every time?",
+    "choices": [
+      "Acceptable use policy",
+      "Standard operating procedure (SOP)",
+      "Memorandum of understanding (MOU)",
+      "Service level agreement (SLA)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Standard Operating Procedure provides step-by-step instructions for routine operations. Following the SOP ensures consistency and auditability regardless of who performs the task. AUP defines user behavior, MOU is between organizations, SLA defines service levels."
+  },
+  {
+    "id": "secplus-28",
+    "domain": "General Security Concepts",
+    "question": "The MOST important reason a change management ticket REQUIRES a documented backout plan before the change is approved is:",
+    "choices": [
+      "To satisfy external auditor requirements",
+      "To document the change for future reference",
+      "To enable rapid recovery if the change introduces unexpected problems",
+      "To meet vendor support contract terms"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The PRIMARY operational purpose of a backout plan is rapid recovery: if the deployed change breaks something, the team needs a known-good way to revert quickly. Audit and documentation value are real but secondary benefits. Without a backout plan, an outage from a bad change becomes much worse."
+  },
+  {
+    "id": "secplus-29",
+    "domain": "General Security Concepts",
+    "question": "A pre-agreed time period (often nights or weekends) during which planned system changes can be implemented with minimal business impact is called a:",
+    "choices": [
+      "Service level objective",
+      "Maintenance window",
+      "Recovery time objective",
+      "Mean time between failures"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Maintenance windows let teams coordinate changes during predictable, low-impact times. SLO is a measurable service target, RTO is the target time to restore service after an outage, and MTBF is a reliability metric."
+  },
+  {
+    "id": "secplus-30",
+    "type": "multiple-response",
+    "domain": "General Security Concepts",
+    "question": "Which TWO of the following are typically REQUIRED entries in a change management impact analysis? (Select TWO)",
+    "choices": [
+      "List of affected systems and dependent services",
+      "Performance reviews of the implementing engineer",
+      "Estimated downtime and user impact",
+      "The change author's home address",
+      "Marketing campaign metrics for the quarter"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "Impact analysis must capture what gets touched (affected systems and dependencies) and what disruption to expect (downtime, user impact). The other options are unrelated to the technical scope or operational risk of the proposed change."
+  },
+  {
+    "id": "secplus-31",
+    "domain": "General Security Concepts",
+    "question": "Which is the BEST reason to apply version control to infrastructure-as-code templates and configuration files?",
+    "choices": [
+      "To save disk space on file servers",
+      "To track who changed what, when, and why — and to enable rollback to any prior known-good state",
+      "To enable real-time chat between administrators",
+      "To automatically obfuscate sensitive data inside files"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Version control (Git, Mercurial, etc.) provides change attribution, full history, diffing, and the ability to revert to any prior commit. This directly supports change management, incident recovery, and compliance audit trails for infrastructure."
+  },
+  {
+    "id": "secplus-32",
+    "domain": "General Security Concepts",
+    "question": "A Change Advisory Board (CAB) PRIMARILY exists to:",
+    "choices": [
+      "Physically implement changes in production systems",
+      "Review proposed changes, evaluate risk, and approve or reject them",
+      "Audit application code for vulnerabilities",
+      "Train end users on new system features"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The CAB is a cross-functional body that reviews proposed changes, weighs the risk versus benefit, and approves or schedules them. Implementation is the change executor's role. Code audits and user training are separate functions performed by other teams."
+  },
+  {
+    "id": "secplus-33",
+    "domain": "General Security Concepts",
+    "question": "During impact analysis, the security team determines that a planned firewall rule change will allow traffic from a third-party partner network directly into the cardholder data environment. Which stakeholder MUST be consulted before the change is approved?",
+    "choices": [
+      "The marketing team",
+      "The PCI DSS compliance officer",
+      "The office facilities manager",
+      "The corporate communications department"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Any change affecting the cardholder data environment requires involvement from the team responsible for PCI DSS compliance. Failure to consult the compliance owner can lead to scope expansion, control failures, and audit findings — sometimes resulting in loss of payment processing privileges."
+  },
+  {
+    "id": "secplus-34",
+    "type": "ordering",
+    "domain": "General Security Concepts",
+    "question": "Arrange the following standard change management steps in the correct sequence:",
+    "items": [
+      "Change request submitted with proposed details and justification",
+      "Impact and risk analysis performed",
+      "Change Advisory Board review and approval",
+      "Change implemented during the scheduled maintenance window",
+      "Post-implementation review and documentation update"
+    ],
+    "correctOrder": [0, 1, 2, 3, 4],
+    "explanation": "Standard change management flow: REQUEST → ANALYZE → APPROVE → IMPLEMENT → REVIEW. Skipping the analysis or approval steps is one of the most common causes of failed or unauthorized changes that lead to outages."
+  },
+  {
+    "id": "secplus-35",
+    "domain": "General Security Concepts",
+    "question": "In ITIL terminology, a 'standard change' is one that:",
+    "choices": [
+      "Is pre-approved because it's well-understood, repeatable, and low-risk",
+      "Must always go through full CAB review regardless of risk",
+      "Requires immediate emergency implementation outside the normal process",
+      "Cannot be backed out under any circumstance"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ITIL standard changes are pre-authorized, low-risk, repeatable activities like password resets, account creation, or routine patch deployment. They follow a documented procedure and bypass full CAB review. The two other ITIL change categories are 'normal' (CAB review) and 'emergency' (expedited)."
+  },
+  {
+    "id": "secplus-36",
+    "type": "statement-block",
+    "domain": "General Security Concepts",
+    "question": "Evaluate each of the following statements about change management:",
+    "statements": [
+      "A backout plan should be created AFTER the change is deployed, not before",
+      "Emergency changes still require post-implementation documentation",
+      "Maintenance windows reduce risk by making changes predictable and communicable"
+    ],
+    "correctAnswers": [false, true, true],
+    "explanation": "Statement 1 is FALSE — the backout plan must exist BEFORE deployment so the team can recover quickly if the change fails. Statement 2 is TRUE — emergency changes still need documentation (often retrospective). Statement 3 is TRUE — predictable timing lets teams prepare, communicate, and minimize surprises."
+  },
+  {
+    "id": "secplus-37",
+    "domain": "General Security Concepts",
+    "question": "Which cryptographic operation uses the SAME key for both encryption and decryption?",
+    "choices": [
+      "Asymmetric encryption",
+      "Symmetric encryption",
+      "Cryptographic hashing",
+      "Digital signature generation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Symmetric encryption (AES, ChaCha20, 3DES) uses one shared key for both encrypt and decrypt operations. Asymmetric encryption (RSA, ECC) uses paired public and private keys. Hashing is one-way (no key needed). Digital signatures use asymmetric crypto."
+  },
+  {
+    "id": "secplus-38",
+    "domain": "General Security Concepts",
+    "question": "Which of the following is a one-way function — meaning that given the output, you cannot mathematically derive the original input?",
+    "choices": [
+      "AES-256 encryption",
+      "RSA encryption",
+      "SHA-256 hashing",
+      "Base64 encoding"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cryptographic hash functions like `SHA-256` are designed to be one-way — irreversible by mathematical design. Encryption is reversible with the appropriate key. Encoding (Base64) is fully reversible by anyone. Hashes are used for integrity checks and password storage exactly because they're one-way."
+  },
+  {
+    "id": "secplus-39",
+    "domain": "General Security Concepts",
+    "question": "The PRIMARY purpose of adding a unique `salt` to a password before hashing it for storage is:",
+    "choices": [
+      "To make the hash computation faster",
+      "To prevent attackers from using precomputed rainbow tables",
+      "To compress the password for storage efficiency",
+      "To automatically convert the password to lowercase"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A unique salt per user means identical passwords produce different hashes, so an attacker cannot use precomputed rainbow tables. Every password must be cracked individually, multiplying the attacker's workload by the number of accounts."
+  },
+  {
+    "id": "secplus-40",
+    "domain": "General Security Concepts",
+    "question": "A digital signature on a document provides which security properties?",
+    "choices": [
+      "Confidentiality only",
+      "Authentication and non-repudiation",
+      "Data compression only",
+      "Key exchange only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Digital signatures bind a document to the signer's identity by encrypting a hash of the document with the signer's private key. Verifiers use the public key to confirm origin. This proves WHO signed (authentication) and prevents the signer from later denying it (non-repudiation). Signatures do not provide confidentiality on their own."
+  },
+  {
+    "id": "secplus-41",
+    "type": "multiple-response",
+    "domain": "General Security Concepts",
+    "question": "Which TWO services do Hardware Security Modules (HSMs) typically provide? (Select TWO)",
+    "choices": [
+      "Secure cryptographic key generation and storage",
+      "Web traffic load balancing across multiple backends",
+      "Cryptographic operations isolated from the host operating system",
+      "Email spam filtering and quarantine",
+      "DNS resolution for internal hostnames"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "HSMs are tamper-resistant hardware that generate, store, and use cryptographic keys without ever exposing them to the operating system. They perform sensitive crypto operations (sign, decrypt) inside the secure boundary. Load balancing, spam filtering, and DNS are unrelated functions."
+  },
+  {
+    "id": "secplus-42",
+    "domain": "General Security Concepts",
+    "question": "A Trusted Platform Module (TPM) is BEST described as:",
+    "choices": [
+      "A network appliance for SSL/TLS inspection",
+      "A dedicated chip on a motherboard providing hardware-based cryptographic operations and secure key storage",
+      "A cloud-based certificate authority service",
+      "A protocol for VPN authentication"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A TPM is a chip integrated into a device's motherboard that handles boot integrity (measured boot), stores keys for full-disk encryption (BitLocker, FileVault), and provides a hardware root of trust. TPMs are local to a single device; HSMs may be local or network-attached and are typically used for enterprise-scale key management."
+  },
+  {
+    "id": "secplus-43",
+    "domain": "General Security Concepts",
+    "question": "The `OCSP` protocol is used to:",
+    "choices": [
+      "Generate new asymmetric key pairs",
+      "Check the revocation status of a specific certificate in real time",
+      "Encrypt email message contents end-to-end",
+      "Establish a site-to-site VPN tunnel"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Online Certificate Status Protocol (`OCSP`) lets a client query the issuing CA to check whether a specific certificate has been revoked. It replaces the older, cumbersome process of downloading the full Certificate Revocation List (CRL) for every validation."
+  },
+  {
+    "id": "secplus-44",
+    "domain": "General Security Concepts",
+    "question": "A Certificate Revocation List (CRL) is published by:",
+    "choices": [
+      "The certificate subject (the entity the cert was issued to)",
+      "The certificate authority that issued the certificate",
+      "The end-user browser performing the validation",
+      "The local DNS server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Certificate authorities publish CRLs listing certificates they have revoked before expiration (compromised keys, employee departures, key rotation, etc.). Browsers consult CRLs — or the more efficient `OCSP` — to validate certificate status during TLS handshakes."
+  },
+  {
+    "id": "secplus-45",
+    "type": "matching",
+    "domain": "General Security Concepts",
+    "question": "Match each cryptographic concept with its primary purpose:",
+    "itemsLeft": [
+      "Salting",
+      "Key stretching",
+      "Steganography",
+      "Tokenization"
+    ],
+    "itemsRight": [
+      "Slows down brute-force password cracking by adding iterations",
+      "Hides data within other innocuous data (e.g., inside an image)",
+      "Prevents rainbow-table attacks by making identical passwords hash differently",
+      "Replaces sensitive data with non-sensitive surrogate values"
+    ],
+    "correctMatches": [2, 0, 1, 3],
+    "explanation": "Salting prevents rainbow-table attacks. Key stretching (PBKDF2, bcrypt, Argon2) slows brute force by requiring many iterations per guess. Steganography hides data inside other data. Tokenization replaces real data (like credit card numbers) with non-sensitive tokens, commonly used in PCI environments."
+  },
+  {
+    "id": "secplus-46",
+    "domain": "General Security Concepts",
+    "question": "Which of the following is the BEST modern algorithm for storing user passwords?",
+    "choices": [
+      "`MD5` hashing",
+      "`SHA-1` hashing",
+      "`bcrypt` or `Argon2id`",
+      "`AES-256` encryption"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Password storage requires SLOW, salted, computationally expensive hashing — `bcrypt`, `scrypt`, and `Argon2id` are purpose-built for this. `MD5` and `SHA-1` are fast (bad for passwords because attackers can guess billions per second) and have known collision weaknesses. `AES-256` is reversible — the wrong tool entirely for a one-way password hash."
+  },
+  {
+    "id": "secplus-47",
+    "domain": "General Security Concepts",
+    "question": "A blockchain achieves tamper-evident data integrity PRIMARILY through:",
+    "choices": [
+      "A central authority that approves every transaction",
+      "Each block containing the cryptographic hash of the previous block",
+      "Encryption with a shared symmetric key",
+      "Periodic full backups of the chain"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Each block in a blockchain includes the cryptographic hash of the previous block, so altering any historical block invalidates every subsequent hash. Combined with distributed consensus, this makes tampering effectively impossible without controlling a majority of the network — making the chain an 'open public ledger.'"
+  },
+  {
+    "id": "secplus-48",
+    "domain": "General Security Concepts",
+    "question": "A self-signed certificate is generally NOT trusted by default on public-facing production systems because:",
+    "choices": [
+      "It cannot actually encrypt traffic",
+      "Its issuer is not part of a recognized chain of trust ending at a pre-installed root CA",
+      "Self-signed certificates are illegal under most regulations",
+      "They expire significantly faster than CA-issued certificates"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Browsers and operating systems trust certificates whose chain terminates at a pre-installed trusted root CA. A self-signed certificate is its own issuer with no third-party validation — so the trust must come from somewhere else (e.g., the organization distributing the cert internally). Self-signed certs are useful for internal services but unsuitable for public TLS."
+  },
+  {
+    "id": "secplus-49",
+    "domain": "General Security Concepts",
+    "question": "`Perfect Forward Secrecy (PFS)` in TLS ensures that:",
+    "choices": [
+      "Past encrypted sessions remain confidential even if the server's long-term private key is later compromised",
+      "The same session key is reused across all connections for efficiency",
+      "Public keys can be derived from private keys",
+      "Plaintext and ciphertext are mathematically identical"
+    ],
+    "correctAnswer": 0,
+    "explanation": "PFS uses ephemeral session keys negotiated via Diffie-Hellman (DHE) or elliptic-curve DH (ECDHE) for each connection. Even if an attacker captures encrypted traffic today and later steals the server's long-term private key, they still cannot decrypt the past sessions because the ephemeral keys were never stored."
+  },
+  {
+    "id": "secplus-50",
+    "type": "statement-block",
+    "domain": "General Security Concepts",
+    "question": "Evaluate whether each of the following statements about cryptography is correct:",
+    "statements": [
+      "Asymmetric encryption is generally faster than symmetric encryption for large data volumes",
+      "A cryptographic hash function should produce different outputs for any two different inputs (collision resistance)",
+      "TLS uses asymmetric cryptography to exchange a symmetric session key, then uses the symmetric key for the bulk of the data transfer"
+    ],
+    "correctAnswers": [false, true, true],
+    "explanation": "Statement 1 is FALSE — asymmetric encryption is much SLOWER than symmetric for bulk data. TLS uses asymmetric ONLY to securely exchange a symmetric session key, then switches to symmetric for the bulk transfer (exactly because asymmetric is too slow). Statement 2 correctly describes collision resistance, a core hash property. Statement 3 correctly describes the standard TLS handshake pattern."
+  }
+]

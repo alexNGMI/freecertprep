@@ -21,13 +21,11 @@ const CERT_QUESTIONS = {
   'comptia-sec-plus': comptiaSecPlus,
 }
 
-// Only validate published certs — unpublished ones are work-in-progress
-// with empty JSON arrays. They get a separate registry check below.
-const publishedCertIds = Object.entries(certs)
-  .filter(([, c]) => c.published !== false)
-  .map(([id]) => id)
-const PUBLISHED_CERT_QUESTIONS = Object.fromEntries(
-  Object.entries(CERT_QUESTIONS).filter(([id]) => publishedCertIds.includes(id))
+// Run per-question sanity checks on every cert that has content — including
+// unpublished certs that are mid-authoring. Empty unpublished certs get
+// dedicated registry-level checks below instead.
+const NON_EMPTY_CERT_QUESTIONS = Object.fromEntries(
+  Object.entries(CERT_QUESTIONS).filter(([, q]) => q.length > 0)
 )
 
 const VALID_TYPES = new Set([
@@ -52,14 +50,16 @@ describe('cert registry', () => {
   })
 
   it('every published cert has a non-empty question list', () => {
-    for (const [id, questions] of Object.entries(PUBLISHED_CERT_QUESTIONS)) {
+    const publishedEntries = Object.entries(certs).filter(([, c]) => c.published !== false)
+    for (const [id] of publishedEntries) {
+      const questions = CERT_QUESTIONS[id]
       expect(Array.isArray(questions), `${id} must be an array`).toBe(true)
       expect(questions.length, `${id} must have at least 1 question`).toBeGreaterThan(0)
     }
   })
 
-  it('every published cert reports the same questionCount in the registry as its JSON', () => {
-    for (const [id, questions] of Object.entries(PUBLISHED_CERT_QUESTIONS)) {
+  it('every cert reports the same questionCount in the registry as its JSON (published or not)', () => {
+    for (const [id, questions] of Object.entries(CERT_QUESTIONS)) {
       const declared = certs[id].questionCount
       expect(questions.length, `${id} declared ${declared} but JSON has ${questions.length}`).toBe(declared)
     }
@@ -71,21 +71,11 @@ describe('cert registry', () => {
       expect(sum, `${id} domain weights sum to ${sum}, expected 100`).toBe(100)
     }
   })
-
-  it('every unpublished cert has an empty JSON file and questionCount: 0', () => {
-    const unpublishedEntries = Object.entries(certs).filter(([, c]) => c.published === false)
-    for (const [id, cert] of unpublishedEntries) {
-      const questions = CERT_QUESTIONS[id]
-      expect(Array.isArray(questions), `${id} JSON must exist as an array`).toBe(true)
-      expect(questions.length, `${id} JSON should be empty until content lands`).toBe(0)
-      expect(cert.questionCount, `${id} questionCount should be 0 until content lands`).toBe(0)
-    }
-  })
 })
 
 // ─── Per-cert sanity ────────────────────────────────────────────────────────
 
-describe.each(Object.entries(PUBLISHED_CERT_QUESTIONS))('%s questions', (certId, questions) => {
+describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId, questions) => {
   const cert = certs[certId]
   const validDomains = new Set(cert.domains.map(d => d.name))
 

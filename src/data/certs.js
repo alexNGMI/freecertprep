@@ -164,7 +164,7 @@ const certs = {
     description: 'Validates baseline cybersecurity skills — threats, architecture, operations, and governance — for entry-level security roles.',
     difficulty: 'Foundational',
     color: '#c8202f',
-    questionCount: 0,
+    questionCount: 50,
     examQuestions: 90,
     examTime: 90,
     passingScore: 83,
