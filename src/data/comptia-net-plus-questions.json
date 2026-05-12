@@ -1,1 +1,715 @@
-[]
+[
+  {
+    "id": "netplus-1",
+    "domain": "Networking Concepts",
+    "question": "Which OSI model layer is responsible for the physical transmission of raw bits over a communication medium, including specifications for cables, connectors, voltage levels, and pin layouts?",
+    "type": "single-choice",
+    "choices": [
+      "Transport layer — segments and reassembles data streams",
+      "Physical layer — defines electrical and mechanical specifications for bit transmission",
+      "Data Link layer — frames data and handles MAC addressing",
+      "Network layer — routes packets between networks"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Physical layer (Layer 1) defines the hardware means of transmitting raw bits — cables, connectors, voltage levels, and signal timing. Ethernet cables, fiber optic, and Wi-Fi radio specifications all live here. Data Link (Layer 2) frames the data; Network (Layer 3) routes it; Transport (Layer 4) manages end-to-end delivery."
+  },
+  {
+    "id": "netplus-2",
+    "domain": "Networking Concepts",
+    "question": "A network switch makes forwarding decisions using hardware addresses burned into network interface cards. At which OSI layer does the switch primarily operate?",
+    "type": "single-choice",
+    "choices": [
+      "Physical layer (Layer 1)",
+      "Network layer (Layer 3)",
+      "Data Link layer (Layer 2)",
+      "Transport layer (Layer 4)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Switches operate at the Data Link layer (Layer 2), forwarding frames based on MAC addresses stored in their MAC address table. The Physical layer handles raw bit transmission. The Network layer handles IP routing (routers). The Transport layer manages end-to-end sessions (TCP/UDP)."
+  },
+  {
+    "id": "netplus-3",
+    "domain": "Networking Concepts",
+    "question": "Which OSI layer is responsible for logical addressing, routing, and determining the best path for packets to travel between different networks?",
+    "type": "single-choice",
+    "choices": [
+      "Network layer (Layer 3)",
+      "Data Link layer (Layer 2)",
+      "Transport layer (Layer 4)",
+      "Session layer (Layer 5)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Network layer (Layer 3) handles logical (IP) addressing and routing — routers operate here, consulting routing tables to forward packets toward their destination network. Data Link (Layer 2) handles MAC-based forwarding within a segment. Transport (Layer 4) manages end-to-end reliability."
+  },
+  {
+    "id": "netplus-4",
+    "domain": "Networking Concepts",
+    "question": "A developer building a file transfer application needs guaranteed delivery, error correction, and in-order arrival of all data segments. Which transport layer protocol provides these characteristics?",
+    "type": "single-choice",
+    "choices": [
+      "UDP — connectionless, low-overhead, no delivery guarantee",
+      "ICMP — used for diagnostics and error reporting, not data transfer",
+      "ARP — resolves IP addresses to MAC addresses at Layer 2",
+      "TCP — connection-oriented, reliable, ordered delivery with acknowledgments"
+    ],
+    "correctAnswer": 3,
+    "explanation": "TCP (Transmission Control Protocol) provides connection-oriented, reliable communication via a three-way handshake, sequence numbers, acknowledgments, and retransmission. UDP trades reliability for speed — appropriate for real-time media. ICMP is for diagnostics (ping, traceroute). ARP operates at Layer 2/3."
+  },
+  {
+    "id": "netplus-5",
+    "domain": "Networking Concepts",
+    "question": "Which IPv4 address block is defined by RFC 1918 as private address space, used for internal networks and not routable on the public internet?",
+    "type": "single-choice",
+    "choices": [
+      "192.168.0.0/16 — a valid RFC 1918 private range",
+      "8.8.8.0/24 — Google's public DNS servers",
+      "203.0.113.0/24 — documentation range (TEST-NET-3)",
+      "172.217.0.0/16 — publicly routable Google address space"
+    ],
+    "correctAnswer": 0,
+    "explanation": "RFC 1918 defines three private ranges: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. These are non-routable on the public internet and used freely within internal networks. 8.8.8.0/24 and 172.217.0.0/16 are public Google addresses. 203.0.113.0/24 is reserved for documentation examples."
+  },
+  {
+    "id": "netplus-6",
+    "domain": "Networking Concepts",
+    "question": "When a network hub receives an incoming Ethernet frame on one port, what does it do with that frame?",
+    "type": "single-choice",
+    "choices": [
+      "Forwards the frame only to the port associated with the destination MAC address",
+      "Checks the destination IP address and routes the frame to the appropriate network",
+      "Floods the frame out all ports except the port it was received on",
+      "Drops the frame if the destination MAC address is not in its forwarding table"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A hub operates at Layer 1 and has no intelligence — it electrically repeats every frame out all ports except the source port. This creates a single shared collision domain. Switches (Layer 2) use MAC address tables to forward frames only to the correct port, eliminating unnecessary flooding for known destinations."
+  },
+  {
+    "id": "netplus-7",
+    "domain": "Networking Concepts",
+    "question": "A workstation can successfully ping all other devices on its local subnet but cannot reach any hosts on remote subnets or the internet. DNS resolution also fails. What is the MOST likely root cause?",
+    "type": "single-choice",
+    "choices": [
+      "The workstation has a duplicate IP address conflicting with another device",
+      "The workstation has an incorrect or missing default gateway configuration",
+      "The network switch port the workstation is connected to is in the wrong VLAN",
+      "The workstation's NIC is configured for the wrong duplex mode"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If local pings succeed but nothing beyond the subnet is reachable, the default gateway is the missing link — it is the router IP that forwards traffic off the local subnet. Without it, the workstation has no path to remote networks. A duplicate IP (A) typically causes local connectivity issues. VLAN mismatch (C) usually breaks local connectivity too. Duplex mismatch (D) causes performance issues and errors, not total remote failure."
+  },
+  {
+    "id": "netplus-8",
+    "domain": "Networking Concepts",
+    "question": "A real-time video conferencing application prioritizes low latency over perfect data delivery — occasional dropped frames are acceptable, but buffering and retransmission delays are not. Which transport protocol is MOST appropriate?",
+    "type": "single-choice",
+    "choices": [
+      "TCP — guarantees delivery and ordering but introduces retransmission latency",
+      "FTP — provides reliable file transfer over TCP connections",
+      "SSH — encrypted terminal access protocol, not suitable for media streaming",
+      "UDP — connectionless with minimal overhead and no retransmission delay"
+    ],
+    "correctAnswer": 3,
+    "explanation": "UDP (User Datagram Protocol) has no connection setup, no acknowledgments, and no retransmission — making it ideal for real-time media where a retransmitted late packet is worse than a dropped one. VoIP, video conferencing, online gaming, and DNS all use UDP. TCP's reliability mechanisms introduce latency that disrupts real-time applications."
+  },
+  {
+    "id": "netplus-9",
+    "domain": "Networking Concepts",
+    "question": "Which DNS record type maps a hostname to an IPv4 address, enabling forward DNS lookup?",
+    "type": "single-choice",
+    "choices": [
+      "A record — maps a hostname to an IPv4 address",
+      "AAAA record — maps a hostname to an IPv6 address",
+      "MX record — specifies the mail server(s) for a domain",
+      "CNAME record — creates an alias pointing to another hostname"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The DNS A record performs the fundamental hostname-to-IPv4 mapping (e.g., www.example.com → 93.184.216.34). AAAA records map to IPv6 addresses. MX records direct email delivery. CNAME records create aliases so multiple names resolve to the same destination."
+  },
+  {
+    "id": "netplus-10",
+    "domain": "Network Operations",
+    "question": "During the DHCP address assignment process, what is the FIRST message a client sends to locate an available DHCP server?",
+    "type": "single-choice",
+    "choices": [
+      "DHCP Request — the client formally requests the offered IP address",
+      "DHCP Discover — the client broadcasts to locate available DHCP servers",
+      "DHCP Offer — the server proposes an IP address to the client",
+      "DHCP ACK — the server confirms the lease assignment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The DHCP DORA process: (1) Discover — client broadcasts to find servers; (2) Offer — server proposes an IP; (3) Request — client accepts the offer; (4) ACK — server confirms the lease. The Discover message is a Layer 2 broadcast (255.255.255.255) sent before the client has any IP address."
+  },
+  {
+    "id": "netplus-11",
+    "domain": "Networking Concepts",
+    "question": "A workstation knows a remote host's IP address but needs its MAC address to send a frame on the local Ethernet segment. Which protocol resolves this mapping?",
+    "type": "single-choice",
+    "choices": [
+      "DNS — resolves hostnames to IP addresses",
+      "ICMP — sends error messages and diagnostic information",
+      "ARP — resolves IPv4 addresses to MAC addresses on the local subnet",
+      "DHCP — dynamically assigns IP configuration to clients"
+    ],
+    "correctAnswer": 2,
+    "explanation": "ARP (Address Resolution Protocol) broadcasts a request asking 'Who has IP x.x.x.x? Tell me your MAC.' The host with that IP replies with its MAC address. The requester caches the mapping in its ARP table. ARP operates between Layer 2 and Layer 3 and only resolves addresses on the same subnet — for remote hosts, ARP resolves the default gateway's MAC instead."
+  },
+  {
+    "id": "netplus-12",
+    "domain": "Networking Concepts",
+    "question": "How many bits are in an IPv6 address, and in what notation is it represented?",
+    "type": "single-choice",
+    "choices": [
+      "32 bits, represented as four octets in dotted-decimal notation",
+      "64 bits, represented as four groups of four hexadecimal digits",
+      "128 bits, represented as four octets in dotted-decimal notation",
+      "128 bits, represented as eight groups of four hexadecimal digits separated by colons"
+    ],
+    "correctAnswer": 3,
+    "explanation": "IPv6 addresses are 128 bits long, written as eight groups of four hexadecimal digits separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334). Leading zeros within a group can be omitted, and one consecutive sequence of all-zero groups can be replaced with :: (double colon). IPv4 uses 32-bit dotted-decimal."
+  },
+  {
+    "id": "netplus-13",
+    "domain": "Networking Concepts",
+    "question": "A network administrator assigns hosts from the 192.168.10.0/24 subnet. How many usable host IP addresses are available in this subnet?",
+    "type": "single-choice",
+    "choices": [
+      "254 usable host addresses",
+      "256 usable host addresses",
+      "255 usable host addresses",
+      "253 usable host addresses"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A /24 subnet has 2^8 = 256 total addresses. Subtract 2 — the network address (192.168.10.0) and the broadcast address (192.168.10.255) — leaving 254 usable host addresses (192.168.10.1 through 192.168.10.254). This 'total minus 2' rule applies to all standard subnet calculations."
+  },
+  {
+    "id": "netplus-14",
+    "domain": "Network Implementation",
+    "question": "A network engineer uses VLANs to logically separate HR, Finance, and Engineering traffic on the same physical switch infrastructure. What is the PRIMARY security and operational benefit of VLANs?",
+    "type": "single-choice",
+    "choices": [
+      "VLANs increase total physical bandwidth by bonding switch ports together",
+      "VLANs create logical broadcast domain separation, improving security by isolating traffic between groups",
+      "VLANs eliminate the need for a router when different departments must communicate",
+      "VLANs automatically encrypt traffic between ports for confidentiality"
+    ],
+    "correctAnswer": 1,
+    "explanation": "VLANs segment a physical switch into multiple logical networks, each with its own broadcast domain. Traffic from one VLAN cannot reach another without passing through a router (or Layer 3 switch), providing security isolation. This reduces broadcast traffic and limits the blast radius of attacks like ARP flooding. VLANs do not add bandwidth, replace routing, or encrypt traffic."
+  },
+  {
+    "id": "netplus-15",
+    "domain": "Network Implementation",
+    "question": "A network has redundant physical links between switches to prevent single points of failure. Without a specific protocol, these redundant paths would create broadcast storms and cause MAC table instability. Which protocol prevents switching loops?",
+    "type": "single-choice",
+    "choices": [
+      "LACP (Link Aggregation Control Protocol) — bundles multiple links into one logical interface",
+      "VTP (VLAN Trunking Protocol) — propagates VLAN configuration between switches",
+      "Spanning Tree Protocol (STP / 802.1D) — blocks redundant paths to prevent loops",
+      "RSTP (Rapid Spanning Tree Protocol) cannot be combined with redundant physical links"
+    ],
+    "correctAnswer": 2,
+    "explanation": "STP (802.1D) and its faster successor RSTP (802.1w) prevent Layer 2 loops by logically blocking redundant switch ports while keeping them available for failover. Without STP, a broadcast frame would loop endlessly between switches, saturating bandwidth (broadcast storm). LACP aggregates links for bandwidth but does not prevent loops. VTP synchronizes VLAN databases."
+  },
+  {
+    "id": "netplus-16",
+    "domain": "Network Implementation",
+    "question": "A company is deploying wireless infrastructure in a stadium with thousands of concurrent users. Which Wi-Fi standard is specifically optimized for high-density environments through OFDMA, BSS Coloring, and Target Wake Time?",
+    "type": "single-choice",
+    "choices": [
+      "802.11a — 5 GHz, up to 54 Mbps, released 1999",
+      "802.11n (Wi-Fi 4) — introduced MIMO and dual-band operation",
+      "802.11ac (Wi-Fi 5) — 5 GHz only, MU-MIMO downlink",
+      "802.11ax (Wi-Fi 6/6E) — OFDMA and BSS Coloring for high-density performance"
+    ],
+    "correctAnswer": 3,
+    "explanation": "802.11ax (Wi-Fi 6) introduced OFDMA (subdivides channels for simultaneous multi-user transmission), BSS Coloring (reduces interference from neighboring networks), and Target Wake Time (improves IoT battery life). These features specifically address high-density environments. 802.11ac (Wi-Fi 5) improved speeds but lacked these density-optimization mechanisms."
+  },
+  {
+    "id": "netplus-17",
+    "domain": "Network Implementation",
+    "question": "A technician is installing horizontal cable runs in a new office build-out, requiring support for 10 Gigabit Ethernet over distances up to 55 meters. Which copper cable category is the MINIMUM standard that meets this requirement?",
+    "type": "single-choice",
+    "choices": [
+      "Cat6A — supports 10GbE up to 100 meters, exceeds the requirement",
+      "Cat6 — supports 10GbE up to 55 meters at the stated distance",
+      "Cat5e — supports up to 1 Gbps Ethernet, insufficient for 10GbE",
+      "Cat3 — supports up to 10 Mbps, obsolete for modern networking"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cat6 supports 10GbE (10GBASE-T) up to 55 meters — exactly meeting this requirement. Cat6A extends 10GbE to the full 100-meter standard. Cat5e is limited to 1 Gbps. Cat3 is obsolete. Since the runs are exactly 55 meters, Cat6 is the minimum adequate standard; Cat6A would be recommended for any flexibility in cable routing."
+  },
+  {
+    "id": "netplus-18",
+    "domain": "Network Implementation",
+    "question": "Two buildings are 600 meters apart and need to be connected for Gigabit Ethernet. Which medium is the ONLY viable option given the distance constraint?",
+    "type": "single-choice",
+    "choices": [
+      "Cat6A UTP — rated for 10GbE but maximum run is 100 meters",
+      "Fiber optic cable — supports Gigabit Ethernet across distances exceeding 600 meters",
+      "Cat5e UTP — supports Gigabit Ethernet up to 100 meters",
+      "Coaxial RG-6 — used for cable TV, not standard Ethernet"
+    ],
+    "correctAnswer": 1,
+    "explanation": "All copper Ethernet standards (Cat5e, Cat6, Cat6A) max out at 100 meters for horizontal runs. Fiber optic supports Gigabit Ethernet across much greater distances: multimode fiber up to ~550 meters (OM3/OM4), and single-mode fiber for kilometers. At 600 meters, fiber is the only viable option."
+  },
+  {
+    "id": "netplus-19",
+    "domain": "Networking Concepts",
+    "question": "Before transferring data, a TCP client completes a connection establishment with the server. What is the correct sequence of the TCP three-way handshake?",
+    "type": "single-choice",
+    "choices": [
+      "ACK → SYN → SYN-ACK",
+      "SYN-ACK → SYN → ACK",
+      "SYN → SYN-ACK → ACK",
+      "SYN → ACK → FIN"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The TCP three-way handshake: (1) SYN — client initiates connection; (2) SYN-ACK — server acknowledges and sends its own synchronization; (3) ACK — client acknowledges the server's SYN. After this exchange, the connection is established and data transfer begins. The four-way FIN handshake terminates connections."
+  },
+  {
+    "id": "netplus-20",
+    "domain": "Network Troubleshooting",
+    "question": "A technician suspects a host is unreachable across the network. Which command sends ICMP Echo Request packets to the target and reports round-trip time and packet loss?",
+    "type": "single-choice",
+    "choices": [
+      "traceroute — maps the hop-by-hop path to the destination",
+      "nslookup — queries DNS servers for name resolution",
+      "netstat — displays active network connections and listening ports",
+      "ping — tests host reachability using ICMP Echo Request/Reply"
+    ],
+    "correctAnswer": 3,
+    "explanation": "ping sends ICMP Echo Requests to a target host and reports round-trip time and packet loss — the most basic reachability test. traceroute (tracert on Windows) maps each hop along the path. nslookup tests DNS resolution. netstat shows local socket state. ping is typically the first step in a troubleshooting workflow."
+  },
+  {
+    "id": "netplus-21",
+    "domain": "Network Troubleshooting",
+    "question": "A technician needs to identify at which network hop packets are being lost between a source host and a remote server. Which tool provides a hop-by-hop view of the path with latency at each hop?",
+    "type": "single-choice",
+    "choices": [
+      "traceroute / tracert — displays each hop and its round-trip latency",
+      "ping — tests reachability to the end destination only",
+      "nslookup — queries DNS, does not trace network paths",
+      "ipconfig — displays local interface configuration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "traceroute (Linux/macOS) and tracert (Windows) send probe packets with incrementing TTL values, causing each router to return an ICMP Time Exceeded message, revealing its identity and latency. This maps the entire path to the destination and pinpoints where drops or high latency occur. ping only confirms end-to-end reachability without path detail."
+  },
+  {
+    "id": "netplus-22",
+    "domain": "Network Operations",
+    "question": "Security logs from multiple devices show timestamps that are several minutes apart for what should be simultaneous events, making correlation in the SIEM impossible. Which protocol should the administrator deploy to fix this?",
+    "type": "single-choice",
+    "choices": [
+      "SNMP — polls and monitors device health metrics",
+      "NTP — synchronizes clocks across all network devices to a common time source",
+      "Syslog — centralizes log collection from multiple sources",
+      "DNS — resolves hostnames to IP addresses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NTP (Network Time Protocol) synchronizes clocks across routers, switches, servers, and other devices to a common time source (stratum hierarchy). Without NTP, log timestamps drift, making security event correlation and forensic timelines unreliable. Syslog handles log transport; SNMP handles monitoring; DNS handles name resolution."
+  },
+  {
+    "id": "netplus-23",
+    "domain": "Network Operations",
+    "question": "A network operations center uses a platform that polls routers and switches at regular intervals to retrieve CPU utilization, interface byte counters, and error statistics, then graphs the data over time. Which protocol enables this?",
+    "type": "single-choice",
+    "choices": [
+      "Syslog — devices push log messages to a central collector",
+      "NTP — synchronizes time across devices",
+      "SNMP — polls devices using OIDs to retrieve management information",
+      "SMTP — transfers email between mail servers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "SNMP (Simple Network Management Protocol) enables management stations to poll (GET) device metrics via Object Identifiers (OIDs) from the device's MIB (Management Information Base). Devices can also push alerts (SNMP traps) for threshold violations. Syslog is event-driven log forwarding. NTP synchronizes time. SMTP delivers email."
+  },
+  {
+    "id": "netplus-24",
+    "domain": "Network Security",
+    "question": "A stateful firewall is preferred over a stateless packet filter for which key reason?",
+    "type": "single-choice",
+    "choices": [
+      "Stateful firewalls are faster because they skip deep packet inspection entirely",
+      "Stateful firewalls operate at Layer 2 and do not require IP addressing",
+      "Stateful firewalls can only be deployed at the network perimeter, not internally",
+      "Stateful firewalls track connection state, automatically permitting return traffic for established sessions without needing explicit inbound rules"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A stateful firewall maintains a connection table tracking each active TCP/UDP session. Return traffic for an established outbound connection is automatically permitted without an explicit inbound rule — reducing rule complexity and preventing spoofed inbound packets from being accepted. Stateless filters evaluate every packet independently, requiring symmetric rules for both directions and offering no session context."
+  },
+  {
+    "id": "netplus-25",
+    "domain": "Network Security",
+    "question": "A company has 300 internal hosts using 10.0.0.0/24 private addresses. All 300 hosts share a single public IP address when accessing the internet. Which technology enables this?",
+    "type": "single-choice",
+    "choices": [
+      "PAT (Port Address Translation) — maps multiple private IPs to one public IP using unique port numbers",
+      "VLAN — segments the internal network into logical broadcast domains",
+      "VPN — creates encrypted tunnels between endpoints",
+      "DHCP — assigns IP addresses dynamically from a pool"
+    ],
+    "correctAnswer": 0,
+    "explanation": "PAT (Port Address Translation), a form of NAT overload, allows many private IP addresses to share a single public IP by tracking connections via unique source port numbers. Each outbound session gets a unique port mapping in the translation table, enabling stateful return traffic matching. VLANs segment networks; VPNs tunnel traffic; DHCP assigns addresses."
+  },
+  {
+    "id": "netplus-26",
+    "domain": "Network Security",
+    "question": "A network administrator needs to securely manage a Linux server remotely using a command-line terminal. Which protocol provides encrypted remote access on TCP port 22?",
+    "type": "single-choice",
+    "choices": [
+      "Telnet on TCP 23 — provides unencrypted terminal access",
+      "SSH on TCP 22 — provides encrypted terminal access with strong authentication",
+      "RDP on TCP 3389 — provides graphical remote desktop for Windows systems",
+      "FTP on TCP 21 — provides file transfers, not terminal access"
+    ],
+    "correctAnswer": 1,
+    "explanation": "SSH (Secure Shell) on TCP 22 provides encrypted command-line access, secure file transfer (SCP/SFTP), and tunneling. It replaced Telnet (TCP 23), which transmits all data including credentials in plaintext. RDP (TCP 3389) provides graphical Windows remote desktop. FTP (TCP 21) handles file transfers without encryption."
+  },
+  {
+    "id": "netplus-27",
+    "domain": "Network Security",
+    "question": "A firewall administrator needs to create a rule allowing encrypted web traffic from external clients to reach the company's public-facing web servers. Which destination port and protocol must be permitted?",
+    "type": "single-choice",
+    "choices": [
+      "TCP 80 — HTTP, unencrypted web traffic",
+      "TCP 22 — SSH encrypted terminal access",
+      "TCP 443 — HTTPS encrypted web traffic",
+      "TCP 3389 — RDP graphical remote desktop"
+    ],
+    "correctAnswer": 2,
+    "explanation": "HTTPS (HTTP Secure) uses TLS encryption and runs on TCP 443. HTTP (unencrypted) uses TCP 80. A firewall allowing HTTPS inbound must permit destination TCP 443. SSH (TCP 22) is for terminal access. RDP (TCP 3389) is for Windows remote desktop. Knowing well-known port numbers is fundamental to firewall rule management."
+  },
+  {
+    "id": "netplus-28",
+    "domain": "Network Security",
+    "question": "A company needs to connect its headquarters and branch office over the public internet so hosts at both sites can communicate as if on the same private LAN, with all traffic encrypted. Which solution BEST fits?",
+    "type": "single-choice",
+    "choices": [
+      "SSL/TLS VPN — suited for individual remote users accessing specific applications",
+      "PPTP VPN — an older, insecure protocol, not recommended for new deployments",
+      "VLAN — provides logical segmentation within a single physical network",
+      "Site-to-site IPsec VPN — creates a persistent encrypted tunnel between two network gateways"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A site-to-site IPsec VPN connects entire network prefixes between two VPN gateways over the internet, providing transparent LAN-to-LAN connectivity with AES encryption and authentication. SSL/TLS VPNs are optimized for individual client access to specific applications. PPTP is cryptographically weak. VLANs don't extend across WAN links."
+  },
+  {
+    "id": "netplus-29",
+    "domain": "Network Troubleshooting",
+    "question": "A Windows workstation reports no network connectivity. A technician needs to immediately verify the workstation's assigned IP address, subnet mask, and default gateway. Which command provides this information?",
+    "type": "single-choice",
+    "choices": [
+      "ipconfig — displays IP address, subnet mask, and gateway for all interfaces",
+      "ping — tests reachability to a specific host",
+      "netstat — shows active connections and listening ports",
+      "tracert — traces the route to a remote destination"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ipconfig (Windows) displays all network interface configurations including IP address, subnet mask, default gateway, and DNS servers. ipconfig /all adds MAC address, DHCP server, and lease information. The Linux/macOS equivalent is ifconfig or ip addr. This is typically the first command run when diagnosing a connectivity complaint."
+  },
+  {
+    "id": "netplus-30",
+    "domain": "Network Troubleshooting",
+    "question": "A user can access servers by IP address but cannot reach them by hostname. A technician needs to verify whether DNS is resolving names correctly and which server is being queried. Which tool is MOST appropriate?",
+    "type": "single-choice",
+    "choices": [
+      "ping — tests reachability by IP but does not test DNS resolution specifically",
+      "nslookup — queries DNS servers and displays resolution results and server used",
+      "ipconfig — shows local IP configuration but not DNS query results",
+      "netstat — displays active connections, not DNS query responses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "nslookup (and its modern alternative, dig) queries DNS servers interactively, showing which server was queried, what record type was requested, and what IP addresses were returned. This directly tests and diagnoses DNS resolution. ping by hostname incidentally tests DNS but doesn't show which server responded or provide debug detail."
+  },
+  {
+    "id": "netplus-31",
+    "domain": "Network Implementation",
+    "question": "A technician needs to directly connect two computers back-to-back without a switch. The NICs do not support Auto-MDIX. Which cable type is required?",
+    "type": "single-choice",
+    "choices": [
+      "Straight-through cable — connects different device types (host to switch)",
+      "Rollover cable — used for out-of-band console access to routers and switches",
+      "Crossover cable — connects like devices by swapping transmit and receive pairs",
+      "Coaxial cable — used in older bus networks and cable broadband, not for direct NIC connections"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A crossover cable swaps the transmit pairs of one end with the receive pairs of the other, allowing two similar devices (PC-to-PC, switch-to-switch) to communicate directly. Modern equipment with Auto-MDIX automatically detects and corrects the wiring, making crossover cables largely unnecessary today. Straight-through cables connect unlike devices (PC to switch). Rollover cables connect to serial console ports."
+  },
+  {
+    "id": "netplus-32",
+    "domain": "Network Implementation",
+    "question": "A network engineer is deploying IP phones requiring up to 15.4 watts per port delivered over Ethernet cabling. Which PoE standard provides exactly this maximum wattage at the minimum power level?",
+    "type": "single-choice",
+    "choices": [
+      "Pre-standard PoE — delivers up to 12.95 watts, insufficient for 15.4W requirement",
+      "PoE+ (802.3at) — delivers up to 30 watts, more than needed",
+      "UPoE (802.3bt Type 3) — delivers up to 60 watts, excessive for this use case",
+      "PoE (802.3af) — delivers up to 15.4 watts, exactly matching the requirement"
+    ],
+    "correctAnswer": 3,
+    "explanation": "PoE (802.3af) delivers up to 15.4 watts per port (12.95W at the powered device after cable loss) — the original standard, sufficient for IP phones, basic cameras, and access points. PoE+ (802.3at) delivers up to 30W for higher-power devices. 802.3bt (Type 3/4) delivers 60W and 100W respectively for demanding devices. Match the standard to the device requirement."
+  },
+  {
+    "id": "netplus-33",
+    "domain": "Networking Concepts",
+    "question": "In which network topology does every device maintain a direct connection to every other device, providing maximum redundancy at the cost of the most cabling?",
+    "type": "single-choice",
+    "choices": [
+      "Full mesh — every node connects directly to every other node",
+      "Star — all devices connect to a central hub or switch",
+      "Bus — all devices share a single linear backbone",
+      "Ring — each device connects to exactly two adjacent neighbors"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Full mesh topology connects every node to every other node, requiring n(n-1)/2 links for n nodes — maximum redundancy but maximum cabling cost. It is used in WAN core networks where resilience justifies cost. Star is the dominant LAN topology. Bus is obsolete (10BASE-2). Ring is used in some MAN/WAN technologies (SONET, Token Ring legacy)."
+  },
+  {
+    "id": "netplus-34",
+    "domain": "Network Implementation",
+    "question": "An administrator replaces all network hubs with managed switches. What is the effect on collision domains?",
+    "type": "single-choice",
+    "choices": [
+      "Switches consolidate all ports into a single large collision domain for efficiency",
+      "Each switch port becomes its own isolated collision domain, effectively eliminating collisions on the switched network",
+      "Switches have no effect on collision domains — only routers change collision domain boundaries",
+      "Switches convert all collision domains into a single broadcast domain"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Each full-duplex switch port is its own collision domain — with dedicated bandwidth in each direction, CSMA/CD is not needed and collisions cannot occur. Hubs create a single shared collision domain across all ports. Routers separate broadcast domains (not collision domains). Switches also reduce broadcast domains only when VLANs are configured."
+  },
+  {
+    "id": "netplus-35",
+    "domain": "Network Operations",
+    "question": "A network engineer configures routers in a large enterprise to automatically discover routes and share network reachability information. The protocol chosen calculates the shortest path using Dijkstra's algorithm and scales well in large networks. Which routing protocol is this?",
+    "type": "single-choice",
+    "choices": [
+      "RIP (Routing Information Protocol) — distance-vector, 15-hop maximum, slow convergence",
+      "BGP (Border Gateway Protocol) — path-vector protocol for inter-AS internet routing",
+      "OSPF (Open Shortest Path First) — link-state protocol using Dijkstra's SPF algorithm",
+      "EIGRP (Enhanced Interior Gateway Routing Protocol) — Cisco proprietary advanced distance-vector"
+    ],
+    "correctAnswer": 2,
+    "explanation": "OSPF is an open-standard link-state routing protocol that floods link-state advertisements (LSAs) to build a complete network topology map, then runs Dijkstra's Shortest Path First algorithm to compute optimal routes. It scales well, converges quickly, and supports VLSM/CIDR. RIP uses hop count (max 15). BGP routes between autonomous systems on the internet. EIGRP is Cisco-proprietary."
+  },
+  {
+    "id": "netplus-36",
+    "domain": "Networking Concepts",
+    "question": "An administrator needs subnets that each support exactly 30 hosts. Which subnet prefix length provides exactly 30 usable host addresses per subnet?",
+    "type": "single-choice",
+    "choices": [
+      "/24 — provides 254 usable hosts, far more than needed",
+      "/25 — provides 126 usable hosts, more than needed",
+      "/26 — provides 62 usable hosts, more than needed",
+      "/27 — provides exactly 30 usable hosts (2^5 - 2 = 30)"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A /27 prefix leaves 5 bits for hosts: 2^5 = 32 total addresses, minus 2 (network + broadcast) = 30 usable hosts — exactly matching the requirement. /26 gives 62 usable, /25 gives 126, /24 gives 254 — all unnecessarily large. Choose the smallest subnet that satisfies the requirement to conserve address space."
+  },
+  {
+    "id": "netplus-37",
+    "domain": "Networking Concepts",
+    "question": "Which OSI model layer is responsible for establishing, managing, and terminating sessions between applications, including dialog control and synchronization checkpoints?",
+    "type": "single-choice",
+    "choices": [
+      "Session layer (Layer 5)",
+      "Transport layer (Layer 4)",
+      "Presentation layer (Layer 6)",
+      "Application layer (Layer 7)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Session layer (Layer 5) manages the lifecycle of communication sessions — establishing, maintaining, and terminating dialogs between applications. It handles session checkpointing (allowing resumption after interruption) and dialog control (half-duplex vs full-duplex). Transport (Layer 4) handles end-to-end reliability. Presentation (Layer 6) handles data format translation and encryption."
+  },
+  {
+    "id": "netplus-38",
+    "domain": "Networking Concepts",
+    "question": "Data format translation (ASCII to EBCDIC), compression, and encryption/decryption occur at which OSI model layer?",
+    "type": "single-choice",
+    "choices": [
+      "Transport layer (Layer 4) — segments data for delivery",
+      "Presentation layer (Layer 6) — handles data syntax, format, and encryption",
+      "Session layer (Layer 5) — manages dialog control between applications",
+      "Application layer (Layer 7) — provides network services to applications"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Presentation layer (Layer 6) translates data between the format the application uses and the format suitable for network transmission — including character encoding (ASCII/EBCDIC), compression, and cryptographic operations (TLS/SSL). Application layer (Layer 7) provides user-facing services like HTTP and SMTP. Session layer manages dialog control."
+  },
+  {
+    "id": "netplus-39",
+    "domain": "Networking Concepts",
+    "question": "A VoIP application streams audio in real time. Packet loss of 1-2% is tolerable, but the 200ms retransmission delay introduced by TCP would make conversations choppy. Which transport protocol is used?",
+    "type": "single-choice",
+    "choices": [
+      "TCP — guarantees delivery but adds retransmission latency unacceptable for real-time audio",
+      "ICMP — used for diagnostics, not application data transport",
+      "UDP — no retransmission, minimal overhead, suitable for real-time audio streams",
+      "FTP — provides reliable file transfers over TCP, not suitable for streaming"
+    ],
+    "correctAnswer": 2,
+    "explanation": "VoIP and real-time audio use UDP because a retransmitted packet arriving 200ms late is worse than the brief silence of a dropped packet. RTP (Real-time Transport Protocol) runs over UDP and adds timestamps and sequence numbers for jitter buffering. TCP's reliability guarantees cause unacceptable latency for live audio. ICMP and FTP are not audio transport protocols."
+  },
+  {
+    "id": "netplus-40",
+    "domain": "Networking Concepts",
+    "question": "Which network device connects multiple IP networks and makes packet-forwarding decisions based on destination IP addresses in its routing table?",
+    "type": "single-choice",
+    "choices": [
+      "Layer 2 switch — forwards frames based on MAC addresses within a single network",
+      "Network hub — electrically repeats frames to all connected ports",
+      "Wireless access point — bridges wireless clients to the wired network",
+      "Router — routes packets between networks using IP addresses and routing tables"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Routers connect distinct IP networks (different subnets or autonomous systems) and use routing tables — populated by static configuration or dynamic routing protocols (OSPF, BGP) — to determine the best path for each packet. Switches forward within a single Layer 2 domain. Hubs are Layer 1 repeaters. Access points bridge wireless to wired at Layer 2."
+  },
+  {
+    "id": "netplus-41",
+    "domain": "Networking Concepts",
+    "question": "Which TWO of the following are characteristics of TCP that distinguish it from UDP?",
+    "type": "multiple-response",
+    "choices": [
+      "Connection-oriented — requires a three-way handshake before data transfer",
+      "Connectionless — sends datagrams without establishing a session",
+      "Provides guaranteed delivery through acknowledgments and retransmission",
+      "No error correction or flow control mechanisms",
+      "Best suited for DNS queries and real-time video streaming"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "TCP is connection-oriented (A) — it uses a SYN/SYN-ACK/ACK handshake before transferring data. It guarantees delivery (C) via sequence numbers, acknowledgments, and retransmission of lost segments. UDP is connectionless (B) with no error correction (D). DNS uses UDP (though falls back to TCP for large responses); real-time video typically uses UDP to avoid retransmission delays (E)."
+  },
+  {
+    "id": "netplus-42",
+    "domain": "Network Troubleshooting",
+    "question": "A user reports they can reach a server by IP address but not by its hostname. Which TWO commands help diagnose DNS resolution issues on a Windows workstation?",
+    "type": "multiple-response",
+    "choices": [
+      "ipconfig /flushdns — clears the local DNS resolver cache, forcing fresh lookups",
+      "tracert — traces the hop-by-hop path to a remote IP address",
+      "nslookup — queries DNS servers and displays resolution results",
+      "netstat — displays active TCP/UDP connections and listening ports",
+      "arp -a — displays the ARP cache mapping IP addresses to MAC addresses"
+    ],
+    "correctAnswers": [0, 2],
+    "explanation": "ipconfig /flushdns (A) clears the local DNS cache, eliminating stale entries that might cause hostname resolution failures. nslookup (C) directly queries DNS servers, showing which server responded and what IP was returned — pinpointing whether the issue is local cache, server configuration, or record content. tracert (B) tests routing, not DNS. netstat (D) shows socket state. arp -a (E) shows Layer 2 mappings."
+  },
+  {
+    "id": "netplus-43",
+    "domain": "Networking Concepts",
+    "question": "Which TWO IPv4 address ranges are classified as private address space per RFC 1918 and therefore not routable on the public internet?",
+    "type": "multiple-response",
+    "choices": [
+      "10.0.0.0/8 — Class A private range",
+      "172.16.0.0/12 — Class B private range",
+      "192.0.2.0/24 — TEST-NET-1, reserved for documentation",
+      "198.51.100.0/24 — TEST-NET-2, reserved for documentation",
+      "8.8.8.0/24 — publicly routable Google DNS address space"
+    ],
+    "correctAnswers": [0, 1],
+    "explanation": "RFC 1918 defines exactly three private ranges: 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16. Traffic with these source or destination addresses is dropped at internet routers. 192.0.2.0/24, 198.51.100.0/24, and 203.0.113.0/24 are TEST-NET ranges reserved for documentation examples. 8.8.8.0/24 is publicly routable Google address space."
+  },
+  {
+    "id": "netplus-44",
+    "domain": "Networking Concepts",
+    "question": "Match each network device to the OSI layer at which it primarily operates.",
+    "type": "matching",
+    "itemsLeft": [
+      "Hub",
+      "Layer 2 switch",
+      "Router",
+      "Layer 3 switch"
+    ],
+    "itemsRight": [
+      "Layer 3 (Network) — routing decisions based on IP addresses",
+      "Layers 2 and 3 — can switch by MAC and route by IP",
+      "Layer 1 (Physical) — electrically repeats bits with no intelligence",
+      "Layer 2 (Data Link) — forwards frames based on MAC address table"
+    ],
+    "correctMatches": [2, 3, 0, 1],
+    "explanation": "Hub (→ Layer 1): dumb repeater, no addressing. Layer 2 switch (→ Layer 2): MAC-based forwarding. Router (→ Layer 3): IP-based routing. Layer 3 switch (→ Layers 2 and 3): hardware-accelerated routing combined with switching — common in enterprise distribution/core layers."
+  },
+  {
+    "id": "netplus-45",
+    "domain": "Network Implementation",
+    "question": "Match each protocol or service to its default port number.",
+    "type": "matching",
+    "itemsLeft": [
+      "HTTPS",
+      "SSH",
+      "DNS",
+      "RDP"
+    ],
+    "itemsRight": [
+      "TCP 3389",
+      "UDP/TCP 53",
+      "TCP 443",
+      "TCP 22"
+    ],
+    "correctMatches": [2, 3, 1, 0],
+    "explanation": "HTTPS (→ TCP 443): encrypted web traffic. SSH (→ TCP 22): encrypted remote terminal. DNS (→ UDP/TCP 53): name resolution — UDP for queries, TCP for zone transfers and large responses. RDP (→ TCP 3389): Windows Remote Desktop Protocol. Memorizing well-known ports is essential for firewall rule analysis and troubleshooting."
+  },
+  {
+    "id": "netplus-46",
+    "domain": "Networking Concepts",
+    "question": "Arrange the OSI model layers in order from the lowest layer (Layer 1) at the bottom to the highest layer (Layer 7) at the top.",
+    "type": "ordering",
+    "items": [
+      "Network",
+      "Application",
+      "Data Link",
+      "Transport",
+      "Physical"
+    ],
+    "correctOrder": [4, 2, 0, 3, 1],
+    "explanation": "OSI layers bottom to top: (1) Physical — raw bit transmission; (2) Data Link — MAC framing; (3) Network — IP routing; (4) Transport — TCP/UDP; (5) Session — dialog management; (6) Presentation — format/encryption; (7) Application — user-facing services. Mnemonic: 'Please Do Not Throw Sausage Pizza Away.'"
+  },
+  {
+    "id": "netplus-47",
+    "domain": "Network Operations",
+    "question": "Arrange the four steps of the DHCP DORA process in correct order.",
+    "type": "ordering",
+    "items": [
+      "DHCP Offer — server proposes an available IP address to the client",
+      "DHCP ACK — server confirms the lease and finalizes the assignment",
+      "DHCP Discover — client broadcasts to locate available DHCP servers",
+      "DHCP Request — client broadcasts its acceptance of the offered address"
+    ],
+    "correctOrder": [2, 0, 3, 1],
+    "explanation": "DORA: (1) Discover — client broadcasts on 255.255.255.255 seeking a server; (2) Offer — server reserves an address and unicasts or broadcasts an offer; (3) Request — client broadcasts accepting the offer (allows other servers to withdraw their offers); (4) ACK — server confirms the lease, delivering IP, mask, gateway, DNS, and lease duration."
+  },
+  {
+    "id": "netplus-48",
+    "domain": "Networking Concepts",
+    "question": "Evaluate each statement about the OSI model.",
+    "type": "statement-block",
+    "statements": [
+      "The OSI model has seven layers, with the Physical layer at Layer 1 and the Application layer at Layer 7.",
+      "TCP operates at Layer 3 of the OSI model, providing routing between different networks.",
+      "The Data Link layer uses MAC addresses to forward frames between devices on the same network segment."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "Statement 1 (TRUE): The OSI model has exactly seven layers — Physical (1) through Application (7). Statement 2 (FALSE): TCP is a Transport layer (Layer 4) protocol. Layer 3 (Network) is where IP routing and logical addressing occur — routers operate here. Statement 3 (TRUE): The Data Link layer (Layer 2) uses MAC addresses for frame forwarding within a broadcast domain — switches operate at this layer."
+  },
+  {
+    "id": "netplus-49",
+    "domain": "Networking Concepts",
+    "question": "Evaluate each statement about IPv4 addressing.",
+    "type": "statement-block",
+    "statements": [
+      "A /24 subnet mask (255.255.255.0) provides 254 usable host IP addresses.",
+      "The loopback address 127.0.0.1 tests the physical network adapter hardware and cabling.",
+      "APIPA addresses (169.254.x.x) are automatically assigned when a DHCP server cannot be reached."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "Statement 1 (TRUE): /24 = 256 addresses − 2 (network + broadcast) = 254 usable hosts. Statement 2 (FALSE): 127.0.0.1 tests the TCP/IP protocol stack software on the local machine — not the physical adapter or cable. To test the NIC and cable, you ping a remote host or use a physical loopback plug. Statement 3 (TRUE): APIPA (Automatic Private IP Addressing, RFC 3927) assigns a 169.254.x.x address when DHCP fails, allowing limited local communication."
+  },
+  {
+    "id": "netplus-50",
+    "domain": "Network Security",
+    "question": "Evaluate each statement about fundamental network security controls.",
+    "type": "statement-block",
+    "statements": [
+      "A router ACL (Access Control List) can filter traffic based on source IP, destination IP, protocol, and port number.",
+      "A stateless packet filter automatically allows return traffic for established TCP connections without an explicit inbound rule.",
+      "Port security on a managed switch can limit the number of MAC addresses learned on a port, preventing unauthorized devices from connecting."
+    ],
+    "correctAnswers": [true, false, true],
+    "explanation": "Statement 1 (TRUE): Extended ACLs filter on source/destination IP, protocol (TCP/UDP/ICMP), and port numbers — the fundamental packet-filtering mechanism on routers. Statement 2 (FALSE): Stateless packet filters evaluate each packet independently with no session awareness — return traffic requires an explicit permit rule. Only stateful firewalls automatically track and allow return traffic for established sessions. Statement 3 (TRUE): Switch port security limits MAC address learning, triggering violation actions (shutdown, restrict, protect) when unauthorized devices exceed the configured maximum."
+  }
+]
