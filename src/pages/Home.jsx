@@ -24,6 +24,7 @@ const providerStyles = {
   'Google Cloud': { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-400' },
   NVIDIA: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-400' },
   'Microsoft Azure': { bg: 'bg-cyan-500/10 border-cyan-500/20', text: 'text-cyan-400' },
+  CompTIA: { bg: 'bg-red-500/10 border-red-500/20', text: 'text-red-400' },
 }
 
 export default function Home() {
@@ -128,36 +129,13 @@ export default function Home() {
               Choose your next step
             </h2>
             <p className="text-sm text-zinc-500 mt-3">
-              Seven certifications across cloud, AI, networking, and security — each one a real credential that hiring managers know.
+              {certs.length} certifications across cloud, AI, networking, and security — each one a real credential that hiring managers know.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {certs.map((cert, i) => (
               <CertCard key={cert.id} cert={cert} index={i} />
             ))}
-
-            <div className="glass-panel rounded-2xl p-8 flex flex-col min-h-[340px] border-dashed animate-fade-up" style={{ animationDelay: `${certs.length * 80 + 300}ms` }}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-full border-2 border-dashed border-zinc-600 flex items-center justify-center bg-zinc-900/50 shrink-0">
-                  <span className="text-zinc-500 text-xl font-light">+</span>
-                </div>
-                <h3 className="text-zinc-300 font-semibold text-lg">Coming soon</h3>
-              </div>
-
-              <div className="space-y-4 flex-1">
-                <div>
-                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-2">CompTIA</p>
-                  <div className="space-y-1.5">
-                    {['Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'].map(name => (
-                      <div key={name} className="flex items-center gap-2 text-sm text-zinc-500">
-                        <div className="w-1 h-1 rounded-full bg-zinc-700 shrink-0" />
-                        {name}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 

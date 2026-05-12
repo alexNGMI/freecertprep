@@ -139,7 +139,6 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 80,
-    published: false,
     loadQuestions: () => import('./comptia-net-plus-questions.json'),
     domains: [
       { name: 'Networking Concepts', weight: 23 },
