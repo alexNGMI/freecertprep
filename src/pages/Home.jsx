@@ -132,10 +132,26 @@ export default function Home() {
               {certs.length} certifications across cloud, AI, networking, and security — each one a real credential that hiring managers know.
             </p>
           </div>
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8${certs.length % 3 === 1 ? ' [&>*:last-child]:lg:col-start-2' : ''}`}>
-            {certs.map((cert, i) => (
-              <CertCard key={cert.id} cert={cert} index={i} />
-            ))}
+
+          <div className="flex flex-col gap-14">
+            {[
+              { label: 'CompTIA',      providers: ['CompTIA'] },
+              { label: 'Cloud',        providers: ['AWS', 'Microsoft Azure', 'Google Cloud'] },
+              { label: 'NVIDIA',       providers: ['NVIDIA'] },
+            ].map(({ label, providers }) => {
+              const group = certs.filter(c => providers.includes(c.provider))
+              if (!group.length) return null
+              return (
+                <div key={label}>
+                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-6">{label}</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {group.map((cert, i) => (
+                      <CertCard key={cert.id} cert={cert} index={i} />
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </section>
 
