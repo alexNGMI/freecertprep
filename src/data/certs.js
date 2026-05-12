@@ -167,7 +167,6 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 83,
-    published: false,
     loadQuestions: () => import('./comptia-sec-plus-questions.json'),
     domains: [
       { name: 'General Security Concepts', weight: 12 },

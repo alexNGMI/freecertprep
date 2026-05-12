@@ -132,7 +132,7 @@ export default function Home() {
               {certs.length} certifications across cloud, AI, networking, and security — each one a real credential that hiring managers know.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8${certs.length % 3 === 1 ? ' [&>*:last-child]:lg:col-start-2' : ''}`}>
             {certs.map((cert, i) => (
               <CertCard key={cert.id} cert={cert} index={i} />
             ))}
