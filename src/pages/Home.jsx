@@ -156,7 +156,7 @@ export default function Home() {
                             <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md border bg-red-500/10 border-red-500/20 text-red-400">CompTIA</span>
                             <span className="text-[11px] font-medium text-zinc-400 bg-zinc-800/50 border border-zinc-700/50 px-2.5 py-1 rounded-md">SK0-005</span>
                           </div>
-                          <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-700/40 text-zinc-500">Associate</span>
+                          <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-700/40 text-zinc-500">Foundational</span>
                         </div>
                         <h3 className="text-2xl font-bold mb-3 text-zinc-500">CompTIA Server+</h3>
                         <p className="text-sm text-zinc-600 mb-8 flex-1 leading-relaxed">
