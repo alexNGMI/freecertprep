@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import BrandedName from '../components/BrandedName'
+import { getAllCerts } from '../data/certs'
+
+// Single source of truth for catalog-wide stats shown in the docs.
+// Re-reads at import time so these stay in sync with certs.js without manual edits.
+const PUBLISHED_CERTS = getAllCerts()
+const TOTAL_QUESTIONS = PUBLISHED_CERTS.reduce((s, c) => s + c.questionCount, 0)
 
 const NAV = [
   { id: 'overview',       label: 'Overview' },
@@ -163,10 +169,10 @@ export default function Docs() {
               afford them.
             </P>
             <P>
-              The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, NVIDIA, and (soon)
-              CompTIA. Every cert is chosen deliberately: these are exams where the test-taker is typically paying out of pocket,
-              studying independently, with no employer tuition pipeline to lean on. The catalog is intentionally small so each cert
-              gets the depth it deserves rather than being one of fifty shallow course pages.
+              The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, NVIDIA, and CompTIA —
+              including Network+, Security+, and Server+. Every cert is chosen deliberately: these are exams where the test-taker is
+              typically paying out of pocket, studying independently, with no employer tuition pipeline to lean on. The catalog is
+              intentionally small so each cert gets the depth it deserves rather than being one of fifty shallow course pages.
             </P>
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
@@ -177,8 +183,8 @@ export default function Docs() {
             <H3>What's included</H3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { n: '2,686', label: 'Total questions across all certs' },
-                { n: '5', label: 'Certifications available today (7 when complete)' },
+                { n: TOTAL_QUESTIONS.toLocaleString(), label: 'Total questions across all certs' },
+                { n: String(PUBLISHED_CERTS.length), label: 'Certifications available today' },
                 { n: '3', label: 'Study modes: Quiz, Drill, Exam' },
                 { n: '5', label: 'Question types including ordering & matching' },
               ].map(({ n, label }) => (
@@ -198,21 +204,24 @@ export default function Docs() {
             </P>
 
             <Table
-              headers={['Cert', 'Provider', 'Questions', 'Exam Q\'s', 'Time', 'Pass', 'Scenario %']}
+              headers={['Cert', 'Provider', 'Questions', 'Exam Q\'s', 'Time', 'Pass']}
               rows={[
-                [<Badge color="#f1be32">CLF-C02</Badge>, 'AWS', '731', '65', '90 min', '70%', '65%'],
-                [<Badge color="#0078d4">AZ-900</Badge>, 'Microsoft Azure', '600', '40', '45 min', '70%', '50%'],
-                [<Badge color="#4285f4">CDL</Badge>, 'Google Cloud', '749', '50', '90 min', '70%', '60%'],
-                [<Badge color="#76b900">NCA-AIIO</Badge>, 'NVIDIA', '306', '50', '60 min', '70%', '—'],
-                [<Badge color="#76b900">NCA-GENL</Badge>, 'NVIDIA', '300', '50', '60 min', '70%', '—'],
+                [<Badge color="#f1be32">CLF-C02</Badge>, 'AWS', '731', '65', '90 min', '70%'],
+                [<Badge color="#0078d4">AZ-900</Badge>, 'Microsoft Azure', '600', '40', '45 min', '70%'],
+                [<Badge color="#4285f4">CDL</Badge>, 'Google Cloud', '749', '50', '90 min', '70%'],
+                [<Badge color="#76b900">NCA-AIIO</Badge>, 'NVIDIA', '306', '50', '60 min', '70%'],
+                [<Badge color="#76b900">NCA-GENL</Badge>, 'NVIDIA', '300', '50', '60 min', '70%'],
+                [<Badge color="#c8202f">N10-009</Badge>, 'CompTIA', '750', '90', '90 min', '80%'],
+                [<Badge color="#c8202f">SY0-701</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
+                [<Badge color="#c8202f">SK0-005</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
               ]}
             />
 
-            <H3>Scenario ratio</H3>
+            <H3>Scenario-based phrasing</H3>
             <P>
-              Real certification exams are heavily scenario-based — they present a business problem and ask you to choose the right
-              solution, not just recall a definition. The scenario ratio reflects what percentage of our question bank uses that format.
-              CLF-C02, AZ-900, and CDL have all been deliberately expanded to match or exceed the scenario density of the actual exams.
+              Real certification exams are heavily scenario-based — they present a business or operational problem and ask you
+              to choose the right solution, not just recall a definition. Question banks across the catalog are written to match
+              that style, so practice mirrors how the actual exam tests you.
             </P>
 
             <H3>Domain weighting</H3>
@@ -221,23 +230,6 @@ export default function Docs() {
               the AZ-900 exam assigns 40% of questions to "Azure architecture and services" — our simulator mirrors that exactly using
               a largest-remainder allocation algorithm so no rounding errors distort domain representation.
             </P>
-
-            <H3>Coming soon</H3>
-            <div className="grid grid-cols-1 gap-4">
-              {[
-                { provider: 'CompTIA', color: '#c8202f', certs: ['Network+ · Networking Fundamentals', 'Security+ · Entry-Level Security'] },
-              ].map(({ provider, color, certs }) => (
-                <div key={provider} className="glass-panel rounded-xl p-5 space-y-3">
-                  <p className="text-xs font-bold uppercase tracking-widest" style={{ color }}>{provider}</p>
-                  {certs.map(c => (
-                    <div key={c} className="flex items-center gap-2 text-sm text-zinc-500">
-                      <div className="w-1 h-1 rounded-full bg-zinc-600" />
-                      {c}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
           </Section>
 
           {/* ── Study Modes ────────────────────────────────────────────────── */}
@@ -543,11 +535,11 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              114 Vitest tests across six modules cover the math, the scoring, the Smart Practice weights, the progress rollups,
-              and a content sanity sweep over every question across every cert. These are the functions where correctness matters
-              most: a bug in domain allocation silently distorts every exam, a bug in scoring silently marks right answers wrong,
-              and a bad question slips past 200,000 silent reads. UI behaviour is verified manually given the component-level
-              complexity.
+              160 Vitest tests across seven modules cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              the markdown rendering, and a content sanity sweep over every question across every cert. These are the functions
+              where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
+              marks right answers wrong, and a bad question slips past hundreds of thousands of silent reads. UI behaviour is
+              verified manually given the component-level complexity.
             </P>
             <CodeBlock>{`src/__tests__/
 ├── shuffle.test.js         — Fisher-Yates distribution, weightedSample bias
@@ -555,50 +547,51 @@ key = random() ** (1 / weight)
 ├── exam-selection.test.js  — Domain allocation, largest-remainder correctness
 ├── smart-practice.test.js  — Weight formula, mastered-question clamping
 ├── progress-stats.test.js  — Domain and overall rollups, percentage rounding
+├── markdown.test.js        — Explanation-text rendering and escaping
 └── content-sanity.test.js  — Every question across every cert: ids unique,
-                              domains valid, types recognized, shape correct`}
+                              domains valid, types recognized, correctAnswer
+                              indices in range, MR sorted, ordering is a
+                              permutation, matching indices valid, SB booleans`}
             </CodeBlock>
           </Section>
 
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today. The cert catalog locks at seven once Network+ and Security+ ship — after that,
-              focus shifts entirely to platform features: cross-device sync, mobile support, and study tools that complement the
-              practice itself. Depth over breadth, always.
+              The product is live and usable today, with all eight planned certifications in the catalog. The focus now shifts to
+              platform features: cross-device sync, mobile support, accessibility, and study tools that complement the practice
+              itself. New certs may still be considered — but only ones that share the same audience and the same depth standard.
             </P>
 
             {[
               {
-                status: 'In progress',
+                status: 'Done',
                 color: '#34d399',
                 items: [
                   'Vercel deployment — public URL, auto-deploy on push to main',
+                  'CompTIA Network+ (N10-009) — 750-question pool, all five question types',
+                  'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
+                  'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
+                  'Catalog grouped by provider (CompTIA / Cloud / NVIDIA) for clearer scannability',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'CompTIA — Network+ and Security+ (focused scope, complements the cloud ladder)',
-                ],
-              },
-              {
-                status: 'Planned',
-                color: '#fbbf24',
-                items: [
-                  'User accounts + Supabase backend — cloud-synced progress, Smart Practice history across devices',
+                  'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
-                  'Mobile PWA — offline support, installable',
+                  'Mobile PWA — offline support, installable home-screen experience',
                 ],
               },
               {
                 status: 'Considering',
-                color: '#71717a',
+                color: '#fbbf24',
                 items: [
                   'Streak tracking and study reminders',
-                  'Accessibility pass — ARIA, keyboard navigation',
-                  'Shared result cards — shareable score screenshots',
+                  'Accessibility pass — ARIA, keyboard navigation, screen-reader friendliness',
+                  'Shared result cards — privacy-respecting shareable score screenshots',
+                  'Sister sites for adjacent career paths (e.g., real-estate exam prep, fiber technician credentials) that do not fit the IT audience here',
                 ],
               },
             ].map(({ status, color, items }) => (

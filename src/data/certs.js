@@ -195,7 +195,6 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 83,
-    published: false,
     loadQuestions: () => import('./comptia-server-plus-questions.json'),
     domains: [
       { name: 'Server Hardware Installation and Management', weight: 18 },

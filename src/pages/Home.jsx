@@ -148,40 +148,6 @@ export default function Home() {
                     {group.map((cert, i) => (
                       <CertCard key={cert.id} cert={cert} index={i} />
                     ))}
-                    {label === 'CompTIA' && (
-                      <div className="glass-panel rounded-2xl p-8 flex flex-col min-h-[340px] border border-dashed border-zinc-700/60 relative overflow-hidden animate-fade-up" style={{ animationDelay: `${group.length * 80 + 300}ms` }}>
-                        <div className="absolute top-0 left-0 w-full h-1 opacity-30" style={{ backgroundColor: '#c8202f' }} />
-                        <div className="flex items-start justify-between mb-6">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md border bg-red-500/10 border-red-500/20 text-red-400">CompTIA</span>
-                            <span className="text-[11px] font-medium text-zinc-500 bg-zinc-800/50 border border-zinc-700/50 px-2.5 py-1 rounded-md">SK0-005</span>
-                          </div>
-                          <span className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border" style={{ borderColor: '#c8202f40', color: '#c8202f' }}>Foundational</span>
-                        </div>
-                        <h3 className="text-2xl font-bold mb-3 text-zinc-500">CompTIA Server+</h3>
-                        <p className="text-sm text-zinc-600 mb-8 flex-1 leading-relaxed">
-                          Validates server hardware and software technologies, including virtualization, storage, and server administration for data center roles.
-                        </p>
-                        <div className="grid grid-cols-3 gap-2 mb-8 border-y border-white/5 py-4">
-                          <div className="text-center">
-                            <p className="text-xl font-semibold text-zinc-600">90</p>
-                            <p className="text-[10px] text-zinc-600 uppercase tracking-widest mt-1 font-medium">Questions</p>
-                          </div>
-                          <div className="text-center border-x border-white/5">
-                            <p className="text-xl font-semibold text-zinc-600">90</p>
-                            <p className="text-[10px] text-zinc-600 uppercase tracking-widest mt-1 font-medium">Minutes</p>
-                          </div>
-                          <div className="text-center">
-                            <p className="text-xl font-semibold text-zinc-600">83%</p>
-                            <p className="text-[10px] text-zinc-600 uppercase tracking-widest mt-1 font-medium">Passing</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center justify-center gap-2 py-3 rounded-lg border border-dashed border-zinc-700/60 text-zinc-600">
-                          <div className="w-1.5 h-1.5 rounded-full bg-zinc-700 animate-pulse shrink-0" />
-                          <span className="text-sm font-semibold uppercase tracking-widest">Coming soon</span>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               )
