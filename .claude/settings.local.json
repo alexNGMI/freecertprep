@@ -42,7 +42,11 @@
       "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch15.cjs\")",
       "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch16.cjs\")",
       "Bash(node add-scenario-batch17.cjs)",
-      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch17.cjs\")"
+      "Bash(del \"C:\\\\Users\\\\spide\\\\Documents\\\\freecertprep\\\\add-scenario-batch17.cjs\")",
+      "Bash(node -e ':*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)"
     ]
   }
 }

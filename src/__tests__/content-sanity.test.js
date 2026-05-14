@@ -7,6 +7,7 @@ import ncaAiio from '../data/nca-aiio-questions.json'
 import ncaGenl from '../data/nca-genl-questions.json'
 import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
+import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
 
 // Map each cert to the JSON we statically imported.
 // When adding a new cert, add it here too — the "registry fully mapped" test
@@ -19,6 +20,7 @@ const CERT_QUESTIONS = {
   'nca-genl': ncaGenl,
   'comptia-net-plus': comptiaNetPlus,
   'comptia-sec-plus': comptiaSecPlus,
+  'comptia-server-plus': comptiaServerPlus,
 }
 
 // Run per-question sanity checks on every cert that has content — including

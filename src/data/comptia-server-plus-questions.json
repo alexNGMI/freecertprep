@@ -1,0 +1,4972 @@
+[
+  {
+    "id": "serverplus-1",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A technician is planning a new rack deployment. What is the height of one rack unit (1U) in inches?",
+    "choices": [
+      "1.75",
+      "2.0",
+      "1.5",
+      "3.5"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-2",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "An organization needs to maximize compute density inside a single rack chassis with shared power and cooling. Which server form factor best meets this requirement?",
+    "choices": [
+      "Tower",
+      "Blade",
+      "Rack-mounted 4U",
+      "Mini-tower"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-3",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A server is configured with N+1 power supply redundancy. What does N+1 mean in this context?",
+    "choices": [
+      "The server has exactly the number of PSUs required, no extras",
+      "Each PSU is rated for double the server's power draw",
+      "One additional PSU is installed beyond the minimum required to power the system",
+      "Two redundant PSUs share load 50/50 with no spare"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-4",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A new server requires fault tolerance with the simplest two-disk configuration. Which RAID level provides redundancy by writing identical data to both drives?",
+    "choices": [
+      "RAID 0",
+      "RAID 5",
+      "RAID 6",
+      "RAID 1"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-5",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A storage admin wants striping with distributed parity across at least three drives to tolerate a single drive failure. Which RAID level fits?",
+    "choices": [
+      "RAID 5",
+      "RAID 1",
+      "RAID 0",
+      "RAID 10"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-6",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A finance application demands an array that can survive two simultaneous drive failures using distributed parity. Which RAID level should be configured?",
+    "choices": [
+      "RAID 5",
+      "RAID 6",
+      "RAID 10",
+      "RAID 1"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-7",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A database server needs both performance and redundancy. The admin configures a stripe of mirrored pairs. Which RAID level is this?",
+    "choices": [
+      "RAID 5",
+      "RAID 6",
+      "RAID 10",
+      "RAID 50"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-8",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A technician needs to replace a failed drive in a production server without powering it down. Which drive feature enables this?",
+    "choices": [
+      "Cold spare",
+      "Warm spare",
+      "JBOD",
+      "Hot-swap"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-9",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A data center deploys a Type 1 hypervisor on a new server. Which statement best describes a Type 1 (bare-metal) hypervisor?",
+    "choices": [
+      "It runs directly on the host hardware without requiring an underlying operating system",
+      "It runs as an application inside a host operating system",
+      "It is limited to single-VM execution",
+      "It cannot run more than one guest OS at a time"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-10",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A developer installs VirtualBox on a Windows 11 laptop to run test VMs. Which hypervisor category is VirtualBox?",
+    "choices": [
+      "Type 1",
+      "Type 2",
+      "Type 3",
+      "Para-virtualized only"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-11",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An organization standardizes on a hypervisor that runs directly on the hardware and is part of the vSphere product family. Which hypervisor is this?",
+    "choices": [
+      "Hyper-V",
+      "KVM",
+      "ESXi",
+      "Xen"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-12",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows-centric shop wants a Type 1 hypervisor that is integrated with Windows Server. Which hypervisor should the admin choose?",
+    "choices": [
+      "ESXi",
+      "KVM",
+      "Xen",
+      "Hyper-V"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-13",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An admin wants a hypervisor that is built directly into the Linux kernel as a module. Which technology fits?",
+    "choices": [
+      "KVM",
+      "ESXi",
+      "Hyper-V",
+      "VMware Workstation"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-14",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A VMware admin needs to move a running VM from one ESXi host to another with no downtime. Which feature provides this capability?",
+    "choices": [
+      "Cold migration",
+      "vMotion",
+      "Snapshot rollback",
+      "Storage VMotion"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-15",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A development team needs lightweight, OS-level isolation that packages applications with their dependencies and shares the host kernel. Which technology should they adopt?",
+    "choices": [
+      "Type 1 hypervisor",
+      "Bare-metal install",
+      "Docker containers",
+      "Full virtual machines"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-16",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A platform team wants to orchestrate, scale, and self-heal hundreds of containerized microservices across a cluster of nodes. Which tool should they use?",
+    "choices": [
+      "Docker Compose",
+      "systemd",
+      "Ansible",
+      "Kubernetes"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-17",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An admin installs Windows Server with no graphical desktop, using only the command line and remote management. Which installation option is this?",
+    "choices": [
+      "Server Core",
+      "Desktop Experience",
+      "Nano Server (deprecated)",
+      "WinPE"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-18",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin needs a centralized directory service that stores user accounts, groups, and computer objects and supports Kerberos authentication and Group Policy. Which Microsoft service provides this?",
+    "choices": [
+      "DNS",
+      "Active Directory Domain Services",
+      "Windows Update",
+      "File and Storage Services"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-19",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A network admin wants client devices to automatically receive IP address, default gateway, and DNS server information when they connect to the LAN. Which server role should be deployed?",
+    "choices": [
+      "DNS server",
+      "WINS server",
+      "DHCP server",
+      "TFTP server"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-20",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A user types www.example.com into a browser and the resulting connection reaches the correct server. Which server role made that translation possible?",
+    "choices": [
+      "DHCP",
+      "WINS",
+      "Proxy",
+      "DNS"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-21",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A Windows administrator needs full-disk encryption on a server's system volume, using TPM-backed key storage. Which Microsoft technology should be enabled?",
+    "choices": [
+      "BitLocker",
+      "EFS",
+      "DPAPI",
+      "Credential Guard"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-22",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A Linux administrator must encrypt a server's local data volume at rest. Which native Linux disk encryption technology is most appropriate?",
+    "choices": [
+      "BitLocker",
+      "LUKS",
+      "NTFS EFS",
+      "S/MIME"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-23",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team needs to grant permissions based on a user's job function rather than assigning rights to individuals. Which access control model fits this requirement?",
+    "choices": [
+      "DAC",
+      "MAC",
+      "RBAC",
+      "Rule-based"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-24",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A server admin wants to require a password plus a one-time code from an authenticator app for all administrative logins. Which security control is this?",
+    "choices": [
+      "Single sign-on",
+      "Federated identity",
+      "Password rotation policy",
+      "Multi-factor authentication"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-25",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security policy states that user accounts should be granted only the access necessary to perform their job duties. Which principle does this enforce?",
+    "choices": [
+      "Least privilege",
+      "Defense in depth",
+      "Separation of duties",
+      "Implicit deny"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-26",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A business sets a maximum tolerable downtime of 4 hours for a critical application after a failure. Which DR metric is being defined?",
+    "choices": [
+      "RPO",
+      "RTO",
+      "MTBF",
+      "MTTR"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-27",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A business sets a maximum acceptable data loss window of 1 hour for transaction data. Which DR metric is being defined?",
+    "choices": [
+      "RTO",
+      "MTBF",
+      "RPO",
+      "SLA"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-28",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A backup admin runs a weekly Sunday job that captures every selected file regardless of prior backups. Which backup type is this?",
+    "choices": [
+      "Incremental",
+      "Differential",
+      "Synthetic",
+      "Full"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-29",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "After Sunday's full backup, the admin runs a job each weekday that captures only files changed since the previous day's backup. Which backup type is this?",
+    "choices": [
+      "Incremental",
+      "Differential",
+      "Full",
+      "Synthetic full"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-30",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "After Sunday's full backup, the admin runs a job each weekday that captures every file changed since the last full backup. Which backup type is this?",
+    "choices": [
+      "Incremental",
+      "Differential",
+      "Full",
+      "Synthetic full"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-31",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A technician powers on a server and observes diagnostic beep codes before any operating system loads. Which firmware-level process is generating these codes?",
+    "choices": [
+      "Kernel boot",
+      "UEFI Secure Boot policy",
+      "POST (Power-On Self-Test)",
+      "ACPI handoff"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-32",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows server crashes with a STOP error displaying a blue screen and a memory dump file. What is this commonly called?",
+    "choices": [
+      "Kernel panic",
+      "Stack overflow",
+      "Segmentation fault",
+      "Blue Screen of Death (BSOD)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-33",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux server abruptly halts and prints a stack trace to the console, after which the system becomes unresponsive. What is this condition called?",
+    "choices": [
+      "Kernel panic",
+      "BSOD",
+      "ACPI shutdown",
+      "Soft lockup recovery"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-34",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows admin suspects a corrupted file system on a volume after a power loss. Which built-in command should be run to scan and repair the volume?",
+    "choices": [
+      "sfc",
+      "chkdsk",
+      "fsck",
+      "DISM"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-35",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin needs to check and repair a corrupted ext4 file system on an unmounted volume. Which command is used?",
+    "choices": [
+      "chkdsk",
+      "sfc",
+      "fsck",
+      "dumpe2fs"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-36",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin needs a quick real-time view of CPU usage and the top resource-consuming processes. Which command provides this?",
+    "choices": [
+      "ls",
+      "ps",
+      "df",
+      "top"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-37",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows admin needs to review system, security, and application logs after a server reboot. Which built-in tool should be opened?",
+    "choices": [
+      "Event Viewer",
+      "Task Manager",
+      "Resource Monitor",
+      "Performance Monitor"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-38",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin needs to view logs collected by systemd's journal, filtered by service and time range. Which command should be used?",
+    "choices": [
+      "syslog",
+      "journalctl",
+      "dmesg",
+      "logger"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-39",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server admin wants to quickly verify whether a remote server is reachable over the network at the IP layer. Which command should be used first?",
+    "choices": [
+      "tracert",
+      "arp",
+      "ping",
+      "nslookup"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-40",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server admin wants to see all listening TCP ports and active connections on a Windows server. Which command provides this view?",
+    "choices": [
+      "ipconfig",
+      "route print",
+      "arp -a",
+      "netstat -an"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-41",
+    "domain": "Server Hardware Installation and Management",
+    "type": "multiple-response",
+    "question": "Which TWO RAID levels provide fault tolerance through striping with parity? (Select 2)",
+    "choices": [
+      "RAID 0",
+      "RAID 5",
+      "RAID 1",
+      "RAID 6"
+    ],
+    "correctAnswers": [
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-42",
+    "domain": "Server Administration",
+    "type": "multiple-response",
+    "question": "Which TWO statements correctly describe Type 1 (bare-metal) hypervisors? (Select 2)",
+    "choices": [
+      "Run directly on the underlying server hardware",
+      "Require a general-purpose host operating system to function",
+      "Generally have lower overhead and better performance than Type 2",
+      "Examples include VirtualBox and VMware Workstation"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-43",
+    "domain": "Troubleshooting",
+    "type": "multiple-response",
+    "question": "A Linux administrator needs to monitor real-time CPU and memory utilization on a busy server. Which TWO commands display continuously updating process and resource information? (Select 2)",
+    "choices": [
+      "top",
+      "ls",
+      "htop",
+      "cat"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-44",
+    "domain": "Server Hardware Installation and Management",
+    "type": "matching",
+    "question": "Match each RAID level with its defining characteristic.",
+    "itemsLeft": [
+      "RAID 0",
+      "RAID 1",
+      "RAID 5",
+      "RAID 10"
+    ],
+    "itemsRight": [
+      "Mirroring with no parity",
+      "Striping with no redundancy",
+      "Striped set of mirrored pairs",
+      "Striping with single distributed parity"
+    ],
+    "correctMatches": [
+      1,
+      0,
+      3,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-45",
+    "domain": "Security and Disaster Recovery",
+    "type": "matching",
+    "question": "Match each backup type with its defining behavior.",
+    "itemsLeft": [
+      "Full",
+      "Incremental",
+      "Differential",
+      "Synthetic full"
+    ],
+    "itemsRight": [
+      "Captures only data that has changed since the last backup of any type",
+      "Captures every selected file each run, regardless of prior backups",
+      "Captures every file changed since the last full backup",
+      "Constructed by combining a prior full backup with subsequent increments"
+    ],
+    "correctMatches": [
+      1,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-46",
+    "domain": "Troubleshooting",
+    "type": "ordering",
+    "question": "Arrange the CompTIA troubleshooting methodology in the correct order.",
+    "items": [
+      "Test the theory to determine cause",
+      "Identify the problem",
+      "Establish a plan of action and implement the solution",
+      "Verify full system functionality and document findings",
+      "Establish a theory of probable cause"
+    ],
+    "correctOrder": [
+      1,
+      4,
+      0,
+      2,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-47",
+    "domain": "Security and Disaster Recovery",
+    "type": "ordering",
+    "question": "A server failed Wednesday morning. Sunday's full backup plus Monday, Tuesday, and Wednesday-morning incremental backups exist. Arrange the steps to restore the server to its most recent state.",
+    "items": [
+      "Restore Tuesday's incremental backup",
+      "Restore Sunday's full backup",
+      "Restore Monday's incremental backup",
+      "Restore Wednesday-morning incremental backup",
+      "Verify data integrity and bring services online"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0,
+      3,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-48",
+    "domain": "Server Hardware Installation and Management",
+    "type": "statement-block",
+    "question": "Evaluate each statement about RAID levels and indicate whether it is True or False.",
+    "statements": [
+      "RAID 0 provides fault tolerance by mirroring data across drives.",
+      "RAID 1 requires a minimum of two drives.",
+      "RAID 5 can sustain the simultaneous loss of two member drives without data loss.",
+      "RAID 6 uses double distributed parity and can tolerate two drive failures."
+    ],
+    "correctAnswers": [
+      false,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-49",
+    "domain": "Security and Disaster Recovery",
+    "type": "statement-block",
+    "question": "Evaluate each statement about backup and disaster recovery concepts and indicate whether it is True or False.",
+    "statements": [
+      "RPO defines the maximum acceptable amount of data loss measured in time.",
+      "A hot site keeps full infrastructure online with near real-time data replication.",
+      "A cold site has pre-staged production hardware and current data ready for immediate cutover.",
+      "Periodic restore testing is required to consider a backup strategy reliable."
+    ],
+    "correctAnswers": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-50",
+    "domain": "Troubleshooting",
+    "type": "statement-block",
+    "question": "Evaluate each statement about server troubleshooting and indicate whether it is True or False.",
+    "statements": [
+      "POST runs after the operating system bootloader has finished loading.",
+      "A degraded RAID array can continue serving data while a replacement drive rebuilds.",
+      "A kernel panic on Linux is functionally analogous to a Windows BSOD.",
+      "Both top and htop display real-time CPU and memory utilization."
+    ],
+    "correctAnswers": [
+      false,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-51",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A storage admin is comparing SAS and SATA drives for a database tier. Which characteristic favors SAS over SATA for enterprise workloads?",
+    "choices": [
+      "Higher IOPS and dual-port connectivity for redundancy",
+      "Lower cost per GB",
+      "Larger physical capacity per drive",
+      "Wider client desktop compatibility"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-52",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A new database server requires very low storage latency. The admin selects drives that connect directly to the PCIe bus. Which drive interface is being used?",
+    "choices": [
+      "SATA",
+      "NVMe",
+      "SAS",
+      "SCSI"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-53",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A server is configured with ECC memory. What is the primary purpose of ECC RAM in a production server?",
+    "choices": [
+      "Increases raw memory bandwidth versus non-ECC RAM",
+      "Reduces memory power consumption",
+      "Detects and corrects single-bit memory errors at runtime",
+      "Provides additional cache for the CPU"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-54",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A server must connect to an external SAS storage array. Which expansion card is required?",
+    "choices": [
+      "GPU",
+      "NIC",
+      "Sound card",
+      "Host Bus Adapter (HBA)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-55",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "An admin needs to power-cycle and reconfigure a remote server even when the operating system is unresponsive. Which technology category provides this capability?",
+    "choices": [
+      "Out-of-band management (IPMI/BMC)",
+      "Domain Controller",
+      "Remote Desktop",
+      "RDP over VPN"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-56",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A data center deploys Dell PowerEdge servers. Which proprietary out-of-band management interface ships with these servers?",
+    "choices": [
+      "HPE iLO",
+      "Dell iDRAC",
+      "Lenovo XCC",
+      "Fujitsu iRMC"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-57",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A data center deploys HPE ProLiant servers. Which proprietary out-of-band management interface ships with these servers?",
+    "choices": [
+      "Dell iDRAC",
+      "Lenovo XCC",
+      "HPE iLO",
+      "Cisco CIMC"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-58",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A technician installs a 4 TB boot volume on a new server. Which firmware/partitioning combination is required to boot from a volume larger than 2 TB?",
+    "choices": [
+      "Legacy BIOS with MBR",
+      "Legacy BIOS with GPT",
+      "UEFI with MBR",
+      "UEFI with GPT"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-59",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A security policy requires that only digitally signed bootloaders and kernels be allowed to execute at boot. Which UEFI feature enforces this?",
+    "choices": [
+      "Secure Boot",
+      "Fast Boot",
+      "TPM clearing",
+      "CSM (Compatibility Support Module)"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-60",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "On a current Red Hat Enterprise Linux server, which init system manages services and dependencies by default?",
+    "choices": [
+      "upstart",
+      "systemd",
+      "SysVinit",
+      "launchd"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-61",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin needs to schedule a recurring backup script to run nightly at 02:00. Which tool/file defines this schedule?",
+    "choices": [
+      "systemd journal",
+      "Task Scheduler",
+      "crontab",
+      "logrotate.conf"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-62",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin needs to schedule a script to run at server startup. Which built-in Windows tool is used?",
+    "choices": [
+      "systemd timers",
+      "cron",
+      "launchd",
+      "Task Scheduler"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-63",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin wants to list all running processes from PowerShell. Which cmdlet should be used?",
+    "choices": [
+      "Get-Process",
+      "List-Tasks",
+      "Show-Processes",
+      "Query-PS"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-64",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin needs a one-shot snapshot of currently running processes in a terminal. Which command provides this?",
+    "choices": [
+      "top",
+      "ps",
+      "htop",
+      "lsof"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-65",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "On an NTFS share, a user is in two groups: one with Allow Read and one with Deny Read on the same folder. What is the effective permission?",
+    "choices": [
+      "Allow \u2014 Allow always overrides Deny",
+      "Depends on the order of ACE evaluation",
+      "Deny \u2014 an explicit Deny overrides an explicit Allow",
+      "Deny is ignored for group-derived permissions"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-66",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin needs to grant the owner full access and deny all access to group and others on a file. Which chmod value accomplishes this?",
+    "choices": [
+      "chmod 644",
+      "chmod 755",
+      "chmod 770",
+      "chmod 700"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-67",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A network admin needs to share files between Windows clients and a Windows file server using the native Microsoft file-sharing protocol. Which protocol is used?",
+    "choices": [
+      "SMB/CIFS",
+      "NFS",
+      "FTP",
+      "AFP"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-68",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux file server needs to export a directory for mounting by Linux clients using the traditional Unix file-sharing protocol. Which protocol fits?",
+    "choices": [
+      "SMB",
+      "NFS",
+      "AFP",
+      "WebDAV"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-69",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin presents shared file resources from multiple servers under a single, unified namespace and replicates content between targets for availability. Which Windows feature provides this?",
+    "choices": [
+      "Storage Spaces",
+      "Failover Clustering",
+      "DFS (Distributed File System)",
+      "BranchCache"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-70",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A server administrator must keep server clocks accurate to avoid Kerberos failures and log correlation problems. Which protocol synchronizes time across networked systems?",
+    "choices": [
+      "NNTP",
+      "SNMP",
+      "PTP only",
+      "NTP"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-71",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A DevOps engineer wants a configuration-management tool that does not require an agent on managed Linux hosts and uses SSH to apply playbooks. Which tool fits?",
+    "choices": [
+      "Ansible",
+      "Puppet",
+      "Chef",
+      "CFEngine"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-72",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team adopts a recognized, vendor-neutral hardening baseline that includes specific settings for Windows Server and major Linux distributions. Which baseline is most commonly referenced?",
+    "choices": [
+      "RFC 1918",
+      "CIS Benchmarks",
+      "ISO 9001",
+      "PCI DSS"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-73",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A web admin enables HTTPS on a public-facing site. Which protocol secures the data in transit between client and server?",
+    "choices": [
+      "IPSec",
+      "SSH",
+      "TLS",
+      "Kerberos"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-74",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An admin configures an IPSec VPN that fully encrypts both the original IP header and payload and adds a new outer IP header. Which IPSec mode is being used?",
+    "choices": [
+      "Transport mode",
+      "Authentication-only (AH-only)",
+      "No-encapsulation mode",
+      "Tunnel mode"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-75",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "In a PKI deployment, which entity is responsible for issuing and digitally signing the certificates used by servers and users?",
+    "choices": [
+      "Certificate Authority (CA)",
+      "Certificate Revocation Authority",
+      "Registration Authority only",
+      "Token Service"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-76",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team needs to ensure that compromised TLS certificates are no longer trusted by clients before their natural expiration. Which mechanisms support certificate revocation?",
+    "choices": [
+      "DNS TXT records only",
+      "CRL and OCSP",
+      "TLS session tickets",
+      "Group Policy SPN records"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-77",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A storage admin configures replication so each write is committed on both the primary and remote sites before the client receives an acknowledgment. Which replication type is this?",
+    "choices": [
+      "Asynchronous",
+      "Snapshot-based",
+      "Synchronous",
+      "Periodic"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-78",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A pair of database servers is configured to automatically fail one node's services over to the other if the primary becomes unavailable. Which technology pattern is in use?",
+    "choices": [
+      "Round-robin DNS only",
+      "Cold standby",
+      "Backup rotation",
+      "High-availability (HA) clustering"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-79",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An organization keeps a fully operational alternate site with continuously synchronized data, ready to take over operations within minutes. Which DR site type is this?",
+    "choices": [
+      "Hot site",
+      "Warm site",
+      "Cold site",
+      "Bunker site"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-80",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server is performing poorly and the admin observes constant heavy paging activity (high page-file/swap I/O) while CPU is moderate. What is the most likely root cause?",
+    "choices": [
+      "Failed NIC",
+      "Memory pressure \u2014 physical RAM is insufficient for workload",
+      "Disk firmware issue",
+      "DNS misconfiguration"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-81",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin sees one process consistently pegging a single CPU core at 100% while overall load remains otherwise normal. What is the most likely cause to investigate first?",
+    "choices": [
+      "Misconfigured DNS resolver",
+      "Network duplex mismatch",
+      "A runaway or stuck single-threaded process",
+      "RAID array rebuild"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-82",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin runs top and consistently sees very high iowait percentages while CPU user time stays low. Which subsystem is the most likely bottleneck?",
+    "choices": [
+      "Network stack",
+      "CPU pipeline",
+      "Kernel scheduler",
+      "Storage / disk subsystem"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-83",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server is dropping connections intermittently. Which TWO indicators on the switch port and NIC are most useful to check FIRST?",
+    "choices": [
+      "Increasing CRC/input error counters on the switch port and NIC",
+      "Domain controller replication health",
+      "Time-zone configuration mismatches",
+      "Group Policy refresh interval"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-84",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows admin suspects system file corruption causing intermittent crashes. Which built-in command scans and repairs protected system files?",
+    "choices": [
+      "chkdsk /f",
+      "sfc /scannow",
+      "DISM /Online /Cleanup-Image /CheckHealth",
+      "wevtutil cl System"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-85",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows server's component store appears corrupted and sfc cannot fully repair it. Which tool can restore the component store from a known-good source?",
+    "choices": [
+      "chkdsk /r",
+      "wmic",
+      "DISM /Online /Cleanup-Image /RestoreHealth",
+      "robocopy /mir"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-86",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin starts a service manually and it runs fine, but the service does NOT come up after the next reboot. Which command should be run to fix this?",
+    "choices": [
+      "systemctl restart",
+      "systemctl status",
+      "systemctl mask",
+      "systemctl enable"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-87",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "After adding new RAM, a server fails to POST \u2014 there is no video output and a single repeating beep code. What is the BEST first action?",
+    "choices": [
+      "Power off, reseat the new RAM, and verify it is on the QVL for the server",
+      "Reinstall the operating system",
+      "Replace the CPU",
+      "Reflash the BIOS over the network"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-88",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows admin notices that a critical service is missing entirely from services.msc after a failed update. Which next step is MOST appropriate?",
+    "choices": [
+      "Reformat the system drive",
+      "Restore from a known-good system state or reinstall the affected role/feature",
+      "Disable Windows Defender",
+      "Disable the firewall"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-89",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A new application fails to bind to TCP/8080 with a 'port already in use' error. Which Windows command identifies the PID currently holding port 8080?",
+    "choices": [
+      "tasklist /svc",
+      "route print",
+      "netstat -ano | findstr :8080",
+      "ipconfig /all"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-90",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "After updating a network driver, a server loses connectivity. Which Windows Device Manager feature can revert to the previously installed driver?",
+    "choices": [
+      "Disable device",
+      "Update driver",
+      "Uninstall device",
+      "Roll Back Driver"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-91",
+    "domain": "Server Hardware Installation and Management",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are vendor-specific out-of-band server management interfaces? (Select 2)",
+    "choices": [
+      "Dell iDRAC",
+      "HPE iLO",
+      "Windows Task Manager",
+      "Linux journalctl"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "id": "serverplus-92",
+    "domain": "Server Administration",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are configuration-management/automation platforms commonly used to manage server fleets? (Select 2)",
+    "choices": [
+      "Ansible",
+      "systemd",
+      "Puppet",
+      "DHCP"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-93",
+    "domain": "Troubleshooting",
+    "type": "multiple-response",
+    "question": "A server is suspected to have a failing drive. Which TWO indicators are most strongly associated with imminent drive failure? (Select 2)",
+    "choices": [
+      "Default gateway change",
+      "Increasing SMART reallocated-sector and pending-sector counts",
+      "DNS cache entries expiring",
+      "Repeated read/write errors logged in the OS event/syslog"
+    ],
+    "correctAnswers": [
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-94",
+    "domain": "Server Hardware Installation and Management",
+    "type": "matching",
+    "question": "Match each server out-of-band management interface with its origin.",
+    "itemsLeft": [
+      "iDRAC",
+      "iLO",
+      "IPMI",
+      "OPMA"
+    ],
+    "itemsRight": [
+      "Industry-neutral baseboard management standard",
+      "HPE proprietary out-of-band management",
+      "Dell proprietary out-of-band management",
+      "Largely deprecated AMD/Intel management spec"
+    ],
+    "correctMatches": [
+      2,
+      1,
+      0,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-95",
+    "domain": "Security and Disaster Recovery",
+    "type": "matching",
+    "question": "Match each disaster-recovery site type with its defining characteristic.",
+    "itemsLeft": [
+      "Hot site",
+      "Warm site",
+      "Cold site",
+      "Mirrored site"
+    ],
+    "itemsRight": [
+      "Empty facility with power and cooling but no staged production equipment",
+      "Continuously synchronized duplicate of production",
+      "Pre-installed hardware with staged data, requiring final cutover work",
+      "Fully operational alternate facility with near real-time data replication"
+    ],
+    "correctMatches": [
+      3,
+      2,
+      0,
+      1
+    ]
+  },
+  {
+    "id": "serverplus-96",
+    "domain": "Server Administration",
+    "type": "ordering",
+    "question": "Arrange the steps for applying a critical security patch to a production server in the correct order.",
+    "items": [
+      "Test the patch in a staging environment",
+      "Apply the patch during the approved maintenance window",
+      "Identify and triage the vulnerability the patch addresses",
+      "Verify service health and functionality after patching",
+      "Create a backup or snapshot prior to applying the patch"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      4,
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-97",
+    "domain": "Troubleshooting",
+    "type": "ordering",
+    "question": "A new server fails to complete POST. Arrange the diagnostic steps in the most logical order.",
+    "items": [
+      "Inspect PSU connections and verify input power",
+      "Reseat RAM modules one bank at a time",
+      "Listen for and decode POST beep codes",
+      "Isolate by removing non-essential expansion cards",
+      "Power on the system and observe symptoms"
+    ],
+    "correctOrder": [
+      4,
+      2,
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-98",
+    "domain": "Server Administration",
+    "type": "statement-block",
+    "question": "Evaluate each statement about server administration tooling and indicate whether it is True or False.",
+    "statements": [
+      "systemd is the default init and service manager on modern major Linux distributions.",
+      "cron jobs are defined using a JSON configuration file in /etc/cron.json.",
+      "PowerShell cmdlets follow a Verb-Noun naming convention (e.g., Get-Process).",
+      "On NTFS, an explicit Allow always overrides an explicit Deny on the same object."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true,
+      false
+    ]
+  },
+  {
+    "id": "serverplus-99",
+    "domain": "Security and Disaster Recovery",
+    "type": "statement-block",
+    "question": "Evaluate each statement about PKI and security operations and indicate whether it is True or False.",
+    "statements": [
+      "A self-signed TLS certificate is automatically trusted by every major web browser.",
+      "A certificate authority can revoke a certificate via a CRL or OCSP responder.",
+      "TLS protects data in transit between a client and a server.",
+      "A SIEM platform aggregates and correlates security-relevant logs from many sources."
+    ],
+    "correctAnswers": [
+      false,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-100",
+    "domain": "Troubleshooting",
+    "type": "statement-block",
+    "question": "Evaluate each statement about Windows and Linux troubleshooting tools and indicate whether it is True or False.",
+    "statements": [
+      "sfc /scannow scans and repairs Windows protected system file integrity.",
+      "chkdsk is the standard tool for repairing Linux ext4 file systems.",
+      "DISM /Online /Cleanup-Image /RestoreHealth can repair the Windows component store from a known-good source.",
+      "systemctl enable configures a Linux service to start automatically at boot."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-101",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A data center is being redesigned for efficient cooling. Servers are arranged so that intake fans face one corridor and exhaust fans face the opposite corridor. What is this layout called?",
+    "choices": [
+      "Hot aisle / cold aisle containment",
+      "Random orientation",
+      "Edge-to-core orientation",
+      "Single-aisle layout"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-102",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A facility engineer wants per-outlet power usage data plus the ability to remotely cycle individual outlets. Which PDU type provides this?",
+    "choices": [
+      "Basic PDU",
+      "Switched (intelligent) PDU",
+      "Inline strip",
+      "Static transfer switch"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-103",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A research team's new server is configured with multiple high-end GPUs. What is the typical purpose of GPUs in a server deployment?",
+    "choices": [
+      "Replace ECC memory",
+      "Provide hardware RAID parity",
+      "Accelerate parallel workloads such as machine learning and HPC",
+      "Convert SAS signals to SATA"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-104",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "BitLocker is enabled on a server's system volume and is configured to seal the encryption key to the system's measured boot state. Which hardware component stores and protects this key?",
+    "choices": [
+      "BMC chip",
+      "RAID controller cache",
+      "DIMM register",
+      "TPM (Trusted Platform Module)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-105",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A storage admin is comparing two SSD models for a transactional database workload. Which metric is the BEST primary indicator of how well a drive will handle many small random reads and writes?",
+    "choices": [
+      "IOPS",
+      "Sequential throughput (MB/s)",
+      "Rotational speed (RPM)",
+      "MTBF in hours"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-106",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A backup-target volume is evaluated for large sequential writes from nightly full backups. Which drive metric is most relevant for this workload?",
+    "choices": [
+      "Random IOPS",
+      "Sequential throughput in MB/s",
+      "ECC bit-flip count",
+      "Cache hit ratio"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-107",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A network engineer needs a small form-factor transceiver to provide a 10 Gbps short-range fiber link between top-of-rack switches. Which transceiver fits this requirement?",
+    "choices": [
+      "SFP",
+      "QSFP+",
+      "SFP+ (e.g., 10GBASE-SR)",
+      "XFP only"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-108",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "An engineer needs to provision 100 Gbps inter-switch links inside a modern data center. Which transceiver form factor is most commonly used?",
+    "choices": [
+      "SFP",
+      "XFP",
+      "SFP+",
+      "QSFP28"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-109",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "Many new server NICs ship with 25 Gbps ports instead of 10 Gbps. Which statement best explains why 25 GbE has become a common server-side standard?",
+    "choices": [
+      "25 GbE reuses the same physical lane technology as 100 GbE, making it cost-effective per Gbps",
+      "25 GbE replaces Ethernet entirely with InfiniBand framing",
+      "25 GbE always requires single-mode fiber to function",
+      "25 GbE is incompatible with QSFP-based 100 GbE switches"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-110",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A sysadmin needs to install a new package on a Red Hat Enterprise Linux 9 server. Which package manager command is most appropriate?",
+    "choices": [
+      "apt install",
+      "dnf install",
+      "zypper install",
+      "pacman -S"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-111",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A sysadmin needs to install a new package on an Ubuntu Server LTS host. Which package manager command is most appropriate?",
+    "choices": [
+      "dnf install",
+      "zypper install",
+      "apt install",
+      "yum install"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-112",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A sysadmin needs to install a new package on an openSUSE Leap server. Which package manager is native to that distribution?",
+    "choices": [
+      "apt",
+      "dnf",
+      "emerge",
+      "zypper"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-113",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin needs to host a public-facing web application using a native Microsoft web server. Which server role should be installed?",
+    "choices": [
+      "IIS (Internet Information Services)",
+      "Apache HTTP Server",
+      "Nginx Plus",
+      "HAProxy"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-114",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A team wants to deploy a widely used open-source web server on Linux for a traditional LAMP application stack. Which software fits this description?",
+    "choices": [
+      "IIS",
+      "Apache HTTP Server",
+      "Tomcat",
+      "JBoss"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-115",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A web team needs a high-performance HTTP server that is also frequently deployed as a reverse proxy and TLS terminator in front of application backends. Which software is most commonly chosen for this role?",
+    "choices": [
+      "IIS",
+      "Apache Tomcat",
+      "Nginx",
+      "sendmail"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-116",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A development team wants an open-source, fully relational SQL database server with strong support for advanced data types and JSON. Which database engine fits?",
+    "choices": [
+      "Redis",
+      "Microsoft Access",
+      "MongoDB",
+      "PostgreSQL"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-117",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A small e-commerce site uses the traditional LAMP stack on Linux. Which database engine is the 'M' in LAMP typically referring to?",
+    "choices": [
+      "MySQL (or its MariaDB fork)",
+      "Microsoft SQL Server",
+      "MongoDB",
+      "DB2"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-118",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An organization standardizes its Windows-native relational database tier on a Microsoft product that integrates tightly with Active Directory and SSMS. Which database is this?",
+    "choices": [
+      "PostgreSQL",
+      "Microsoft SQL Server",
+      "Oracle DB",
+      "SQLite"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-119",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A network admin wants a network printer to always receive the same IP address from DHCP without configuring a static address on the device. Which DHCP feature accomplishes this?",
+    "choices": [
+      "Address pool exclusion",
+      "Class options",
+      "DHCP reservation (by MAC)",
+      "Lease renewal threshold"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-120",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A DHCP server is configured to lease addresses in the range 10.10.10.50\u201310.10.10.200 with a 24-hour lease. What does this configuration represent?",
+    "choices": [
+      "A DHCP relay",
+      "A DHCP reservation",
+      "A DHCP exclusion",
+      "A DHCP scope"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-121",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An Active Directory admin wants to delegate management of a subset of users to a help desk team and apply distinct Group Policies to that subset. Which AD object should be used?",
+    "choices": [
+      "Organizational Unit (OU)",
+      "Security Group",
+      "Domain Trust",
+      "Site"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-122",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin wants to enforce password policy and desktop lockout settings across all domain-joined Windows clients. Which tool applies these settings centrally?",
+    "choices": [
+      "Registry Editor on each client",
+      "Group Policy (GPO)",
+      "Local Security Policy on each client",
+      "Windows Defender Firewall"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-123",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security framework that verifies who a user is, controls what they can do, and records what they did is referred to as which model?",
+    "choices": [
+      "CIA triad",
+      "PKI",
+      "AAA (Authentication, Authorization, Accounting)",
+      "SSO"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-124",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An organization requires that private keys for high-value certificates never leave dedicated, tamper-resistant hardware. Which device meets this requirement?",
+    "choices": [
+      "TPM in the laptop",
+      "Smart card reader",
+      "USB security key",
+      "HSM (Hardware Security Module)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-125",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security policy disables password-based SSH on all Linux production servers in favor of public-key authentication. Why is this generally considered more secure?",
+    "choices": [
+      "Private keys are not transmitted to the server and resist brute-force more effectively than passwords",
+      "Public keys cannot be copied between systems",
+      "SSH always uses TLS 1.3 when key authentication is enabled",
+      "Password hashes are never stored when keys are used"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-126",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A Windows admin wants per-file or per-folder encryption tied to the user's account on an NTFS volume, without encrypting the whole disk. Which feature is most appropriate?",
+    "choices": [
+      "BitLocker",
+      "EFS (Encrypting File System)",
+      "LUKS",
+      "NTFS compression"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-127",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team wants to detect malicious activity AND automatically drop offending traffic inline. Which technology actively blocks attacks rather than only alerting on them?",
+    "choices": [
+      "IDS",
+      "Honeypot",
+      "IPS",
+      "SIEM"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-128",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A compliance team needs to prevent employees from emailing or uploading sensitive customer records to unauthorized destinations. Which security technology category best fits?",
+    "choices": [
+      "NAC",
+      "SIEM",
+      "HIDS",
+      "DLP (Data Loss Prevention)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-129",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A backup strategy stores three copies of important data on two different media types, with at least one copy off-site. Which best practice is this?",
+    "choices": [
+      "3-2-1 backup rule",
+      "RAID 6 rule",
+      "High-availability triangle",
+      "GFS rotation"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-130",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A backup admin maintains daily, weekly, and monthly retention tiers, where daily backups age into weekly and weekly into monthly. Which rotation scheme is this?",
+    "choices": [
+      "Tower of Hanoi",
+      "Grandfather-Father-Son (GFS)",
+      "First-In-First-Out",
+      "Round-Robin"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-131",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A storage admin enables jumbo frames on a SAN network. Which MTU value is most commonly associated with jumbo frames?",
+    "choices": [
+      "1500 bytes",
+      "1518 bytes",
+      "Approximately 9000 bytes",
+      "65535 bytes"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-132",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server is configured for NIC teaming using LACP. Which switch-side requirement MUST be met for this teaming mode to negotiate correctly?",
+    "choices": [
+      "The switch ports must be in different VLANs",
+      "The switch must disable spanning tree on those ports",
+      "The switch ports must be access ports only",
+      "The partner switch ports must be configured for an LACP (802.3ad) port channel"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-133",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "Users report that they can reach internal resources by IP but not by hostname. Which subsystem should be investigated FIRST?",
+    "choices": [
+      "DNS resolution",
+      "NTP synchronization",
+      "Drive SMART status",
+      "RAID controller health"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-134",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A technician suspects a stale ARP entry is causing intermittent connectivity to a server that recently had its NIC replaced. Which command displays and can clear the local ARP cache on Windows?",
+    "choices": [
+      "netstat -an",
+      "arp -a / arp -d",
+      "route print",
+      "tracert"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-135",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A switch shows CPU utilization spiking to 100% and ALL ports on a VLAN lose connectivity simultaneously, with port utilization saturated with broadcast frames. What is the most likely cause?",
+    "choices": [
+      "DNS poisoning attack",
+      "Failed PSU",
+      "Layer 2 broadcast storm caused by a loop",
+      "Memory leak in the OS"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-136",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows server is taking far longer than normal to boot. Which built-in tool helps identify and disable services or startup tasks contributing to the delay?",
+    "choices": [
+      "Task Manager only",
+      "Disk Cleanup",
+      "Performance Monitor",
+      "msconfig / Task Manager Startup tab / services.msc"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-137",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A service is confirmed to be running and listening on the expected port locally, but remote clients cannot connect. Which configuration should be checked FIRST?",
+    "choices": [
+      "Host- and network-firewall rules for that port",
+      "Disk SMART status",
+      "RAID controller battery",
+      "NTP stratum"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-138",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "An admin sees TLS handshake failures on a web service after a certificate's expiration date passed. What is the correct corrective action?",
+    "choices": [
+      "Disable TLS entirely",
+      "Renew or reissue and install a valid certificate, then restart the service",
+      "Switch the service to plaintext HTTP",
+      "Add the expired certificate to the local trust store"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-139",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A monitoring tool flags time drift on a server's clock, causing Kerberos failures. Which configuration should be verified FIRST?",
+    "choices": [
+      "NIC duplex",
+      "BIOS RTC battery only",
+      "NTP configuration and the reachability of configured time sources",
+      "DNS suffix order"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-140",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A team is asked to determine whether a server's response times have degraded over the past week. Which troubleshooting practice provides the reference data needed to answer this?",
+    "choices": [
+      "Snapshot-based recovery",
+      "Hardening",
+      "Patch management",
+      "Maintaining a documented performance baseline"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-141",
+    "domain": "Server Hardware Installation and Management",
+    "type": "multiple-response",
+    "question": "A data-center designer is selecting server-side Ethernet speeds for a refresh project. Which TWO speeds are most commonly used on modern server NICs and switch fabrics? (Select 2)",
+    "choices": [
+      "25 GbE",
+      "100 Mbps",
+      "100 GbE",
+      "10 Mbps"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-142",
+    "domain": "Security and Disaster Recovery",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are core characteristics of a strong password policy? (Select 2)",
+    "choices": [
+      "Adequate minimum length",
+      "Allowing reuse of the last password",
+      "Complexity that prohibits common dictionary words",
+      "Storing passwords in plaintext for recovery"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-143",
+    "domain": "Troubleshooting",
+    "type": "multiple-response",
+    "question": "Users on one floor cannot resolve internal hostnames, while other floors are unaffected. Which TWO actions are most appropriate next steps for a technician on the affected floor? (Select 2)",
+    "choices": [
+      "Replace the user's monitor",
+      "Verify the affected clients' configured DNS servers via ipconfig /all or systemd-resolve",
+      "Reformat the affected workstations",
+      "Test resolution with nslookup/dig against the configured resolver and a known-good resolver"
+    ],
+    "correctAnswers": [
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-144",
+    "domain": "Server Administration",
+    "type": "matching",
+    "question": "Match each Linux distribution family with its native package manager.",
+    "itemsLeft": [
+      "Ubuntu",
+      "RHEL",
+      "openSUSE",
+      "Alpine"
+    ],
+    "itemsRight": [
+      "zypper",
+      "apt",
+      "dnf",
+      "apk"
+    ],
+    "correctMatches": [
+      1,
+      2,
+      0,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-145",
+    "domain": "Security and Disaster Recovery",
+    "type": "matching",
+    "question": "Match each security control category with a representative example.",
+    "itemsLeft": [
+      "Preventive",
+      "Detective",
+      "Corrective",
+      "Compensating"
+    ],
+    "itemsRight": [
+      "SIEM alert when a failed-login threshold is exceeded",
+      "Restoring data from backup after a ransomware event",
+      "Encryption of sensitive data at rest",
+      "Heightened logging and review when a primary control cannot be fully implemented"
+    ],
+    "correctMatches": [
+      2,
+      0,
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-146",
+    "domain": "Server Administration",
+    "type": "ordering",
+    "question": "Arrange the steps for deploying a new public-facing Linux web server in the correct order.",
+    "items": [
+      "Apply OS patches and update package repositories",
+      "Install the Linux operating system from official media",
+      "Open required firewall ports and harden exposed services",
+      "Install the web server software and configure the site",
+      "Test the site, then place it into production rotation"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      3,
+      2,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-147",
+    "domain": "Troubleshooting",
+    "type": "ordering",
+    "question": "Arrange the troubleshooting steps for a client that cannot resolve DNS in the most logical order.",
+    "items": [
+      "Test against a different known-good resolver to isolate the problem",
+      "Verify the client's IP, mask, gateway, and DNS server settings",
+      "Test resolution with nslookup or dig against the configured resolver",
+      "Escalate to the DNS team if root cause cannot be identified",
+      "If failure is consistent across resolvers, query an authoritative server directly"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0,
+      4,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-148",
+    "domain": "Server Hardware Installation and Management",
+    "type": "statement-block",
+    "question": "Evaluate each statement about server hardware and indicate whether it is True or False.",
+    "statements": [
+      "A 1U rack server is denser per rack unit than a 4U server.",
+      "A hot aisle / cold aisle layout intentionally routes server exhaust air back into the server intakes.",
+      "ECC memory can detect and correct single-bit memory errors at runtime.",
+      "SAS supports dual-port connectivity for redundant data paths between host and drive."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-149",
+    "domain": "Security and Disaster Recovery",
+    "type": "statement-block",
+    "question": "Evaluate each statement about backup strategy and indicate whether it is True or False.",
+    "statements": [
+      "The 3-2-1 backup rule requires that all copies be kept on a single storage tier.",
+      "An air-gapped or immutable backup helps protect against ransomware encrypting backup data.",
+      "Grandfather-Father-Son (GFS) rotation uses daily, weekly, and monthly retention tiers.",
+      "LTO tape is generally unsuitable for long-term archival and offline retention."
+    ],
+    "correctAnswers": [
+      false,
+      true,
+      true,
+      false
+    ]
+  },
+  {
+    "id": "serverplus-150",
+    "domain": "Troubleshooting",
+    "type": "statement-block",
+    "question": "Evaluate each statement about network-related server troubleshooting and indicate whether it is True or False.",
+    "statements": [
+      "Jumbo frames typically use an MTU of around 9000 bytes.",
+      "NIC teaming using LACP requires the partner switch ports to be configured for an LACP (802.3ad) port channel.",
+      "Layer 2 broadcast storms primarily affect routed (Layer 3) traffic and have no effect on switched traffic.",
+      "Establishing a documented performance baseline makes future deviations easier to identify and quantify."
+    ],
+    "correctAnswers": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-151",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A facility loses utility power for several minutes during a storm. Critical servers stay online and shut down cleanly thanks to a device that supplies battery-backed power. Which device is this?",
+    "choices": [
+      "UPS (Uninterruptible Power Supply)",
+      "KVM switch",
+      "PDU",
+      "RAID controller"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-152",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A new bare-metal server is configured to boot from a network image and run an automated OS install. Which boot technology fits this requirement?",
+    "choices": [
+      "Local USB boot",
+      "PXE boot",
+      "Secure Boot only",
+      "Wake-on-LAN"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-153",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A two-socket server runs a workload that suffers latency when threads access memory across socket boundaries. Which architectural concept causes this behavior?",
+    "choices": [
+      "Hyper-threading",
+      "SMT only",
+      "NUMA (Non-Uniform Memory Access)",
+      "TLB shootdown"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-154",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A storage architect needs to present raw block-level LUNs to servers so they appear as locally attached disks. Which storage architecture is this?",
+    "choices": [
+      "NAS",
+      "Object storage",
+      "File share over SMB",
+      "SAN"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-155",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A budget-conscious deployment needs SAN-style block storage using existing Ethernet infrastructure. Which protocol fits this requirement?",
+    "choices": [
+      "iSCSI",
+      "NFS",
+      "SMB",
+      "HTTP"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-156",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A high-performance SAN uses a dedicated lossless fabric with HBAs and switches that operate at 16/32 Gbps speeds. Which storage protocol is this?",
+    "choices": [
+      "iSCSI",
+      "Fiber Channel",
+      "NFS",
+      "FTP"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-157",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A data center wants to consolidate storage and IP traffic onto the same converged Ethernet fabric while still using Fiber Channel framing for block storage. Which protocol enables this?",
+    "choices": [
+      "iSCSI",
+      "NVMe-oF only",
+      "FCoE (Fibre Channel over Ethernet)",
+      "SMB Direct"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-158",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A RAID controller is configured for write-back caching. Which component protects in-flight cached writes against power loss?",
+    "choices": [
+      "TPM module",
+      "UPS only",
+      "Spare RAM DIMM",
+      "Battery-backed cache (BBU) or flash-backed write cache (FBWC)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-159",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A storage admin must choose between write-back and write-through caching on a RAID controller. Which statement best describes write-back caching?",
+    "choices": [
+      "Acknowledges writes once they are in controller cache, improving performance but requiring power-loss protection",
+      "Always writes synchronously to disk before acknowledging",
+      "Disables all caching to maximize data integrity",
+      "Is identical in behavior to write-through caching"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-160",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "In an Active Directory forest, which FSMO role acts as the master time source for the domain and processes legacy password change replication?",
+    "choices": [
+      "RID Master",
+      "PDC Emulator",
+      "Infrastructure Master",
+      "Schema Master"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-161",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "Which Active Directory FSMO role issues blocks of relative identifiers (RIDs) to domain controllers in a single domain?",
+    "choices": [
+      "PDC Emulator",
+      "Schema Master",
+      "RID Master",
+      "Domain Naming Master"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-162",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "Which forest-wide Active Directory FSMO role controls modifications to the AD schema?",
+    "choices": [
+      "RID Master",
+      "Infrastructure Master",
+      "Domain Naming Master",
+      "Schema Master"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-163",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An AD admin follows the AGDLP best practice when assigning resource permissions. Which sequence does AGDLP describe?",
+    "choices": [
+      "Accounts go into Global groups, Globals into Domain Local groups, and Permissions are applied to the Domain Local",
+      "Accounts go directly onto every resource ACL",
+      "Permissions are assigned to individual user accounts, never groups",
+      "Domain Local groups go into Global groups, which go into Universal groups"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-164",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "Two AD forests need users in Forest A to access resources in Forest B without merging the directories. Which AD construct should be configured?",
+    "choices": [
+      "Site link",
+      "Forest trust",
+      "DFS namespace",
+      "GPO replication"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-165",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An AD admin needs to control replication between geographically separated branch offices and to ensure clients authenticate against nearby domain controllers. Which AD construct should be configured?",
+    "choices": [
+      "Universal Group",
+      "Organizational Unit",
+      "AD Sites and Subnets",
+      "Trust relationship"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-166",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Group Policy admin needs computer-side GPO settings to apply based on the user logging in rather than the computer being logged into. Which GPO feature provides this behavior?",
+    "choices": [
+      "Block Inheritance",
+      "Enforced GPO",
+      "Security Filtering",
+      "Loopback Processing (Merge/Replace)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-167",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A server admin must allow remote file transfers that ride over an encrypted SSH connection. Which protocol fits?",
+    "choices": [
+      "SFTP",
+      "FTP",
+      "TFTP",
+      "HTTP"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-168",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A legacy application requires plain unencrypted file transfer. Which TCP port does standard FTP control connections use by default?",
+    "choices": [
+      "20",
+      "21",
+      "22",
+      "23"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-169",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin deploys a role that lets multiple remote users concurrently log into and run sessions on a server, sharing the OS. Which role is this?",
+    "choices": [
+      "File Server",
+      "Hyper-V",
+      "Remote Desktop Services (RDS) / Terminal Services",
+      "DNS Server"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-170",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Hyper-V admin wants to keep a replica of a VM on a second host that is automatically updated on a schedule, ready for failover if the primary host fails. Which feature provides this?",
+    "choices": [
+      "Live Migration",
+      "Storage Migration",
+      "Quick Migration",
+      "Hyper-V Replica"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-171",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin wants centralized management of printer drivers and queues for shared office printers. Which server role provides this?",
+    "choices": [
+      "Print Server",
+      "DHCP Server",
+      "DNS Server",
+      "File Server"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-172",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A Windows admin troubleshoots Active Directory authentication issues. Which authentication protocol is used by AD by default and relies on ticket-granting tickets issued by a KDC?",
+    "choices": [
+      "NTLM",
+      "Kerberos",
+      "CHAP",
+      "PAP"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-173",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An application needs to query and bind to a directory service to authenticate users by reading directory entries over a standardized protocol. Which protocol is most appropriate?",
+    "choices": [
+      "SNMP",
+      "SMB",
+      "LDAP (port 389) or LDAPS (port 636)",
+      "RADIUS"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-174",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A network team wants to centralize authentication, authorization, and accounting for remote VPN and 802.1X wireless users. Which protocol/service is the most common choice?",
+    "choices": [
+      "SNMP",
+      "SMTP",
+      "LDAP only",
+      "RADIUS"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-175",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An organization implements browser-based single sign-on between an internal identity provider and a third-party SaaS application using XML-based authentication assertions. Which protocol is being used?",
+    "choices": [
+      "SAML",
+      "OAuth 2.0",
+      "Kerberos",
+      "RADIUS"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-176",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A developer integrates with an external API that uses a token-based delegation protocol primarily designed to grant resource access on behalf of a user. Which protocol is this?",
+    "choices": [
+      "SAML",
+      "OAuth 2.0",
+      "TLS PSK",
+      "Kerberos"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-177",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A high-security environment requires users to insert a physical token containing a private key and enter a PIN to log into the workstation. Which authentication factor combination is this?",
+    "choices": [
+      "Single-factor \u2014 knowledge only",
+      "Single-factor \u2014 possession only",
+      "Multi-factor authentication \u2014 something you have plus something you know",
+      "Multi-factor \u2014 two something-you-know factors"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-178",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security policy locks accounts after 5 failed logon attempts within 15 minutes. Which security control is this?",
+    "choices": [
+      "Password complexity",
+      "Password aging",
+      "Account expiration",
+      "Account lockout policy"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-179",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security architect divides the network into multiple zones (DMZ, internal services, sensitive data) separated by firewalls so that a breach in one zone cannot directly reach the others. What is this practice called?",
+    "choices": [
+      "Network segmentation",
+      "Implicit allow",
+      "Flat-network design",
+      "Defense by obscurity"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-180",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A storage admin replaces a single failed drive in a 6-drive RAID 5 array. While the array rebuilds, which state best describes the array?",
+    "choices": [
+      "Failed \u2014 data inaccessible until rebuild completes",
+      "Degraded \u2014 operational with reduced fault tolerance",
+      "Optimal \u2014 no impact",
+      "Initializing \u2014 array does not exist yet"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-181",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A 6-drive RAID 5 array loses a second drive while the first failed drive's rebuild is still in progress. What is the most likely outcome?",
+    "choices": [
+      "The array continues to serve data with reduced performance",
+      "Rebuild restarts automatically with no impact",
+      "The array fails and data must be restored from backup",
+      "RAID 5 transparently tolerates two simultaneous drive losses"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-182",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server displays 'Operating System Not Found' immediately after POST. Which item should be checked FIRST?",
+    "choices": [
+      "Domain trust health",
+      "Memory timings",
+      "CPU microcode version",
+      "Boot order in firmware and that the boot disk is enumerated and healthy"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-183",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows admin needs to boot the server with only essential drivers and services to troubleshoot a faulty third-party driver. Which boot option provides this?",
+    "choices": [
+      "Safe Mode",
+      "Hibernation",
+      "Sleep",
+      "Hyper-V boot"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-184",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin needs to boot directly to a minimal root shell to repair a misconfigured fstab. Which boot target/mode provides this?",
+    "choices": [
+      "Multi-user with graphical",
+      "Single-user (rescue/emergency) mode",
+      "Network boot only",
+      "Hibernation"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-185",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux server's kernel panics on boot. The admin needs to temporarily change kernel parameters for a one-time boot. Which bootloader's edit mode is used?",
+    "choices": [
+      "systemd-boot only",
+      "LILO",
+      "GRUB",
+      "NTLDR"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-186",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "Domain-joined Windows clients suddenly fail Kerberos authentication after a DC change. Which configuration mismatch most commonly causes this?",
+    "choices": [
+      "NIC MAC address mismatch",
+      "BIOS revision difference",
+      "NTFS permissions difference",
+      "Time skew greater than the configured tolerance between client and DC"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-187",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A technician plugs a server NIC into a switch but the link LED never illuminates. Which item should be checked FIRST?",
+    "choices": [
+      "Physical layer \u2014 cable, NIC, and switch port health",
+      "Active Directory replication",
+      "DNS suffix order",
+      "Group Policy refresh interval"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-188",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "Two servers on the same VLAN show very slow file transfers between each other while normal-sized pings work fine. Which condition is a common cause?",
+    "choices": [
+      "DNS resolution failure",
+      "MTU mismatch (e.g., jumbo frames on one side, standard MTU on the other)",
+      "Out-of-date BIOS",
+      "Stuck NIC link LED"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-189",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server loses one of two physical paths to its SAN LUN. The OS continues to read and write without interruption. Which technology enables this transparent failover?",
+    "choices": [
+      "Storage replication",
+      "LACP NIC teaming",
+      "Multipath I/O (MPIO)",
+      "RAID 0 striping"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-190",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A VMware admin discovers a production VM has had a snapshot left in place for many weeks and the datastore is now nearly full. What is the correct corrective action?",
+    "choices": [
+      "Disable the datastore",
+      "Reformat the LUN",
+      "Reduce VM RAM",
+      "Consolidate or delete the snapshot to release space, then verify free space"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-191",
+    "domain": "Server Hardware Installation and Management",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are block-level SAN storage protocols? (Select 2)",
+    "choices": [
+      "NFS",
+      "Fiber Channel",
+      "FCoE",
+      "SMB"
+    ],
+    "correctAnswers": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-192",
+    "domain": "Server Administration",
+    "type": "multiple-response",
+    "question": "Which TWO Active Directory FSMO roles are forest-wide (one per forest) rather than per-domain? (Select 2)",
+    "choices": [
+      "Schema Master",
+      "Domain Naming Master",
+      "RID Master",
+      "PDC Emulator"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "id": "serverplus-193",
+    "domain": "Troubleshooting",
+    "type": "multiple-response",
+    "question": "A Windows server fails to boot after a recent update. Which TWO recovery actions are MOST appropriate to try FIRST before more invasive steps? (Select 2)",
+    "choices": [
+      "Boot the server from recovery media or WinRE",
+      "Reformat the system drive immediately",
+      "Use Startup Repair or rebuild the bootloader from WinRE",
+      "Perform a clean OS reinstall and rebuild from scratch"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-194",
+    "domain": "Security and Disaster Recovery",
+    "type": "matching",
+    "question": "Match each authentication or SSO protocol with its defining characteristic.",
+    "itemsLeft": [
+      "Kerberos",
+      "LDAP",
+      "RADIUS",
+      "SAML"
+    ],
+    "itemsRight": [
+      "XML-based assertions enabling web SSO between IdP and SP",
+      "Ticket-based authentication protocol used by Active Directory",
+      "Directory-access protocol typically on TCP 389/636",
+      "Centralized AAA service typically used for VPN and 802.1X"
+    ],
+    "correctMatches": [
+      1,
+      2,
+      3,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-195",
+    "domain": "Server Administration",
+    "type": "matching",
+    "question": "Match each Active Directory FSMO role with its primary responsibility.",
+    "itemsLeft": [
+      "Schema Master",
+      "Domain Naming Master",
+      "RID Master",
+      "PDC Emulator"
+    ],
+    "itemsRight": [
+      "Primary time source and legacy password change replication for a domain",
+      "Issues blocks of relative identifiers (RIDs) to DCs in a single domain",
+      "Forest-wide role that controls modifications to the AD schema",
+      "Forest-wide role managing addition and removal of domains in the forest"
+    ],
+    "correctMatches": [
+      2,
+      3,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-196",
+    "domain": "Server Administration",
+    "type": "ordering",
+    "question": "Arrange the steps for promoting a Windows Server to an Active Directory Domain Controller in the correct order.",
+    "items": [
+      "Install the AD DS server role and management tools",
+      "Verify network connectivity, DNS, and time synchronization",
+      "Promote the server to a Domain Controller using Server Manager / dcpromo",
+      "Verify replication and FSMO role placement after the promotion",
+      "Reboot and confirm the server is functioning as a DC"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2,
+      4,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-197",
+    "domain": "Troubleshooting",
+    "type": "ordering",
+    "question": "Arrange the steps for diagnosing a server that fails to boot in the most logical order.",
+    "items": [
+      "Run startup repair or rebuild the bootloader from recovery media",
+      "Boot into WinRE or a Linux live/recovery environment",
+      "Note the exact error message displayed during the failed boot",
+      "Verify boot order in firmware and confirm the boot disk is detected and healthy",
+      "If failure persists, restore the system from a known-good backup"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      3,
+      0,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-198",
+    "domain": "Server Administration",
+    "type": "statement-block",
+    "question": "Evaluate each statement about Active Directory and indicate whether it is True or False.",
+    "statements": [
+      "Schema Master and Domain Naming Master are forest-wide FSMO roles.",
+      "The PDC Emulator FSMO role is forest-wide and exists only in the root domain.",
+      "AGDLP best practice places accounts into global groups, globals into domain locals, and assigns permissions to the domain local groups.",
+      "Excessive time skew between a client and the domain controller (default tolerance ~5 minutes) breaks Kerberos authentication."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-199",
+    "domain": "Security and Disaster Recovery",
+    "type": "statement-block",
+    "question": "Evaluate each statement about authentication and federation protocols and indicate whether it is True or False.",
+    "statements": [
+      "OAuth 2.0 is primarily an authentication protocol designed to prove a user's identity.",
+      "SAML uses XML assertions to enable web SSO between an identity provider and a service provider.",
+      "RADIUS is commonly used to centralize AAA for VPN and 802.1X wireless authentication.",
+      "A smart card with a PIN is considered multi-factor authentication (something you have + something you know)."
+    ],
+    "correctAnswers": [
+      false,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-200",
+    "domain": "Troubleshooting",
+    "type": "statement-block",
+    "question": "Evaluate each statement about RAID and storage troubleshooting and indicate whether it is True or False.",
+    "statements": [
+      "A RAID 5 array with one failed disk continues to serve data in a degraded state.",
+      "Losing a second disk in a degraded RAID 5 array typically results in catastrophic data loss without intervention.",
+      "An MTU mismatch between two servers on the same VLAN typically has no impact on bulk data transfer performance.",
+      "A stale VM snapshot left in place can grow until it consumes all free space on its datastore."
+    ],
+    "correctAnswers": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-201",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A monitoring system alerts that a server's chassis cooling has degraded. Which indicator is MOST commonly used by servers to signal a failed fan?",
+    "choices": [
+      "A front-panel amber/red status LED and a BMC alert",
+      "A red Active Directory replication icon",
+      "A flashing keyboard CapsLock LED",
+      "A SMART error on the boot SSD"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-202",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "An admin needs to attach a virtual keyboard, video, and mouse session to a server in a remote data center, even before the OS has booted. Which technology provides this?",
+    "choices": [
+      "RDP",
+      "KVM-over-IP through the BMC",
+      "SSH",
+      "VNC over the internet"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-203",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A RAID 5 array is configured with a dedicated standby drive that automatically replaces a failed array member without administrator intervention. What is this standby drive called?",
+    "choices": [
+      "Cold spare",
+      "Warm spare",
+      "Hot spare",
+      "Mirror copy"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-204",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A storage array advertises NVRAM-backed write cache. What does NVRAM provide in this design?",
+    "choices": [
+      "Volatile cache that empties on power loss",
+      "Read-only firmware storage",
+      "Battery-charging capability for the BBU",
+      "Non-volatile memory that retains cached writes across power events"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-205",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A vendor offers a dual-SD-card or M.2 boot module specifically to host the hypervisor on small boot media separate from data drives. What is the primary motivation for this design?",
+    "choices": [
+      "Separates the small hypervisor install from production data disks and provides redundancy for the boot device",
+      "Allows the hypervisor to run from RAM only",
+      "Eliminates the need for power supply redundancy",
+      "Provides storage for VM virtual disks"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-206",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A 2U server is sold with six chassis fans and is rated for N+1 fan redundancy. What does N+1 fan redundancy mean for this design?",
+    "choices": [
+      "All six fans must be functional or the server shuts down",
+      "One fan can fail and the server continues to operate within thermal limits",
+      "The chassis can run with only one fan installed",
+      "Fans are not required when the data center is cold-aisle cooled"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-207",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A server has two redundant power supplies. What is the most appropriate way to wire them for maximum availability?",
+    "choices": [
+      "Both PSUs to the same outlet on the same PDU",
+      "Both PSUs to a single UPS",
+      "Each PSU to a separate PDU served by an independent circuit",
+      "Both PSUs through a single power strip"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-208",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin wants to approve and stage Microsoft updates internally before distributing them to client servers. Which on-prem service provides this?",
+    "choices": [
+      "Group Policy",
+      "SCCM (now MEM)",
+      "Windows Defender",
+      "WSUS (Windows Server Update Services)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-209",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An enterprise needs a single platform to inventory, deploy software, push OS images, and patch a large fleet of Windows endpoints. Which Microsoft product is most commonly used for this?",
+    "choices": [
+      "Microsoft Configuration Manager (MEM / SCCM)",
+      "Notepad",
+      "Windows Sandbox",
+      "Windows Defender Firewall"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-210",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows admin needs to run PowerShell commands remotely against many Windows Servers using the WS-Management protocol. Which Windows feature provides this?",
+    "choices": [
+      "Telnet client",
+      "PowerShell Remoting (WinRM)",
+      "SMB shares",
+      "Remote Desktop"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-211",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin needs to grant a developer the ability to run a specific privileged command without giving full root access. Which mechanism should be used?",
+    "choices": [
+      "chmod 4777 the binary",
+      "Add the user to the wheel group with full root",
+      "Configure a precise rule in /etc/sudoers (or a sudoers.d drop-in)",
+      "Hand out the root password"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-212",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin troubleshoots a service blocked by SELinux. Which command shows whether SELinux is currently enforcing, permissive, or disabled?",
+    "choices": [
+      "uname -r",
+      "cat /etc/passwd",
+      "systemctl status sshd",
+      "getenforce / sestatus"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-213",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An Ubuntu admin needs a kernel-level mandatory-access-control framework that is profile-based and ships enabled by default on Ubuntu. Which framework is this?",
+    "choices": [
+      "AppArmor",
+      "SELinux",
+      "TOMOYO",
+      "Smack only"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-214",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "On a freshly installed Linux server with no GUI, an admin must edit a configuration file. Which editor is available on virtually every standard Linux installation?",
+    "choices": [
+      "Notepad++",
+      "vi / vim",
+      "TextMate",
+      "BBEdit"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-215",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A shell script must declare which interpreter to use on its first line. Which line is the correct shebang for a Bash script?",
+    "choices": [
+      "// !/bin/bash",
+      "; !/bin/bash",
+      "#!/bin/bash",
+      "REM !/bin/bash"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-216",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An automation engineer is writing an Ansible playbook. Which file format does an Ansible playbook use?",
+    "choices": [
+      "JSON",
+      "INI",
+      "XML",
+      "YAML"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-217",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A team places an HAProxy server in front of multiple application backends to spread requests and terminate TLS. Which role is HAProxy filling?",
+    "choices": [
+      "Reverse-proxy load balancer",
+      "Authoritative DNS server",
+      "Time server",
+      "Database server"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-218",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A load balancer is configured with a health check that pulls /health every 5 seconds. What does this health check primarily accomplish?",
+    "choices": [
+      "Encrypts traffic between the LB and the backend",
+      "Removes unhealthy backends from rotation automatically",
+      "Replaces the need for backend logs",
+      "Provides centralized AAA"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-219",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An application stores user sessions in local memory rather than a shared cache. The load balancer must keep a given client connected to the same backend. Which feature provides this?",
+    "choices": [
+      "Round-robin DNS",
+      "Weighted random",
+      "Session affinity (sticky sessions)",
+      "TLS passthrough"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-220",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A load balancer is configured to send new requests to the backend with the fewest active sessions. Which load-balancing algorithm is this?",
+    "choices": [
+      "Round-robin",
+      "Weighted round-robin",
+      "Source IP hash",
+      "Least connections"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-221",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security architect deploys host firewalls, network ACLs, IDS, EDR, and least-privilege ACLs across every server. Which security principle is being applied?",
+    "choices": [
+      "Defense in depth",
+      "Implicit allow",
+      "Security through obscurity",
+      "Single point of trust"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-222",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A finance system requires that the person who initiates a payment cannot also approve it. Which administrative control is being enforced?",
+    "choices": [
+      "Least privilege",
+      "Separation of duties",
+      "Mandatory vacation",
+      "Job rotation"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-223",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An employee receives an email that appears to be from the company CFO requesting an urgent wire transfer to a new vendor. The reply address subtly differs from the real one. Which attack is this?",
+    "choices": [
+      "Vishing",
+      "Smishing",
+      "Phishing (and possibly BEC/whaling)",
+      "Tailgating"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-224",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "Several user workstations begin encrypting files and displaying ransom notes. What should be the FIRST containment action by the response team?",
+    "choices": [
+      "Pay the ransom immediately",
+      "Reformat the affected drives",
+      "Email all users a status update",
+      "Isolate the affected systems from the network to stop lateral spread"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-225",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security awareness program encourages employees to use a vetted password manager. Which is the strongest justification for this practice?",
+    "choices": [
+      "Enables unique, high-complexity passwords per site without users having to memorize them",
+      "Removes the need for multi-factor authentication",
+      "Eliminates the need to ever change passwords",
+      "Makes passwords visible in plaintext on every workstation"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-226",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A regulated industry requires controls over the storage and transmission of patient health information. Which regulation primarily governs this?",
+    "choices": [
+      "PCI DSS",
+      "HIPAA",
+      "SOX",
+      "GDPR only"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-227",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A merchant that stores, processes, or transmits cardholder data must comply with which standard?",
+    "choices": [
+      "HIPAA",
+      "SOX",
+      "PCI DSS",
+      "FERPA"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-228",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security engineer evaluates AES for encrypting data at rest. Which classification correctly describes AES?",
+    "choices": [
+      "Asymmetric key-exchange algorithm",
+      "Hash function",
+      "Stream cipher only",
+      "Symmetric block cipher"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-229",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A storage admin needs to verify that a downloaded firmware image has not been altered in transit. Which cryptographic primitive is best suited for this verification?",
+    "choices": [
+      "SHA-256 cryptographic hash compared to the vendor-published value",
+      "DES with a shared key",
+      "Plain CRC32",
+      "Base64 encoding"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-230",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A remote employee accesses internal corporate servers over an encrypted IPSec tunnel from a hotel network. Which technology category is this?",
+    "choices": [
+      "RADIUS",
+      "VPN (remote-access)",
+      "SIEM",
+      "DLP only"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-231",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A storage admin needs to apply a critical RAID controller firmware update on a production server. What is the BEST practice for performing this update?",
+    "choices": [
+      "Apply during peak business hours to validate against live load",
+      "Skip the firmware update if the array is healthy",
+      "Schedule and apply during an approved maintenance window with current backups",
+      "Hot-swap each drive to force a rolling firmware update"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-232",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A database server's queries have grown progressively slower. Performance counters show high disk queue depth and high latency on the data volume. Which subsystem is the most likely bottleneck?",
+    "choices": [
+      "DNS",
+      "Time synchronization",
+      "Domain controllers",
+      "Storage I/O \u2014 the data volume cannot service the workload's IOPS"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-233",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A virtualization admin observes a VM exhibiting high 'CPU ready' time and very slow response despite light internal CPU usage. What is the most likely root cause?",
+    "choices": [
+      "vCPU oversubscription on the host is starving the VM of scheduler time",
+      "The guest OS has too much RAM allocated",
+      "The VM has too few NICs",
+      "The VM's snapshot file is missing"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-234",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A VMware admin sees the host actively reclaiming memory from a guest VM via the balloon driver. What does heavy memory ballooning typically indicate about the host?",
+    "choices": [
+      "The host has abundant free RAM",
+      "The host is under memory pressure and trying to reclaim from VMs",
+      "The host is over-provisioned with storage",
+      "The guest OS has no swap configured"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-235",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server NIC shows increasing 'rx_dropped' or input drops in its counters while the link is otherwise up. Which condition is a common cause?",
+    "choices": [
+      "BIOS battery failure",
+      "NTP drift",
+      "The host cannot process received frames fast enough (ring buffer or interrupt limits)",
+      "Network cable being too short"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-236",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "Application response times to a cloud-hosted database have suddenly spiked. Round-trip pings show high, variable latency to the cloud region. Which next step is MOST appropriate?",
+    "choices": [
+      "Reformat the application server",
+      "Disable Windows Update on the application server",
+      "Switch the database to read-only mode permanently",
+      "Investigate the network path (ISP/route, MPLS/SD-WAN, cloud transit) for congestion or routing changes"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-237",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A web application's Time-To-First-Byte (TTFB) is consistently high while static asset times are fine. Which layer is the most likely bottleneck?",
+    "choices": [
+      "Server-side processing \u2014 application or database response",
+      "Local browser cache",
+      "Client-side JavaScript bundling",
+      "Image compression on the CDN"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-238",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A VMware VM boots noticeably more slowly than peers on the same host. Which configuration item is a common contributor?",
+    "choices": [
+      "The VM is running an unsupported keyboard layout",
+      "Missing or outdated VMware Tools / paravirt drivers in the guest",
+      "Excessive number of NICs",
+      "Use of UEFI firmware instead of BIOS"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-239",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A datastore is filling up unexpectedly. The admin discovers a critical VM has 12 stacked snapshots from the past month. What is the MOST appropriate action?",
+    "choices": [
+      "Power off the VM permanently",
+      "Reformat the datastore",
+      "Consolidate or remove the snapshots after a verified backup, and tune snapshot retention",
+      "Disable the VM's NICs"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-240",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server with two FC HBAs loses connectivity to its SAN LUN entirely. The OS reports no usable paths. Which subsystem is the most direct candidate for investigation?",
+    "choices": [
+      "NTP drift",
+      "Domain trust state",
+      "BIOS battery",
+      "SAN fabric / zoning / both HBA ports' link state"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-241",
+    "domain": "Security and Disaster Recovery",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are common social-engineering techniques? (Select 2)",
+    "choices": [
+      "Phishing email impersonating a trusted brand",
+      "SQL injection against a public web form",
+      "Pretexting \u2014 fabricating a scenario to extract information",
+      "Cross-site scripting through a malicious URL"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-242",
+    "domain": "Server Administration",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are Linux mandatory access control (MAC) frameworks? (Select 2)",
+    "choices": [
+      "iptables",
+      "SELinux",
+      "AppArmor",
+      "systemd"
+    ],
+    "correctAnswers": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-243",
+    "domain": "Troubleshooting",
+    "type": "multiple-response",
+    "question": "A Linux server is sluggish and unresponsive during nightly batch jobs. Which TWO observations most directly point to a storage I/O bottleneck? (Select 2)",
+    "choices": [
+      "Sustained high iowait reported by top",
+      "Frequent kernel module loads logged via dmesg",
+      "CPU user time near 0% during the slowdown",
+      "Sustained high average disk queue length and high await values reported by iostat"
+    ],
+    "correctAnswers": [
+      0,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-244",
+    "domain": "Security and Disaster Recovery",
+    "type": "matching",
+    "question": "Match each cryptographic primitive with its correct classification.",
+    "itemsLeft": [
+      "AES",
+      "RSA",
+      "SHA-256",
+      "HMAC"
+    ],
+    "itemsRight": [
+      "Message authentication code constructed from a key and a hash function",
+      "Symmetric block cipher used to encrypt data at rest and in transit",
+      "Asymmetric algorithm widely used for digital signatures and key exchange",
+      "One-way cryptographic hash function"
+    ],
+    "correctMatches": [
+      1,
+      2,
+      3,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-245",
+    "domain": "Server Administration",
+    "type": "matching",
+    "question": "Match each management technology with its primary purpose.",
+    "itemsLeft": [
+      "WSUS",
+      "Group Policy",
+      "SCCM / Microsoft Endpoint Manager",
+      "Ansible"
+    ],
+    "itemsRight": [
+      "Agentless configuration management over SSH using YAML playbooks",
+      "Centralized policy enforcement for AD-joined Windows systems",
+      "Enterprise endpoint management \u2014 software deployment, OS imaging, and inventory",
+      "On-prem caching and approval point for Windows Update content"
+    ],
+    "correctMatches": [
+      3,
+      1,
+      2,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-246",
+    "domain": "Security and Disaster Recovery",
+    "type": "ordering",
+    "question": "A ransomware infection has been detected on multiple production servers. Arrange the response actions in the correct order.",
+    "items": [
+      "Eradicate the threat from affected systems",
+      "Isolate affected systems from the network to stop lateral spread",
+      "Identify the scope of the incident and the initial entry vector",
+      "Restore from clean backups and verify data integrity",
+      "Conduct a lessons-learned review and update controls"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0,
+      3,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-247",
+    "domain": "Troubleshooting",
+    "type": "ordering",
+    "question": "Arrange the troubleshooting steps for a slow web application in the most logical order.",
+    "items": [
+      "Check CPU, RAM, and disk utilization on the application server",
+      "Test the application from a different network and location to isolate client-side factors",
+      "Use browser developer tools to measure TTFB and individual asset load times",
+      "Review application and web-server logs for errors and slow requests",
+      "Engage DBAs or downstream service owners if backend latency is implicated"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1,
+      4,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-248",
+    "domain": "Security and Disaster Recovery",
+    "type": "statement-block",
+    "question": "Evaluate each statement about administrative and regulatory controls and indicate whether it is True or False.",
+    "statements": [
+      "Defense in depth uses multiple layered controls so that the failure of any single control does not result in a breach.",
+      "Separation of duties splits a sensitive process across multiple people to reduce fraud and error risk.",
+      "HIPAA primarily regulates the storage and processing of payment card data.",
+      "PCI DSS applies to organizations that store, process, or transmit cardholder data."
+    ],
+    "correctAnswers": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-249",
+    "domain": "Server Administration",
+    "type": "statement-block",
+    "question": "Evaluate each statement about server administration tooling and indicate whether it is True or False.",
+    "statements": [
+      "Load balancer health checks automatically remove unhealthy backends from the active rotation.",
+      "Sticky sessions guarantee identical performance compared to a fully stateless load-balancing model.",
+      "Ansible playbooks are typically written in YAML.",
+      "WSUS allows an administrator to approve which Microsoft updates are deployed to managed Windows servers."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-250",
+    "domain": "Troubleshooting",
+    "type": "statement-block",
+    "question": "Evaluate each statement about virtualization and storage troubleshooting and indicate whether it is True or False.",
+    "statements": [
+      "Heavy memory ballooning by the host is a sign that the host has abundant free physical RAM.",
+      "vCPU oversubscription can lead to high 'CPU ready' time and degraded VM performance.",
+      "Updating RAID controller firmware should generally be performed during an approved maintenance window with current backups.",
+      "Sustained high input drops on a server NIC can indicate the host is unable to keep up with incoming traffic."
+    ],
+    "correctAnswers": [
+      false,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-251",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A blade chassis hosts multiple blade servers that share centralized power, cooling, and shared switch modules for networking and storage. What is the primary advantage of these shared chassis interconnects?",
+    "choices": [
+      "They consolidate cabling and management, reducing per-blade cable count and centralizing fabric configuration",
+      "They make each blade independently reachable without the chassis",
+      "They eliminate the need for an out-of-band management interface",
+      "They prevent blades from sharing chassis power"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-252",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A technician must access a server's firmware menus when both the GUI and out-of-band management are unreachable. Which physical port is the traditional last-resort access path?",
+    "choices": [
+      "DisplayPort",
+      "Serial console (RS-232 / RJ-45 console)",
+      "USB-A",
+      "HDMI"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-253",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A blade enclosure provides centralized management for all blades, power supplies, and shared interconnect modules in the chassis. Which component performs this chassis-level management role?",
+    "choices": [
+      "Per-blade BMC",
+      "Storage HBA",
+      "Chassis Management Controller (CMC)",
+      "Switch supervisor module"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-254",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A new server has just been racked. Which configuration change should the technician make to the BMC/iDRAC/iLO BEFORE production use?",
+    "choices": [
+      "Disable hardware monitoring",
+      "Set BMC IP to DHCP only",
+      "Disable Secure Boot",
+      "Change the default administrator account password and apply firmware updates"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-255",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A media archive workload performs very long sequential reads and writes of multi-GB files. Which drive characteristic is MOST important for this workload?",
+    "choices": [
+      "High sustained sequential throughput in MB/s",
+      "High random 4K IOPS",
+      "Lowest possible cache size",
+      "Smallest physical capacity per drive"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-256",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A new server boots quickly after power loss but loses all of its RAM contents while disk contents remain intact. Which memory characteristic explains this?",
+    "choices": [
+      "SSDs are also volatile",
+      "DRAM is volatile while typical SSDs/HDDs are non-volatile",
+      "HDDs lose contents on power loss while RAM persists",
+      "ECC memory persists across power loss"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-257",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows-centric environment hosts internal mail using a Microsoft product that integrates tightly with Active Directory, Outlook, and MAPI. Which product is this?",
+    "choices": [
+      "Postfix",
+      "Sendmail",
+      "Microsoft Exchange Server",
+      "Dovecot"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-258",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A mail relay must accept outbound email from authenticated clients over an encrypted submission port. Which TCP port is most commonly used for authenticated mail submission?",
+    "choices": [
+      "110",
+      "143",
+      "465 (legacy)",
+      "587"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-259",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A user accesses email from a phone, laptop, and webmail interface and expects identical read/unread state and folders across all devices. Which mailbox protocol BEST supports this?",
+    "choices": [
+      "IMAP (or IMAPS on 993)",
+      "POP3",
+      "SMTP",
+      "NNTP"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-260",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A legacy mail client downloads messages from the server and removes them after retrieval. Which retrieval protocol is being used?",
+    "choices": [
+      "IMAP",
+      "POP3 (or POP3S on 995)",
+      "MAPI",
+      "SMTP"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-261",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A corporate network forces all outbound web traffic through a server that filters URLs and caches responses. Which server role is this?",
+    "choices": [
+      "Reverse proxy",
+      "RADIUS server",
+      "Forward proxy server",
+      "DHCP server"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-262",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "All administrative SSH and RDP sessions to production servers are funneled through a hardened intermediate host that requires MFA, logs sessions, and disallows direct internet access for admins. What is this intermediate host commonly called?",
+    "choices": [
+      "Reverse proxy",
+      "Print server",
+      "Update server",
+      "Jump host (bastion host)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-263",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A company replaces user desktops with thin clients that stream a Windows desktop from data-center servers. Which architecture is this?",
+    "choices": [
+      "VDI (Virtual Desktop Infrastructure)",
+      "Active Directory",
+      "DFS namespace",
+      "RDP printing only"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-264",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An enterprise needs to issue internal TLS certificates to its servers without depending on a public CA. Which Microsoft role provides this?",
+    "choices": [
+      "IIS",
+      "Active Directory Certificate Services (AD CS)",
+      "Routing and Remote Access",
+      "Hyper-V"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-265",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Windows DNS server is configured to send all unknown queries to a specific upstream DNS server rather than performing full recursion from root hints. Which configuration is this?",
+    "choices": [
+      "Zone delegation",
+      "Glue records",
+      "Conditional or 'forwarders'",
+      "Reverse lookup zone"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-266",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A DHCP server is centralized but clients on other subnets cannot reach it directly with broadcasts. Which feature on the router/switch allows clients on remote subnets to obtain a lease?",
+    "choices": [
+      "Static ARP",
+      "Proxy ARP",
+      "Dynamic NAT",
+      "DHCP relay agent (ip helper-address)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-267",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin creates a custom systemd service for an application. Which directory is the standard location for administrator-installed unit files that override package defaults?",
+    "choices": [
+      "/etc/systemd/system/",
+      "/lib/systemd/system/",
+      "/var/log/systemd/",
+      "/proc/systemd/"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-268",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A bash admin needs to append the output of a command to an existing log file without overwriting it. Which redirection operator should be used?",
+    "choices": [
+      ">",
+      ">>",
+      "2>",
+      "<"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-269",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A sysadmin needs to extract and reformat specific columns from a structured log file. Which command is best suited?",
+    "choices": [
+      "grep",
+      "sed only",
+      "awk",
+      "head"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-270",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux cron entry contains the fields '30 2 * * 0 /usr/local/bin/weekly.sh'. When does this job run?",
+    "choices": [
+      "Every minute",
+      "Every weekday at 02:30",
+      "On the 30th of every month",
+      "At 02:30 every Sunday"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-271",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin needs to drop into a full interactive root shell from their normal account. Which command is most appropriate?",
+    "choices": [
+      "sudo -i",
+      "sudo cd",
+      "sudo logout",
+      "sudo bash --login --no-rc"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-272",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team must distinguish between a vulnerability scan and a penetration test. Which statement BEST captures the difference?",
+    "choices": [
+      "A penetration test is automated and a vulnerability scan is manual",
+      "A vulnerability scan inventories known weaknesses; a penetration test attempts to actively exploit them within a defined scope",
+      "Both produce identical output and serve the same purpose",
+      "Only penetration tests require authorization"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-273",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A change-management policy requires that critical patches be validated before being applied to production. Which practice satisfies this requirement?",
+    "choices": [
+      "Applying patches directly to production with rollback only on failure",
+      "Skipping patches whenever staging environments are unavailable",
+      "Applying patches in a staging or test environment that mirrors production",
+      "Letting end users opt-in to patches individually"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-274",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An application needs to retrieve database credentials and API keys at runtime instead of storing them in code or config files in git. Which technology category solves this?",
+    "choices": [
+      "Antivirus",
+      "SIEM",
+      "SAML federation only",
+      "Secrets management (e.g., HashiCorp Vault, AWS Secrets Manager)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-275",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A compliance auditor asks how long the company retains security and access logs. Which document should define this?",
+    "choices": [
+      "A documented log retention policy",
+      "Daily standup meeting notes",
+      "Personal admin notebooks",
+      "Whatever each server is configured to do by default"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-276",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team applies a standardized set of hardening settings to every newly built Linux server using a recognized framework. What is this practice called?",
+    "choices": [
+      "Penetration testing",
+      "Establishing and enforcing a security baseline (e.g., CIS Benchmarks)",
+      "Vulnerability management only",
+      "Ad-hoc tuning"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-277",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "Before signing on a new managed service provider, the security team reviews the vendor's controls, certifications, and breach history. Which practice is this?",
+    "choices": [
+      "Tabletop exercise",
+      "Incident response",
+      "Vendor / third-party risk assessment",
+      "Penetration testing of the vendor"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-278",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A login flow requires a password, a one-time code from an authenticator app, and a fingerprint. Which combination of MFA factor categories is this?",
+    "choices": [
+      "Three 'something you know' factors",
+      "Three 'something you have' factors",
+      "One factor only \u2014 repeated three times",
+      "Something you know, something you have, and something you are"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-279",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team is reviewing modern guidance on password management. Which statement BEST reflects current NIST guidance for end-user passwords?",
+    "choices": [
+      "Do not require periodic rotation unless there is evidence of compromise; favor longer, memorable passphrases",
+      "Force password rotation every 30 days regardless of compromise",
+      "Disable MFA whenever passwords are 16+ characters",
+      "Always require special characters at the cost of length"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-280",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A PKI policy mandates that long-lived cryptographic keys be replaced on a regular schedule. What is this practice called?",
+    "choices": [
+      "Re-issuance only",
+      "Key rotation",
+      "Key escrow",
+      "Hashing"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-281",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "Which team is primarily responsible for monitoring security events, triaging alerts, and coordinating incident response?",
+    "choices": [
+      "Procurement",
+      "Help Desk",
+      "Security Operations Center (SOC)",
+      "Compliance"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-282",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A SIEM correlates a failed VPN auth, followed by a successful login from a different country, followed by a privileged group change, and raises a high-severity alert. What core SIEM capability is being demonstrated?",
+    "choices": [
+      "File integrity monitoring",
+      "Asset inventory",
+      "Patch deployment",
+      "Event correlation across multiple sources"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-283",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A response team walks through a simulated ransomware incident in a conference room \u2014 discussing decisions and roles \u2014 without touching production. What type of exercise is this?",
+    "choices": [
+      "Tabletop exercise",
+      "Live-fire / full-scale drill",
+      "Penetration test",
+      "Compliance audit"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-284",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server is reporting reduced CPU clock frequency under load and the chassis is noticeably warm. Which condition is the most likely cause?",
+    "choices": [
+      "Misconfigured DNS",
+      "Thermal throttling due to inadequate cooling or a failed fan",
+      "Stale ARP cache",
+      "Improper RAID stripe size"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-285",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server fails to complete POST and emits a specific sequence of beeps. Where should the technician look NEXT to interpret this fault?",
+    "choices": [
+      "Domain controller event log",
+      "systemd journal",
+      "The vendor's POST beep-code documentation for that motherboard or BIOS",
+      "RAID controller cache"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-286",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A storage admin sees an FC port repeatedly going up and down on a server's HBA. Which subsystem is the LEAST likely cause and should NOT be the first place to look?",
+    "choices": [
+      "A bad/dirty SFP or fiber patch cord",
+      "HBA driver or firmware issue",
+      "FC switch port misconfiguration or partner port issue",
+      "The server's CPU clock speed"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-287",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A LACP bundle between a server and a switch fails to form, and each member port instead behaves as an independent link. Which configuration mismatch is a common cause?",
+    "choices": [
+      "LACP rate or active/passive mode mismatch between the server and switch",
+      "Mismatched chassis serial numbers",
+      "Disabled BIOS Secure Boot",
+      "Different brand of SFP modules at each end"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-288",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "An IPv6-only Linux server is not autoconfiguring an address via SLAAC. Which condition is the most likely root cause to check FIRST?",
+    "choices": [
+      "IPv4 DHCP scope is exhausted",
+      "The upstream router is not sending IPv6 Router Advertisements on that segment",
+      "The kernel does not support IPv6",
+      "TLS certificates have expired"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-289",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "Users complain that a site-to-site VPN's bulk file transfers run noticeably slower than equivalent unencrypted LAN transfers. Which factors most directly explain this gap?",
+    "choices": [
+      "NTP drift only",
+      "DNS suffix order",
+      "Encryption overhead and reduced effective MTU due to tunnel encapsulation",
+      "Lack of antivirus on the file server"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-290",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux server fails to start critical services after reboot. Investigation reveals that /var is at 100% capacity. What is the MOST appropriate corrective action?",
+    "choices": [
+      "Reformat the entire system",
+      "Disable swap",
+      "Increase RAM",
+      "Free or relocate /var data, then tune log rotation and quotas to prevent recurrence"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-291",
+    "domain": "Server Administration",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are mailbox-retrieval protocols used by email clients to read messages from a mail server? (Select 2)",
+    "choices": [
+      "IMAP",
+      "SMTP",
+      "POP3",
+      "SNMP"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-292",
+    "domain": "Security and Disaster Recovery",
+    "type": "multiple-response",
+    "question": "To qualify as true multi-factor authentication, an authentication flow must use factors from at least TWO different categories. Which TWO of the following pairs satisfy that requirement? (Select 2)",
+    "choices": [
+      "A password and a security question (both 'something you know')",
+      "A password and a one-time code from an authenticator app",
+      "Two different passwords entered in sequence",
+      "A fingerprint scan combined with a smart card"
+    ],
+    "correctAnswers": [
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-293",
+    "domain": "Troubleshooting",
+    "type": "multiple-response",
+    "question": "A server's internal temperature has risen above its normal operating range. Which TWO indicators most strongly suggest thermal stress that warrants immediate investigation? (Select 2)",
+    "choices": [
+      "CPU clock speed has dropped well below its rated frequency",
+      "Increased number of TLS handshakes",
+      "Front-panel temperature warning LED is amber or red",
+      "Increased number of DHCP lease renewals"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-294",
+    "domain": "Server Administration",
+    "type": "matching",
+    "question": "Match each email protocol with its primary role.",
+    "itemsLeft": [
+      "SMTP",
+      "IMAP",
+      "POP3",
+      "MAPI"
+    ],
+    "itemsRight": [
+      "Proprietary Microsoft messaging protocol primarily used by Outlook with Exchange",
+      "Downloads messages from the server to the client and typically removes them",
+      "Synchronizes folder and message state between the server and multiple clients",
+      "Used by mail servers to send and relay messages between servers and from clients to servers"
+    ],
+    "correctMatches": [
+      3,
+      2,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-295",
+    "domain": "Security and Disaster Recovery",
+    "type": "matching",
+    "question": "Match each multi-factor authentication category with a representative example.",
+    "itemsLeft": [
+      "Something you know",
+      "Something you have",
+      "Something you are",
+      "Somewhere you are"
+    ],
+    "itemsRight": [
+      "Geolocation- or trusted-network-based factor",
+      "Password or PIN",
+      "Smart card, hardware security key, or TOTP token",
+      "Fingerprint, face, or other biometric"
+    ],
+    "correctMatches": [
+      1,
+      2,
+      3,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-296",
+    "domain": "Server Administration",
+    "type": "ordering",
+    "question": "Arrange the steps for deploying a new Microsoft Exchange Server in the correct order.",
+    "items": [
+      "Migrate or create user mailboxes",
+      "Plan the namespace, certificates, and storage layout",
+      "Configure connectors, accepted domains, and mail flow",
+      "Install Exchange and accept the EULA",
+      "Test mail flow end-to-end and validate"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      2,
+      0,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-297",
+    "domain": "Troubleshooting",
+    "type": "ordering",
+    "question": "Arrange the troubleshooting steps for an unexpected sustained high-CPU condition on a Linux server in the most logical order.",
+    "items": [
+      "Inspect the top offending processes' threads, file handles, and recent activity",
+      "Identify the top CPU-consuming processes (top, htop, ps)",
+      "Capture a process snapshot for later comparison",
+      "Mitigate by adjusting priority, restarting the service, or scaling resources",
+      "Document findings and add monitoring/alerts for early detection"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0,
+      3,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-298",
+    "domain": "Server Administration",
+    "type": "statement-block",
+    "question": "Evaluate each statement about email protocols and indicate whether it is True or False.",
+    "statements": [
+      "IMAP keeps the authoritative copy of messages on the mail server and synchronizes state across clients.",
+      "POP3 by default synchronizes read/unread state across multiple devices in real time.",
+      "SMTP is the protocol used between mail servers to relay and deliver messages.",
+      "SMTP submission over port 587 with STARTTLS encrypts the message channel between client and server."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-299",
+    "domain": "Security and Disaster Recovery",
+    "type": "statement-block",
+    "question": "Evaluate each statement about security operations and indicate whether it is True or False.",
+    "statements": [
+      "True multi-factor authentication requires the factors to come from different categories (know/have/are).",
+      "A SOC analyst's role typically includes monitoring, triaging, and responding to security alerts.",
+      "Current NIST guidance recommends forcing periodic password rotation for all end-user accounts regardless of compromise.",
+      "Tabletop exercises walk teams through incident scenarios without making production changes."
+    ],
+    "correctAnswers": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-300",
+    "domain": "Troubleshooting",
+    "type": "statement-block",
+    "question": "Evaluate each statement about server hardware and network troubleshooting and indicate whether it is True or False.",
+    "statements": [
+      "Sustained CPU thermal throttling reduces measured clock speed below the rated operating frequency.",
+      "LACP requires both ends of the bundle to negotiate matching parameters before any member link forwards user traffic.",
+      "A 100% full /var partition typically has no effect on a Linux server's ability to boot or write logs.",
+      "VPN encryption overhead and reduced effective MTU can lower throughput compared with unencrypted LAN transfers."
+    ],
+    "correctAnswers": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-301",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A 2U server chassis presents twelve front-accessible drive bays that plug directly into a board behind the bays. What is this board called?",
+    "choices": [
+      "Drive backplane",
+      "Riser card",
+      "RAID controller daughter card",
+      "Midplane bus"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-302",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A technician installs a PCIe x16 GPU into a physical x16 slot that is electrically only x8. What is the most likely performance impact?",
+    "choices": [
+      "No effect; PCIe always negotiates to x16",
+      "Reduced PCIe bandwidth, which may bottleneck very high-throughput workloads",
+      "The slot will refuse to power the card",
+      "Server will fail to POST"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-303",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "An admin compares two M.2 SSDs of the same physical size. One is M.2 SATA, the other is M.2 NVMe. What is the primary difference for typical performance?",
+    "choices": [
+      "M.2 SATA performs better for sequential reads",
+      "Both are identical in performance",
+      "M.2 NVMe uses PCIe lanes and typically delivers substantially higher throughput and IOPS than M.2 SATA",
+      "Both use the SATA protocol with the same theoretical bandwidth"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-304",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A virtualization admin wants a guest VM to access a physical GPU directly with near-native performance, bypassing the hypervisor's virtual GPU layer. Which technology is being used?",
+    "choices": [
+      "NIC teaming",
+      "Storage live migration",
+      "Hyper-V quick check",
+      "PCIe passthrough (VT-d / IOMMU / VFIO)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-305",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "Before flashing new firmware to the BMC/iDRAC/iLO on a production server, what should the admin do FIRST?",
+    "choices": [
+      "Back up the existing firmware and current configuration, and verify a maintenance window with rollback plan",
+      "Disable all network access to the server",
+      "Format the boot drive",
+      "Disable RAID controller cache permanently"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-306",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A drive is being decommissioned and returned to the manufacturer for warranty. Which sanitization method ensures stored data cannot be recovered while preserving the drive's electronics for return?",
+    "choices": [
+      "Quick format only",
+      "ATA Secure Erase or cryptographic erase",
+      "Bending the drive in half",
+      "Renaming all partitions"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-307",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "A SAS-based storage shelf connects 24 drives to a single SAS HBA port. Which component multiplexes those drives onto the HBA link?",
+    "choices": [
+      "NVMe controller",
+      "Fibre Channel director",
+      "SAS expander",
+      "SATA bridge"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-308",
+    "domain": "Server Hardware Installation and Management",
+    "type": "single-choice",
+    "question": "An admin compares internal cable length limits. Which statement is correct about practical SATA versus SAS cabling within a chassis?",
+    "choices": [
+      "SATA supports much longer cable runs than SAS",
+      "SATA and SAS have identical practical cable lengths",
+      "SAS requires fiber for any length",
+      "SAS practical cable lengths are typically longer than internal SATA, and SAS supports longer external runs via dedicated cabling"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-309",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin needs to grow a volume across multiple physical disks and resize logical volumes online. Which native Linux subsystem provides this?",
+    "choices": [
+      "LVM (Logical Volume Manager)",
+      "fdisk",
+      "ext4 only",
+      "ZFS only"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-310",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Linux admin needs to build a software RAID 5 array from individual disks without buying a hardware RAID card. Which utility creates and manages this array?",
+    "choices": [
+      "fdisk",
+      "mdadm",
+      "parted",
+      "lvm"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-311",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "On a Hyper-V host, an admin needs VM-to-VM traffic on the host only \u2014 with NO communication to the host OS and NO physical network connectivity. Which virtual switch type fits?",
+    "choices": [
+      "External",
+      "Internal",
+      "Private",
+      "Distributed"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-312",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A VMware admin wants centralized, vCenter-managed networking configuration spanning many ESXi hosts. Which switch type provides this?",
+    "choices": [
+      "Standard vSwitch (per-host)",
+      "NIC teaming",
+      "Hyper-V Internal switch",
+      "Distributed vSwitch (vDS)"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-313",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A platform team needs an internal store for container images that supports image scanning, RBAC, and replication. Which component is this?",
+    "choices": [
+      "Container registry",
+      "Container runtime",
+      "Kubernetes scheduler",
+      "CNI plugin"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-314",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "A Kubernetes operator needs to install, version, and parameterize complex applications consisting of many manifests. Which tool is most commonly used for this?",
+    "choices": [
+      "kubeadm",
+      "Helm",
+      "kubectl rollout",
+      "kubelet"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-315",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An automation engineer maintains a list of managed hosts and groups for Ansible. Which file or source describes these hosts?",
+    "choices": [
+      "playbook.yml",
+      "roles directory",
+      "Ansible inventory (e.g., /etc/ansible/hosts or a dynamic inventory)",
+      "ansible.cfg"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-316",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An organization compares Ansible and Puppet for configuration management. Which statement BEST describes a primary architectural difference?",
+    "choices": [
+      "Both require an agent installed on every managed node",
+      "Both use INI files for all definitions",
+      "Puppet is push-only and cannot run agentless",
+      "Ansible is typically agentless (push over SSH/WinRM), while Puppet typically uses an agent on each managed node"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-317",
+    "domain": "Server Administration",
+    "type": "single-choice",
+    "question": "An SRE adopts Google's 'four golden signals' for service monitoring. Which set of metrics does this refer to?",
+    "choices": [
+      "Latency, traffic, errors, saturation",
+      "CPU, RAM, disk, network",
+      "Logs, metrics, traces, events",
+      "Uptime, throughput, ping, jitter"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-318",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "An organization labels data sets so each receives the correct level of protection and access controls. Which practice is this?",
+    "choices": [
+      "Tokenization",
+      "Data classification",
+      "Anonymization only",
+      "Hashing"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-319",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A compliance officer needs to know how long different types of records must be kept and when they should be securely destroyed. Which document defines this?",
+    "choices": [
+      "Acceptable use policy",
+      "Incident response plan",
+      "Data retention policy",
+      "Vendor contract"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-320",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "Legal counsel notifies IT that pending litigation requires certain mailboxes and files to be preserved indefinitely, overriding normal retention. What is this instruction called?",
+    "choices": [
+      "Tabletop",
+      "Backup verification",
+      "Audit",
+      "Legal hold"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-321",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A multinational company processes personal data of European Union residents. Which regulation primarily governs this processing?",
+    "choices": [
+      "GDPR",
+      "HIPAA",
+      "SOX",
+      "PCI DSS"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-322",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security analyst compares two IDS approaches. Which statement BEST distinguishes signature-based from anomaly-based detection?",
+    "choices": [
+      "Signature-based detection has no false positives",
+      "Signature-based matches known attack patterns; anomaly-based flags deviations from a learned baseline",
+      "Anomaly-based detection cannot detect novel attacks",
+      "Both methods are identical when feeds are up to date"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-323",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security team formalizes a continuous process of identifying, prioritizing, remediating, and verifying vulnerabilities. What is this commonly called?",
+    "choices": [
+      "Penetration testing",
+      "Tabletop exercise",
+      "Vulnerability management lifecycle",
+      "Change management"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-324",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A vendor security advisory references the unique identifier 'CVE-2024-1234' for a vulnerability. What does the CVE identifier represent?",
+    "choices": [
+      "A vendor-specific patch identifier",
+      "A CVSS severity score",
+      "A vulnerability scanner rule ID",
+      "A standardized public identifier for a publicly disclosed vulnerability"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-325",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A vulnerability report lists a finding with a CVSS v3 base score of 9.8. What is this score conveying?",
+    "choices": [
+      "Severity on a 0.0\u201310.0 scale (9.8 is Critical) considering exploitability and impact",
+      "Number of affected hosts",
+      "CPU usage required to exploit",
+      "Number of days since disclosure"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-326",
+    "domain": "Security and Disaster Recovery",
+    "type": "single-choice",
+    "question": "A security policy categorizes controls into administrative, technical, and physical families. To which family does a written acceptable use policy belong?",
+    "choices": [
+      "Technical",
+      "Administrative",
+      "Physical",
+      "Compensating"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-327",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux admin needs to view kernel-level messages emitted since boot, including driver and hardware events. Which command displays the kernel ring buffer?",
+    "choices": [
+      "systemctl list-units",
+      "top",
+      "dmesg (or journalctl -k)",
+      "ps auxf"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-328",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "After a Linux kernel update, a custom out-of-tree driver fails to load with 'unknown symbol' errors. What is the most likely cause?",
+    "choices": [
+      "The driver is signed with the wrong key only",
+      "The kernel package is corrupted",
+      "Disk space is too low",
+      "The driver module was built against a different kernel version and must be rebuilt for the running kernel"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-329",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows server fails to boot and shows STOP 0x7B (INACCESSIBLE_BOOT_DEVICE). Which root cause should be investigated FIRST?",
+    "choices": [
+      "Storage controller driver, RAID/boot device visibility, or storage hardware change since the last successful boot",
+      "Mouse driver corruption",
+      "Active Directory replication failure",
+      "Time-zone misconfiguration"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-330",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows server crashes intermittently with stop codes pointing at memory management (e.g., 0x1A MEMORY_MANAGEMENT). Which physical-layer test should be performed?",
+    "choices": [
+      "Run a chkdsk pass",
+      "Run an extended memory diagnostic (Windows Memory Diagnostic or MemTest86) against the installed DIMMs",
+      "Update BIOS only",
+      "Replace the power supply"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-331",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A RAID controller is reported as offline after a power event. Which items should be checked FIRST?",
+    "choices": [
+      "DNS resolver configuration",
+      "Hostname and time zone",
+      "Battery / capacitor state, controller firmware version, and slot seating",
+      "RAID stripe size value"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-332",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A VMware host shows an iSCSI datastore as disconnected. Which item is the MOST direct candidate for first investigation?",
+    "choices": [
+      "DNS suffix order on the host",
+      "Group Policy on the host",
+      "BIOS Secure Boot setting",
+      "iSCSI target reachability, portal IPs, and any recent changes to the SAN network or target ACLs"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-333",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "After applying a NIC firmware update, a server loses all network connectivity at boot. Which step should be tried FIRST?",
+    "choices": [
+      "Roll back the NIC firmware/driver using the BMC console or vendor recovery image",
+      "Reformat the OS",
+      "Replace the motherboard",
+      "Disable Secure Boot permanently"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-334",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server in a hot aisle is experiencing intermittent reboots and reduced CPU clock under load. Health logs show high inlet temperature. What is the most direct corrective action?",
+    "choices": [
+      "Disable ECC memory",
+      "Restore proper airflow and address failed/blocked fans or hot aisle containment",
+      "Update the BIOS",
+      "Disable hyper-threading"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-335",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server's NIC repeatedly transitions up/down (port flapping) on the switch side. Which items should be checked FIRST?",
+    "choices": [
+      "AD replication health",
+      "NTP stratum",
+      "Patch cable integrity, SFP cleanliness/seating, and switch port error counters",
+      "BIOS RTC battery"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-336",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server can ping local hosts on its subnet but cannot reach the default gateway. Which item is the MOST direct cause to verify?",
+    "choices": [
+      "NTP configuration",
+      "Windows Update history",
+      "DNS forwarders",
+      "Subnet mask, VLAN/access-port configuration, and ARP entry for the gateway"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-337",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A server feels 'slow' but the admin lacks a specific symptom. Which approach is the MOST appropriate first step in performance troubleshooting?",
+    "choices": [
+      "Identify which subsystem (CPU, memory, disk, or network) is the actual bottleneck before making changes",
+      "Increase RAM immediately",
+      "Reformat and reinstall the OS",
+      "Replace the motherboard"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "id": "serverplus-338",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A backup admin sees nightly jobs failing to complete within the backup window. Which two factors are MOST commonly responsible?",
+    "choices": [
+      "BIOS RTC drift only",
+      "An undersized backup window for the data volume and/or insufficient backup-target storage performance",
+      "Group Policy filtering",
+      "DNS conditional forwarders"
+    ],
+    "correctAnswer": 1
+  },
+  {
+    "id": "serverplus-339",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Linux server's /var fills up repeatedly because log files are not being rotated. Which subsystem should be inspected and tuned to prevent recurrence?",
+    "choices": [
+      "NTP",
+      "Auditd only",
+      "logrotate configuration (and any service-specific rotation, e.g., journald, nginx, application)",
+      "cron only \u2014 there is no log rotation framework"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "id": "serverplus-340",
+    "domain": "Troubleshooting",
+    "type": "single-choice",
+    "question": "A Windows admin needs to capture long-duration performance data including CPU, memory, disk, and network counters for trend analysis. Which built-in tool fits this requirement?",
+    "choices": [
+      "Task Manager",
+      "Event Viewer",
+      "sysinternals procmon only",
+      "Performance Monitor (perfmon) with Data Collector Sets"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "id": "serverplus-341",
+    "domain": "Server Hardware Installation and Management",
+    "type": "multiple-response",
+    "question": "Which TWO of the following are advantages of SAS over SATA for enterprise drive deployments? (Select 2)",
+    "choices": [
+      "Dual-port connectivity for redundant data paths",
+      "Lower cost per terabyte",
+      "Designed for sustained 24x7 enterprise workloads with higher reliability ratings",
+      "Native compatibility with consumer-class controllers"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-342",
+    "domain": "Server Administration",
+    "type": "multiple-response",
+    "question": "Which TWO capabilities are core to a container-orchestration platform such as Kubernetes? (Select 2)",
+    "choices": [
+      "Acts as a relational database engine",
+      "Schedules workloads (pods) across a cluster of nodes",
+      "Hosts an SMTP mail server by default",
+      "Self-heals workloads by restarting or rescheduling failed pods"
+    ],
+    "correctAnswers": [
+      1,
+      3
+    ]
+  },
+  {
+    "id": "serverplus-343",
+    "domain": "Troubleshooting",
+    "type": "multiple-response",
+    "question": "A server is suspected to be overheating. Which TWO observations most strongly support that suspicion? (Select 2)",
+    "choices": [
+      "An amber/red temperature warning on the front-panel status LED",
+      "Increased DNS query latency",
+      "Sustained CPU clock speeds well below the rated frequency under load",
+      "Increased DHCP lease renewals"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ]
+  },
+  {
+    "id": "serverplus-344",
+    "domain": "Server Administration",
+    "type": "matching",
+    "question": "Match each Hyper-V networking construct with its primary behavior.",
+    "itemsLeft": [
+      "External vSwitch",
+      "Internal vSwitch",
+      "Private vSwitch",
+      "NIC Teaming"
+    ],
+    "itemsRight": [
+      "Bonds multiple physical NICs for redundancy and/or aggregated bandwidth",
+      "Connects VMs to the host operating system but not to any physical NIC",
+      "Bridges VMs to the physical network through a host's physical NIC",
+      "VM-to-VM communication only on the same host; no host or physical NIC connectivity"
+    ],
+    "correctMatches": [
+      2,
+      1,
+      3,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-345",
+    "domain": "Security and Disaster Recovery",
+    "type": "matching",
+    "question": "Match each data classification level with a representative example.",
+    "itemsLeft": [
+      "Public",
+      "Internal",
+      "Confidential",
+      "Restricted"
+    ],
+    "itemsRight": [
+      "Highly sensitive \u2014 unauthorized exposure would cause severe harm",
+      "Important business information with limited distribution within the company",
+      "Marketing material, public website content, press releases",
+      "Sensitive non-public information intended only for employees"
+    ],
+    "correctMatches": [
+      2,
+      3,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "serverplus-346",
+    "domain": "Security and Disaster Recovery",
+    "type": "ordering",
+    "question": "Arrange the steps of a vulnerability-management lifecycle in the correct order.",
+    "items": [
+      "Apply remediation or compensating controls",
+      "Prioritize findings based on CVSS, asset value, and exposure",
+      "Discover and inventory assets and known vulnerabilities",
+      "Verify successful remediation through rescans",
+      "Continuously monitor and repeat the cycle"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0,
+      3,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-347",
+    "domain": "Troubleshooting",
+    "type": "ordering",
+    "question": "After a NIC firmware update, a remote server has lost all network connectivity. Arrange the recovery steps in the most logical order.",
+    "items": [
+      "Verify in the OS that the NIC is enumerated (Device Manager / ip link)",
+      "Access the server through the BMC out-of-band console",
+      "Roll back the offending NIC firmware/driver using a recovery image",
+      "Reboot the server cleanly into the operating system",
+      "Document the change and review vendor compatibility for the future"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2,
+      4
+    ]
+  },
+  {
+    "id": "serverplus-348",
+    "domain": "Server Administration",
+    "type": "statement-block",
+    "question": "Evaluate each statement about Linux storage and orchestration tooling and indicate whether it is True or False.",
+    "statements": [
+      "LVM can grow a logical volume across multiple physical disks and resize file systems online.",
+      "A Hyper-V 'Internal' virtual switch connects VMs to the physical network through a host NIC.",
+      "Helm is a package manager for Kubernetes applications.",
+      "Google's four golden signals of service monitoring are latency, traffic, errors, and saturation."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-349",
+    "domain": "Security and Disaster Recovery",
+    "type": "statement-block",
+    "question": "Evaluate each statement about vulnerability management and regulation and indicate whether it is True or False.",
+    "statements": [
+      "GDPR applies to organizations that process personal data of EU data subjects, regardless of where the organization is based.",
+      "CVSS scores range from 0.0 to 10.0 and represent vulnerability severity.",
+      "A CVE identifier includes the vendor-supplied remediation patch for that vulnerability.",
+      "Anomaly-based detection can flag previously unseen attacks more readily than purely signature-based detection."
+    ],
+    "correctAnswers": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  {
+    "id": "serverplus-350",
+    "domain": "Troubleshooting",
+    "type": "statement-block",
+    "question": "Evaluate each statement about hardware and OS troubleshooting and indicate whether it is True or False.",
+    "statements": [
+      "A failed chassis fan in a server has no impact on CPU clock speed under load.",
+      "The Windows STOP code 0x7B (INACCESSIBLE_BOOT_DEVICE) typically indicates storage controller or boot device issues.",
+      "Linux 'dmesg' or 'journalctl -k' surfaces kernel ring-buffer messages useful for diagnosing hardware and driver issues.",
+      "Identifying the actual bottleneck subsystem (CPU, RAM, disk, or network) is a critical step before tuning a slow server."
+    ],
+    "correctAnswers": [
+      false,
+      true,
+      true,
+      true
+    ]
+  }
+]

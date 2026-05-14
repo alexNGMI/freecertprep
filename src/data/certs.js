@@ -183,6 +183,33 @@ const certs = {
       'Security Program Management and Oversight': { dot: 'bg-[#f39c12]', bar: 'bg-[#f39c12]', text: 'text-[#f39c12]', hex: '#f39c12' },
     },
   },
+  'comptia-server-plus': {
+    id: 'comptia-server-plus',
+    title: 'CompTIA Server+',
+    code: 'SK0-005',
+    provider: 'CompTIA',
+    description: 'Validates server hardware and software technologies, including virtualization, storage, and server administration for data center roles.',
+    difficulty: 'Foundational',
+    color: '#c8202f',
+    questionCount: 350,
+    examQuestions: 90,
+    examTime: 90,
+    passingScore: 83,
+    published: false,
+    loadQuestions: () => import('./comptia-server-plus-questions.json'),
+    domains: [
+      { name: 'Server Hardware Installation and Management', weight: 18 },
+      { name: 'Server Administration', weight: 30 },
+      { name: 'Security and Disaster Recovery', weight: 24 },
+      { name: 'Troubleshooting', weight: 28 },
+    ],
+    domainColors: {
+      'Server Hardware Installation and Management': { dot: 'bg-[#c8202f]', bar: 'bg-[#c8202f]', text: 'text-[#c8202f]', hex: '#c8202f' },
+      'Server Administration': { dot: 'bg-[#e74c3c]', bar: 'bg-[#e74c3c]', text: 'text-[#e74c3c]', hex: '#e74c3c' },
+      'Security and Disaster Recovery': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
+      'Troubleshooting': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
+    },
+  },
 }
 
 export function getCert(certId) {
