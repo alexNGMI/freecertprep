@@ -265,34 +265,6 @@ export default function RealEstate() {
           </div>
         </section>
 
-        {/* Why a sister site */}
-        <section className="max-w-4xl mx-auto px-6 py-24">
-          <div className="relative overflow-hidden bg-gradient-to-br from-rose-600 to-rose-700 rounded-3xl p-10 md:p-16 text-white">
-            <p className="text-[11px] font-bold uppercase tracking-widest mb-3 text-rose-200">Why a sister site?</p>
-            <h2 className="text-3xl md:text-4xl font-black mb-5 tracking-tight">
-              Different audience. Same playbook.
-            </h2>
-            <p className="text-lg text-rose-50 leading-relaxed mb-5">
-              freecertprep helps the next generation of IT professionals pass
-              cloud, AI, networking, and security certifications. Real estate
-              licensing serves a completely different audience on a completely
-              different career path — but the underlying problem is identical:
-              high-quality prep is locked behind expensive subscriptions, and
-              the people who need it most can&apos;t afford them.
-            </p>
-            <p className="text-lg text-rose-50 leading-relaxed">
-              So we&apos;re building a separate site, with a different design
-              and brand, for that audience — using the same Smart Practice and
-              free-forever model that worked the first time.
-            </p>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 mt-9 px-5 py-3 rounded-xl bg-white text-rose-700 font-bold text-sm hover:bg-rose-50 transition-colors"
-            >
-              See the sister site <span aria-hidden>→</span>
-            </Link>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
