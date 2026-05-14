@@ -7,15 +7,19 @@ import { useState } from 'react'
 // warm red accent (#dc2626 family), bold serif-adjacent display type,
 // pill search/CTA, and card-based state tiles.
 
-const STATES = [
-  { code: 'CA', name: 'California',     blurb: 'Salesperson + broker' },
-  { code: 'TX', name: 'Texas',          blurb: 'Salesperson + broker' },
-  { code: 'FL', name: 'Florida',        blurb: 'Sales associate + broker' },
-  { code: 'NY', name: 'New York',       blurb: 'Salesperson + broker' },
-  { code: 'AZ', name: 'Arizona',        blurb: 'Salesperson + broker' },
-  { code: 'GA', name: 'Georgia',        blurb: 'Salesperson + broker' },
-  { code: 'WA', name: 'Washington',     blurb: 'Broker (salesperson tier retired)' },
-  { code: 'NC', name: 'North Carolina', blurb: 'Provisional broker + broker' },
+// State-specific modules that will layer on top of the national bank.
+// The launch product is national prep — these are the next wave. Order
+// matters here: TX/FL ship first because TX has a notoriously hard state
+// portion and FL has the highest candidate volume; GA/NC/CO follow.
+// CA (single integrated exam) and NY (state-law-heavy throughout) need
+// their own long-form builds and are intentionally NOT in this grid.
+// CA/NY visitors can still register interest via the US_STATES dropdown.
+const STATE_MODULES = [
+  { code: 'TX', name: 'Texas',          blurb: 'Notoriously hard state portion', badge: 'Up next' },
+  { code: 'FL', name: 'Florida',        blurb: 'Sales associate + broker',       badge: 'Up next' },
+  { code: 'GA', name: 'Georgia',        blurb: 'Salesperson + broker',           badge: 'Planned' },
+  { code: 'NC', name: 'North Carolina', blurb: 'Provisional broker + broker',    badge: 'Planned' },
+  { code: 'CO', name: 'Colorado',       blurb: 'Broker (two-tier)',              badge: 'Planned' },
 ]
 
 // All 50 states + DC for the notify-me state selector. The launched-soon
@@ -39,9 +43,9 @@ const US_STATES = [
 
 const FEATURES = [
   {
-    title: 'State-specific question banks',
-    desc: 'Salesperson and broker exams have a national portion AND a state-specific portion. Both are covered, separately, for every state we support.',
-    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+    title: 'Built around the national portion',
+    desc: "The national/uniform portion is the same in ~48 states — and it's roughly half of your exam. We drill it deep at launch so you walk in already halfway prepared, regardless of where you sit. State modules add the local law layer as we ship them.",
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
   },
   {
     title: 'Smart practice that adapts',
@@ -123,9 +127,9 @@ export default function RealEstate() {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12">
-              Free, state-specific salesperson and broker exam prep — built the
-              same way we helped career changers pass cloud, networking, and
-              security certifications on our sister site.
+              Free national real estate exam prep — the portable half of every
+              state&apos;s exam, drilled deep. State-specific modules layer on
+              top as we roll them out.
             </p>
 
             {/* Notify-me bar styled to evoke Zillow/Redfin search: email +
@@ -199,22 +203,26 @@ export default function RealEstate() {
           </div>
         </section>
 
-        {/* States */}
+        {/* States — framed as 'state modules that ship after the national bank',
+            not as 'these states ship at launch'. National prep IS the product. */}
         <section id="states" className="max-w-6xl mx-auto px-6 py-24">
           <div className="text-center mb-14">
-            <p className="text-[11px] font-bold text-rose-600 uppercase tracking-widest mb-3">Launching markets</p>
+            <p className="text-[11px] font-bold text-rose-600 uppercase tracking-widest mb-3">State modules</p>
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">
-              Starting with the busiest markets
+              Your state, layered on top.
             </h2>
             <p className="text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              State requirements vary — so the prep does too. Each state gets
-              its own question bank built to its real-estate licensing exam
-              blueprint, salesperson and broker tiers.
+              The national portion is the same coast to coast — property
+              ownership, agency, contracts, financing, appraisal, transfer,
+              disclosures, fair housing, math, practice of real estate. We
+              drill it deep at launch. Your state-specific module is the
+              second layer, covering local law and commission rules.
+              Here&apos;s what&apos;s coming after national ships.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {STATES.map((s) => (
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {STATE_MODULES.map((s) => (
               <article
                 key={s.code}
                 className="group relative bg-white border border-slate-200 rounded-2xl p-6 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-100/50 transition-all"
@@ -222,7 +230,7 @@ export default function RealEstate() {
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-3xl font-black tracking-tight text-slate-900">{s.code}</span>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-rose-600 transition-colors">
-                    Soon
+                    {s.badge}
                   </span>
                 </div>
                 <p className="text-lg font-bold text-slate-900 mb-1">{s.name}</p>
@@ -232,10 +240,9 @@ export default function RealEstate() {
           </div>
 
           <p className="text-center text-sm text-slate-500 mt-10">
-            More states will roll out after launch. Don&apos;t see yours?{' '}
-            <a href="#hero" className="text-rose-600 font-semibold hover:underline">
-              Get on the list and tell us where to go next.
-            </a>
+            Don&apos;t see your state? Pick it in the form above — your state
+            tells us where to prioritize next, including CA, NY, and others
+            not listed here.
           </p>
         </section>
 
