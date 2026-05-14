@@ -191,7 +191,7 @@ const certs = {
     description: 'Validates server hardware and software technologies, including virtualization, storage, and server administration for data center roles.',
     difficulty: 'Foundational',
     color: '#c8202f',
-    questionCount: 350,
+    questionCount: 750,
     examQuestions: 90,
     examTime: 90,
     passingScore: 83,
