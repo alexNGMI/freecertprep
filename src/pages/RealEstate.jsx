@@ -18,6 +18,25 @@ const STATES = [
   { code: 'NC', name: 'North Carolina', blurb: 'Provisional broker + broker' },
 ]
 
+// All 50 states + DC for the notify-me state selector. The launched-soon
+// set above is for the visual market grid; this list lets early sign-ups
+// register intent for ANY state so we can prioritize the wait-list signal.
+const US_STATES = [
+  ['AL','Alabama'], ['AK','Alaska'], ['AZ','Arizona'], ['AR','Arkansas'],
+  ['CA','California'], ['CO','Colorado'], ['CT','Connecticut'], ['DE','Delaware'],
+  ['DC','District of Columbia'], ['FL','Florida'], ['GA','Georgia'], ['HI','Hawaii'],
+  ['ID','Idaho'], ['IL','Illinois'], ['IN','Indiana'], ['IA','Iowa'],
+  ['KS','Kansas'], ['KY','Kentucky'], ['LA','Louisiana'], ['ME','Maine'],
+  ['MD','Maryland'], ['MA','Massachusetts'], ['MI','Michigan'], ['MN','Minnesota'],
+  ['MS','Mississippi'], ['MO','Missouri'], ['MT','Montana'], ['NE','Nebraska'],
+  ['NV','Nevada'], ['NH','New Hampshire'], ['NJ','New Jersey'], ['NM','New Mexico'],
+  ['NY','New York'], ['NC','North Carolina'], ['ND','North Dakota'], ['OH','Ohio'],
+  ['OK','Oklahoma'], ['OR','Oregon'], ['PA','Pennsylvania'], ['RI','Rhode Island'],
+  ['SC','South Carolina'], ['SD','South Dakota'], ['TN','Tennessee'], ['TX','Texas'],
+  ['UT','Utah'], ['VT','Vermont'], ['VA','Virginia'], ['WA','Washington'],
+  ['WV','West Virginia'], ['WI','Wisconsin'], ['WY','Wyoming'],
+]
+
 const FEATURES = [
   {
     title: 'State-specific question banks',
@@ -38,14 +57,19 @@ const FEATURES = [
 
 export default function RealEstate() {
   const [email, setEmail] = useState('')
+  const [stateCode, setStateCode] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
     // No backend yet — this just acknowledges intent client-side.
-    // When we wire a real mailing list, swap this for a fetch().
-    if (email.trim()) setSubmitted(true)
+    // When we wire a real mailing list, swap this for a fetch() that
+    // posts { email, state: stateCode } to whatever endpoint we use.
+    if (email.trim() && stateCode) setSubmitted(true)
   }
+
+  // Pretty-print the chosen state for the success message.
+  const stateName = US_STATES.find(([c]) => c === stateCode)?.[1] ?? ''
 
   return (
     <div className="min-h-screen bg-white text-slate-900 antialiased">
@@ -104,12 +128,15 @@ export default function RealEstate() {
               security certifications on our sister site.
             </p>
 
-            {/* Notify-me bar styled to evoke Zillow/Redfin search */}
+            {/* Notify-me bar styled to evoke Zillow/Redfin search: email +
+                state of licensure + CTA. On mobile the three controls stack;
+                on desktop they sit in one row with subtle dividers. */}
             <form
               onSubmit={handleSubmit}
-              className="max-w-xl mx-auto flex flex-col sm:flex-row gap-3 items-stretch bg-white rounded-2xl shadow-xl shadow-rose-200/40 p-2 border border-slate-200"
+              className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-3 sm:gap-0 items-stretch bg-white rounded-2xl shadow-xl shadow-rose-200/40 p-2 border border-slate-200"
             >
-              <div className="flex-1 flex items-center gap-3 px-4">
+              {/* Email */}
+              <div className="flex-[1.4] flex items-center gap-3 px-4 sm:border-r sm:border-slate-200">
                 <svg className="w-5 h-5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                 </svg>
@@ -124,16 +151,50 @@ export default function RealEstate() {
                   disabled={submitted}
                 />
               </div>
+
+              {/* State of licensure */}
+              <div className="flex-1 flex items-center gap-3 px-4">
+                <svg className="w-5 h-5 text-slate-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <select
+                  required
+                  aria-label="State you plan to be licensed in"
+                  value={stateCode}
+                  onChange={(e) => setStateCode(e.target.value)}
+                  disabled={submitted}
+                  className={`flex-1 w-full py-3 pr-2 bg-transparent text-base focus:outline-none appearance-none cursor-pointer ${
+                    stateCode ? 'text-slate-900' : 'text-slate-400'
+                  } disabled:cursor-default`}
+                >
+                  <option value="" disabled>Your state</option>
+                  {US_STATES.map(([code, name]) => (
+                    <option key={code} value={code} className="text-slate-900">
+                      {name}
+                    </option>
+                  ))}
+                </select>
+                <svg className="w-4 h-4 text-slate-400 shrink-0 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
+              {/* Submit */}
               <button
                 type="submit"
                 disabled={submitted}
                 className="w-full sm:w-auto px-6 py-3 rounded-xl bg-rose-600 text-white font-bold text-sm uppercase tracking-wider hover:bg-rose-700 transition-colors disabled:bg-emerald-600 disabled:cursor-default"
               >
-                {submitted ? '✓ You\'re on the list' : 'Notify me'}
+                {submitted ? '✓ On the list' : 'Notify me'}
               </button>
             </form>
             <p className="text-xs text-slate-500 mt-4">
-              Pre-launch list only. No spam, ever. Unsubscribe anytime.
+              {submitted && stateName ? (
+                <>We&apos;ll email you the moment <span className="font-semibold text-slate-700">{stateName}</span> is ready. No spam — unsubscribe anytime.</>
+              ) : (
+                <>Pre-launch list only. We&apos;ll use your state to prioritize launch markets. No spam, ever.</>
+              )}
             </p>
           </div>
         </section>
