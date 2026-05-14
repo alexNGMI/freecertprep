@@ -10,6 +10,8 @@ const Quiz = lazy(() => import('./pages/Quiz'))
 const Drill = lazy(() => import('./pages/Drill'))
 const Exam = lazy(() => import('./pages/Exam'))
 const Results = lazy(() => import('./pages/Results'))
+// Sister-site landing page — distinct light theme, no shared layout.
+const RealEstate = lazy(() => import('./pages/RealEstate'))
 
 function PageLoader() {
   return (
@@ -33,6 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/docs" element={<Docs />} />
+        <Route path="/real-estate" element={<RealEstate />} />
         <Route path="/:certId" element={<CertRoutes />}>
           <Route index element={<Dashboard />} />
           <Route path="quiz" element={<Quiz />} />
