@@ -217,7 +217,7 @@ const certs = {
     description: 'The portable national / uniform portion of the US real estate salesperson licensing exam — tested in ~48 states. Domains follow the post-October-2023 PSI content outline.',
     difficulty: 'Foundational',
     color: '#dc2626',
-    questionCount: 350,
+    questionCount: 750,
     examQuestions: 80,
     examTime: 120,
     passingScore: 75,
