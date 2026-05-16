@@ -475,7 +475,7 @@ key = random() ** (1 / weight)
                 ['Framework', 'React 19', 'Concurrent features, stable hooks model'],
                 ['Build', 'Vite', 'Fast HMR, native ESM, minimal config'],
                 ['Styling', 'Tailwind CSS v4', 'Utility-first, no CSS bundle bloat'],
-                ['Routing', 'React Router v6', 'File-based nested routes, lazy loading'],
+                ['Routing', 'React Router v7', 'Nested routes, lazy loading'],
                 ['Testing', 'Vitest', 'Native ESM, co-located with Vite'],
                 ['Storage', 'localStorage', 'Zero backend, instant reads, portable'],
                 ['Deployment', 'Vercel', 'Git-connected, global CDN, free tier'],
@@ -500,15 +500,20 @@ key = random() ** (1 / weight)
 │   ├── QuestionCard.jsx  — Renders all 5 question types (dark IT theme)
 │   ├── REQuestionCard.jsx — Light single-choice card for the sister site
 │   ├── CertLayout.jsx    — Nav, header, footer for cert pages
+│   ├── ErrorBoundary.jsx — Root crash fallback (no blank page)
 │   └── BrandedName.jsx   — Logo with cert-color accent
 ├── hooks/
 │   ├── useCert.jsx       — Cert context + lazy question loading
 │   ├── useProgress.js    — Session history, domain stats
 │   ├── useBookmarks.js   — Star/unstar, per-cert localStorage
+│   ├── useDocumentMeta.js — Per-route title / OG / canonical
 │   └── useQuestionStats.js — Smart Practice tracking + weighted pool
 ├── utils/
 │   ├── shuffle.js        — Fisher-Yates + weighted reservoir sampling
 │   ├── exam-selection.js — Largest-remainder domain allocation
+│   ├── smart-practice.js — Per-question weight formula
+│   ├── progress-stats.js — Domain / overall rollups
+│   ├── markdown.js       — Minimal explanation tokenizer
 │   └── scoring.js        — isAnswerCorrect for all 5 question types
 └── data/
     ├── certs.js          — Cert config: domains, weights, colors, exam specs
@@ -541,6 +546,14 @@ key = random() ** (1 / weight)
               {
                 title: 'The sister site reuses the engine, not the UI',
                 body: 'The Real Estate study app lives under /real-estate/study with its own light-themed pages (REDashboard, REQuiz, REDrill, REExam, REResults) and a single-choice REQuestionCard. It imports the exact same useProgress, useQuestionStats, useBookmarks, scoring, shuffle, and exam-selection modules — the cert engine is theme-agnostic and keyed by certId, so CertProvider just takes an explicit certId prop instead of reading it from the URL. New audiences get a different visual language with zero logic forks.',
+              },
+              {
+                title: 'Content integrity is enforced, not assumed',
+                body: 'With thousands of questions across many certs, a missing explanation or an out-of-range answer index is invisible until a learner hits it. The content-sanity suite asserts — for every question in every cert — unique ids, valid domains/types, in-range answer indices, and non-empty question, choice, and explanation text. It runs in GitHub Actions CI alongside lint and a production build on every push and pull request, so bad content fails the build instead of shipping silently. (This check caught and forced the backfill of 1,198 questions that had no explanation.)',
+              },
+              {
+                title: 'Resilience and discoverability are first-class',
+                body: 'A root error boundary keeps a thrown render error from blanking the whole app, and a failed question-bank import surfaces a real retry message instead of an infinite spinner. Because the app is a client-rendered SPA, a small useDocumentMeta hook sets per-route title, description, Open Graph, and canonical tags so each cert and the sister site are correctly represented when shared or indexed — no SSR framework required.',
               },
             ].map(({ title, body }) => (
               <div key={title} className="border-l-2 border-zinc-700 pl-5 py-1 space-y-1">
