@@ -4565,7 +4565,8 @@
       "PTR",
       "AAAA"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A PTR (pointer) record maps an IP address back to a hostname, which is exactly what a reverse DNS lookup does \u2014 the inverse of an A/AAAA record. CNAME aliases one hostname to another, MX designates the mail servers for a domain, and AAAA maps a hostname to an IPv6 address."
   },
   {
     "id": "netplus-302",
@@ -4578,7 +4579,8 @@
       "SOA",
       "PTR"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "MX (Mail Exchanger) records identify the mail servers responsible for accepting email for a domain, each with a preference value for failover order. CNAME is an alias, SOA holds zone authority data, and PTR is used for reverse DNS."
   },
   {
     "id": "netplus-303",
@@ -4591,7 +4593,8 @@
       "CNAME",
       "PTR"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "An AAAA (quad-A) record maps a hostname to a 128-bit IPv6 address. An A record does the same for IPv4, CNAME is an alias to another name, and PTR is the reverse (IP-to-name) record."
   },
   {
     "id": "netplus-304",
@@ -4604,7 +4607,8 @@
       "CNAME",
       "SOA"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "The Start of Authority (SOA) record defines authoritative parameters for a zone: the primary name server, responsible mailbox, serial number, and the refresh/retry/expire/minimum timers. NS lists the zone's name servers but does not carry the serial number."
   },
   {
     "id": "netplus-305",
@@ -4617,7 +4621,8 @@
       "Option 43",
       "Option 82"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "DHCP Option 43 carries vendor-specific information, commonly used to push controller addresses or configuration strings to IP phones and wireless APs. Option 3 is default gateway, Option 6 is DNS, and Option 82 is relay agent information."
   },
   {
     "id": "netplus-306",
@@ -4630,7 +4635,8 @@
       "Option 15",
       "Option 3"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "DHCP Option 82 is the Relay Agent Information option; the relay inserts Circuit ID and Remote ID sub-options so the server can identify the originating port/device. Option 43 is vendor-specific, Option 15 is domain name, and Option 3 is the gateway."
   },
   {
     "id": "netplus-307",
@@ -4643,7 +4649,8 @@
       "254",
       "62"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A /25 leaves 7 host bits, so each subnet has 2^7 - 2 = 126 usable addresses (subtracting the network and broadcast addresses). Splitting a /24 into /25s yields two subnets of 126 hosts each."
   },
   {
     "id": "netplus-308",
@@ -4656,7 +4663,8 @@
       "465",
       "25"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "SMTP uses well-known TCP port 25 for transferring mail between servers. Port 110 is POP3, 143 is IMAP, and 465 is the implicit-TLS submission port (SMTPS)."
   },
   {
     "id": "netplus-309",
@@ -4669,7 +4677,8 @@
       "Echo Reply",
       "Destination Unreachable"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "ICMP Type 0 is Echo Reply, returned in response to a Type 8 Echo Request (ping). Time Exceeded is Type 11 and Destination Unreachable is Type 3."
   },
   {
     "id": "netplus-310",
@@ -4682,7 +4691,8 @@
       "TCP has lower overhead than UDP",
       "UDP uses sequence numbers to reorder packets"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "TCP is connection-oriented: it completes a three-way handshake (SYN, SYN-ACK, ACK) before sending data and provides sequencing and acknowledgments. UDP is connectionless with lower overhead and no guaranteed delivery or reordering."
   },
   {
     "id": "netplus-311",
@@ -4695,7 +4705,8 @@
       "169.254.0.0/16",
       "240.0.0.0/4"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The IPv4 multicast block is 224.0.0.0 through 239.255.255.255, written as 224.0.0.0/4 (the old Class D). 192.168.0.0/16 is private, 169.254.0.0/16 is APIPA link-local, and 240.0.0.0/4 is reserved (Class E)."
   },
   {
     "id": "netplus-312",
@@ -4708,7 +4719,8 @@
       "MED",
       "AS-Path"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "BGP's AS-Path attribute lists every autonomous system a route has traversed. A router rejects any route whose AS-Path already contains its own ASN, which prevents inter-AS routing loops. Local Preference, Weight, and MED affect path selection, not loop prevention."
   },
   {
     "id": "netplus-313",
@@ -4721,7 +4733,8 @@
       "60 W",
       "100 W"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "IEEE 802.3af (PoE) supplies a maximum of 15.4 W at the PSE port (about 12.95 W available at the device). 802.3at (PoE+) provides roughly 30 W and 802.3bt up to 60/100 W."
   },
   {
     "id": "netplus-314",
@@ -4734,7 +4747,8 @@
       "802.3at",
       "802.3bt Type 4"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "802.3at (PoE+) delivers about 25.5 W at the powered device, which is the minimum standard that meets a 25 W PTZ camera. 802.3af tops out near 13 W usable; 802.3bt exceeds the need but is not the minimum."
   },
   {
     "id": "netplus-315",
@@ -4747,7 +4761,8 @@
       "Multimode OM3",
       "Multimode OM1"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Single-mode OS2 fiber uses a narrow core and laser source to carry signals 10 km and far beyond. Multimode OM1/OM3/OM4 are limited to roughly 300-550 m at 10G and are unsuitable for a 10 km run."
   },
   {
     "id": "netplus-316",
@@ -4760,7 +4775,8 @@
       "Multimode, long reach",
       "Multimode, short reach"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "In 10GBASE-SR, 'SR' stands for Short Reach over multimode fiber (tens of meters up to about 400 m). Single-mode long-reach variants are designated LR or ER."
   },
   {
     "id": "netplus-317",
@@ -4773,7 +4789,8 @@
       "SFP+",
       "XFP"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "QSFP+ (Quad Small Form-factor Pluggable Plus) aggregates four 10G lanes to provide 40 Gbps and higher. SFP and SFP+ are limited to 1G and 10G respectively, and XFP is a 10G form factor."
   },
   {
     "id": "netplus-318",
@@ -4786,7 +4803,8 @@
       "Port mirroring (SPAN)",
       "DHCP snooping"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Port mirroring (SPAN) copies traffic from a source port or VLAN to a destination port connected to the IDS, without disrupting the original forwarded traffic. Port security, storm control, and DHCP snooping are protective controls, not traffic-capture tools."
   },
   {
     "id": "netplus-319",
@@ -4799,7 +4817,8 @@
       "To convert fiber signals to copper",
       "To supply PoE power to endpoints"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A patch panel provides an organized, labeled termination point for horizontal cabling so runs can be flexibly cross-connected to switches. It does not amplify signals, convert media, or supply PoE."
   },
   {
     "id": "netplus-320",
@@ -4812,7 +4831,8 @@
       "Krone block",
       "110 block"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "The 110 block is rated for the higher frequencies of Cat5e/Cat6 and is the standard punch-down block for modern data networks. The 66 block is legacy analog telephone wiring."
   },
   {
     "id": "netplus-321",
@@ -4825,7 +4845,8 @@
       "2.0 inches",
       "3.5 inches"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "One rack unit (1U) is 1.75 inches (44.45 mm) of vertical space per the EIA-310 standard; equipment height is always specified in whole multiples of U."
   },
   {
     "id": "netplus-322",
@@ -4838,7 +4859,8 @@
       "Excessive late collisions and reduced throughput",
       "The port will be placed in err-disabled state"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "When one side is fixed full-duplex and the other falls back to half-duplex, the result is a duplex mismatch: the link comes up but suffers late collisions, FCS/CRC errors, and badly reduced throughput."
   },
   {
     "id": "netplus-323",
@@ -4851,7 +4873,8 @@
       "1",
       "3"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Syslog severity 0 is Emergency, meaning the system is unusable. The scale runs 0 (Emergency) to 7 (Debug); 1 is Alert and 3 is Error."
   },
   {
     "id": "netplus-324",
@@ -4864,7 +4887,8 @@
       "RMON",
       "NetFlow"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "NetFlow exports per-flow records (source/destination addresses and ports, protocol, byte and packet counts) from routers and switches, enabling bandwidth analysis by application and host. SNMP, Syslog, and RMON do not provide equivalent per-flow detail."
   },
   {
     "id": "netplus-325",
@@ -4877,7 +4901,8 @@
       "RMON",
       "NetStream"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "IPFIX (RFC 7011) is the IETF-standardized, vendor-neutral protocol modeled on Cisco NetFlow v9 and considered its successor. sFlow is a separate sampling-based technology and RMON is SNMP-based."
   },
   {
     "id": "netplus-326",
@@ -4890,7 +4915,8 @@
       "RTO",
       "MTTR"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 3,
+    "explanation": "Mean Time To Repair/Restore (MTTR) is the average time required to restore a failed component to service. RTO (Recovery Time Objective) is a target maximum tolerable downtime, not a measured average; MTBF and RPO measure failure interval and data-loss tolerance. [Answer key corrected: MTTR.]"
   },
   {
     "id": "netplus-327",
@@ -4903,7 +4929,8 @@
       "RTO",
       "RPO"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Mean Time Between Failures (MTBF) is the average elapsed time between repairable failures and indicates expected operational life between outages. MTTR is repair time, while RTO and RPO are recovery targets."
   },
   {
     "id": "netplus-328",
@@ -4916,7 +4943,8 @@
       "Protocol analysis",
       "Baselining"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Capturing normal traffic statistics over a representative period to establish a reference point is called baselining; deviations from the baseline later signal anomalies. Trending and capacity planning use baselines but are not the act of establishing one."
   },
   {
     "id": "netplus-329",
@@ -4929,7 +4957,8 @@
       "Security Operations Center (SOC)",
       "Help Desk"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "In an ITIL-aligned process the Change Advisory Board (CAB) reviews, approves, or rejects proposed changes before implementation. The NOC and SOC are operational/security monitoring teams and the help desk handles incidents."
   },
   {
     "id": "netplus-330",
@@ -4942,7 +4971,8 @@
       "CMDB",
       "Knowledge base"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A Configuration Management Database (CMDB) stores configuration items - hardware, software, relationships, and configurations - across the environment. An asset register tracks ownership only, and a service catalog/knowledge base serve different purposes."
   },
   {
     "id": "netplus-331",
@@ -4955,7 +4985,8 @@
       "SNMPv2c",
       "SNMPv2"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "SNMPv3 added message authentication (MD5/SHA) and encryption (DES/AES) plus integrity, addressing the cleartext community-string weakness of SNMPv1/v2c."
   },
   {
     "id": "netplus-332",
@@ -4968,7 +4999,8 @@
       "TACACS+ server",
       "Authenticator"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "In 802.1X the authenticator (typically the switch or wireless controller) controls port access and relays credentials between the supplicant and the authentication (RADIUS) server. The supplicant is the client and the RADIUS server validates credentials."
   },
   {
     "id": "netplus-333",
@@ -4981,7 +5013,8 @@
       "RADIUS provides command authorization; TACACS+ does not",
       "RADIUS separates authentication, authorization, and accounting; TACACS+ combines them"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "TACACS+ encrypts the entire packet body and separates authentication, authorization, and accounting, making it well suited for granular command authorization; RADIUS encrypts only the password and combines authentication with authorization. TACACS+ uses TCP, RADIUS uses UDP."
   },
   {
     "id": "netplus-334",
@@ -4994,7 +5027,8 @@
       "EAP-TLS",
       "LEAP"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "EAP-TLS requires both client and server to present X.509 certificates, providing strong mutual authentication. EAP-MD5 offers no mutual auth, PEAP only requires a server certificate, and LEAP is a weak Cisco-proprietary method."
   },
   {
     "id": "netplus-335",
@@ -5007,7 +5041,8 @@
       "Deauthentication flood",
       "Brute-force of PSK"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "MAC address filtering is easily bypassed by MAC spoofing: an attacker observes an allowed address and reconfigures their NIC to use it. Evil twin, deauth floods, and PSK brute-force attack other controls."
   },
   {
     "id": "netplus-336",
@@ -5020,7 +5055,8 @@
       "IPS",
       "NAC"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Network Access Control (NAC) evaluates endpoint posture - antivirus state, OS patch level, configuration - before granting LAN access and can quarantine non-compliant devices. SIEM, SASE, and IPS do not perform pre-admission posture enforcement."
   },
   {
     "id": "netplus-337",
@@ -5033,7 +5069,8 @@
       "To act as a firewall rule authorizing HTTPS traffic",
       "To replace username/password authentication for all users"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A server's digital certificate binds its public key to its verified identity (signed by a trusted CA), enabling clients to authenticate the server and establish encrypted TLS sessions. It is not a private-key store, a firewall rule, or a user-auth replacement."
   },
   {
     "id": "netplus-338",
@@ -5046,7 +5083,8 @@
       "Duplex mismatch between the switch and workstation",
       "Spanning tree port in blocking state"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Late collisions on a port with good cabling almost always indicate a duplex mismatch (one side full-duplex, the other half-duplex). CRC errors point to cabling, and STP blocking would stop traffic entirely rather than cause late collisions."
   },
   {
     "id": "netplus-339",
@@ -5059,7 +5097,8 @@
       "Tone generator",
       "OTDR"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A Time Domain Reflectometer (TDR) sends a pulse down a copper cable and measures reflection timing to pinpoint the distance to a break or fault. A multimeter only checks continuity, a tone generator traces pairs, and an OTDR is the fiber equivalent."
   },
   {
     "id": "netplus-340",
@@ -5072,7 +5111,8 @@
       "Visual fault locator",
       "OTDR"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "An Optical Time Domain Reflectometer (OTDR) characterizes a fiber run over kilometers, locating breaks and measuring splice/connector loss at distance. A TDR is for copper, and a VFL or light source only confirms continuity over short distances."
   },
   {
     "id": "netplus-341",
@@ -5088,7 +5128,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "UDP differs from TCP by requiring no connection setup and having lower protocol overhead (no handshake, ACKs, sequencing, or windowing). Guaranteed delivery and sliding-window flow control are TCP features, not UDP."
   },
   {
     "id": "netplus-342",
@@ -5104,7 +5145,8 @@
     "correctAnswers": [
       1,
       3
-    ]
+    ],
+    "explanation": "Fiber supports much longer runs without repeaters than copper and is immune to EMI/RFI because it carries light, not electrical signals. It is generally harder to terminate and more expensive per meter, so those are not advantages."
   },
   {
     "id": "netplus-343",
@@ -5120,7 +5162,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "TACACS+ encrypts the entire packet body (not just the password) and uses TCP port 49, and it separates AAA into distinct steps. RADIUS uses UDP 1812/1813 and combines authentication with authorization."
   },
   {
     "id": "netplus-344",
@@ -5144,7 +5187,8 @@
       2,
       0,
       1
-    ]
+    ],
+    "explanation": "A maps a hostname to an IPv4 address, MX directs email to the correct mail server(s), PTR provides reverse (IP-to-name) resolution, and CNAME aliases a name to its canonical name."
   },
   {
     "id": "netplus-345",
@@ -5168,7 +5212,8 @@
       0,
       2,
       3
-    ]
+    ],
+    "explanation": "A split pair miswires conductors from two different pairs to the wrong pins (passes continuity but fails crosstalk), an open circuit has no continuity, a short circuit leaks current between conductors, and a crossed pair swaps the transmit and receive pairs."
   },
   {
     "id": "netplus-346",
@@ -5188,7 +5233,8 @@
       1,
       3,
       4
-    ]
+    ],
+    "explanation": "Formal change management flows: submit the change request with scope/risk, test it in a lab or staging environment, obtain Change Advisory Board approval, implement during the maintenance window, then document the results and update configuration records."
   },
   {
     "id": "netplus-347",
@@ -5208,7 +5254,8 @@
       0,
       3,
       4
-    ]
+    ],
+    "explanation": "Bottom-up OSI troubleshooting starts at Layer 1 (Physical) and works upward: Physical, Data Link, Network, Transport, then Application - verifying each layer before moving higher."
   },
   {
     "id": "netplus-348",
@@ -5226,7 +5273,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: CNAME chaining is permitted (though discouraged), TTL controls how long resolvers cache a record, and a domain can have multiple MX records with different priorities. False: an MX record points to a hostname, not a direct IP address."
   },
   {
     "id": "netplus-349",
@@ -5244,7 +5292,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: 802.3af supplies up to 15.4 W at the PSE, PoE runs over standard Cat5e/Cat6, and an injector adds PoE to a non-PoE port. False: 802.3at (PoE+) delivers about 30 W, not 60 W (60/100 W is 802.3bt)."
   },
   {
     "id": "netplus-350",
@@ -5262,7 +5311,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: the supplicant is the requesting end device, EAP carries credentials between supplicant and authenticator, and without 802.1X any connected device may gain access. False: the authentication server is a RADIUS server, not the switch/AP (that is the authenticator)."
   },
   {
     "id": "netplus-351",
@@ -5275,7 +5325,8 @@
       "APIPA",
       "DHCPv6"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Automatic Private IP Addressing (APIPA) self-assigns a 169.254.0.0/16 address when no DHCP server responds, enabling only local-subnet communication. SLAAC/DHCPv6 are IPv6 mechanisms and static assignment is manual."
   },
   {
     "id": "netplus-352",
@@ -5288,7 +5339,8 @@
       "Unicast",
       "Multicast"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Anycast advertises one address from multiple locations; routing delivers each client to the topologically nearest node, which is how CDNs steer requests to the closest edge. Unicast is one-to-one, broadcast one-to-all on a subnet, multicast one-to-group."
   },
   {
     "id": "netplus-353",
@@ -5301,7 +5353,8 @@
       "A secondary IP address",
       "A loopback interface"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "To reach a network outside its own subnet, a host must have a default gateway (router) configured to forward off-subnet traffic. Static ARP, secondary IPs, and loopback interfaces do not provide inter-network routing."
   },
   {
     "id": "netplus-354",
@@ -5314,7 +5367,8 @@
       "2048",
       "1024"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A /22 has 10 host bits, so it contains 2^10 = 1024 total addresses (1022 usable after the network and broadcast). It is equivalent to four contiguous /24s."
   },
   {
     "id": "netplus-355",
@@ -5327,7 +5381,8 @@
       "Loopback address",
       "Private RFC 1918 address"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "127.0.0.1 is the IPv4 loopback address (the 127.0.0.0/8 block) used to reach services on the local host itself. It is not APIPA, multicast, or an RFC 1918 private address."
   },
   {
     "id": "netplus-356",
@@ -5340,7 +5395,8 @@
       "172.15.255.255",
       "172.32.255.255"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "RFC 1918 defines the private range 172.16.0.0 through 172.31.255.255 (172.16.0.0/12). 172.15.x and 172.32.x fall outside the private block."
   },
   {
     "id": "netplus-357",
@@ -5353,7 +5409,8 @@
       "fc00::/7",
       "ff00::/8"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "IPv6 link-local addresses use the fe80::/10 prefix and are auto-configured on every IPv6 interface for on-link communication. 2001::/16 is global unicast space, fc00::/7 is unique local, and ff00::/8 is multicast."
   },
   {
     "id": "netplus-358",
@@ -5366,7 +5423,8 @@
       "Layer 5 \u2013 Session",
       "Layer 4 \u2013 Transport"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Layer 4 (Transport) provides end-to-end delivery, segmentation into segments, flow control, and multiplexing via ports; TCP and UDP operate here. Data Link, Network, and Session are layers 2, 3, and 5."
   },
   {
     "id": "netplus-359",
@@ -5379,7 +5437,8 @@
       "Layer 7",
       "Layer 3"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "SIP is an application-layer (Layer 7) signaling protocol that establishes, modifies, and terminates VoIP sessions; the media itself is carried separately by RTP."
   },
   {
     "id": "netplus-360",
@@ -5392,7 +5451,8 @@
       "H.323",
       "RTSP"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "RTP (Real-time Transport Protocol) carries real-time audio/video with sequence numbers, timestamps, and payload type identification for jitter buffering and sync. SIP/H.323 handle signaling and RTSP controls streaming sessions."
   },
   {
     "id": "netplus-361",
@@ -5405,7 +5465,8 @@
       "120",
       "170"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "OSPF's default administrative distance is 110. EIGRP internal is 90, RIP is 120, and EIGRP external is 170 - lower AD is preferred when multiple protocols offer the same route."
   },
   {
     "id": "netplus-362",
@@ -5418,7 +5479,8 @@
       "100",
       "90"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "EIGRP internal routes have a default administrative distance of 90, making them preferred over OSPF (110) and RIP (120) for the same prefix."
   },
   {
     "id": "netplus-363",
@@ -5431,7 +5493,8 @@
       "EAP-TLS",
       "TKIP"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "WPA3-Personal replaces the WPA2 PSK 4-way handshake with SAE (Simultaneous Authentication of Equals, a dragonfly key exchange) which resists offline dictionary attacks and provides forward secrecy. PEAP/EAP-TLS are enterprise methods and TKIP is legacy WPA encryption."
   },
   {
     "id": "netplus-364",
@@ -5444,7 +5507,8 @@
       "OFDMA",
       "Band steering"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "OFDMA (Orthogonal Frequency-Division Multiple Access) in 802.11ax subdivides a channel into resource units so an AP can serve multiple clients in one transmission, greatly improving efficiency in dense environments. MIMO/beamforming/band steering address different problems."
   },
   {
     "id": "netplus-365",
@@ -5457,7 +5521,8 @@
       "Doubles the maximum bandwidth of each individual client",
       "Eliminates the need for 5 GHz band operation"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "MU-MIMO lets the AP transmit to several clients at the same time using separate spatial streams, increasing aggregate throughput. SU-MIMO serves one client at a time. It does not itself extend range or remove the need for 5 GHz."
   },
   {
     "id": "netplus-366",
@@ -5470,7 +5535,8 @@
       "6 GHz (Wi-Fi 6E only)",
       "5 GHz"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "The 5 GHz band offers many more non-overlapping channels than 2.4 GHz (which has only 3), reducing co-channel interference in dense, neighbor-heavy environments. 900 MHz is not used for Wi-Fi and 6 GHz requires Wi-Fi 6E hardware."
   },
   {
     "id": "netplus-367",
@@ -5483,7 +5549,8 @@
       "High \u2014 SSID is encrypted and cannot be intercepted",
       "Complete \u2014 unauthorized devices cannot detect the network exists"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "SSID hiding provides minimal security: the SSID is still transmitted in association/probe frames and is trivially recovered by passive sniffing. It is security by obscurity, not encryption or true concealment."
   },
   {
     "id": "netplus-368",
@@ -5496,7 +5563,8 @@
       "ESS (extended service set)",
       "Mesh network"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Multiple APs sharing one SSID so clients roam seamlessly form an Extended Service Set (ESS). A single AP cell is a BSS, ad hoc is IBSS, and a mesh uses wireless backhaul between APs."
   },
   {
     "id": "netplus-369",
@@ -5509,7 +5577,8 @@
       "Wireless uses token passing, which eliminates the need for collision detection",
       "Wireless operates at Layer 1 only and does not require media access control"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A wireless NIC cannot hear collisions while transmitting because its own outgoing signal overwhelms any received signal, so 802.11 uses CSMA/CA (avoidance with RTS/CTS and ACKs) rather than the CSMA/CD used by legacy wired Ethernet."
   },
   {
     "id": "netplus-370",
@@ -5522,7 +5591,8 @@
       "802.3bz",
       "802.3bt (Type 4)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "802.3bt Type 4 delivers up to about 71-90 W at the PSE, enough for high-draw devices. 802.3af (~15 W), 802.3at (~30 W) fall short, and 802.3bz is a multi-gig speed standard, not PoE."
   },
   {
     "id": "netplus-371",
@@ -5535,7 +5605,8 @@
       "General-purpose (CM)",
       "Direct-burial"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Cable in an air-handling (plenum) space must be plenum-rated (CMP), which uses low-smoke, flame-retardant jacketing required by fire code. Riser (CMR) and general-purpose (CM) are not permitted in plenum spaces."
   },
   {
     "id": "netplus-372",
@@ -5548,7 +5619,8 @@
       "White/Orange",
       "White/Brown"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Under T568B, pin 1 is White/Orange and pin 2 is Orange (pair 2). White/Green is pin 3 in T568B, White/Blue is pin 5, and White/Brown is pin 7."
   },
   {
     "id": "netplus-373",
@@ -5561,7 +5633,8 @@
       "MTTR",
       "MTBF"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Recovery Point Objective (RPO) defines the maximum acceptable amount of data loss measured in time (here, 4 hours), driving backup/replication frequency. RTO is downtime tolerance; MTTR/MTBF are reliability metrics."
   },
   {
     "id": "netplus-374",
@@ -5574,7 +5647,8 @@
       "MTTR",
       "RTO"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Recovery Time Objective (RTO) is the maximum tolerable time to restore service after an outage before business impact is unacceptable. RPO is data-loss tolerance, while MTBF/MTTR describe failure and repair averages."
   },
   {
     "id": "netplus-375",
@@ -5587,7 +5661,8 @@
       "Cold site",
       "Virtual DR site"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A hot site has fully provisioned, running infrastructure with real-time data replication, enabling failover in minutes. Warm sites need some setup/restore, and cold sites are just space and power."
   },
   {
     "id": "netplus-376",
@@ -5600,7 +5675,8 @@
       "Logical diagram",
       "Rack diagram"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A logical diagram shows IP addressing, subnets, VLANs, and routing relationships rather than physical cable paths or equipment placement (which are physical/rack/floor-plan diagrams)."
   },
   {
     "id": "netplus-377",
@@ -5613,7 +5689,8 @@
       "It specifies the OID tree the manager can query",
       "It identifies the SNMP version used for trap messages"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "An SNMPv1/v2c community string is effectively a shared, cleartext password that grants read-only or read-write access to the agent. It does not encrypt traffic or scope the OID tree; SNMPv3 adds real security."
   },
   {
     "id": "netplus-378",
@@ -5626,7 +5703,8 @@
       "123",
       "514"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Syslog uses UDP port 514 by default for forwarding messages to a collector. UDP 161/162 are SNMP get/trap, and UDP 123 is NTP."
   },
   {
     "id": "netplus-379",
@@ -5639,7 +5717,8 @@
       "Hot site",
       "Mirrored site"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A cold site provides only the facility, power, and cooling; equipment must be procured and data restored before it is usable, making it the cheapest but slowest DR option. Warm/hot sites are progressively more ready."
   },
   {
     "id": "netplus-380",
@@ -5652,7 +5731,8 @@
       "Off-site or geographically separate backup storage",
       "Automated backup verification"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Storing backups only on the device being backed up means a device failure destroys the backups too; best practice requires off-site or geographically separate backup storage (e.g., the 3-2-1 rule)."
   },
   {
     "id": "netplus-381",
@@ -5665,7 +5745,8 @@
       "Integrity only \u2014 no encryption or authentication",
       "Key exchange and certificate management"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "IPSec ESP provides confidentiality (encryption) plus integrity and authentication of the payload. AH provides integrity/authentication only, and key exchange is handled separately by IKE."
   },
   {
     "id": "netplus-382",
@@ -5678,7 +5759,8 @@
       "Encryption of the payload only",
       "Data integrity and authentication without encryption"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "IPSec AH (Authentication Header) provides data integrity, origin authentication, and replay protection but NO encryption (no confidentiality). ESP can provide encryption plus integrity, which is why ESP is far more commonly deployed."
   },
   {
     "id": "netplus-383",
@@ -5691,7 +5773,8 @@
       "Elimination of the need for pre-shared keys",
       "Support for GRE tunneling without additional configuration"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "IKEv2 adds native MOBIKE (mobility/multihoming for roaming clients), a leaner four-message exchange for faster setup, built-in NAT traversal, and dead-peer detection. It is not SSL/TLS compatible, still supports PSKs, and does not auto-configure GRE."
   },
   {
     "id": "netplus-384",
@@ -5704,7 +5787,8 @@
       "SSL/TLS VPN (clientless)",
       "L2TP/IPSec"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A clientless SSL/TLS VPN runs over HTTPS (TCP 443) through any browser, so no dedicated client is needed and it passes firewalls that block IPSec/ESP. IPSec, GRE, and L2TP/IPSec all require client software and specific protocol/port access."
   },
   {
     "id": "netplus-385",
@@ -5717,7 +5801,8 @@
       "Smishing",
       "Spear phishing"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Voice-based social engineering over a phone call is vishing. Phishing is email-based, smishing uses SMS, and spear phishing is a targeted email attack - none of which describe a phone call."
   },
   {
     "id": "netplus-386",
@@ -5730,7 +5815,8 @@
       "Replay attack \u2014 to resend captured authentication packets",
       "ARP spoofing \u2014 to intercept traffic destined for the gateway (MITM)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Sending forged ARP replies binding the attacker's MAC to the gateway's IP is ARP spoofing/poisoning; victims send gateway-bound traffic to the attacker, enabling a man-in-the-middle. MAC flooding, DNS poisoning, and replay attacks work differently."
   },
   {
     "id": "netplus-387",
@@ -5743,7 +5829,8 @@
       "Block all incoming traffic by default; allow only traffic matching explicit rules",
       "Segment the network into zones and trust traffic within the same zone"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Zero trust is built on 'never trust, always verify': every request is authenticated, authorized, and continuously validated regardless of whether it originates inside or outside the network. The other options describe perimeter or segmentation models, not zero trust."
   },
   {
     "id": "netplus-388",
@@ -5756,7 +5843,8 @@
       "Low signal-to-noise ratio (SNR) due to RF interference",
       "DHCP lease exhaustion"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Adequate signal strength with high loss and retransmissions points to a poor signal-to-noise ratio from RF interference (noise floor too high), not an addressing or DHCP problem."
   },
   {
     "id": "netplus-389",
@@ -5769,7 +5857,8 @@
       "MAC address table overflow attack",
       "Spanning tree port stuck in forwarding state"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Millions of broadcasts per second with 100% switch CPU and total connectivity loss is a classic broadcast storm caused by a Layer 2 switching loop with no/failed STP. A rogue DHCP server or CAM overflow would not generate that broadcast volume."
   },
   {
     "id": "netplus-390",
@@ -5782,7 +5871,8 @@
       "An incorrect duplex configuration",
       "Frames smaller than the minimum 64-byte Ethernet frame size"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Runts are frames smaller than the 64-byte Ethernet minimum, usually caused by collisions or a duplex mismatch. Oversized frames are giants, and CRC errors are counted separately as FCS errors."
   },
   {
     "id": "netplus-391",
@@ -5798,7 +5888,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "OFDMA and BSS Coloring are new in 802.11ax (Wi-Fi 6). MU-MIMO (downlink) and 256-QAM were already introduced in 802.11ac (Wi-Fi 5)."
   },
   {
     "id": "netplus-392",
@@ -5814,7 +5905,8 @@
     "correctAnswers": [
       1,
       2
-    ]
+    ],
+    "explanation": "In tunnel mode the entire original IP packet (header + payload) is encapsulated and a new outer IP header is added for routing between gateways. Transport mode protects only the payload and keeps the original header, so the modes are not equivalent."
   },
   {
     "id": "netplus-393",
@@ -5830,7 +5922,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "The 2.4 GHz band is congested by microwave ovens (and Bluetooth/cordless phones) and by overlapping channels from neighboring 2.4 GHz Wi-Fi. 5 GHz APs and wired switches do not interfere with 2.4 GHz RF."
   },
   {
     "id": "netplus-394",
@@ -5854,7 +5947,8 @@
       2,
       3,
       0
-    ]
+    ],
+    "explanation": "Classful ranges: Class A 1-126, Class B 128-191, Class C 192-223, and Class D 224-239 (multicast). The 127.x block is reserved for loopback between A and B."
   },
   {
     "id": "netplus-395",
@@ -5878,7 +5972,8 @@
       0,
       3,
       1
-    ]
+    ],
+    "explanation": "ESP encrypts and authenticates the payload, AH authenticates without encryption, an SSL/TLS VPN runs at the application layer over HTTPS/443 to traverse firewalls, and GRE encapsulates any Layer 3 protocol but adds no encryption."
   },
   {
     "id": "netplus-396",
@@ -5898,7 +5993,8 @@
       1,
       3,
       4
-    ]
+    ],
+    "explanation": "Change management order: submit the request (scope, risk, rollback), test/validate in staging, obtain CAB approval, implement in the maintenance window, then document outcomes and update configuration records."
   },
   {
     "id": "netplus-397",
@@ -5918,7 +6014,8 @@
       2,
       3,
       4
-    ]
+    ],
+    "explanation": "Logical wireless troubleshooting: confirm correct SSID/credentials and association, check signal strength/SNR/data rates, scan for RF interference with a spectrum analyzer, reboot/retest the AP, then escalate or run a full site survey if unresolved."
   },
   {
     "id": "netplus-398",
@@ -5936,7 +6033,8 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: a hot site replicates data in near-real-time and fails over in minutes, RPO is acceptable data loss in time, and RTO is the tolerable time to restore service. False: a cold site has only space/power - servers are not pre-installed and ready."
   },
   {
     "id": "netplus-399",
@@ -5954,7 +6052,8 @@
       true,
       true,
       false
-    ]
+    ],
+    "explanation": "True: ESP can provide both encryption and integrity, and IPSec runs in transport or tunnel mode. False: AH provides no confidentiality (no encryption), and IKE uses UDP port 500 (not TCP)."
   },
   {
     "id": "netplus-400",
@@ -5972,7 +6071,8 @@
       false,
       true,
       false
-    ]
+    ],
+    "explanation": "True: IPv6 uses 128-bit addresses (~3.4 x 10^38) and NDP replaces ARP. False: the huge address space removes the need for NAT, and fe80::/10 link-local addresses are never routed off-link or across the internet."
   },
   {
     "id": "netplus-401",
@@ -5985,7 +6085,8 @@
       "Telnet on port 23",
       "Telnet on port 22"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Telnet provides unencrypted remote terminal access on TCP port 23. SSH (TCP 22) is the encrypted alternative; Telnet sends credentials and data in cleartext."
   },
   {
     "id": "netplus-402",
@@ -5998,7 +6099,8 @@
       "RDP on TCP port 3389",
       "SFTP on TCP port 21"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "SSH provides encrypted remote terminal sessions on TCP port 22. Telnet (23) is cleartext, RDP (3389) is graphical remote desktop, and SFTP runs over SSH, not port 21."
   },
   {
     "id": "netplus-403",
@@ -6011,7 +6113,8 @@
       "8080",
       "8443"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "HTTPS uses TCP port 443 for TLS-encrypted web traffic. Port 80 is plain HTTP, and 8080/8443 are common non-standard alternates, not the firewall port required for standard HTTPS."
   },
   {
     "id": "netplus-404",
@@ -6024,7 +6127,8 @@
       "443",
       "3389"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Remote Desktop Protocol (RDP) listens on TCP port 3389 by default. Ports 22, 23, and 443 are SSH, Telnet, and HTTPS respectively."
   },
   {
     "id": "netplus-405",
@@ -6037,7 +6141,8 @@
       "443",
       "389"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 3,
+    "explanation": "Standard (unencrypted) LDAP uses TCP/UDP port 389. LDAPS (LDAP over TLS) uses 636, Kerberos uses 88, and 443 is HTTPS. [Answer key corrected: 389.]"
   },
   {
     "id": "netplus-406",
@@ -6050,7 +6155,8 @@
       "443",
       "88"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "LDAPS (LDAP over TLS/SSL) uses TCP port 636. Port 389 is plaintext LDAP, 443 is HTTPS, and 88 is Kerberos."
   },
   {
     "id": "netplus-407",
@@ -6063,7 +6169,8 @@
       "636",
       "464"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Kerberos authentication uses port 88 in Active Directory environments. 389/636 are LDAP/LDAPS and 464 is the Kerberos password-change service (kpasswd), not primary authentication."
   },
   {
     "id": "netplus-408",
@@ -6076,7 +6183,8 @@
       "514",
       "123"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "NTP synchronizes clocks over UDP port 123. UDP 161/162 are SNMP, and 514 is syslog."
   },
   {
     "id": "netplus-409",
@@ -6089,7 +6197,8 @@
       "Link-state routers build a complete map of the network topology and run SPF to calculate best paths",
       "Distance-vector protocols exchange LSAs to maintain a topological database"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Link-state protocols (OSPF) flood LSAs so every router builds a complete topology database, then each runs the Dijkstra SPF algorithm to compute best paths. Distance-vector protocols (RIP) only share their routing table with directly connected neighbors."
   },
   {
     "id": "netplus-410",
@@ -6102,7 +6211,8 @@
       "30",
       "255"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "RIP treats 16 hops as infinity (unreachable), so the maximum usable hop count is 15. This limits RIP to small networks."
   },
   {
     "id": "netplus-411",
@@ -6115,7 +6225,8 @@
       "Area 255",
       "The stub area"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "In multi-area OSPF, Area 0 is the backbone; all other areas must connect to it (directly or via a virtual link) so inter-area routing transits the backbone. Stub areas are a type of non-backbone area."
   },
   {
     "id": "netplus-412",
@@ -6128,7 +6239,8 @@
       "NAT",
       "VLANs"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "VLANs provide logical Layer 2 segmentation on shared switches/cabling, isolating voice from data into separate broadcast domains. QoS marks priority, subnetting is Layer 3, and NAT translates addresses - none of which segment Layer 2."
   },
   {
     "id": "netplus-413",
@@ -6141,7 +6253,8 @@
       "ISL (Inter-Switch Link)",
       "IEEE 802.3ad"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "IEEE 802.1Q inserts a 4-byte VLAN tag (TPID + TCI with the 12-bit VLAN ID) into Ethernet frames on trunk links. 802.1D is STP, ISL is legacy Cisco-proprietary tagging, and 802.3ad is link aggregation."
   },
   {
     "id": "netplus-414",
@@ -6154,7 +6267,8 @@
       "Native VLAN",
       "Voice VLAN"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The native VLAN on an 802.1Q trunk carries untagged frames; if it is misconfigured or left at the default, untagged traffic can land in an unintended VLAN (VLAN hopping risk). Access/management/voice VLANs serve other roles."
   },
   {
     "id": "netplus-415",
@@ -6167,7 +6281,8 @@
       "The switch with the most ports",
       "The switch configured as a Layer 3 switch"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The STP root bridge is the switch with the lowest Bridge ID (bridge priority followed by MAC address as tiebreaker). Port count and Layer 3 capability are irrelevant to the election."
   },
   {
     "id": "netplus-416",
@@ -6180,7 +6295,8 @@
       "4",
       "5"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Classic 802.1D STP defines five port states: disabled, blocking, listening, learning, and forwarding. RSTP later collapsed these into discarding, learning, and forwarding."
   },
   {
     "id": "netplus-417",
@@ -6193,7 +6309,8 @@
       "RSTP supports more than 4094 VLANs",
       "RSTP uses a distributed algorithm instead of a root bridge"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "RSTP (802.1w) converges in a few seconds versus 30-50 seconds for classic STP by using proposal/agreement handshakes and port roles. It still uses BPDUs and a root bridge and does not change the 4094 VLAN limit."
   },
   {
     "id": "netplus-418",
@@ -6206,7 +6323,8 @@
       "Increases aggregate bandwidth and provides link redundancy",
       "Provides automatic failover to a backup switch path"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "EtherChannel/link aggregation bundles multiple physical links into one logical link, increasing aggregate bandwidth and providing redundancy if a member link fails - while STP still treats the bundle as a single link."
   },
   {
     "id": "netplus-419",
@@ -6219,7 +6337,8 @@
       "On",
       "Auto"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "LACP active mode actively sends LACPDUs to negotiate the bundle; passive only responds. 'On' forces a channel without LACP negotiation, and 'auto'/'desirable' are PAgP (Cisco), not LACP."
   },
   {
     "id": "netplus-420",
@@ -6232,7 +6351,8 @@
       "Layer 3 switches eliminate STP from the network",
       "Layer 3 switches can route IP traffic between VLANs using SVIs or routed ports"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A Layer 3 switch can route IP between VLANs in hardware using switched virtual interfaces (SVIs) or routed ports, eliminating the router-on-a-stick bottleneck. 802.1Q trunking and PoE are also available on Layer 2 switches."
   },
   {
     "id": "netplus-421",
@@ -6245,7 +6365,8 @@
       "A loopback interface provides PoE capability",
       "A loopback interface operates at Layer 2"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A loopback interface is virtual and always up regardless of physical port status, making it ideal for a stable router ID and management/management-plane reachability. It has no bearing on throughput, PoE, or Layer 2."
   },
   {
     "id": "netplus-422",
@@ -6258,7 +6379,8 @@
       "Router-on-a-stick",
       "Inter-VLAN bridging"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Dividing one router/L3 interface into 802.1Q-tagged subinterfaces, one per VLAN, to route between VLANs over a single trunk is called router-on-a-stick. EtherChannel bundles links, VTP propagates VLAN databases, and inter-VLAN bridging is not a standard term."
   },
   {
     "id": "netplus-423",
@@ -6271,7 +6393,8 @@
       "A switch that distributes time to end devices",
       "A client that syncs from a Stratum 1 server"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Stratum 0 is the reference time source itself - a GPS receiver, atomic clock, or radio clock - that is not on the network. Stratum 1 servers attach directly to it; higher strata sync downstream."
   },
   {
     "id": "netplus-424",
@@ -6284,7 +6407,8 @@
       "Stratum 2",
       "Stratum 1"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A Stratum 1 server is directly connected to a Stratum 0 reference clock and is the most authoritative network NTP source. Each step away from Stratum 0 increments the stratum number."
   },
   {
     "id": "netplus-425",
@@ -6297,7 +6421,8 @@
       "Critical",
       "Notice"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "On the syslog 0-7 scale, severity 3 is Error. 0 Emergency, 1 Alert, 2 Critical, 3 Error, 4 Warning, 5 Notice, 6 Informational, 7 Debug."
   },
   {
     "id": "netplus-426",
@@ -6310,7 +6435,8 @@
       "SNMP inform",
       "SNMP set"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "An SNMP inform is an acknowledged notification - the receiver confirms receipt, so the sender can retransmit if needed. A trap is fire-and-forget (unacknowledged); get/set are polling/configuration operations."
   },
   {
     "id": "netplus-427",
@@ -6323,7 +6449,8 @@
       "Flow probe",
       "RMON agent"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The NetFlow collector receives exported flow records from exporters (routers/switches) and stores, aggregates, and reports on them. The exporter generates the records; a probe captures traffic; RMON is a different SNMP-based technology."
   },
   {
     "id": "netplus-428",
@@ -6336,7 +6463,8 @@
       "Business continuity plan",
       "Escalation procedure"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A procedure defining who is notified, in what order, and at what thresholds during an incident is an escalation procedure. Change management governs changes, while DR/BC plans address recovery and continuity more broadly."
   },
   {
     "id": "netplus-429",
@@ -6349,7 +6477,8 @@
       "To allow new firmware to download without impacting QoS",
       "To comply with change management audit schedules"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Scheduling changes during a low-usage maintenance window (e.g., 2-4 AM weekends) minimizes business disruption and user impact if something goes wrong. The other reasons are not the primary driver."
   },
   {
     "id": "netplus-430",
@@ -6362,7 +6491,8 @@
       "Asset management",
       "Change management"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Maintaining an authoritative inventory of all devices and their software/firmware versions is asset management (often via a CMDB). Baselining, capacity planning, and change management use that data but do not produce the inventory."
   },
   {
     "id": "netplus-431",
@@ -6375,7 +6505,8 @@
       "Management VLAN",
       "Guest network"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A DMZ (demilitarized zone) is a screened segment hosting internet-facing services (web, email, public DNS) while isolating them from the trusted internal LAN, so a compromised public server cannot directly reach internal hosts."
   },
   {
     "id": "netplus-432",
@@ -6388,7 +6519,8 @@
       "The packet is queued for manual review",
       "The packet is dropped by the implicit deny-all rule"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "ACLs end with an implicit deny-all: any packet matching no explicit permit is silently dropped. It is not forwarded, queued, or auto-sent to a SIEM by the ACL itself."
   },
   {
     "id": "netplus-433",
@@ -6401,7 +6533,8 @@
       "IPS",
       "Vulnerability scanner"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A honeypot is a decoy system that looks vulnerable but exists to attract, monitor, and log attacker activity for detection and study. SIEM aggregates logs, IPS blocks attacks, and a scanner finds vulnerabilities."
   },
   {
     "id": "netplus-434",
@@ -6414,7 +6547,8 @@
       "DLP (Data Loss Prevention)",
       "SIEM"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Data Loss Prevention (DLP) inspects content in email, web uploads, and endpoints to detect and block unauthorized transfer of sensitive data such as patient records. IDS/firewall/SIEM do not enforce content-based data egress policy."
   },
   {
     "id": "netplus-435",
@@ -6427,7 +6561,8 @@
       "Smishing",
       "Whaling"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A mass email impersonating IT and luring users to a credential-harvesting link is phishing. Vishing is voice, smishing is SMS, and whaling specifically targets high-value executives."
   },
   {
     "id": "netplus-436",
@@ -6440,7 +6575,8 @@
       "Zero-day exploit",
       "Insider threat"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "An authorized user abusing legitimate access to exfiltrate data is an insider threat. It is not an external attacker, an APT campaign, or a zero-day exploit."
   },
   {
     "id": "netplus-437",
@@ -6453,7 +6589,8 @@
       "Vulnerability scan",
       "Risk assessment"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A formal compliance review of configurations, access controls, and procedures against policy/regulation is a security audit. A pen test actively exploits, a vulnerability scan enumerates weaknesses, and a risk assessment evaluates likelihood/impact."
   },
   {
     "id": "netplus-438",
@@ -6466,7 +6603,8 @@
       "ping -t",
       "ping -a"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "On Windows, ping -t pings continuously until interrupted (Ctrl+C), ideal for watching intermittent loss over time. -n sets a fixed count, -l sets packet size, and -a resolves the hostname."
   },
   {
     "id": "netplus-439",
@@ -6479,7 +6617,8 @@
       "netstat",
       "arp -a"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "tracert (Windows) / traceroute (Unix) sends TTL-incrementing probes to reveal each hop along the path and its latency, isolating where delay or loss occurs. nslookup resolves DNS, netstat shows local sockets, and arp -a shows the ARP cache."
   },
   {
     "id": "netplus-440",
@@ -6492,7 +6631,8 @@
       "tracert",
       "netstat -an"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "netstat -an lists all active TCP/UDP connections and listening sockets with numeric addresses/ports, confirming whether a service is bound and listening. ipconfig, arp, and tracert do not show listening ports."
   },
   {
     "id": "netplus-441",
@@ -6508,7 +6648,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "OSPF runs Dijkstra's SPF for loop-free shortest paths and uses areas to limit LSA flooding and SPF scope. It is link-state (not distance-vector) and has no 15-hop limit (that is RIP)."
   },
   {
     "id": "netplus-442",
@@ -6524,7 +6665,8 @@
     "correctAnswers": [
       1,
       3
-    ]
+    ],
+    "explanation": "VLANs shrink broadcast domains (less unnecessary flooding) and provide logical segmentation that improves security between groups. They do NOT remove the need for routing between segments or encrypt traffic."
   },
   {
     "id": "netplus-443",
@@ -6540,7 +6682,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "tracert performs hop-by-hop path analysis and netstat verifies local connections/listening ports - the two most directly useful here. nslookup tests DNS and ipconfig shows local IP config, which are secondary to path/port issues."
   },
   {
     "id": "netplus-444",
@@ -6564,7 +6707,8 @@
       2,
       3,
       0
-    ]
+    ],
+    "explanation": "STP states: Blocking discards user frames and only listens to BPDUs; Listening sends/receives BPDUs with no MAC learning or forwarding; Learning builds the MAC table but still does not forward; Forwarding passes user frames and learns MACs."
   },
   {
     "id": "netplus-445",
@@ -6588,7 +6732,8 @@
       1,
       0,
       3
-    ]
+    ],
+    "explanation": "NetFlow exports IP flow records for traffic analysis, SNMP polls device metrics via OIDs/MIBs, Syslog collects device-generated event/error messages, and RMON gathers remote traffic statistics via embedded agents."
   },
   {
     "id": "netplus-446",
@@ -6608,7 +6753,8 @@
       2,
       0,
       4
-    ]
+    ],
+    "explanation": "CompTIA's methodology: (1) identify the problem, (2) establish a theory of probable cause, (3) test the theory, (4) establish a plan and implement the solution or escalate, (5) verify full functionality and document."
   },
   {
     "id": "netplus-447",
@@ -6628,7 +6774,8 @@
       2,
       3,
       4
-    ]
+    ],
+    "explanation": "The PICERL/NIST flow is Preparation then Identification, Containment, Eradication, Recovery, and Lessons Learned - detect/confirm, isolate, remove the cause, restore and verify, then document and improve."
   },
   {
     "id": "netplus-448",
@@ -6646,7 +6793,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: OSPF is link-state using Dijkstra SPF, BGP is the internet's exterior gateway protocol between ASes, and EIGRP is a hybrid (advanced distance-vector with link-state traits). False: RIP's limit is 15 hops, so it is not suited to large networks."
   },
   {
     "id": "netplus-449",
@@ -6664,7 +6812,8 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: VLANs segment Layer 2 and shrink broadcast domains, 802.1Q adds a 4-byte tag, and native-VLAN frames cross the trunk untagged. False: the native VLAN defaults to VLAN 1 but is configurable."
   },
   {
     "id": "netplus-450",
@@ -6682,7 +6831,8 @@
       false,
       true,
       false
-    ]
+    ],
+    "explanation": "True: a DMZ sits between the untrusted outside and trusted inside and hosts public-facing servers. False: DMZ hosts should have tightly restricted (not unrestricted) access to the internal LAN, and a true screened-subnet DMZ needs two firewalls or a three-legged firewall, not a simple two-interface firewall."
   },
   {
     "id": "netplus-451",
@@ -6695,7 +6845,8 @@
       "DHCPDISCOVER",
       "DHCPREQUEST"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "DHCP DORA begins with the client broadcasting a DHCPDISCOVER to locate any DHCP server. OFFER, REQUEST, and ACK are the subsequent steps."
   },
   {
     "id": "netplus-452",
@@ -6708,7 +6859,8 @@
       "DHCPREQUEST",
       "DHCPNAK"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "After DISCOVER, a server replies with a DHCPOFFER proposing an address, mask, lease time, and gateway. ACK confirms later, REQUEST is the client's acceptance, and NAK declines."
   },
   {
     "id": "netplus-453",
@@ -6721,7 +6873,8 @@
       "DHCPOFFER",
       "DHCPACK"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The client broadcasts a DHCPREQUEST to formally accept one server's offer (broadcast so other servers know their offers were declined). DISCOVER starts the process and OFFER/ACK come from the server."
   },
   {
     "id": "netplus-454",
@@ -6734,7 +6887,8 @@
       "DHCPNAK",
       "DHCPACK"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "The server finalizes the lease with a DHCPACK, confirming the bound address and parameters to the client. A DHCPNAK would instead reject the request."
   },
   {
     "id": "netplus-455",
@@ -6747,7 +6901,8 @@
       "Broadcast to all devices on the subnet",
       "Multicast to the ARP multicast group"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "An ARP request is broadcast (destination MAC ff:ff:ff:ff:ff:ff) so every host on the subnet sees it; only the owner of the target IP replies via unicast. ARP has no anycast or multicast group."
   },
   {
     "id": "netplus-456",
@@ -6760,7 +6915,8 @@
       "ARP poisoning",
       "Reverse ARP"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A gratuitous ARP is an unsolicited ARP announcing a host's own IP-to-MAC binding, used to refresh neighbor caches after a NIC/IP change or for failover. Proxy ARP answers for another host, and ARP poisoning is malicious."
   },
   {
     "id": "netplus-457",
@@ -6773,7 +6929,8 @@
       "Router Solicitation",
       "Redirect"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "In SLAAC the host listens for ICMPv6 Router Advertisements (often after sending a Router Solicitation) to learn the on-link prefix and default gateway, then forms its own address. Neighbor Solicitation is for address resolution/DAD."
   },
   {
     "id": "netplus-458",
@@ -6786,7 +6943,8 @@
       "Privacy extension addressing",
       "EUI-64"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "EUI-64 derives the 64-bit IPv6 interface ID from a 48-bit MAC by inserting FFFE in the middle and flipping the universal/local (7th) bit. DAD checks uniqueness and privacy extensions randomize the ID instead."
   },
   {
     "id": "netplus-459",
@@ -6799,7 +6957,8 @@
       "Recursive query",
       "Reverse query"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A recursive query asks the configured DNS server to do all the work and return a final answer; the server then performs iterative queries on the client's behalf."
   },
   {
     "id": "netplus-460",
@@ -6812,7 +6971,8 @@
       "Authoritative response",
       "Negative response"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "An iterative response is a referral: the server returns the best information it has (e.g., the next server to ask) rather than fully resolving the name. Recursive resolution would instead return the final answer."
   },
   {
     "id": "netplus-461",
@@ -6825,7 +6985,8 @@
       "Full-duplex reduces the number of required switch ports",
       "Full-duplex only works with fiber cabling"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Full-duplex lets a station send and receive simultaneously over dedicated switch links, eliminating collisions entirely (CSMA/CD is unnecessary). It does not depend on fiber or reduce port counts."
   },
   {
     "id": "netplus-462",
@@ -6838,7 +6999,8 @@
       "Bluetooth",
       "Traditional half-duplex Ethernet"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "CSMA/CD (Carrier Sense Multiple Access with Collision Detection) is used by traditional half-duplex Ethernet on a shared medium to detect collisions and back off. Wi-Fi uses CSMA/CA, and Token Ring uses token passing."
   },
   {
     "id": "netplus-463",
@@ -6851,7 +7013,8 @@
       "Cat6A",
       "Cat7"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Cat5e is the minimum category rated for 1000BASE-T (1 Gbps) over the full 100 m. Cat6/6A/7 also work but exceed the minimum requirement."
   },
   {
     "id": "netplus-464",
@@ -6864,7 +7027,8 @@
       "Cat6A",
       "Cat7A"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Cat6A is specifically rated for 10GBASE-T at the full 100 m. Plain Cat6 only reaches ~55 m at 10G, and Cat5e is not 10G-rated."
   },
   {
     "id": "netplus-465",
@@ -6877,7 +7041,8 @@
       "ST",
       "MPO"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The LC (Lucent Connector) is a small-form-factor latching connector and the most common choice for SFP/SFP+ in modern high-density data centers. SC is larger, ST is legacy bayonet, and MPO is for multi-fiber trunks."
   },
   {
     "id": "netplus-466",
@@ -6890,7 +7055,8 @@
       "MPO",
       "SC"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "The SC connector has a square body and a push-pull (snap) coupling, common in telecom and FTTH. LC is smaller, ST is a round bayonet, and MPO carries many fibers."
   },
   {
     "id": "netplus-467",
@@ -6903,7 +7069,8 @@
       "LC",
       "FC"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "The ST connector is round with a twist-lock bayonet coupling, common in older multimode plants. SC/LC are push-pull and FC is threaded."
   },
   {
     "id": "netplus-468",
@@ -6916,7 +7083,8 @@
       "MPO/MTP",
       "ST"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "MPO/MTP connectors terminate multi-fiber (e.g., 12-fiber) trunk assemblies for high-density backbones between MDF/IDF. LC/SC duplex carry only two fibers and ST one."
   },
   {
     "id": "netplus-469",
@@ -6929,7 +7097,8 @@
       "RG-59",
       "RG-8"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "RG-6 is the standard 75-ohm coax for DOCSIS cable internet and satellite TV. RG-59 is thinner legacy CCTV/video, while RG-58/RG-8 are 50-ohm cables used for older Ethernet/radio."
   },
   {
     "id": "netplus-470",
@@ -6942,7 +7111,8 @@
       "RC4",
       "AES-CCMP"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "WPA2 uses AES-CCMP for confidentiality and integrity, replacing the RC4-based TKIP used by WPA. WEP and RC4 are the older, broken schemes."
   },
   {
     "id": "netplus-471",
@@ -6955,7 +7125,8 @@
       "TKIP increased overhead and reduced throughput below 1 Mbps",
       "TKIP only supported 40-bit key lengths"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "TKIP was retired because it is built on the weak RC4 cipher with a flawed Michael MIC, leaving it vulnerable to key-recovery and injection attacks. It was a stopgap for WPA hardware and is no longer considered secure."
   },
   {
     "id": "netplus-472",
@@ -6968,7 +7139,8 @@
       "Offline dictionary attacks against the pre-shared key",
       "Deauthentication flood attacks"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "WPA3-Personal's SAE handshake replaces the WPA2 four-way handshake and resists offline dictionary/brute-force attacks against the PSK (and adds forward secrecy). WPS PIN and deauth attacks are mitigated by other controls."
   },
   {
     "id": "netplus-473",
@@ -6981,7 +7153,8 @@
       "Remote desktop management",
       "SNMP management"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Managing devices over a dedicated, physically separate network is out-of-band management, so administrators retain access even if the production network is down. In-band uses the production data path."
   },
   {
     "id": "netplus-474",
@@ -6994,7 +7167,8 @@
       "OOBM",
       "In-band management"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Reaching a device over the same interfaces that carry production traffic is in-band management - simple but unavailable if the data network fails. Out-of-band uses a separate path/console."
   },
   {
     "id": "netplus-475",
@@ -7007,7 +7181,8 @@
       "Reverse proxy",
       "Load balancer"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A jump server (bastion host) is a hardened, audited intermediary that all administrative sessions must traverse, centralizing access control and command logging. Proxies and load balancers serve traffic-handling roles, not admin auditing."
   },
   {
     "id": "netplus-476",
@@ -7020,7 +7195,8 @@
       "Jitter",
       "Bandwidth utilization"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Jitter is the variation in packet inter-arrival times; high jitter causes choppy VoIP even when average latency is fine, because the jitter buffer under/overruns. Latency is the delay itself and packet loss is dropped packets."
   },
   {
     "id": "netplus-477",
@@ -7033,7 +7209,8 @@
       "Jitter",
       "Bandwidth"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Latency is the time for a single packet to travel from source to destination (one-way or round-trip). Throughput/bandwidth measure data rate and jitter measures delay variation."
   },
   {
     "id": "netplus-478",
@@ -7046,7 +7223,8 @@
       "Latency",
       "Throughput"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Throughput is the actual measured data transfer rate achieved (60 Mbps), as opposed to the link's rated bandwidth/capacity (100 Mbps). Overhead, congestion, and protocol behavior reduce throughput below bandwidth."
   },
   {
     "id": "netplus-479",
@@ -7059,7 +7237,8 @@
       "Traffic shaping only",
       "NAT"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Quality of Service (QoS) classifies and prioritizes traffic (e.g., via DSCP) so latency-sensitive voice and bandwidth-sensitive video get appropriate treatment. VLANs segment, NAT translates, and shaping is just one QoS tool."
   },
   {
     "id": "netplus-480",
@@ -7072,7 +7251,8 @@
       "Excessive packet loss and queuing delay under congestion",
       "DHCP lease exhaustion"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "When a WAN link saturates (>~80%), queues fill and packets are delayed or dropped; VoIP is highly sensitive to this packet loss and queuing delay, causing drop-outs. DNS/DHCP/subnet issues would not correlate with link utilization."
   },
   {
     "id": "netplus-481",
@@ -7085,7 +7265,8 @@
       "ECC",
       "Diffie-Hellman"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "AES is the NIST-standardized symmetric block cipher supporting 128/192/256-bit keys, ideal for fast bulk encryption of data at rest. RSA/ECC/Diffie-Hellman are asymmetric algorithms."
   },
   {
     "id": "netplus-482",
@@ -7098,7 +7279,8 @@
       "MD5",
       "RSA"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "RSA is widely used for asymmetric key exchange and to protect the symmetric session key during TLS setup between parties with no prior shared secret. AES/3DES are symmetric and MD5 is a hash."
   },
   {
     "id": "netplus-483",
@@ -7111,7 +7293,8 @@
       "Asymmetric encryption is faster but requires more storage space",
       "Symmetric encryption does not require a shared secret between parties"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Symmetric encryption uses one shared key for both operations and is far faster/less CPU-intensive than asymmetric, making it the choice for bulk data; asymmetric is reserved for key exchange and signatures."
   },
   {
     "id": "netplus-484",
@@ -7124,7 +7307,8 @@
       "Certificate Authority (CA)",
       "CRL server"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The Certificate Authority (CA) issues, signs, and revokes certificates that bind a public key to a verified identity. The RA handles vetting/enrollment, while CRL/OCSP publish revocation status."
   },
   {
     "id": "netplus-485",
@@ -7137,7 +7321,8 @@
       "EV certificate",
       "SAN certificate"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A self-signed certificate is signed by its own key rather than a trusted CA, so browsers cannot build a trust chain and warn the user. Wildcard/EV/SAN describe scope/validation, not the trust problem."
   },
   {
     "id": "netplus-486",
@@ -7150,7 +7335,8 @@
       "Self-signed certificate",
       "Wildcard certificate"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A wildcard certificate (*.example.com) secures all single-level subdomains of one domain. SAN lists explicit multiple names, EV is high-assurance validation, and self-signed is untrusted."
   },
   {
     "id": "netplus-487",
@@ -7163,7 +7349,8 @@
       "Root certificate",
       "Self-signed certificate"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A SAN (Subject Alternative Name) certificate lists multiple specific FQDNs - even across different domains - in one certificate, which a single-domain wildcard cannot do."
   },
   {
     "id": "netplus-488",
@@ -7176,7 +7363,8 @@
       "Network congestion or long path causing high latency and jitter",
       "Duplex mismatch on local switch port"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Successful replies with high, highly variable RTT and no loss indicate latency and jitter from congestion or a long path, not DNS, cabling, or duplex faults (which usually cause loss or failures)."
   },
   {
     "id": "netplus-489",
@@ -7189,7 +7377,8 @@
       "Wireless channel interference",
       "802.1X authentication failure"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Reaching the gateway but nothing beyond it points to a problem past the gateway - routing or NAT/upstream connectivity - rather than DHCP, RF, or 802.1X (which would have prevented the IP/gateway success)."
   },
   {
     "id": "netplus-490",
@@ -7202,7 +7391,8 @@
       "ipconfig /all",
       "arp -a"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "arp -a displays the local ARP cache on Windows and Linux, letting you spot a stale IP-to-MAC entry after a NIC swap. netstat shows sockets, nslookup DNS, and ipconfig the IP configuration."
   },
   {
     "id": "netplus-491",
@@ -7218,7 +7408,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "The client broadcasts DHCPDISCOVER (no IP yet) and DHCPREQUEST (so non-selected servers see the decline). DHCPOFFER and DHCPACK are server replies."
   },
   {
     "id": "netplus-492",
@@ -7234,7 +7425,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "High-density data center fiber predominantly uses LC (small-form-factor duplex) and MPO/MTP (multi-fiber trunk) connectors. ST and SC are older/larger and less common in dense racks."
   },
   {
     "id": "netplus-493",
@@ -7250,7 +7442,8 @@
     "correctAnswers": [
       1,
       2
-    ]
+    ],
+    "explanation": "Asymmetric encryption uses a mathematically related public/private key pair and is comparatively slow, so it is used for key exchange and signatures rather than bulk data (which symmetric handles)."
   },
   {
     "id": "netplus-494",
@@ -7274,7 +7467,8 @@
       2,
       3,
       0
-    ]
+    ],
+    "explanation": "DHCPDISCOVER: client broadcasts to find servers. DHCPOFFER: server proposes an address/config. DHCPREQUEST: client broadcasts acceptance of one offer. DHCPACK: server confirms and finalizes the lease."
   },
   {
     "id": "netplus-495",
@@ -7298,7 +7492,8 @@
       2,
       0,
       1
-    ]
+    ],
+    "explanation": "LC is the small latch connector dominant in modern data centers, SC is the square push-pull common in telecom/FTTH, ST is the legacy bayonet twist-lock for older multimode, and MPO/MTP terminates high-density multi-fiber trunks."
   },
   {
     "id": "netplus-496",
@@ -7316,7 +7511,8 @@
       3,
       2,
       0
-    ]
+    ],
+    "explanation": "The DHCP lease handshake order is DORA: Discover, Offer, Request, Acknowledge."
   },
   {
     "id": "netplus-497",
@@ -7336,7 +7532,8 @@
       3,
       2,
       4
-    ]
+    ],
+    "explanation": "Logical outbound troubleshooting: verify local IP/mask/gateway, ping the gateway, ping a public IP (8.8.8.8) to test routing, test DNS with nslookup/dig, then ping a hostname to confirm end-to-end name resolution and routing."
   },
   {
     "id": "netplus-498",
@@ -7354,7 +7551,8 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: ARP maps IP to MAC locally, requests are broadcast, and unauthenticated ARP enables cache-poisoning MITM. False: ARP replies are unicast back to the requester, not broadcast."
   },
   {
     "id": "netplus-499",
@@ -7372,7 +7570,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: Cat6A does 10G at 100 m, plenum cable is code-required in air-handling spaces, and a straight-through cable connects a PC to a switch. False: Cat5e is not rated for 10G (that 55 m figure applies to Cat6)."
   },
   {
     "id": "netplus-500",
@@ -7390,7 +7589,8 @@
       true,
       true,
       false
-    ]
+    ],
+    "explanation": "True: AES is a symmetric block cipher and RSA is asymmetric (key exchange/signatures). False: symmetric uses a single shared key (not a public/private pair), and asymmetric is slower than symmetric for bulk data."
   },
   {
     "id": "netplus-501",
@@ -7403,7 +7603,8 @@
       "OID (Object Identifier)",
       "MIB module"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "An OID (Object Identifier) is the unique dotted-decimal identifier locating a managed object in the SNMP MIB tree. The community string is an access password, and the MIB is the overall definition catalog."
   },
   {
     "id": "netplus-502",
@@ -7416,7 +7617,8 @@
       "OID tree",
       "Trap receiver"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "The MIB (Management Information Base) is the hierarchical database defining the structure and meaning of every queryable object on an SNMP agent; OIDs are the addresses of objects within it. The community string is an access password and a trap receiver collects notifications."
   },
   {
     "id": "netplus-503",
@@ -7429,7 +7631,8 @@
       "Unique local",
       "Multicast"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The 2000::/3 block is IPv6 global unicast - globally routable addresses, of which 2001:db8::/32 is the documentation range. Link-local is fe80::/10, ULA fc00::/7, and multicast ff00::/8."
   },
   {
     "id": "netplus-504",
@@ -7442,7 +7645,8 @@
       "Anycast",
       "Unique local (ULA)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "fc00::/7 (commonly fd00::/8 in practice) is Unique Local Address space - private IPv6 not routed on the public internet, analogous to RFC 1918. Global unicast is 2000::/3 and link-local fe80::/10."
   },
   {
     "id": "netplus-505",
@@ -7455,7 +7659,8 @@
       "ff00::/8",
       "2000::/3"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "All IPv6 multicast addresses fall under ff00::/8 (e.g., ff02::2 = all-routers). fe80::/10 is link-local, fc00::/7 is ULA, and 2000::/3 is global unicast."
   },
   {
     "id": "netplus-506",
@@ -7468,7 +7673,8 @@
       "::ffff:127.0.0.1",
       "fc00::1"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "::1 is the IPv6 loopback address, equivalent to 127.0.0.1 in IPv4. fe80::1 would be link-local and ::ffff:127.0.0.1 is an IPv4-mapped form."
   },
   {
     "id": "netplus-507",
@@ -7481,7 +7687,8 @@
       "L2TP",
       "MPLS"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "VXLAN encapsulates Layer 2 Ethernet frames in UDP (VNI-tagged) to stretch L2 segments across an L3 fabric, enabling VM mobility between racks. GRE/L2TP are generic tunnels and MPLS is label switching."
   },
   {
     "id": "netplus-508",
@@ -7494,7 +7701,8 @@
       "IPSec",
       "GRE"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "GRE encapsulates virtually any Layer 3 protocol (including non-IP and multicast) inside IP, letting it traverse an IP-only WAN. It provides no encryption (pair with IPSec for that)."
   },
   {
     "id": "netplus-509",
@@ -7507,7 +7715,8 @@
       "MPLS",
       "GRE"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "MPLS attaches short fixed-length labels at the network edge and forwards on label swapping instead of per-hop IP lookups, speeding provider WAN forwarding and enabling traffic engineering/VPNs."
   },
   {
     "id": "netplus-510",
@@ -7520,7 +7729,8 @@
       "MPLS",
       "GRE"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "SD-WAN abstracts multiple transports (MPLS, broadband, LTE) and steers traffic per-application using real-time link metrics and centralized policy, replacing rigid single-link MPLS designs."
   },
   {
     "id": "netplus-511",
@@ -7533,7 +7743,8 @@
       "Transit network",
       "Fabric network"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A virtual network built logically on top of shared physical infrastructure is an overlay (e.g., VXLAN); the physical transport beneath it is the underlay."
   },
   {
     "id": "netplus-512",
@@ -7546,7 +7757,8 @@
       "Always-on VPN",
       "Split tunneling"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Split tunneling sends only corporate-bound traffic through the VPN while other internet traffic uses the local ISP path directly, reducing VPN load at some security cost. Full tunnel sends everything through the VPN."
   },
   {
     "id": "netplus-513",
@@ -7559,7 +7771,8 @@
       "Mesh APs",
       "Cloud-managed APs"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Controller-based (thin/lightweight) APs pull configuration, firmware, RF, and policy centrally from a WLC, so APs are not configured individually. Autonomous (fat) APs are managed one by one."
   },
   {
     "id": "netplus-514",
@@ -7572,7 +7785,8 @@
       "CAPWAP",
       "RADIUS"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "CAPWAP (Control And Provisioning of Wireless Access Points) is the IETF-standard tunneling protocol carrying control and (optionally) data between lightweight APs and the WLC. LWAPP is its Cisco predecessor."
   },
   {
     "id": "netplus-515",
@@ -7585,7 +7799,8 @@
       "Handles authentication and applies wireless security policies",
       "Aggregates roaming decisions to maintain client sessions across APs"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A WLC's core function is centralized management of AP configuration, firmware, and RF (channel/power) settings; it also handles security policy and roaming. It does not provide internet routing for clients."
   },
   {
     "id": "netplus-516",
@@ -7598,7 +7813,8 @@
       "Panel antenna",
       "Omnidirectional"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "An omnidirectional antenna radiates roughly equally in all horizontal directions (doughnut pattern), ideal for central placement to cover an open floor. Yagi/parabolic/panel antennas are directional."
   },
   {
     "id": "netplus-517",
@@ -7611,7 +7827,8 @@
       "Dipole",
       "Rubber duck"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A Yagi is a directional antenna delivering high gain in one narrow beam, suited to point-to-point building bridges. Omnidirectional/dipole/rubber-duck antennas spread energy too widely for a focused 500 m link."
   },
   {
     "id": "netplus-518",
@@ -7624,7 +7841,8 @@
       "Channel bonding (40 MHz)",
       "MIMO aggregation"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Channel bonding combines two adjacent 20 MHz channels into a 40 MHz channel (introduced with 802.11n) to roughly double throughput. MIMO/spatial multiplexing and OFDMA are separate techniques."
   },
   {
     "id": "netplus-519",
@@ -7637,7 +7855,8 @@
       "40, 80, and 160 MHz only",
       "80 and 160 MHz only"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "802.11ac on 5 GHz supports 20, 40, 80, and 160 MHz channel widths (160 MHz often as 80+80). Wider channels increase throughput but reduce the number of non-overlapping channels."
   },
   {
     "id": "netplus-520",
@@ -7650,7 +7869,8 @@
       "Southbound API",
       "Control plane (SDN controller)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "In SDN the control plane (SDN controller) holds network-wide intelligence - computing paths and policy - and programs the forwarding devices via a southbound API. The data plane only forwards."
   },
   {
     "id": "netplus-521",
@@ -7663,7 +7883,8 @@
       "Management plane",
       "Application plane"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "The data/forwarding plane forwards packets purely by the flow tables the controller installs, with no independent routing decisions. The control plane decides; the data plane executes."
   },
   {
     "id": "netplus-522",
@@ -7676,7 +7897,8 @@
       "Virtual switch (vSwitch)",
       "SDN controller"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A virtual switch (vSwitch) in the hypervisor provides Layer 2 switching among VMs on a host and uplinks them to the physical network. A physical switch sits outside the host and NIC teaming only bonds uplinks."
   },
   {
     "id": "netplus-523",
@@ -7689,7 +7911,8 @@
       "Load balancing cluster",
       "N+1 redundancy"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Active-passive (standby) failover keeps one firewall passing traffic while a synchronized standby takes over on failure. Active-active runs both simultaneously for load sharing."
   },
   {
     "id": "netplus-524",
@@ -7702,7 +7925,8 @@
       "OSPF",
       "FHRP (First Hop Redundancy Protocol)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "First Hop Redundancy Protocols (HSRP, VRRP, GLBP) present a shared virtual gateway IP/MAC backed by multiple routers so the default gateway is not a single point of failure. STP/LACP/OSPF solve different problems."
   },
   {
     "id": "netplus-525",
@@ -7715,7 +7939,8 @@
       "The router that powers on first always becomes active",
       "The router with the most interfaces becomes active"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "The HSRP router with the highest configured priority (default 100) becomes active; if priorities tie, the highest IP address wins. Boot order matters only with preemption disabled and equal priority."
   },
   {
     "id": "netplus-526",
@@ -7728,7 +7953,8 @@
       "VRRP",
       "CARP"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "VRRP is the open IETF-standard FHRP. HSRP and GLBP are Cisco-proprietary, and CARP is an open BSD variant but not the standard answer here."
   },
   {
     "id": "netplus-527",
@@ -7741,7 +7967,8 @@
       "iPerf",
       "Netflow Analyzer"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Nmap is the industry-standard port scanner and service/OS enumeration tool used in vulnerability assessments. Wireshark captures packets, iPerf measures throughput, and NetFlow analyzers report flows."
   },
   {
     "id": "netplus-528",
@@ -7754,7 +7981,8 @@
       "Solarwinds NPM",
       "Wireshark"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Wireshark provides graphical live capture and deep protocol decoding to inspect malformed frames and diagnose issues like VoIP jitter. Nmap scans ports and iPerf tests bandwidth."
   },
   {
     "id": "netplus-529",
@@ -7767,7 +7995,8 @@
       "Nmap",
       "tcpdump"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "iPerf is the free, open-source client/server tool that generates traffic to measure achievable TCP/UDP throughput across a link. Wireshark/tcpdump capture traffic and Nmap scans ports."
   },
   {
     "id": "netplus-530",
@@ -7780,7 +8009,8 @@
       "Wi-Fi analyzer",
       "Spectrum analyzer"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A Wi-Fi analyzer surveys signal strength, channel utilization/overlap, and rogue APs from a client perspective. A spectrum analyzer shows raw RF energy (including non-Wi-Fi), and an OTDR/certifier test cabling."
   },
   {
     "id": "netplus-531",
@@ -7793,7 +8023,8 @@
       "NGFW",
       "WAF"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A stateless (packet filtering) firewall judges each packet independently on header fields (IPs, ports, protocol) with no connection tracking. Stateful firewalls track session state; NGFW/WAF add deeper inspection."
   },
   {
     "id": "netplus-532",
@@ -7806,7 +8037,8 @@
       "Deep packet inspection",
       "Stateful inspection"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Stateful inspection tracks active connections in a state table and only allows return traffic matching an established, legitimately initiated session. Stateless filtering lacks this context."
   },
   {
     "id": "netplus-533",
@@ -7819,7 +8051,8 @@
       "Traditional stateful firewall",
       "Proxy firewall"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A Next-Generation Firewall (NGFW) adds application awareness (identifying apps regardless of port), user identity, IPS, and threat-intelligence feeds on top of stateful filtering."
   },
   {
     "id": "netplus-534",
@@ -7832,7 +8065,8 @@
       "WAF (Web Application Firewall)",
       "SIEM"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A Web Application Firewall (WAF) inspects HTTP/HTTPS at Layer 7 to block application attacks like SQL injection and XSS. Network IPS/stateful firewalls operate lower in the stack and a SIEM only correlates logs."
   },
   {
     "id": "netplus-535",
@@ -7845,7 +8079,8 @@
       "As an out-of-band management device",
       "In series with the firewall in bridge mode"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "An IDS must be passive, so it connects to a SPAN/mirror port receiving copies of traffic - it can alert without ever being in the forwarding path. Inline placement would risk interrupting traffic (that is IPS behavior)."
   },
   {
     "id": "netplus-536",
@@ -7858,7 +8093,8 @@
       "Honeypot",
       "IPS"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "An IPS sits inline and can drop or block malicious traffic automatically in real time. An IDS only alerts (out-of-band), a SIEM correlates logs, and a honeypot lures attackers."
   },
   {
     "id": "netplus-537",
@@ -7871,7 +8107,8 @@
       "IDS",
       "NAC"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Content/URL filtering classifies and blocks web traffic by category or specific URL (social media, gaming, adult content), commonly enforced during defined hours. Firewalls/IDS/NAC do not categorize web content."
   },
   {
     "id": "netplus-538",
@@ -7884,7 +8121,8 @@
       "DHCP server is unreachable or unavailable",
       "Wireless channel conflict causing packet loss"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A 169.254.x.x (APIPA) address with no internet means the client could not reach a DHCP server to obtain a lease. A wrong passphrase would prevent association entirely, and DNS/channel issues would not yield APIPA."
   },
   {
     "id": "netplus-539",
@@ -7897,7 +8135,8 @@
       "A short circuit between two conductors",
       "The cable exceeds the maximum length specification"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A split pair connects wires from two different pairs to the wrong pins: continuity passes end-to-end but the pairs are no longer twisted together, causing excessive crosstalk and errors at high speed."
   },
   {
     "id": "netplus-540",
@@ -7910,7 +8149,8 @@
       "show vlan brief",
       "show mac address-table"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "show mac address-table lists learned MAC addresses with their ports and VLANs, revealing which port a device is actually on after a move. show ip arp maps IP-to-MAC, not port."
   },
   {
     "id": "netplus-541",
@@ -7926,7 +8166,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "GRE and VXLAN create overlays by encapsulating packets/frames over an existing IP underlay. OSPF and BGP are routing protocols that build the underlay, not tunnels."
   },
   {
     "id": "netplus-542",
@@ -7942,7 +8183,8 @@
     "correctAnswers": [
       1,
       2
-    ]
+    ],
+    "explanation": "Controller-based (thin) APs gain centralized configuration/policy management and controller-coordinated seamless roaming. Independent per-AP management and operating without controller connectivity describe autonomous APs, not thin APs."
   },
   {
     "id": "netplus-543",
@@ -7958,7 +8200,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "NGFWs add application-layer deep packet inspection and application-aware control regardless of port (e.g., blocking an app on 443). NAT and stateful connection tracking exist in traditional stateful firewalls too."
   },
   {
     "id": "netplus-544",
@@ -7982,7 +8225,8 @@
       3,
       1,
       0
-    ]
+    ],
+    "explanation": "IPv6 prefixes: global unicast 2000::/3, link-local fe80::/10, unique local (ULA) fc00::/7, and multicast ff00::/8."
   },
   {
     "id": "netplus-545",
@@ -8006,7 +8250,8 @@
       0,
       3,
       2
-    ]
+    ],
+    "explanation": "Stateless firewalls inspect headers with no session tracking; stateful firewalls track TCP sessions and allow established return traffic; NGFWs add Layer 7 app control and threat intelligence; a WAF protects web apps from SQLi/XSS over HTTP/HTTPS."
   },
   {
     "id": "netplus-546",
@@ -8026,7 +8271,8 @@
       0,
       3,
       4
-    ]
+    ],
+    "explanation": "VLAN setup order: create the VLAN in the database, name it, assign access ports to it, permit it on the inter-switch trunks, then verify connectivity between hosts in the VLAN."
   },
   {
     "id": "netplus-547",
@@ -8046,7 +8292,8 @@
       1,
       3,
       4
-    ]
+    ],
+    "explanation": "Logical wireless-association troubleshooting: confirm the client adapter is on (not airplane mode), confirm the AP is up and broadcasting the SSID, check SSID/security/passphrase on the client, review AP logs for auth failures, then test another device to isolate client-specific issues."
   },
   {
     "id": "netplus-548",
@@ -8064,7 +8311,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: CAPWAP is the IETF lightweight-AP/WLC protocol, a WLC can push config/firmware to all APs, and it centrally manages roaming. False: autonomous (fat) APs operate independently and do not need a controller."
   },
   {
     "id": "netplus-549",
@@ -8082,7 +8330,8 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: an IDS is passive (alerts only), an IPS is inline and can block in real time, and both can use signature-based detection. False: an IDS does not need to be inline - it monitors via a mirror/SPAN port."
   },
   {
     "id": "netplus-550",
@@ -8100,7 +8349,8 @@
       true,
       true,
       false
-    ]
+    ],
+    "explanation": "True: SD-WAN uses a central controller/orchestrator and dynamically steers apps over the best link by real-time metrics. False: it can use broadband/LTE (not only MPLS), and it still requires encryption on inter-site tunnels."
   },
   {
     "id": "netplus-551",
@@ -8113,7 +8363,8 @@
       "254",
       "255"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A /24 has 8 host bits: 2^8 - 2 = 254 usable addresses after removing the network and broadcast addresses."
   },
   {
     "id": "netplus-552",
@@ -8126,7 +8377,8 @@
       "Any IP address in the 1.0.0.0/8 range",
       "Any IP address assigned by a DHCP server"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A public IP is any address not reserved as RFC 1918 private (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) - i.e., globally routable on the internet. IANA also reserves other special ranges, but the defining contrast here is non-private."
   },
   {
     "id": "netplus-553",
@@ -8139,7 +8391,8 @@
       "/8",
       "/32"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A Class C network's default mask is 255.255.255.0, i.e., a /24 prefix. /8 is Class A and /16 is Class B by default."
   },
   {
     "id": "netplus-554",
@@ -8152,7 +8405,8 @@
       "32",
       "14"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A /28 has 4 host bits: 2^4 - 2 = 14 usable host addresses (16 total minus network and broadcast)."
   },
   {
     "id": "netplus-555",
@@ -8165,7 +8419,8 @@
       "The server initiates a connection from port 20 back to the client's specified port",
       "The client opens two separate connections to port 20 and port 21"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "In FTP active mode the client sends PORT with a listening port, and the server opens the data connection back from its port 20 to that client port - which often breaks through client-side NAT/firewalls."
   },
   {
     "id": "netplus-556",
@@ -8178,7 +8433,8 @@
       "In passive mode, FTP uses a single connection instead of separate control and data channels",
       "In passive mode, FTP runs over UDP instead of TCP"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "In passive mode the server opens a high data port and the client initiates BOTH the control and data connections outbound to the server, so no inbound connection to the NAT'd client is needed."
   },
   {
     "id": "netplus-557",
@@ -8191,7 +8447,8 @@
       "TCP port 69",
       "UDP port 21"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "TFTP is a minimal, connectionless transfer protocol running over UDP port 69, commonly used for firmware/config loads. FTP uses TCP 20/21."
   },
   {
     "id": "netplus-558",
@@ -8204,7 +8461,8 @@
       "SFTP uses port 990 and FTPS uses port 22",
       "SFTP tunnels file transfer over SSH (port 22); FTPS adds TLS to FTP (ports 990/21/989)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "SFTP is file transfer tunneled over SSH (TCP 22); FTPS is traditional FTP secured with TLS (implicit 990, explicit on 21, data 989). They are unrelated protocols despite similar names."
   },
   {
     "id": "netplus-559",
@@ -8217,7 +8475,8 @@
       "POP3 on port 110",
       "IMAP on port 143"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "POP3 (TCP port 110) downloads mail and typically deletes it from the server, a single-device legacy model. IMAP (143/993) keeps mail server-side; SMTP (25) sends mail."
   },
   {
     "id": "netplus-560",
@@ -8230,7 +8489,8 @@
       "SMTP",
       "MAPI"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "IMAP (TCP port 143, or 993 with TLS) synchronizes and stores messages server-side so they are consistent across multiple devices. POP3 downloads/removes and SMTP sends."
   },
   {
     "id": "netplus-561",
@@ -8243,7 +8503,8 @@
       "465",
       "993"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "RFC 6409 defines TCP port 587 for authenticated message submission from clients to a mail server. Port 25 is server-to-server relay, 465 is implicit-TLS submission, and 993 is IMAPS."
   },
   {
     "id": "netplus-562",
@@ -8256,7 +8517,8 @@
       "HTTP only works on port 80; HTTPS only works on port 8443",
       "HTTPS uses TLS to encrypt data in transit; HTTP transmits data in cleartext"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "HTTPS layers TLS over HTTP to encrypt data in transit and authenticate the server, while plain HTTP sends everything in cleartext. Both run over TCP; default ports are 80 and 443."
   },
   {
     "id": "netplus-563",
@@ -8269,7 +8531,8 @@
       "Provides full redundancy without additional equipment",
       "Performs better than mesh topology under heavy load"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "In a star topology each device has its own cable to the central switch, so a single cable or endpoint failure is isolated and does not affect the others (the switch is the main single point of failure)."
   },
   {
     "id": "netplus-564",
@@ -8282,7 +8545,8 @@
       "A break in the shared cable segment disrupts communication for all connected devices",
       "It requires a dedicated switch for each network segment"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "On a shared-cable bus, any break or bad terminator in the segment disrupts communication for every attached device, and a single collision domain limits scalability."
   },
   {
     "id": "netplus-565",
@@ -8295,7 +8559,8 @@
       "Ring topology",
       "Bus topology"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A full mesh connects every node directly to every other node, so no single link failure isolates any site - maximum redundancy at high cabling/cost (n(n-1)/2 links)."
   },
   {
     "id": "netplus-566",
@@ -8308,7 +8573,8 @@
       "Full mesh",
       "Ring"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A ring topology connects each device to exactly two neighbors forming a closed loop, as used by legacy Token Ring/FDDI. Bus is a shared line and star is hub-centric."
   },
   {
     "id": "netplus-567",
@@ -8321,7 +8587,8 @@
       "Hub and spoke",
       "Ring topology"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Removing some links from a full mesh to cut cost while keeping partial redundancy yields a partial-mesh topology. Hub-and-spoke/star centralize through one node with no such redundancy."
   },
   {
     "id": "netplus-568",
@@ -8334,7 +8601,8 @@
       "MDF (Main Distribution Frame)",
       "Demarcation point"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The MDF (Main Distribution Frame) is the central room aggregating all building cabling and the ISP demarcation/backbone. IDFs are intermediate floor closets fed from the MDF."
   },
   {
     "id": "netplus-569",
@@ -8347,7 +8615,8 @@
       "55 meters",
       "150 meters"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "ANSI/TIA-568 caps the horizontal permanent link at 90 m, leaving 10 m for patch cords within a 100 m channel. 100 m is the total channel, not the horizontal run."
   },
   {
     "id": "netplus-570",
@@ -8360,7 +8629,8 @@
       "Work area cabling",
       "Backbone (vertical) cabling"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Backbone (vertical) cabling interconnects the MDF to IDFs and IDFs across floors, forming the network spine. Horizontal/work-area cabling connects IDFs to end stations."
   },
   {
     "id": "netplus-571",
@@ -8373,7 +8643,8 @@
       "IETF",
       "ISO/IEC"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "The Telecommunications Industry Association (TIA) publishes the ANSI/TIA-568 structured cabling standards. IEEE handles 802 LAN standards, IETF handles internet protocols, and ISO/IEC publishes 11801."
   },
   {
     "id": "netplus-572",
@@ -8386,7 +8657,8 @@
       "At the building entrance or the ISP-provided equipment",
       "At the IDF serving the main office floor"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The demarcation point - where ISP responsibility ends and customer equipment begins - is at the building entrance / ISP-provided NID or equipment, not the MDF, a router, or an IDF."
   },
   {
     "id": "netplus-573",
@@ -8399,7 +8671,8 @@
       "17.5 hours",
       "1 hour"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "99.9% uptime allows about 0.1% downtime per year, roughly 8.76 hours annually (about 43.8 minutes/month). 99.99% would be ~52.6 minutes/year."
   },
   {
     "id": "netplus-574",
@@ -8412,7 +8685,8 @@
       "1 hour",
       "5.26 minutes"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Five nines (99.999%) permits only about 5.26 minutes of downtime per year. 99.99% is ~52.6 min/year and 99.9% is ~8.76 h/year."
   },
   {
     "id": "netplus-575",
@@ -8425,7 +8699,8 @@
       "Physical diagram",
       "Rack elevation diagram"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A logical diagram depicts IP addressing, subnets, VLANs, and routing relationships without physical cable/rack detail. Physical/floor-plan/rack diagrams show the hardware and cabling."
   },
   {
     "id": "netplus-576",
@@ -8438,7 +8713,8 @@
       "Wiring/physical diagram",
       "Network baseline report"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A wiring/physical diagram overlays actual cable runs, wall outlets, and equipment-room locations on the building floor plan, used to trace physical infrastructure. Logical diagrams omit that detail."
   },
   {
     "id": "netplus-577",
@@ -8451,7 +8727,8 @@
       "Physical floor plan",
       "Network topology map"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A rack elevation diagram shows exactly which device occupies each U position in a cabinet, with names, addresses, and power - the data center inventory view. Logical/floor-plan diagrams do not show U positions."
   },
   {
     "id": "netplus-578",
@@ -8464,7 +8741,8 @@
       "Risk assessment",
       "Standard Operating Procedure (SOP)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Step-by-step instructions for routine repeatable tasks are a Standard Operating Procedure (SOP). Change requests, incident reports, and risk assessments serve different governance purposes."
   },
   {
     "id": "netplus-579",
@@ -8477,7 +8755,8 @@
       "Change management",
       "Asset management"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Tracking device configurations against approved baselines to detect drift/unauthorized changes is configuration management. Change management governs the approval workflow; asset management tracks inventory."
   },
   {
     "id": "netplus-580",
@@ -8490,7 +8769,8 @@
       "Vendor product data sheet",
       "Standard Operating Procedure"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The vendor product data sheet documents hardware specs, interface/port types, and supported features for a specific model - what you consult before first-time configuration. Diagrams and SOPs do not list hardware capabilities."
   },
   {
     "id": "netplus-581",
@@ -8503,7 +8783,8 @@
       "Red team exercise",
       "Security audit"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "An automated scan that enumerates open ports, missing patches, and misconfigurations and prioritizes them WITHOUT exploiting is a vulnerability scan. A penetration test/red team actively exploits, and an audit checks policy compliance."
   },
   {
     "id": "netplus-582",
@@ -8516,7 +8797,8 @@
       "Crystal box",
       "Black box"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Black box testing simulates an external attacker with no inside knowledge - only public data like the company name and IP ranges. White box gives full information; gray box gives partial."
   },
   {
     "id": "netplus-583",
@@ -8529,7 +8811,8 @@
       "Gray box",
       "Passive reconnaissance"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "White box (clear box) testing provides full visibility - network diagrams, credentials, and source code - for the most thorough assessment. Black box gives nothing; gray box gives partial knowledge."
   },
   {
     "id": "netplus-584",
@@ -8542,7 +8825,8 @@
       "Gray box",
       "Red team"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Gray box testing gives the tester partial information (e.g., subnets and a standard user account), simulating an insider or a compromised low-privilege user. Black/white box are the no-info and full-info extremes."
   },
   {
     "id": "netplus-585",
@@ -8555,7 +8839,8 @@
       "DMZ",
       "Management zone"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The internet-facing zone holding untrusted external traffic is the untrust/outside zone. The internal LAN is the trust zone, the DMZ is a screened middle zone, and the management zone is for admin access."
   },
   {
     "id": "netplus-586",
@@ -8568,7 +8853,8 @@
       "Need to know",
       "Principle of least privilege"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Granting only the minimum access required for the task (and nothing more) is the principle of least privilege. Need-to-know is related but applies to information access; defense in depth and separation of duties are different controls."
   },
   {
     "id": "netplus-587",
@@ -8581,7 +8867,8 @@
       "Enabling faster routing between segments",
       "Simplifying firewall rule management"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Isolating finance servers in their own ACL-protected VLAN means a compromise of the office VLAN cannot directly reach them - segmentation limits the blast radius/lateral movement of an incident. It is not about redundancy or routing speed."
   },
   {
     "id": "netplus-588",
@@ -8594,7 +8881,8 @@
       "Multi-factor authentication (MFA)",
       "Biometric authentication"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Combining a password (something you know) with a hardware OTP token (something you have) is multi-factor authentication - two different factor categories. Two passwords would not qualify."
   },
   {
     "id": "netplus-589",
@@ -8607,7 +8895,8 @@
       "show arp",
       "show interfaces"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "show ip route displays the full IP routing table with destinations, next hops, and sources, letting you confirm the path for a prefix. show ip interface brief only lists interface status."
   },
   {
     "id": "netplus-590",
@@ -8620,7 +8909,8 @@
       "show mac address-table",
       "show spanning-tree vlan"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "show spanning-tree vlan <id> shows each port's STP role/state (forwarding, blocking, etc.) for that VLAN, which reveals loops or unexpected blocking. show vlan/mac-table do not show STP state."
   },
   {
     "id": "netplus-591",
@@ -8636,7 +8926,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "In a star, one device/cable failure is isolated and a central switch failure only affects devices on that switch (segmented impact). The shared-cable break and two-neighbor descriptions characterize bus/ring, not star advantages."
   },
   {
     "id": "netplus-592",
@@ -8652,7 +8943,8 @@
     "correctAnswers": [
       1,
       3
-    ]
+    ],
+    "explanation": "A vulnerability scan identifies and reports weaknesses without exploiting them, while a penetration test actively exploits vulnerabilities to demonstrate real-world impact (and involves manual skill, not just tools)."
   },
   {
     "id": "netplus-593",
@@ -8668,7 +8960,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "Both a logical diagram (IP/VLAN/routing) and a physical diagram (cable paths/equipment locations) are essential for planning deployments and for troubleshooting. Onboarding handbooks and expense reports are not network documentation."
   },
   {
     "id": "netplus-594",
@@ -8692,7 +8985,8 @@
       0,
       3,
       2
-    ]
+    ],
+    "explanation": "Default mail ports: SMTP relay 25, POP3 110, IMAP 143, and the message submission port 587 (RFC 6409, often with STARTTLS)."
   },
   {
     "id": "netplus-595",
@@ -8716,7 +9010,8 @@
       1,
       3,
       0
-    ]
+    ],
+    "explanation": "Bus shares one cable (a break disrupts all), star connects every device to a central switch/hub, ring links each node to exactly two neighbors in a loop, and full mesh gives every node a dedicated link to every other node."
   },
   {
     "id": "netplus-596",
@@ -8736,7 +9031,8 @@
       0,
       4,
       2
-    ]
+    ],
+    "explanation": "A pen-test engagement runs: reconnaissance, scanning/enumeration, exploitation, post-exploitation and cleanup, then reporting with findings and remediation."
   },
   {
     "id": "netplus-597",
@@ -8756,7 +9052,8 @@
       2,
       0,
       3
-    ]
+    ],
+    "explanation": "Bottom-up: confirm Layer 1/2 link and port status, verify the host IP/mask/gateway, traceroute to find where forwarding stops, inspect the router's routing table for the destination, then ping from the router toward the destination to validate routing."
   },
   {
     "id": "netplus-598",
@@ -8774,7 +9071,8 @@
       false,
       true,
       false
-    ]
+    ],
+    "explanation": "True: 99.9% allows ~8.76 h/year and an SLA defines uptime/response/escalation metrics. False: five nines is ~5.26 minutes/year (not ~1 hour), and SLAs are contractual and can carry penalties."
   },
   {
     "id": "netplus-599",
@@ -8792,7 +9090,8 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: TIA-568 governs commercial structured cabling, the horizontal channel is 100 m (90 m link + 10 m patch), and the demarcation point is the provider/customer boundary. False: backbone cabling interconnects MDF/IDFs, not the outlet-to-NIC run (that is work-area cabling)."
   },
   {
     "id": "netplus-600",
@@ -8810,7 +9109,8 @@
       true,
       true,
       false
-    ]
+    ],
+    "explanation": "True: the three factor categories are know/have/are, and an OTP token is 'something you have'. False: two passwords are still one factor (something you know), and MFA is more secure than single-factor, not less."
   },
   {
     "id": "netplus-601",
@@ -8823,7 +9123,8 @@
       "Static NAT",
       "NAT overload"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Static NAT creates a permanent fixed one-to-one mapping between a public IP and an internal private IP, suitable for a server that must always be reachable at the same address. PAT/dynamic NAT are many-to-one or pooled."
   },
   {
     "id": "netplus-602",
@@ -8836,7 +9137,8 @@
       "NAT overload",
       "PAT"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Dynamic NAT assigns a public IP from a pool to an internal host for the duration of a session, returning it to the pool afterward (no port multiplexing). It needs as many public IPs as concurrent hosts."
   },
   {
     "id": "netplus-603",
@@ -8849,7 +9151,8 @@
       "Dynamic NAT",
       "1:1 NAT"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "PAT (Port Address Translation) lets many internal hosts share one public IP by tracking each flow with a unique source port, supporting hundreds of simultaneous sessions on a single address."
   },
   {
     "id": "netplus-604",
@@ -8862,7 +9165,8 @@
       "Proxy NAT",
       "NAT overload"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Many-to-one NAT using unique source ports is also called NAT overload (Cisco term for PAT). Static/dynamic NAT do not multiplex by port."
   },
   {
     "id": "netplus-605",
@@ -8875,7 +9179,8 @@
       "IaaS",
       "FaaS"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Renting raw virtualized compute, storage, and networking while you manage the OS and apps is Infrastructure as a Service (IaaS). PaaS abstracts the OS/runtime and SaaS delivers a finished application."
   },
   {
     "id": "netplus-606",
@@ -8888,7 +9193,8 @@
       "SaaS",
       "CaaS"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A managed build/deploy/scale environment where the provider handles infrastructure, OS, and runtime is Platform as a Service (PaaS). IaaS exposes the OS; SaaS delivers a complete app."
   },
   {
     "id": "netplus-607",
@@ -8901,7 +9207,8 @@
       "PaaS",
       "Hybrid cloud"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A vendor-managed application accessed via browser with nothing installed and all data/infrastructure managed by the provider is Software as a Service (SaaS)."
   },
   {
     "id": "netplus-608",
@@ -8914,7 +9221,8 @@
       "Hybrid cloud",
       "Private cloud"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A private cloud is provisioned for the exclusive use of one organization, whether on-premises or provider-hosted. Public cloud is shared/multi-tenant; community is shared by related organizations."
   },
   {
     "id": "netplus-609",
@@ -8927,7 +9235,8 @@
       "Hybrid cloud",
       "Multi-cloud"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Combining a private on-prem cloud for sensitive data with public cloud for burst capacity (cloud bursting) is a hybrid cloud. Multi-cloud means multiple public providers without that private/public integration emphasis."
   },
   {
     "id": "netplus-610",
@@ -8940,7 +9249,8 @@
       "NAT64",
       "Teredo"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Dual stack runs IPv4 and IPv6 concurrently on the same devices, so each can use whichever protocol a peer supports - the preferred long-term transition method. 6to4/NAT64/Teredo are tunneling/translation mechanisms."
   },
   {
     "id": "netplus-611",
@@ -8953,7 +9263,8 @@
       "NAT64",
       "ISATAP"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "6to4 tunneling encapsulates IPv6 packets inside IPv4 to carry them across an IPv4-only transport between IPv6 sites. Dual stack needs native IPv6, and NAT64 translates rather than tunnels."
   },
   {
     "id": "netplus-612",
@@ -8966,7 +9277,8 @@
       "Dual stack",
       "Teredo"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Teredo encapsulates IPv6 in IPv4 UDP specifically so hosts behind IPv4 NAT can reach IPv6, since UDP traverses NAT. 6to4/ISATAP do not handle NAT traversal natively."
   },
   {
     "id": "netplus-613",
@@ -8979,7 +9291,8 @@
       "The effective transmit power in milliwatts",
       "The receive sensitivity of the antenna"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "dBi expresses antenna gain relative to a theoretical isotropic radiator (one that radiates equally in all directions). dBd would be relative to a dipole; it is not power in mW or receive sensitivity."
   },
   {
     "id": "netplus-614",
@@ -8992,7 +9305,8 @@
       "Power level in decibels relative to 1 milliwatt",
       "Frequency channel width in megahertz"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "dBm is an absolute power level in decibels relative to 1 milliwatt (0 dBm = 1 mW); Wi-Fi receive levels are negative dBm (e.g., -65). It is not gain, SNR, or channel width."
   },
   {
     "id": "netplus-615",
@@ -9005,7 +9319,8 @@
       "The channel width used by the AP",
       "The distance between the client and AP"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "SNR is the ratio of received signal power to background noise power; a low SNR causes errors/retransmissions even when raw signal strength looks adequate. It is not stream count, channel width, or distance."
   },
   {
     "id": "netplus-616",
@@ -9018,7 +9333,8 @@
       "The channel utilization percentage",
       "The strength of the received RF signal at the measurement point"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "RSSI indicates the received RF signal strength at the measurement point (reported in dBm or a vendor scale). It is not antenna gain, noise floor, or channel utilization."
   },
   {
     "id": "netplus-617",
@@ -9031,7 +9347,8 @@
       "To measure cable lengths for PoE budgeting",
       "To determine the number of VLANs required for wireless segmentation"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A pre-deployment site survey identifies optimal AP placement, finds interference sources, and plans channel/power assignments for proper coverage. SSID/security config and VLAN/PoE planning are separate tasks."
   },
   {
     "id": "netplus-618",
@@ -9044,7 +9361,8 @@
       "Roaming threshold (signal level trigger for reassociation)",
       "SSID broadcast interval"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The roaming threshold (the signal/SNR level at which a client decides to disassociate and find a better AP) governs sticky-client behavior. Transmit power and band steering influence it indirectly but the trigger is the roaming threshold."
   },
   {
     "id": "netplus-619",
@@ -9057,7 +9375,8 @@
       "3, 6, 9",
       "2, 5, 10"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "In 2.4 GHz only channels 1, 6, and 11 are non-overlapping (20 MHz spacing), so using just these three avoids co-channel/adjacent-channel interference between APs."
   },
   {
     "id": "netplus-620",
@@ -9070,7 +9389,8 @@
       "MU-MIMO",
       "Band steering"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Band steering nudges dual-band-capable clients off the congested 2.4 GHz band onto 5 GHz for better performance. Channel bonding, load balancing, and MU-MIMO address different goals."
   },
   {
     "id": "netplus-621",
@@ -9083,7 +9403,8 @@
       "CS0 (Best Effort)",
       "CS3"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "DSCP Expedited Forwarding (EF, DSCP 46) is the per-hop behavior for low-latency, low-jitter real-time voice. Assured Forwarding classes are for prioritized data and CS0 is best-effort."
   },
   {
     "id": "netplus-622",
@@ -9096,7 +9417,8 @@
       "Guaranteed minimum bandwidth with drop precedence levels",
       "No quality guarantees; treated identically to best-effort"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "DSCP Assured Forwarding gives a traffic class a guaranteed minimum bandwidth with multiple drop-precedence levels (e.g., AF41/42/43), better than best-effort but without the strict-priority, near-zero-delay treatment of Expedited Forwarding."
   },
   {
     "id": "netplus-623",
@@ -9109,7 +9431,8 @@
       "Standard change approval",
       "Scheduled maintenance window"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A change freeze (maintenance blackout) prohibits non-emergency changes during high-risk/high-revenue periods like the holidays or quarter-end. Emergency changes may still proceed under exception."
   },
   {
     "id": "netplus-624",
@@ -9122,7 +9445,8 @@
       "Approval workflow",
       "Rollback plan"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Documenting the current state and the exact steps to revert if the change fails is a rollback (back-out) plan, a required part of change management. The change request authorizes the work; the rollback plan recovers from failure."
   },
   {
     "id": "netplus-625",
@@ -9135,7 +9459,8 @@
       "Protocol dissector",
       "Stream follow"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A Wireshark display filter (e.g., tcp.port==443) narrows what is shown from an already-captured set without discarding data. A capture filter limits what is recorded in the first place."
   },
   {
     "id": "netplus-626",
@@ -9148,7 +9473,8 @@
       "A potential network problem such as congestion, a loop, or a DDoS attack",
       "SNMP community string mismatch"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A large deviation from the established baseline (95% vs 40% norm) signals an abnormal condition - congestion, a switching loop, or a DoS/DDoS - warranting investigation. NTP/DNS/SNMP misconfigs would not spike WAN utilization."
   },
   {
     "id": "netplus-627",
@@ -9161,7 +9487,8 @@
       "Notice",
       "Informational"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Syslog severity 4 is Warning. The scale: 0 Emergency, 1 Alert, 2 Critical, 3 Error, 4 Warning, 5 Notice, 6 Informational, 7 Debug."
   },
   {
     "id": "netplus-628",
@@ -9174,7 +9501,8 @@
       "Provides encrypted out-of-band management",
       "Captures and analyzes local traffic statistics without requiring constant polling by a management station"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "An RMON probe collects and analyzes traffic statistics locally on the device, so it can report summarized data without the manager constantly polling - reducing management traffic compared to raw SNMP polling."
   },
   {
     "id": "netplus-629",
@@ -9187,7 +9515,8 @@
       "SSH",
       "Telnet"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "RDP (Remote Desktop Protocol, TCP 3389) is built into Windows for full graphical remote desktop control. VNC is cross-platform third-party; SSH/Telnet are text consoles."
   },
   {
     "id": "netplus-630",
@@ -9200,7 +9529,8 @@
       "Reverse proxy",
       "VXLAN overlay"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 1,
+    "explanation": "Forwarding a local port to a remote service over an existing encrypted SSH session is SSH tunneling (port forwarding), which secures traffic to an otherwise unreachable service. A reverse proxy and VPN split tunneling are different mechanisms. [Answer key corrected: SSH tunneling.]"
   },
   {
     "id": "netplus-631",
@@ -9213,7 +9543,8 @@
       "Badge cloning",
       "Dumpster diving"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Slipping in behind an authorized employee through a controlled door is tailgating (piggybacking). Shoulder surfing observes credentials, badge cloning copies a card, and dumpster diving searches trash."
   },
   {
     "id": "netplus-632",
@@ -9226,7 +9557,8 @@
       "Biometric scanner",
       "Mantrap"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A mantrap is a two-door interlock where the first door must close/lock before the second opens, allowing only one person through at a time and preventing tailgating. Badge readers/CCTV/biometrics are other controls."
   },
   {
     "id": "netplus-633",
@@ -9239,7 +9571,8 @@
       "Biometric retinal scan",
       "Security guard patrol"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "An RFID/proximity card reader that grants entry and logs identity and timestamp is proximity badge access control. A mantrap controls one-at-a-time entry and biometrics use physiological traits."
   },
   {
     "id": "netplus-634",
@@ -9252,7 +9585,8 @@
       "Shoulder surfing",
       "Dumpster diving"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Watching someone enter their password over their shoulder is shoulder surfing. Tailgating is following through a door, vishing is a phone scam, and dumpster diving searches discarded materials."
   },
   {
     "id": "netplus-635",
@@ -9265,7 +9599,8 @@
       "Shoulder surfing",
       "Baiting"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Recovering sensitive information from discarded trash (diagrams, names, credentials) for use in a later attack is dumpster diving. The other options describe different physical/social techniques."
   },
   {
     "id": "netplus-636",
@@ -9278,7 +9613,8 @@
       "Denial of Service (DoS)",
       "Distributed Denial of Service (DDoS)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Massive traffic from thousands of distributed source IPs overwhelming a target is a Distributed Denial of Service (DDoS). A single-source flood would be a plain DoS; ARP poisoning/MITM are not volumetric floods."
   },
   {
     "id": "netplus-637",
@@ -9291,7 +9627,8 @@
       "Demilitarized Zone",
       "Zombie farm"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A large set of malware-compromised, remotely controlled devices used to send spam and launch attacks is a botnet (each device is a bot/zombie). A honeynet is a decoy and a DMZ is a network segment."
   },
   {
     "id": "netplus-638",
@@ -9304,7 +9641,8 @@
       "Ransomware",
       "Rootkit"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Malware that encrypts files and demands payment for the decryption key is ransomware. Spyware/adware harvest data or show ads, and a rootkit hides malicious presence."
   },
   {
     "id": "netplus-639",
@@ -9317,7 +9655,8 @@
       "Split pair fault",
       "Cross-connect wiring error"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "No continuity on a conductor end-to-end is an open circuit (a break or unseated pin) on that wire. A short bridges conductors, a split pair miswires pairs, and a cross-connect swaps pin assignments."
   },
   {
     "id": "netplus-640",
@@ -9330,7 +9669,8 @@
       "TDR",
       "OTDR"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "An OTDR (Optical Time Domain Reflectometer) produces a distance-vs-loss trace, quantifying loss at each splice/connector along a long fiber. A power meter only gives end-to-end loss and a VFL only locates breaks visually."
   },
   {
     "id": "netplus-641",
@@ -9346,7 +9686,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "In IaaS the provider supplies virtualized compute, storage, and networking, while the customer manages the OS, applications, and data. 'Provider manages the app' and 'deploy without managing servers' describe SaaS/PaaS."
   },
   {
     "id": "netplus-642",
@@ -9362,7 +9703,8 @@
     "correctAnswers": [
       1,
       2
-    ]
+    ],
+    "explanation": "A site survey's primary goals are determining optimal AP placement for full coverage and detecting RF interference and neighboring networks. SSID/security config and IP addressing are configuration tasks, not survey goals."
   },
   {
     "id": "netplus-643",
@@ -9378,7 +9720,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "A mantrap and a proximity badge reader are physical access controls. A firewall ACL and IDS signature update are logical/technical controls, not physical."
   },
   {
     "id": "netplus-644",
@@ -9402,7 +9745,8 @@
       1,
       2,
       0
-    ]
+    ],
+    "explanation": "IaaS - provider manages virtualized compute/storage/network only; PaaS - provider also manages OS/platform, customer manages the app; SaaS - provider manages the whole stack, customer manages only data; On-premises - customer manages everything."
   },
   {
     "id": "netplus-645",
@@ -9426,7 +9770,8 @@
       1,
       3,
       0
-    ]
+    ],
+    "explanation": "Phishing is a fraudulent email, vishing is a voice/phone impersonation, smishing is a malicious SMS, and tailgating is physically following an authorized person through a secure door."
   },
   {
     "id": "netplus-646",
@@ -9446,7 +9791,8 @@
       2,
       3,
       4
-    ]
+    ],
+    "explanation": "Post-incident review order: build the timeline (detection to resolution), identify root cause and contributing factors, assess what worked and what did not, create a remediation plan with owners/deadlines, then share findings and update runbooks/SOPs."
   },
   {
     "id": "netplus-647",
@@ -9466,7 +9812,8 @@
       4,
       0,
       3
-    ]
+    ],
+    "explanation": "Site-survey order: gather floor plans and define coverage/capacity needs, identify interference with a spectrum analyzer, walk the site measuring baseline signal with a Wi-Fi analyzer, place candidate APs and validate real coverage, then document final placement/channels/power."
   },
   {
     "id": "netplus-648",
@@ -9484,7 +9831,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: static NAT is a fixed 1:1 mapping, PAT shares one public IP via unique source ports, and NAT obscures internal addressing. False: many-to-one with port multiplexing is PAT, not dynamic NAT (dynamic NAT is pooled 1:1)."
   },
   {
     "id": "netplus-649",
@@ -9502,7 +9850,8 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: higher SNR means better link quality, RSSI nearer 0 dBm is stronger, and surveys find placement/interference. False: in the US only channels 1, 6, and 11 are usable non-overlapping (channel 14 is not permitted)."
   },
   {
     "id": "netplus-650",
@@ -9520,7 +9869,8 @@
       true,
       true,
       false
-    ]
+    ],
+    "explanation": "True: DDoS is hard to mitigate due to many simultaneous sources and a botnet is attacker-controlled compromised devices. False: a DoS is single-source (DDoS is the distributed/many-host one), and ransomware encrypts data - it is not a routing DoS."
   },
   {
     "id": "netplus-651",
@@ -9533,7 +9883,8 @@
       "192.168.5.127",
       "192.168.5.126"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "For 192.168.5.0/25 the block size is 128, so the subnet is .0-.127 and the broadcast address is 192.168.5.127 (.128 begins the next /25)."
   },
   {
     "id": "netplus-652",
@@ -9546,7 +9897,8 @@
       "10.10.20.160",
       "10.10.20.136"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A /28 has a block size of 16. 145 falls in the 144-159 block, so the network address is 10.10.20.144 (usable .145-.158, broadcast .159)."
   },
   {
     "id": "netplus-653",
@@ -9559,7 +9911,8 @@
       "PIM",
       "MSDP"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Hosts use IGMP to join and leave IPv4 multicast groups so routers know which segments need a given stream. PIM is the router-to-router multicast routing protocol; OSPF is unicast routing."
   },
   {
     "id": "netplus-654",
@@ -9572,7 +9925,8 @@
       "APIPA",
       "IPv4 multicast"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "224.0.0.5 is an IPv4 multicast address (the 224.0.0.0/4 range; .5 is the OSPF all-routers group). It is not unicast, broadcast, or APIPA."
   },
   {
     "id": "netplus-655",
@@ -9585,7 +9939,8 @@
       "53",
       "443"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "DNS uses port 53 on both UDP (typical queries) and TCP (zone transfers and large/EDNS responses), so the firewall must permit 53. 161 is SNMP, 389 LDAP, 443 HTTPS."
   },
   {
     "id": "netplus-656",
@@ -9598,7 +9953,8 @@
       "69 / 68",
       "67 / 69"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "DHCP uses UDP port 67 for the server and UDP port 68 for the client. The client sends from 68 to the server's 67, and the server replies from 67 to 68."
   },
   {
     "id": "netplus-657",
@@ -9611,7 +9967,8 @@
       "514",
       "123"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "SNMP agents listen on UDP port 161 for GET/SET polling from the manager. UDP 162 is where the manager receives traps/informs."
   },
   {
     "id": "netplus-658",
@@ -9624,7 +9981,8 @@
       "123",
       "162"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "SNMP traps/informs are sent to the manager on UDP port 162. Agents receive polls on 161; 514 is syslog and 123 is NTP."
   },
   {
     "id": "netplus-659",
@@ -9637,7 +9995,8 @@
       "Download speed is faster than upload speed",
       "Uses shared coaxial infrastructure with neighbors"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "ADSL is asymmetric: download speed is higher than upload, suited to typical consumer browsing. It runs over existing copper phone lines (not fiber) and is not a shared-coax medium."
   },
   {
     "id": "netplus-660",
@@ -9650,7 +10009,8 @@
       "SDSL",
       "HDSL"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "VDSL delivers far higher rates than ADSL but only over short loop lengths, so it fits a building very close to the central office/cabinet. SDSL/HDSL are symmetric but slower; ADSL2+ is still ADSL-class."
   },
   {
     "id": "netplus-661",
@@ -9663,7 +10023,8 @@
       "Fiber attenuation over long distances",
       "The CMTS applies QoS throttling during business hours"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Cable internet uses a coaxial segment shared among many subscribers in a neighborhood, so throughput drops during peak usage as contention rises. DSL distance and fiber attenuation are unrelated to time-of-day variation."
   },
   {
     "id": "netplus-662",
@@ -9676,7 +10037,8 @@
       "DSL",
       "GPON (Gigabit Passive Optical Network)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "GPON (Gigabit Passive Optical Network) uses a single fiber from the OLT split by passive optical splitters to serve many subscribers (FTTH), with no powered equipment in the outside plant. SONET is transport, Metro Ethernet is carrier Ethernet, DSL is copper."
   },
   {
     "id": "netplus-663",
@@ -9689,7 +10051,8 @@
       "1.544 Mbps",
       "45 Mbps"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A T1 carries 1.544 Mbps (24 DS0 channels of 64 Kbps plus framing). 44.736 Mbps is a T3 and 768 Kbps is a fractional/DSL-class rate."
   },
   {
     "id": "netplus-664",
@@ -9702,7 +10065,8 @@
       "100 Mbps",
       "10 Mbps"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A T3 (DS3) provides about 44.736 Mbps, aggregating 28 T1s. 1.544 Mbps is a single T1."
   },
   {
     "id": "netplus-665",
@@ -9715,7 +10079,8 @@
       "Frame Relay",
       "ISDN"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Metro Ethernet delivers carrier-grade Ethernet hand-offs over the provider's metro fiber to link sites within a city at high speed. Frame Relay/ISDN are legacy and DSL bonding is a last-mile aggregation, not metro transport."
   },
   {
     "id": "netplus-666",
@@ -9728,7 +10093,8 @@
       "Satellite internet",
       "LTE/5G cellular WAN"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "An LTE/5G cellular WAN interface provides wireless failover over the carrier's mobile network when the primary MPLS link drops. Dial-up/satellite are slower/higher-latency fallbacks and DSL failover needs copper."
   },
   {
     "id": "netplus-667",
@@ -9741,7 +10107,8 @@
       "SONET/SDH",
       "Metro Ethernet"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "SONET/SDH is the synchronous optical transport standard carrying OC-N circuits with ring protection (e.g., UPSR/BLSR) for sub-50 ms failover on long-haul backbones. DWDM multiplexes wavelengths; GPON is access."
   },
   {
     "id": "netplus-668",
@@ -9754,7 +10121,8 @@
       "Requires a fiber optic cable to the rooftop dish",
       "Weather immunity \u2014 satellite is not affected by weather conditions"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Geostationary satellite internet has very high latency (~500-700 ms round trip) because signals travel ~36,000 km up and back, hurting real-time apps. It is also weather-sensitive, contrary to the immunity claim."
   },
   {
     "id": "netplus-669",
@@ -9767,7 +10135,8 @@
       "Use rubber gloves to insulate the components",
       "Power up the server before installing the card"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Wearing a grounded antistatic wrist strap safely dissipates body static so ESD does not damage sensitive components. Low humidity worsens ESD, rubber gloves do not ground you, and powering on during install risks damage."
   },
   {
     "id": "netplus-670",
@@ -9780,7 +10149,8 @@
       "Out-of-band management",
       "Environmental monitoring"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Continuously tracking rack temperature/humidity with threshold alerting is environmental monitoring, protecting equipment from heat/condensation. NetFlow/SNMP/OOB management address traffic and device access, not climate."
   },
   {
     "id": "netplus-671",
@@ -9793,7 +10163,8 @@
       "UPS (Uninterruptible Power Supply)",
       "Surge protector"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A UPS conditions/filters power and switches to battery instantly on a utility failure, bridging the gap until power returns or a generator starts. A PDU just distributes power and a surge protector only clamps spikes."
   },
   {
     "id": "netplus-672",
@@ -9806,7 +10177,8 @@
       "Enables hot-swapping of hard drives without downtime",
       "Provides automatic CPU throttling during power surges"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Dual power supplies on independent feeds remove the single point of failure from a PSU or upstream circuit failure - the server keeps running on the surviving supply. It does not boost performance or enable drive hot-swap."
   },
   {
     "id": "netplus-673",
@@ -9819,7 +10191,8 @@
       "The drive must be swapped within 30 seconds to avoid data loss",
       "Hot-swap requires special tools provided by the manufacturer"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Hot-swappable means the component (e.g., a drive or PSU) can be removed and replaced while the system stays powered on and operational, avoiding downtime. No shutdown, backup window, or time limit is implied."
   },
   {
     "id": "netplus-674",
@@ -9832,7 +10205,8 @@
       "Static electricity and electromagnetic interference",
       "Temperature and humidity"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Data center HVAC primarily controls temperature and humidity - preventing overheating and condensation/static. Fire suppression, EMI, and lighting are handled by separate systems."
   },
   {
     "id": "netplus-675",
@@ -9845,7 +10219,8 @@
       "Clean-agent gas suppression (e.g., FM-200 / Novec 1230)",
       "CO2 flooding system"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A clean-agent system (FM-200, Novec 1230, inert gases) extinguishes fire without conductive water, residue, or equipment damage, making it ideal for electronics. Water sprinklers and CO2 flooding are damaging or unsafe for occupied IT spaces."
   },
   {
     "id": "netplus-676",
@@ -9858,7 +10233,8 @@
       "Installing only wireless connections to avoid cable confusion",
       "Relying on switch MAC address tables to trace cables"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Labeling every cable at both ends with consistent identifiers (and maintaining cable documentation) lets technicians trace runs quickly. Single-color cabling or relying on MAC tables does not identify physical paths."
   },
   {
     "id": "netplus-677",
@@ -9871,7 +10247,8 @@
       "Client VPN",
       "SSL VPN portal"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "An always-up encrypted tunnel joining two entire networks so the sites act as one LAN is a site-to-site VPN (gateway-to-gateway). Remote access/client VPNs serve individual users."
   },
   {
     "id": "netplus-678",
@@ -9884,7 +10261,8 @@
       "GRE tunnel",
       "Remote access VPN"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A remote access VPN lets an individual traveling user securely tunnel a device into corporate resources from any untrusted network. Site-to-site/GRE tunnels join networks, not single users."
   },
   {
     "id": "netplus-679",
@@ -9897,7 +10275,8 @@
       "Always-on VPN",
       "SSL portal VPN"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Always-on VPN automatically establishes the tunnel whenever the device is on an untrusted network, with no manual user action, ensuring continuous protection. Split tunnel/SSL portal describe other behaviors."
   },
   {
     "id": "netplus-680",
@@ -9910,7 +10289,8 @@
       "Traditional perimeter security",
       "Zero-trust network segmentation"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Converging SD-WAN with cloud-delivered security (FWaaS, CASB, ZTNA, SWG) into one framework is SASE (Secure Access Service Edge). The other options are legacy or partial models."
   },
   {
     "id": "netplus-681",
@@ -9923,7 +10303,8 @@
       "CVE-patched exploit",
       "Misconfiguration"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A flaw exploited before the vendor knows of it and before a patch exists is a zero-day vulnerability. Once a CVE/patch exists it becomes a known vulnerability."
   },
   {
     "id": "netplus-682",
@@ -9936,7 +10317,8 @@
       "Change freeze",
       "Patch management"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A formal patch management process ensures security updates are tested and deployed within defined timeframes, closing known vulnerabilities. Scanning/pen testing find issues but do not remediate them."
   },
   {
     "id": "netplus-683",
@@ -9949,7 +10331,8 @@
       "Defense in depth",
       "Security by obscurity"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Layering independent controls (perimeter firewall, IPS, segmentation, EDR, SIEM) so no single failure is fatal is defense in depth. Least privilege and obscurity are narrower concepts."
   },
   {
     "id": "netplus-684",
@@ -9962,7 +10345,8 @@
       "DMZ design",
       "Network access control"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Micro-segmentation applies granular per-workload firewall policy so a compromised workload cannot move laterally to others, even within the same subnet. VLAN segmentation/DMZ are coarser, network-level controls."
   },
   {
     "id": "netplus-685",
@@ -9975,7 +10359,8 @@
       "Firmware downgrade",
       "Replacing the switch"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Power cycling/rebooting to clear transient state when configuration looks correct is a legitimate troubleshooting step. It differs from a factory reset (wipes config), a firmware change, or hardware replacement."
   },
   {
     "id": "netplus-686",
@@ -9988,7 +10373,8 @@
       "show ip arp",
       "show version"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "show version reports the IOS image/version, uptime, hardware model, and installed memory - the inventory needed before a firmware upgrade. Other show commands display routing/interface/ARP state."
   },
   {
     "id": "netplus-687",
@@ -10001,7 +10387,8 @@
       "Loopback test",
       "BERT (Bit Error Rate Test)"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Connecting a plug that loops Tx back to Rx to test a port's transmit/receive path is a loopback test. A TDR measures cable distance/faults and a BERT measures bit error rate over a circuit."
   },
   {
     "id": "netplus-688",
@@ -10014,7 +10401,8 @@
       "An incorrect VLAN assignment",
       "A duplex mismatch causing late collisions"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "CRC/FCS errors on copper almost always stem from physical-layer problems - damaged cable, bad terminations, or EMI corrupting frames in transit. Routing/VLAN misconfig do not corrupt the frame checksum (duplex mismatch shows as late collisions)."
   },
   {
     "id": "netplus-689",
@@ -10027,7 +10415,8 @@
       "A frame with an incorrect VLAN tag",
       "A frame with a corrupted FCS checksum"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A giant is a frame exceeding the maximum Ethernet size (1518 bytes for untagged standard frames), often from misconfiguration or a faulty NIC. Undersized frames are runts."
   },
   {
     "id": "netplus-690",
@@ -10040,7 +10429,8 @@
       "WPA2 passphrase mismatch",
       "RF interference sources such as microwave ovens or nearby APs on the same channel"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Periodic disconnects at a regular interval with good signal point to RF interference - a microwave duty cycle or a co-channel AP - rather than DHCP/DNS/passphrase issues, which would not recur on a fixed cadence."
   },
   {
     "id": "netplus-691",
@@ -10056,7 +10446,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "ADSL is asymmetric (download faster than upload) and VDSL is faster than ADSL but only over shorter loop distances. DSL runs on existing telephone copper, not dedicated fiber, and is available where copper exists."
   },
   {
     "id": "netplus-692",
@@ -10072,7 +10463,8 @@
     "correctAnswers": [
       1,
       2
-    ]
+    ],
+    "explanation": "A remote access VPN connects individual users over the internet, while a site-to-site VPN is a persistent tunnel between whole networks. Site-to-site is not user-initiated, and always-on VPN connects automatically without manual action."
   },
   {
     "id": "netplus-693",
@@ -10088,7 +10480,8 @@
     "correctAnswers": [
       0,
       3
-    ]
+    ],
+    "explanation": "Environmental (temp/humidity) monitoring and a UPS for ride-through power are critical physical-infrastructure availability controls. VLAN segmentation and BGP redundancy are logical/network controls, not physical infrastructure."
   },
   {
     "id": "netplus-694",
@@ -10112,7 +10505,8 @@
       2,
       3,
       0
-    ]
+    ],
+    "explanation": "Port 53 is DNS, UDP 67 is the DHCP server port, UDP 161 is the SNMP agent (GET/SET), and UDP 162 is the SNMP trap/inform listener on the manager."
   },
   {
     "id": "netplus-695",
@@ -10136,7 +10530,8 @@
       1,
       2,
       0
-    ]
+    ],
+    "explanation": "ADSL uses copper pairs with faster download and distance-sensitive speed; DOCSIS cable shares a coaxial medium so speeds vary with neighborhood load; T1 is a 1.544 Mbps/24-DS0 dedicated circuit; T3 is ~44.736 Mbps aggregating 28 T1s."
   },
   {
     "id": "netplus-696",
@@ -10156,7 +10551,8 @@
       0,
       1,
       4
-    ]
+    ],
+    "explanation": "Hardware-failure troubleshooting order: identify symptoms and affected devices, verify the physical layer (power/cables/LEDs), check logs/config for software causes, replace the faulty component, then document and update the asset inventory."
   },
   {
     "id": "netplus-697",
@@ -10176,7 +10572,8 @@
       1,
       2,
       4
-    ]
+    ],
+    "explanation": "Defense-in-depth from perimeter inward: NGFW at the internet edge, MFA for remote/privileged access, internal segmentation with VLANs/ACLs, EDR on endpoints, and SIEM for centralized correlation/alerting."
   },
   {
     "id": "netplus-698",
@@ -10194,7 +10591,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: ADSL downstream is wider (faster download), a T1 is 1.544 Mbps over 24 DS0s, and DSL degrades with CO distance. False: DOCSIS cable is a shared medium, not a dedicated per-subscriber link."
   },
   {
     "id": "netplus-699",
@@ -10212,7 +10610,8 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: site-to-site joins whole networks with a persistent tunnel, remote access serves individual users anywhere, and SASE converges SD-WAN with cloud security. False: split tunneling sends only corporate traffic through the VPN (full tunnel sends everything)."
   },
   {
     "id": "netplus-700",
@@ -10230,7 +10629,8 @@
       true,
       true,
       false
-    ]
+    ],
+    "explanation": "True: a UPS provides instant battery-backed power, and clean-agent suppression protects electronics. False: ESD can silently damage equipment and requires protection, and hot-swappable parts are designed to be changed while powered on."
   },
   {
     "id": "netplus-701",
@@ -10243,7 +10643,8 @@
       "Class E \u2014 reserved for experimental/research use",
       "Class A \u2014 public internet"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "247.10.5.1 falls in 240.0.0.0-255.255.255.255, which is Class E, reserved for experimental/research use and not assigned for normal host or multicast traffic."
   },
   {
     "id": "netplus-702",
@@ -10256,7 +10657,8 @@
       "The all-zeros subnet is only valid in IPv6",
       "The all-zeros subnet is automatically assigned to the router's loopback interface"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "CIDR removed the old classful restriction, so the all-zeros subnet (e.g., 192.168.1.0/24) is a perfectly valid, usable network like any other. It is not reserved, IPv6-only, or auto-assigned to a loopback."
   },
   {
     "id": "netplus-703",
@@ -10269,7 +10671,8 @@
       "A multicast group address",
       "A network address for a /25 subnet"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A /32 prefix is a host route - it matches exactly one IP address (255.255.255.255 mask). It is commonly used for loopbacks or specific next-hop/static host entries, not a summary or multicast."
   },
   {
     "id": "netplus-704",
@@ -10282,7 +10685,8 @@
       "/31 \u2014 0 usable hosts (unnumbered)",
       "/ 30 \u2014 2 usable hosts"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A /30 yields 4 addresses with 2 usable hosts, the classic choice for point-to-point links. /31 (RFC 3021) can also be used for P2P with 2 addresses, but the standard answer for '2 usable hosts' is /30."
   },
   {
     "id": "netplus-705",
@@ -10295,7 +10699,8 @@
       "10.0.0.0 through 10.255.255.255 (/8)",
       "10.0.0.0 through 10.127.255.255 (/9)"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "The 10.0.0.0/8 block (10.0.0.0 through 10.255.255.255) is the largest RFC 1918 private range. The others are 172.16.0.0/12 and 192.168.0.0/16."
   },
   {
     "id": "netplus-706",
@@ -10308,7 +10713,8 @@
       "TTL sets the maximum packet size in bytes",
       "TTL is only used by ICMP and has no effect on normal IP routing"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Each router decrements the IPv4 TTL by 1; when it reaches 0 the packet is discarded and an ICMP Time Exceeded is returned, preventing packets from circulating forever in a routing loop. Routers decrement, never increment, and TTL is not a size field."
   },
   {
     "id": "netplus-707",
@@ -10321,7 +10727,8 @@
       "Window size",
       "Frame check sequence"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "The MTU (Maximum Transmission Unit) is the largest IP packet (including header) a link can carry without fragmentation - 1500 bytes on standard Ethernet. Larger packets are fragmented or dropped (with DF set)."
   },
   {
     "id": "netplus-708",
@@ -10334,7 +10741,8 @@
       "Concatenated frames",
       "Jumbo frames"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Jumbo frames are Ethernet frames with payloads up to ~9000 bytes, used to improve throughput/efficiency for iSCSI/SAN traffic when enabled end-to-end. 'Giants' are oversized error frames, not an intentional feature."
   },
   {
     "id": "netplus-709",
@@ -10347,7 +10755,8 @@
       "SYN \u2192 SYN-ACK \u2192 ACK",
       "SYN \u2192 ACK \u2192 SYN-ACK"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "TCP establishes a session with the three-way handshake: SYN, then SYN-ACK, then ACK. Only after this exchange does data transfer begin."
   },
   {
     "id": "netplus-710",
@@ -10360,7 +10769,8 @@
       "Three-way handshake: FIN \u2192 SYN \u2192 FIN-ACK",
       "RST flag is set by both sides simultaneously"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "TCP closes gracefully with a four-way exchange: each side sends FIN and receives ACK independently (FIN, ACK, FIN, ACK), so each half-connection drains its data before closing. RST is an abrupt reset, not orderly close."
   },
   {
     "id": "netplus-711",
@@ -10373,7 +10783,8 @@
       "TCP \u2014 because DNS and DHCP require ordered delivery",
       "IP directly \u2014 DNS and DHCP bypass the transport layer"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "DNS queries and DHCP use UDP for low overhead and speed; the applications themselves handle any needed retransmission/timeout. (DNS falls back to TCP for zone transfers/large responses.)"
   },
   {
     "id": "netplus-712",
@@ -10386,7 +10797,8 @@
       "Host A's NIC is disconnected",
       "A router on the path cannot forward the packet to the destination host"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "'Destination Host Unreachable' is returned by a router that has a route to the destination network but cannot deliver to the specific host (e.g., ARP fails / host down). A closed port gives a different response and TTL expiry gives Time Exceeded."
   },
   {
     "id": "netplus-713",
@@ -10399,7 +10811,8 @@
       "802.11v",
       "802.11w"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "802.11r (Fast BSS Transition) pre-establishes/caches security keys at neighboring APs so a roaming client re-associates in milliseconds, preserving VoIP calls. 802.11k/v assist roaming decisions; 802.11w protects management frames."
   },
   {
     "id": "netplus-714",
@@ -10412,7 +10825,8 @@
       "802.11k",
       "802.11ac"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "802.11k provides Radio Resource Measurement - the AP gives the client a neighbor report (nearby APs, channels, signal/load) so it can roam intelligently. 802.11r speeds the handoff; 802.11v steers the client."
   },
   {
     "id": "netplus-715",
@@ -10425,7 +10839,8 @@
       "802.11k",
       "802.11i"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "802.11v (BSS Transition Management) lets the AP send a request suggesting the client roam to a better AP. 802.11k supplies the neighbor data and 802.11r accelerates the actual transition."
   },
   {
     "id": "netplus-716",
@@ -10438,7 +10853,8 @@
       "QoS DSCP markings for wireless",
       "Transmit power level (reduce AP power)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Edge APs causing co-channel interference should have their transmit power reduced so cells do not bleed into neighbors. Channel width and SSID/QoS settings do not address excessive coverage overlap from high power."
   },
   {
     "id": "netplus-717",
@@ -10451,7 +10867,8 @@
       "370 W remaining",
       "740 W \u2014 PoE budget is per-port, not shared"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "20 PoE+ ports at 30 W each consume 600 W; with a 740 W budget, 740 - 600 = 140 W remains for additional devices. PoE budgets are shared across the switch, not per-port."
   },
   {
     "id": "netplus-718",
@@ -10464,7 +10881,8 @@
       "The port actively sends DTP frames to negotiate trunking with the neighbor",
       "The port never initiates DTP negotiation but will trunk if the neighbor requests it"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "DTP 'dynamic desirable' actively sends DTP frames to negotiate a trunk with the neighbor and forms a trunk if the neighbor is trunk/desirable/auto. 'Dynamic auto' only responds; 'access'/'trunk' are static modes."
   },
   {
     "id": "netplus-719",
@@ -10477,7 +10895,8 @@
       "The VLAN is only visible on Layer 3 switches",
       "The VLAN is pruned from all trunk ports until manually allowed"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A VTP server can create/modify VLANs and propagates the VLAN database to VTP client switches over trunks, so the new VLAN appears campus-wide without per-switch configuration."
   },
   {
     "id": "netplus-720",
@@ -10490,7 +10909,8 @@
       "Forces the port into half-duplex mode",
       "Skips STP listening and learning states, bringing the port immediately to forwarding"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "PortFast lets an access port skip the STP listening and learning states and move straight to forwarding, so end devices get link/DHCP immediately. It does not disable STP/BPDUs or change duplex."
   },
   {
     "id": "netplus-721",
@@ -10503,7 +10923,8 @@
       "Promotes the port to a designated port",
       "Sends a topology change notification to the root bridge"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "BPDU Guard immediately err-disables a PortFast port if it ever receives a BPDU (signaling an unexpected switch/hub), preventing a potential loop. It does not ignore the BPDU or alter STP roles."
   },
   {
     "id": "netplus-722",
@@ -10516,7 +10937,8 @@
       "PortFast",
       "Root Guard"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 3,
+    "explanation": "Root Guard prevents a designated port from accepting superior BPDUs, so an unauthorized switch on that port cannot win the root-bridge election and reshape the topology. PortFast/BPDU Guard/Loop Guard address other STP risks. [Answer key corrected: Root Guard.]"
   },
   {
     "id": "netplus-723",
@@ -10529,7 +10951,8 @@
       "Only the change request ticket needs to be closed",
       "Only the vendor support portal needs to reflect the new configuration"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "After topology, VLAN, subnet, or routing changes, the network topology diagrams and IP address management (IPAM) records must be updated so documentation matches reality. Closing a ticket alone does not keep documentation accurate."
   },
   {
     "id": "netplus-724",
@@ -10542,7 +10965,8 @@
       "Never \u2014 the initial baseline is permanent",
       "Periodically and after any significant network change"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A baseline must be recaptured periodically and after any significant change; otherwise it no longer represents 'normal' and anomaly detection becomes unreliable. A one-time baseline quickly goes stale."
   },
   {
     "id": "netplus-725",
@@ -10555,7 +10979,8 @@
       "Parallel test",
       "Simulation drill"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "A tabletop exercise gathers the team to verbally walk through the DR plan without touching production - low risk, good for finding gaps. Parallel/full-cutover tests actually exercise the DR systems."
   },
   {
     "id": "netplus-726",
@@ -10568,7 +10993,8 @@
       "Full cutover test",
       "Parallel operation test"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "A full cutover test actually fails production over to the DR site, providing the most realistic validation that DR can carry the load. Tabletop/checklist/parallel tests are progressively less comprehensive."
   },
   {
     "id": "netplus-727",
@@ -10581,7 +11007,8 @@
       "Low MTBF and high MTTR",
       "High MTBF and high MTTR"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Availability rises with a high MTBF (failures are rare) and a low MTTR (repairs are fast): Availability = MTBF / (MTBF + MTTR). High MTBF with low MTTR maximizes uptime."
   },
   {
     "id": "netplus-728",
@@ -10594,7 +11021,8 @@
       "Downtime / Total time \u00d7 100",
       "Uptime / (Uptime + Downtime) \u00d7 100"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "Availability % = Uptime / (Uptime + Downtime) x 100. With 8736 h up and 24 h down that is 8736 / 8760 ~= 99.7%. MTBF/MTTR ratios are reliability metrics, not the availability formula."
   },
   {
     "id": "netplus-729",
@@ -10607,7 +11035,8 @@
       "Asset management",
       "Incident management"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Forecasting growth trends and provisioning capacity ahead of demand is capacity planning. Change/asset/incident management handle approvals, inventory, and outages respectively."
   },
   {
     "id": "netplus-730",
@@ -10620,7 +11049,8 @@
       "Conduct a documentation audit and update all diagrams to reflect the current configuration",
       "Ignore the discrepancy if the network is functioning correctly"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "When documentation diverges from production, the correct response is a documentation audit to update all diagrams/records to reflect the actual current configuration - not reconfiguring to old diagrams or ignoring the gap."
   },
   {
     "id": "netplus-731",
@@ -10633,7 +11063,8 @@
       "PKCS#12 validation",
       "Certificate pinning"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "Downloading the CA's periodically published list of revoked serial numbers is the CRL (Certificate Revocation List) mechanism. OCSP queries status in real time and stapling/pinning are different techniques."
   },
   {
     "id": "netplus-732",
@@ -10646,7 +11077,8 @@
       "Certificate transparency",
       "OCSP (Online Certificate Status Protocol)"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "OCSP (Online Certificate Status Protocol) lets a client query the CA/responder for a single certificate's revocation status in real time, avoiding a large CRL download. OCSP stapling has the server supply the response."
   },
   {
     "id": "netplus-733",
@@ -10659,7 +11091,8 @@
       "ARP spoofing",
       "Password spraying"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Capturing a valid token/credential and re-sending it later to gain access is a replay attack; nonces, timestamps, and session tokens mitigate it. Brute-force/spraying guess credentials and ARP spoofing is a L2 MITM."
   },
   {
     "id": "netplus-734",
@@ -10672,7 +11105,8 @@
       "Session hijacking via XSS (Cross-Site Scripting)",
       "Brute-force attack"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Stealing a session cookie via injected malicious JavaScript is cross-site scripting (XSS) leading to session hijacking - the attacker reuses the cookie to impersonate the user. SQLi targets the database, not the browser cookie."
   },
   {
     "id": "netplus-735",
@@ -10685,7 +11119,8 @@
       "WPS brute force",
       "Bluejacking"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A rogue AP broadcasting the legitimate SSID to lure clients is an evil twin attack, enabling credential capture/MITM. Deauth floods disrupt, WPS brute-force attacks the PIN, and bluejacking is Bluetooth."
   },
   {
     "id": "netplus-736",
@@ -10698,7 +11133,8 @@
       "802.1X port authentication",
       "Captive portal"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "A captive portal intercepts initial web requests and redirects the client to an acceptance/payment page before allowing internet access - common on guest/hotel Wi-Fi. Firewalls/DNSSEC/802.1X do not perform this redirect."
   },
   {
     "id": "netplus-737",
@@ -10711,7 +11147,8 @@
       "DLP",
       "Content filtering"
     ],
-    "correctAnswer": 0
+    "correctAnswer": 0,
+    "explanation": "Network Admission/Access Control (NAC) checks endpoint posture (AV definitions, patch level) before admission and quarantines noncompliant devices. SIEM/DLP/content filtering serve other functions."
   },
   {
     "id": "netplus-738",
@@ -10724,7 +11161,8 @@
       "Automatically converts dynamically learned MAC addresses into permanent entries saved to the running configuration",
       "Broadcasts the MAC table to all neighboring switches"
     ],
-    "correctAnswer": 2
+    "correctAnswer": 2,
+    "explanation": "Sticky port security converts dynamically learned MAC addresses into permanent secure entries written to the running configuration, so only the learned device(s) are allowed on the port. It does not assign VLANs or broadcast the table."
   },
   {
     "id": "netplus-739",
@@ -10737,7 +11175,8 @@
       "The link is physically broken but still forwarding some packets",
       "A firewall is blocking ICMP beyond that hop"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 1,
+    "explanation": "A single hop with high latency while later hops are low usually means that router rate-limits/deprioritizes ICMP responses to its own control plane; transit data is unaffected. A truly broken/100%-loss link would not return replies at all."
   },
   {
     "id": "netplus-740",
@@ -10750,7 +11189,8 @@
       "The destination port is closed",
       "A router has no route to the destination network and cannot forward the packet"
     ],
-    "correctAnswer": 3
+    "correctAnswer": 3,
+    "explanation": "'Destination Net Unreachable' means a router has no route to the destination network and cannot forward the packet (routing/gateway problem). It differs from host-unreachable, port-closed, or TTL-expired conditions."
   },
   {
     "id": "netplus-741",
@@ -10766,7 +11206,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "802.11r (Fast BSS Transition, pre-cached keys) and 802.11k (neighbor/radio resource reports) directly improve roaming. 802.11w protects management frames and 802.11i defines WPA2 security - not roaming."
   },
   {
     "id": "netplus-742",
@@ -10782,7 +11223,8 @@
     "correctAnswers": [
       1,
       3
-    ]
+    ],
+    "explanation": "Clients verify revocation via CRL (a downloaded list of revoked certificates) or OCSP (a real-time status query). Wildcard/SAN describe certificate scope, not revocation."
   },
   {
     "id": "netplus-743",
@@ -10798,7 +11240,8 @@
     "correctAnswers": [
       0,
       2
-    ]
+    ],
+    "explanation": "Wireless auth failures are diagnosed by verifying the client's SSID/passphrase and confirming the AP's RADIUS server address and shared secret for 802.1X. Antenna aim and PoE budget affect coverage/power, not authentication."
   },
   {
     "id": "netplus-744",
@@ -10820,9 +11263,10 @@
     "correctMatches": [
       3,
       0,
-      1,
-      2
-    ]
+      2,
+      1
+    ],
+    "explanation": "PortFast skips listening/learning to forward immediately; BPDU Guard err-disables a port on any received BPDU; Root Guard discards superior BPDUs so a rogue switch cannot become root; Loop Guard keeps a port from wrongly forwarding when expected BPDUs stop arriving. [Answer key corrected: Root Guard/Loop Guard pairings.]"
   },
   {
     "id": "netplus-745",
@@ -10846,7 +11290,8 @@
       3,
       1,
       0
-    ]
+    ],
+    "explanation": "A replay attack retransmits captured valid credentials/tokens; session hijacking steals an active session identifier to impersonate a user; an evil twin is a rogue AP cloning a legitimate SSID; OCSP is the real-time certificate-revocation check protocol."
   },
   {
     "id": "netplus-746",
@@ -10866,7 +11311,8 @@
       3,
       0,
       4
-    ]
+    ],
+    "explanation": "DR sequence: develop/document the plan from RPO/RTO requirements, run a tabletop walkthrough to find gaps, execute a parallel test (both sites running), perform a full cutover test under real conditions, then update the plan with lessons learned and retest on schedule."
   },
   {
     "id": "netplus-747",
@@ -10886,7 +11332,8 @@
       1,
       3,
       4
-    ]
+    ],
+    "explanation": "Duplicate-IP workflow: confirm the alert/symptoms, identify the two conflicting devices via arp -a or DHCP logs, determine the root cause (rogue DHCP vs static misconfig), resolve by assigning a unique address/fixing the reservation, then verify and document."
   },
   {
     "id": "netplus-748",
@@ -10904,7 +11351,8 @@
       false,
       true,
       true
-    ]
+    ],
+    "explanation": "True: PortFast bypasses listening/learning, Root Guard rejects superior BPDUs that would change the root, and BPDU Guard err-disables a port on any BPDU. False: BPDU Guard belongs on PortFast access ports (not trunks)."
   },
   {
     "id": "netplus-749",
@@ -10922,7 +11370,8 @@
       false,
       true,
       false
-    ]
+    ],
+    "explanation": "True: TCP opens with the three-way handshake and provides reliable ordered delivery via sequence numbers/ACKs/retransmission. False: TCP closes with a four-way (FIN/ACK x2) exchange, and TTL lives in the IP header, not the TCP segment header."
   },
   {
     "id": "netplus-750",
@@ -10940,6 +11389,7 @@
       true,
       false,
       true
-    ]
+    ],
+    "explanation": "True: zero trust verifies every request regardless of location, SASE converges SD-WAN with cloud security, and defense in depth layers controls so no single failure is catastrophic. False: micro-segmentation is widely used in virtualized/cloud environments, not just physical servers."
   }
 ]

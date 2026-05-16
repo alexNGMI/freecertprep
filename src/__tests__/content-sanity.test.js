@@ -97,6 +97,27 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }
   })
 
+  it('question text, every choice, and explanation are non-empty strings', () => {
+    for (const q of questions) {
+      expect(
+        typeof q.question === 'string' && q.question.trim().length > 0,
+        `${certId} q${q.id} has empty question text`
+      ).toBe(true)
+      expect(
+        typeof q.explanation === 'string' && q.explanation.trim().length > 0,
+        `${certId} q${q.id} has missing/empty explanation`
+      ).toBe(true)
+      if (Array.isArray(q.choices)) {
+        q.choices.forEach((c, i) => {
+          expect(
+            typeof c === 'string' && c.trim().length > 0,
+            `${certId} q${q.id} choice ${i} is empty`
+          ).toBe(true)
+        })
+      }
+    }
+  })
+
   it('every question uses a domain that exists in the cert config', () => {
     for (const q of questions) {
       expect(
