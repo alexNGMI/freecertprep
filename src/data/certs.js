@@ -283,7 +283,7 @@ const certs = {
     description: 'Texas Sales Agent licensing exam: the portable national portion plus the Texas state-law portion. State-law content is modeled to the official 6-section TREC / Pearson VUE outline; the Full Licensing Exam mirrors the real 85 national + 40 state split.',
     difficulty: 'Foundational',
     color: '#dc2626',
-    questionCount: 0,
+    questionCount: 101,
     examQuestions: 125,
     examTime: 240,
     passingScore: 70,

@@ -1,1 +1,1517 @@
-[]
+[
+  {
+    "id": "re-tx-1",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under TREC rules, when must a license holder first provide the statutory Information About Brokerage Services (IABS) notice to a prospective party?",
+    "choices": [
+      "Only at the closing table",
+      "At the first substantive communication about a specific real property",
+      "Only if the party asks for it",
+      "Within 30 days after a contract is signed"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TREC requires the IABS to be provided at the first substantive dialogue/communication about a specific property (in person, by mail, or electronically). Limited exceptions exist (e.g., a transaction where the party is represented by another license holder, or an open-house meeting)."
+  },
+  {
+    "id": "re-tx-2",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Texas, a broker may act as an intermediary between a buyer and seller only if the broker:",
+    "choices": [
+      "Obtains written consent from both parties and the agreement states who pays the broker",
+      "Verbally agrees with one party",
+      "Is also a licensed attorney",
+      "Refunds all commissions"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A broker may act as an intermediary only with the written consent of both parties, and the written consent must state who will pay the broker. Texas replaced common-law dual agency with the intermediary relationship."
+  },
+  {
+    "id": "re-tx-3",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Texas real estate law does NOT recognize which of the following relationships by that name?",
+    "choices": [
+      "Intermediary",
+      "Seller's agent",
+      "Dual agency",
+      "Buyer's agent"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Texas does not use 'dual agency.' When one broker represents both parties, the broker functions as an intermediary (with written consent), which carries specific statutory duties and optional appointments."
+  },
+  {
+    "id": "re-tx-4",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When a broker acts as an intermediary, the broker may make appointments so that:",
+    "choices": [
+      "The seller pays no commission",
+      "Different associated license holders communicate with and advise each party",
+      "The buyer waives all disclosures",
+      "The contract becomes a net listing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "With the parties' written consent, an intermediary broker may appoint different associated license holders to separately communicate with, carry out instructions of, and provide opinions/advice to each party."
+  },
+  {
+    "id": "re-tx-5",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Legally, a Texas sales agent who works with a client actually represents:",
+    "choices": [
+      "The client directly and independently",
+      "The sponsoring broker, who is the agent of the client",
+      "TREC",
+      "The title company"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The broker is the agent of the client. A sales agent acts on behalf of, and represents, the sponsoring broker; the sales agent's authority and duties flow through that broker."
+  },
+  {
+    "id": "re-tx-6",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A buyer signs a buyer representation agreement with Broker A. Broker A owes the buyer:",
+    "choices": [
+      "No fiduciary duties",
+      "Fiduciary duties such as loyalty, confidentiality, and full disclosure",
+      "Duties only to the seller",
+      "Duties only after closing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A buyer's representation agreement creates an agency relationship; the broker owes the buyer fiduciary duties including loyalty, obedience, disclosure, confidentiality, accounting, and reasonable care."
+  },
+  {
+    "id": "re-tx-7",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under TRELA's minimum services, a broker who represents a party in a transaction must, at minimum:",
+    "choices": [
+      "Guarantee the property's value",
+      "Inform the party of material information and answer the party's questions",
+      "Pay the party's closing costs",
+      "Provide free legal advice"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Minimum-services provisions require the broker to inform the client of material information related to the transaction, answer the client's questions, present offers, and assist in negotiations, among other duties."
+  },
+  {
+    "id": "re-tx-8",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder who is buying a property for the license holder's own account must:",
+    "choices": [
+      "Hide the license to get a better price",
+      "Disclose in writing that the license holder is licensed before entering the contract",
+      "Do nothing because no client is involved",
+      "Get TREC approval first"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A license holder must disclose, in writing, that he or she holds a real estate license whenever buying or selling for his or her own account or when an immediate family member or entity is involved, before the contract is signed."
+  },
+  {
+    "id": "re-tx-9",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Before a license holder can represent more than one party in the same transaction, the license holder must obtain:",
+    "choices": [
+      "Written consent from each party (intermediary)",
+      "Only the seller's consent",
+      "A higher commission",
+      "Approval from the MLS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Representing more than one party requires the intermediary relationship, which is only permissible with the written consent of all parties, stating who pays the broker."
+  },
+  {
+    "id": "re-tx-10",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In a cooperative sale, a buyer's agent from a different brokerage who is compensated through the listing broker:",
+    "choices": [
+      "Automatically becomes a sub-agent of the seller",
+      "May still represent the buyer; compensation source does not by itself determine agency",
+      "Must represent the seller",
+      "Cannot be paid"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Who pays the commission does not determine whom a license holder represents. A cooperating broker can be paid through the listing broker while still representing the buyer."
+  },
+  {
+    "id": "re-tx-11",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The IABS notice is generally NOT required to be provided when:",
+    "choices": [
+      "A license holder meets a consumer at an open house or the party is already represented by another license holder",
+      "Listing any home",
+      "Showing any property",
+      "Negotiating any contract"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Exceptions to providing the IABS include a transaction in which the party is represented by another license holder, a residential lease for not more than one year with no sale contemplated, and a meeting at an open house."
+  },
+  {
+    "id": "re-tx-12",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under TREC rules, a net listing is:",
+    "choices": [
+      "Always prohibited in Texas",
+      "Permitted only if the principal requires it and the broker safeguards the principal from receiving less than the desired price",
+      "Required on all listings",
+      "The same as an open listing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Net listings are strongly discouraged and may be used only when the principal requires one and the broker takes steps to ensure the principal is not disadvantaged (e.g., not receiving less than the desired net price)."
+  },
+  {
+    "id": "re-tx-13",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A sponsoring broker is generally responsible for:",
+    "choices": [
+      "Only the broker's personal transactions",
+      "The real estate brokerage activities of sponsored sales agents",
+      "Nothing the sales agents do",
+      "Only written contracts"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A sponsoring broker is responsible for the real estate brokerage activities performed by the sales agents the broker sponsors and must maintain proper supervision."
+  },
+  {
+    "id": "re-tx-14",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A sales agent's advertisement of a listing must:",
+    "choices": [
+      "Use only the sales agent's name",
+      "Include the sponsoring broker's name",
+      "Omit any brokerage identification",
+      "Be approved by the buyer"
+    ],
+    "correctAnswer": 1,
+    "explanation": "All advertising by a sales agent must include the name of the sponsoring broker; a sales agent may not advertise in a way that implies the sales agent is the broker or is operating independently."
+  },
+  {
+    "id": "re-tx-15",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A broker who deposits a client's earnest money into the broker's own operating account has most likely committed:",
+    "choices": [
+      "A permissible practice",
+      "Commingling of trust funds",
+      "A required procedure",
+      "An intermediary appointment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mixing trust money (such as earnest money) with the broker's personal or operating funds is commingling, a prohibited practice and grounds for disciplinary action."
+  },
+  {
+    "id": "re-tx-16",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Earnest money delivered to a broker to hold must be:",
+    "choices": [
+      "Spent on marketing",
+      "Deposited in a trust or escrow account by the deadline and handled per the contract",
+      "Kept as the broker's fee",
+      "Sent to TREC"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Trust money must be deposited in a designated trust/escrow account promptly and disbursed only as the contract or the parties' written agreement directs."
+  },
+  {
+    "id": "re-tx-17",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "On a TREC promulgated contract, a license holder who drafts a special clause changing the parties' legal rights is engaging in:",
+    "choices": [
+      "Permissible form completion",
+      "The unauthorized practice of law",
+      "An intermediary duty",
+      "A required disclosure"
+    ],
+    "correctAnswer": 1,
+    "explanation": "License holders may fill in blanks on promulgated forms but may not add language that alters the legal rights of the parties; doing so is the unauthorized practice of law."
+  },
+  {
+    "id": "re-tx-18",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Texas broker may pay a commission or fee for brokerage services to:",
+    "choices": [
+      "Any unlicensed person who refers a buyer",
+      "Only a license holder or the broker's own client (e.g., a permissible rebate)",
+      "An unlicensed finder for each lead",
+      "A title company for referrals"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A broker may not pay compensation for brokerage services to an unlicensed person. A broker may pay another license holder and may rebate to a party to the transaction if disclosed."
+  },
+  {
+    "id": "re-tx-19",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder offering a rebate to the buyer in a transaction must:",
+    "choices": [
+      "Keep it secret from the lender",
+      "Disclose the rebate to the parties to the transaction",
+      "Pay it to an unlicensed assistant",
+      "Get it approved by the MLS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rebates or other valuable consideration to a party are permissible but must be disclosed to all parties to the transaction (and disclosure to the lender is typically required)."
+  },
+  {
+    "id": "re-tx-20",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which advertising practice by a license holder is prohibited?",
+    "choices": [
+      "Including the broker's name",
+      "Using accurate property information",
+      "A misleading advertisement that creates a false impression",
+      "Disclosing license status"
+    ],
+    "correctAnswer": 2,
+    "explanation": "False, misleading, or deceptive advertising is prohibited. Advertising must be accurate and must not create a misleading impression about the property or the license holder's role."
+  },
+  {
+    "id": "re-tx-21",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which of the following is a ground for TREC disciplinary action against a license holder?",
+    "choices": [
+      "Promptly depositing earnest money",
+      "Providing the IABS",
+      "Making a material misrepresentation to a party",
+      "Using a promulgated contract form"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Making a material misrepresentation, or engaging in fraud or dishonest dealing, is a statutory ground for disciplinary action under TRELA."
+  },
+  {
+    "id": "re-tx-22",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder who knows of a material defect in a listed property and conceals it from a buyer has:",
+    "choices": [
+      "Acted properly",
+      "Violated the duty of honesty and may face discipline",
+      "Performed an intermediary duty",
+      "Complied with the DTPA"
+    ],
+    "correctAnswer": 1,
+    "explanation": "License holders must disclose known material defects/adverse facts. Concealing a known material defect is misrepresentation by omission and grounds for discipline (and potential DTPA liability)."
+  },
+  {
+    "id": "re-tx-23",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "After a contract is signed, a license holder should:",
+    "choices": [
+      "Destroy the file",
+      "Furnish copies of the signed documents to the parties and retain records",
+      "Keep documents from the parties",
+      "Send originals to TREC"
+    ],
+    "correctAnswer": 1,
+    "explanation": "License holders must provide each party copies of documents they sign at the time of signing and must retain transaction records for the period required by TREC rules."
+  },
+  {
+    "id": "re-tx-24",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When a license holder has an ownership interest in a property being sold to a client, the license holder must:",
+    "choices": [
+      "Conceal the interest",
+      "Disclose the conflict of interest in writing",
+      "Charge a higher fee",
+      "Cancel the listing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A license holder must disclose, in writing, any conflict of interest, including a personal ownership interest, before the parties enter into a contract."
+  },
+  {
+    "id": "re-tx-25",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Failing to timely account for or deliver trust money belonging to others is:",
+    "choices": [
+      "A best practice",
+      "A violation that can result in disciplinary action",
+      "Required by TRELA",
+      "An intermediary appointment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Failure to properly account for or remit money that belongs to others is conversion/mishandling of trust funds and is grounds for disciplinary action."
+  },
+  {
+    "id": "re-tx-26",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When a TREC contract form has been promulgated for a transaction type, a license holder generally must:",
+    "choices": [
+      "Draft an original contract",
+      "Use the appropriate TREC promulgated form",
+      "Use any out-of-state form",
+      "Avoid written contracts"
+    ],
+    "correctAnswer": 1,
+    "explanation": "License holders are required to use TREC-promulgated forms for transactions for which a form has been adopted, such as the One to Four Family Residential Contract (Resale)."
+  },
+  {
+    "id": "re-tx-27",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "TREC contract forms are drafted and recommended for adoption by the:",
+    "choices": [
+      "Texas Legislature directly",
+      "Texas Real Estate Broker-Lawyer Committee",
+      "Local MLS",
+      "Title insurance companies"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Texas Real Estate Broker-Lawyer Committee drafts and revises contract forms and recommends them to TREC for adoption."
+  },
+  {
+    "id": "re-tx-28",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "On a promulgated form, a license holder MAY:",
+    "choices": [
+      "Add clauses changing legal rights",
+      "Strike statutory notices",
+      "Complete blanks with factual statements and business details as directed by the parties",
+      "Rewrite the default paragraph"
+    ],
+    "correctAnswer": 2,
+    "explanation": "License holders may fill in blanks with factual information and business details necessary to complete the form, but may not add or strike language that alters the parties' legal rights (that is UPL)."
+  },
+  {
+    "id": "re-tx-29",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In the TREC One to Four Family Residential Contract, the termination option allows the buyer to:",
+    "choices": [
+      "Receive the home for free",
+      "Pay an option fee for an unrestricted right to terminate within the option period",
+      "Skip financing",
+      "Avoid earnest money"
+    ],
+    "correctAnswer": 1,
+    "explanation": "By paying the negotiated option fee, the buyer obtains the unrestricted right to terminate the contract for any reason within the stated option period."
+  },
+  {
+    "id": "re-tx-30",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In the residential contract, earnest money is generally:",
+    "choices": [
+      "Paid to the listing agent personally",
+      "Delivered to the escrow agent named in the contract",
+      "Kept by the buyer",
+      "Sent to TREC"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Earnest money is delivered to the escrow agent (typically the title company) identified in the contract and is held and disbursed per the contract terms."
+  },
+  {
+    "id": "re-tx-31",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Seller's Disclosure Notice required by Texas Property Code \u00a75.008 generally applies to:",
+    "choices": [
+      "All commercial sales",
+      "The sale of residential real property comprising not more than one dwelling unit, with statutory exceptions",
+      "Only new construction",
+      "Only foreclosure sales"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Section 5.008 requires a seller of residential real property of not more than one dwelling unit to deliver a disclosure notice; certain transactions (e.g., foreclosure, estate, between co-owners) are exempt."
+  },
+  {
+    "id": "re-tx-32",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A buyer who needs a mortgage and wants the contract conditioned on loan approval should use the:",
+    "choices": [
+      "Backup Contract Addendum",
+      "Third Party Financing Addendum",
+      "HOA Addendum",
+      "Lead-Based Paint Addendum only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Third Party Financing Addendum makes the contract contingent on the buyer obtaining the specified financing and sets the approval timeframe and buyer remedies."
+  },
+  {
+    "id": "re-tx-33",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "If a buyer properly terminates during the option period, what typically happens to the earnest money and option fee?",
+    "choices": [
+      "Both are forfeited to the seller",
+      "Earnest money is refunded to the buyer; the option fee is generally retained by the seller unless credited",
+      "Both are refunded to the buyer automatically",
+      "Both go to the broker"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Timely termination under the option returns the earnest money to the buyer; the option fee is the seller's consideration for the option and is not refunded unless the contract credits it to the buyer at closing."
+  },
+  {
+    "id": "re-tx-34",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A property is in a subdivision with mandatory HOA membership. The correct TREC addendum is the:",
+    "choices": [
+      "Addendum for Property Subject to Mandatory Membership in a Property Owners Association",
+      "Seller Financing Addendum",
+      "Environmental Assessment Addendum",
+      "Back-Up Addendum"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Addendum for Property Subject to Mandatory Membership in a Property Owners' Association addresses subdivision information and HOA-related disclosures and fees."
+  },
+  {
+    "id": "re-tx-35",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When a seller wants to accept a second offer while a first contract is pending, the parties typically use the:",
+    "choices": [
+      "Addendum for Back-Up Contract",
+      "Third Party Financing Addendum",
+      "Loan Assumption Addendum",
+      "Seller's Disclosure Notice"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Addendum for 'Back-Up' Contract makes the second contract contingent on termination of the first contract and sets how the back-up becomes primary."
+  },
+  {
+    "id": "re-tx-36",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The effective date of a TREC residential contract is generally the date:",
+    "choices": [
+      "The listing was taken",
+      "Of final acceptance when the last party communicates acceptance to the other",
+      "Of the option period's end",
+      "Of closing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The effective date is the date of final acceptance: when the last party to sign communicates acceptance back to the other party. Many contract deadlines run from this date."
+  },
+  {
+    "id": "re-tx-37",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Texas, property acquired by either spouse during marriage (other than by gift, devise, or descent) is generally:",
+    "choices": [
+      "Separate property",
+      "Community property",
+      "Always the husband's property",
+      "Owned by the state"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Texas is a community-property state: most property acquired during marriage is community property. Separate property includes property owned before marriage or received by gift, devise, or descent."
+  },
+  {
+    "id": "re-tx-38",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Texas urban homestead is generally limited to:",
+    "choices": [
+      "100 acres",
+      "10 acres",
+      "1 acre regardless of use",
+      "No limit"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An urban homestead is limited to 10 acres. A rural homestead is up to 100 acres for a single adult or 200 acres for a family."
+  },
+  {
+    "id": "re-tx-39",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "To convey or encumber a Texas homestead occupied by a married couple:",
+    "choices": [
+      "Either spouse may sign alone",
+      "Both spouses must generally join in the conveyance/encumbrance",
+      "Only the spouse on title signs",
+      "TREC approval is required"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Texas homestead protections generally require both spouses to join in any conveyance or encumbrance of the homestead, even if only one spouse holds title."
+  },
+  {
+    "id": "re-tx-40",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder who makes a false representation that induces a consumer to buy may face liability under the:",
+    "choices": [
+      "Texas Deceptive Trade Practices Act (DTPA)",
+      "Statute of Frauds",
+      "RESPA only",
+      "Fair Housing Act only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The DTPA protects consumers from false, misleading, or deceptive acts; a license holder's misrepresentation in a transaction can create DTPA liability in addition to TREC discipline."
+  },
+  {
+    "id": "re-tx-41",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Most Texas residential foreclosures are conducted as:",
+    "choices": [
+      "Judicial foreclosures requiring a lawsuit",
+      "Non-judicial foreclosures under a deed of trust's power of sale, typically the first Tuesday of the month",
+      "IRS auctions",
+      "HOA-only sales"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Texas predominantly uses non-judicial foreclosure under the power of sale in a deed of trust; trustee sales are held on the first Tuesday of the month after statutory notice."
+  },
+  {
+    "id": "re-tx-42",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "For a mechanic's/materialman's lien to attach to a Texas homestead, the law generally requires:",
+    "choices": [
+      "No documentation",
+      "A written contract signed by both spouses before work begins, with statutory formalities",
+      "Only an oral agreement",
+      "A TREC form"
+    ],
+    "correctAnswer": 1,
+    "explanation": "To create a valid mechanic's lien against a homestead, Texas requires a written contract, signed by both spouses (if married) before labor/materials are furnished, and recorded with required formalities."
+  },
+  {
+    "id": "re-tx-43",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Texas Real Estate Commission (TREC) is composed of:",
+    "choices": [
+      "Nine members appointed by the Governor (six license holders and three public members)",
+      "Three elected brokers",
+      "The Texas Legislature",
+      "Only attorneys"
+    ],
+    "correctAnswer": 0,
+    "explanation": "TREC has nine members appointed by the Governor with Senate consent: six members who are licensed brokers and three public (non-licensed) members."
+  },
+  {
+    "id": "re-tx-44",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The primary statutory purpose of TREC is to:",
+    "choices": [
+      "Maximize broker commissions",
+      "Protect the public by administering and enforcing TRELA",
+      "Set home prices",
+      "Operate the MLS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TREC's mission is consumer protection: it administers and enforces The Real Estate License Act (TRELA) and the TREC rules, including licensing, education, and discipline."
+  },
+  {
+    "id": "re-tx-45",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Real Estate Recovery Trust Account is used to:",
+    "choices": [
+      "Pay TREC salaries",
+      "Reimburse an aggrieved person who obtains an unpaid court judgment against a license holder for certain violations",
+      "Fund broker marketing",
+      "Pay earnest money"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Recovery Trust Account pays a qualifying aggrieved person who has a final court judgment (for fraud, misrepresentation, etc.) that cannot be collected from the license holder, subject to statutory caps; the license holder's license is suspended until repaid."
+  },
+  {
+    "id": "re-tx-46",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When TREC pursues a contested disciplinary case, an administrative hearing is typically held at the:",
+    "choices": [
+      "Local MLS board",
+      "State Office of Administrative Hearings (SOAH)",
+      "County clerk's office",
+      "Title company"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Contested TREC enforcement matters are heard by an administrative law judge at the State Office of Administrative Hearings (SOAH); TREC then acts on the proposal for decision."
+  },
+  {
+    "id": "re-tx-47",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A real estate license is generally required when a person, for another and for compensation:",
+    "choices": [
+      "Sells only their own homestead",
+      "Performs acts such as listing, selling, or negotiating real estate for others",
+      "Manages their own rental",
+      "Buys a home to live in"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TRELA requires a license to perform real estate brokerage acts for another person for compensation. Owners selling their own property and certain others are exempt."
+  },
+  {
+    "id": "re-tx-48",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Texas sales agent may lawfully perform brokerage activity only when the sales agent is:",
+    "choices": [
+      "Sponsored by an active Texas broker",
+      "Working independently",
+      "A member of the MLS",
+      "Over 25 years old"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A sales agent's license must be sponsored by, and the sales agent must act under, an active Texas broker; an unsponsored sales agent license is inactive and cannot conduct brokerage."
+  },
+  {
+    "id": "re-tx-49",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "For each license renewal, a Texas license holder generally must complete:",
+    "choices": [
+      "No continuing education",
+      "18 hours of continuing education, including required Legal Update courses",
+      "Only 4 hours total",
+      "A new prelicensing course"
+    ],
+    "correctAnswer": 1,
+    "explanation": "License holders must complete 18 hours of CE each two-year renewal period, including the TREC Legal Update I and II courses; sales agents also have separate SAE requirements before their first renewal."
+  },
+  {
+    "id": "re-tx-50",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Texas real estate license is renewed:",
+    "choices": [
+      "Every six months",
+      "Every two years",
+      "Every ten years",
+      "Only once"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Texas real estate licenses are issued for and renewed on a two-year cycle; a license holder may also place a license on inactive status, which suspends the ability to perform brokerage."
+  },
+  {
+    "id": "re-tx-51",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "An exclusive right-to-sell listing differs from an exclusive agency listing in that, under an exclusive right-to-sell listing, the broker earns a commission:",
+    "choices": [
+      "Even if the seller finds the buyer without the broker",
+      "Only if the broker procures the buyer",
+      "Never",
+      "Only on new construction"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Under an exclusive right-to-sell listing the listing broker is owed a commission if the property sells during the term regardless of who procures the buyer. Under exclusive agency, the seller may sell it themselves without owing the broker."
+  },
+  {
+    "id": "re-tx-52",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A seller's agent showing the home to an unrepresented buyer must:",
+    "choices": [
+      "Keep all known material defects secret",
+      "Treat the buyer honestly and disclose known material defects, while owing fiduciary duties to the seller",
+      "Represent the buyer too without consent",
+      "Refuse to answer any questions"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A seller's agent owes fiduciary duties to the seller but still must deal honestly and fairly with the buyer (a customer) and disclose known material defects/adverse facts about the property."
+  },
+  {
+    "id": "re-tx-53",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Texas brokerage terminology, a person the license holder represents is a 'client,' while a party the license holder does not represent but works with is a:",
+    "choices": [
+      "Principal",
+      "Customer",
+      "Fiduciary",
+      "Subagent"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A client is represented (owed fiduciary duties); a customer is a party the license holder assists but does not represent and to whom only honesty and fairness are owed."
+  },
+  {
+    "id": "re-tx-54",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "An agency relationship may terminate by all of the following EXCEPT:",
+    "choices": [
+      "Performance/closing of the transaction",
+      "Mutual agreement or expiration of the term",
+      "Death or incapacity of a party",
+      "The cooperating broker's preference"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Agency ends by performance, expiration, mutual agreement, revocation/renunciation, or death/incapacity/destruction of subject matter. A third-party cooperating broker's preference does not terminate the principal-broker relationship."
+  },
+  {
+    "id": "re-tx-55",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When an intermediary makes appointments, the broker must:",
+    "choices": [
+      "Favor the seller",
+      "Provide written notice of the appointments to the parties and not favor one party over the other",
+      "Disclose confidential price information",
+      "Cancel the listing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "With written consent, the intermediary may appoint associated license holders; the broker must act fairly and impartially, may not disclose confidential information, and the appointments are typically documented in writing to the parties."
+  },
+  {
+    "id": "re-tx-56",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A listing's protection (override) period generally provides that the broker may be owed a commission if:",
+    "choices": [
+      "The seller relists with another broker after expiration",
+      "A buyer the broker introduced during the listing buys shortly after expiration and the seller has not relisted with another broker",
+      "The home never sells",
+      "The buyer uses a different lender"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A protection/override clause entitles the broker to a commission for a stated period after expiration if a buyer the broker procured during the listing purchases, typically unless the property is listed with another broker."
+  },
+  {
+    "id": "re-tx-57",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "An open listing allows:",
+    "choices": [
+      "Only one broker to market the property",
+      "The seller to list with multiple brokers and pay only the one who procures the buyer",
+      "Automatic intermediary status",
+      "No seller participation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In an open (non-exclusive) listing the seller may engage multiple brokers and owes a commission only to the broker who is the procuring cause; the seller may also sell it personally without owing a commission."
+  },
+  {
+    "id": "re-tx-58",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A buyer's agent learns the seller is under financial pressure and may accept far less. The buyer's agent should:",
+    "choices": [
+      "Withhold it from the buyer",
+      "Disclose this material information to the buyer-client",
+      "Tell the listing agent",
+      "Do nothing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A buyer's agent owes the buyer fiduciary duties, including disclosing material information that benefits the client's negotiating position (information not confidential to the agent's own client)."
+  },
+  {
+    "id": "re-tx-59",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Ministerial acts performed for a party the license holder does not represent (such as showing a property):",
+    "choices": [
+      "Automatically create agency with that party",
+      "Do not by themselves create an agency relationship",
+      "Require an intermediary agreement",
+      "Violate TRELA"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Performing ministerial acts (e.g., scheduling showings, providing information) for a customer does not create an agency relationship absent an agreement to represent that party."
+  },
+  {
+    "id": "re-tx-60",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Confidential information learned during an agency relationship:",
+    "choices": [
+      "May be freely shared after closing without limit",
+      "Generally must not be disclosed even after the relationship ends",
+      "Must be reported to TREC",
+      "Belongs to the cooperating broker"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The duty of confidentiality regarding a client's confidential information generally survives termination of the agency relationship and may not be disclosed without authorization."
+  },
+  {
+    "id": "re-tx-61",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A broker holding earnest money as escrow agent must act:",
+    "choices": [
+      "In the seller's sole interest",
+      "As a neutral party following the contract and written instructions",
+      "As the buyer's advocate",
+      "To keep the funds as a fee"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When acting as escrow agent, the broker is a neutral stakeholder and must disburse funds only as the contract or the parties' joint written instructions provide, regardless of which party the broker represents."
+  },
+  {
+    "id": "re-tx-62",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder advertising another broker's listing must generally:",
+    "choices": [
+      "Do so freely without permission",
+      "Have the listing broker's authorization",
+      "Claim it as the license holder's own listing",
+      "Remove the address"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Advertising another broker's listing without authorization is misleading and prohibited; a license holder must have the listing broker's permission and not imply it is the license holder's own listing."
+  },
+  {
+    "id": "re-tx-63",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A team or assumed business name used by sales agents in advertising must:",
+    "choices": [
+      "Replace the broker's name entirely",
+      "Be used with the sponsoring broker's name and meet TREC team-name requirements",
+      "Imply the team is a separate brokerage",
+      "Be unregistered"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Team and assumed names are permitted but must be advertised together with the sponsoring broker's name and may not imply the team is a separate brokerage; TREC has specific team-name rules."
+  },
+  {
+    "id": "re-tx-64",
+    "domain": "Agency & Brokerage",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The procuring cause of a sale is generally the broker who:",
+    "choices": [
+      "Listed the property first",
+      "Set in motion an uninterrupted chain of events leading to the sale",
+      "Has the largest firm",
+      "Attended the closing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Procuring cause refers to the broker whose efforts started an uninterrupted series of events that resulted in the successful transaction; it often governs commission disputes in open listings/cooperative sales."
+  },
+  {
+    "id": "re-tx-65",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under TREC rules, a license holder generally must retain transaction records for at least:",
+    "choices": [
+      "30 days",
+      "4 years from closing or termination",
+      "6 months",
+      "Indefinitely in all cases"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TREC rules require license holders to keep relevant records (contracts, disclosures, etc.) for at least four years from the date of closing, termination, or the event."
+  },
+  {
+    "id": "re-tx-66",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A broker's website advertising real estate brokerage services must include the:",
+    "choices": [
+      "Broker's Social Security number",
+      "Required TREC Consumer Protection Notice and IABS links/information",
+      "Seller's confidential data",
+      "No identifying information"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TREC requires brokerage websites to provide the Consumer Protection Notice and the Information About Brokerage Services notice in a readily accessible place."
+  },
+  {
+    "id": "re-tx-101",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A 'blind ad' that omits the sponsoring broker's name is:",
+    "choices": [
+      "Encouraged",
+      "Prohibited because advertising must disclose the broker",
+      "Required by TREC",
+      "Allowed online only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Blind advertising (ads that do not disclose the responsible broker) is prohibited; the public must be able to identify the brokerage behind the advertisement."
+  },
+  {
+    "id": "re-tx-67",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Texas broker may share a commission with an out-of-state broker only if the out-of-state broker:",
+    "choices": [
+      "Performs negotiations physically in Texas",
+      "Does not conduct acts requiring a Texas license within Texas (cooperative arrangement)",
+      "Is unlicensed anywhere",
+      "Pays TREC a fee"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Texas broker may cooperate with and pay a properly licensed out-of-state broker as long as the out-of-state broker does not perform acts in Texas that require a Texas license."
+  },
+  {
+    "id": "re-tx-68",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Trust/escrow money held by a Texas broker:",
+    "choices": [
+      "May be used for office expenses temporarily",
+      "Must be kept separate from the broker's funds and accounted for accurately",
+      "Earns the broker interest by default",
+      "May be loaned to clients"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Trust money must be maintained separately (no commingling), safeguarded, and accurately accounted for; using it for the broker's own purposes is conversion."
+  },
+  {
+    "id": "re-tx-69",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A complaint to TREC against a license holder generally must be:",
+    "choices": [
+      "Made anonymously by phone only",
+      "Submitted in writing for the Commission to investigate",
+      "Filed in district court first",
+      "Approved by the broker"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TREC accepts and investigates written complaints; staff reviews jurisdiction and may open an investigation that can lead to administrative action."
+  },
+  {
+    "id": "re-tx-70",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder who fails to properly supervise sponsored sales agents may be subject to:",
+    "choices": [
+      "No consequences",
+      "Disciplinary action for negligent supervision",
+      "A commission bonus",
+      "Automatic license upgrade"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A sponsoring broker must adequately supervise sponsored license holders; failure to supervise is itself a violation that can result in discipline."
+  },
+  {
+    "id": "re-tx-71",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Paying a referral fee to an unlicensed person who is not a party to the transaction is:",
+    "choices": [
+      "Permitted if small",
+      "Prohibited under TRELA",
+      "Required disclosure only",
+      "An intermediary act"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Compensation for brokerage services (including referral fees) may not be paid to unlicensed persons; only license holders may be paid for such services (a permissible rebate to a transaction party is different)."
+  },
+  {
+    "id": "re-tx-72",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder must notify TREC of:",
+    "choices": [
+      "Every showing",
+      "A change of mailing address and certain criminal/license events within required timeframes",
+      "The seller's net proceeds",
+      "Each open house"
+    ],
+    "correctAnswer": 1,
+    "explanation": "License holders must keep current contact information with TREC and report certain events (e.g., criminal convictions, other-state disciplinary actions) as required by statute and rule."
+  },
+  {
+    "id": "re-tx-73",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Acting negligently or making a false promise likely to influence a person to enter a transaction is:",
+    "choices": [
+      "Acceptable puffing",
+      "A ground for disciplinary action",
+      "Required disclosure",
+      "An intermediary duty"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TRELA lists making a false promise or engaging in misrepresentation/negligence likely to influence a party as grounds for disciplinary action."
+  },
+  {
+    "id": "re-tx-74",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder may fill in the blanks on a promulgated form but giving a party advice about the legal effect of a contract provision is generally:",
+    "choices": [
+      "Encouraged",
+      "The unauthorized practice of law unless the license holder is an attorney for that party",
+      "A required service",
+      "An intermediary appointment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Advising parties on the legal effect/sufficiency of contract language is the practice of law; license holders should recommend the parties consult an attorney."
+  },
+  {
+    "id": "re-tx-75",
+    "domain": "Standards of Conduct",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A license holder who places signs on a property without the owner's consent has:",
+    "choices": [
+      "Acted within standard practice",
+      "Engaged in conduct that may violate TREC rules and constitute trespass",
+      "Performed a ministerial act",
+      "Created an intermediary relationship"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Marketing activities such as placing signs require the owner's authorization; doing so without consent is improper conduct and may also be unlawful."
+  },
+  {
+    "id": "re-tx-76",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A change to a term of an executed TREC contract agreed by the parties is documented using a/an:",
+    "choices": [
+      "Amendment",
+      "New listing",
+      "Buyer representation agreement",
+      "IABS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Changes to a binding contract's terms (price, dates, repairs, etc.) are made on the TREC Amendment form signed by the parties; addenda are added at contract formation to address specific situations."
+  },
+  {
+    "id": "re-tx-77",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A buyer assuming the seller's existing loan would use the:",
+    "choices": [
+      "Loan Assumption Addendum",
+      "Third Party Financing Addendum",
+      "Back-Up Addendum",
+      "Seller's Disclosure Notice"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Loan Assumption Addendum is used when the buyer assumes an existing note; it addresses approval, assumption costs, and the seller's potential continuing liability/release."
+  },
+  {
+    "id": "re-tx-78",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When the seller will finance the purchase for the buyer, the parties use the:",
+    "choices": [
+      "Seller Financing Addendum",
+      "Third Party Financing Addendum",
+      "HOA Addendum",
+      "Buyer's Temporary Lease"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Seller Financing Addendum documents seller-financed terms (note amount, rate, term, credit documentation, default) when the seller carries the financing."
+  },
+  {
+    "id": "re-tx-79",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "If the buyer will occupy the property briefly before closing, the parties use the:",
+    "choices": [
+      "Buyer's Temporary Residential Lease",
+      "Seller's Temporary Residential Lease",
+      "Loan Assumption Addendum",
+      "Back-Up Addendum"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Buyer's Temporary Residential Lease covers buyer possession before closing (no more than 90 days); the Seller's Temporary Residential Lease covers the seller staying after closing."
+  },
+  {
+    "id": "re-tx-80",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "To formally terminate the contract under a contractual right, the buyer typically delivers the:",
+    "choices": [
+      "Notice of Buyer's Termination of Contract",
+      "Seller's Disclosure Notice",
+      "IABS",
+      "Amendment"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Notice of Buyer's Termination of Contract is the TREC form used by a buyer to exercise a contractual right to terminate (e.g., under the option, financing, or other contingency)."
+  },
+  {
+    "id": "re-tx-81",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Regarding the survey, the One to Four Family contract typically allows the seller to furnish an existing survey accompanied by a:",
+    "choices": [
+      "T-47 residential real property affidavit",
+      "Seller's Disclosure only",
+      "Power of attorney",
+      "Lead-based paint addendum"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The contract lets the seller deliver an existing survey with a completed T-47 affidavit (so the title company can rely on it); otherwise a new survey is obtained per the contract."
+  },
+  {
+    "id": "re-tx-82",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under the contract, a buyer who timely objects to defects shown in the title commitment or survey is exercising a right found in the:",
+    "choices": [
+      "Title/objection provisions of the contract",
+      "Brokers' fees paragraph",
+      "Possession paragraph",
+      "Lead-based paint addendum"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The title paragraph allows the buyer to review and object to items in the commitment, survey, and exception documents within the contractual time; unresolved objections can let the buyer terminate."
+  },
+  {
+    "id": "re-tx-83",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "If the buyer defaults under the One to Four Family contract, the seller's typical remedies include:",
+    "choices": [
+      "Only suing for the option fee",
+      "Terminating and receiving the earnest money as liquidated damages, or seeking other relief as provided",
+      "Forcing the buyer to close with no choice",
+      "Keeping the home and the buyer's mortgage"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The default paragraph generally lets the non-defaulting party terminate and receive the earnest money or pursue other remedies the contract allows; specific options are spelled out in the default provision."
+  },
+  {
+    "id": "re-tx-84",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Lead-based paint disclosure requirements apply to the sale of residential housing built:",
+    "choices": [
+      "Before 1978",
+      "After 2000",
+      "Only commercial buildings",
+      "Only new construction"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Federal law (and the corresponding addendum) requires lead-based paint disclosure for target housing built before 1978; the buyer also gets a 10-day opportunity to inspect for lead hazards."
+  },
+  {
+    "id": "re-tx-85",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The seller's property condition paragraph in the contract addresses:",
+    "choices": [
+      "The broker's commission",
+      "Whether the property is sold in present condition or with specified repairs/treatments",
+      "The lender's underwriting",
+      "TREC's fees"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The property condition paragraph states whether the buyer accepts the property in its present 'as-is' condition or whether the seller will complete specified repairs and treatments before closing."
+  },
+  {
+    "id": "re-tx-86",
+    "domain": "Contracts (TREC Forms & Disclosures)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A material misstatement of a home's square footage by a license holder relying on unverified data can lead to:",
+    "choices": [
+      "No liability ever",
+      "Potential misrepresentation/DTPA exposure; license holders should cite sources and recommend verification",
+      "Automatic TREC approval",
+      "A larger commission"
+    ],
+    "correctAnswer": 1,
+    "explanation": "License holders should not misrepresent measurements; they should disclose the source of square footage and advise independent verification to avoid misrepresentation and DTPA exposure."
+  },
+  {
+    "id": "re-tx-87",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "If a Texas resident dies without a will, the estate passes by:",
+    "choices": [
+      "Escheat to the broker",
+      "Texas intestate succession statutes",
+      "The listing agreement",
+      "TREC rule"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When a person dies intestate (no will), Texas intestacy statutes determine heirs; community vs. separate property characterization affects distribution."
+  },
+  {
+    "id": "re-tx-88",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Texas homeowner can pass real property at death outside of probate using a:",
+    "choices": [
+      "Transfer on Death Deed",
+      "Listing agreement",
+      "Buyer representation agreement",
+      "Net listing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Texas authorizes the Transfer on Death Deed, which conveys real property to a named beneficiary at the owner's death without probate, and is revocable during life."
+  },
+  {
+    "id": "re-tx-89",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Texas residence homestead exemption primarily reduces a homeowner's:",
+    "choices": [
+      "Mortgage interest rate",
+      "Ad valorem property taxes on the homestead",
+      "HOA dues",
+      "Closing costs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The residence homestead exemption lowers the taxable value used for ad valorem property taxes on the owner's principal residence (with additional exemptions for over-65, disabled, and veterans)."
+  },
+  {
+    "id": "re-tx-90",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "When residential property is in a Municipal Utility District (MUD), Texas law generally requires the seller to give the buyer a:",
+    "choices": [
+      "Statutory MUD notice disclosing the district and its taxes/bonds",
+      "Power of attorney",
+      "Net listing",
+      "TREC license"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Sellers of property within a MUD or similar district must deliver the statutory notice disclosing the district, tax rate, and bonded indebtedness before the contract binds (with reformation/termination rights if not provided)."
+  },
+  {
+    "id": "re-tx-91",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under a Texas residential lease, a landlord generally must refund or account for the security deposit within:",
+    "choices": [
+      "30 days after the tenant surrenders the premises",
+      "24 hours",
+      "One year",
+      "Never"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Texas Property Code requires the landlord to refund the security deposit, or provide an itemized list of deductions, generally within 30 days after the tenant surrenders the premises and provides a forwarding address."
+  },
+  {
+    "id": "re-tx-92",
+    "domain": "Special Topics (TX)",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A buyer of a property in a mandatory HOA is typically entitled to receive a:",
+    "choices": [
+      "Resale certificate / subdivision information from the association",
+      "TREC commission",
+      "Survey waiver",
+      "Mineral deed"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Texas law entitles the buyer to a property owners' association resale certificate disclosing assessments, fees, restrictions, and the association's financial information."
+  },
+  {
+    "id": "re-tx-93",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "TREC has rulemaking authority to:",
+    "choices": [
+      "Set home sale prices",
+      "Adopt rules to administer and enforce TRELA",
+      "Approve individual contracts",
+      "License lenders"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Legislature delegated TREC authority to adopt and enforce rules necessary to administer The Real Estate License Act, including education, advertising, and conduct standards."
+  },
+  {
+    "id": "re-tx-94",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In addition to brokers and sales agents, TREC also regulates:",
+    "choices": [
+      "Mortgage bankers",
+      "Real estate inspectors and certain easement/right-of-way agents",
+      "Title underwriters",
+      "Appraisers' federal licenses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TREC also licenses and regulates real estate inspectors and easement or right-of-way agents; appraiser regulation is handled by the Texas Appraiser Licensing and Certification Board."
+  },
+  {
+    "id": "re-tx-95",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "TREC may issue a cease-and-desist order against:",
+    "choices": [
+      "A licensed broker following the rules",
+      "A person engaging in unlicensed real estate activity",
+      "TREC commissioners",
+      "A title company"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TREC has authority to investigate and order persons to cease unlicensed activity and may pursue administrative penalties and injunctive relief."
+  },
+  {
+    "id": "re-tx-96",
+    "domain": "Commission Duties & Powers",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Payment from the Real Estate Recovery Trust Account on a license holder's behalf results in:",
+    "choices": [
+      "A larger license",
+      "Suspension of that license holder's license until the account is reimbursed with interest",
+      "No effect on the license",
+      "A commission rebate"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When the Recovery Trust Account pays a claim, the responsible license holder's license is suspended until the license holder repays the amount plus interest."
+  },
+  {
+    "id": "re-tx-97",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Texas sales agent prelicensing education generally requires:",
+    "choices": [
+      "No coursework",
+      "180 classroom hours of qualifying real estate courses",
+      "Only an exam",
+      "A college degree"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Applicants for a Texas sales agent license must complete 180 hours of qualifying real estate courses (including Principles, Law of Agency, Law of Contracts, etc.) before licensure."
+  },
+  {
+    "id": "re-tx-98",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Before a sales agent's FIRST license renewal, the agent must complete:",
+    "choices": [
+      "Nothing additional",
+      "Sales Agent Apprentice Education (SAE), generally 90 hours of qualifying courses",
+      "Only 4 CE hours",
+      "A broker license"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A sales agent must complete the additional SAE qualifying education (typically 90 hours) before the first renewal, in addition to ongoing CE for later renewals."
+  },
+  {
+    "id": "re-tx-99",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A business entity acting as a real estate broker in Texas must:",
+    "choices": [
+      "Have no broker involved",
+      "Designate an active Texas broker to act for the entity",
+      "Only register a DBA",
+      "Be exempt from licensing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A business entity broker license requires the entity to designate an active individual Texas broker who meets statutory requirements to act on the entity's behalf."
+  },
+  {
+    "id": "re-tx-100",
+    "domain": "Licensing",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A nonresident applying for a Texas real estate license generally must:",
+    "choices": [
+      "Move to Texas first",
+      "Meet Texas qualifications and consent to legal service/jurisdiction as required",
+      "Be exempt from education",
+      "Hold a Texas driver license"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Nonresidents may obtain a Texas license by meeting Texas education/exam requirements and filing the required consent to service of process/jurisdiction; Texas does not require residency."
+  }
+]
