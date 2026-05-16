@@ -6,13 +6,25 @@ Goal: ~400 single-choice TX state-law questions in
 explanations. Then a one-time correctAnswer rebalance, flip
 `real-estate-tx` published, smoke-test, commit.
 
-## Status
+## Status: CONTENT COMPLETE
 
 | | |
 |---|---|
-| Pool size | **101 / ~400** (batches 1–2 done) |
-| Next id | `re-tx-102` (ids unique, not required contiguous; 1–101 used incl. 101) |
-| certs.js questionCount | kept in sync (currently 101) — **must update every batch** or content-sanity fails |
+| Pool size | **401 / ~400 — DONE** (8 batches) |
+| Distribution | exact TREC blueprint: Agency 110 / Standards 90 / Contracts 90 / Special 51 / Commission 30 / Licensing 30 |
+| correctAnswer | rebalanced via `rebalance_choices.py` → 102/86/107/106 |
+| certs.js questionCount | 401 (synced) |
+| Engine | `selectLicensingExam` verified on real merged pool: 750 nat + 401 state → 85+40 exam |
+| Tests | 202/202, lint clean, build green |
+
+### Remaining (Phase C — small UI task, NOT content)
+`real-estate-tx` stays `published:false` (same as `real-estate-national`)
+so it does not pollute the IT catalog. To make it user-facing on the
+sister site, RELayout (currently hardcodes `real-estate-national`) needs
+a TX entry point: a cert switcher or `/real-estate/study` state picker /
+route mounting `CertProvider certId="real-estate-tx"`, plus surfacing the
+"Full Licensing Exam" mode in REExam (engine already wired via
+`cert.composite`). Then browser smoke-test the 85+40 exam.
 
 ### Target distribution (≈400) and progress
 | TREC section (domain string) | weight | target | done |
