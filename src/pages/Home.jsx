@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { getAllCerts } from '../data/certs'
 import BrandedName from '../components/BrandedName'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 function useVisitorCount() {
   const [count, setCount] = useState(null)
@@ -29,6 +30,11 @@ const providerStyles = {
 
 export default function Home() {
   const visitorCount = useVisitorCount()
+  useDocumentMeta({
+    description:
+      'Free, open-source exam prep for AWS, Azure, Google Cloud, NVIDIA, and CompTIA (Network+, Security+, Server+). ~5,800 realistic questions, timed simulators, Smart Practice. No account, no paywall.',
+    path: '/',
+  })
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
@@ -267,7 +273,7 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
               </svg>
               <span>Real Estate Exam Prep</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 group-hover:text-rose-400 transition-colors">Coming soon &rarr;</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 group-hover:text-rose-400 transition-colors">Now live &rarr;</span>
             </Link>
           </div>
         </div>

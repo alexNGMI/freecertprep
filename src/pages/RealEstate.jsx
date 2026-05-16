@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 // Sister-site landing for the upcoming Real Estate Exam Prep project.
 // Intentionally styled completely differently from freecertprep's
@@ -63,6 +64,12 @@ export default function RealEstate() {
   const [email, setEmail] = useState('')
   const [stateCode, setStateCode] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  useDocumentMeta({
+    title: 'Free National Real Estate Exam Prep',
+    description:
+      'Free prep for the national/uniform portion of the US real estate salesperson exam (PSI blueprint) — 750 questions, smart practice, full exam simulator. No signup. State-specific modules coming next.',
+    path: '/real-estate',
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -87,18 +94,8 @@ export default function RealEstate() {
               </svg>
             </span>
             <span className="font-black text-lg tracking-tight">RealEstatePrep</span>
-            <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-widest text-slate-400">Pre-launch</span>
+            <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-widest text-emerald-600">National live</span>
           </Link>
-          <nav className="flex items-center gap-6 text-sm font-semibold text-slate-600">
-            <a href="#states" className="hidden sm:inline hover:text-slate-900 transition-colors">States</a>
-            <a href="#how" className="hidden sm:inline hover:text-slate-900 transition-colors">How it works</a>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-1.5 text-slate-500 hover:text-slate-900 transition-colors"
-            >
-              freecertprep <span aria-hidden>↗</span>
-            </Link>
-          </nav>
         </div>
       </header>
 
@@ -117,8 +114,8 @@ export default function RealEstate() {
 
           <div className="relative max-w-5xl mx-auto px-6 pt-24 md:pt-32 pb-20 text-center">
             <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full border border-rose-200 bg-white text-rose-700 text-[11px] font-bold uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
-              Launching 2026 · Be first in line
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              National prep is live · Free, no signup
             </div>
 
             <h1 className="font-black tracking-tight text-slate-900 text-5xl md:text-7xl leading-[1.05] mb-7">
@@ -126,10 +123,33 @@ export default function RealEstate() {
               <br className="hidden md:block" /> closer than you think.
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12">
+            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
               Free national real estate exam prep — the portable half of every
-              state&apos;s exam, drilled deep. State-specific modules layer on
-              top as we roll them out.
+              state&apos;s exam, drilled deep. 750 questions, smart practice, a
+              full exam simulator. State-specific modules layer on top as we
+              roll them out.
+            </p>
+
+            {/* Primary CTA — the national pool is live and playable now.
+                The notify form below is for the state-specific modules. */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14">
+              <Link
+                to="/real-estate/study"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-rose-600 text-white font-bold text-base hover:bg-rose-700 transition-all shadow-lg shadow-rose-200/50 hover:-translate-y-0.5"
+              >
+                Start practicing — free
+                <span aria-hidden>→</span>
+              </Link>
+              <a
+                href="#how"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl border border-slate-300 text-slate-700 font-bold text-base hover:border-slate-400 hover:bg-slate-50 transition-all"
+              >
+                How it works
+              </a>
+            </div>
+
+            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-4">
+              Want your state&apos;s local-law module? Join the wait-list
             </p>
 
             {/* Notify-me bar styled to evoke Zillow/Redfin search: email +
@@ -197,7 +217,7 @@ export default function RealEstate() {
               {submitted && stateName ? (
                 <>We&apos;ll email you the moment <span className="font-semibold text-slate-700">{stateName}</span> is ready. No spam — unsubscribe anytime.</>
               ) : (
-                <>Pre-launch list only. We&apos;ll use your state to prioritize launch markets. No spam, ever.</>
+                <>State-module wait-list. The national prep above is already free to use. We&apos;ll use your state to prioritize which local-law module we build next. No spam, ever.</>
               )}
             </p>
           </div>
@@ -285,13 +305,12 @@ export default function RealEstate() {
             </span>
             <span className="font-bold text-slate-700">RealEstatePrep</span>
           </div>
-          <p className="text-slate-500">
-            A sister site of{' '}
-            <Link to="/" className="text-rose-600 font-semibold hover:underline">
-              freecertprep
-            </Link>
-            . Launching 2026.
-          </p>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-200 text-slate-600 font-semibold hover:border-rose-300 hover:text-rose-600 hover:bg-rose-50/40 transition-all"
+          >
+            freecertprep <span aria-hidden>↗</span>
+          </Link>
         </div>
       </footer>
     </div>

@@ -16,8 +16,9 @@ function exportProgress() {
     a.download = `freecertprep-progress-${new Date().toISOString().slice(0, 10)}.json`
     a.click()
     URL.revokeObjectURL(url)
+    return true
   } catch {
-    alert('Export failed.')
+    return false
   }
 }
 
@@ -29,6 +30,7 @@ export default function Dashboard() {
   const overall = getOverallStats
   const importRef = useRef(null)
   const [confirmReset, setConfirmReset] = useState(null) // 'progress' | 'smart' | null
+  const [notice, setNotice] = useState(null) // { kind: 'error'|'ok', msg }
 
   function handleImport(e) {
     const file = e.target.files?.[0]
@@ -37,10 +39,15 @@ export default function Dashboard() {
     reader.onload = (ev) => {
       try {
         JSON.parse(ev.target.result) // validate JSON
-        localStorage.setItem(PROGRESS_KEY, ev.target.result)
+        try {
+          localStorage.setItem(PROGRESS_KEY, ev.target.result)
+        } catch {
+          setNotice({ kind: 'error', msg: 'Import failed — browser storage is full. Clear some history and retry.' })
+          return
+        }
         window.location.reload()
       } catch {
-        alert('Invalid progress file.')
+        setNotice({ kind: 'error', msg: "That file isn't valid progress JSON." })
       }
     }
     reader.readAsText(file)
@@ -117,6 +124,26 @@ export default function Dashboard() {
       <div className="glass-panel rounded-2xl p-6 space-y-4">
         <h2 className="text-sm font-bold text-zinc-500 uppercase tracking-widest">Data & Resets</h2>
 
+        {notice && (
+          <div
+            role="status"
+            className={`rounded-xl p-4 flex items-start justify-between gap-4 text-sm font-medium border ${
+              notice.kind === 'error'
+                ? 'bg-rose-500/10 border-rose-500/30 text-rose-200'
+                : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-200'
+            }`}
+          >
+            <span>{notice.msg}</span>
+            <button
+              onClick={() => setNotice(null)}
+              className="shrink-0 text-zinc-400 hover:text-zinc-200 transition-colors"
+              aria-label="Dismiss"
+            >
+              ✕
+            </button>
+          </div>
+        )}
+
         {/* Confirm overlay */}
         {confirmReset && (
           <div className="bg-rose-500/10 border border-rose-500/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -148,7 +175,9 @@ export default function Dashboard() {
 
         <div className="flex flex-wrap gap-3">
           <button
-            onClick={exportProgress}
+            onClick={() => {
+              if (!exportProgress()) setNotice({ kind: 'error', msg: 'Export failed — your browser blocked the download.' })
+            }}
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

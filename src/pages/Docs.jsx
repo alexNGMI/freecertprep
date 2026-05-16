@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import BrandedName from '../components/BrandedName'
 import { getAllCerts } from '../data/certs'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 // Single source of truth for catalog-wide stats shown in the docs.
 // Re-reads at import time so these stay in sync with certs.js without manual edits.
@@ -108,6 +109,12 @@ function CodeBlock({ children }) {
 
 export default function Docs() {
   const [activeSection, setActiveSection] = useState('overview')
+  useDocumentMeta({
+    title: 'Documentation',
+    description:
+      'How freecertprep works: study modes, the Smart Practice weighted-sampling engine, question types, local-first progress storage, and architecture.',
+    path: '/docs',
+  })
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -484,9 +491,14 @@ key = random() ** (1 / weight)
 │   ├── Drill.jsx         — Timed 10-question drill with countdown
 │   ├── Exam.jsx          — Full exam simulator
 │   ├── Results.jsx       — Post-exam review with correct/incorrect filter
-│   └── Docs.jsx          — This page
+│   ├── Docs.jsx          — This page
+│   ├── RealEstate.jsx    — Sister-site landing (light Redfin/Zillow theme)
+│   └── realestate/       — Sister-site study app (light theme):
+│       ├── RELayout.jsx  — Pins the cert engine to real-estate-national
+│       ├── REDashboard / REQuiz / REDrill / REExam / REResults
 ├── components/
-│   ├── QuestionCard.jsx  — Renders all 5 question types
+│   ├── QuestionCard.jsx  — Renders all 5 question types (dark IT theme)
+│   ├── REQuestionCard.jsx — Light single-choice card for the sister site
 │   ├── CertLayout.jsx    — Nav, header, footer for cert pages
 │   └── BrandedName.jsx   — Logo with cert-color accent
 ├── hooks/
@@ -526,6 +538,10 @@ key = random() ** (1 / weight)
                 title: 'Exam domain allocation uses largest-remainder',
                 body: 'Rounding percentages to whole numbers always introduces error. Largest-remainder ensures that if CLF-C02 needs 34% of 65 questions = 22.1, the allocation rounds correctly across all domains so the total is always exactly 65 — never 64 or 66.',
               },
+              {
+                title: 'The sister site reuses the engine, not the UI',
+                body: 'The Real Estate study app lives under /real-estate/study with its own light-themed pages (REDashboard, REQuiz, REDrill, REExam, REResults) and a single-choice REQuestionCard. It imports the exact same useProgress, useQuestionStats, useBookmarks, scoring, shuffle, and exam-selection modules — the cert engine is theme-agnostic and keyed by certId, so CertProvider just takes an explicit certId prop instead of reading it from the URL. New audiences get a different visual language with zero logic forks.',
+              },
             ].map(({ title, body }) => (
               <div key={title} className="border-l-2 border-zinc-700 pl-5 py-1 space-y-1">
                 <p className="font-semibold text-zinc-200 text-sm">{title}</p>
@@ -535,10 +551,12 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              160 Vitest tests across seven modules cover the math, the scoring, the Smart Practice weights, the progress rollups,
-              the markdown rendering, and a content sanity sweep over every question across every cert. These are the functions
+              178 Vitest tests across seven modules cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
+              every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
-              marks right answers wrong, and a bad question slips past hundreds of thousands of silent reads. UI behaviour is
+              marks right answers wrong, and a bad question slips past hundreds of thousands of silent reads. The full suite,
+              lint, and a production build run in GitHub Actions CI on every push and pull request. UI behaviour is
               verified manually given the component-level complexity.
             </P>
             <CodeBlock>{`src/__tests__/
@@ -573,6 +591,10 @@ key = random() ** (1 / weight)
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
                   'Catalog grouped by provider (CompTIA / Cloud / NVIDIA) for clearer scannability',
+                  'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
+                  'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
+                  'Per-route SEO — dynamic page titles, Open Graph, and canonical URLs; root error boundary and graceful question-load failure handling',
+                  'Complete explanation coverage — every question in every cert now ships a worked explanation, enforced by an automated content gate (included a 1,198-question Network+/Server+ backfill)',
                 ],
               },
               {
@@ -591,7 +613,7 @@ key = random() ** (1 / weight)
                   'Streak tracking and study reminders',
                   'Accessibility pass — ARIA, keyboard navigation, screen-reader friendliness',
                   'Shared result cards — privacy-respecting shareable score screenshots',
-                  'Sister sites for adjacent career paths (e.g., real-estate exam prep, fiber technician credentials) that do not fit the IT audience here',
+                  'State-specific real-estate modules (TX, FL first) layering local law on top of the national pool — and more sister sites for adjacent non-IT career paths (e.g., fiber technician credentials)',
                 ],
               },
             ].map(({ status, color, items }) => (

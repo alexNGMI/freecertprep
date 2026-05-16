@@ -1,5 +1,6 @@
 import { NavLink, Outlet, Link, Navigate } from 'react-router-dom'
 import { useCert } from '../hooks/useCert'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import BrandedName from './BrandedName'
 
 const navItems = [
@@ -11,6 +12,14 @@ const navItems = [
 
 export default function CertLayout() {
   const cert = useCert()
+
+  useDocumentMeta({
+    title: cert ? `${cert.code} ${cert.title} Practice` : null,
+    description: cert
+      ? `Free ${cert.code} (${cert.title}) practice — ${cert.questionCount.toLocaleString()} questions, a ${cert.examQuestions}-question timed simulator, and Smart Practice that targets your weak domains. No signup.`
+      : null,
+    path: cert ? `/${cert.id}` : '/',
+  })
 
   if (!cert) return <Navigate to="/" replace />
 

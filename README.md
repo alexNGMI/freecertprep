@@ -17,6 +17,10 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 **4,936 questions across 8 certifications.**
 
+### Sister site — Real Estate
+
+A separate, light-themed surface (Redfin/Zillow visual language) lives at `/real-estate`, with a full study app under `/real-estate/study`. It covers the **National Real Estate Salesperson Exam** — the portable national/uniform portion tested in ~48 states — with a **750-question pool** built to the post-October-2023 PSI blueprint (11 weighted domains, 100% single-choice, 80-question / 120-minute / 75%-pass simulator). It is intentionally not in the IT catalog above; it reuses the exact same Smart Practice, scoring, and exam-selection engine, keyed to its own cert id. State-specific local-law modules (TX, FL first) are planned to layer on top.
+
 ## Features
 
 - **Home** — Catalog grouped by provider with at-a-glance exam stats.
@@ -46,7 +50,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (160 tests across 7 modules)
+- Vitest (178 tests across 7 modules), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

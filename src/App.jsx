@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Docs from './pages/Docs'
 import CertLayout from './components/CertLayout'
@@ -12,6 +12,27 @@ const Exam = lazy(() => import('./pages/Exam'))
 const Results = lazy(() => import('./pages/Results'))
 // Sister-site landing page — distinct light theme, no shared layout.
 const RealEstate = lazy(() => import('./pages/RealEstate'))
+// Sister-site study app — light theme, reuses the shared cert engine
+// pinned to the real-estate-national pool.
+const RELayout = lazy(() => import('./pages/realestate/RELayout'))
+const REDashboard = lazy(() => import('./pages/realestate/REDashboard'))
+const REQuiz = lazy(() => import('./pages/realestate/REQuiz'))
+const REDrill = lazy(() => import('./pages/realestate/REDrill'))
+const REExam = lazy(() => import('./pages/realestate/REExam'))
+const REResults = lazy(() => import('./pages/realestate/REResults'))
+
+// Browsers keep the previous scroll position across client-side route
+// changes — so clicking the footer link at the bottom of Home would land
+// you at the bottom of the sister site. Reset to the top whenever the
+// pathname changes. Keyed on pathname only (not hash/search) so in-page
+// anchor jumps like #how / #states still work.
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
 
 function PageLoader() {
   return (
@@ -32,10 +53,18 @@ function CertRoutes() {
 function App() {
   return (
     <Suspense fallback={<PageLoader />}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/docs" element={<Docs />} />
         <Route path="/real-estate" element={<RealEstate />} />
+        <Route path="/real-estate/study" element={<RELayout />}>
+          <Route index element={<REDashboard />} />
+          <Route path="quiz" element={<REQuiz />} />
+          <Route path="drill" element={<REDrill />} />
+          <Route path="exam" element={<REExam />} />
+          <Route path="results" element={<REResults />} />
+        </Route>
         <Route path="/:certId" element={<CertRoutes />}>
           <Route index element={<Dashboard />} />
           <Route path="quiz" element={<Quiz />} />
