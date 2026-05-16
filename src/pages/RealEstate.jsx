@@ -17,10 +17,11 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 // CA/NY visitors can still register interest via the US_STATES dropdown.
 const STATE_MODULES = [
   { code: 'TX', name: 'Texas',          blurb: 'Full licensing: national + TREC state law', badge: 'Available now', to: '/real-estate/study/tx' },
-  { code: 'ME', name: 'Maine',          blurb: 'Salesperson (national + state)',  badge: 'Up next' },
-  { code: 'GA', name: 'Georgia',        blurb: 'Salesperson + broker',           badge: 'Planned' },
+  { code: 'ME', name: 'Maine',          blurb: 'Sales agent: national + Maine state law', badge: 'In progress' },
+  { code: 'GA', name: 'Georgia',        blurb: 'Salesperson (national + state)', badge: 'Up next' },
+  { code: 'AZ', name: 'Arizona',        blurb: 'Salesperson (national + state)', badge: 'Planned' },
   { code: 'NC', name: 'North Carolina', blurb: 'Provisional broker + broker',    badge: 'Planned' },
-  { code: 'CO', name: 'Colorado',       blurb: 'Broker (two-tier)',              badge: 'Planned' },
+  { code: 'IN', name: 'Indiana',        blurb: 'Broker (national + state)',      badge: 'Planned' },
 ]
 
 // All 50 states + DC for the notify-me state selector. The launched-soon
@@ -241,7 +242,7 @@ export default function RealEstate() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {STATE_MODULES.map((s) => {
               const live = Boolean(s.to)
               const cardClass = `group relative rounded-2xl p-6 transition-all border ${

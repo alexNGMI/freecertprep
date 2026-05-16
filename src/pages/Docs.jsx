@@ -612,10 +612,19 @@ key = random() ** (1 / weight)
                 ],
               },
               {
+                status: 'In progress',
+                color: '#38bdf8',
+                items: [
+                  'Maine state-law module — same layered model as Texas, modeled to the official 5-section Pearson VUE Maine content outline; the composite "Full Licensing Exam" mirrors the real 80 national + 40 state split (75% each section).',
+                  'HashiCorp Terraform Associate (003) — first cert in a new "Multi-Cloud" catalog group on the main site, alongside the cloud providers.',
+                ],
+              },
+              {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'Maine state-law module — same layered model as Texas (85 national + 40 state, 75% pass), modeled to the official Maine content outline. Single-integrated-exam states (FL, CA, NY) remain out of scope — not a national + state split.',
+                  'Georgia state-law module — next state after Maine, same layered national + state model.',
+                  'Arizona, North Carolina, and Indiana state-law modules — in planning, same architecture. Single-integrated-exam states (FL, CA, NY) remain out of scope — their exams are not a national + state split, so the layered-module design does not apply.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',

@@ -27,6 +27,18 @@ const TX_STATE_DOMAINS = [
   { name: 'Special Topics (TX)', weight: 12.5 },          // 5 items
 ]
 
+// Maine Sales Agent STATE-LAW portion — 40 scored items across 5 sections
+// per the official Pearson VUE Maine Real Estate handbook content outline
+// (Maine exam revalidated 2024). Weights are the exact per-section item
+// proportions (n/40 * 100).
+const ME_STATE_DOMAINS = [
+  { name: 'Maine Real Estate Commission', weight: 5 },               // 2 items
+  { name: 'Maine Laws & Rules Governing Licensees', weight: 37.5 },  // 15 items
+  { name: 'Law of Agency/Brokerage', weight: 25 },                   // 10 items
+  { name: 'Maine-Specific Principles & Practices', weight: 20 },     // 8 items
+  { name: 'Maine Land-Use Law', weight: 12.5 },                      // 5 items
+]
+
 const certs = {
   'az-900': {
     id: 'az-900',
@@ -314,6 +326,52 @@ const certs = {
       'Agency & Brokerage':                    { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
       'Contracts (TREC Forms & Disclosures)':  { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
       'Special Topics (TX)':                   { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
+    },
+  },
+  // Maine Sales Agent module — same layered architecture as real-estate-tx.
+  // National half = shared real-estate-national pool (portion:'national');
+  // state half authored in real-estate-me-state-questions.json
+  // (portion:'state'). Full Licensing Exam mirrors the real Maine split:
+  // 80 national + 40 state, 75% pass each section. questionCount is the
+  // STATE pool size (0 until the ME pool is authored).
+  'real-estate-me': {
+    id: 'real-estate-me',
+    title: 'Maine Real Estate Sales Agent Exam',
+    code: 'ME PSI',
+    provider: 'Real Estate',
+    description: 'Maine Sales Agent licensing exam: the portable national portion plus the Maine state-law portion. State-law content is modeled to the official 5-section Pearson VUE Maine content outline; the Full Licensing Exam mirrors the real 80 national + 40 state split.',
+    difficulty: 'Foundational',
+    color: '#dc2626',
+    questionCount: 0,
+    examQuestions: 120,
+    examTime: 240,
+    passingScore: 75,
+    published: false,
+    loadQuestions: async () => {
+      const [nat, st] = await Promise.all([
+        import('./real-estate-national-questions.json'),
+        import('./real-estate-me-state-questions.json'),
+      ])
+      return {
+        default: [
+          ...nat.default.map((q) => ({ ...q, portion: 'national' })),
+          ...st.default.map((q) => ({ ...q, portion: 'state' })),
+        ],
+      }
+    },
+    // Real exam: 80 national + 40 state; each section passed independently.
+    composite: {
+      national: { count: 80, domains: RE_NATIONAL_DOMAINS },
+      state: { count: 40, domains: ME_STATE_DOMAINS },
+    },
+    // Dashboard / state-practice taxonomy is the Maine state-law sections.
+    domains: ME_STATE_DOMAINS,
+    domainColors: {
+      'Maine Real Estate Commission':            { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
+      'Maine Laws & Rules Governing Licensees':  { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
+      'Law of Agency/Brokerage':                 { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
+      'Maine-Specific Principles & Practices':   { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
+      'Maine Land-Use Law':                      { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
     },
   },
 }

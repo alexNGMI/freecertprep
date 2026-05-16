@@ -26,6 +26,7 @@ const providerStyles = {
   NVIDIA: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-400' },
   'Microsoft Azure': { bg: 'bg-cyan-500/10 border-cyan-500/20', text: 'text-cyan-400' },
   CompTIA: { bg: 'bg-red-500/10 border-red-500/20', text: 'text-red-400' },
+  HashiCorp: { bg: 'bg-violet-500/10 border-violet-500/20', text: 'text-violet-400' },
 }
 
 export default function Home() {
@@ -143,16 +144,37 @@ export default function Home() {
             {[
               { label: 'CompTIA',      providers: ['CompTIA'] },
               { label: 'Cloud',        providers: ['AWS', 'Microsoft Azure', 'Google Cloud'] },
+              {
+                label: 'Multi-Cloud',
+                providers: ['HashiCorp'],
+                comingSoon: [
+                  {
+                    id: 'terraform-associate',
+                    provider: 'HashiCorp',
+                    code: 'TF Associate 003',
+                    title: 'HashiCorp Terraform Associate',
+                    difficulty: 'Associate',
+                    color: '#7c3aed',
+                    description:
+                      'Infrastructure-as-Code fundamentals: Terraform workflow, state, modules, providers, and HCL — the multi-cloud provisioning credential.',
+                    examQuestions: 57,
+                    examTime: 60,
+                  },
+                ],
+              },
               { label: 'NVIDIA',       providers: ['NVIDIA'] },
-            ].map(({ label, providers }) => {
+            ].map(({ label, providers, comingSoon }) => {
               const group = certs.filter(c => providers.includes(c.provider))
-              if (!group.length) return null
+              if (!group.length && !comingSoon) return null
               return (
                 <div key={label}>
                   <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-6">{label}</p>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {group.map((cert, i) => (
                       <CertCard key={cert.id} cert={cert} index={i} />
+                    ))}
+                    {!group.length && comingSoon?.map((cert, i) => (
+                      <ComingSoonCard key={cert.id} cert={cert} index={i} />
                     ))}
                   </div>
                 </div>
@@ -344,5 +366,66 @@ function CertCard({ cert, index }) {
         View Detail &rarr;
       </span>
     </Link>
+  )
+}
+
+function ComingSoonCard({ cert, index }) {
+  const ps = providerStyles[cert.provider] || { bg: 'bg-zinc-800 border-zinc-700', text: 'text-zinc-400' }
+
+  return (
+    <div
+      id={`cert-card-${cert.id}`}
+      className="glass-panel rounded-2xl p-8 flex flex-col min-h-[340px] animate-fade-up relative overflow-hidden opacity-75"
+      style={{ animationDelay: `${index * 80 + 300}ms` }}
+    >
+      <div
+        className="absolute top-0 left-0 w-full h-1 opacity-50"
+        style={{ backgroundColor: cert.color }}
+      />
+
+      <div className="flex items-start justify-between mb-6">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-md border ${ps.bg} ${ps.text}`}>
+            {cert.provider}
+          </span>
+          <span className="text-[11px] font-medium text-zinc-400 bg-zinc-800/50 border border-zinc-700/50 px-2.5 py-1 rounded-md">
+            {cert.code}
+          </span>
+        </div>
+        <span
+          className="text-[11px] font-bold px-2.5 py-1 rounded-md bg-zinc-900 border"
+          style={{ borderColor: `${cert.color}40`, color: cert.color }}
+        >
+          {cert.difficulty}
+        </span>
+      </div>
+
+      <h3 className="text-2xl font-bold mb-3 text-zinc-100">{cert.title}</h3>
+      <p className="text-sm text-zinc-400 mb-8 flex-1 leading-relaxed">
+        {cert.description}
+      </p>
+
+      <div className="grid grid-cols-3 gap-2 mb-8 border-y border-white/5 py-4">
+        <div className="text-center">
+          <p className="text-xl font-semibold text-zinc-200">{cert.examQuestions}</p>
+          <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-medium">Questions</p>
+        </div>
+        <div className="text-center border-x border-white/5">
+          <p className="text-xl font-semibold text-zinc-200">{cert.examTime}</p>
+          <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-medium">Minutes</p>
+        </div>
+        <div className="text-center">
+          <p className="text-xl font-semibold text-zinc-200">&mdash;</p>
+          <p className="text-[10px] text-zinc-500 uppercase tracking-widest mt-1 font-medium">Passing</p>
+        </div>
+      </div>
+
+      <span
+        className="text-sm font-semibold py-3 rounded-lg text-center border bg-zinc-900 text-zinc-500"
+        style={{ borderColor: '#27272a' }}
+      >
+        Coming soon
+      </span>
+    </div>
   )
 }

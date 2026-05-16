@@ -10,6 +10,7 @@ import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
 import reNational from '../data/real-estate-national-questions.json'
 import reTxState from '../data/real-estate-tx-state-questions.json'
+import reMeState from '../data/real-estate-me-state-questions.json'
 
 // Map each cert to the JSON we statically imported.
 // When adding a new cert, add it here too — the "registry fully mapped" test
@@ -25,6 +26,7 @@ const CERT_QUESTIONS = {
   'comptia-server-plus': comptiaServerPlus,
   'real-estate-national': reNational,
   'real-estate-tx': reTxState,
+  'real-estate-me': reMeState,
 }
 
 // Run per-question sanity checks on every cert that has content — including
