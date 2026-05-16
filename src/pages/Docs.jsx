@@ -608,13 +608,14 @@ key = random() ** (1 / weight)
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
                   'Per-route SEO — dynamic page titles, Open Graph, and canonical URLs; root error boundary and graceful question-load failure handling',
                   'Complete explanation coverage — every question in every cert now ships a worked explanation, enforced by an automated content gate (included a 1,198-question Network+/Server+ backfill)',
+                  'Texas state-law module — live on the sister site: a 401-question TX pool modeled to the 6 official TREC sections, layered on the national pool, with a composite "Full Licensing Exam" mirroring the real 85 national + 40 state split (70% each section). Sister-site study picker lets users choose National or Texas.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'State-law modules layered on the national pool — Texas first (Pearson VUE / TREC: 85 national + 40 state, 70% each section, state portion weighted to the 6 official TREC sections), then Maine (85 + 40, 75% pass). A combined "Full Licensing Exam" mode mirrors the real national + state split. Single-integrated-exam states (FL, CA, NY) are out of scope — not a national + state split.',
+                  'Maine state-law module — same layered model as Texas (85 national + 40 state, 75% pass), modeled to the official Maine content outline. Single-integrated-exam states (FL, CA, NY) remain out of scope — not a national + state split.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',

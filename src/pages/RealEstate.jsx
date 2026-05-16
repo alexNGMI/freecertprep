@@ -16,8 +16,8 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 // their own long-form builds and are intentionally NOT in this grid.
 // CA/NY visitors can still register interest via the US_STATES dropdown.
 const STATE_MODULES = [
-  { code: 'TX', name: 'Texas',          blurb: 'Notoriously hard state portion', badge: 'Up next' },
-  { code: 'FL', name: 'Florida',        blurb: 'Sales associate + broker',       badge: 'Up next' },
+  { code: 'TX', name: 'Texas',          blurb: 'Full licensing: national + TREC state law', badge: 'Available now', to: '/real-estate/study/tx' },
+  { code: 'ME', name: 'Maine',          blurb: 'Salesperson (national + state)',  badge: 'Up next' },
   { code: 'GA', name: 'Georgia',        blurb: 'Salesperson + broker',           badge: 'Planned' },
   { code: 'NC', name: 'North Carolina', blurb: 'Provisional broker + broker',    badge: 'Planned' },
   { code: 'CO', name: 'Colorado',       blurb: 'Broker (two-tier)',              badge: 'Planned' },
@@ -235,28 +235,46 @@ export default function RealEstate() {
               The national portion is the same coast to coast — property
               ownership, agency, contracts, financing, appraisal, transfer,
               disclosures, fair housing, math, practice of real estate. We
-              drill it deep at launch. Your state-specific module is the
-              second layer, covering local law and commission rules.
-              Here&apos;s what&apos;s coming after national ships.
+              drill it deep. Your state-specific module is the second
+              layer, covering local law and commission rules. Texas is
+              live now — more states are on the way.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {STATE_MODULES.map((s) => (
-              <article
-                key={s.code}
-                className="group relative bg-white border border-slate-200 rounded-2xl p-6 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-100/50 transition-all"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl font-black tracking-tight text-slate-900">{s.code}</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-rose-600 transition-colors">
-                    {s.badge}
-                  </span>
-                </div>
-                <p className="text-lg font-bold text-slate-900 mb-1">{s.name}</p>
-                <p className="text-xs text-slate-500 leading-snug">{s.blurb}</p>
-              </article>
-            ))}
+            {STATE_MODULES.map((s) => {
+              const live = Boolean(s.to)
+              const cardClass = `group relative rounded-2xl p-6 transition-all border ${
+                live
+                  ? 'bg-white border-rose-300 shadow-lg shadow-rose-100/50 hover:-translate-y-0.5'
+                  : 'bg-white border-slate-200 hover:border-rose-300 hover:shadow-lg hover:shadow-rose-100/50'
+              }`
+              const inner = (
+                <>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-3xl font-black tracking-tight text-slate-900">{s.code}</span>
+                    <span
+                      className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${
+                        live ? 'text-rose-600' : 'text-slate-400 group-hover:text-rose-600'
+                      }`}
+                    >
+                      {s.badge}
+                    </span>
+                  </div>
+                  <p className="text-lg font-bold text-slate-900 mb-1">{s.name}</p>
+                  <p className="text-xs text-slate-500 leading-snug">{s.blurb}</p>
+                </>
+              )
+              return live ? (
+                <Link key={s.code} to={s.to} className={cardClass}>
+                  {inner}
+                </Link>
+              ) : (
+                <article key={s.code} className={cardClass}>
+                  {inner}
+                </article>
+              )
+            })}
           </div>
 
           <p className="text-center text-sm text-slate-500 mt-10">

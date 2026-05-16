@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useCert } from '../../hooks/useCert'
 import { useProgress } from '../../hooks/useProgress'
 import REQuestionCard from '../../components/REQuestionCard'
@@ -19,6 +19,7 @@ export default function REExam() {
   const [finished, setFinished] = useState(false)
   const { addExamResult } = useProgress(cert.id)
   const navigate = useNavigate()
+  const { reCert } = useParams()
   const timerRef = useRef(null)
   const selectedAnswersRef = useRef(selectedAnswers)
 
@@ -45,8 +46,8 @@ export default function REExam() {
       return { questionId: q.id, domain: q.domain, selected, correct }
     })
     addExamResult({ answers })
-    navigate('/real-estate/study/results', { state: { answers, questions: examQuestions } })
-  }, [examQuestions, addExamResult, navigate])
+    navigate(`/real-estate/study/${reCert}/results`, { state: { answers, questions: examQuestions } })
+  }, [examQuestions, addExamResult, navigate, reCert])
 
   useEffect(() => {
     if (started && !finished) {

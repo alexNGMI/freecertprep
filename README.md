@@ -21,7 +21,12 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 A separate, light-themed surface (Redfin/Zillow visual language) lives at `/real-estate`, with a full study app under `/real-estate/study`. It covers the **National Real Estate Salesperson Exam** — the portable national/uniform portion tested in ~48 states — with a **750-question pool** built to the post-October-2023 PSI blueprint (11 weighted domains, 100% single-choice, 80-question / 120-minute / 75%-pass simulator). It is intentionally not in the IT catalog above; it reuses the exact same Smart Practice, scoring, and exam-selection engine, keyed to its own cert id.
 
-State-specific **state-law modules** layer on top of this national pool, modeled to each state's official exam blueprint, with a combined "Full Licensing Exam" mode that mirrors the real national + state split: **Texas** first (Pearson VUE / TREC — 85 national + 40 state, 70% each section; state-law portion weighted to the 6 official TREC sections), then **Maine** (Pearson VUE — 85 national + 40 state, 75% pass). Single-integrated-exam states (Florida, California, New York) are explicitly **out of scope** — their exams are not a national + state split, so the layered-module architecture does not apply.
+State-specific **state-law modules** layer on top of this national pool, modeled to each state's official exam blueprint, with a combined "Full Licensing Exam" mode that mirrors the real national + state split. A sister-site study picker (`/real-estate/study`) lets users choose which exam to prep:
+
+- **Texas — live.** A 401-question Texas Sales Agent state-law pool modeled to the 6 official Pearson VUE / TREC sections, layered on the national pool; the Full Licensing Exam composes the real 85 national + 40 state, 70% each section. (`/real-estate/study/tx`)
+- **Maine — next.** Same layered model (85 + 40, 75% pass), modeled to the official Maine content outline.
+
+Single-integrated-exam states (Florida, California, New York) are explicitly **out of scope** — their exams are not a national + state split, so the layered-module architecture does not apply. Real Estate always lives on the sister site and is intentionally kept out of the IT catalog (it fills a different need).
 
 ## Features
 

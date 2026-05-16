@@ -15,6 +15,7 @@ const RealEstate = lazy(() => import('./pages/RealEstate'))
 // Sister-site study app — light theme, reuses the shared cert engine
 // pinned to the real-estate-national pool.
 const RELayout = lazy(() => import('./pages/realestate/RELayout'))
+const REStudyPicker = lazy(() => import('./pages/realestate/REStudyPicker'))
 const REDashboard = lazy(() => import('./pages/realestate/REDashboard'))
 const REQuiz = lazy(() => import('./pages/realestate/REQuiz'))
 const REDrill = lazy(() => import('./pages/realestate/REDrill'))
@@ -58,7 +59,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/docs" element={<Docs />} />
         <Route path="/real-estate" element={<RealEstate />} />
-        <Route path="/real-estate/study" element={<RELayout />}>
+        <Route path="/real-estate/study" element={<REStudyPicker />} />
+        <Route path="/real-estate/study/:reCert" element={<RELayout />}>
           <Route index element={<REDashboard />} />
           <Route path="quiz" element={<REQuiz />} />
           <Route path="drill" element={<REDrill />} />

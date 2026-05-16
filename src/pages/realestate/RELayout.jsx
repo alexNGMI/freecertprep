@@ -1,8 +1,7 @@
-import { NavLink, Outlet, Link, Navigate } from 'react-router-dom'
+import { NavLink, Outlet, Link, Navigate, useParams } from 'react-router-dom'
 import { CertProvider, useCert } from '../../hooks/useCert'
 import { useDocumentMeta } from '../../hooks/useDocumentMeta'
-
-const RE_CERT_ID = 'real-estate-national'
+import { reCertBySlug } from './reCerts'
 
 const navItems = [
   { to: '', label: 'Dashboard', end: true },
@@ -11,19 +10,18 @@ const navItems = [
   { to: 'exam', label: 'Exam Simulator' },
 ]
 
-function RELayoutInner() {
+function RELayoutInner({ meta }) {
   const cert = useCert()
 
   useDocumentMeta({
-    title: 'National Real Estate Exam — Practice',
-    description:
-      'Free study app for the national real estate salesperson exam — quiz, timed drill, and a full 80-question PSI-style simulator with Smart Practice. No signup.',
-    path: '/real-estate/study',
+    title: `${meta.name} — Practice`,
+    description: `Free study app for the ${meta.name.toLowerCase()} — quiz, timed drill, and a full exam simulator with Smart Practice. No signup.`,
+    path: `/real-estate/study/${meta.slug}`,
   })
 
-  // getCert() resolves real-estate-national even though it's unpublished
-  // (published:false only hides it from the freecertprep IT catalog — the
-  // sister site reaches it directly). If it somehow can't load, bail home.
+  // getCert() resolves the cert even though it is published:false (the
+  // sister site reaches it directly; Real Estate never joins the IT
+  // catalog). If it somehow can't load, bail to the landing page.
   if (!cert) return <Navigate to="/real-estate" replace />
 
   return (
@@ -38,27 +36,36 @@ function RELayoutInner() {
             </span>
             <span className="font-black text-lg tracking-tight">RealEstatePrep</span>
             <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-widest text-rose-600 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded">
-              National
+              {meta.badge}
             </span>
           </Link>
-          <nav className="flex gap-1 p-1 rounded-xl bg-slate-100 border border-slate-200" aria-label="Study navigation">
-            {navItems.map(({ to, label, end }) => (
-              <NavLink
-                key={label}
-                to={to}
-                end={end}
-                className={({ isActive }) =>
-                  `px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                    isActive
-                      ? 'bg-rose-600 text-white shadow-sm'
-                      : 'text-slate-500 hover:text-slate-900 hover:bg-white'
-                  }`
-                }
-              >
-                {label}
-              </NavLink>
-            ))}
-          </nav>
+          <div className="flex items-center gap-3">
+            <nav className="flex gap-1 p-1 rounded-xl bg-slate-100 border border-slate-200" aria-label="Study navigation">
+              {navItems.map(({ to, label, end }) => (
+                <NavLink
+                  key={label}
+                  to={to}
+                  end={end}
+                  className={({ isActive }) =>
+                    `px-3.5 py-1.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                      isActive
+                        ? 'bg-rose-600 text-white shadow-sm'
+                        : 'text-slate-500 hover:text-slate-900 hover:bg-white'
+                    }`
+                  }
+                >
+                  {label}
+                </NavLink>
+              ))}
+            </nav>
+            <Link
+              to="/real-estate/study"
+              className="hidden sm:inline text-xs font-semibold text-slate-500 hover:text-rose-600 transition-colors whitespace-nowrap"
+              title="Switch exam"
+            >
+              Switch exam
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -68,7 +75,7 @@ function RELayoutInner() {
 
       <footer className="border-t border-slate-200 bg-white py-8 mt-auto text-center text-sm text-slate-500">
         <p>
-          RealEstatePrep — free national exam prep. A sister site of{' '}
+          RealEstatePrep — free exam prep. A sister site of{' '}
           <Link to="/" className="text-rose-600 font-semibold hover:underline">
             freecertprep
           </Link>
@@ -79,13 +86,16 @@ function RELayoutInner() {
   )
 }
 
-// Mounts the shared cert engine on the fixed real-estate-national pool,
-// then renders the light study chrome. The `light` prop swaps the
-// question-loading spinner to the white variant.
+// Mounts the shared cert engine on the Real Estate cert chosen by the
+// :reCert slug, then renders the light study chrome. Unknown slugs fall
+// back to the study picker.
 export default function RELayout() {
+  const { reCert } = useParams()
+  const meta = reCertBySlug(reCert)
+  if (!meta) return <Navigate to="/real-estate/study" replace />
   return (
-    <CertProvider certId={RE_CERT_ID} light>
-      <RELayoutInner />
+    <CertProvider certId={meta.certId} light>
+      <RELayoutInner meta={meta} />
     </CertProvider>
   )
 }

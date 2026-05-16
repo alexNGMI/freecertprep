@@ -1,11 +1,13 @@
 import { useState } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, useParams, Link } from 'react-router-dom'
 import { useCert } from '../../hooks/useCert'
 import REQuestionCard from '../../components/REQuestionCard'
 
 export default function REResults() {
   const cert = useCert()
   const location = useLocation()
+  const { reCert } = useParams()
+  const base = `/real-estate/study/${reCert}`
   const { answers, questions: examQuestions } = location.state || {}
   const [reviewMode, setReviewMode] = useState(false)
   const [reviewFilter, setReviewFilter] = useState('all')
@@ -15,7 +17,7 @@ export default function REResults() {
       <div className="text-center py-20 space-y-6 animate-fade-up">
         <p className="text-slate-500 text-lg">No session data found.</p>
         <Link
-          to="/real-estate/study"
+          to={base}
           className="inline-block px-8 py-3 rounded-lg text-sm font-semibold bg-rose-600 text-white hover:bg-rose-700 transition-all"
         >
           Return to Dashboard
@@ -110,19 +112,19 @@ export default function REResults() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <Link
-          to="/real-estate/study"
+          to={base}
           className="px-6 py-4 rounded-xl font-bold text-center border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900 transition-all shadow-sm"
         >
           Dashboard
         </Link>
         <Link
-          to="/real-estate/study/quiz"
+          to={`${base}/quiz`}
           className="px-6 py-4 rounded-xl font-bold text-center bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100 transition-all"
         >
           Target Weak Areas
         </Link>
         <Link
-          to="/real-estate/study/exam"
+          to={`${base}/exam`}
           className="px-6 py-4 rounded-xl font-bold text-center bg-rose-600 text-white hover:bg-rose-700 transition-all shadow-sm"
         >
           Retake Exam
