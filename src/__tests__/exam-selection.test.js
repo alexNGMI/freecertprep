@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { weightedSelect } from '../utils/exam-selection.js'
+import { weightedSelect, selectLicensingExam } from '../utils/exam-selection.js'
 
 // Helper: generate a pool of mock questions
 function makePool(domains, countPerDomain, types = ['single-choice']) {
@@ -107,5 +107,53 @@ describe('weightedSelect', () => {
     expect(result).toHaveLength(20)
     // All should come from D1 since D2 has nothing
     expect(result.every(q => q.domain === 'D1')).toBe(true)
+  })
+})
+
+describe('selectLicensingExam', () => {
+  const NAT_DOMAINS = [{ name: 'N1', weight: 60 }, { name: 'N2', weight: 40 }]
+  const STATE_DOMAINS = [{ name: 'S1', weight: 50 }, { name: 'S2', weight: 50 }]
+
+  function makeMergedPool() {
+    const nat = makePool(['N1', 'N2'], 80).map(q => ({ ...q, portion: 'national' }))
+    const st = makePool(['S1', 'S2'], 60).map(q => ({ ...q, id: `s-${q.id}`, portion: 'state' }))
+    return [...nat, ...st]
+  }
+
+  const composite = {
+    national: { count: 85, domains: NAT_DOMAINS },
+    state: { count: 40, domains: STATE_DOMAINS },
+  }
+
+  it('returns the combined national + state count with no duplicates', () => {
+    const result = selectLicensingExam(makeMergedPool(), composite)
+    expect(result).toHaveLength(125)
+    const ids = result.map(q => q.id)
+    expect(new Set(ids).size).toBe(ids.length)
+  })
+
+  it('draws the requested number from each portion', () => {
+    const result = selectLicensingExam(makeMergedPool(), composite)
+    const nat = result.filter(q => (q.portion || 'national') === 'national')
+    const st = result.filter(q => q.portion === 'state')
+    expect(nat).toHaveLength(85)
+    expect(st).toHaveLength(40)
+  })
+
+  it('treats untagged questions as national', () => {
+    const pool = makePool(['N1', 'N2'], 80) // no portion tag
+    const result = selectLicensingExam(pool, {
+      national: { count: 50, domains: NAT_DOMAINS },
+      state: { count: 40, domains: STATE_DOMAINS },
+    })
+    expect(result).toHaveLength(50) // state portion empty -> contributes nothing
+    expect(result.every(q => (q.portion || 'national') === 'national')).toBe(true)
+  })
+
+  it('degrades gracefully when the state pool is empty (still returns national)', () => {
+    const natOnly = makePool(['N1', 'N2'], 80).map(q => ({ ...q, portion: 'national' }))
+    const result = selectLicensingExam(natOnly, composite)
+    expect(result).toHaveLength(85)
+    expect(result.every(q => q.portion === 'national')).toBe(true)
   })
 })

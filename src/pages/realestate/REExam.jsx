@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCert } from '../../hooks/useCert'
 import { useProgress } from '../../hooks/useProgress'
 import REQuestionCard from '../../components/REQuestionCard'
-import { weightedSelect } from '../../utils/exam-selection'
+import { weightedSelect, selectLicensingExam } from '../../utils/exam-selection'
 import { isAnswerCorrect } from '../../utils/scoring'
 
 export default function REExam() {
@@ -22,7 +22,14 @@ export default function REExam() {
   const timerRef = useRef(null)
   const selectedAnswersRef = useRef(selectedAnswers)
 
-  const [examQuestions] = useState(() => weightedSelect(questions, EXAM_QUESTIONS, cert.domains))
+  // State-licensing certs (e.g. real-estate-tx) carry a `composite` config
+  // and compose the exam as national + state portions to mirror the real
+  // two-section structure. Plain certs use straight domain-weighted select.
+  const [examQuestions] = useState(() =>
+    cert.composite
+      ? selectLicensingExam(questions, cert.composite)
+      : weightedSelect(questions, EXAM_QUESTIONS, cert.domains)
+  )
 
   useEffect(() => {
     selectedAnswersRef.current = selectedAnswers

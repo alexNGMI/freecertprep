@@ -1,3 +1,32 @@
+// Shared so state-licensing certs (real-estate-tx, future real-estate-me)
+// reuse the exact national blueprint for the national half of the exam
+// without duplicating it.
+const RE_NATIONAL_DOMAINS = [
+  { name: 'Contracts', weight: 17 },
+  { name: 'General Principles of Agency', weight: 13 },
+  { name: 'Practice of Real Estate', weight: 13 },
+  { name: 'Financing', weight: 10 },
+  { name: 'Real Estate Calculations', weight: 10 },
+  { name: 'Property Ownership', weight: 8 },
+  { name: 'Transfer of Title', weight: 8 },
+  { name: 'Valuation and Market Analysis', weight: 7 },
+  { name: 'Property Disclosures', weight: 6 },
+  { name: 'Land Use Controls and Regulations', weight: 5 },
+  { name: 'Leasing and Property Management', weight: 3 },
+]
+
+// Texas Sales Agent STATE-LAW portion — 40 scored items across 6 sections
+// per the official Pearson VUE/TREC content outline (effective 2026-01-01).
+// Weights are the exact per-section item proportions (n/40 * 100).
+const TX_STATE_DOMAINS = [
+  { name: 'Commission Duties & Powers', weight: 7.5 },   // 3 items
+  { name: 'Licensing', weight: 7.5 },                     // 3 items
+  { name: 'Standards of Conduct', weight: 22.5 },         // 9 items
+  { name: 'Agency & Brokerage', weight: 27.5 },           // 11 items
+  { name: 'Contracts (TREC Forms & Disclosures)', weight: 22.5 }, // 9 items
+  { name: 'Special Topics (TX)', weight: 12.5 },          // 5 items
+]
+
 const certs = {
   'az-900': {
     id: 'az-900',
@@ -223,19 +252,7 @@ const certs = {
     passingScore: 75,
     published: false,
     loadQuestions: () => import('./real-estate-national-questions.json'),
-    domains: [
-      { name: 'Contracts', weight: 17 },
-      { name: 'General Principles of Agency', weight: 13 },
-      { name: 'Practice of Real Estate', weight: 13 },
-      { name: 'Financing', weight: 10 },
-      { name: 'Real Estate Calculations', weight: 10 },
-      { name: 'Property Ownership', weight: 8 },
-      { name: 'Transfer of Title', weight: 8 },
-      { name: 'Valuation and Market Analysis', weight: 7 },
-      { name: 'Property Disclosures', weight: 6 },
-      { name: 'Land Use Controls and Regulations', weight: 5 },
-      { name: 'Leasing and Property Management', weight: 3 },
-    ],
+    domains: RE_NATIONAL_DOMAINS,
     domainColors: {
       'Contracts':                         { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
       'General Principles of Agency':      { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
@@ -248,6 +265,55 @@ const certs = {
       'Property Disclosures':              { dot: 'bg-[#ca8a04]', bar: 'bg-[#ca8a04]', text: 'text-[#ca8a04]', hex: '#ca8a04' },
       'Land Use Controls and Regulations': { dot: 'bg-[#65a30d]', bar: 'bg-[#65a30d]', text: 'text-[#65a30d]', hex: '#65a30d' },
       'Leasing and Property Management':   { dot: 'bg-[#4f46e5]', bar: 'bg-[#4f46e5]', text: 'text-[#4f46e5]', hex: '#4f46e5' },
+    },
+  },
+  // ── State-licensing module (Phase A scaffold) ──────────────────────────
+  // The national half is the shared real-estate-national pool (tagged
+  // portion:'national' at load); the state half is authored in
+  // real-estate-tx-state-questions.json (empty until Phase B) and its
+  // questions carry portion:'state'. `composite` drives the combined
+  // "Full Licensing Exam" via selectLicensingExam(). questionCount is the
+  // STATE pool size (0 now); national is merged at load time and is not
+  // double-counted in the catalog.
+  'real-estate-tx': {
+    id: 'real-estate-tx',
+    title: 'Texas Real Estate Sales Agent Exam',
+    code: 'TX TREC',
+    provider: 'Real Estate',
+    description: 'Texas Sales Agent licensing exam: the portable national portion plus the Texas state-law portion. State-law content is modeled to the official 6-section TREC / Pearson VUE outline; the Full Licensing Exam mirrors the real 85 national + 40 state split.',
+    difficulty: 'Foundational',
+    color: '#dc2626',
+    questionCount: 0,
+    examQuestions: 125,
+    examTime: 240,
+    passingScore: 70,
+    published: false,
+    loadQuestions: async () => {
+      const [nat, st] = await Promise.all([
+        import('./real-estate-national-questions.json'),
+        import('./real-estate-tx-state-questions.json'),
+      ])
+      return {
+        default: [
+          ...nat.default.map((q) => ({ ...q, portion: 'national' })),
+          ...st.default.map((q) => ({ ...q, portion: 'state' })),
+        ],
+      }
+    },
+    // Real exam: 85 national + 40 state; each section passed independently.
+    composite: {
+      national: { count: 85, domains: RE_NATIONAL_DOMAINS },
+      state: { count: 40, domains: TX_STATE_DOMAINS },
+    },
+    // Dashboard / state-practice taxonomy is the TX state-law sections.
+    domains: TX_STATE_DOMAINS,
+    domainColors: {
+      'Commission Duties & Powers':            { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
+      'Licensing':                             { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
+      'Standards of Conduct':                  { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
+      'Agency & Brokerage':                    { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
+      'Contracts (TREC Forms & Disclosures)':  { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
+      'Special Topics (TX)':                   { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
     },
   },
 }

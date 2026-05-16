@@ -73,3 +73,32 @@ export function weightedSelect(questions, count, domains) {
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)
 }
+
+/**
+ * Compose a state-licensing exam from a merged pool that contains both
+ * national and state-law questions, mirroring the real exam's two-section
+ * split (e.g. Texas Sales Agent = 85 national + 40 state). Each portion is
+ * selected independently against its own domain blueprint via
+ * weightedSelect, then the combined set is shuffled so the two sections
+ * are interleaved.
+ *
+ * questions: merged pool; a question's portion is `q.portion` or, if
+ *            absent, 'national' (the national pool omits the tag).
+ * composite: { national: { count, domains }, state: { count, domains } }
+ *
+ * Degrades gracefully: if a portion has no questions yet (e.g. a state
+ * pool still being authored), that portion contributes what it can and
+ * the exam is still returned rather than throwing.
+ */
+export function selectLicensingExam(questions, composite) {
+  const portionOf = (q) => q.portion || 'national'
+  const national = questions.filter((q) => portionOf(q) === 'national')
+  const state = questions.filter((q) => portionOf(q) === 'state')
+
+  const picked = [
+    ...weightedSelect(national, composite.national.count, composite.national.domains),
+    ...weightedSelect(state, composite.state.count, composite.state.domains),
+  ]
+
+  return fisherYates(picked)
+}

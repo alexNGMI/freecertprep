@@ -9,6 +9,7 @@ import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
 import reNational from '../data/real-estate-national-questions.json'
+import reTxState from '../data/real-estate-tx-state-questions.json'
 
 // Map each cert to the JSON we statically imported.
 // When adding a new cert, add it here too — the "registry fully mapped" test
@@ -23,6 +24,7 @@ const CERT_QUESTIONS = {
   'comptia-sec-plus': comptiaSecPlus,
   'comptia-server-plus': comptiaServerPlus,
   'real-estate-national': reNational,
+  'real-estate-tx': reTxState,
 }
 
 // Run per-question sanity checks on every cert that has content — including
@@ -43,6 +45,11 @@ const VALID_TYPES = new Set([
 function typeOf(q) {
   return q.type || 'single-choice'
 }
+
+// State-module questions carry an optional `portion` tag so the licensing-
+// exam composer can split a merged pool into the national vs. state halves.
+// National-pool questions omit it (treated as 'national').
+const VALID_PORTIONS = new Set(['national', 'state'])
 
 // ─── Registry wiring ────────────────────────────────────────────────────────
 
@@ -115,6 +122,16 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
           ).toBe(true)
         })
       }
+    }
+  })
+
+  it('any question with a portion tag uses a recognized value', () => {
+    for (const q of questions) {
+      if (q.portion === undefined) continue
+      expect(
+        VALID_PORTIONS.has(q.portion),
+        `${certId} q${q.id} has invalid portion "${q.portion}" (valid: national, state)`
+      ).toBe(true)
     }
   })
 

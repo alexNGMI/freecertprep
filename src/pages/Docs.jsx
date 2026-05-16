@@ -614,6 +614,7 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
+                  'State-law modules layered on the national pool — Texas first (Pearson VUE / TREC: 85 national + 40 state, 70% each section, state portion weighted to the 6 official TREC sections), then Maine (85 + 40, 75% pass). A combined "Full Licensing Exam" mode mirrors the real national + state split. Single-integrated-exam states (FL, CA, NY) are out of scope — not a national + state split.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',
@@ -626,7 +627,7 @@ key = random() ** (1 / weight)
                   'Streak tracking and study reminders',
                   'Accessibility pass — ARIA, keyboard navigation, screen-reader friendliness',
                   'Shared result cards — privacy-respecting shareable score screenshots',
-                  'State-specific real-estate modules (TX, FL first) layering local law on top of the national pool — and more sister sites for adjacent non-IT career paths (e.g., fiber technician credentials)',
+                  'More sister sites for adjacent non-IT career paths (e.g., fiber technician credentials)',
                 ],
               },
             ].map(({ status, color, items }) => (
