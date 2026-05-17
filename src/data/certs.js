@@ -342,7 +342,7 @@ const certs = {
     description: 'Maine Sales Agent licensing exam: the portable national portion plus the Maine state-law portion. State-law content is modeled to the official 5-section Pearson VUE Maine content outline; the Full Licensing Exam mirrors the real 80 national + 40 state split.',
     difficulty: 'Foundational',
     color: '#dc2626',
-    questionCount: 0,
+    questionCount: 400,
     examQuestions: 120,
     examTime: 240,
     passingScore: 75,
