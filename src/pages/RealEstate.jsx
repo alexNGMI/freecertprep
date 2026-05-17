@@ -16,7 +16,6 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 // their own long-form builds and are intentionally NOT in this grid.
 // CA/NY visitors can still register interest via the US_STATES dropdown.
 const STATE_MODULES = [
-  { code: 'US', name: 'Any state — National prep', blurb: 'The portable national portion — about half of every state exam. Free, start now.', badge: 'Available now', to: '/real-estate/study/national' },
   { code: 'TX', name: 'Texas',          blurb: 'Full licensing: national + TREC state law', badge: 'Available now', to: '/real-estate/study/tx' },
   { code: 'ME', name: 'Maine',          blurb: 'Sales agent: national + Maine state law', badge: 'Available now', to: '/real-estate/study/me' },
   { code: 'GA', name: 'Georgia',        blurb: 'Full licensing: national + PSI state law', badge: 'Available now', to: '/real-estate/study/ga' },
@@ -265,32 +264,37 @@ export default function RealEstate() {
                   </div>
                   <p className="text-lg font-bold text-slate-900 mb-1">{s.name}</p>
                   <p className="text-xs text-slate-500 leading-snug">{s.blurb}</p>
-                  {!live && (
-                    <p className="mt-3 text-xs font-bold text-rose-600">
-                      Start national prep now <span aria-hidden>→</span>
-                    </p>
-                  )}
                 </>
               )
-              // Live state modules link to their own study app. Planned states
-              // aren't dead ends — they route to the national pool, which is
-              // about half of every state's exam and usable today.
-              return (
-                <Link key={s.code} to={live ? s.to : '/real-estate/study/national'} className={cardClass}>
+              return live ? (
+                <Link key={s.code} to={s.to} className={cardClass}>
                   {inner}
                 </Link>
+              ) : (
+                <article key={s.code} className={cardClass}>
+                  {inner}
+                </article>
               )
             })}
           </div>
 
-          <p className="text-center text-sm text-slate-600 mt-10 max-w-2xl mx-auto leading-relaxed">
-            Not in a state we cover yet? You can fully prep the national
-            half — about half of every state&apos;s exam —{' '}
-            <Link to="/real-estate/study/national" className="text-rose-600 font-bold hover:underline">
-              start national prep now
-            </Link>
-            . Want your local-law module too? Add your state in the form above
-            so we prioritize it — including CA, NY, and others not listed here.
+          {/* Single prominent national-prep CTA for anyone whose state
+              module isn't live yet — the national pool is about half of
+              every state's exam and is fully playable today. */}
+          <Link
+            to="/real-estate/study/national"
+            className="group mt-10 flex flex-col sm:flex-row items-center justify-center gap-x-3 gap-y-1 text-center w-full rounded-2xl bg-rose-600 px-8 py-5 font-bold text-white shadow-lg shadow-rose-200/50 hover:bg-rose-700 hover:-translate-y-0.5 transition-all"
+          >
+            <span className="text-base sm:text-lg">State not available yet? Start the national prep — free</span>
+            <span className="text-sm font-semibold text-rose-100">
+              750 questions · half of every state&apos;s exam
+              <span aria-hidden className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            </span>
+          </Link>
+
+          <p className="text-center text-xs text-slate-500 mt-4">
+            Want your state&apos;s local-law module too? Add your state in the
+            form above so we prioritize it — including CA, NY, and others.
           </p>
         </section>
 
