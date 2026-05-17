@@ -57,12 +57,14 @@ export default function REDashboard() {
   return (
     <div className="space-y-12 animate-fade-up">
       <div className="text-center space-y-3 pt-2">
-        <p className="text-[11px] font-bold text-rose-600 uppercase tracking-widest">National salesperson exam</p>
+        <p className="text-[11px] font-bold text-rose-600 uppercase tracking-widest">{cert.title}</p>
         <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
           Your prep, <span className="text-rose-600">measured</span>.
         </h1>
         <p className="text-lg text-slate-500">
-          The portable national portion — {cert.questionCount.toLocaleString()} questions across {cert.domains.length} domains.
+          {cert.composite
+            ? `Full licensing prep — ${cert.composite.national.count} national + ${cert.composite.state.count} state questions · ${cert.domains.length} state domains.`
+            : `The portable national portion — ${cert.questionCount.toLocaleString()} questions across ${cert.domains.length} domains.`}
         </p>
       </div>
 

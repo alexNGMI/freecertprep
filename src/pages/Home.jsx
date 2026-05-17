@@ -141,45 +141,60 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-14">
-            {[
-              { label: 'CompTIA',      providers: ['CompTIA'] },
-              { label: 'Cloud',        providers: ['AWS', 'Microsoft Azure', 'Google Cloud'] },
-              {
-                label: 'Multi-Cloud',
-                providers: ['HashiCorp'],
-                comingSoon: [
-                  {
-                    id: 'terraform-associate',
-                    provider: 'HashiCorp',
-                    code: 'TF Associate 003',
-                    title: 'HashiCorp Terraform Associate',
-                    difficulty: 'Associate',
-                    color: '#7c3aed',
-                    description:
-                      'Infrastructure-as-Code fundamentals: Terraform workflow, state, modules, providers, and HCL — the multi-cloud provisioning credential.',
-                    examQuestions: 57,
-                    examTime: 60,
-                  },
-                ],
-              },
-              { label: 'NVIDIA',       providers: ['NVIDIA'] },
-            ].map(({ label, providers, comingSoon }) => {
-              const group = certs.filter(c => providers.includes(c.provider))
-              if (!group.length && !comingSoon) return null
+            {/* Row 1 — CompTIA */}
+            {(() => {
+              const group = certs.filter(c => c.provider === 'CompTIA')
               return (
-                <div key={label}>
-                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-6">{label}</p>
+                <div>
+                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-6">CompTIA</p>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {group.map((cert, i) => (
-                      <CertCard key={cert.id} cert={cert} index={i} />
-                    ))}
-                    {!group.length && comingSoon?.map((cert, i) => (
-                      <ComingSoonCard key={cert.id} cert={cert} index={i} />
-                    ))}
+                    {group.map((cert, i) => <CertCard key={cert.id} cert={cert} index={i} />)}
                   </div>
                 </div>
               )
-            })}
+            })()}
+
+            {/* Row 2 — Cloud */}
+            {(() => {
+              const group = certs.filter(c => ['AWS', 'Microsoft Azure', 'Google Cloud'].includes(c.provider))
+              return (
+                <div>
+                  <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-6">Cloud</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {group.map((cert, i) => <CertCard key={cert.id} cert={cert} index={i} />)}
+                  </div>
+                </div>
+              )
+            })()}
+
+            {/* Row 3 — Multi-Cloud (coming soon) + NVIDIA */}
+            {(() => {
+              const terraformCard = {
+                id: 'terraform-associate',
+                provider: 'HashiCorp',
+                code: 'TF Associate 003',
+                title: 'HashiCorp Terraform Associate',
+                difficulty: 'Associate',
+                color: '#7c3aed',
+                description:
+                  'Infrastructure-as-Code fundamentals: Terraform workflow, state, modules, providers, and HCL — the multi-cloud provisioning credential.',
+                examQuestions: 57,
+                examTime: 60,
+              }
+              const nvidiaGroup = certs.filter(c => c.provider === 'NVIDIA')
+              return (
+                <div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-6">
+                    <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">Multi-Cloud</p>
+                    <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">NVIDIA</p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <ComingSoonCard cert={terraformCard} index={0} />
+                    {nvidiaGroup.map((cert, i) => <CertCard key={cert.id} cert={cert} index={i + 1} />)}
+                  </div>
+                </div>
+              )
+            })()}
           </div>
         </section>
 
