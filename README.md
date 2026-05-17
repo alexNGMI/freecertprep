@@ -9,16 +9,16 @@ Free, open-source certification exam prep for the IT certifications that open do
 | AWS Cloud Practitioner | AWS | CLF-C02 | Foundational | 731 | 65 | 90 min | 70% |
 | Microsoft Azure Fundamentals | Microsoft Azure | AZ-900 | Foundational | 600 | 40 | 45 min | 70% |
 | Google Cloud Digital Leader | Google Cloud | CDL | Foundational | 749 | 50 | 90 min | 70% |
-| NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 306 | 50 | 60 min | 70% |
-| NVIDIA Generalist AI | NVIDIA | NCA-GENL | Associate | 300 | 50 | 60 min | 70% |
+| NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 336 | 50 | 60 min | 70% |
+| NVIDIA Generative AI LLMs | NVIDIA | NCA-GENL | Associate | 330 | 50 | 60 min | 70% |
 | CompTIA Network+ | CompTIA | N10-009 | Foundational | 750 | 90 | 90 min | 80% |
 | CompTIA Security+ | CompTIA | SY0-701 | Foundational | 750 | 90 | 90 min | 83% |
 | CompTIA Server+ | CompTIA | SK0-005 | Foundational | 750 | 90 | 90 min | 83% |
-| HashiCorp Terraform Associate | HashiCorp | TF Associate 003 | Associate | 600 | 57 | 60 min | ~70% |
+| HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
 
-**5,536 questions across 9 certifications.**
+**5,628 questions across 9 certifications.**
 
-> **Multi-Cloud is live:** HashiCorp Terraform Associate (003) ships a 600-question pool across the 9 official exam objectives, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
+> **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
 ### Sister site — Real Estate
 

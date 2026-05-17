@@ -1,83 +1,37 @@
-import { useState, useMemo } from 'react'
 import { useCert } from '../hooks/useCert'
-import { useProgress } from '../hooks/useProgress'
 import { useBookmarks } from '../hooks/useBookmarks'
-import { useQuestionStats } from '../hooks/useQuestionStats'
+import { ALL_DOMAINS, BOOKMARKED, SMART_PRACTICE, usePracticeSession } from '../hooks/usePracticeSession'
 import QuestionCard from '../components/QuestionCard'
-import { fisherYates, weightedSample } from '../utils/shuffle'
-import { isAnswerCorrect } from '../utils/scoring'
 
 const BLOCK_SIZE = 10
-const SMART_PRACTICE = 'Smart Practice'
 
 export default function Quiz() {
   const cert = useCert()
   const questions = cert.questions
   const { bookmarkedIds, toggle: toggleBookmark, isBookmarked } = useBookmarks(cert.id)
-  const { addQuizResult } = useProgress(cert.id)
-  const { getWeightedPool, recordSession, trackedCount } = useQuestionStats(cert.id)
+  const {
+    activeMode,
+    answers,
+    certDomains,
+    changeMode,
+    currentAnswer,
+    currentIndex,
+    currentQuestion,
+    handleAnswer,
+    handleNext,
+    isSmartPractice,
+    poolQuestions,
+    quizStarted,
+    selectedDomain,
+    sessionQuestions,
+    setSelectedDomain,
+    setSetupStep,
+    setupStep,
+    showResult,
+    startQuiz,
+    trackedCount,
+  } = usePracticeSession({ cert, questions, bookmarkedIds, blockSize: BLOCK_SIZE })
 
-  const certDomains = cert.domains.map((d) => d.name)
-
-  const [selectedDomain, setSelectedDomain] = useState(SMART_PRACTICE)
-  const [setupStep, setSetupStep] = useState(1)      // 1 = mode picker, 2 = domain picker
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [answers, setAnswers] = useState([])
-  const [showResult, setShowResult] = useState(false)
-  const [quizStarted, setQuizStarted] = useState(false)
-  const [sessionKey, setSessionKey] = useState(0)
-
-  // Derived: which top-level mode is active
-  const activeMode = selectedDomain === SMART_PRACTICE ? 'smart'
-    : selectedDomain === 'Bookmarked' ? 'bookmarked'
-    : 'domain'
-
-  // Full unshuffled pool — used for count display on setup screen
-  const poolQuestions = useMemo(() => {
-    if (selectedDomain === SMART_PRACTICE) return questions
-    if (selectedDomain === 'All Domains') return questions
-    if (selectedDomain === 'Bookmarked') return questions.filter((q) => bookmarkedIds.includes(q.id))
-    return questions.filter((q) => q.domain === selectedDomain)
-  }, [selectedDomain, questions, bookmarkedIds])
-
-  // Active 10-question block for the session.
-  // Smart Practice: weighted sample across all questions (cross-domain).
-  // Everything else: random slice from the domain pool.
-  // getWeightedPool is stable during a session (certStats only changes at session end).
-  const filteredQuestions = useMemo(() => {
-    if (selectedDomain === SMART_PRACTICE) {
-      return weightedSample(getWeightedPool(questions), BLOCK_SIZE)
-    }
-    return fisherYates(poolQuestions).slice(0, BLOCK_SIZE)
-  }, [selectedDomain, poolQuestions, sessionKey, questions, getWeightedPool]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const startQuiz = () => {
-    setCurrentIndex(0)
-    setAnswers([])
-    setShowResult(false)
-    setQuizStarted(true)
-    setSessionKey(k => k + 1)
-  }
-
-  const handleAnswer = (selectedChoice) => {
-    const question = filteredQuestions[currentIndex]
-    const correct = isAnswerCorrect(selectedChoice, question)
-    setAnswers((prev) => [
-      ...prev,
-      { questionId: question.id, domain: question.domain, selected: selectedChoice, correct },
-    ])
-  }
-
-  const handleNext = () => {
-    if (currentIndex < filteredQuestions.length - 1) {
-      setCurrentIndex((prev) => prev + 1)
-    } else {
-      // Session complete — save to both history and per-question stats
-      addQuizResult({ domain: selectedDomain, answers })
-      recordSession(answers)
-      setShowResult(true)
-    }
-  }
 
   // ─── Setup screen ────────────────────────────────────────────────────────────
   if (!quizStarted) {
@@ -85,7 +39,7 @@ export default function Quiz() {
 
     // ── Step 2: domain picker ─────────────────────────────────────────────────
     if (setupStep === 2) {
-      const allDomains = ['All Domains', ...certDomains]
+      const allDomains = [ALL_DOMAINS, ...certDomains]
       return (
         <div className="space-y-10 animate-fade-up pt-4 max-w-3xl mx-auto">
           <div className="flex items-center gap-4">
@@ -172,7 +126,7 @@ export default function Quiz() {
           </svg>
         ),
         accent: cert.color,
-        action: () => setSelectedDomain('Bookmarked'),
+        action: () => setSelectedDomain(BOOKMARKED),
       },
       {
         id: 'domain',
@@ -325,7 +279,7 @@ export default function Quiz() {
               {isSmartPractice ? 'Next Smart Practice Block' : 'New 10-Question Block'}
             </button>
             <button
-              onClick={() => { setQuizStarted(false); setSetupStep(1); setSelectedDomain(SMART_PRACTICE) }}
+              onClick={changeMode}
               className="font-semibold px-10 py-3.5 rounded-xl transition-all duration-300 bg-zinc-800 text-zinc-300 hover:bg-zinc-700 border border-white/5 w-full"
             >
               Change Mode
@@ -337,10 +291,6 @@ export default function Quiz() {
   }
 
   // ─── Active quiz ──────────────────────────────────────────────────────────────
-  const currentQuestion = filteredQuestions[currentIndex]
-  const currentAnswer = answers[currentIndex]
-  const isSmartPractice = selectedDomain === SMART_PRACTICE
-
   return (
     <div className="space-y-8 animate-fade-up max-w-4xl mx-auto">
       <div className="flex items-end justify-between px-2">
@@ -353,7 +303,7 @@ export default function Quiz() {
           )}
         </div>
         <span className="text-sm text-zinc-400 font-semibold tracking-wide">
-          Progress <span className="text-zinc-200">{currentIndex + 1}</span> of {filteredQuestions.length}
+          Progress <span className="text-zinc-200">{currentIndex + 1}</span> of {sessionQuestions.length}
         </span>
       </div>
 
@@ -361,7 +311,7 @@ export default function Quiz() {
         <div
           className="h-full rounded-full transition-all duration-500 ease-out flex justify-end"
           style={{
-            width: `${((currentIndex + 1) / filteredQuestions.length) * 100}%`,
+            width: `${((currentIndex + 1) / sessionQuestions.length) * 100}%`,
             backgroundColor: isSmartPractice ? '#6366f1' : cert.color,
           }}
         >
@@ -389,7 +339,7 @@ export default function Quiz() {
             className="font-bold px-10 py-3.5 rounded-xl transition-all duration-300 text-white hover:scale-105 flex items-center justify-center min-w-[200px]"
             style={{ backgroundColor: isSmartPractice ? '#6366f1' : cert.color }}
           >
-            {currentIndex < filteredQuestions.length - 1 ? (
+            {currentIndex < sessionQuestions.length - 1 ? (
               <>
                 Next Question
                 <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

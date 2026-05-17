@@ -1,11 +1,7 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useCert } from '../../hooks/useCert'
-import { useProgress } from '../../hooks/useProgress'
-import { useQuestionStats } from '../../hooks/useQuestionStats'
 import { useBookmarks } from '../../hooks/useBookmarks'
+import { useTimedDrillSession } from '../../hooks/useTimedDrillSession'
 import REQuestionCard from '../../components/REQuestionCard'
-import { weightedSample } from '../../utils/shuffle'
-import { isAnswerCorrect } from '../../utils/scoring'
 import { formatTime, timerColor, TIMER_PALETTE_LIGHT } from '../../utils/time'
 
 const DRILL_QUESTIONS = 10
@@ -15,74 +11,21 @@ export default function REDrill() {
   const cert = useCert()
   const questions = cert.questions
   const { toggle: toggleBookmark, isBookmarked } = useBookmarks(cert.id)
-  const { addQuizResult } = useProgress(cert.id)
-  const { getWeightedPool, recordSession } = useQuestionStats(cert.id)
-
-  const [drillStarted, setDrillStarted] = useState(false)
-  const [sessionKey, setSessionKey] = useState(0)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [answers, setAnswers] = useState([])
-  const [timeLeft, setTimeLeft] = useState(DRILL_TIME)
-  const [showResult, setShowResult] = useState(false)
-
-  const drillQuestions = useMemo(() => {
-    return weightedSample(getWeightedPool(questions), DRILL_QUESTIONS)
-  }, [questions, sessionKey, getWeightedPool]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const endDrill = useCallback(
-    (finalAnswers) => {
-      addQuizResult({ domain: 'Timed Drill', answers: finalAnswers })
-      recordSession(finalAnswers)
-      setShowResult(true)
-    },
-    [addQuizResult, recordSession]
-  )
-
-  const answersRef = useRef(answers)
-  useEffect(() => {
-    answersRef.current = answers
-  }, [answers])
-
-  useEffect(() => {
-    if (!drillStarted || showResult) return
-    const tickId = setInterval(() => {
-      setTimeLeft((t) => Math.max(0, t - 1))
-    }, 1000)
-    const stopId = setTimeout(() => {
-      endDrill(answersRef.current)
-    }, DRILL_TIME * 1000)
-    return () => {
-      clearInterval(tickId)
-      clearTimeout(stopId)
-    }
-  }, [drillStarted, showResult, endDrill])
-
-  const startDrill = () => {
-    setCurrentIndex(0)
-    setAnswers([])
-    setTimeLeft(DRILL_TIME)
-    setShowResult(false)
-    setDrillStarted(true)
-    setSessionKey((k) => k + 1)
-  }
-
-  const handleAnswer = (selectedChoice) => {
-    const question = drillQuestions[currentIndex]
-    const correct = isAnswerCorrect(selectedChoice, question)
-    setAnswers((prev) => [
-      ...prev,
-      { questionId: question.id, domain: question.domain, selected: selectedChoice, correct },
-    ])
-  }
-
-  const handleNext = () => {
-    const newAnswers = answers
-    if (currentIndex < drillQuestions.length - 1) {
-      setCurrentIndex((i) => i + 1)
-    } else {
-      endDrill(newAnswers)
-    }
-  }
+  const {
+    answers,
+    backToSetup,
+    currentAnswer,
+    currentIndex,
+    currentQuestion,
+    drillQuestions,
+    drillStarted,
+    handleAnswer,
+    handleNext,
+    isLastQuestion,
+    showResult,
+    startDrill,
+    timeLeft,
+  } = useTimedDrillSession({ cert, questions, questionCount: DRILL_QUESTIONS, duration: DRILL_TIME })
 
   // ─── Setup ──────────────────────────────────────────────────────────────────
   if (!drillStarted) {
@@ -176,7 +119,7 @@ export default function REDrill() {
               New Drill
             </button>
             <button
-              onClick={() => setDrillStarted(false)}
+              onClick={backToSetup}
               className="font-semibold px-9 py-3.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 border border-slate-200 w-full transition-all"
             >
               Back
@@ -188,11 +131,8 @@ export default function REDrill() {
   }
 
   // ─── Active drill ───────────────────────────────────────────────────────────
-  const currentQuestion = drillQuestions[currentIndex]
-  const currentAnswer = answers[currentIndex]
   const color = timerColor(timeLeft, DRILL_TIME, TIMER_PALETTE_LIGHT)
   const timePct = (timeLeft / DRILL_TIME) * 100
-  const isLastQuestion = currentIndex === drillQuestions.length - 1
 
   return (
     <div className="space-y-6 animate-fade-up max-w-4xl mx-auto">

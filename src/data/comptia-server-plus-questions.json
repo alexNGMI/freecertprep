@@ -11,7 +11,7 @@
       "3.5"
     ],
     "correctAnswer": 0,
-    "explanation": "One rack unit (1U) is 1.75 inches (44.45 mm) of vertical space in a standard 19-inch rack. Equipment height is specified in multiples of U \u2014 for example, a 2U server occupies 3.5 inches. The other values are common distractors but are not the EIA-310 standard."
+    "explanation": "One rack unit (1U) is 1.75 inches (44.45 mm) of vertical space in a standard 19-inch rack. Equipment height is specified in multiples of U — for example, a 2U server occupies 3.5 inches. The other values are common distractors but are not the EIA-310 standard."
   },
   {
     "id": "serverplus-2",
@@ -961,9 +961,9 @@
     "type": "single-choice",
     "question": "On an NTFS share, a user is in two groups: one with Allow Read and one with Deny Read on the same folder. What is the effective permission?",
     "choices": [
-      "Allow \u2014 Allow always overrides Deny",
+      "Allow — Allow always overrides Deny",
       "Depends on the order of ACE evaluation",
-      "Deny \u2014 an explicit Deny overrides an explicit Allow",
+      "Deny — an explicit Deny overrides an explicit Allow",
       "Deny is ignored for group-derived permissions"
     ],
     "correctAnswer": 2,
@@ -1172,7 +1172,7 @@
     "question": "A server is performing poorly and the admin observes constant heavy paging activity (high page-file/swap I/O) while CPU is moderate. What is the most likely root cause?",
     "choices": [
       "Failed NIC",
-      "Memory pressure \u2014 physical RAM is insufficient for workload",
+      "Memory pressure — physical RAM is insufficient for workload",
       "Disk firmware issue",
       "DNS misconfiguration"
     ],
@@ -1267,7 +1267,7 @@
     "id": "serverplus-87",
     "domain": "Troubleshooting",
     "type": "single-choice",
-    "question": "After adding new RAM, a server fails to POST \u2014 there is no video output and a single repeating beep code. What is the BEST first action?",
+    "question": "After adding new RAM, a server fails to POST — there is no video output and a single repeating beep code. What is the BEST first action?",
     "choices": [
       "Power off, reseat the new RAM, and verify it is on the QVL for the server",
       "Reinstall the operating system",
@@ -1789,7 +1789,7 @@
     "id": "serverplus-120",
     "domain": "Server Administration",
     "type": "single-choice",
-    "question": "A DHCP server is configured to lease addresses in the range 10.10.10.50\u201310.10.10.200 with a 24-hour lease. What does this configuration represent?",
+    "question": "A DHCP server is configured to lease addresses in the range 10.10.10.50–10.10.10.200 with a 24-hour lease. What does this configuration represent?",
     "choices": [
       "A DHCP relay",
       "A DHCP reservation",
@@ -2649,10 +2649,10 @@
     "type": "single-choice",
     "question": "A high-security environment requires users to insert a physical token containing a private key and enter a PIN to log into the workstation. Which authentication factor combination is this?",
     "choices": [
-      "Single-factor \u2014 knowledge only",
-      "Single-factor \u2014 possession only",
-      "Multi-factor authentication \u2014 something you have plus something you know",
-      "Multi-factor \u2014 two something-you-know factors"
+      "Single-factor — knowledge only",
+      "Single-factor — possession only",
+      "Multi-factor authentication — something you have plus something you know",
+      "Multi-factor — two something-you-know factors"
     ],
     "correctAnswer": 2,
     "explanation": "A hardware token holding a private key (something you have) plus a PIN (something you know) is multi-factor authentication using two different factor categories. Two knowledge factors would not qualify."
@@ -2691,10 +2691,10 @@
     "type": "single-choice",
     "question": "A storage admin replaces a single failed drive in a 6-drive RAID 5 array. While the array rebuilds, which state best describes the array?",
     "choices": [
-      "Failed \u2014 data inaccessible until rebuild completes",
-      "Degraded \u2014 operational with reduced fault tolerance",
-      "Optimal \u2014 no impact",
-      "Initializing \u2014 array does not exist yet"
+      "Failed — data inaccessible until rebuild completes",
+      "Degraded — operational with reduced fault tolerance",
+      "Optimal — no impact",
+      "Initializing — array does not exist yet"
     ],
     "correctAnswer": 1,
     "explanation": "A RAID 5 array rebuilding after one drive replacement is in a degraded state - still serving data but with no remaining parity protection until the rebuild completes. It is not failed or optimal."
@@ -2789,7 +2789,7 @@
     "type": "single-choice",
     "question": "A technician plugs a server NIC into a switch but the link LED never illuminates. Which item should be checked FIRST?",
     "choices": [
-      "Physical layer \u2014 cable, NIC, and switch port health",
+      "Physical layer — cable, NIC, and switch port health",
       "Active Directory replication",
       "DNS suffix order",
       "Group Policy refresh interval"
@@ -3482,7 +3482,7 @@
       "DNS",
       "Time synchronization",
       "Domain controllers",
-      "Storage I/O \u2014 the data volume cannot service the workload's IOPS"
+      "Storage I/O — the data volume cannot service the workload's IOPS"
     ],
     "correctAnswer": 3,
     "explanation": "High disk queue depth and high data-volume latency indicate the storage I/O subsystem cannot meet the workload's IOPS - the bottleneck. DNS/time/DC issues do not produce disk queue/latency symptoms."
@@ -3549,7 +3549,7 @@
     "type": "single-choice",
     "question": "A web application's Time-To-First-Byte (TTFB) is consistently high while static asset times are fine. Which layer is the most likely bottleneck?",
     "choices": [
-      "Server-side processing \u2014 application or database response",
+      "Server-side processing — application or database response",
       "Local browser cache",
       "Client-side JavaScript bundling",
       "Image compression on the CDN"
@@ -3607,7 +3607,7 @@
     "choices": [
       "Phishing email impersonating a trusted brand",
       "SQL injection against a public web form",
-      "Pretexting \u2014 fabricating a scenario to extract information",
+      "Pretexting — fabricating a scenario to extract information",
       "Cross-site scripting through a malicious URL"
     ],
     "correctAnswers": [
@@ -3689,7 +3689,7 @@
     "itemsRight": [
       "Agentless configuration management over SSH using YAML playbooks",
       "Centralized policy enforcement for AD-joined Windows systems",
-      "Enterprise endpoint management \u2014 software deployment, OS imaging, and inventory",
+      "Enterprise endpoint management — software deployment, OS imaging, and inventory",
       "On-prem caching and approval point for Windows Update content"
     ],
     "correctMatches": [
@@ -3765,7 +3765,7 @@
     "id": "serverplus-249",
     "domain": "Server Administration",
     "type": "statement-block",
-    "question": "Evaluate each statement about server administration tooling and indicate whether it is True or False.",
+    "question": "Evaluate each statement about server automation, patching, and load-balancing tooling.",
     "statements": [
       "Load balancer health checks automatically remove unhealthy backends from the active rotation.",
       "Sticky sessions guarantee identical performance compared to a fully stateless load-balancing model.",
@@ -4185,7 +4185,7 @@
     "choices": [
       "Three 'something you know' factors",
       "Three 'something you have' factors",
-      "One factor only \u2014 repeated three times",
+      "One factor only — repeated three times",
       "Something you know, something you have, and something you are"
     ],
     "correctAnswer": 3,
@@ -4251,7 +4251,7 @@
     "id": "serverplus-283",
     "domain": "Security and Disaster Recovery",
     "type": "single-choice",
-    "question": "A response team walks through a simulated ransomware incident in a conference room \u2014 discussing decisions and roles \u2014 without touching production. What type of exercise is this?",
+    "question": "A response team walks through a simulated ransomware incident in a conference room — discussing decisions and roles — without touching production. What type of exercise is this?",
     "choices": [
       "Tabletop exercise",
       "Live-fire / full-scale drill",
@@ -4703,7 +4703,7 @@
     "id": "serverplus-311",
     "domain": "Server Administration",
     "type": "single-choice",
-    "question": "On a Hyper-V host, an admin needs VM-to-VM traffic on the host only \u2014 with NO communication to the host OS and NO physical network connectivity. Which virtual switch type fits?",
+    "question": "On a Hyper-V host, an admin needs VM-to-VM traffic on the host only — with NO communication to the host OS and NO physical network connectivity. Which virtual switch type fits?",
     "choices": [
       "External",
       "Internal",
@@ -4901,7 +4901,7 @@
     "type": "single-choice",
     "question": "A vulnerability report lists a finding with a CVSS v3 base score of 9.8. What is this score conveying?",
     "choices": [
-      "Severity on a 0.0\u201310.0 scale (9.8 is Critical) considering exploitability and impact",
+      "Severity on a 0.0–10.0 scale (9.8 is Critical) considering exploitability and impact",
       "Number of affected hosts",
       "CPU usage required to exploit",
       "Number of days since disclosure"
@@ -5100,7 +5100,7 @@
       "NTP",
       "Auditd only",
       "logrotate configuration (and any service-specific rotation, e.g., journald, nginx, application)",
-      "cron only \u2014 there is no log rotation framework"
+      "cron only — there is no log rotation framework"
     ],
     "correctAnswer": 2,
     "explanation": "Recurring full /var from unrotated logs is fixed by inspecting and tuning logrotate (and service-specific rotation such as journald/nginx/app logs). cron triggers logrotate, but rotation config is the subsystem to tune."
@@ -5207,7 +5207,7 @@
       "Restricted"
     ],
     "itemsRight": [
-      "Highly sensitive \u2014 unauthorized exposure would cause severe harm",
+      "Highly sensitive — unauthorized exposure would cause severe harm",
       "Important business information with limited distribution within the company",
       "Marketing material, public website content, press releases",
       "Sensitive non-public information intended only for employees"
@@ -6156,7 +6156,7 @@
     "question": "An ops team labels every server in a rack with a unique inventory identifier. Which value does this practice most directly support?",
     "choices": [
       "BIOS boot order",
-      "Asset management \u2014 tracking which server is which during incidents, audits, and refresh planning",
+      "Asset management — tracking which server is which during incidents, audits, and refresh planning",
       "Improved CPU clock frequency",
       "Lower DNS query latency"
     ],
@@ -7170,7 +7170,7 @@
       "Encryption of network traffic",
       "Performance acceleration",
       "Disk-level encryption",
-      "Authenticity and integrity of the installer \u2014 confirms the binary came from the publisher and has not been altered"
+      "Authenticity and integrity of the installer — confirms the binary came from the publisher and has not been altered"
     ],
     "correctAnswer": 3,
     "explanation": "A verified digital signature on an installer proves authenticity (it came from the stated publisher) and integrity (it was not altered). It does not encrypt network traffic or disks or accelerate anything."
@@ -7336,7 +7336,7 @@
     "question": "A Linux server admin sees that NIC bonding mode 'active-backup' was configured but the upstream switch ports are in an LACP port channel. What is the consequence?",
     "choices": [
       "Link will negotiate at the highest speed automatically",
-      "No impact \u2014 modes are interchangeable",
+      "No impact — modes are interchangeable",
       "Active-backup is identical to LACP",
       "Mismatch: traffic may blackhole or flap because the switch expects LACP and the host does not negotiate it"
     ],
@@ -7361,10 +7361,10 @@
     "id": "serverplus-488",
     "domain": "Troubleshooting",
     "type": "single-choice",
-    "question": "A Windows admin uses three repair tools \u2014 chkdsk, sfc, and DISM \u2014 to address a corrupted Windows installation. In what typical order are they used?",
+    "question": "A Windows admin uses three repair tools — chkdsk, sfc, and DISM — to address a corrupted Windows installation. In what typical order are they used?",
     "choices": [
-      "DISM, then sfc, then chkdsk \u2014 always",
-      "chkdsk for disk integrity \u2192 sfc for system files \u2192 DISM /RestoreHealth if sfc cannot fully repair",
+      "DISM, then sfc, then chkdsk — always",
+      "chkdsk for disk integrity → sfc for system files → DISM /RestoreHealth if sfc cannot fully repair",
       "sfc first, then chkdsk, then nothing else",
       "Only chkdsk is needed in all cases"
     ],
@@ -7508,7 +7508,7 @@
     "items": [
       "Eradicate threat from affected systems and rotate exposed credentials",
       "Activate the incident-response team and begin documenting actions",
-      "Identify scope and contain \u2014 isolate affected systems and accounts",
+      "Identify scope and contain — isolate affected systems and accounts",
       "Restore from clean, verified, ideally immutable backups",
       "Conduct lessons-learned review and update playbooks/controls"
     ],
@@ -8660,7 +8660,7 @@
     "question": "A PKI design keeps the Root CA offline and uses an issuing/Subordinate CA online to sign end-entity certificates. What is the primary security advantage?",
     "choices": [
       "Faster certificate enrollment",
-      "Limits exposure of the root CA's private key \u2014 only the issuing CA is online and can be revoked if compromised",
+      "Limits exposure of the root CA's private key — only the issuing CA is online and can be revoked if compromised",
       "Eliminates the need for OCSP",
       "Removes the need to validate certificate chains"
     ],
@@ -8690,7 +8690,7 @@
       "Faster CI/CD pipelines",
       "Improved type checking",
       "Lower license costs",
-      "Catches defects, security issues, and design problems earlier \u2014 before they reach production"
+      "Catches defects, security issues, and design problems earlier — before they reach production"
     ],
     "correctAnswer": 3,
     "explanation": "Mandatory peer code review catches defects, security flaws, and design problems early - before they reach production - which is its primary value. It does not inherently speed CI/CD or lower licensing."
@@ -8727,7 +8727,7 @@
     "id": "serverplus-577",
     "domain": "Security and Disaster Recovery",
     "type": "single-choice",
-    "question": "Two security teams collaborate during an exercise \u2014 one simulates real attacker tradecraft while the other defends and improves detections in real time. Which exercise type is this?",
+    "question": "Two security teams collaborate during an exercise — one simulates real attacker tradecraft while the other defends and improves detections in real time. Which exercise type is this?",
     "choices": [
       "Tabletop only",
       "Pure red team engagement",
@@ -8914,7 +8914,7 @@
       "The application's HTML markup",
       "BIOS Secure Boot policy",
       "Disk write-back cache",
-      "The configured DNS resolvers \u2014 reachability, response time, and whether they are forwarding to a slow upstream"
+      "The configured DNS resolvers — reachability, response time, and whether they are forwarding to a slow upstream"
     ],
     "correctAnswer": 3,
     "explanation": "Fast pings but multi-second DNS lookups isolate the issue to the configured DNS resolvers - check their reachability, response time, and whether they forward to a slow upstream. HTML, Secure Boot, and disk cache are unrelated."
@@ -9151,7 +9151,7 @@
     "id": "serverplus-603",
     "domain": "Server Hardware Installation and Management",
     "type": "single-choice",
-    "question": "A high-performance fiber link uses connectors with an angled (8\u00b0) polish to minimize back-reflection. Which polish style is this?",
+    "question": "A high-performance fiber link uses connectors with an angled (8°) polish to minimize back-reflection. Which polish style is this?",
     "choices": [
       "PC",
       "UPC",
@@ -9249,7 +9249,7 @@
     "id": "serverplus-610",
     "domain": "Server Administration",
     "type": "single-choice",
-    "question": "Users report that a shared Windows print queue is 'stuck' \u2014 jobs queue but never print. Which Windows service is most directly responsible for managing the print queue and is commonly restarted as a first step?",
+    "question": "Users report that a shared Windows print queue is 'stuck' — jobs queue but never print. Which Windows service is most directly responsible for managing the print queue and is commonly restarted as a first step?",
     "choices": [
       "Print Server Role",
       "Print Spooler service",
@@ -9337,7 +9337,7 @@
     "choices": [
       "Disk Witness",
       "File Share Witness",
-      "No witness \u2014 increase node count",
+      "No witness — increase node count",
       "Cloud Witness"
     ],
     "correctAnswer": 3,
@@ -9589,7 +9589,7 @@
     "choices": [
       "Both sides will negotiate to 10000/full automatically",
       "Speed will negotiate to 1 Gbps but the NIC will default to half-duplex, causing a duplex mismatch with elevated CRC errors and collisions on the half-duplex side",
-      "No effect \u2014 duplex always negotiates separately",
+      "No effect — duplex always negotiates separately",
       "The link will not come up at all"
     ],
     "correctAnswer": 1,
@@ -9900,7 +9900,7 @@
     "question": "A facility reports a PUE of 1.4. What does PUE describe?",
     "choices": [
       "Average storage IOPS per rack",
-      "Power Usage Effectiveness \u2014 ratio of total facility energy to IT-equipment energy",
+      "Power Usage Effectiveness — ratio of total facility energy to IT-equipment energy",
       "Per-rack U capacity utilization",
       "Personnel utilization efficiency"
     ],
@@ -9997,10 +9997,10 @@
     "type": "single-choice",
     "question": "A Linux admin describes the boot sequence to a new hire. Which sequence is correct?",
     "choices": [
-      "Firmware (BIOS/UEFI) \u2192 Bootloader (GRUB) \u2192 Linux kernel \u2192 init / systemd",
-      "UEFI \u2192 systemd \u2192 kernel \u2192 GRUB",
-      "Kernel \u2192 GRUB \u2192 systemd \u2192 firmware",
-      "GRUB \u2192 kernel \u2192 firmware \u2192 systemd"
+      "Firmware (BIOS/UEFI) → Bootloader (GRUB) → Linux kernel → init / systemd",
+      "UEFI → systemd → kernel → GRUB",
+      "Kernel → GRUB → systemd → firmware",
+      "GRUB → kernel → firmware → systemd"
     ],
     "correctAnswer": 0,
     "explanation": "Linux boot order: firmware (BIOS/UEFI) -> bootloader (GRUB) -> Linux kernel -> init/systemd, which then starts services. The other sequences are out of order."
@@ -10011,10 +10011,10 @@
     "type": "single-choice",
     "question": "A Windows admin describes the boot sequence of Windows Server. Which sequence is correct?",
     "choices": [
-      "Wininit \u2192 smss \u2192 kernel \u2192 bootmgr \u2192 firmware",
-      "Firmware \u2192 bootmgr \u2192 winload.exe / winload.efi \u2192 ntoskrnl (kernel) \u2192 smss / wininit",
-      "ntoskrnl \u2192 bootmgr \u2192 firmware \u2192 winload",
-      "bootmgr \u2192 firmware \u2192 kernel \u2192 wininit"
+      "Wininit → smss → kernel → bootmgr → firmware",
+      "Firmware → bootmgr → winload.exe / winload.efi → ntoskrnl (kernel) → smss / wininit",
+      "ntoskrnl → bootmgr → firmware → winload",
+      "bootmgr → firmware → kernel → wininit"
     ],
     "correctAnswer": 1,
     "explanation": "Windows Server boot: firmware -> Windows Boot Manager (bootmgr) -> winload.exe/.efi -> ntoskrnl (kernel) -> smss/wininit and session startup. The other sequences are reversed/incorrect."
@@ -10278,7 +10278,7 @@
     "question": "A Linux admin needs to expand an LVM logical volume that hosts /data. Which sequence is correct?",
     "choices": [
       "resize2fs first, then lvextend",
-      "Add disk \u2192 pvcreate \u2192 vgextend \u2192 lvextend \u2192 resize2fs/xfs_growfs",
+      "Add disk → pvcreate → vgextend → lvextend → resize2fs/xfs_growfs",
       "mkfs.ext4 directly on the new disk",
       "Reboot to single-user mode and run fdisk only"
     ],
@@ -10420,7 +10420,7 @@
       "The site is offline",
       "The DNS resolvers are broken",
       "Search engines need to reindex",
-      "DNS caching at recursive resolvers and clients \u2014 the record's TTL has not yet expired everywhere"
+      "DNS caching at recursive resolvers and clients — the record's TTL has not yet expired everywhere"
     ],
     "correctAnswer": 3,
     "explanation": "Stale results after a DNS change are normally due to caching at recursive resolvers and clients until the record's TTL expires - lowering TTL ahead of changes mitigates this. The site/resolvers are not broken."
@@ -10645,7 +10645,7 @@
     "type": "single-choice",
     "question": "A data center wants short, low-cost 10/25 GbE links between a top-of-rack switch and servers, with passive copper twinax instead of optics. Which cable type fits?",
     "choices": [
-      "Direct Attach Cable (DAC) \u2014 passive twinax",
+      "Direct Attach Cable (DAC) — passive twinax",
       "Cat3 patch cord",
       "Coax RG-58",
       "Single-mode fiber 10 km transceiver"
@@ -11138,7 +11138,7 @@
       "NTP drift",
       "Group Policy filter",
       "NTFS junction corruption",
-      "Failed or degraded BBU/capacitor on the controller \u2014 controller falls back to write-through to protect data"
+      "Failed or degraded BBU/capacitor on the controller — controller falls back to write-through to protect data"
     ],
     "correctAnswer": 3,
     "explanation": "A RAID controller auto-disables write-back and falls back to write-through when the BBU/capacitor is failed or degraded, to protect not-yet-flushed cached writes against power loss. NTP/GPO/NTFS are unrelated."
@@ -11289,7 +11289,7 @@
     "itemsRight": [
       "Missing intermediate certificate in the server's TLS chain",
       "Kernel could not mount the root filesystem at boot",
-      "Failing/missing BBU or capacitor \u2014 controller fell back to write-through to protect data",
+      "Failing/missing BBU or capacitor — controller fell back to write-through to protect data",
       "Routing, traffic selectors, or NAT rules do not allow user traffic over the tunnel"
     ],
     "correctMatches": [

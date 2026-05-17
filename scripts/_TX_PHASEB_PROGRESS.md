@@ -1,120 +1,72 @@
-# Phase B — Texas state-law pool: progress & resume guide
+# Texas state-law pool: completion note
 
 Goal: ~400 single-choice TX state-law questions in
 `src/data/real-estate-tx-state-questions.json`, every question
-`portion:"state"`, domain ∈ the 6 official TREC sections, with worked
-explanations. Then a one-time correctAnswer rebalance, flip
-`real-estate-tx` published, smoke-test, commit.
+`portion:"state"`, domain in the 6 official TREC / Pearson VUE sections,
+with worked explanations. Then rebalance answer positions, wire Texas into
+the Real Estate sister-site picker, smoke-test, and keep it out of the IT
+catalog via `published:false`.
 
-## Status: CONTENT COMPLETE
+## Status: COMPLETE
 
 | | |
 |---|---|
-| Pool size | **401 / ~400 — DONE** (8 batches) |
-| Distribution | exact TREC blueprint: Agency 110 / Standards 90 / Contracts 90 / Special 51 / Commission 30 / Licensing 30 |
-| correctAnswer | rebalanced via `rebalance_choices.py` → 102/86/107/106 |
+| Pool size | **401 / ~400 - DONE** |
 | certs.js questionCount | 401 (synced) |
-| Engine | `selectLicensingExam` verified on real merged pool: 750 nat + 401 state → 85+40 exam |
-| Tests | 202/202, lint clean, build green |
+| Route | `/real-estate/study/tx` |
+| Picker | `src/pages/realestate/reCerts.js` includes slug `tx` |
+| Landing card | `src/pages/RealEstate.jsx` includes Texas as available |
+| Engine | `selectLicensingExam` composes 85 national + 40 state |
+| Tests | Content sanity, full Vitest suite, lint, and build verified on 2026-05-17 |
 
-### Remaining (Phase C — small UI task, NOT content)
-`real-estate-tx` stays `published:false` (same as `real-estate-national`)
-so it does not pollute the IT catalog. To make it user-facing on the
-sister site, RELayout (currently hardcodes `real-estate-national`) needs
-a TX entry point: a cert switcher or `/real-estate/study` state picker /
-route mounting `CertProvider certId="real-estate-tx"`, plus surfacing the
-"Full Licensing Exam" mode in REExam (engine already wired via
-`cert.composite`). Then browser smoke-test the 85+40 exam.
+### Final distribution
 
-### Target distribution (≈400) and progress
-| TREC section (domain string) | weight | target | done |
-|---|--:|--:|--:|
-| Agency & Brokerage | 27.5% | ~110 | 28 |
-| Standards of Conduct | 22.5% | ~90 | 23 |
-| Contracts (TREC Forms & Disclosures) | 22.5% | ~90 | 22 |
-| Special Topics (TX) | 12.5% | ~50 | 12 |
-| Commission Duties & Powers | 7.5% | ~30 | 8 |
-| Licensing | 7.5% | ~30 | 8 |
+| TREC section (domain string) | exam weight | pool count |
+|---|--:|--:|
+| Agency & Brokerage | 27.5% | 110 |
+| Standards of Conduct | 22.5% | 90 |
+| Contracts (TREC Forms & Disclosures) | 22.5% | 90 |
+| Special Topics (TX) | 12.5% | 51 |
+| Commission Duties & Powers | 7.5% | 30 |
+| Licensing | 7.5% | 30 |
 
-Keep ~50/batch at roughly: Agency 14 / Standards 11 / Contracts 11 /
-Special 6 / Commission 4 / Licensing 4. ~6 batches remain.
+`correctAnswer` distribution after rebalance: 0=102, 1=86, 2=107, 3=106.
 
-## How to resume (per batch)
-1. Author ~50 NEW questions (no concept repeats — see covered list) into
-   `scripts/_tx_patch.json` (array; ids re-tx-102…, portion "state",
-   exact domain strings, 4 choices, non-empty explanation).
-2. `python scripts/append_tx_state.py scripts/_tx_patch.json` (validates
-   + appends; rejects on any error).
-3. Update `certs.js` real-estate-tx `questionCount` to the new pool length.
-4. `npx vitest run src/__tests__/content-sanity.test.js` → green.
-5. Update this file's status; commit (`published:false`, safe WIP).
+## Source batches
 
-## Final steps (after ~400)
-- One-time balance: script that, per question, randomly permutes
-  `choices` and remaps `correctAnswer` (preserves correctness, evens the
-  0–3 distribution; the current pool skews heavily to index 1, which is
-  cosmetically poor but user-invisible due to render-time shuffle).
-- Flip `real-estate-tx` `published: true`; add a catalog/landing entry
-  if desired (currently unlinked).
-- `npx eslint . && npx vitest run && npx vite build` all green.
-- Browser smoke test: `/real-estate/study` on the TX cert — confirm the
-  Full Licensing Exam composes 85 national + 40 state.
+The active Texas patch file remains `scripts/_tx_patch.json` for future
+authoring patterns and reference. The completed pool is the canonical
+source for shipped content.
 
-## Covered concepts (do NOT repeat)
-- Agency: IABS timing/exceptions; intermediary (written consent, pays-whom,
-  appointments, impartial, no dual agency); SA represents broker;
-  client vs customer; fiduciary duties (buyer-rep); minimum services;
-  license-holder-as-principal disclosure; multi-party consent;
-  cooperating-broker comp ≠ agency; net listing limits; broker liability
-  for SAs; advertising broker name/team/blind; listing types (excl.
-  right-to-sell / excl. agency / open); protection/override period;
-  agency termination; ministerial acts; confidentiality survives;
-  escrow-agent neutrality; advertising another broker's listing;
-  procuring cause.
-- Standards: commingling; earnest-money deposit/handling; UPL (drafting,
-  legal advice); paying unlicensed/referral; rebate disclosure;
-  misleading/blind ads; record retention (4 yrs); website Consumer
-  Protection Notice + IABS; out-of-state broker cooperation; complaints
-  in writing; negligent supervision; notify TREC of address/criminal;
-  false promise; signs without owner consent; conflict disclosure;
-  mishandling trust money.
-- Contracts: must use promulgated; Broker-Lawyer Committee; fill blanks
-  only; termination option + option-fee handling; earnest money to
-  escrow agent; §5.008 seller disclosure scope; 3rd-Party Financing /
-  Loan Assumption / Seller Financing addenda; Buyer's/Seller's Temporary
-  Lease; Notice of Buyer's Termination; HOA addendum; Back-Up addendum;
-  Amendment vs addendum; T-47/existing survey; title objection; default
-  remedies; lead-based paint (pre-1978); property-condition (as-is vs
-  repairs); square-footage misrep; effective date.
-- Special: community vs separate property; intestacy; Transfer on Death
-  Deed; urban/rural homestead acreage; both spouses sign homestead;
-  homestead exemption (ad valorem); MUD statutory notice; security
-  deposit 30-day; HOA resale certificate; DTPA; non-judicial
-  foreclosure (1st Tuesday); mechanic's lien on homestead.
-- Commission: 9 members (6+3, Governor); purpose/consumer protection;
-  Recovery Trust Account (caps, suspension until repaid); SOAH;
-  rulemaking authority; also regulates inspectors/ROW agents;
-  cease-and-desist for unlicensed activity.
-- Licensing: license-required acts + exemptions; SA must be sponsored;
-  18-hr CE incl. Legal Update; 2-yr renewal/inactive; 180-hr
-  prelicensing; 90-hr SAE before 1st renewal; entity broker designated
-  broker; nonresident consent to service.
+## Covered concepts
 
-## Still to mine (suggested upcoming batches)
-TRELA fee/commission enforceability (writing requirement); earnest-money
-dispute/interpleader & TREC release form; advertising specifics (.com,
-expired-license, inducements/lotteries); fair housing under TX; Texas
-agency disclosure timing nuances; TREC Inspector SOP basics (light);
-landlord-tenant (repairs, lockouts, retaliation, late fees, notice to
-vacate); fair housing/ADA TX nuance; appraisal/CMA vs BPO rules in TX;
-ad valorem appraisal protest/ARB; deed types in TX (general/special
-warranty, deed without warranty); property tax lien priority;
-condominium/PUD §5.012/§5.014 notices; coastal/seaward & annexation
-notices; water districts/MUD bonds; agricultural/wildlife valuation;
-foreclosure timeline & notices (20-day, posting); deceptive practices
-remedies; trust account reconciliation; advertising of price/terms;
-e-signature/UETA; survey MUD; broker price opinion limitations;
-unlicensed assistant permitted/prohibited acts; sponsorship
-change/termination procedure; license expiration/late renewal/CE
-deferral; criminal history/fitness determination; moral character;
-TREC SOAH penalty ranges; advisory committees.
+- Agency: IABS timing/exceptions; intermediary consent, appointments, and
+  impartiality; salesperson representation of broker; client vs customer;
+  fiduciary duties; minimum services; license-holder-as-principal
+  disclosure; multi-party consent; cooperating-broker compensation;
+  listing types; protection period; agency termination; ministerial acts;
+  confidentiality; escrow-agent neutrality; advertising another broker's
+  listing; procuring cause.
+- Standards: commingling; earnest-money handling; unauthorized practice of
+  law; unlicensed/referral payments; rebate disclosure; misleading/blind
+  ads; record retention; website Consumer Protection Notice and IABS;
+  out-of-state broker cooperation; written complaints; negligent
+  supervision; address/criminal notifications; false promises; signs
+  without owner consent; conflicts; trust-money handling.
+- Contracts: promulgated forms; Broker-Lawyer Committee; blank-filling
+  limits; termination option and option-fee handling; earnest money;
+  seller disclosure; financing addenda; temporary leases; termination
+  notices; HOA addendum; backup addendum; amendments vs addenda; T-47 and
+  surveys; title objections; default remedies; lead-based paint;
+  property-condition language; square-footage misrepresentation; effective
+  date.
+- Special topics: community and separate property; intestacy; Transfer on
+  Death Deed; homestead acreage/signature/exemption rules; MUD notice;
+  security deposits; HOA resale certificates; DTPA; non-judicial
+  foreclosure; mechanic's liens.
+- Commission: 9-member structure; consumer-protection purpose; Recovery
+  Trust Account; SOAH; rulemaking authority; inspector and right-of-way
+  regulation; cease-and-desist for unlicensed activity.
+- Licensing: license-required acts and exemptions; sponsorship; CE and SAE;
+  renewal/inactive status; prelicensing; entity broker designated broker;
+  nonresident consent to service.

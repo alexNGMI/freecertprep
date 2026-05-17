@@ -1,5 +1,5 @@
 """append_terraform.py — validate and append a batch of HashiCorp Terraform
-Associate (003) questions to terraform-associate-questions.json.
+Associate (004) questions to terraform-associate-questions.json.
 
 Usage:
     python scripts/append_terraform.py scripts/tf_batch_XX.json
@@ -9,7 +9,7 @@ exhaustive per-type validation):
   - id matches ^tf-<N>$
   - id is unique across the entire pool (after append) and within the batch
   - type is one of the five recognized types (default 'single-choice')
-  - domain in ALLOWED_DOMAINS (the 9 official 003 objectives)
+  - domain in ALLOWED_DOMAINS (the 8 official 004 objective groups)
   - question and explanation are non-empty strings
   - single-choice only: exactly 4 choices (non-empty strings), correctAnswer in {0,1,2,3}
 """
@@ -19,15 +19,14 @@ import json, sys, pathlib, re
 POOL = pathlib.Path(__file__).parent.parent / 'src/data/terraform-associate-questions.json'
 
 ALLOWED_DOMAINS = {
-    'Understand infrastructure as code (IaC) concepts',
-    'Understand the purpose of Terraform (vs other IaC)',
-    'Understand Terraform basics',
-    'Use Terraform outside the core workflow',
-    'Interact with Terraform modules',
-    'Use the core Terraform workflow',
-    'Implement and maintain state',
-    'Read, generate, and modify configuration',
-    'Understand Terraform Cloud capabilities',
+    'Infrastructure as Code (IaC) with Terraform',
+    'Terraform fundamentals',
+    'Core Terraform workflow',
+    'Terraform configuration',
+    'Terraform modules',
+    'Terraform state management',
+    'Maintain infrastructure with Terraform',
+    'HCP Terraform',
 }
 
 VALID_TYPES = {

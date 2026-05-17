@@ -1,0 +1,752 @@
+[
+  {
+    "id": "re-ga-351",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia license law, a licensee who represents both the buyer and seller in the same transaction without written consent from both parties is subject to:",
+    "choices": [
+      "No action, since dual agency is implied when both parties use the same firm",
+      "License discipline for undisclosed dual agency",
+      "A civil fine of up to $10,000 per transaction",
+      "Mandatory participation in an ethics remediation class"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia BRRETA requires written informed consent from both parties before a licensee may act as a disclosed dual agent in the same transaction. Failing to obtain written consent and proceeding with undisclosed dual agency is a violation of license law subject to disciplinary action."
+  },
+  {
+    "id": "re-ga-352",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, which of the following license types does NOT require affiliation with a qualifying broker?",
+    "choices": [
+      "Salesperson license",
+      "Associate broker license",
+      "Qualifying broker license",
+      "Both A and B require broker affiliation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A qualifying broker holds the license that authorizes independent brokerage operation and does not require affiliation with another broker. Salespersons and associate brokers must be affiliated with and supervised by a qualifying broker to conduct brokerage activities."
+  },
+  {
+    "id": "re-ga-353",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia licensee's duty to keep client information confidential is created primarily by:",
+    "choices": [
+      "The federal Privacy Act of 1974",
+      "BRRETA and the brokerage engagement agreement",
+      "Georgia's Open Records Act",
+      "The buyer's financing agreement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The duty of confidentiality in Georgia real estate transactions is established by BRRETA (which defines the duties owed to clients) and reinforced by the brokerage engagement agreement. It is not primarily derived from federal privacy laws or the Georgia Open Records Act."
+  },
+  {
+    "id": "re-ga-354",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia's Appraiser Licensing and Certification Act, who may perform appraisals for federally related mortgage transactions in Georgia?",
+    "choices": [
+      "Any licensed real estate broker with at least five years of experience",
+      "Only state-certified or state-licensed real estate appraisers",
+      "Attorneys who specialize in real estate transactions",
+      "Licensed mortgage loan originators with an appraisal endorsement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Under FIRREA and Georgia's Appraiser Licensing and Certification Act, only individuals who are licensed or certified by the Georgia Real Estate Appraisers Board may perform appraisals for federally related mortgage transactions. Real estate licensees, attorneys, and mortgage originators may not substitute their opinions for a certified appraisal."
+  },
+  {
+    "id": "re-ga-355",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, an 'associate broker' license differs from a 'salesperson' license in that:",
+    "choices": [
+      "An associate broker may operate an independent brokerage",
+      "An associate broker has completed additional education and experience requirements but still must work under a qualifying broker",
+      "An associate broker may not handle residential transactions",
+      "An associate broker is exempt from BRRETA requirements"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An associate broker in Georgia holds a broker-level license (having met the additional education and experience requirements to qualify as a broker) but chooses to remain affiliated with and supervised by a qualifying broker rather than operating independently. Associate brokers have more training than salespersons but the same supervision requirement."
+  },
+  {
+    "id": "re-ga-356",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a licensee's advertising must not include which of the following?",
+    "choices": [
+      "The firm's licensed name",
+      "The licensee's personal phone number",
+      "Guarantees of specific future real estate values or returns",
+      "The licensee's years of experience"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Georgia's advertising rules prohibit deceptive or misleading advertisements. Guaranteeing specific future values or investment returns is inherently misleading because future real estate values cannot be guaranteed. The firm name is required; personal phone numbers and years of experience are permissible disclosures."
+  },
+  {
+    "id": "re-ga-357",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia's license law, which of the following is a required element for a valid brokerage engagement agreement?",
+    "choices": [
+      "A clause specifying the exact commission rate to be charged",
+      "A written agreement signed by both the broker and the client",
+      "A notarized signature from the principal",
+      "A GREC-issued engagement form number"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia requires that brokerage engagement agreements be in writing and signed by both the broker (or affiliated licensee as the broker's agent) and the client. No specific commission rate is legally required (commissions are negotiable), no notarization is needed, and GREC does not issue engagement form numbers."
+  },
+  {
+    "id": "re-ga-358",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia rules, the purpose of the GREC's 'consent order' in a disciplinary proceeding is to:",
+    "choices": [
+      "Grant a licensee permission to conduct a specific unusual transaction",
+      "Resolve a disciplinary matter through a negotiated agreement between GREC and the licensee",
+      "Authorize GREC to publish the licensee's name on the disciplinary register",
+      "Order a licensee's broker to repay client losses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A GREC consent order is a negotiated disciplinary resolution — the licensee agrees to specific sanctions (such as probation, fines, or required education) in exchange for GREC closing the investigation without a formal hearing. It is an agreed disposition that avoids a contested administrative proceeding."
+  },
+  {
+    "id": "re-ga-359",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a real estate licensee who also sells securities products (e.g., real estate investment trusts) must hold a:",
+    "choices": [
+      "No additional license — real estate agents may sell any investment product to clients",
+      "Securities license from FINRA and registration with the SEC or state securities regulator",
+      "GREC-issued investment adviser endorsement",
+      "Special dual-license issued jointly by GREC and the Georgia Department of Banking"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Selling securities, including REITs, requires a separate securities license issued by FINRA (Series 6 or 7, depending on the product) and registration with the appropriate regulatory body. A Georgia real estate license does not authorize the sale of securities products."
+  },
+  {
+    "id": "re-ga-360",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia license law, a licensee who receives an earnest money check and does not deliver it to the qualifying broker for three banking days:",
+    "choices": [
+      "Is within the statutory timeline and has committed no violation",
+      "Has violated the escrow deposit rule if they held it longer than the three-banking-day window",
+      "Is only liable if the check bounces or the transaction fails to close",
+      "May be excused if the qualifying broker was unavailable during that period"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The three-banking-day requirement runs from the time the licensee receives the check. Even if the qualifying broker was unavailable, the licensee must ensure the funds reach the broker's escrow account within three banking days. Exceeding this deadline — for any reason — violates GREC rules."
+  },
+  {
+    "id": "re-ga-361",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which of the following actions would terminate an offer before it becomes a binding contract?",
+    "choices": [
+      "The buyer asking the listing agent about the seller's motivation",
+      "The seller making a counteroffer, which constitutes rejection of the original offer",
+      "The buyer requesting a home inspection prior to closing",
+      "The listing agent presenting the offer to the seller"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In Georgia, a counteroffer is a rejection of the original offer combined with a new offer. Once the seller makes a counteroffer, the original offer is terminated — the buyer is no longer bound and the seller cannot later accept the original offer. The counteroffer starts the negotiation anew."
+  },
+  {
+    "id": "re-ga-362",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia's eminent domain law, a property owner whose property is taken by the government is entitled to:",
+    "choices": [
+      "Nothing if the taking is for a public purpose",
+      "Just compensation equal to the fair market value of the taken property",
+      "Replacement value of the taken property regardless of market value",
+      "Only the cost of relocation, not the property value"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Fifth Amendment to the U.S. Constitution and Georgia's parallel state constitutional provision require that the government pay 'just compensation' — typically fair market value — when taking private property for public use through eminent domain. Property owners are entitled to be made whole in terms of value."
+  },
+  {
+    "id": "re-ga-363",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, what document gives a buyer the right to purchase a specific property at a specified price for a defined period, without the buyer being obligated to complete the purchase?",
+    "choices": [
+      "Right of first refusal",
+      "Purchase and sale agreement with a due diligence contingency",
+      "Option contract",
+      "Exclusive buyer brokerage agreement"
+    ],
+    "correctAnswer": 2,
+    "explanation": "An option contract gives the buyer (optionee) the exclusive right to purchase a specific property at a fixed price during the option period — but does not obligate the buyer to purchase. The seller (optionor) is bound to sell if the buyer exercises the option. The buyer pays consideration (option fee) for this right."
+  },
+  {
+    "id": "re-ga-364",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a licensee may act as an 'intermediary' (similar to a transaction broker) in a transaction where they have limited ability to advocate for either party. Under BRRETA, such a licensee owes both parties:",
+    "choices": [
+      "Full fiduciary duties to both parties simultaneously",
+      "Only the duties owed to customers: honesty, presenting offers, and disclosing material facts",
+      "The duty of loyalty to whoever pays the commission",
+      "No duties — the intermediary is neutral and has no obligations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Georgia licensee acting as a facilitator/transaction broker (when neither party has signed a brokerage engagement) owes both parties only the limited customer duties under BRRETA: honesty, presenting all written offers, disclosing adverse material facts known to the broker, and complying with the law."
+  },
+  {
+    "id": "re-ga-365",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, when a seller accepts a buyer's offer and both parties sign the purchase agreement, but the closing attorney later discovers that the seller does not own a portion of the property due to a survey error, this situation creates a:",
+    "choices": [
+      "Voidable contract that the buyer may cancel",
+      "Title defect that the seller must cure before delivering marketable title at closing",
+      "GREC enforcement matter requiring license revocation",
+      "Automatic termination of the contract by operation of law"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A survey error revealing that the seller does not own part of the described property is a title defect. The seller has an obligation under the purchase agreement to deliver marketable title. The seller must cure the defect (by acquiring the missing parcel, adjusting the legal description, or negotiating with the buyer) before closing."
+  },
+  {
+    "id": "re-ga-366",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a real estate listing agent receives an offer from a buyer represented by a buyer's agent. The listing agent should:",
+    "choices": [
+      "Contact the buyer directly to negotiate the best terms for the seller",
+      "Present the offer to the seller and communicate only with the buyer's agent, not directly with the buyer",
+      "Advise the seller to reject the offer since buyer's agents create complications",
+      "Require the buyer's agent to submit the offer directly to the seller to avoid any representation issues"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When a buyer is represented by their own agent, the listing agent must communicate through the buyer's agent — not directly with the represented buyer. Contacting a represented buyer directly without the buyer's agent's consent is a violation of professional standards and potentially BRRETA."
+  },
+  {
+    "id": "re-ga-367",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a purchase contract that contains an 'integration clause' (entire agreement clause) means:",
+    "choices": [
+      "All parties must sign the contract in person at the same location",
+      "The written contract is the complete and final agreement; prior oral representations are not binding",
+      "The contract integrates all fair housing requirements by reference",
+      "The closing attorney must integrate the disclosure forms into the final deed"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An integration (entire agreement) clause states that the written contract constitutes the complete agreement between the parties, superseding all prior oral or written representations, negotiations, and understandings. This means a buyer cannot rely on verbal promises made by a seller or agent that are not in the written contract."
+  },
+  {
+    "id": "re-ga-368",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, under which circumstance may a buyer legally refuse to close without forfeiting their earnest money?",
+    "choices": [
+      "The buyer changes their mind about the purchase after the inspection period ends",
+      "The seller fails to deliver marketable title or breaches a material contract term",
+      "The buyer finds a better property at a lower price",
+      "The buyer's lender approves financing but at a higher rate than expected"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If the seller is in breach — failing to deliver marketable title, not making agreed repairs, or otherwise materially failing to perform — the buyer may typically terminate without forfeiting earnest money. If the buyer simply has a change of heart or finds a better deal, they cannot terminate without consequences unless a contingency exists."
+  },
+  {
+    "id": "re-ga-369",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a 'short sale' where the lender agrees to accept less than the payoff balance requires which of the following from the lender?",
+    "choices": [
+      "A court order authorizing the below-payoff sale",
+      "Written approval (a 'short sale approval letter') before the sale may close",
+      "A GREC variance allowing the broker to market the property at below-payoff price",
+      "The county tax commissioner's consent to release the property tax lien"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A short sale requires the lender's written approval — a 'short sale approval letter' — before the sale may close at a price below the outstanding mortgage balance. Without lender approval, the title cannot be conveyed free of the mortgage lien. The approval also specifies whether the lender will pursue a deficiency judgment."
+  },
+  {
+    "id": "re-ga-370",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, an agent who advertises a listed property on their personal website without the broker's firm name is:",
+    "choices": [
+      "Permissible — personal websites are exempt from the firm-name advertising rule",
+      "In violation of GREC advertising rules",
+      "Required to include a disclaimer that the content is the agent's personal opinion",
+      "Only required to include the firm name on the property detail page, not the home page"
+    ],
+    "correctAnswer": 1,
+    "explanation": "All advertising by a Georgia licensee — including on personal websites — must include the name of the licensed firm. Personal websites are not exempt. Any page that promotes listings or the licensee's real estate services must display the firm name."
+  },
+  {
+    "id": "re-ga-371",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which type of listing agreement allows a seller to sell their own property without paying a commission, but guarantees the listing broker a commission if the broker procures the buyer?",
+    "choices": [
+      "Exclusive right-to-sell listing",
+      "Exclusive agency listing",
+      "Open listing",
+      "Net listing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An exclusive agency listing gives the broker the exclusive right to represent the seller, but allows the seller to sell the property themselves without paying a commission if the seller — not the broker — procures the buyer. The broker earns a commission only if the broker (or any other agent) procures the buyer."
+  },
+  {
+    "id": "re-ga-372",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which document evidences the buyer's promise to repay a mortgage loan?",
+    "choices": [
+      "The security deed",
+      "The promissory note",
+      "The closing disclosure",
+      "The title insurance commitment"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The promissory note is the legal document that evidences the borrower's personal promise to repay the mortgage debt. The security deed is the collateral instrument that gives the lender a security interest in the property. Both documents are signed at closing, but only the note creates personal liability."
+  },
+  {
+    "id": "re-ga-373",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a first-time homebuyer purchasing a property discovers a structural defect that was present before the prior sale but not disclosed. The buyer may have a claim against the:",
+    "choices": [
+      "Prior owner who sold without disclosure, if they had knowledge",
+      "Lender who approved the mortgage",
+      "GREC's Recovery Fund, without any investigation",
+      "Georgia Department of Community Affairs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "In Georgia, a buyer who discovers that a prior owner knowingly concealed a material structural defect may have a claim for fraud or misrepresentation against the prior owner (and potentially the agents involved). The claim travels with knowledge — the prior owner must have known about the defect and failed to disclose it."
+  },
+  {
+    "id": "re-ga-374",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, the concept of 'caveat emptor' in real estate transactions means:",
+    "choices": [
+      "Let the buyer beware — buyers must conduct their own due diligence",
+      "The seller must warrant the condition of the property to the buyer",
+      "All defects must be disclosed by the seller's agent under penalty of license revocation",
+      "The buyer has no obligation to investigate the property before purchasing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Caveat emptor ('let the buyer beware') is a traditional legal doctrine that places responsibility on the buyer to inspect and investigate a property before purchase. While Georgia has moved away from strict caveat emptor (brokers must disclose known adverse facts under BRRETA), buyers are still expected to exercise reasonable diligence — including independent inspections."
+  },
+  {
+    "id": "re-ga-375",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a property manager who discovers that a tenant has been subletting without the landlord's consent should:",
+    "choices": [
+      "Evict the tenant immediately without notice",
+      "Notify the owner and recommend appropriate action in accordance with the lease terms",
+      "Negotiate a new lease directly with the subtenant",
+      "Report the unauthorized subletting to GREC for investigation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Upon discovering unauthorized subletting, a Georgia property manager should notify the property owner and recommend action consistent with the lease terms — which may include issuing a cure-or-quit notice, beginning dispossessory proceedings, or negotiating a solution. The property manager acts on behalf of the owner and must follow the owner's instructions."
+  },
+  {
+    "id": "re-ga-376",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "At a Georgia closing, the seller's proceeds from the sale are calculated as:",
+    "choices": [
+      "The listing price minus the real estate commission",
+      "The sale price minus mortgage payoffs, commission, transfer tax, prorated taxes, and other closing costs charged to the seller",
+      "The sale price minus only the real estate commission and outstanding mortgage",
+      "The appraised value minus the outstanding mortgage balance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The seller's net proceeds equal the sale price minus all seller-side deductions: existing mortgage payoffs, real estate commission, transfer tax, prorated property taxes through closing, any outstanding liens, and other negotiated closing costs. The result — seller's net proceeds — is what the seller actually receives."
+  },
+  {
+    "id": "re-ga-377",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, the recording of a deed provides what type of notice to the public?",
+    "choices": [
+      "Actual notice only",
+      "Constructive notice — the public is deemed to know of the recorded instrument",
+      "Inquiry notice only to persons who specifically search the records",
+      "No legal notice — recording is for historical reference only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Recording a deed in the Georgia land records provides constructive notice — the law presumes that all persons are aware of the contents of the public record, regardless of whether they actually searched the records. This is the purpose of the recording system: to protect subsequent purchasers and creditors."
+  },
+  {
+    "id": "re-ga-378",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which closing statement provides an itemized accounting of all funds received and disbursed in a real estate transaction, required for federally related mortgage loans?",
+    "choices": [
+      "The Uniform Settlement Statement (HUD-1)",
+      "The Closing Disclosure (CD) — the TRID-compliant form replacing the HUD-1 for most residential transactions",
+      "The Georgia Standard Settlement Statement issued by GREC",
+      "The closing attorney's disbursement ledger, which substitutes for a standardized form"
+    ],
+    "correctAnswer": 1,
+    "explanation": "For most federally related residential mortgage closings in Georgia after October 3, 2015, the Closing Disclosure (CD) — the CFPB's TRID-compliant form — replaced the HUD-1 Settlement Statement. The HUD-1 is still used for reverse mortgages and certain other transactions not covered by TRID."
+  },
+  {
+    "id": "re-ga-379",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a buyer's lender requires a 'title endorsement' on the owner's title insurance policy. This endorsement:",
+    "choices": [
+      "Extends the owner's policy to cover the lender's security interest as well",
+      "Adds additional coverage for specific risks not covered by the standard owner's policy",
+      "Guarantees the property against future loss in value",
+      "Substitutes for a formal title search"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Title endorsements add coverage for specific risks not included in the standard owner's or lender's title insurance policy. Common endorsements include coverage for zoning compliance, encroachments, access rights, and variable-rate mortgage provisions. They are tailored to the specific transaction's risk profile."
+  },
+  {
+    "id": "re-ga-380",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which of the following items is prorated between buyer and seller at a Georgia residential closing?",
+    "choices": [
+      "The real estate transfer tax",
+      "Ad valorem property taxes for the current year",
+      "The closing attorney's fee",
+      "The title insurance premium"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia property taxes are paid in arrears. At closing, the ad valorem taxes for the current year are prorated — the seller is responsible for the portion of the year they owned the property, and the buyer is responsible for the remainder. The seller typically gives the buyer a credit at closing for the seller's prorated share."
+  },
+  {
+    "id": "re-ga-381",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, 'PITI' in the context of a mortgage payment refers to:",
+    "choices": [
+      "Principal, Interest, Taxes, and Insurance — the four components of a fully escrow-impounded monthly payment",
+      "Payment, Intangible tax, Title insurance, and Insurance",
+      "Purchase, Inspection, Title, and Interest",
+      "Principal, Income, Transfer tax, and Indemnity"
+    ],
+    "correctAnswer": 0,
+    "explanation": "PITI stands for Principal, Interest, Taxes, and Insurance — the four components typically included in a fully escrowed monthly mortgage payment. Lenders collect principal and interest for the loan repayment, plus escrow amounts for property taxes and homeowner's insurance."
+  },
+  {
+    "id": "re-ga-382",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a purchaser at a tax sale must wait how long before obtaining clear title if the former owner does not redeem the property?",
+    "choices": [
+      "30 days after the tax sale",
+      "12 months after the tax sale, then a quiet title action is typically required",
+      "5 years after the tax sale, consistent with Georgia's adverse possession statute",
+      "Until the county issues a final tax deed certificate three years post-sale"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia tax sale purchasers must wait 12 months for the redemption period to expire, then typically must file a quiet title action in Superior Court to obtain fully marketable and insurable title. The combination of the expired redemption period and a favorable quiet title judgment establishes clear ownership."
+  },
+  {
+    "id": "re-ga-383",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a mortgage lender who wants to accelerate a loan and initiate foreclosure after a borrower's default must first:",
+    "choices": [
+      "Obtain a court judgment for the outstanding balance",
+      "Send the required written notice to the borrower at least 30 days before advertising the foreclosure sale",
+      "File a lis pendens in the county where the property is located",
+      "Register the foreclosure with GREC before proceeding"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia's non-judicial foreclosure statute requires lenders to send written notice to the borrower at the property address and any other address of record at least 30 days before the first advertisement of the foreclosure sale. The notice must identify the defaulted loan and sale details."
+  },
+  {
+    "id": "re-ga-384",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which of the following statements about a 'due-on-sale clause' is TRUE?",
+    "choices": [
+      "Due-on-sale clauses are prohibited in Georgia because they prevent assumable mortgages",
+      "A due-on-sale clause allows the lender to demand full repayment upon transfer of the property",
+      "Due-on-sale clauses are only enforceable on commercial mortgages in Georgia",
+      "Federal law prohibits due-on-sale clauses on FHA-insured loans"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A due-on-sale (alienation) clause in a Georgia security deed allows the lender to demand full repayment of the outstanding balance when the property is transferred without the lender's consent. Federal law (Garn-St. Germain Act) generally preempts state laws and authorizes lenders to enforce due-on-sale clauses in most residential mortgages."
+  },
+  {
+    "id": "re-ga-385",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia property closes on June 19. The county property taxes for the current year are $3,600 (paid in arrears). The seller's prorated tax credit to the buyer (using a 365-day year) is approximately:",
+    "choices": [
+      "$1,800.00",
+      "$1,676.71",
+      "$1,486.03",
+      "$2,113.97"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The seller owned the property from Jan 1 through June 19 = 31 + 28 + 31 + 30 + 31 + 19 = 170 days. Daily tax rate = $3,600 / 365 = $9.863/day. Seller's portion = 170 × $9.863 = $1,676.71."
+  },
+  {
+    "id": "re-ga-386",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, at a typical residential closing, who pays the real estate broker's commission?",
+    "choices": [
+      "The buyer, since they are the party receiving the property",
+      "The seller, from proceeds of the sale, per the listing agreement",
+      "The closing attorney from a separate legal fee fund",
+      "Both buyer and seller split the commission 50/50 by statute"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The seller pays the real estate commission at closing per the terms of the listing agreement. The commission is disbursed from the seller's proceeds by the closing attorney. While economic arguments exist that the buyer ultimately 'funds' the commission through the purchase price, the contractual obligation to pay the commission runs to the seller."
+  },
+  {
+    "id": "re-ga-387",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a borrower's monthly mortgage payment remains constant throughout the loan term under a:",
+    "choices": [
+      "Adjustable-rate mortgage (ARM)",
+      "Fully amortizing fixed-rate mortgage",
+      "Balloon mortgage",
+      "Interest-only mortgage"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A fully amortizing fixed-rate mortgage has a constant (level) monthly payment throughout the loan term. While the proportion of each payment allocated to principal versus interest changes over time (interest decreases and principal increases), the total monthly payment remains fixed."
+  },
+  {
+    "id": "re-ga-388",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which of the following best describes the 'as-is' provision commonly found in bank-owned (REO) purchase agreements?",
+    "choices": [
+      "The buyer waives all inspection rights and accepts the property without any recourse",
+      "The buyer accepts the property in its current condition but retains the right to inspect and may still negotiate or withdraw during the inspection period",
+      "The bank warrants that no material defects exist, but will not make repairs",
+      "The as-is provision applies only to cosmetic conditions, not structural issues"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An 'as-is' clause in a Georgia REO contract means the bank will not make repairs and conveys no warranties about the property's condition. However, the buyer retains the right to inspect during a due diligence period and may withdraw (typically forfeiting a nominal deposit) if the inspection reveals unacceptable conditions."
+  },
+  {
+    "id": "re-ga-389",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, which type of notice allows a party to a contract to give written notification that the contract will terminate on a specified future date?",
+    "choices": [
+      "Notice of default",
+      "Notice of termination (or notice to terminate)",
+      "Lis pendens",
+      "Notice of acceleration"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A notice of termination (or notice to terminate) is a written communication informing the other party that the notifying party is exercising a contractual right to end the agreement on a specified date. Common in lease agreements and some purchase contracts with termination provisions."
+  },
+  {
+    "id": "re-ga-390",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a seller who carries back a second mortgage for part of the buyer's purchase price will receive their second mortgage proceeds:",
+    "choices": [
+      "At closing, from the closing attorney's disbursement of the sales proceeds",
+      "In monthly installments from the buyer per the terms of the note",
+      "From the first mortgage lender as part of the loan funding",
+      "Through GREC's escrow service for seller-financed transactions"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When a seller carries back financing, the seller is acting as a lender. The seller does not receive a lump sum for the financed portion at closing; instead, the buyer makes monthly payments to the seller over time per the terms of the promissory note and security deed."
+  },
+  {
+    "id": "re-ga-391",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a property purchased in a county where taxes are paid for the first time (no prior year's tax data) is typically handled at closing by:",
+    "choices": [
+      "Waiving the tax proration entirely since no prior data is available",
+      "Using the prior year's bill or an estimate based on the purchase price and local millage rate",
+      "Requiring the seller to pay two full years of taxes",
+      "Deferring the tax proration to a post-closing adjustment once the bill is issued"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If the current year's property tax bill has not yet been issued, Georgia closing attorneys typically use the prior year's bill as a base for proration or calculate an estimate based on the assessed value and applicable millage rate. The parties may also agree to a post-closing true-up adjustment when the actual bill is issued."
+  },
+  {
+    "id": "re-ga-392",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a second mortgage that was recorded after the first mortgage but before a judgment lien is satisfied at a foreclosure of the judgment lien. Which lien remains on the property?",
+    "choices": [
+      "Neither — all liens are extinguished by the foreclosure",
+      "The first mortgage, since it has priority over the foreclosed judgment lien",
+      "The second mortgage, if it was recorded before the judgment lien",
+      "Both the first and second mortgages remain, since neither was the foreclosing lien"
+    ],
+    "correctAnswer": 3,
+    "explanation": "When a junior lien (judgment lien) forecloses, it can only extinguish liens junior to itself. Senior liens (the first and second mortgages, both recorded before the judgment lien) survive the foreclosure of the junior judgment lien. The purchaser at the foreclosure sale takes subject to the two mortgages."
+  },
+  {
+    "id": "re-ga-393",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a buyer who purchases real property at a non-judicial foreclosure sale should immediately record the deed because:",
+    "choices": [
+      "Recording establishes the sale price for tax assessment purposes",
+      "Recording provides constructive notice and protects against subsequent claims by third parties",
+      "Recording is required before the GREC investigates the sale for compliance",
+      "Recording triggers the start of the 30-day foreclosure appeal period"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Prompt recording of the deed after a Georgia foreclosure sale is essential to protect the purchaser's title. Recording provides constructive notice to all subsequent buyers, creditors, and claimants. Failure to record promptly could leave the foreclosure purchaser vulnerable to intervening interests."
+  },
+  {
+    "id": "re-ga-394",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which legal doctrine prevents a party from denying a fact after they have previously represented or acted upon that fact to another's detriment?",
+    "choices": [
+      "Adverse possession",
+      "Estoppel",
+      "Lis pendens",
+      "Subrogation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Estoppel is the legal doctrine that prevents a party from asserting a position that contradicts a prior representation when another party has reasonably relied on that representation to their detriment. In real estate, estoppel certificates confirm lease terms so parties cannot later claim different terms existed."
+  },
+  {
+    "id": "re-ga-395",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, which of the following is the MOST important document for a title insurance company when insuring title to a residential property?",
+    "choices": [
+      "The appraisal report",
+      "The title examination (chain of title) report from the closing attorney",
+      "The seller's disclosure statement",
+      "The lender's commitment letter"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Title insurance companies rely on the closing attorney's title examination — a review of the chain of title in the public records — as the foundation for issuing a title insurance policy. The examination identifies recorded interests, liens, and encumbrances. The title insurer then commits to insure the specific title risk identified in the examination."
+  },
+  {
+    "id": "re-ga-396",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "At a Georgia closing, the earnest money deposited at contract ratification is applied at closing to:",
+    "choices": [
+      "The seller's real estate commission first, then to the buyer's down payment",
+      "The buyer's down payment and/or closing costs, reducing the amount the buyer must bring to closing",
+      "The lender's origination fee, as required by RESPA",
+      "The seller's prorated property taxes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "At closing, the earnest money held in escrow is credited to the buyer — it is applied to the buyer's obligations (down payment and/or closing costs), reducing the cash the buyer must bring to the closing table. If the earnest money exceeds the buyer's closing costs, the buyer may receive the excess back."
+  },
+  {
+    "id": "re-ga-397",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, the term 'title abstract' refers to:",
+    "choices": [
+      "A brief summary of the property's physical condition",
+      "A chronological summary of all recorded instruments affecting a property's title",
+      "The lender's summary of the loan terms and repayment schedule",
+      "A GREC-issued document summarizing outstanding license violations on a property"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A title abstract (or abstract of title) is a historical summary of all recorded instruments — deeds, mortgages, liens, easements, judgments, tax sales — affecting a specific parcel of real property, in chronological order. Closing attorneys use the abstract as the basis for their title examination."
+  },
+  {
+    "id": "re-ga-398",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a borrower who refinances their primary residence with a new first mortgage has the right to rescind the transaction for:",
+    "choices": [
+      "No period — refinance loans on primary residences have no rescission right",
+      "Three business days under the federal Truth-in-Lending Act (TILA)",
+      "Seven calendar days under Georgia's Residential Mortgage Act",
+      "30 days under the Georgia Right of Rescission Statute"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Under the federal Truth-in-Lending Act (Regulation Z), borrowers have a three-business-day right of rescission when refinancing their principal dwelling with a new first-lien mortgage from a different lender. This is a federal right applied in all Georgia refinance transactions. (Note: purchase money first mortgages and certain other transactions are exempt.)"
+  },
+  {
+    "id": "re-ga-399",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a lender who fails to record the satisfaction of a security deed within a reasonable time after the loan is paid off may be liable to the borrower for:",
+    "choices": [
+      "Unlicensed practice of law",
+      "Damages for slander of title or a statutory penalty for failure to release the lien",
+      "A GREC disciplinary action for misconduct",
+      "Criminal fraud charges for holding an invalid lien"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia law requires lenders to record a satisfaction or cancellation of security deed promptly after full payoff. Failure to do so can cloud the borrower's title. The borrower may have a claim for slander of title or may be entitled to a statutory penalty for the lender's failure to timely release the paid-off security deed."
+  },
+  {
+    "id": "re-ga-400",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "At a Georgia residential closing, the final step that completes the transaction and transfers ownership is:",
+    "choices": [
+      "The buyer signing the promissory note",
+      "The recording of the deed in the county land records",
+      "The lender wiring the loan funds to the closing attorney",
+      "The seller receiving their net proceeds check"
+    ],
+    "correctAnswer": 1,
+    "explanation": "While delivery and acceptance of the deed legally transfers title, recording the deed in the county Superior Court Clerk's office is the critical step that protects the buyer's ownership against subsequent claims and provides constructive notice to the world. In Georgia practice, closing is not considered truly complete until the deed and security deed are recorded."
+  }
+]

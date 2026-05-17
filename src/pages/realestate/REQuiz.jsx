@@ -1,80 +1,42 @@
-import { useState, useMemo } from 'react'
 import { useCert } from '../../hooks/useCert'
-import { useProgress } from '../../hooks/useProgress'
 import { useBookmarks } from '../../hooks/useBookmarks'
-import { useQuestionStats } from '../../hooks/useQuestionStats'
+import { ALL_DOMAINS, BOOKMARKED, SMART_PRACTICE, usePracticeSession } from '../../hooks/usePracticeSession'
 import REQuestionCard from '../../components/REQuestionCard'
-import { fisherYates, weightedSample } from '../../utils/shuffle'
-import { isAnswerCorrect } from '../../utils/scoring'
 
 const BLOCK_SIZE = 10
-const SMART_PRACTICE = 'Smart Practice'
 
 export default function REQuiz() {
   const cert = useCert()
   const questions = cert.questions
   const { bookmarkedIds, toggle: toggleBookmark, isBookmarked } = useBookmarks(cert.id)
-  const { addQuizResult } = useProgress(cert.id)
-  const { getWeightedPool, recordSession, trackedCount } = useQuestionStats(cert.id)
+  const {
+    activeMode,
+    answers,
+    certDomains,
+    changeMode,
+    currentAnswer,
+    currentIndex,
+    currentQuestion,
+    handleAnswer,
+    handleNext,
+    isSmartPractice,
+    poolQuestions,
+    quizStarted,
+    selectedDomain,
+    sessionQuestions,
+    setSelectedDomain,
+    setSetupStep,
+    setupStep,
+    showResult,
+    startQuiz,
+    trackedCount,
+  } = usePracticeSession({ cert, questions, bookmarkedIds, blockSize: BLOCK_SIZE })
 
-  const certDomains = cert.domains.map((d) => d.name)
-
-  const [selectedDomain, setSelectedDomain] = useState(SMART_PRACTICE)
-  const [setupStep, setSetupStep] = useState(1)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [answers, setAnswers] = useState([])
-  const [showResult, setShowResult] = useState(false)
-  const [quizStarted, setQuizStarted] = useState(false)
-  const [sessionKey, setSessionKey] = useState(0)
-
-  const activeMode =
-    selectedDomain === SMART_PRACTICE ? 'smart' : selectedDomain === 'Bookmarked' ? 'bookmarked' : 'domain'
-
-  const poolQuestions = useMemo(() => {
-    if (selectedDomain === SMART_PRACTICE) return questions
-    if (selectedDomain === 'All Domains') return questions
-    if (selectedDomain === 'Bookmarked') return questions.filter((q) => bookmarkedIds.includes(q.id))
-    return questions.filter((q) => q.domain === selectedDomain)
-  }, [selectedDomain, questions, bookmarkedIds])
-
-  const filteredQuestions = useMemo(() => {
-    if (selectedDomain === SMART_PRACTICE) {
-      return weightedSample(getWeightedPool(questions), BLOCK_SIZE)
-    }
-    return fisherYates(poolQuestions).slice(0, BLOCK_SIZE)
-  }, [selectedDomain, poolQuestions, sessionKey, questions, getWeightedPool]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const startQuiz = () => {
-    setCurrentIndex(0)
-    setAnswers([])
-    setShowResult(false)
-    setQuizStarted(true)
-    setSessionKey((k) => k + 1)
-  }
-
-  const handleAnswer = (selectedChoice) => {
-    const question = filteredQuestions[currentIndex]
-    const correct = isAnswerCorrect(selectedChoice, question)
-    setAnswers((prev) => [
-      ...prev,
-      { questionId: question.id, domain: question.domain, selected: selectedChoice, correct },
-    ])
-  }
-
-  const handleNext = () => {
-    if (currentIndex < filteredQuestions.length - 1) {
-      setCurrentIndex((prev) => prev + 1)
-    } else {
-      addQuizResult({ domain: selectedDomain, answers })
-      recordSession(answers)
-      setShowResult(true)
-    }
-  }
 
   // ─── Setup ──────────────────────────────────────────────────────────────────
   if (!quizStarted) {
     if (setupStep === 2) {
-      const allDomains = ['All Domains', ...certDomains]
+      const allDomains = [ALL_DOMAINS, ...certDomains]
       return (
         <div className="space-y-8 animate-fade-up pt-2 max-w-3xl mx-auto">
           <div className="flex items-center gap-4">
@@ -152,7 +114,7 @@ export default function REQuiz() {
           bookmarkedIds.length > 0
             ? `${bookmarkedIds.length} starred question${bookmarkedIds.length === 1 ? '' : 's'} — great for targeted review`
             : 'Star questions during a quiz to build your review list',
-        action: () => setSelectedDomain('Bookmarked'),
+        action: () => setSelectedDomain(BOOKMARKED),
       },
       {
         id: 'domain',
@@ -272,9 +234,7 @@ export default function REQuiz() {
             </button>
             <button
               onClick={() => {
-                setQuizStarted(false)
-                setSetupStep(1)
-                setSelectedDomain(SMART_PRACTICE)
+                changeMode()
               }}
               className="font-semibold px-9 py-3.5 rounded-xl transition-all bg-slate-100 text-slate-600 hover:bg-slate-200 border border-slate-200 w-full"
             >
@@ -287,10 +247,6 @@ export default function REQuiz() {
   }
 
   // ─── Active quiz ────────────────────────────────────────────────────────────
-  const currentQuestion = filteredQuestions[currentIndex]
-  const currentAnswer = answers[currentIndex]
-  const isSmartPractice = selectedDomain === SMART_PRACTICE
-
   return (
     <div className="space-y-7 animate-fade-up max-w-4xl mx-auto">
       <div className="flex items-end justify-between px-1">
@@ -303,14 +259,14 @@ export default function REQuiz() {
           )}
         </div>
         <span className="text-sm text-slate-500 font-semibold tracking-wide">
-          Progress <span className="text-slate-900">{currentIndex + 1}</span> of {filteredQuestions.length}
+          Progress <span className="text-slate-900">{currentIndex + 1}</span> of {sessionQuestions.length}
         </span>
       </div>
 
       <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
         <div
           className="h-full rounded-full bg-rose-600 transition-all duration-500 ease-out"
-          style={{ width: `${((currentIndex + 1) / filteredQuestions.length) * 100}%` }}
+          style={{ width: `${((currentIndex + 1) / sessionQuestions.length) * 100}%` }}
         />
       </div>
 
@@ -330,7 +286,7 @@ export default function REQuiz() {
             onClick={handleNext}
             className="font-bold px-9 py-3.5 rounded-xl transition-all bg-rose-600 text-white hover:bg-rose-700 flex items-center justify-center min-w-[200px]"
           >
-            {currentIndex < filteredQuestions.length - 1 ? (
+            {currentIndex < sessionQuestions.length - 1 ? (
               <>
                 Next Question
                 <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,72 +1,27 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
 import { useCert } from '../hooks/useCert'
-import { useProgress } from '../hooks/useProgress'
-import { useNavigate } from 'react-router-dom'
+import { useExamSession } from '../hooks/useExamSession'
 import QuestionCard from '../components/QuestionCard'
-import { weightedSelect } from '../utils/exam-selection'
-import { isAnswerCorrect } from '../utils/scoring'
 import { formatTime } from '../utils/time'
 
 export default function Exam() {
   const cert = useCert()
   const questions = cert.questions
-  const EXAM_TIME = cert.examTime * 60
-  const EXAM_QUESTIONS = cert.examQuestions
-
-  const [started, setStarted] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedAnswers, setSelectedAnswers] = useState({})
-  const [timeLeft, setTimeLeft] = useState(EXAM_TIME)
-  const [finished, setFinished] = useState(false)
-  const { addExamResult } = useProgress(cert.id)
-  const navigate = useNavigate()
-  const timerRef = useRef(null)
-  const selectedAnswersRef = useRef(selectedAnswers)
-
-  const [examQuestions] = useState(() => weightedSelect(questions, EXAM_QUESTIONS, cert.domains))
-
-  // Keep ref in sync so finishExam always has current answers
-  useEffect(() => {
-    selectedAnswersRef.current = selectedAnswers
-  }, [selectedAnswers])
-
-  const finishExam = useCallback(() => {
-    setFinished(true)
-    clearInterval(timerRef.current)
-    const currentAnswers = selectedAnswersRef.current
-    const answers = examQuestions.map((q, i) => {
-      const selected = currentAnswers[i] ?? -1
-      const correct = isAnswerCorrect(selected, q)
-        
-      return {
-        questionId: q.id,
-        domain: q.domain,
-        selected,
-        correct,
-      }
-    })
-    addExamResult({ answers })
-    navigate(`/${cert.id}/results`, { state: { answers, questions: examQuestions } })
-  }, [examQuestions, addExamResult, navigate, cert.id])
-
-  useEffect(() => {
-    if (started && !finished) {
-      timerRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timerRef.current)
-            finishExam()
-            return 0
-          }
-          return prev - 1
-        })
-      }, 1000)
-    }
-    return () => clearInterval(timerRef.current)
-  }, [started, finished, finishExam])
-
-
-  const answeredCount = Object.keys(selectedAnswers).length
+  const {
+    answeredCount,
+    currentIndex,
+    currentQuestion,
+    examQuestionCount: EXAM_QUESTIONS,
+    examQuestions,
+    finishExam,
+    goNext,
+    goPrevious,
+    goToQuestion,
+    selectAnswer,
+    selectedAnswers,
+    setStarted,
+    started,
+    timeLeft,
+  } = useExamSession({ cert, questions, resultsPath: `/${cert.id}/results` })
 
   if (!started) {
     return (
@@ -110,7 +65,7 @@ export default function Exam() {
     )
   }
 
-  const q = examQuestions[currentIndex]
+  const q = currentQuestion
   const timerWarning = timeLeft < 300
 
   return (
@@ -158,7 +113,7 @@ export default function Exam() {
             return (
               <button
                 key={i}
-                onClick={() => setCurrentIndex(i)}
+                onClick={() => goToQuestion(i)}
                 aria-label={`Go to question ${i + 1}${isAnswered ? ' (answered)' : ''}`}
                 className={`w-10 h-10 rounded-lg text-sm font-bold transition-all duration-200 ${
                   isCurrent
@@ -179,7 +134,7 @@ export default function Exam() {
       <QuestionCard
         key={q.id}
         question={q}
-        onAnswer={(ans) => setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: ans }))}
+        onAnswer={selectAnswer}
         answered={false}
         selectedChoice={selectedAnswers[currentIndex]}
         examMode={true}
@@ -188,7 +143,7 @@ export default function Exam() {
       <div className="flex justify-between items-center pt-2">
         <button
           id="exam-prev-btn"
-          onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
+          onClick={goPrevious}
           disabled={currentIndex === 0}
           className="px-6 py-3 rounded-lg text-sm font-semibold text-zinc-300 border border-zinc-700 hover:bg-zinc-800 disabled:opacity-30 disabled:hover:bg-transparent transition-all"
         >
@@ -198,7 +153,7 @@ export default function Exam() {
         {currentIndex < EXAM_QUESTIONS - 1 ? (
           <button
             id="exam-next-btn"
-            onClick={() => setCurrentIndex((prev) => prev + 1)}
+            onClick={goNext}
             className="px-8 py-3 rounded-lg text-sm font-bold transition-all duration-300 text-zinc-950 hover:scale-105"
             style={{ backgroundColor: cert.color }}
           >

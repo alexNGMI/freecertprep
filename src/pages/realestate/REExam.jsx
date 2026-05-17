@@ -1,73 +1,29 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useCert } from '../../hooks/useCert'
-import { useProgress } from '../../hooks/useProgress'
+import { useExamSession } from '../../hooks/useExamSession'
 import REQuestionCard from '../../components/REQuestionCard'
-import { weightedSelect, selectLicensingExam } from '../../utils/exam-selection'
-import { isAnswerCorrect } from '../../utils/scoring'
 import { formatTime } from '../../utils/time'
 
 export default function REExam() {
   const cert = useCert()
   const questions = cert.questions
-  const EXAM_TIME = cert.examTime * 60
-  const EXAM_QUESTIONS = cert.examQuestions
-
-  const [started, setStarted] = useState(false)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedAnswers, setSelectedAnswers] = useState({})
-  const [timeLeft, setTimeLeft] = useState(EXAM_TIME)
-  const [finished, setFinished] = useState(false)
-  const { addExamResult } = useProgress(cert.id)
-  const navigate = useNavigate()
   const { reCert } = useParams()
-  const timerRef = useRef(null)
-  const selectedAnswersRef = useRef(selectedAnswers)
-
-  // State-licensing certs (e.g. real-estate-tx) carry a `composite` config
-  // and compose the exam as national + state portions to mirror the real
-  // two-section structure. Plain certs use straight domain-weighted select.
-  const [examQuestions] = useState(() =>
-    cert.composite
-      ? selectLicensingExam(questions, cert.composite)
-      : weightedSelect(questions, EXAM_QUESTIONS, cert.domains)
-  )
-
-  useEffect(() => {
-    selectedAnswersRef.current = selectedAnswers
-  }, [selectedAnswers])
-
-  const finishExam = useCallback(() => {
-    setFinished(true)
-    clearInterval(timerRef.current)
-    const currentAnswers = selectedAnswersRef.current
-    const answers = examQuestions.map((q, i) => {
-      const selected = currentAnswers[i] ?? -1
-      const correct = isAnswerCorrect(selected, q)
-      return { questionId: q.id, domain: q.domain, selected, correct }
-    })
-    addExamResult({ answers })
-    navigate(`/real-estate/study/${reCert}/results`, { state: { answers, questions: examQuestions } })
-  }, [examQuestions, addExamResult, navigate, reCert])
-
-  useEffect(() => {
-    if (started && !finished) {
-      timerRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timerRef.current)
-            finishExam()
-            return 0
-          }
-          return prev - 1
-        })
-      }, 1000)
-    }
-    return () => clearInterval(timerRef.current)
-  }, [started, finished, finishExam])
-
-
-  const answeredCount = Object.keys(selectedAnswers).length
+  const {
+    answeredCount,
+    currentIndex,
+    currentQuestion,
+    examQuestionCount: EXAM_QUESTIONS,
+    examQuestions,
+    finishExam,
+    goNext,
+    goPrevious,
+    goToQuestion,
+    selectAnswer,
+    selectedAnswers,
+    setStarted,
+    started,
+    timeLeft,
+  } = useExamSession({ cert, questions, resultsPath: `/real-estate/study/${reCert}/results` })
 
   if (!started) {
     return (
@@ -106,7 +62,7 @@ export default function REExam() {
     )
   }
 
-  const q = examQuestions[currentIndex]
+  const q = currentQuestion
   const timerWarning = timeLeft < 300
 
   return (
@@ -154,7 +110,7 @@ export default function REExam() {
             return (
               <button
                 key={i}
-                onClick={() => setCurrentIndex(i)}
+                onClick={() => goToQuestion(i)}
                 aria-label={`Go to question ${i + 1}${isAnswered ? ' (answered)' : ''}`}
                 className={`w-9 h-9 rounded-lg text-sm font-bold transition-all duration-200 ${
                   isCurrent
@@ -174,7 +130,7 @@ export default function REExam() {
       <REQuestionCard
         key={q.id}
         question={q}
-        onAnswer={(ans) => setSelectedAnswers((prev) => ({ ...prev, [currentIndex]: ans }))}
+        onAnswer={selectAnswer}
         answered={false}
         selectedChoice={selectedAnswers[currentIndex]}
         examMode={true}
@@ -182,7 +138,7 @@ export default function REExam() {
 
       <div className="flex justify-between items-center pt-1">
         <button
-          onClick={() => setCurrentIndex((prev) => Math.max(0, prev - 1))}
+          onClick={goPrevious}
           disabled={currentIndex === 0}
           className="px-6 py-3 rounded-lg text-sm font-semibold text-slate-600 border border-slate-300 hover:bg-slate-100 disabled:opacity-30 disabled:hover:bg-transparent transition-all"
         >
@@ -191,7 +147,7 @@ export default function REExam() {
 
         {currentIndex < EXAM_QUESTIONS - 1 ? (
           <button
-            onClick={() => setCurrentIndex((prev) => prev + 1)}
+            onClick={goNext}
             className="px-8 py-3 rounded-lg text-sm font-bold transition-all bg-rose-600 text-white hover:bg-rose-700"
           >
             Next Question

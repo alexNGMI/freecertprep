@@ -1,0 +1,752 @@
+[
+  {
+    "id": "re-ga-1",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which Georgia statute governs the licensing and regulation of real estate licensees?",
+    "choices": [
+      "O.C.G.A. Title 43, Chapter 40",
+      "O.C.G.A. Title 44, Chapter 14",
+      "O.C.G.A. Title 10, Chapter 1",
+      "O.C.G.A. Title 48, Chapter 6"
+    ],
+    "correctAnswer": 0,
+    "explanation": "O.C.G.A. Title 43, Chapter 40 is the Georgia Real Estate License Law — the primary statute that establishes licensing requirements, conduct standards, and the authority of the Georgia Real Estate Commission."
+  },
+  {
+    "id": "re-ga-2",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Georgia Real Estate Commission (GREC) is attached to which state agency for administrative purposes?",
+    "choices": [
+      "Department of Banking and Finance",
+      "Office of the Secretary of State",
+      "Department of Community Affairs",
+      "Department of Revenue"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GREC is attached to the Office of the Secretary of State for administrative purposes only. The Commission itself retains independent authority over licensing and discipline."
+  },
+  {
+    "id": "re-ga-3",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "How many members serve on the Georgia Real Estate Commission?",
+    "choices": [
+      "Five members",
+      "Six members",
+      "Seven members",
+      "Nine members"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Georgia Real Estate Commission is composed of seven members: six licensed real estate brokers (one from each congressional district) and one consumer member, all appointed by the Governor."
+  },
+  {
+    "id": "re-ga-4",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia salesperson license applicant must complete how many hours of pre-license education?",
+    "choices": [
+      "40 hours",
+      "60 hours",
+      "75 hours",
+      "90 hours"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia requires 75 hours of pre-license education for salesperson applicants before they are eligible to sit for the state licensing exam. The coursework must be completed at a GREC-approved school."
+  },
+  {
+    "id": "re-ga-5",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, an active salesperson license must be held under the supervision of a:",
+    "choices": [
+      "Licensed associate broker",
+      "Qualifying broker",
+      "Real estate attorney",
+      "Branch office manager"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In Georgia, every salesperson must be affiliated with and supervised by a qualifying broker. The qualifying broker is responsible for the activities of all licensees in the firm."
+  },
+  {
+    "id": "re-ga-6",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which of the following activities requires a Georgia real estate license?",
+    "choices": [
+      "Selling your own personally owned property",
+      "Managing properties for a family member at no compensation",
+      "Listing and selling property for others for a fee",
+      "Auctioning personal property at an estate sale"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A license is required to perform real estate brokerage activities — including listing and selling real property for others — for compensation. Selling your own property, managing a family member's property without pay, and auctioning personal (non-real) property are exempted activities."
+  },
+  {
+    "id": "re-ga-7",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Georgia Real Estate Education, Research and Recovery Fund (RERF) is primarily funded by:",
+    "choices": [
+      "Legislative appropriations from the state general fund",
+      "License fees paid by Georgia licensees",
+      "A percentage of real estate transfer taxes",
+      "Federal HUD grants"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Georgia Real Estate Education, Research, and Recovery Fund is funded primarily by a portion of the fees paid by licensees at initial application and renewal. The fund compensates consumers harmed by licensee misconduct when civil judgments are uncollectible."
+  },
+  {
+    "id": "re-ga-8",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "What is the maximum amount a single claimant may recover from the Georgia Real Estate Education, Research and Recovery Fund?",
+    "choices": [
+      "$15,000",
+      "$25,000",
+      "$35,000",
+      "$50,000"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The maximum any single claimant may recover from the Georgia Real Estate Recovery Fund is $35,000. There is also a $75,000 aggregate limit against any one licensee."
+  },
+  {
+    "id": "re-ga-9",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "After the Real Estate Recovery Fund pays a claim on behalf of a licensee, the most likely consequence for that licensee is:",
+    "choices": [
+      "A written reprimand and mandatory continuing education",
+      "Automatic revocation of the license until the fund is fully repaid",
+      "Suspension for 90 days and a fine equal to the amount paid",
+      "Probation with enhanced supervision for two years"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When the Recovery Fund pays a claim on behalf of a licensee, Georgia law requires that the licensee's license be automatically revoked. The license may not be reinstated until the licensee has repaid the fund in full, with interest."
+  },
+  {
+    "id": "re-ga-10",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia sales agent licenses must be renewed every:",
+    "choices": [
+      "One year",
+      "Two years",
+      "Three years",
+      "Four years"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia real estate licenses — both salesperson and broker — operate on a four-year renewal cycle. Licensees must complete 36 hours of continuing education, including a mandatory 3-hour License Law course, before each renewal."
+  },
+  {
+    "id": "re-ga-11",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which of the following disclosures is required by Georgia law in every real estate advertisement by a licensee?",
+    "choices": [
+      "The licensee's personal home address",
+      "The firm name as it appears on the license",
+      "The number of years the licensee has been licensed",
+      "The licensee's personal cell phone number"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia's advertising rules require that all real estate advertising by a licensee include the name of the real estate firm as it appears on the license. Personal addresses, years of experience, and personal cell numbers are not required disclosures."
+  },
+  {
+    "id": "re-ga-12",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia license law, 'commingling' refers to a licensee:",
+    "choices": [
+      "Representing both buyer and seller in the same transaction",
+      "Mixing client funds with the licensee's personal or firm operating funds",
+      "Marketing property outside the licensee's geographic territory",
+      "Splitting commission with an unlicensed person"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Commingling is the illegal act of mixing client or customer funds (such as earnest money) with the licensee's or firm's own operating or personal funds. Georgia requires that trust funds be maintained in a separate escrow account."
+  },
+  {
+    "id": "re-ga-13",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia real estate licensee who engages in 'blockbusting' is subject to discipline because it violates:",
+    "choices": [
+      "The Georgia Environmental Policy Act",
+      "Georgia's Fair Housing law and the federal Fair Housing Act",
+      "The Georgia Uniform Land Sales Practices Act",
+      "The Georgia Property Owners' Association Act"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Blockbusting — inducing owners to sell by making representations about the entry of protected-class persons into a neighborhood — violates both the federal Fair Housing Act and Georgia's state fair housing laws, and constitutes grounds for license discipline."
+  },
+  {
+    "id": "re-ga-14",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which of the following persons is EXEMPT from Georgia real estate licensing requirements?",
+    "choices": [
+      "A property manager who negotiates leases on behalf of the owner",
+      "A resident apartment manager employed by and managing a single complex",
+      "A real estate investor who markets a subdivision to the public",
+      "A licensed auctioneer who sells real property at auction for a fee"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia exempts salaried resident apartment managers employed directly by the property owner to manage a single complex. Property managers who negotiate leases for others, subdivision marketers, and auctioneers selling real estate for compensation generally need a real estate license."
+  },
+  {
+    "id": "re-ga-15",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia broker who fails to renew the license before expiration and continues to conduct brokerage activities is:",
+    "choices": [
+      "Operating under a grace period and is technically compliant",
+      "Practicing real estate without a license, which is a criminal offense",
+      "Allowed to operate if an application for renewal is pending",
+      "Only liable for a late fee with no other consequence"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Practicing real estate in Georgia without a current, active license is a criminal offense. There is no statutory grace period for conducting brokerage activities after a license expires; continuing to act would constitute unlicensed practice."
+  },
+  {
+    "id": "re-ga-16",
+    "domain": "Georgia State Laws and Rules",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a qualifying broker who terminates a salesperson must notify the Georgia Real Estate Commission within:",
+    "choices": [
+      "24 hours",
+      "3 business days",
+      "10 days",
+      "30 days"
+    ],
+    "correctAnswer": 2,
+    "explanation": "When a salesperson's affiliation with a qualifying broker is terminated, the broker must notify GREC within 10 days. The salesperson's license is returned to an inactive status until they affiliate with a new qualifying broker."
+  },
+  {
+    "id": "re-ga-17",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Georgia Brokerage Relationships in Real Estate Transactions Act (BRRETA) governs:",
+    "choices": [
+      "Environmental disclosure requirements for all property sales",
+      "The legal relationships between brokers and their clients and customers",
+      "The calculation and payment of real estate commissions",
+      "Subdivision development and plat recording requirements"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BRRETA establishes the legal framework for brokerage relationships in Georgia — defining client and customer relationships, the duties owed under each, and how agency is created and disclosed. It does not govern commissions, environmental disclosures, or subdivisions."
+  },
+  {
+    "id": "re-ga-18",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under BRRETA, a 'client' is defined as a person who has entered into a:",
+    "choices": [
+      "Purchase contract with a seller",
+      "Brokerage engagement agreement with a broker",
+      "Mortgage commitment with a lender",
+      "Listing agreement directly with the MLS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Under BRRETA, a client is a person who has signed a brokerage engagement agreement — either a listing agreement (seller client) or a buyer brokerage agreement (buyer client). Persons without such an agreement are 'customers' who receive limited, non-fiduciary services."
+  },
+  {
+    "id": "re-ga-19",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "BRRETA requires that a broker provide a client with which of the following duties?",
+    "choices": [
+      "Accounting, confidentiality, obedience, loyalty, and disclosure",
+      "Timely presentation of offers, promotion of the client's best interests, and accounting for money",
+      "Honesty, presenting all offers, and informing the client about defects known to the broker",
+      "All fiduciary duties including undivided loyalty and unlimited confidentiality"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BRRETA specifies that a broker owes a client: timely presentation of offers, promotion of the client's best interests, disclosure of material adverse facts, accounting for money and property, and compliance with the brokerage engagement. Georgia uses a statutory duties framework rather than the common-law fiduciary label."
+  },
+  {
+    "id": "re-ga-20",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under BRRETA, a Georgia broker acting as a 'transaction broker' (facilitator) owes the parties:",
+    "choices": [
+      "Full fiduciary duties to both the buyer and the seller equally",
+      "Only the duties owed to customers — honesty, presenting offers, and disclosing material defects",
+      "Confidentiality to the seller only, because the seller pays the commission",
+      "No duties whatsoever, since neither party is a client"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When a broker acts as a transaction broker or facilitator, neither party is a client; both are customers. BRRETA limits the broker's duties to: honesty, presenting all written offers, disclosing adverse material facts known to the broker, and complying with the law. Full fiduciary duties are not owed."
+  },
+  {
+    "id": "re-ga-21",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia's Seller's Property Disclosure Statement is:",
+    "choices": [
+      "Mandatory for all residential sales of one-to-four family dwellings",
+      "Required only when the seller has actual knowledge of material defects",
+      "Not required by statute but commonly used to protect sellers from post-closing claims",
+      "Required only if the property was built before 1978"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Georgia does not mandate a seller disclosure statement by statute. However, the GREC-approved Seller's Property Disclosure Statement is widely used as a best practice to document the seller's knowledge of property conditions and protect sellers from post-closing liability."
+  },
+  {
+    "id": "re-ga-22",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under BRRETA, when must a Georgia broker provide a written brokerage engagement to a prospective client?",
+    "choices": [
+      "Before the first substantive contact with the client",
+      "At or before the time the client signs an offer or listing agreement",
+      "Within three business days of the first showing",
+      "Only if the transaction involves property over $100,000"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BRRETA requires that the written brokerage engagement be signed at or before the time the client signs an offer to purchase or a listing agreement. Georgia does not require written disclosure before the first substantive contact as some other states do."
+  },
+  {
+    "id": "re-ga-23",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia real estate licensee discovers a material defect in a listed property that the seller is unaware of. Under BRRETA, the licensee must:",
+    "choices": [
+      "Disclose the defect to prospective buyers even without the seller's consent",
+      "Keep the defect confidential because it was discovered while representing the seller",
+      "Disclose the defect only if asked directly by a buyer",
+      "Withhold disclosure until after an offer is received"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Georgia BRRETA requires licensees to disclose adverse material facts that are known to the broker — even if representing the seller — because these facts must be disclosed to all parties. Client confidentiality does not extend to material defects that could harm a buyer."
+  },
+  {
+    "id": "re-ga-24",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, 'designated agency' under BRRETA means:",
+    "choices": [
+      "The broker personally represents both buyer and seller in the same transaction",
+      "Different affiliated licensees within the same firm each represent one party exclusively",
+      "A licensee is designated by GREC to handle distressed properties",
+      "One licensee is designated to handle all the firm's transactions for a given year"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia's designated agency allows a firm to appoint separate affiliated licensees to represent the buyer and the seller exclusively within the same firm and transaction. The broker then acts as a dual agent at the brokerage level, but each client still receives exclusive representation from their designated agent."
+  },
+  {
+    "id": "re-ga-25",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which of the following must a Georgia listing agent disclose to a prospective buyer under BRRETA?",
+    "choices": [
+      "The seller's minimum acceptable price",
+      "The seller's motivation for selling",
+      "A known structural defect in the property",
+      "Confidential terms of the listing agreement"
+    ],
+    "correctAnswer": 2,
+    "explanation": "BRRETA requires all licensees (regardless of representation) to disclose adverse material facts known to them, including known structural defects. The seller's minimum price, motivation, and confidential listing terms are client confidences that must not be disclosed."
+  },
+  {
+    "id": "re-ga-26",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, an exclusive right-to-sell listing agreement must include:",
+    "choices": [
+      "A definite expiration date",
+      "A guaranteed minimum commission amount",
+      "A provision allowing the seller to cancel at will",
+      "MLS enrollment within 24 hours of signing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Georgia requires that every exclusive listing agreement contain a definite expiration date. Open-ended or 'until notice' listings are prohibited because they could bind the seller indefinitely without a clear termination right."
+  },
+  {
+    "id": "re-ga-27",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "The Georgia Association of REALTORS® (GAR) Purchase and Sale Agreement is best described as:",
+    "choices": [
+      "A state-mandated form required for all residential sales",
+      "An industry-standard contract form published by the professional association",
+      "A government-approved form that supersedes other written agreements",
+      "A preliminary agreement that must be followed by a GREC-approved final contract"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The GAR Purchase and Sale Agreement is an industry-standard contract form created by the Georgia Association of REALTORS®. It is widely used in Georgia residential transactions but is not mandated by state law; parties may use any mutually agreed-upon written contract."
+  },
+  {
+    "id": "re-ga-28",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, real estate contracts for the sale of land must be:",
+    "choices": [
+      "Notarized to be enforceable",
+      "Filed with the county recorder within 30 days",
+      "In writing and signed by the parties to be enforceable",
+      "Approved by a real estate attorney before closing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Georgia's Statute of Frauds (O.C.G.A. § 13-5-30) requires that contracts for the sale of real property be in writing and signed by the party against whom enforcement is sought. Notarization, recording, and attorney approval are not required for the contract to be enforceable."
+  },
+  {
+    "id": "re-ga-29",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia property management requires a real estate license when the manager:",
+    "choices": [
+      "Acts as a salaried employee managing a single complex owned by the employer",
+      "Manages property for others and receives compensation for those services",
+      "Maintains a residential property owned solely by a family member",
+      "Collects dues for a homeowners association of which they are a member"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A real estate license is required in Georgia for anyone who manages property for others for compensation, including negotiating leases and collecting rent. The exemptions cover salaried employees managing a single employer-owned complex, personal family property, and HOA dues collection by owners."
+  },
+  {
+    "id": "re-ga-30",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia broker received an earnest money deposit. Under state law and GREC rules, the broker must place the funds in an escrow account within:",
+    "choices": [
+      "24 hours of receipt",
+      "3 banking days of receipt",
+      "5 business days of receipt",
+      "The same day as contract ratification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia rules require that a broker deposit earnest money into a trust or escrow account within three banking days of receipt. Failure to timely deposit trust funds is grounds for disciplinary action."
+  },
+  {
+    "id": "re-ga-31",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a real estate commission is earned when the broker has:",
+    "choices": [
+      "Produced a ready, willing, and able buyer who meets all the seller's terms",
+      "Successfully closed the transaction and title has transferred",
+      "Been paid by the listing firm regardless of closing",
+      "Obtained a ratified contract regardless of whether closing occurs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Under the traditional Georgia common-law rule, a broker earns a commission when they produce a ready, willing, and able buyer on the seller's terms, even if closing does not occur due to the seller's default. However, many modern listing agreements now condition payment on closing."
+  },
+  {
+    "id": "re-ga-32",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which of the following fair housing violations would be unique to a Georgia state-law claim (not solely federal)?",
+    "choices": [
+      "Refusing to rent based on race",
+      "Steering buyers away from neighborhoods based on national origin",
+      "Discriminating based on familial status in a non-exempt property",
+      "Refusing to rent to a Section 8 voucher holder where Georgia law prohibits source-of-income discrimination"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Federal fair housing law does not protect source-of-income as a class. Georgia law in some jurisdictions prohibits discrimination based on source of income (such as housing vouchers). Discrimination based on race, national origin, and familial status are covered by both federal and Georgia law."
+  },
+  {
+    "id": "re-ga-33",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Which document in a Georgia residential transaction typically discloses whether the property is in a homeowners association?",
+    "choices": [
+      "The lender's commitment letter",
+      "The Seller's Property Disclosure Statement or the GAR Purchase and Sale Agreement",
+      "The plat recorded with the county",
+      "The Georgia Residential Mortgage Act disclosure"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The GAR Purchase and Sale Agreement and Seller's Property Disclosure Statement include sections addressing HOA membership, dues, and assessments. Licensees have a duty to disclose known HOA information to buyers."
+  },
+  {
+    "id": "re-ga-34",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a broker who has a written brokerage engagement with a buyer shows the buyer a property listed by the broker's own firm. This situation creates:",
+    "choices": [
+      "An illegal conflict of interest requiring the buyer to hire a different broker",
+      "A disclosed dual-agency or designated-agency situation requiring written consent",
+      "No conflict because the listing and buyer agreements are separate documents",
+      "Automatic termination of the buyer brokerage engagement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When a broker's firm represents both the buyer client and the seller client in the same transaction, Georgia BRRETA requires disclosure and written informed consent for dual agency (or, alternatively, the use of designated agency where different licensees in the firm represent each party)."
+  },
+  {
+    "id": "re-ga-35",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, a licensee acting as a buyer's agent who learns confidential information about the buyer's motivation and maximum price must:",
+    "choices": [
+      "Disclose it to the seller immediately as a material fact",
+      "Keep it confidential even after the transaction closes",
+      "Share it with the listing agent if asked directly",
+      "Disclose it to the listing agent to facilitate negotiations"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BRRETA's duty of confidentiality survives termination of the brokerage engagement. A buyer's agent must not disclose the buyer's financial position, motivation, or maximum price to the seller or listing agent — doing so would breach the duty owed to the client."
+  },
+  {
+    "id": "re-ga-36",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia's 'as-is' clause in a purchase contract means:",
+    "choices": [
+      "The seller has no obligation to disclose known defects",
+      "The buyer accepts the property in its current condition but does not waive the right to inspect or sue for fraud",
+      "The seller is released from all liability after closing",
+      "The buyer cannot negotiate repairs or price reductions after the inspection"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An 'as-is' clause in Georgia means the buyer accepts the property in its present condition; however, it does not relieve the seller or listing agent of the obligation to disclose known material defects, nor does it bar claims of fraud or misrepresentation. Buyers retain the right to inspect."
+  },
+  {
+    "id": "re-ga-37",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under the Georgia Residential Mortgage Act, a person who negotiates mortgage loans for consumers in Georgia must be licensed as a:",
+    "choices": [
+      "Real estate broker with a mortgage endorsement",
+      "Mortgage loan originator under the Nationwide Multistate Licensing System (NMLS)",
+      "Licensed attorney with a real estate practice certification",
+      "Registered investment adviser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Georgia Residential Mortgage Act requires that individuals who originate or negotiate residential mortgage loans for consumers register as mortgage loan originators through the NMLS. Real estate licensees may not originate loans without a separate mortgage license."
+  },
+  {
+    "id": "re-ga-38",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia's Abandoned Mobile Home Act primarily addresses:",
+    "choices": [
+      "Zoning restrictions on mobile home parks",
+      "The process for removing titles and disposing of abandoned manufactured homes",
+      "Lending requirements for mobile home purchases",
+      "Federal HUD construction standards for manufactured housing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia's Abandoned Mobile Home Act establishes the legal process by which counties and municipalities may remove titles from and dispose of abandoned manufactured homes. It is a state-specific law relevant to real estate practice involving manufactured housing."
+  },
+  {
+    "id": "re-ga-39",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia law, a real estate licensee who advertises a property on social media must include:",
+    "choices": [
+      "The licensee's license number",
+      "The name of the brokerage firm as it appears on the license",
+      "A statement that the content was created by a licensed agent",
+      "The listing price and MLS number"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GREC advertising rules require that all advertising — including social media — include the name of the real estate firm as it appears on the license. Omitting the firm name in any advertisement is a violation."
+  },
+  {
+    "id": "re-ga-40",
+    "domain": "Real Estate Practice in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia salesperson who wants to become a broker must have at least how many years of active licensure experience?",
+    "choices": [
+      "One year",
+      "Two years",
+      "Three years",
+      "Five years"
+    ],
+    "correctAnswer": 2,
+    "explanation": "To upgrade from salesperson to broker in Georgia, the applicant must have at least three years of active real estate licensure experience within the preceding five years, in addition to completing the required 60-hour broker pre-license course."
+  },
+  {
+    "id": "re-ga-41",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia is classified as which type of foreclosure state?",
+    "choices": [
+      "Judicial foreclosure only",
+      "Non-judicial (power-of-sale) foreclosure",
+      "Strict foreclosure",
+      "Hybrid — either judicial or non-judicial at the lender's election"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia is a non-judicial (power-of-sale) foreclosure state. Lenders may foreclose by advertising and sale without going to court, as long as the required notice and publication procedures under O.C.G.A. § 44-14-162 are followed. This makes the process relatively fast compared to judicial states."
+  },
+  {
+    "id": "re-ga-42",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Under Georgia's non-judicial foreclosure process, a lender must publish notice of sale for how many consecutive weeks in the official county newspaper?",
+    "choices": [
+      "One week",
+      "Two weeks",
+      "Four weeks",
+      "Six weeks"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Georgia law (O.C.G.A. § 44-14-162.2) requires that notice of a non-judicial foreclosure sale be advertised for four consecutive weeks in the official newspaper of the county where the property is located, with the sale held on the first Tuesday of a month."
+  },
+  {
+    "id": "re-ga-43",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, real estate closings are typically conducted by:",
+    "choices": [
+      "The listing real estate broker",
+      "A title insurance company acting as its own settlement agent",
+      "A licensed attorney",
+      "A HUD-certified housing counselor"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Georgia is an attorney-closing state. The Georgia Supreme Court's unauthorized-practice-of-law rules require that real estate closings be conducted by a licensed Georgia attorney. The attorney examines title, prepares closing documents, and disburses funds."
+  },
+  {
+    "id": "re-ga-44",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia's transfer tax (real estate excise tax) is calculated at:",
+    "choices": [
+      "$1.00 per $500 of the sale price or fraction thereof",
+      "$1.00 per $1,000 of the sale price or fraction thereof",
+      "0.5% of the sale price",
+      "1% of the mortgage amount"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Georgia imposes a real estate transfer tax of $1.00 per $500 (or fraction of $500) of the consideration. For example, a $200,000 sale would generate a transfer tax of $400. The tax is imposed on the grantor (seller)."
+  },
+  {
+    "id": "re-ga-45",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Who typically pays the Georgia real estate transfer tax?",
+    "choices": [
+      "The buyer",
+      "The seller",
+      "It is split 50/50 between buyer and seller",
+      "The real estate broker"
+    ],
+    "correctAnswer": 1,
+    "explanation": "By statute, the Georgia real estate transfer tax is imposed on the grantor — the seller. As with most closing costs, it may be negotiated between the parties, but the statutory default is that the seller pays."
+  },
+  {
+    "id": "re-ga-46",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia's FIRPTA withholding obligation applies when:",
+    "choices": [
+      "The buyer is a foreign national purchasing property valued over $1 million",
+      "The seller is a foreign national or non-resident alien selling U.S. real property",
+      "The property is located in a special flood hazard area",
+      "The mortgage lender is a foreign institution"
+    ],
+    "correctAnswer": 1,
+    "explanation": "FIRPTA (Federal law, also enforced at closing by Georgia attorneys) requires withholding of 15% of the gross sales price when the seller is a foreign person (non-resident alien). The buyer/closing attorney is the withholding agent and must remit to the IRS unless an exemption applies."
+  },
+  {
+    "id": "re-ga-47",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In a Georgia closing, property taxes are typically prorated:",
+    "choices": [
+      "Based on the prior year's assessed value using a 360-day year",
+      "Based on the current year's tax bill or estimated taxes using a 365-day year",
+      "Only if required by the buyer's lender",
+      "After closing, with the county tax commissioner adjusting the bill"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia property taxes are paid in arrears. At closing, taxes are typically prorated using the current year's tax bill (or last year's bill as an estimate if the current bill is not yet issued) on a 365-day basis through the date of closing, with the seller crediting the buyer for the seller's portion."
+  },
+  {
+    "id": "re-ga-48",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "A Georgia intangible recording tax is imposed on:",
+    "choices": [
+      "The sale price of all real property transfers",
+      "Long-term real estate notes and mortgage instruments at the time of recording",
+      "Capital gains realized from real property sales",
+      "Deed transfers between related parties"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Georgia imposes an intangible recording tax on long-term notes secured by real estate at the rate of $1.50 per $500 of the loan principal (rounded up). This is paid at the time the security deed is recorded and is typically a buyer/borrower closing cost."
+  },
+  {
+    "id": "re-ga-49",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "In Georgia, the instrument used to pledge real property as security for a mortgage loan is called a:",
+    "choices": [
+      "Deed of trust",
+      "Mortgage deed",
+      "Security deed (deed to secure debt)",
+      "Warranty deed with power of sale"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Georgia uses the security deed (also called a 'deed to secure debt' or 'deed of trust' colloquially, but technically a security deed) rather than a traditional mortgage. Title is conveyed to the lender as security and reconveyed upon payoff, which facilitates Georgia's non-judicial foreclosure process."
+  },
+  {
+    "id": "re-ga-50",
+    "domain": "Finance and Closing in Georgia",
+    "type": "single-choice",
+    "portion": "state",
+    "question": "Georgia's usury laws cap certain residential mortgage interest rates, but conventional lenders are most often exempt because:",
+    "choices": [
+      "The Federal Reserve sets a maximum rate that preempts state caps",
+      "Federal preemption under the Depository Institutions Deregulation Act exempts federally chartered lenders from state usury limits on first mortgage loans",
+      "Georgia has no usury laws for any type of loan",
+      "Borrowers must individually waive usury protections in writing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Federal preemption under the Depository Institutions Deregulation and Monetary Control Act (DIDMCA) allows federally chartered banks, savings associations, and credit unions to charge market rates on first-lien residential mortgages, effectively exempting them from Georgia's state usury ceilings."
+  }
+]

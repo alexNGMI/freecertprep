@@ -175,12 +175,12 @@ export default function Home() {
               const comingSoonTerraform = {
                 id: 'terraform-associate',
                 provider: 'HashiCorp',
-                code: 'TF Associate 003',
+                code: 'TF Associate 004',
                 title: 'HashiCorp Terraform Associate',
                 difficulty: 'Associate',
                 color: '#7c3aed',
                 description:
-                  'Infrastructure-as-Code fundamentals: Terraform workflow, state, modules, providers, and HCL — the multi-cloud provisioning credential.',
+                  'Infrastructure-as-Code fundamentals for Terraform 1.12: workflow, state, modules, providers, configuration, and HCP Terraform.',
                 examQuestions: 57,
                 examTime: 60,
               }

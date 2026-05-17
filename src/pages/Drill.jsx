@@ -1,11 +1,7 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useCert } from '../hooks/useCert'
-import { useProgress } from '../hooks/useProgress'
-import { useQuestionStats } from '../hooks/useQuestionStats'
 import { useBookmarks } from '../hooks/useBookmarks'
+import { useTimedDrillSession } from '../hooks/useTimedDrillSession'
 import QuestionCard from '../components/QuestionCard'
-import { weightedSample } from '../utils/shuffle'
-import { isAnswerCorrect } from '../utils/scoring'
 import { formatTime, timerColor, TIMER_PALETTE_DARK } from '../utils/time'
 
 const DRILL_QUESTIONS = 10
@@ -15,79 +11,21 @@ export default function Drill() {
   const cert = useCert()
   const questions = cert.questions
   const { toggle: toggleBookmark, isBookmarked } = useBookmarks(cert.id)
-  const { addQuizResult } = useProgress(cert.id)
-  const { getWeightedPool, recordSession } = useQuestionStats(cert.id)
-
-  const [drillStarted, setDrillStarted] = useState(false)
-  const [sessionKey, setSessionKey] = useState(0)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [answers, setAnswers] = useState([])
-  const [timeLeft, setTimeLeft] = useState(DRILL_TIME)
-  const [showResult, setShowResult] = useState(false)
-
-  // Weighted 10-question block — same Smart Practice pool
-  const drillQuestions = useMemo(() => {
-    return weightedSample(getWeightedPool(questions), DRILL_QUESTIONS)
-  }, [questions, sessionKey, getWeightedPool]) // eslint-disable-line react-hooks/exhaustive-deps
-
-  const endDrill = useCallback((finalAnswers) => {
-    addQuizResult({ domain: 'Timed Drill', answers: finalAnswers })
-    recordSession(finalAnswers)
-    setShowResult(true)
-  }, [addQuizResult, recordSession])
-
-  // Keep a ref to the latest answers so the hard-stop timeout can read them
-  // without needing answers in the effect dependency array.
-  const answersRef = useRef(answers)
-  useEffect(() => { answersRef.current = answers }, [answers])
-
-  // Countdown + hard stop — scheduled once per drill start, not every tick.
-  // setInterval handles display; setTimeout fires endDrill asynchronously
-  // after the full drill duration so setState is never called synchronously
-  // in the effect body.
-  useEffect(() => {
-    if (!drillStarted || showResult) return
-
-    const tickId = setInterval(() => {
-      setTimeLeft(t => Math.max(0, t - 1))
-    }, 1000)
-
-    const stopId = setTimeout(() => {
-      endDrill(answersRef.current)
-    }, DRILL_TIME * 1000)
-
-    return () => {
-      clearInterval(tickId)
-      clearTimeout(stopId)
-    }
-  }, [drillStarted, showResult, endDrill])
-
-  const startDrill = () => {
-    setCurrentIndex(0)
-    setAnswers([])
-    setTimeLeft(DRILL_TIME)
-    setShowResult(false)
-    setDrillStarted(true)
-    setSessionKey(k => k + 1)
-  }
-
-  const handleAnswer = (selectedChoice) => {
-    const question = drillQuestions[currentIndex]
-    const correct = isAnswerCorrect(selectedChoice, question)
-    setAnswers(prev => [
-      ...prev,
-      { questionId: question.id, domain: question.domain, selected: selectedChoice, correct },
-    ])
-  }
-
-  const handleNext = () => {
-    const newAnswers = answers // already updated via handleAnswer
-    if (currentIndex < drillQuestions.length - 1) {
-      setCurrentIndex(i => i + 1)
-    } else {
-      endDrill(newAnswers)
-    }
-  }
+  const {
+    answers,
+    backToSetup,
+    currentAnswer,
+    currentIndex,
+    currentQuestion,
+    drillQuestions,
+    drillStarted,
+    handleAnswer,
+    handleNext,
+    isLastQuestion,
+    showResult,
+    startDrill,
+    timeLeft,
+  } = useTimedDrillSession({ cert, questions, questionCount: DRILL_QUESTIONS, duration: DRILL_TIME })
 
   // ─── Setup ───────────────────────────────────────────────────────────────────
   if (!drillStarted) {
@@ -181,7 +119,7 @@ export default function Drill() {
               New Drill
             </button>
             <button
-              onClick={() => setDrillStarted(false)}
+              onClick={backToSetup}
               className="font-semibold px-10 py-3.5 rounded-xl bg-zinc-800 text-zinc-300 hover:bg-zinc-700 border border-white/5 w-full transition-all"
             >
               Back
@@ -193,11 +131,8 @@ export default function Drill() {
   }
 
   // ─── Active drill ─────────────────────────────────────────────────────────────
-  const currentQuestion = drillQuestions[currentIndex]
-  const currentAnswer = answers[currentIndex]
   const color = timerColor(timeLeft, DRILL_TIME, TIMER_PALETTE_DARK)
   const timePct = (timeLeft / DRILL_TIME) * 100
-  const isLastQuestion = currentIndex === drillQuestions.length - 1
 
   return (
     <div className="space-y-6 animate-fade-up max-w-4xl mx-auto">
