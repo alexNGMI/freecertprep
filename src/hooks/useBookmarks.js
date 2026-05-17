@@ -1,22 +1,24 @@
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
+import { KEYS, readJSON, writeJSON, subscribe } from '../utils/storage.js'
 
-const STORAGE_KEY = 'freecertprep-bookmarks'
+const STORAGE_KEY = KEYS.bookmarks
 
 function loadBookmarks() {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    return stored ? JSON.parse(stored) : {}
-  } catch {
-    return {}
-  }
+  return readJSON(STORAGE_KEY, {})
 }
 
 function saveBookmarks(bookmarks) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(bookmarks))
+  writeJSON(STORAGE_KEY, bookmarks)
 }
 
 export function useBookmarks(certId) {
   const [bookmarks, setBookmarks] = useState(loadBookmarks)
+
+  // Keep this tab in sync if another tab toggles bookmarks (or clears storage).
+  useEffect(
+    () => subscribe(STORAGE_KEY, () => setBookmarks(loadBookmarks())),
+    [],
+  )
 
   const certBookmarks = useMemo(() => bookmarks[certId] || [], [bookmarks, certId])
 

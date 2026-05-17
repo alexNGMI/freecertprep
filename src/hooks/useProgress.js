@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { aggregateDomainStats, aggregateOverallStats } from '../utils/progress-stats.js'
+import { KEYS, readJSON, writeJSON, subscribe } from '../utils/storage.js'
 
-const STORAGE_KEY = 'freecertprep-progress'
+const STORAGE_KEY = KEYS.progress
 
 const defaultProgress = {}
 
@@ -10,18 +11,17 @@ function getCertProgress(progress, certId) {
 }
 
 export function useProgress(certId) {
-  const [progress, setProgress] = useState(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      return stored ? JSON.parse(stored) : defaultProgress
-    } catch {
-      return defaultProgress
-    }
-  })
+  const [progress, setProgress] = useState(() => readJSON(STORAGE_KEY, defaultProgress))
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress))
+    writeJSON(STORAGE_KEY, progress)
   }, [progress])
+
+  // Keep this tab in sync if another tab writes progress (or clears storage).
+  useEffect(
+    () => subscribe(STORAGE_KEY, () => setProgress(readJSON(STORAGE_KEY, defaultProgress))),
+    [],
+  )
 
   const certProgress = getCertProgress(progress, certId)
 

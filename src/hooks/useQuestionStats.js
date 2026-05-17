@@ -1,25 +1,25 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { buildWeightedPool } from '../utils/smart-practice.js'
+import { KEYS, readJSON, writeJSON, subscribe } from '../utils/storage.js'
 
 // Separate key from quiz/exam history so the two can evolve independently.
 // Suffix "-local" reserves space for a future userId-keyed version when
 // accounts are added — migration can merge local stats into the account on
 // first login without touching this key.
-const STORAGE_KEY = 'freecertprep-question-stats-local'
+const STORAGE_KEY = KEYS.questionStats
 
 export function useQuestionStats(certId) {
-  const [stats, setStats] = useState(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      return stored ? JSON.parse(stored) : {}
-    } catch {
-      return {}
-    }
-  })
+  const [stats, setStats] = useState(() => readJSON(STORAGE_KEY, {}))
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(stats))
+    writeJSON(STORAGE_KEY, stats)
   }, [stats])
+
+  // Keep this tab in sync if another tab writes stats (or clears storage).
+  useEffect(
+    () => subscribe(STORAGE_KEY, () => setStats(readJSON(STORAGE_KEY, {}))),
+    [],
+  )
 
   // Stable per-cert slice — only changes when stats state changes
   const certStats = useMemo(() => stats[certId] || {}, [stats, certId])
