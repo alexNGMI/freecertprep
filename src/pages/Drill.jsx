@@ -6,22 +6,10 @@ import { useBookmarks } from '../hooks/useBookmarks'
 import QuestionCard from '../components/QuestionCard'
 import { weightedSample } from '../utils/shuffle'
 import { isAnswerCorrect } from '../utils/scoring'
+import { formatTime, timerColor, TIMER_PALETTE_DARK } from '../utils/time'
 
 const DRILL_QUESTIONS = 10
 const DRILL_TIME = 600 // 10 minutes in seconds
-
-function formatTime(seconds) {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}:${s.toString().padStart(2, '0')}`
-}
-
-function timerColor(seconds) {
-  const pct = seconds / DRILL_TIME
-  if (pct > 0.5) return '#34d399' // emerald
-  if (pct > 0.25) return '#fbbf24' // amber
-  return '#f43f5e' // rose
-}
 
 export default function Drill() {
   const cert = useCert()
@@ -162,8 +150,6 @@ export default function Drill() {
     const passed = pct >= cert.passingScore
     const timedOut = timeLeft === 0
     const timeUsed = DRILL_TIME - timeLeft
-    const m = Math.floor(timeUsed / 60)
-    const s = timeUsed % 60
 
     return (
       <div className="space-y-10 animate-fade-up pt-4 max-w-lg mx-auto">
@@ -183,7 +169,7 @@ export default function Drill() {
             <span className="text-zinc-200 font-bold">{correct}</span> of <span className="text-zinc-200 font-bold">{total}</span> correct
           </p>
           {!timedOut && (
-            <p className="text-zinc-600 text-xs mb-6">Finished in {m}:{s.toString().padStart(2, '0')}</p>
+            <p className="text-zinc-600 text-xs mb-6">Finished in {formatTime(timeUsed)}</p>
           )}
 
           <div className="flex flex-col gap-3 mt-8">
@@ -209,7 +195,7 @@ export default function Drill() {
   // ─── Active drill ─────────────────────────────────────────────────────────────
   const currentQuestion = drillQuestions[currentIndex]
   const currentAnswer = answers[currentIndex]
-  const color = timerColor(timeLeft)
+  const color = timerColor(timeLeft, DRILL_TIME, TIMER_PALETTE_DARK)
   const timePct = (timeLeft / DRILL_TIME) * 100
   const isLastQuestion = currentIndex === drillQuestions.length - 1
 

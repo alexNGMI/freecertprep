@@ -6,22 +6,10 @@ import { useBookmarks } from '../../hooks/useBookmarks'
 import REQuestionCard from '../../components/REQuestionCard'
 import { weightedSample } from '../../utils/shuffle'
 import { isAnswerCorrect } from '../../utils/scoring'
+import { formatTime, timerColor, TIMER_PALETTE_LIGHT } from '../../utils/time'
 
 const DRILL_QUESTIONS = 10
 const DRILL_TIME = 600 // 10 minutes in seconds
-
-function formatTime(seconds) {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}:${s.toString().padStart(2, '0')}`
-}
-
-function timerColor(seconds) {
-  const pct = seconds / DRILL_TIME
-  if (pct > 0.5) return '#16a34a' // emerald-600
-  if (pct > 0.25) return '#d97706' // amber-600
-  return '#e11d48' // rose-600
-}
 
 export default function REDrill() {
   const cert = useCert()
@@ -154,8 +142,6 @@ export default function REDrill() {
     const passed = pct >= cert.passingScore
     const timedOut = timeLeft === 0
     const timeUsed = DRILL_TIME - timeLeft
-    const m = Math.floor(timeUsed / 60)
-    const s = timeUsed % 60
 
     return (
       <div className="space-y-8 animate-fade-up pt-2 max-w-lg mx-auto">
@@ -178,7 +164,7 @@ export default function REDrill() {
           </p>
           {!timedOut && (
             <p className="text-slate-400 text-xs mb-6">
-              Finished in {m}:{s.toString().padStart(2, '0')}
+              Finished in {formatTime(timeUsed)}
             </p>
           )}
 
@@ -204,7 +190,7 @@ export default function REDrill() {
   // ─── Active drill ───────────────────────────────────────────────────────────
   const currentQuestion = drillQuestions[currentIndex]
   const currentAnswer = answers[currentIndex]
-  const color = timerColor(timeLeft)
+  const color = timerColor(timeLeft, DRILL_TIME, TIMER_PALETTE_LIGHT)
   const timePct = (timeLeft / DRILL_TIME) * 100
   const isLastQuestion = currentIndex === drillQuestions.length - 1
 

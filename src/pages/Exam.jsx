@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import QuestionCard from '../components/QuestionCard'
 import { weightedSelect } from '../utils/exam-selection'
 import { isAnswerCorrect } from '../utils/scoring'
+import { formatTime } from '../utils/time'
 
 export default function Exam() {
   const cert = useCert()
@@ -64,11 +65,6 @@ export default function Exam() {
     return () => clearInterval(timerRef.current)
   }, [started, finished, finishExam])
 
-  const formatTime = (seconds) => {
-    const m = Math.floor(seconds / 60)
-    const s = seconds % 60
-    return `${m}:${s.toString().padStart(2, '0')}`
-  }
 
   const answeredCount = Object.keys(selectedAnswers).length
 

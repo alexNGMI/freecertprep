@@ -5,6 +5,7 @@ import { useProgress } from '../../hooks/useProgress'
 import REQuestionCard from '../../components/REQuestionCard'
 import { weightedSelect, selectLicensingExam } from '../../utils/exam-selection'
 import { isAnswerCorrect } from '../../utils/scoring'
+import { formatTime } from '../../utils/time'
 
 export default function REExam() {
   const cert = useCert()
@@ -65,11 +66,6 @@ export default function REExam() {
     return () => clearInterval(timerRef.current)
   }, [started, finished, finishExam])
 
-  const formatTime = (seconds) => {
-    const m = Math.floor(seconds / 60)
-    const s = seconds % 60
-    return `${m}:${s.toString().padStart(2, '0')}`
-  }
 
   const answeredCount = Object.keys(selectedAnswers).length
 
