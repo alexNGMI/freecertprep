@@ -92,6 +92,55 @@ export function migrate() {
 }
 
 /**
+ * Trigger a browser download of the raw persisted progress as a JSON file.
+ * Browser-only (Blob/URL/document); returns false when unavailable or on any
+ * failure. `filenamePrefix` distinguishes the two surfaces (freecertprep vs
+ * realestateprep). Shared by Dashboard and REDashboard.
+ */
+export function exportProgress(filenamePrefix = 'freecertprep') {
+  const ls = getLS()
+  if (!ls || typeof document === 'undefined' || typeof URL === 'undefined') return false
+  try {
+    const data = ls.getItem(KEYS.progress) || '{}'
+    const blob = new Blob([data], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${filenamePrefix}-progress-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Validate and persist a raw progress-JSON string from an imported file.
+ * Writes the raw string verbatim (not re-serialized) to preserve exact
+ * round-trip behavior. Returns:
+ *   'ok'      — written
+ *   'invalid' — not parseable JSON
+ *   'error'   — storage unavailable or write failed (e.g. quota)
+ * Shared by Dashboard and REDashboard.
+ */
+export function importProgressRaw(raw) {
+  try {
+    JSON.parse(raw)
+  } catch {
+    return 'invalid'
+  }
+  const ls = getLS()
+  if (!ls) return 'error'
+  try {
+    ls.setItem(KEYS.progress, raw)
+    return 'ok'
+  } catch {
+    return 'error'
+  }
+}
+
+/**
  * Cross-tab sync. Invokes `handler` (with no arguments — the caller re-reads
  * its own slice) when another tab writes `key`, or when storage is cleared
  * (the `storage` event reports key === null for clear()).

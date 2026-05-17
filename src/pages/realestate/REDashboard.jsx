@@ -3,24 +3,7 @@ import { Link } from 'react-router-dom'
 import { useCert } from '../../hooks/useCert'
 import { useProgress } from '../../hooks/useProgress'
 import { useQuestionStats } from '../../hooks/useQuestionStats'
-
-const PROGRESS_KEY = 'freecertprep-progress'
-
-function exportProgress() {
-  try {
-    const data = localStorage.getItem(PROGRESS_KEY) || '{}'
-    const blob = new Blob([data], { type: 'application/json' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `realestateprep-progress-${new Date().toISOString().slice(0, 10)}.json`
-    a.click()
-    URL.revokeObjectURL(url)
-    return true
-  } catch {
-    return false
-  }
-}
+import { exportProgress, importProgressRaw } from '../../utils/storage'
 
 export default function REDashboard() {
   const cert = useCert()
@@ -37,17 +20,13 @@ export default function REDashboard() {
     if (!file) return
     const reader = new FileReader()
     reader.onload = (ev) => {
-      try {
-        JSON.parse(ev.target.result)
-        try {
-          localStorage.setItem(PROGRESS_KEY, ev.target.result)
-        } catch {
-          setNotice({ kind: 'error', msg: 'Import failed — browser storage is full. Clear some history and retry.' })
-          return
-        }
+      const status = importProgressRaw(ev.target.result)
+      if (status === 'ok') {
         window.location.reload()
-      } catch {
+      } else if (status === 'invalid') {
         setNotice({ kind: 'error', msg: "That file isn't valid progress JSON." })
+      } else {
+        setNotice({ kind: 'error', msg: 'Import failed — browser storage is full. Clear some history and retry.' })
       }
     }
     reader.readAsText(file)
@@ -173,7 +152,7 @@ export default function REDashboard() {
         <div className="flex flex-wrap gap-3">
           <button
             onClick={() => {
-              if (!exportProgress()) setNotice({ kind: 'error', msg: 'Export failed — your browser blocked the download.' })
+              if (!exportProgress('realestateprep')) setNotice({ kind: 'error', msg: 'Export failed — your browser blocked the download.' })
             }}
             className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-all"
           >

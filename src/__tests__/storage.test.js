@@ -7,6 +7,8 @@ import {
   removeKey,
   migrate,
   subscribe,
+  exportProgress,
+  importProgressRaw,
 } from '../utils/storage.js'
 
 // Vitest runs in the node environment (no DOM), so we install a minimal
@@ -140,6 +142,64 @@ describe('storage: migrate', () => {
   it('does nothing when storage is unavailable', () => {
     delete globalThis.localStorage
     expect(() => migrate()).not.toThrow()
+  })
+})
+
+describe('storage: importProgressRaw', () => {
+  beforeEach(() => { globalThis.localStorage = makeLS() })
+
+  it('writes the raw string verbatim and returns ok', () => {
+    const raw = '{"cert":{"quizHistory":[],"examHistory":[]}}'
+    expect(importProgressRaw(raw)).toBe('ok')
+    // Verbatim — not re-serialized.
+    expect(globalThis.localStorage.getItem(KEYS.progress)).toBe(raw)
+  })
+
+  it('returns invalid for non-JSON without writing', () => {
+    expect(importProgressRaw('{not json')).toBe('invalid')
+    expect(globalThis.localStorage.getItem(KEYS.progress)).toBeNull()
+  })
+
+  it('returns error when the write fails (quota)', () => {
+    globalThis.localStorage.setItem = () => {
+      const e = new Error('quota')
+      e.name = 'QuotaExceededError'
+      throw e
+    }
+    expect(importProgressRaw('{}')).toBe('error')
+  })
+
+  it('returns error when storage is unavailable', () => {
+    delete globalThis.localStorage
+    expect(importProgressRaw('{}')).toBe('error')
+  })
+})
+
+describe('storage: exportProgress', () => {
+  beforeEach(() => { globalThis.localStorage = makeLS() })
+
+  it('returns false when document is unavailable (node)', () => {
+    globalThis.localStorage.setItem(KEYS.progress, '{}')
+    expect(exportProgress()).toBe(false)
+  })
+
+  it('builds a prefixed filename and triggers a download on success', () => {
+    globalThis.localStorage.setItem(KEYS.progress, '{"a":1}')
+    const click = vi.fn()
+    const anchor = {}
+    Object.defineProperty(anchor, 'click', { value: click })
+    globalThis.document = { createElement: () => anchor }
+    globalThis.Blob = class { constructor(parts) { this.parts = parts } }
+    globalThis.URL = { createObjectURL: () => 'blob:x', revokeObjectURL: vi.fn() }
+    try {
+      expect(exportProgress('realestateprep')).toBe(true)
+      expect(click).toHaveBeenCalledTimes(1)
+      expect(anchor.download).toMatch(/^realestateprep-progress-\d{4}-\d{2}-\d{2}\.json$/)
+    } finally {
+      delete globalThis.document
+      delete globalThis.Blob
+      delete globalThis.URL
+    }
   })
 })
 
