@@ -18,7 +18,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 const STATE_MODULES = [
   { code: 'TX', name: 'Texas',          blurb: 'Full licensing: national + TREC state law', badge: 'Available now', to: '/real-estate/study/tx' },
   { code: 'ME', name: 'Maine',          blurb: 'Sales agent: national + Maine state law', badge: 'Available now', to: '/real-estate/study/me' },
-  { code: 'GA', name: 'Georgia',        blurb: 'Salesperson (national + state)', badge: 'Up next' },
+  { code: 'GA', name: 'Georgia',        blurb: 'Full licensing: national + PSI state law', badge: 'Available now', to: '/real-estate/study/ga' },
   { code: 'AZ', name: 'Arizona',        blurb: 'Salesperson (national + state)', badge: 'Planned' },
   { code: 'NC', name: 'North Carolina', blurb: 'Provisional broker + broker',    badge: 'Planned' },
   { code: 'IN', name: 'Indiana',        blurb: 'Broker (national + state)',      badge: 'Planned' },

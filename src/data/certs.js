@@ -39,6 +39,15 @@ const ME_STATE_DOMAINS = [
   { name: 'Maine Land-Use Law', weight: 12.5 },                      // 5 items
 ]
 
+// Georgia state-law sections — PSI/AMP content outline, 52 scored state items.
+// State Laws and Rules 16Q, Real Estate Practice in Georgia 21Q,
+// Finance and Closing 15Q. Weights = n/52 * 100, rounded to sum to 100.
+const GA_STATE_DOMAINS = [
+  { name: 'Georgia State Laws and Rules', weight: 31 },              // 16 items
+  { name: 'Real Estate Practice in Georgia', weight: 40 },           // 21 items
+  { name: 'Finance and Closing in Georgia', weight: 29 },            // 15 items
+]
+
 const certs = {
   'az-900': {
     id: 'az-900',
@@ -372,6 +381,50 @@ const certs = {
       'Law of Agency/Brokerage':                 { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
       'Maine-Specific Principles & Practices':   { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
       'Maine Land-Use Law':                      { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
+    },
+  },
+  // Georgia Sales Agent module — layered national + state architecture.
+  // National half = shared real-estate-national pool (portion:'national');
+  // state half authored in real-estate-ga-state-questions.json
+  // (portion:'state'). Full Licensing Exam mirrors the real Georgia split:
+  // 100 national + 52 state, 75% pass each section. questionCount is the
+  // STATE pool size (0 until the GA pool is authored).
+  'real-estate-ga': {
+    id: 'real-estate-ga',
+    title: 'Georgia Real Estate Sales Agent Exam',
+    code: 'GA PSI',
+    provider: 'Real Estate',
+    description: 'Georgia Sales Agent licensing exam: the portable national portion plus the Georgia state-law portion. State-law content is modeled to the official 3-section PSI/AMP Georgia content outline; the Full Licensing Exam mirrors the real 100 national + 52 state split.',
+    difficulty: 'Foundational',
+    color: '#dc2626',
+    questionCount: 400,
+    examQuestions: 152,
+    examTime: 240,
+    passingScore: 75,
+    published: false,
+    loadQuestions: async () => {
+      const [nat, st] = await Promise.all([
+        import('./real-estate-national-questions.json'),
+        import('./real-estate-ga-state-questions.json'),
+      ])
+      return {
+        default: [
+          ...nat.default.map((q) => ({ ...q, portion: 'national' })),
+          ...st.default.map((q) => ({ ...q, portion: 'state' })),
+        ],
+      }
+    },
+    // Real exam: 100 national + 52 state; each section passed independently.
+    composite: {
+      national: { count: 100, domains: RE_NATIONAL_DOMAINS },
+      state: { count: 52, domains: GA_STATE_DOMAINS },
+    },
+    // Dashboard / state-practice taxonomy is the GA state-law sections.
+    domains: GA_STATE_DOMAINS,
+    domainColors: {
+      'Georgia State Laws and Rules':      { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
+      'Real Estate Practice in Georgia':   { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
+      'Finance and Closing in Georgia':    { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
     },
   },
 }

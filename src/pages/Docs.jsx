@@ -610,13 +610,13 @@ key = random() ** (1 / weight)
                   'Complete explanation coverage — every question in every cert now ships a worked explanation, enforced by an automated content gate (included a 1,198-question Network+/Server+ backfill)',
                   'Texas state-law module — live: 401 questions, 6 TREC sections, Full Licensing Exam mirrors 85 national + 40 state (70% each section).',
                   'Maine state-law module — live: 400 questions, 5 Pearson VUE sections, Full Licensing Exam mirrors 80 national + 40 state (75% each section). Sister-site study picker now covers National, Texas, and Maine.',
+                  'Georgia state-law module — live: 400 questions, 3 PSI/AMP sections, Full Licensing Exam mirrors 100 national + 52 state (75% each section). Study picker now covers National, Texas, Maine, and Georgia.',
                 ],
               },
               {
                 status: 'In progress',
                 color: '#38bdf8',
                 items: [
-                  'Georgia state-law module — next state after Maine, same layered national + state architecture.',
                   'HashiCorp Terraform Associate (003) — question bank authoring for the new "Multi-Cloud" catalog group (coming-soon card already live on the main site).',
                 ],
               },

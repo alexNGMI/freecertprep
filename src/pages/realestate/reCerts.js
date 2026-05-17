@@ -27,6 +27,14 @@ export const RE_STUDY_CERTS = [
     tagline: 'National prep + the Maine state-law portion (Pearson VUE blueprint).',
     examLine: 'Full Licensing Exam: 80 national + 40 state · 75% each section',
   },
+  {
+    slug: 'ga',
+    certId: 'real-estate-ga',
+    name: 'Georgia Sales Agent — Full Licensing',
+    badge: 'Georgia',
+    tagline: 'National prep + the Georgia state-law portion (PSI/AMP blueprint).',
+    examLine: 'Full Licensing Exam: 100 national + 52 state · 75% each section',
+  },
 ]
 
 export const reCertBySlug = (slug) =>
