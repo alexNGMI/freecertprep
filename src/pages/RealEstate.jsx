@@ -17,7 +17,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 // CA/NY visitors can still register interest via the US_STATES dropdown.
 const STATE_MODULES = [
   { code: 'TX', name: 'Texas',          blurb: 'Full licensing: national + TREC state law', badge: 'Available now', to: '/real-estate/study/tx' },
-  { code: 'ME', name: 'Maine',          blurb: 'Sales agent: national + Maine state law', badge: 'In progress' },
+  { code: 'ME', name: 'Maine',          blurb: 'Sales agent: national + Maine state law', badge: 'Available now', to: '/real-estate/study/me' },
   { code: 'GA', name: 'Georgia',        blurb: 'Salesperson (national + state)', badge: 'Up next' },
   { code: 'AZ', name: 'Arizona',        blurb: 'Salesperson (national + state)', badge: 'Planned' },
   { code: 'NC', name: 'North Carolina', blurb: 'Provisional broker + broker',    badge: 'Planned' },

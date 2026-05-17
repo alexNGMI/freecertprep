@@ -9,7 +9,7 @@ export default function REStudyPicker() {
   useDocumentMeta({
     title: 'Choose your real estate exam',
     description:
-      'Free real estate exam prep: the national salesperson exam, or the Texas Sales Agent full licensing exam (national + state law). No signup.',
+      'Free real estate exam prep: national salesperson exam, Texas Sales Agent, and Maine Sales Agent full licensing (national + state law). No signup.',
     path: '/real-estate/study',
   })
 

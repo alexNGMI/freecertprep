@@ -608,22 +608,22 @@ key = random() ** (1 / weight)
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
                   'Per-route SEO — dynamic page titles, Open Graph, and canonical URLs; root error boundary and graceful question-load failure handling',
                   'Complete explanation coverage — every question in every cert now ships a worked explanation, enforced by an automated content gate (included a 1,198-question Network+/Server+ backfill)',
-                  'Texas state-law module — live on the sister site: a 401-question TX pool modeled to the 6 official TREC sections, layered on the national pool, with a composite "Full Licensing Exam" mirroring the real 85 national + 40 state split (70% each section). Sister-site study picker lets users choose National or Texas.',
+                  'Texas state-law module — live: 401 questions, 6 TREC sections, Full Licensing Exam mirrors 85 national + 40 state (70% each section).',
+                  'Maine state-law module — live: 400 questions, 5 Pearson VUE sections, Full Licensing Exam mirrors 80 national + 40 state (75% each section). Sister-site study picker now covers National, Texas, and Maine.',
                 ],
               },
               {
                 status: 'In progress',
                 color: '#38bdf8',
                 items: [
-                  'Maine state-law module — same layered model as Texas, modeled to the official 5-section Pearson VUE Maine content outline; the composite "Full Licensing Exam" mirrors the real 80 national + 40 state split (75% each section).',
-                  'HashiCorp Terraform Associate (003) — first cert in a new "Multi-Cloud" catalog group on the main site, alongside the cloud providers.',
+                  'Georgia state-law module — next state after Maine, same layered national + state architecture.',
+                  'HashiCorp Terraform Associate (003) — question bank authoring for the new "Multi-Cloud" catalog group (coming-soon card already live on the main site).',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'Georgia state-law module — next state after Maine, same layered national + state model.',
                   'Arizona, North Carolina, and Indiana state-law modules — in planning, same architecture. Single-integrated-exam states (FL, CA, NY) remain out of scope — their exams are not a national + state split, so the layered-module design does not apply.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',

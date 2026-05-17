@@ -26,7 +26,7 @@ A separate, light-themed surface (Redfin/Zillow visual language) lives at `/real
 State-specific **state-law modules** layer on top of this national pool, modeled to each state's official exam blueprint, with a combined "Full Licensing Exam" mode that mirrors the real national + state split. A sister-site study picker (`/real-estate/study`) lets users choose which exam to prep:
 
 - **Texas — live.** A 401-question Texas Sales Agent state-law pool modeled to the 6 official Pearson VUE / TREC sections, layered on the national pool; the Full Licensing Exam composes the real 85 national + 40 state, 70% each section. (`/real-estate/study/tx`)
-- **Maine — in progress.** Same layered model, modeled to the official 5-section Pearson VUE Maine content outline; the Full Licensing Exam composes the real 80 national + 40 state, 75% each section.
+- **Maine — live.** A 400-question Maine Sales Agent state-law pool modeled to the 5 official Pearson VUE sections, layered on the national pool; the Full Licensing Exam composes the real 80 national + 40 state, 75% each section. (`/real-estate/study/me`)
 - **Georgia — next**, then **Arizona, North Carolina, and Indiana** in planning — same layered national + state architecture.
 
 Single-integrated-exam states (Florida, California, New York) are explicitly **out of scope** — their exams are not a national + state split, so the layered-module architecture does not apply. Real Estate always lives on the sister site and is intentionally kept out of the IT catalog (it fills a different need).

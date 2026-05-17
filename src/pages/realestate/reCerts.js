@@ -19,6 +19,14 @@ export const RE_STUDY_CERTS = [
     tagline: 'National prep + the Texas state-law portion (TREC blueprint).',
     examLine: 'Full Licensing Exam: 85 national + 40 state · 70% each section',
   },
+  {
+    slug: 'me',
+    certId: 'real-estate-me',
+    name: 'Maine Sales Agent — Full Licensing',
+    badge: 'Maine',
+    tagline: 'National prep + the Maine state-law portion (Pearson VUE blueprint).',
+    examLine: 'Full Licensing Exam: 80 national + 40 state · 75% each section',
+  },
 ]
 
 export const reCertBySlug = (slug) =>
