@@ -1,3 +1,37 @@
+import az900QuestionsUrl from './az-900-questions.json?url'
+import awsCloudPractitionerQuestionsUrl from './questions.json?url'
+import cdlQuestionsUrl from './cdl-questions.json?url'
+import ncaAiioQuestionsUrl from './nca-aiio-questions.json?url'
+import ncaGenlQuestionsUrl from './nca-genl-questions.json?url'
+import comptiaNetPlusQuestionsUrl from './comptia-net-plus-questions.json?url'
+import comptiaSecPlusQuestionsUrl from './comptia-sec-plus-questions.json?url'
+import comptiaServerPlusQuestionsUrl from './comptia-server-plus-questions.json?url'
+import terraformAssociateQuestionsUrl from './terraform-associate-questions.json?url'
+import realEstateNationalQuestionsUrl from './real-estate-national-questions.json?url'
+import realEstateTxStateQuestionsUrl from './real-estate-tx-state-questions.json?url'
+import realEstateMeStateQuestionsUrl from './real-estate-me-state-questions.json?url'
+import realEstateGaStateQuestionsUrl from './real-estate-ga-state-questions.json?url'
+
+async function loadQuestionAsset(url) {
+  const response = await fetch(url)
+  if (!response.ok) {
+    throw new Error(`Failed to load question bank ${url}: ${response.status}`)
+  }
+  return response.json()
+}
+
+async function loadCompositeQuestions(stateUrl) {
+  const [national, state] = await Promise.all([
+    loadQuestionAsset(realEstateNationalQuestionsUrl),
+    loadQuestionAsset(stateUrl),
+  ])
+
+  return [
+    ...national.map((q) => ({ ...q, portion: 'national' })),
+    ...state.map((q) => ({ ...q, portion: 'state' })),
+  ]
+}
+
 // Shared so state-licensing certs (real-estate-tx, future real-estate-me)
 // reuse the exact national blueprint for the national half of the exam
 // without duplicating it.
@@ -61,7 +95,7 @@ const certs = {
     examQuestions: 40,
     examTime: 45,
     passingScore: 70,
-    loadQuestions: () => import('./az-900-questions.json'),
+    loadQuestions: () => loadQuestionAsset(az900QuestionsUrl),
     domains: [
       { name: 'Describe cloud concepts', weight: 25 },
       { name: 'Describe Azure architecture and services', weight: 40 },
@@ -85,7 +119,7 @@ const certs = {
     examQuestions: 65,
     examTime: 90,
     passingScore: 70,
-    loadQuestions: () => import('./questions.json'),
+    loadQuestions: () => loadQuestionAsset(awsCloudPractitionerQuestionsUrl),
     domains: [
       { name: 'Cloud Concepts', weight: 24 },
       { name: 'Security and Compliance', weight: 30 },
@@ -111,7 +145,7 @@ const certs = {
     examQuestions: 50,
     examTime: 90,
     passingScore: 70,
-    loadQuestions: () => import('./cdl-questions.json'),
+    loadQuestions: () => loadQuestionAsset(cdlQuestionsUrl),
     domains: [
       { name: 'Digital Transformation with Google Cloud', weight: 17 },
       { name: 'Innovating with Data and Google Cloud', weight: 23 },
@@ -137,7 +171,7 @@ const certs = {
     examQuestions: 50,
     examTime: 60,
     passingScore: 70,
-    loadQuestions: () => import('./nca-aiio-questions.json'),
+    loadQuestions: () => loadQuestionAsset(ncaAiioQuestionsUrl),
     domains: [
       { name: 'AI Infrastructure', weight: 40 },
       { name: 'Essential AI Knowledge', weight: 38 },
@@ -161,7 +195,7 @@ const certs = {
     examQuestions: 50,
     examTime: 60,
     passingScore: 70,
-    loadQuestions: () => import('./nca-genl-questions.json'),
+    loadQuestions: () => loadQuestionAsset(ncaGenlQuestionsUrl),
     domains: [
       { name: 'Core Machine Learning and AI Knowledge', weight: 30 },
       { name: 'Software Development', weight: 24 },
@@ -189,7 +223,7 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 80,
-    loadQuestions: () => import('./comptia-net-plus-questions.json'),
+    loadQuestions: () => loadQuestionAsset(comptiaNetPlusQuestionsUrl),
     domains: [
       { name: 'Networking Concepts', weight: 23 },
       { name: 'Network Implementation', weight: 20 },
@@ -217,7 +251,7 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 83,
-    loadQuestions: () => import('./comptia-sec-plus-questions.json'),
+    loadQuestions: () => loadQuestionAsset(comptiaSecPlusQuestionsUrl),
     domains: [
       { name: 'General Security Concepts', weight: 12 },
       { name: 'Threats, Vulnerabilities, and Mitigations', weight: 22 },
@@ -245,7 +279,7 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 83,
-    loadQuestions: () => import('./comptia-server-plus-questions.json'),
+    loadQuestions: () => loadQuestionAsset(comptiaServerPlusQuestionsUrl),
     domains: [
       { name: 'Server Hardware Installation and Management', weight: 18 },
       { name: 'Server Administration', weight: 30 },
@@ -271,7 +305,7 @@ const certs = {
     examQuestions: 57,
     examTime: 60,
     passingScore: 70,
-    loadQuestions: () => import('./terraform-associate-questions.json'),
+    loadQuestions: () => loadQuestionAsset(terraformAssociateQuestionsUrl),
     domains: [
       { name: 'Infrastructure as Code (IaC) with Terraform', weight: 16 },
       { name: 'Terraform fundamentals', weight: 12 },
@@ -306,7 +340,7 @@ const certs = {
     examTime: 120,
     passingScore: 75,
     published: false,
-    loadQuestions: () => import('./real-estate-national-questions.json'),
+    loadQuestions: () => loadQuestionAsset(realEstateNationalQuestionsUrl),
     domains: RE_NATIONAL_DOMAINS,
     domainColors: {
       'Contracts':                         { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
@@ -343,18 +377,7 @@ const certs = {
     examTime: 240,
     passingScore: 70,
     published: false,
-    loadQuestions: async () => {
-      const [nat, st] = await Promise.all([
-        import('./real-estate-national-questions.json'),
-        import('./real-estate-tx-state-questions.json'),
-      ])
-      return {
-        default: [
-          ...nat.default.map((q) => ({ ...q, portion: 'national' })),
-          ...st.default.map((q) => ({ ...q, portion: 'state' })),
-        ],
-      }
-    },
+    loadQuestions: () => loadCompositeQuestions(realEstateTxStateQuestionsUrl),
     // Real exam: 85 national + 40 state; each section passed independently.
     composite: {
       national: { count: 85, domains: RE_NATIONAL_DOMAINS },
@@ -390,18 +413,7 @@ const certs = {
     examTime: 240,
     passingScore: 75,
     published: false,
-    loadQuestions: async () => {
-      const [nat, st] = await Promise.all([
-        import('./real-estate-national-questions.json'),
-        import('./real-estate-me-state-questions.json'),
-      ])
-      return {
-        default: [
-          ...nat.default.map((q) => ({ ...q, portion: 'national' })),
-          ...st.default.map((q) => ({ ...q, portion: 'state' })),
-        ],
-      }
-    },
+    loadQuestions: () => loadCompositeQuestions(realEstateMeStateQuestionsUrl),
     // Real exam: 80 national + 40 state; each section passed independently.
     composite: {
       national: { count: 80, domains: RE_NATIONAL_DOMAINS },
@@ -436,18 +448,7 @@ const certs = {
     examTime: 240,
     passingScore: 75,
     published: false,
-    loadQuestions: async () => {
-      const [nat, st] = await Promise.all([
-        import('./real-estate-national-questions.json'),
-        import('./real-estate-ga-state-questions.json'),
-      ])
-      return {
-        default: [
-          ...nat.default.map((q) => ({ ...q, portion: 'national' })),
-          ...st.default.map((q) => ({ ...q, portion: 'state' })),
-        ],
-      }
-    },
+    loadQuestions: () => loadCompositeQuestions(realEstateGaStateQuestionsUrl),
     // Real exam: 100 national + 52 state; each section passed independently.
     composite: {
       national: { count: 100, domains: RE_NATIONAL_DOMAINS },

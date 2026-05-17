@@ -17,7 +17,7 @@ function getQuestionPromise(certConfig) {
   if (!questionCache.has(certConfig.id)) {
     questionCache.set(
       certConfig.id,
-      certConfig.loadQuestions().then((m) => m.default)
+      certConfig.loadQuestions().then((questions) => questions.default ?? questions)
     )
   }
   return questionCache.get(certConfig.id)

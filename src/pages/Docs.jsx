@@ -525,7 +525,7 @@ key = random() ** (1 / weight)
             {[
               {
                 title: 'Questions are lazy-loaded per cert',
-                body: 'Each cert\'s JSON file is imported dynamically — the browser only downloads the question bank for the cert you\'re actually using. A 750-question JSON file is never loaded on the home page. This keeps initial load fast regardless of how many certs are added.',
+                body: 'Each cert\'s JSON file is emitted as a standalone asset and fetched only when that cert is opened. A 750-question JSON file is never loaded on the home page, and the banks do not inflate JavaScript chunks.',
               },
               {
                 title: 'Hooks own all storage — pages own none',
