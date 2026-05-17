@@ -14,10 +14,11 @@ Free, open-source certification exam prep for the IT certifications that open do
 | CompTIA Network+ | CompTIA | N10-009 | Foundational | 750 | 90 | 90 min | 80% |
 | CompTIA Security+ | CompTIA | SY0-701 | Foundational | 750 | 90 | 90 min | 83% |
 | CompTIA Server+ | CompTIA | SK0-005 | Foundational | 750 | 90 | 90 min | 83% |
+| HashiCorp Terraform Associate | HashiCorp | TF Associate 003 | Associate | 600 | 57 | 60 min | ~70% |
 
-**4,936 questions across 8 certifications.**
+**5,536 questions across 9 certifications.**
 
-> **Coming soon — Multi-Cloud:** HashiCorp Terraform Associate (003) is in the catalog as a new "Multi-Cloud" provider group, shown as a coming-soon card alongside the cloud providers.
+> **Multi-Cloud is live:** HashiCorp Terraform Associate (003) ships a 600-question pool across the 9 official exam objectives, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
 ### Sister site — Real Estate
 

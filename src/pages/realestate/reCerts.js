@@ -8,7 +8,7 @@ export const RE_STUDY_CERTS = [
     certId: 'real-estate-national',
     name: 'National Salesperson Exam',
     badge: 'National',
-    tagline: 'The portable national/uniform portion tested in ~48 states.',
+    tagline: 'The portable national/uniform portion tested in ~48 states — the right start if your state module isn\'t available yet.',
     examLine: '750 questions · 80-question PSI-style simulator · 75% to pass',
   },
   {

@@ -167,9 +167,12 @@ export default function Home() {
               )
             })()}
 
-            {/* Row 3 — Multi-Cloud (coming soon) + NVIDIA */}
+            {/* Row 3 — Multi-Cloud + NVIDIA. The Multi-Cloud slot self-promotes:
+                once the HashiCorp cert is published it renders as a live CertCard;
+                until then it falls back to the coming-soon card. */}
             {(() => {
-              const terraformCard = {
+              const multiCloudGroup = certs.filter(c => c.provider === 'HashiCorp')
+              const comingSoonTerraform = {
                 id: 'terraform-associate',
                 provider: 'HashiCorp',
                 code: 'TF Associate 003',
@@ -189,7 +192,9 @@ export default function Home() {
                     <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">NVIDIA</p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <ComingSoonCard cert={terraformCard} index={0} />
+                    {multiCloudGroup.length
+                      ? multiCloudGroup.map((cert, i) => <CertCard key={cert.id} cert={cert} index={i} />)
+                      : <ComingSoonCard cert={comingSoonTerraform} index={0} />}
                     {nvidiaGroup.map((cert, i) => <CertCard key={cert.id} cert={cert} index={i + 1} />)}
                   </div>
                 </div>

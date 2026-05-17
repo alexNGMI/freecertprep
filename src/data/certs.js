@@ -267,11 +267,10 @@ const certs = {
     description: 'Infrastructure-as-Code fundamentals: the Terraform workflow, state, modules, providers, HCL, and Terraform Cloud — the multi-cloud provisioning credential.',
     difficulty: 'Associate',
     color: '#7c3aed',
-    questionCount: 100,
+    questionCount: 600,
     examQuestions: 57,
     examTime: 60,
     passingScore: 70,
-    published: false,
     loadQuestions: () => import('./terraform-associate-questions.json'),
     domains: [
       { name: 'Understand infrastructure as code (IaC) concepts', weight: 8 },

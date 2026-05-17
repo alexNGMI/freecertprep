@@ -611,13 +611,7 @@ key = random() ** (1 / weight)
                   'Texas state-law module — live: 401 questions, 6 TREC sections, Full Licensing Exam mirrors 85 national + 40 state (70% each section).',
                   'Maine state-law module — live: 400 questions, 5 Pearson VUE sections, Full Licensing Exam mirrors 80 national + 40 state (75% each section). Sister-site study picker now covers National, Texas, and Maine.',
                   'Georgia state-law module — live: 400 questions, 3 PSI/AMP sections, Full Licensing Exam mirrors 100 national + 52 state (75% each section). Study picker now covers National, Texas, Maine, and Georgia.',
-                ],
-              },
-              {
-                status: 'In progress',
-                color: '#38bdf8',
-                items: [
-                  'HashiCorp Terraform Associate (003) — question bank authoring for the new "Multi-Cloud" catalog group (coming-soon card already live on the main site).',
+                  'HashiCorp Terraform Associate (003) — live: 600 questions across the 9 official exam objectives, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
                 ],
               },
               {
