@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { buildWeightedPool } from '../utils/smart-practice.js'
+import { mergeSessionStats } from '../utils/question-stats.js'
 import { KEYS, readJSON, writeJSON, subscribe } from '../utils/storage.js'
 
 // Separate key from quiz/exam history so the two can evolve independently.
@@ -30,19 +31,10 @@ export function useQuestionStats(certId) {
    * answers: [{ questionId, correct }]
    */
   const recordSession = useCallback((answers) => {
-    setStats(prev => {
-      const cert = prev[certId] || {}
-      const updated = { ...cert }
-      answers.forEach(({ questionId, correct }) => {
-        const existing = updated[questionId] || { attempts: 0, correct: 0, lastSeen: null }
-        updated[questionId] = {
-          attempts: existing.attempts + 1,
-          correct: existing.correct + (correct ? 1 : 0),
-          lastSeen: Date.now(),
-        }
-      })
-      return { ...prev, [certId]: updated }
-    })
+    setStats(prev => ({
+      ...prev,
+      [certId]: mergeSessionStats(prev[certId] || {}, answers),
+    }))
   }, [certId])
 
   /**
