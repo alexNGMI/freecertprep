@@ -1,9 +1,45 @@
-import { useRef, useState } from 'react'
+import { createElement, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { motion as Motion } from 'motion/react'
+import {
+  Activity,
+  ArrowRight,
+  BookOpenCheck,
+  CheckCircle2,
+  Download,
+  FileUp,
+  Gauge,
+  RotateCcw,
+  ShieldCheck,
+  Sparkles,
+  Target,
+  Timer,
+  Trash2,
+} from 'lucide-react'
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Pie,
+  PieChart,
+  PolarAngleAxis,
+  PolarGrid,
+  Radar,
+  RadarChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
 import { exportProgress, importProgressRaw } from '../utils/storage'
+import { Button } from '../components/ui/button'
+import { DomainBadge, Kicker, Surface } from '../components/ui/surface'
+import { Tooltip as UiTooltip } from '../components/ui/tooltip'
+import { cn } from '../utils/cn'
 
 export default function Dashboard() {
   const cert = useCert()
@@ -12,8 +48,39 @@ export default function Dashboard() {
   const domainStats = getDomainStats(cert.domains)
   const overall = getOverallStats
   const importRef = useRef(null)
-  const [confirmReset, setConfirmReset] = useState(null) // 'progress' | 'smart' | null
-  const [notice, setNotice] = useState(null) // { kind: 'error'|'ok', msg }
+  const [confirmReset, setConfirmReset] = useState(null)
+  const [notice, setNotice] = useState(null)
+
+  const readiness = overall.totalQuestions > 0 ? overall.percentage : 0
+  const attemptsPerDomain = domainStats.filter((d) => d.total > 0)
+  const weakest = attemptsPerDomain.length
+    ? [...attemptsPerDomain].sort((a, b) => a.percentage - b.percentage || a.total - b.total)[0]
+    : null
+  const strongest = attemptsPerDomain.length
+    ? [...attemptsPerDomain].sort((a, b) => b.percentage - a.percentage || b.total - a.total)[0]
+    : null
+
+  const chartData = domainStats.map((stat) => ({
+    domain: stat.domain,
+    short: shortenDomain(stat.domain),
+    score: stat.total > 0 ? stat.percentage : 0,
+    attempts: stat.total,
+    correct: stat.correct,
+    weight: cert.domains.find((d) => d.name === stat.domain)?.weight || 0,
+    color: cert.domainColors[stat.domain]?.hex || cert.color,
+  }))
+
+  const action = weakest
+    ? {
+        label: `Focus ${shortenDomain(weakest.domain)}`,
+        sub: `${weakest.percentage}% across ${weakest.total} answered`,
+        to: 'quiz',
+      }
+    : {
+        label: 'Start Smart Practice',
+        sub: 'Build your first readiness signal',
+        to: 'quiz',
+      }
 
   function handleImport(e) {
     const file = e.target.files?.[0]
@@ -26,7 +93,7 @@ export default function Dashboard() {
       } else if (status === 'invalid') {
         setNotice({ kind: 'error', msg: "That file isn't valid progress JSON." })
       } else {
-        setNotice({ kind: 'error', msg: 'Import failed — browser storage is full. Clear some history and retry.' })
+        setNotice({ kind: 'error', msg: 'Import failed because browser storage is full.' })
       }
     }
     reader.readAsText(file)
@@ -34,261 +101,301 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="space-y-12 animate-fade-up">
-      <div className="text-center space-y-4 pt-6">
-        <h1 className="text-5xl font-bold text-zinc-100 flex items-center justify-center gap-4">
-          <span 
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-zinc-900 border" 
-            style={{ color: cert.color, borderColor: `${cert.color}40` }}
-          >
-            {cert.code.charAt(0)}
-          </span>
-          {cert.code}
-        </h1>
-        <p className="text-xl text-zinc-400">Track your <span className="text-zinc-200 font-semibold">{cert.title}</span> mastery</p>
-      </div>
-
-      {/* Overall Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        <StatCard label="Questions" value={overall.totalQuestions} />
-        <StatCard label="Correct" value={overall.correctAnswers} />
-        <StatCard
-          label="Score"
-          value={overall.totalQuestions > 0 ? `${overall.percentage}%` : '—'}
-          highlight
-          glowColor={cert.color}
-        />
-        <StatCard label="Sessions" value={overall.quizzesTaken + overall.examsTaken} />
-      </div>
-
-      {/* Domain Progress */}
-      <div className="glass-panel rounded-2xl p-8 space-y-8 relative overflow-hidden">
-        
-        <h2 className="text-2xl font-bold text-zinc-100 relative z-10">Domain Readiness</h2>
-        <div className="space-y-6 relative z-10">
-          {domainStats.map((stat) => {
-            const colors = cert.domainColors[stat.domain]
-            const weight = cert.domains.find((d) => d.name === stat.domain)?.weight
-            return (
-              <div key={stat.domain} className="group">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-zinc-300 font-medium tracking-wide flex-1 pr-4">{stat.domain}</span>
-                  <div className="flex items-center gap-4 text-sm font-medium">
-                    <span className="text-zinc-500 uppercase tracking-widest text-[10px] hidden sm:inline">{weight}% of exam</span>
-                    <span 
-                      className="font-bold text-base px-3 py-1 bg-zinc-900/50 rounded-md border border-white/5"
-                      style={{ color: stat.total > 0 && colors ? colors.hex : '#a1a1aa' }}
-                    >
-                      {stat.total > 0 ? `${stat.percentage}%` : '—'}
-                    </span>
-                  </div>
-                </div>
-                <div className="h-3 bg-zinc-900/80 rounded-full border border-white/5 overflow-hidden shadow-inner flex">
-                  <div
-                    className={`h-full rounded-full animate-bar-fill transition-all duration-700 ease-out`}
-                    style={{ 
-                      '--bar-width': `${stat.percentage}%`, 
-                      background: colors ? (stat.percentage > 0 ? `linear-gradient(90deg, transparent, ${stat.percentage > 70 ? '#34d399' : '#38bdf8'})` : '') : '#52525b',
-                      backgroundColor: colors && stat.percentage > 0 ? 'currentColor' : '#3f3f46'
-                    }}
-                  />
-                </div>
+    <div className="space-y-8 animate-fade-up">
+      <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <Surface className="exam-shell overflow-hidden p-6 md:p-8">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl space-y-4">
+              <Kicker>
+                Command center
+                <span className="text-zinc-600">/</span>
+                <span style={{ color: cert.color }}>{cert.code}</span>
+              </Kicker>
+              <div className="space-y-3">
+                <h1 className="text-4xl font-black tracking-tight text-zinc-50 md:text-6xl">
+                  {cert.title}
+                </h1>
+                <p className="max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
+                  A readiness view built from your practice history, exam attempts, and Smart Practice signal.
+                </p>
               </div>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* Progress Management */}
-      <div className="glass-panel rounded-2xl p-6 space-y-4">
-        <h2 className="text-sm font-bold text-zinc-500 uppercase tracking-widest">Data & Resets</h2>
-
-        {notice && (
-          <div
-            role="status"
-            className={`rounded-xl p-4 flex items-start justify-between gap-4 text-sm font-medium border ${
-              notice.kind === 'error'
-                ? 'bg-rose-500/10 border-rose-500/30 text-rose-200'
-                : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-200'
-            }`}
-          >
-            <span>{notice.msg}</span>
-            <button
-              onClick={() => setNotice(null)}
-              className="shrink-0 text-zinc-400 hover:text-zinc-200 transition-colors"
-              aria-label="Dismiss"
-            >
-              ✕
-            </button>
+            </div>
+            <Button as={Link} to={action.to} variant="accent" size="lg" accentColor={cert.color}>
+              <Sparkles className="h-5 w-5" />
+              {action.label}
+              <ArrowRight className="h-5 w-5" />
+            </Button>
           </div>
-        )}
 
-        {/* Confirm overlay */}
-        {confirmReset && (
-          <div className="bg-rose-500/10 border border-rose-500/30 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <p className="text-sm text-rose-200 font-medium">
-              {confirmReset === 'progress'
-                ? 'Reset all quiz & exam history for this cert? This cannot be undone.'
-                : 'Reset all Smart Practice stats for this cert? Your weak-question history will be lost.'}
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <MetricCard icon={BookOpenCheck} label="Answered" value={overall.totalQuestions} />
+            <MetricCard icon={CheckCircle2} label="Correct" value={overall.correctAnswers} />
+            <MetricCard icon={Gauge} label="Readiness" value={overall.totalQuestions ? `${readiness}%` : 'New'} accentColor={cert.color} />
+            <MetricCard icon={Activity} label="Sessions" value={overall.quizzesTaken + overall.examsTaken} />
+          </div>
+        </Surface>
+
+        <Surface className="p-6">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Exam signal</p>
+              <h2 className="mt-2 text-2xl font-black text-zinc-50">Readiness ring</h2>
+            </div>
+            <DomainBadge color={cert.color}>{cert.passingScore}% pass</DomainBadge>
+          </div>
+          <div className="mt-5 h-56">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={[
+                    { name: 'Ready', value: readiness },
+                    { name: 'Remaining', value: Math.max(100 - readiness, 0) },
+                  ]}
+                  dataKey="value"
+                  innerRadius="70%"
+                  outerRadius="90%"
+                  startAngle={90}
+                  endAngle={-270}
+                  stroke="none"
+                >
+                  <Cell fill={cert.color} />
+                  <Cell fill="#27272a" />
+                </Pie>
+                <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-zinc-50 text-4xl font-black">
+                  {overall.totalQuestions ? readiness : 0}%
+                </text>
+                <text x="50%" y="62%" textAnchor="middle" dominantBaseline="middle" className="fill-zinc-500 text-xs font-bold uppercase tracking-wider">
+                  current score
+                </text>
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="grid grid-cols-2 gap-3 text-sm">
+            <Insight label="Strongest" value={strongest ? shortenDomain(strongest.domain) : 'Pending'} />
+            <Insight label="Weakest" value={weakest ? shortenDomain(weakest.domain) : 'Pending'} />
+          </div>
+        </Surface>
+      </section>
+
+      <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
+        <Surface className="p-6">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Domain mastery</p>
+              <h2 className="mt-2 text-2xl font-black text-zinc-50">Weighted readiness map</h2>
+            </div>
+            <span className="text-sm text-zinc-500">{cert.domains.length} exam domains</span>
+          </div>
+
+          <div className="mt-6 h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <RadarChart data={chartData}>
+                <PolarGrid stroke="#27272a" />
+                <PolarAngleAxis dataKey="short" tick={{ fill: '#a1a1aa', fontSize: 11 }} />
+                <Radar dataKey="score" stroke={cert.color} fill={cert.color} fillOpacity={0.22} />
+                <Tooltip content={<ChartTooltip />} />
+              </RadarChart>
+            </ResponsiveContainer>
+          </div>
+        </Surface>
+
+        <Surface className="p-6">
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Attempts</p>
+              <h2 className="mt-2 text-2xl font-black text-zinc-50">Coverage</h2>
+            </div>
+            <Target className="h-6 w-6" style={{ color: cert.color }} />
+          </div>
+          <div className="mt-6 h-80">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 8, top: 4, bottom: 4 }}>
+                <CartesianGrid stroke="#27272a" horizontal={false} />
+                <XAxis type="number" hide />
+                <YAxis type="category" dataKey="short" width={92} tick={{ fill: '#a1a1aa', fontSize: 11 }} />
+                <Tooltip content={<ChartTooltip />} />
+                <Bar dataKey="attempts" radius={[0, 8, 8, 0]}>
+                  {chartData.map((entry) => <Cell key={entry.domain} fill={entry.color} fillOpacity={0.78} />)}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </Surface>
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-3">
+        <ActionCard
+          icon={BookOpenCheck}
+          title="Practice Quiz"
+          body="Smart Practice, bookmarks, or one focused domain."
+          to="quiz"
+          cta="Start Quiz"
+          color="#6366f1"
+        />
+        <ActionCard
+          icon={Timer}
+          title="Timed Drill"
+          body="Ten questions under a ten-minute clock."
+          to="drill"
+          cta="Start Drill"
+          color="#f43f5e"
+        />
+        <ActionCard
+          icon={ShieldCheck}
+          title="Exam Simulator"
+          body={`${cert.examQuestions} questions across weighted official domains.`}
+          to="exam"
+          cta="Begin Exam"
+          color={cert.color}
+        />
+      </section>
+
+      <Surface className="p-5">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Data controls</p>
+            <p className="mt-1 text-sm text-zinc-400">
+              {trackedCount} Smart Practice question{trackedCount === 1 ? '' : 's'} tracked locally.
             </p>
-            <div className="flex gap-2 shrink-0">
-              <button
+          </div>
+
+          {notice && (
+            <div className={cn(
+              'rounded-xl border px-4 py-2 text-sm font-semibold',
+              notice.kind === 'error' ? 'border-rose-500/30 bg-rose-500/10 text-rose-200' : 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200',
+            )}>
+              {notice.msg}
+            </div>
+          )}
+
+          <div className="flex flex-wrap gap-2">
+            <UiTooltip content="Download local progress as JSON">
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  if (!exportProgress()) setNotice({ kind: 'error', msg: 'Export failed.' })
+                }}
+              >
+                <Download className="h-4 w-4" />
+                Export
+              </Button>
+            </UiTooltip>
+            <UiTooltip content="Import a saved progress JSON file">
+              <Button variant="secondary" size="sm" onClick={() => importRef.current?.click()}>
+                <FileUp className="h-4 w-4" />
+                Import
+              </Button>
+            </UiTooltip>
+            <input ref={importRef} type="file" accept=".json" className="hidden" onChange={handleImport} />
+            {trackedCount > 0 && (
+              <Button variant="danger" size="sm" onClick={() => setConfirmReset('smart')}>
+                <RotateCcw className="h-4 w-4" />
+                Smart Stats
+              </Button>
+            )}
+            <Button variant="danger" size="sm" onClick={() => setConfirmReset('progress')}>
+              <Trash2 className="h-4 w-4" />
+              Progress
+            </Button>
+          </div>
+        </div>
+
+        {confirmReset && (
+          <div className="mt-4 flex flex-col gap-3 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm font-semibold text-rose-100">
+              {confirmReset === 'progress'
+                ? 'Reset all quiz and exam history for this cert?'
+                : 'Reset all Smart Practice stats for this cert?'}
+            </p>
+            <div className="flex gap-2">
+              <Button
+                variant="danger"
+                size="sm"
                 onClick={() => {
                   if (confirmReset === 'progress') resetProgress()
                   else resetStats()
                   setConfirmReset(null)
                 }}
-                className="px-4 py-1.5 rounded-lg text-xs font-bold bg-rose-500 text-white hover:bg-rose-400 transition-all"
               >
-                Yes, Reset
-              </button>
-              <button
-                onClick={() => setConfirmReset(null)}
-                className="px-4 py-1.5 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 transition-all"
-              >
-                Cancel
-              </button>
+                Reset
+              </Button>
+              <Button variant="ghost" size="sm" onClick={() => setConfirmReset(null)}>Cancel</Button>
             </div>
           </div>
         )}
-
-        <div className="flex flex-wrap gap-3">
-          <button
-            onClick={() => {
-              if (!exportProgress()) setNotice({ kind: 'error', msg: 'Export failed — your browser blocked the download.' })
-            }}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-            Export Progress
-          </button>
-          <button
-            onClick={() => importRef.current?.click()}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-white/10 text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12" />
-            </svg>
-            Import Progress
-          </button>
-          <input ref={importRef} type="file" accept=".json" className="hidden" onChange={handleImport} />
-
-          <div className="flex-1" />
-
-          {trackedCount > 0 && (
-            <button
-              onClick={() => setConfirmReset('smart')}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-rose-500/20 text-rose-400/70 hover:text-rose-400 hover:border-rose-500/40 transition-all"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-              Reset Smart Practice
-            </button>
-          )}
-          <button
-            onClick={() => setConfirmReset('progress')}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold border border-rose-500/20 text-rose-400/70 hover:text-rose-400 hover:border-rose-500/40 transition-all"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-            </svg>
-            Reset Progress
-          </button>
-        </div>
-      </div>
-
-      {/* Quick Actions */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        <Link
-          to="quiz"
-          id="dashboard-quiz-btn"
-          className="glass-panel glass-panel-hover rounded-2xl p-8 text-center space-y-5 flex flex-col justify-between"
-        >
-          <div>
-            <div className="w-16 h-16 mx-auto rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6">
-              <svg className="w-8 h-8 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-zinc-100">Practice Quiz</h3>
-            <p className="text-zinc-400 mt-2 leading-relaxed">
-              Smart Practice or domain focus — 10 questions with instant feedback and explanations.
-            </p>
-          </div>
-          <span className="inline-block font-semibold px-8 py-3.5 rounded-lg transition-all border border-indigo-500/30 bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500 hover:text-white hover:shadow-[0_0_20px_-5px_#6366f1]">
-            Start Quiz
-          </span>
-        </Link>
-
-        <Link
-          to="drill"
-          id="dashboard-drill-btn"
-          className="glass-panel glass-panel-hover rounded-2xl p-8 text-center space-y-5 flex flex-col justify-between border-rose-500/10"
-        >
-          <div>
-            <div className="w-16 h-16 mx-auto rounded-full bg-rose-500/10 border border-rose-500/20 flex items-center justify-center mb-6">
-              <svg className="w-8 h-8 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-zinc-100">Timed Drill</h3>
-            <p className="text-zinc-400 mt-2 leading-relaxed">
-              10 questions, 10 minutes. Weighted by your weakest areas — beat the clock.
-            </p>
-          </div>
-          <span className="inline-block font-semibold px-8 py-3.5 rounded-lg transition-all border border-rose-500/30 bg-rose-500/10 text-rose-300 hover:bg-rose-500 hover:text-white hover:shadow-[0_0_20px_-5px_#f43f5e]">
-            Start Drill
-          </span>
-        </Link>
-
-        <Link
-          to="exam"
-          id="dashboard-exam-btn"
-          className="glass-panel glass-panel-hover rounded-2xl p-8 text-center space-y-5 flex flex-col justify-between"
-          style={{ borderColor: `${cert.color}40` }}
-        >
-          <div>
-            <div
-              className="w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-6 border"
-              style={{ backgroundColor: `${cert.color}15`, borderColor: `${cert.color}30`, color: cert.color }}
-            >
-              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-zinc-100">Live Simulator</h3>
-            <p className="text-zinc-400 mt-2 leading-relaxed">
-              {cert.examQuestions} questions across all domains on a strict {cert.examTime}-minute countdown.
-            </p>
-          </div>
-          <span
-            className="inline-block bg-zinc-100 text-zinc-950 font-semibold px-8 py-3.5 rounded-lg hover:bg-white hover:scale-105 transition-all"
-            style={{ boxShadow: `0 0 20px -3px ${cert.color}80` }}
-          >
-            Start Exam
-          </span>
-        </Link>
-      </div>
+      </Surface>
     </div>
   )
 }
 
-function StatCard({ label, value, highlight, glowColor }) {
+function MetricCard({ icon: Icon, label, value, accentColor }) {
   return (
-    <div
-      className="glass-panel rounded-2xl p-6 text-center transition-all duration-300 flex flex-col justify-center"
-      style={highlight ? { borderColor: `${glowColor}50`, background: `${glowColor}10` } : {}}
+    <Motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5"
     >
-      <p className="text-[11px] text-zinc-500 uppercase tracking-widest font-semibold mb-3">{label}</p>
-      <p
-        className={`text-4xl font-black tracking-tight ${highlight ? '' : 'text-zinc-100'}`}
-        style={highlight ? { color: glowColor } : {}}
-      >
+      <div className="flex items-center gap-2 text-zinc-500">
+        {createElement(Icon, { className: 'h-4 w-4', style: accentColor ? { color: accentColor } : undefined })}
+        <span className="text-[10px] font-bold uppercase tracking-wider">{label}</span>
+      </div>
+      <p className="mt-3 text-3xl font-black text-zinc-50" style={accentColor ? { color: accentColor } : undefined}>
         {value}
       </p>
+    </Motion.div>
+  )
+}
+
+function Insight({ label, value }) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-zinc-900/70 p-4">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500">{label}</p>
+      <p className="mt-1 truncate text-sm font-bold text-zinc-100">{value}</p>
     </div>
   )
+}
+
+function ActionCard({ icon: Icon, title, body, to, cta, color }) {
+  return (
+    <Surface as={Link} to={to} interactive className="group p-6">
+      <div className="flex h-full min-h-56 flex-col justify-between">
+        <div>
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border" style={{ color, borderColor: `${color}45`, backgroundColor: `${color}12` }}>
+            {createElement(Icon, { className: 'h-6 w-6' })}
+          </div>
+          <h3 className="mt-6 text-2xl font-black text-zinc-50">{title}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
+        </div>
+        <span className="mt-8 inline-flex items-center gap-2 text-sm font-bold" style={{ color }}>
+          {cta}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </span>
+      </div>
+    </Surface>
+  )
+}
+
+function ChartTooltip({ active, payload }) {
+  if (!active || !payload?.length) return null
+  const data = payload[0].payload
+  return (
+    <div className="rounded-xl border border-white/10 bg-zinc-950 px-4 py-3 shadow-2xl">
+      <p className="max-w-56 text-sm font-bold text-zinc-100">{data.domain}</p>
+      <p className="mt-1 text-xs text-zinc-400">Score: {data.score}%</p>
+      <p className="text-xs text-zinc-400">Attempts: {data.attempts}</p>
+      <p className="text-xs text-zinc-500">Weight: {data.weight}%</p>
+    </div>
+  )
+}
+
+function shortenDomain(domain) {
+  return domain
+    .replace('Describe ', '')
+    .replace('Google Cloud ', '')
+    .replace('Infrastructure as Code (IaC) with Terraform', 'IaC with Terraform')
+    .replace('Threats, Vulnerabilities, and Mitigations', 'Threats & Mitigations')
+    .replace('Security Program Management and Oversight', 'Program Management')
+    .replace('Server Hardware Installation and Management', 'Server Hardware')
+    .replace('Data Analysis and Visualization', 'Data & Viz')
 }

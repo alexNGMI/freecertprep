@@ -1,13 +1,15 @@
+import { createElement } from 'react'
 import { NavLink, Outlet, Link, Navigate } from 'react-router-dom'
+import { BarChart3, BookOpenCheck, ClipboardList, Timer } from 'lucide-react'
 import { useCert } from '../hooks/useCert'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import BrandedName from './BrandedName'
 
 const navItems = [
-  { to: '', label: 'Dashboard', end: true },
-  { to: 'quiz', label: 'Quiz' },
-  { to: 'drill', label: 'Timed Drill' },
-  { to: 'exam', label: 'Exam Simulator' },
+  { to: '', label: 'Dashboard', end: true, icon: BarChart3 },
+  { to: 'quiz', label: 'Quiz', icon: BookOpenCheck },
+  { to: 'drill', label: 'Timed Drill', icon: Timer },
+  { to: 'exam', label: 'Exam Simulator', icon: ClipboardList },
 ]
 
 export default function CertLayout() {
@@ -31,8 +33,8 @@ export default function CertLayout() {
         style={{ backgroundColor: cert.color }} 
       />
 
-      <header className="border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <header className="border-b border-white/10 bg-zinc-950/75 backdrop-blur-xl sticky top-0 z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Link to="/" className="hover:opacity-80 transition-opacity">
               <BrandedName size="text-xl" accentColor={cert.color} />
@@ -45,14 +47,14 @@ export default function CertLayout() {
               {cert.code}
             </span>
           </div>
-          <nav className="flex gap-2 p-1 rounded-lg bg-zinc-900/50 border border-white/5" aria-label="Cert navigation">
-            {navItems.map(({ to, label, end }) => (
+          <nav className="flex gap-1 p-1 rounded-2xl bg-zinc-900/70 border border-white/10 shadow-inner" aria-label="Cert navigation">
+            {navItems.map(({ to, label, end, icon: Icon }) => (
               <NavLink
                 key={label}
                 to={to}
                 end={end}
                 className={({ isActive }) =>
-                  `px-4 py-1.5 rounded-md text-sm transition-all duration-300 ${
+                  `inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-sm transition-all duration-300 ${
                     isActive
                       ? 'font-semibold text-zinc-950 shadow-md transform scale-[1.02]'
                       : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5'
@@ -64,13 +66,14 @@ export default function CertLayout() {
                     : {}
                 }
               >
-                {label}
+                {createElement(Icon, { className: 'h-4 w-4' })}
+                <span className="hidden sm:inline">{label}</span>
               </NavLink>
             ))}
           </nav>
         </div>
       </header>
-      <main className="flex-1 max-w-5xl w-full mx-auto px-6 py-12">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 py-10 md:py-12">
         <Outlet />
       </main>
       <footer className="border-t border-white/5 bg-zinc-950/50 py-8 mt-auto text-center text-sm text-zinc-500 backdrop-blur-md">

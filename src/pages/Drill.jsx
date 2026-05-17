@@ -1,11 +1,17 @@
+import { ArrowLeft, ArrowRight, CheckCircle2, Flame, ListChecks, Timer, Zap } from 'lucide-react'
 import { useCert } from '../hooks/useCert'
 import { useBookmarks } from '../hooks/useBookmarks'
 import { useTimedDrillSession } from '../hooks/useTimedDrillSession'
 import QuestionCard from '../components/QuestionCard'
+import { StudyHeader } from '../components/StudyHeader'
+import { StudyWorkspace } from '../components/StudyWorkspace'
+import { Button } from '../components/ui/button'
+import { Surface } from '../components/ui/surface'
 import { formatTime, timerColor, TIMER_PALETTE_DARK } from '../utils/time'
+import { cn } from '../utils/cn'
 
 const DRILL_QUESTIONS = 10
-const DRILL_TIME = 600 // 10 minutes in seconds
+const DRILL_TIME = 600
 
 export default function Drill() {
   const cert = useCert()
@@ -27,60 +33,56 @@ export default function Drill() {
     timeLeft,
   } = useTimedDrillSession({ cert, questions, questionCount: DRILL_QUESTIONS, duration: DRILL_TIME })
 
-  // ─── Setup ───────────────────────────────────────────────────────────────────
   if (!drillStarted) {
     return (
-      <div className="space-y-10 animate-fade-up pt-4 max-w-2xl mx-auto">
-        <div className="text-center space-y-3">
-          <h1 className="text-4xl md:text-5xl font-bold text-zinc-100">Timed Drill</h1>
-          <p className="text-lg text-zinc-400">10 questions. 10 minutes. Beat the clock.</p>
-        </div>
+      <div className="mx-auto max-w-5xl space-y-8 animate-fade-up">
+        <StudyHeader
+          eyebrow="Timed drill"
+          title="Practice under pressure"
+          subtitle="A short sprint that weights questions by your weak areas and saves the result to Smart Practice."
+          cert={cert}
+          stats={[
+            { label: 'Questions', value: DRILL_QUESTIONS, icon: ListChecks },
+            { label: 'Clock', value: '10:00', icon: Timer },
+            { label: 'Pass', value: `${cert.passingScore}%`, icon: CheckCircle2 },
+          ]}
+        />
 
-        <div className="glass-panel rounded-2xl p-8 space-y-6">
-          {/* Stats row */}
-          <div className="grid grid-cols-3 gap-4 text-center">
+        <Surface className="grid gap-6 p-6 lg:grid-cols-[1fr_320px]">
+          <div className="space-y-5">
             {[
-              { value: DRILL_QUESTIONS, label: 'Questions' },
-              { value: '10:00', label: 'Time limit' },
-              { value: `${cert.passingScore}%`, label: 'Passing' },
-            ].map(({ value, label }) => (
-              <div key={label} className="bg-zinc-900/60 rounded-xl p-4 border border-white/5">
-                <p className="text-2xl font-black text-zinc-100">{value}</p>
-                <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold mt-1">{label}</p>
+              ['Weak areas are sampled first', 'Smart Practice stats influence the pool.'],
+              ['Feedback is immediate', 'Every question still teaches after you answer.'],
+              ['The clock is real', 'If time expires, the drill closes automatically.'],
+              ['History is saved', 'The dashboard updates after each drill.'],
+            ].map(([title, body]) => (
+              <div key={title} className="flex gap-4 rounded-2xl border border-white/10 bg-zinc-900/60 p-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-500/10 text-rose-300">
+                  <Zap className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-bold text-zinc-100">{title}</p>
+                  <p className="text-sm text-zinc-500">{body}</p>
+                </div>
               </div>
             ))}
           </div>
-
-          {/* Rules */}
-          <div className="space-y-2.5 pt-2">
-            {[
-              'Questions weighted by your weakest areas',
-              'Immediate feedback after each answer',
-              'Timer runs out — session ends automatically',
-              'Stats saved to your Smart Practice history',
-            ].map(rule => (
-              <div key={rule} className="flex items-center gap-3 text-sm text-zinc-400">
-                <svg className="w-4 h-4 text-rose-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                {rule}
-              </div>
-            ))}
+          <div className="flex flex-col justify-between rounded-3xl border border-rose-500/20 bg-rose-500/10 p-6">
+            <div>
+              <Flame className="h-10 w-10 text-rose-300" />
+              <h2 className="mt-5 text-3xl font-black text-zinc-50">10 minute sprint</h2>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">Best for warming up before a full simulator attempt.</p>
+            </div>
+            <Button onClick={startDrill} variant="accent" size="lg" accentColor={cert.color} className="mt-8 w-full">
+              Start Drill
+              <ArrowRight className="h-5 w-5" />
+            </Button>
           </div>
-
-          <button
-            onClick={startDrill}
-            className="w-full font-bold py-4 rounded-xl text-white text-lg transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
-            style={{ backgroundColor: cert.color }}
-          >
-            Start Drill
-          </button>
-        </div>
+        </Surface>
       </div>
     )
   }
 
-  // ─── Results ──────────────────────────────────────────────────────────────────
   if (showResult) {
     const correct = answers.filter(a => a.correct).length
     const total = answers.length
@@ -90,116 +92,63 @@ export default function Drill() {
     const timeUsed = DRILL_TIME - timeLeft
 
     return (
-      <div className="space-y-10 animate-fade-up pt-4 max-w-lg mx-auto">
-        <h1 className="text-4xl font-bold text-zinc-100 text-center">Drill Complete</h1>
-
-        <div className="glass-panel rounded-2xl p-10 text-center relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-2" style={{ backgroundColor: passed ? '#34d399' : '#f43f5e' }} />
-
-          {timedOut && (
-            <p className="text-rose-400 text-xs font-bold uppercase tracking-widest mb-4">Time ran out</p>
-          )}
-
-          <p className={`text-7xl font-black tracking-tighter mb-4 ${passed ? 'text-emerald-400' : 'text-rose-400'}`}>
-            {pct}%
-          </p>
-          <p className="text-zinc-400 text-lg mb-2">
-            <span className="text-zinc-200 font-bold">{correct}</span> of <span className="text-zinc-200 font-bold">{total}</span> correct
-          </p>
-          {!timedOut && (
-            <p className="text-zinc-600 text-xs mb-6">Finished in {formatTime(timeUsed)}</p>
-          )}
-
-          <div className="flex flex-col gap-3 mt-8">
-            <button
-              onClick={startDrill}
-              className="font-bold px-10 py-3.5 rounded-xl text-white hover:brightness-110 hover:scale-105 transition-all w-full"
-              style={{ backgroundColor: cert.color }}
-            >
-              New Drill
-            </button>
-            <button
-              onClick={backToSetup}
-              className="font-semibold px-10 py-3.5 rounded-xl bg-zinc-800 text-zinc-300 hover:bg-zinc-700 border border-white/5 w-full transition-all"
-            >
+      <div className="mx-auto max-w-3xl space-y-8 animate-fade-up">
+        <StudyHeader
+          eyebrow="Drill complete"
+          title={timedOut ? 'Clock caught you.' : 'Sprint finished.'}
+          subtitle={timedOut ? 'The unfinished questions still count as a useful pacing signal.' : `Finished in ${formatTime(timeUsed)}.`}
+          cert={cert}
+          stats={[
+            { label: 'Score', value: `${pct}%`, icon: CheckCircle2 },
+            { label: 'Correct', value: `${correct}/${total}`, icon: ListChecks },
+          ]}
+        />
+        <Surface className="p-8 text-center md:p-12">
+          <p className={cn('text-7xl font-black tracking-tight', passed ? 'text-emerald-400' : 'text-rose-400')}>{pct}%</p>
+          <p className="mt-4 text-zinc-400">{correct} of {total} correct.</p>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button onClick={startDrill} variant="accent" size="lg" accentColor={cert.color}>New Drill</Button>
+            <Button onClick={backToSetup} variant="secondary" size="lg">
+              <ArrowLeft className="h-5 w-5" />
               Back
-            </button>
+            </Button>
           </div>
-        </div>
+        </Surface>
       </div>
     )
   }
 
-  // ─── Active drill ─────────────────────────────────────────────────────────────
   const color = timerColor(timeLeft, DRILL_TIME, TIMER_PALETTE_DARK)
-  const timePct = (timeLeft / DRILL_TIME) * 100
 
   return (
-    <div className="space-y-6 animate-fade-up max-w-4xl mx-auto">
-      {/* Timer + progress row */}
-      <div className="flex items-center justify-between px-1">
-        <span className="text-sm text-zinc-400 font-semibold">
-          Question <span className="text-zinc-200">{currentIndex + 1}</span> of {drillQuestions.length}
-        </span>
-        <div
-          className="flex items-center gap-2 text-sm font-black tabular-nums transition-colors duration-1000"
-          style={{ color }}
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          {formatTime(timeLeft)}
-        </div>
-      </div>
-
-      {/* Dual progress bars */}
-      <div className="space-y-1.5">
-        {/* Question progress */}
-        <div className="h-1.5 bg-zinc-900/80 rounded-full overflow-hidden border border-white/5">
-          <div
-            className="h-full rounded-full transition-all duration-500"
-            style={{ width: `${((currentIndex + 1) / drillQuestions.length) * 100}%`, backgroundColor: cert.color }}
-          />
-        </div>
-        {/* Time progress */}
-        <div className="h-1.5 bg-zinc-900/80 rounded-full overflow-hidden border border-white/5">
-          <div
-            className="h-full rounded-full transition-all duration-1000"
-            style={{ width: `${timePct}%`, backgroundColor: color }}
-          />
-        </div>
-      </div>
-
-      <div className="mb-4">
-        <QuestionCard
-          key={currentQuestion.id}
-          question={currentQuestion}
-          onAnswer={handleAnswer}
-          answered={!!currentAnswer}
-          selectedChoice={currentAnswer?.selected}
-          isBookmarked={isBookmarked(currentQuestion.id)}
-          onToggleBookmark={toggleBookmark}
-        />
-      </div>
-
-      {currentAnswer && (
-        <div className="flex justify-end pt-2 animate-fade-up">
-          <button
-            onClick={handleNext}
-            className="font-bold px-10 py-3.5 rounded-xl text-white hover:scale-105 transition-all flex items-center gap-2 min-w-[200px] justify-center"
-            style={{ backgroundColor: cert.color }}
-          >
-            {isLastQuestion ? 'See Results' : (
-              <>
-                Next
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </>
-            )}
-          </button>
+    <StudyWorkspace
+      cert={cert}
+      title="Timed Drill"
+      subtitle={currentQuestion.domain}
+      modeLabel="Sprint mode"
+      currentIndex={currentIndex}
+      total={drillQuestions.length}
+      answeredCount={answers.length}
+      timer={formatTime(timeLeft)}
+      timerColor={color}
+      footer={currentAnswer && (
+        <div className="ml-auto">
+          <Button onClick={handleNext} variant="accent" size="lg" accentColor={cert.color}>
+            {isLastQuestion ? 'See Results' : 'Next'}
+            <ArrowRight className="h-5 w-5" />
+          </Button>
         </div>
       )}
-    </div>
+    >
+      <QuestionCard
+        key={currentQuestion.id}
+        question={currentQuestion}
+        onAnswer={handleAnswer}
+        answered={!!currentAnswer}
+        selectedChoice={currentAnswer?.selected}
+        isBookmarked={isBookmarked(currentQuestion.id)}
+        onToggleBookmark={toggleBookmark}
+      />
+    </StudyWorkspace>
   )
 }
