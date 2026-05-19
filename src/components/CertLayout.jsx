@@ -53,6 +53,8 @@ export default function CertLayout() {
                 key={label}
                 to={to}
                 end={end}
+                aria-label={label}
+                title={label}
                 className={({ isActive }) =>
                   `inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-sm transition-all duration-300 ${
                     isActive
@@ -66,7 +68,7 @@ export default function CertLayout() {
                     : {}
                 }
               >
-                {createElement(Icon, { className: 'h-4 w-4' })}
+                {createElement(Icon, { className: 'h-4 w-4', 'aria-hidden': true })}
                 <span className="hidden sm:inline">{label}</span>
               </NavLink>
             ))}
