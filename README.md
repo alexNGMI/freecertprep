@@ -31,8 +31,7 @@ State-specific **state-law modules** layer on top of this national pool, modeled
 - **Georgia — live.** A 400-question Georgia Sales Agent state-law pool modeled to the 3 official PSI/AMP sections, layered on the national pool; the Full Licensing Exam composes the real 100 national + 52 state, 75% each section. (`/real-estate/study/ga`)
 - **Arizona — live.** A 400-question Arizona Salesperson state-law pool modeled to the 11 official ADRE / Pearson VUE sections effective 2026-01-01; the Full Licensing Exam composes the real 80 national + 60 state, 75% pass target. (`/real-estate/study/az`)
 - **North Carolina — live.** A 400-question North Carolina Broker state-law pool modeled to the 8 official NCREC / Pearson VUE April 2026 sections; the Full Licensing Exam composes the current 80 national + 60 state, 75 each section. (`/real-estate/study/nc`)
-- **Indiana** — researched and queued next. It fits the existing layered national + state architecture:
-  - Indiana Broker: 80 national + 50 state, scaled 75 pass score.
+- **Indiana — live.** A 400-question Indiana Broker state-law pool modeled to the 5 official Pearson VUE sections effective 2025-03-01; the Full Licensing Exam composes the real 80 national + 50 state, scaled 75 pass score. (`/real-estate/study/in`)
 
 Single-integrated-exam states (Florida, California, New York) are explicitly **out of scope** — their exams are not a national + state split, so the layered-module architecture does not apply. Real Estate always lives on the sister site and is intentionally kept out of the IT catalog (it fills a different need).
 
@@ -65,7 +64,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (315 tests across 14 files), GitHub Actions CI
+- Vitest (326 tests across 14 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 
@@ -106,7 +105,7 @@ The next researched state modules fit the current architecture:
 |-------|--------------|--------------------|-----------------|
 | Arizona | Salesperson | 80 national + 60 state | Live: 400-question bank, 11 state-law sections, effective 2026-01-01 |
 | North Carolina | Broker | 80 national + 60 state | Live: 400-question bank, 8 state-law sections, April 2026 NCREC outline |
-| Indiana | Broker | 80 national + 50 state | 5 state-law sections, effective 2025-03-01 |
+| Indiana | Broker | 80 national + 50 state | Live: 400-question bank, 5 state-law sections, effective 2025-03-01 |
 
 Single-integrated-exam states such as Florida, California, and New York stay out of this layered flow unless we build them as separate long-form products.
 

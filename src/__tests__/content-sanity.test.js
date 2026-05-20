@@ -15,6 +15,7 @@ import reMeState from '../data/real-estate-me-state-questions.json'
 import reGaState from '../data/real-estate-ga-state-questions.json'
 import reAzState from '../data/real-estate-az-state-questions.json'
 import reNcState from '../data/real-estate-nc-state-questions.json'
+import reInState from '../data/real-estate-in-state-questions.json'
 
 // Map each cert to the JSON we statically imported.
 // When adding a new cert, add it here too — the "registry fully mapped" test
@@ -35,6 +36,7 @@ const CERT_QUESTIONS = {
   'real-estate-ga': reGaState,
   'real-estate-az': reAzState,
   'real-estate-nc': reNcState,
+  'real-estate-in': reInState,
 }
 
 // Run per-question sanity checks on every cert that has content — including

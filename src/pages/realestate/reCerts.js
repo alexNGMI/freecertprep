@@ -51,6 +51,14 @@ export const RE_STUDY_CERTS = [
     tagline: 'National prep + the North Carolina state-law portion (NCREC blueprint).',
     examLine: 'Full Licensing Exam: 80 national + 60 state · 75 each section',
   },
+  {
+    slug: 'in',
+    certId: 'real-estate-in',
+    name: 'Indiana Broker — Full Licensing',
+    badge: 'Indiana',
+    tagline: 'National prep + the Indiana state-law portion (Pearson VUE blueprint).',
+    examLine: 'Full Licensing Exam: 80 national + 50 state · scaled 75 pass score',
+  },
 ]
 
 export const reCertBySlug = (slug) =>

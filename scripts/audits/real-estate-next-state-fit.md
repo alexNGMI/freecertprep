@@ -164,8 +164,8 @@ Implementation note: weights should be derived as `items / 50 * 100`.
    `/real-estate/study/az`.
 2. North Carolina: completed as a 400-question state-law bank and wired at
    `/real-estate/study/nc`.
-3. Indiana: cleanest state-domain structure and Pearson VUE source is current,
-   good candidate after AZ/NC.
+3. Indiana: completed as a 400-question state-law bank and wired at
+   `/real-estate/study/in`.
 
 ## Arizona build notes
 
@@ -190,3 +190,15 @@ Implemented on 2026-05-20 as `real-estate-nc`:
 - Answer-position distribution: 100 each for A, B, C, D
 - Exact duplicate stems: 0
 - Minimum explanation length in the generated bank: 140 characters
+
+## Indiana build notes
+
+Implemented on 2026-05-20 as `real-estate-in`:
+
+- State-law bank: `src/data/real-estate-in-state-questions.json`
+- Generator: `scripts/generate_in_state_questions.mjs`
+- Count: 400 state-law questions
+- Domain distribution: 40 / 72 / 96 / 136 / 56
+- Answer-position distribution: 100 each for A, B, C, D
+- Exact duplicate stems: 0
+- Minimum explanation length in the generated bank: 155 characters

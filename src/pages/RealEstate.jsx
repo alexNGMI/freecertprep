@@ -20,7 +20,7 @@ const STATE_MODULES = [
   { code: 'GA', name: 'Georgia',        blurb: 'Full licensing: national + GREC state law', badge: 'Available now', to: '/real-estate/study/ga' },
   { code: 'AZ', name: 'Arizona',        blurb: 'Salesperson: national + ADRE state law', badge: 'Available now', to: '/real-estate/study/az' },
   { code: 'NC', name: 'North Carolina', blurb: 'Broker: national + NCREC state law', badge: 'Available now', to: '/real-estate/study/nc' },
-  { code: 'IN', name: 'Indiana',        blurb: 'Broker (national + state)',      badge: 'Planned' },
+  { code: 'IN', name: 'Indiana',        blurb: 'Broker: national + Indiana law', badge: 'Available now', to: '/real-estate/study/in' },
 ]
 
 // All 50 states + DC for the notify-me state selector. The launched-soon
@@ -237,8 +237,7 @@ export default function RealEstate() {
               disclosures, fair housing, math, practice of real estate. We
               drill it deep. Your state-specific module is the second
               layer, covering local law and commission rules. Texas, Maine,
-              Georgia, Arizona, and North Carolina are live now; Indiana is
-              the next researched build.
+              Georgia, Arizona, North Carolina, and Indiana are live now.
             </p>
           </div>
 

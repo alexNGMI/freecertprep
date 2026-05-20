@@ -13,6 +13,7 @@ import realEstateMeStateQuestionsUrl from './real-estate-me-state-questions.json
 import realEstateGaStateQuestionsUrl from './real-estate-ga-state-questions.json?url'
 import realEstateAzStateQuestionsUrl from './real-estate-az-state-questions.json?url'
 import realEstateNcStateQuestionsUrl from './real-estate-nc-state-questions.json?url'
+import realEstateInStateQuestionsUrl from './real-estate-in-state-questions.json?url'
 
 async function loadQuestionAsset(url) {
   const response = await fetch(url)
@@ -115,6 +116,17 @@ const NC_STATE_DOMAINS = [
   { name: 'Contracts / Closing', weight: 12 },         // 7 items
   { name: 'Landlord / Tenant', weight: 5 },            // 3 items
   { name: 'Other North Carolina Laws', weight: 17 },   // 11 items
+]
+
+// Indiana Broker STATE-LAW portion — 50 scored items across 5 sections
+// per the Pearson VUE outline effective 2025-03-01.
+// Weights are exact item proportions (n/50 * 100).
+const IN_STATE_DOMAINS = [
+  { name: 'Indiana Real Estate Commission', weight: 10 },       // 5 items
+  { name: 'Licensing', weight: 18 },                            // 9 items
+  { name: 'Statutory and Regulatory Requirements', weight: 24 }, // 12 items
+  { name: 'Statutes and Rules Governing Licensees', weight: 34 }, // 17 items
+  { name: 'Real Estate Office Procedures', weight: 14 },        // 7 items
 ]
 
 const certs = {
@@ -572,6 +584,40 @@ const certs = {
       'Contracts / Closing':          { dot: 'bg-[#2563eb]', bar: 'bg-[#2563eb]', text: 'text-[#2563eb]', hex: '#2563eb' },
       'Landlord / Tenant':            { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
       'Other North Carolina Laws':    { dot: 'bg-[#db2777]', bar: 'bg-[#db2777]', text: 'text-[#db2777]', hex: '#db2777' },
+    },
+  },
+  // Indiana Broker module — layered national + state architecture.
+  // National half = shared real-estate-national pool (portion:'national');
+  // state half authored in real-estate-in-state-questions.json
+  // (portion:'state'). Full Licensing Exam mirrors the current Pearson VUE
+  // split: 80 national + 50 state, scaled passing score of 75.
+  'real-estate-in': {
+    id: 'real-estate-in',
+    title: 'Indiana Real Estate Broker Exam',
+    code: 'IN PLA',
+    provider: 'Real Estate',
+    description: 'Indiana Broker licensing exam: the portable national portion plus the Indiana state-law portion. State-law content is modeled to the official 5-section Pearson VUE outline effective 2025-03-01; the Full Licensing Exam mirrors the real 80 national + 50 state split.',
+    difficulty: 'Foundational',
+    color: '#dc2626',
+    questionCount: 400,
+    examQuestions: 130,
+    examTime: 240,
+    passingScore: 75,
+    published: false,
+    loadQuestions: () => loadCompositeQuestions(realEstateInStateQuestionsUrl),
+    // Real exam: 80 national + 50 state; Indiana reports a scaled pass score of 75.
+    composite: {
+      national: { count: 80, domains: RE_NATIONAL_DOMAINS },
+      state: { count: 50, domains: IN_STATE_DOMAINS },
+    },
+    // Dashboard / state-practice taxonomy is the Indiana state-law sections.
+    domains: IN_STATE_DOMAINS,
+    domainColors: {
+      'Indiana Real Estate Commission':           { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
+      'Licensing':                                { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
+      'Statutory and Regulatory Requirements':    { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
+      'Statutes and Rules Governing Licensees':   { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
+      'Real Estate Office Procedures':            { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
     },
   },
 }
