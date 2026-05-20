@@ -43,6 +43,14 @@ export const RE_STUDY_CERTS = [
     tagline: 'National prep + the Arizona state-law portion (ADRE blueprint).',
     examLine: 'Full Licensing Exam: 80 national + 60 state · 75% pass target',
   },
+  {
+    slug: 'nc',
+    certId: 'real-estate-nc',
+    name: 'North Carolina Broker — Full Licensing',
+    badge: 'North Carolina',
+    tagline: 'National prep + the North Carolina state-law portion (NCREC blueprint).',
+    examLine: 'Full Licensing Exam: 80 national + 60 state · 75 each section',
+  },
 ]
 
 export const reCertBySlug = (slug) =>

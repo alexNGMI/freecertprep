@@ -9,7 +9,7 @@ export default function REStudyPicker() {
   useDocumentMeta({
     title: 'Choose your real estate exam',
     description:
-      'Free real estate exam prep: national salesperson exam, Texas, Maine, Georgia, and Arizona full licensing (national + state law). No signup.',
+      'Free real estate exam prep: national salesperson exam, Texas, Maine, Georgia, Arizona, and North Carolina full licensing (national + state law). No signup.',
     path: '/real-estate/study',
   })
 

@@ -21,8 +21,8 @@ real-estate state-module architecture:
   https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/publications/090300.pdf
 - North Carolina regulation, 21 NCAC 58A .0402:
   https://www.law.cornell.edu/regulations/north-carolina/21-N-C-Admin-Code-58A-0402
-- North Carolina Real Estate Commission content outline mirror:
-  https://homecoachschool.com/Manuals/304/NCREC%20Exam%20Content%20Outline%20April%202019.pdf
+- North Carolina / Pearson VUE Candidate Handbook, April 2026:
+  https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/publications/093400.pdf
 - Indiana / Pearson VUE Candidate Handbook:
   https://www.pearsonvue.com/content/dam/VUE/vue/en/documents/publications/091500.pdf
 
@@ -34,7 +34,7 @@ single integrated exam build like Florida, California, or New York.
 | State | Target module | Composite simulator | Pass target | Fit |
 |-------|---------------|--------------------|-------------|-----|
 | Arizona | Salesperson | 80 national + 60 state | 75% | Clean fit |
-| North Carolina | Broker | 80 national + 40 state | Separate section pass requirement | Clean fit |
+| North Carolina | Broker | 80 national + 60 state | 75 each section | Clean fit |
 | Indiana | Broker | 80 national + 50 state | Scaled 75 | Clean fit |
 
 ## Arizona
@@ -83,8 +83,10 @@ Implementation note: weights should be derived as `items / 60 * 100`.
 
 North Carolina law requires two sections: a national section on general real
 estate law, principles, and practices, and a state section on North Carolina
-law, principles, and practices. The NCREC content outline gives an 80-item
-national section and a 40-item state section.
+law, principles, and practices. The April 2026 NCREC / Pearson VUE licensing
+booklet gives an 80-item national section and a 60-item state section, plus
+5 pretest items per section. The passing score is 75 for each section,
+computed separately.
 
 Recommended module:
 
@@ -94,29 +96,27 @@ Recommended module:
   title: 'North Carolina Real Estate Broker Exam',
   code: 'NCREC',
   questionCount: 400,
-  examQuestions: 120,
+  examQuestions: 140,
   examTime: 240,
   passingScore: 75,
   loadQuestions: () => loadCompositeQuestions(realEstateNcStateQuestionsUrl),
   composite: {
     national: { count: 80, domains: RE_NATIONAL_DOMAINS },
-    state: { count: 40, domains: NC_STATE_DOMAINS },
+    state: { count: 60, domains: NC_STATE_DOMAINS },
   },
 }
 ```
 
-State domain blueprint from the 40-item NCREC outline:
+State domain blueprint from the 60-item April 2026 NCREC outline:
 
-- Basic Real Estate Concepts: 1
-- Property Ownership and Interests: 1
-- Property Taxation and Assessment: 1
-- Land Use Controls: 1
-- Brokerage Relationships, Laws, and Practice: 11
-- Agency Contracts and Related Practices: 8
-- Sales Contracts and Related Procedures: 4
-- Closing a Sales Transaction: 1
-- Landlord and Tenant / Property Management: 2
-- Real Estate License Law and Commission Rules: 10
+- Licensure: 3
+- Agency: 16
+- Supervision / Compensation: 4
+- Brokerage Practice: 12
+- Taxes / Insurance: 4
+- Contracts / Closing: 7
+- Landlord / Tenant: 3
+- Other North Carolina Laws: 11
 
 Implementation note: NC should be labeled as a Broker / Provisional Broker
 module, not a salesperson module.
@@ -162,9 +162,8 @@ Implementation note: weights should be derived as `items / 50 * 100`.
 
 1. Arizona: completed as a 400-question state-law bank and wired at
    `/real-estate/study/az`.
-2. North Carolina: strong fit and common licensing pathway, but verify the
-   latest NCREC handbook directly before authoring because public mirrors are
-   easier to access than the Commission PDF.
+2. North Carolina: completed as a 400-question state-law bank and wired at
+   `/real-estate/study/nc`.
 3. Indiana: cleanest state-domain structure and Pearson VUE source is current,
    good candidate after AZ/NC.
 
@@ -179,3 +178,15 @@ Implemented on 2026-05-20 as `real-estate-az`:
 - Answer-position distribution: 100 each for A, B, C, D
 - Exact duplicate stems: 0
 - Minimum explanation length in the generated bank: 138 characters
+
+## North Carolina build notes
+
+Implemented on 2026-05-20 as `real-estate-nc`:
+
+- State-law bank: `src/data/real-estate-nc-state-questions.json`
+- Generator: `scripts/generate_nc_state_questions.mjs`
+- Count: 400 state-law questions
+- Domain distribution: 20 / 107 / 27 / 80 / 27 / 47 / 20 / 72
+- Answer-position distribution: 100 each for A, B, C, D
+- Exact duplicate stems: 0
+- Minimum explanation length in the generated bank: 140 characters

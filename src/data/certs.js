@@ -12,6 +12,7 @@ import realEstateTxStateQuestionsUrl from './real-estate-tx-state-questions.json
 import realEstateMeStateQuestionsUrl from './real-estate-me-state-questions.json?url'
 import realEstateGaStateQuestionsUrl from './real-estate-ga-state-questions.json?url'
 import realEstateAzStateQuestionsUrl from './real-estate-az-state-questions.json?url'
+import realEstateNcStateQuestionsUrl from './real-estate-nc-state-questions.json?url'
 
 async function loadQuestionAsset(url) {
   const response = await fetch(url)
@@ -99,6 +100,21 @@ const AZ_STATE_DOMAINS = [
   { name: 'Critical Business Services for a Real Estate Transaction', weight: 8 }, // 5 items
   { name: 'Ownership and Encumbrances', weight: 9 },                        // 5 items
   { name: 'Foreclosure / Short Sale / Deed-in-Lieu Process', weight: 5 },   // 3 items
+]
+
+// North Carolina Broker STATE-LAW portion — 60 scored items across 8
+// sections per the NCREC / Pearson VUE April 2026 licensing booklet.
+// Integer weights preserve the 60-item allocation under largest-remainder
+// selection while avoiding floating-point drift in the registry tests.
+const NC_STATE_DOMAINS = [
+  { name: 'Licensure', weight: 5 },                    // 3 items
+  { name: 'Agency', weight: 27 },                      // 16 items
+  { name: 'Supervision / Compensation', weight: 7 },   // 4 items
+  { name: 'Brokerage Practice', weight: 20 },          // 12 items
+  { name: 'Taxes / Insurance', weight: 7 },            // 4 items
+  { name: 'Contracts / Closing', weight: 12 },         // 7 items
+  { name: 'Landlord / Tenant', weight: 5 },            // 3 items
+  { name: 'Other North Carolina Laws', weight: 17 },   // 11 items
 ]
 
 const certs = {
@@ -519,6 +535,43 @@ const certs = {
       'Critical Business Services for a Real Estate Transaction': { dot: 'bg-[#ca8a04]', bar: 'bg-[#ca8a04]', text: 'text-[#ca8a04]', hex: '#ca8a04' },
       'Ownership and Encumbrances':                            { dot: 'bg-[#65a30d]', bar: 'bg-[#65a30d]', text: 'text-[#65a30d]', hex: '#65a30d' },
       'Foreclosure / Short Sale / Deed-in-Lieu Process':       { dot: 'bg-[#4f46e5]', bar: 'bg-[#4f46e5]', text: 'text-[#4f46e5]', hex: '#4f46e5' },
+    },
+  },
+  // North Carolina Broker module — layered national + state architecture.
+  // National half = shared real-estate-national pool (portion:'national');
+  // state half authored in real-estate-nc-state-questions.json
+  // (portion:'state'). Full Licensing Exam mirrors the current NCREC split:
+  // 80 national + 60 state, 75 passing score computed separately by section.
+  'real-estate-nc': {
+    id: 'real-estate-nc',
+    title: 'North Carolina Real Estate Broker Exam',
+    code: 'NCREC',
+    provider: 'Real Estate',
+    description: 'North Carolina Broker licensing exam: the portable national portion plus the North Carolina state-law portion. State-law content is modeled to the official 8-section NCREC / Pearson VUE April 2026 outline; the Full Licensing Exam mirrors the real 80 national + 60 state split.',
+    difficulty: 'Foundational',
+    color: '#dc2626',
+    questionCount: 400,
+    examQuestions: 140,
+    examTime: 240,
+    passingScore: 75,
+    published: false,
+    loadQuestions: () => loadCompositeQuestions(realEstateNcStateQuestionsUrl),
+    // Real exam: 80 national + 60 state; sections are timed/scored separately.
+    composite: {
+      national: { count: 80, domains: RE_NATIONAL_DOMAINS },
+      state: { count: 60, domains: NC_STATE_DOMAINS },
+    },
+    // Dashboard / state-practice taxonomy is the NC state-law sections.
+    domains: NC_STATE_DOMAINS,
+    domainColors: {
+      'Licensure':                    { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
+      'Agency':                       { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
+      'Supervision / Compensation':   { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
+      'Brokerage Practice':           { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
+      'Taxes / Insurance':            { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
+      'Contracts / Closing':          { dot: 'bg-[#2563eb]', bar: 'bg-[#2563eb]', text: 'text-[#2563eb]', hex: '#2563eb' },
+      'Landlord / Tenant':            { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
+      'Other North Carolina Laws':    { dot: 'bg-[#db2777]', bar: 'bg-[#db2777]', text: 'text-[#db2777]', hex: '#db2777' },
     },
   },
 }

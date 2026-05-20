@@ -549,7 +549,7 @@ key = random() ** (1 / weight)
               },
               {
                 title: 'State licensing exams are composed, not duplicated',
-                body: 'Real estate state modules merge the shared national pool with one state-law bank, tag each side as national or state, then select each portion independently through selectLicensingExam(). Texas, Maine, Georgia, and Arizona already use this pattern. North Carolina and Indiana were researched against current public outlines and fit the same model with only the state count and state-domain weights changing.',
+                body: 'Real estate state modules merge the shared national pool with one state-law bank, tag each side as national or state, then select each portion independently through selectLicensingExam(). Texas, Maine, Georgia, Arizona, and North Carolina already use this pattern. Indiana was researched against current public outlines and fits the same model with only the state count and state-domain weights changing.',
               },
               {
                 title: 'Content integrity is enforced, not assumed',
@@ -568,7 +568,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              304 Vitest tests across 14 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              315 Vitest tests across 14 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -619,15 +619,15 @@ key = random() ** (1 / weight)
                   'Maine state-law module — live: 400 questions, 5 Pearson VUE sections, Full Licensing Exam mirrors 80 national + 40 state (75% each section). Sister-site study picker now covers National, Texas, and Maine.',
                   'Georgia state-law module — live: 400 questions, 3 PSI/AMP sections, Full Licensing Exam mirrors 100 national + 52 state (75% each section). Study picker now covers National, Texas, Maine, and Georgia.',
                   'Arizona state-law module — live: 400 questions, 11 ADRE / Pearson VUE sections, Full Licensing Exam mirrors 80 national + 60 state (75% pass target).',
+                  'North Carolina state-law module — live: 400 questions, 8 NCREC / Pearson VUE sections, Full Licensing Exam mirrors 80 national + 60 state (75 each section).',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, route-level lazy loading, JSON question-bank assets, and 304-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, route-level lazy loading, JSON question-bank assets, and 315-test regression suite.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'North Carolina broker module — researched fit: 80 national + 40 state split, NCREC state-law/practice weighting, separate national/state section pass requirement.',
                   'Indiana broker module — researched fit: 80 national + 50 state split, 5 state-law sections, scaled 75 pass score, effective 2025-03-01 outline.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
