@@ -545,7 +545,11 @@ key = random() ** (1 / weight)
               },
               {
                 title: 'The sister site reuses the engine, not the UI',
-                body: 'The Real Estate study app lives under /real-estate/study with its own light-themed pages (REDashboard, REQuiz, REDrill, REExam, REResults) and a single-choice REQuestionCard. It imports the exact same useProgress, useQuestionStats, useBookmarks, scoring, shuffle, and exam-selection modules — the cert engine is theme-agnostic and keyed by certId, so CertProvider just takes an explicit certId prop instead of reading it from the URL. New audiences get a different visual language with zero logic forks.',
+                body: 'The Real Estate study app lives under /real-estate/study with its own light-themed pages (REDashboard, REQuiz, REDrill, REExam, REResults) and a single-choice REQuestionCard. It imports the exact same useProgress, useQuestionStats, useBookmarks, scoring, shuffle, and exam-selection modules — the cert engine is theme-agnostic and keyed by certId, so CertProvider can take an explicit certId prop from the sister-site slug. New audiences get a different visual language with zero logic forks.',
+              },
+              {
+                title: 'State licensing exams are composed, not duplicated',
+                body: 'Real estate state modules merge the shared national pool with one state-law bank, tag each side as national or state, then select each portion independently through selectLicensingExam(). Texas, Maine, and Georgia already use this pattern. Arizona, North Carolina, and Indiana were researched against current public outlines and fit the same model with only the state count and state-domain weights changing.',
               },
               {
                 title: 'Content integrity is enforced, not assumed',
@@ -564,13 +568,14 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              178 Vitest tests across seven modules cover the math, the scoring, the Smart Practice weights, the progress rollups,
-              the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
+              293 Vitest tests across 14 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
               marks right answers wrong, and a bad question slips past hundreds of thousands of silent reads. The full suite,
-              lint, and a production build run in GitHub Actions CI on every push and pull request. UI behaviour is
-              verified manually given the component-level complexity.
+              lint, and a production build run in GitHub Actions CI on every push and pull request. The redesigned study
+              UI now has focused regression coverage for navigation accessibility, workspace progress, and the question map,
+              with browser QA still used for full rendered flows.
             </P>
             <CodeBlock>{`src/__tests__/
 ├── shuffle.test.js         — Fisher-Yates distribution, weightedSample bias
@@ -579,6 +584,7 @@ key = random() ** (1 / weight)
 ├── smart-practice.test.js  — Weight formula, mastered-question clamping
 ├── progress-stats.test.js  — Domain and overall rollups, percentage rounding
 ├── markdown.test.js        — Explanation-text rendering and escaping
+├── study-ui.test.jsx      — Cert nav labels, StudyWorkspace, question map
 └── content-sanity.test.js  — Every question across every cert: ids unique,
                               domains valid, types recognized, correctAnswer
                               indices in range, MR sorted, ordering is a
@@ -589,9 +595,10 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today, with all eight planned certifications in the catalog. The focus now shifts to
-              platform features: cross-device sync, mobile support, accessibility, and study tools that complement the practice
-              itself. New certs may still be considered — but only ones that share the same audience and the same depth standard.
+              The product is live and usable today, with nine IT certifications plus the real-estate sister site. The latest
+              refresh added a modern study UI, dashboard charts, route-level code splitting, JSON asset loading, and focused UI
+              regression tests. The roadmap now splits into two tracks: researched real-estate state modules that fit the
+              existing composite-exam engine, and platform features such as synced accounts, a custom domain, and PWA support.
             </P>
 
             {[
@@ -612,13 +619,16 @@ key = random() ** (1 / weight)
                   'Maine state-law module — live: 400 questions, 5 Pearson VUE sections, Full Licensing Exam mirrors 80 national + 40 state (75% each section). Sister-site study picker now covers National, Texas, and Maine.',
                   'Georgia state-law module — live: 400 questions, 3 PSI/AMP sections, Full Licensing Exam mirrors 100 national + 52 state (75% each section). Study picker now covers National, Texas, Maine, and Georgia.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, route-level lazy loading, JSON question-bank assets, and 293-test regression suite.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'Arizona, North Carolina, and Indiana state-law modules — in planning, same architecture. Single-integrated-exam states (FL, CA, NY) remain out of scope — their exams are not a national + state split, so the layered-module design does not apply.',
+                  'Arizona state-law module — researched fit: 80 national + 60 state salesperson split, 11 state-law sections, 75% pass target, effective 2026-01-01 outline.',
+                  'North Carolina broker module — researched fit: 80 national + 40 state split, NCREC state-law/practice weighting, separate national/state section pass requirement.',
+                  'Indiana broker module — researched fit: 80 national + 50 state split, 5 state-law sections, scaled 75 pass score, effective 2025-03-01 outline.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',
@@ -629,7 +639,7 @@ key = random() ** (1 / weight)
                 color: '#fbbf24',
                 items: [
                   'Streak tracking and study reminders',
-                  'Accessibility pass — ARIA, keyboard navigation, screen-reader friendliness',
+                  'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
                   'Shared result cards — privacy-respecting shareable score screenshots',
                   'More sister sites for adjacent non-IT career paths (e.g., fiber technician credentials)',
                 ],

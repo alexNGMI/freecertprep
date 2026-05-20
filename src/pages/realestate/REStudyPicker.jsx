@@ -3,8 +3,8 @@ import { RE_STUDY_CERTS } from './reCerts'
 import { useDocumentMeta } from '../../hooks/useDocumentMeta'
 
 // Sister-site study chooser: pick the National prep or a state-licensing
-// module (Texas today). Each links into the shared light-theme study app
-// mounted on that cert.
+// module. Each links into the shared light-theme study app mounted on
+// that cert.
 export default function REStudyPicker() {
   useDocumentMeta({
     title: 'Choose your real estate exam',

@@ -8,13 +8,12 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 // warm red accent (#dc2626 family), bold serif-adjacent display type,
 // pill search/CTA, and card-based state tiles.
 
-// State-specific modules that will layer on top of the national bank.
-// The launch product is national prep — these are the next wave. Order
-// matters here: TX/FL ship first because TX has a notoriously hard state
-// portion and FL has the highest candidate volume; GA/NC/CO follow.
-// CA (single integrated exam) and NY (state-law-heavy throughout) need
-// their own long-form builds and are intentionally NOT in this grid.
-// CA/NY visitors can still register interest via the US_STATES dropdown.
+// State-specific modules that layer on top of the national bank.
+// National, TX, ME, and GA are live. AZ, NC, and IN are the researched
+// next wave because their exams keep a clean national + state split that
+// matches the composite-exam architecture already used here.
+// Single-integrated-exam states such as FL, CA, and NY need separate
+// long-form builds and are intentionally not in this grid.
 const STATE_MODULES = [
   { code: 'TX', name: 'Texas',          blurb: 'Full licensing: national + TREC state law', badge: 'Available now', to: '/real-estate/study/tx' },
   { code: 'ME', name: 'Maine',          blurb: 'Sales agent: national + Maine state law', badge: 'Available now', to: '/real-estate/study/me' },
@@ -237,8 +236,9 @@ export default function RealEstate() {
               ownership, agency, contracts, financing, appraisal, transfer,
               disclosures, fair housing, math, practice of real estate. We
               drill it deep. Your state-specific module is the second
-              layer, covering local law and commission rules. Texas is
-              live now — more states are on the way.
+              layer, covering local law and commission rules. Texas, Maine,
+              and Georgia are live now; Arizona, North Carolina, and Indiana
+              are the next researched builds.
             </p>
           </div>
 

@@ -29,7 +29,10 @@ State-specific **state-law modules** layer on top of this national pool, modeled
 - **Texas — live.** A 401-question Texas Sales Agent state-law pool modeled to the 6 official Pearson VUE / TREC sections, layered on the national pool; the Full Licensing Exam composes the real 85 national + 40 state, 70% each section. (`/real-estate/study/tx`)
 - **Maine — live.** A 400-question Maine Sales Agent state-law pool modeled to the 5 official Pearson VUE sections, layered on the national pool; the Full Licensing Exam composes the real 80 national + 40 state, 75% each section. (`/real-estate/study/me`)
 - **Georgia — live.** A 400-question Georgia Sales Agent state-law pool modeled to the 3 official PSI/AMP sections, layered on the national pool; the Full Licensing Exam composes the real 100 national + 52 state, 75% each section. (`/real-estate/study/ga`)
-- **Arizona, North Carolina, and Indiana** — in planning, same layered national + state architecture.
+- **Arizona, North Carolina, and Indiana** — researched and queued next. All three fit the existing layered national + state architecture:
+  - Arizona Salesperson: 80 national + 60 state, 75% pass target.
+  - North Carolina Broker: 80 national + 40 state, separate national/state sections.
+  - Indiana Broker: 80 national + 50 state, scaled 75 pass score.
 
 Single-integrated-exam states (Florida, California, New York) are explicitly **out of scope** — their exams are not a national + state split, so the layered-module architecture does not apply. Real Estate always lives on the sister site and is intentionally kept out of the IT catalog (it fills a different need).
 
@@ -62,7 +65,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (178 tests across 7 modules), GitHub Actions CI
+- Vitest (293 tests across 14 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 
@@ -92,6 +95,20 @@ npx vitest run
 2. Create `src/data/<cert-id>-questions.json` as an array of question objects.
 3. Add the new cert + JSON import to `src/__tests__/content-sanity.test.js` so its pool is validated.
 4. Set `published: false` while authoring; remove the flag when the pool is ready to ship.
+
+## Adding a real estate state module
+
+State modules reuse the national real estate pool instead of duplicating it. Add a state-law JSON bank, import it in `src/data/certs.js`, load it with `loadCompositeQuestions(stateUrl)`, and set a `composite` exam split that mirrors the real licensing exam.
+
+The next researched state modules fit the current architecture:
+
+| State | License exam | Composite simulator | State blueprint |
+|-------|--------------|--------------------|-----------------|
+| Arizona | Salesperson | 80 national + 60 state | 11 state-law sections, effective 2026-01-01 |
+| North Carolina | Broker | 80 national + 40 state | NCREC state section weighted across NC law/practice |
+| Indiana | Broker | 80 national + 50 state | 5 state-law sections, effective 2025-03-01 |
+
+Single-integrated-exam states such as Florida, California, and New York stay out of this layered flow unless we build them as separate long-form products.
 
 ## Adding questions
 
