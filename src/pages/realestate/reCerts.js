@@ -35,6 +35,14 @@ export const RE_STUDY_CERTS = [
     tagline: 'National prep + the Georgia state-law portion (PSI/AMP blueprint).',
     examLine: 'Full Licensing Exam: 100 national + 52 state · 75% each section',
   },
+  {
+    slug: 'az',
+    certId: 'real-estate-az',
+    name: 'Arizona Salesperson — Full Licensing',
+    badge: 'Arizona',
+    tagline: 'National prep + the Arizona state-law portion (ADRE blueprint).',
+    examLine: 'Full Licensing Exam: 80 national + 60 state · 75% pass target',
+  },
 ]
 
 export const reCertBySlug = (slug) =>

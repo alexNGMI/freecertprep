@@ -160,10 +160,22 @@ Implementation note: weights should be derived as `items / 50 * 100`.
 
 ## Recommended build order
 
-1. Arizona: already has a current 2026 effective outline and a distinctive
-   60-item state section.
+1. Arizona: completed as a 400-question state-law bank and wired at
+   `/real-estate/study/az`.
 2. North Carolina: strong fit and common licensing pathway, but verify the
    latest NCREC handbook directly before authoring because public mirrors are
    easier to access than the Commission PDF.
 3. Indiana: cleanest state-domain structure and Pearson VUE source is current,
    good candidate after AZ/NC.
+
+## Arizona build notes
+
+Implemented on 2026-05-20 as `real-estate-az`:
+
+- State-law bank: `src/data/real-estate-az-state-questions.json`
+- Generator: `scripts/generate_az_state_questions.mjs`
+- Count: 400 state-law questions
+- Domain distribution: 33 / 33 / 33 / 40 / 40 / 40 / 40 / 54 / 34 / 33 / 20
+- Answer-position distribution: 100 each for A, B, C, D
+- Exact duplicate stems: 0
+- Minimum explanation length in the generated bank: 138 characters

@@ -29,8 +29,8 @@ State-specific **state-law modules** layer on top of this national pool, modeled
 - **Texas — live.** A 401-question Texas Sales Agent state-law pool modeled to the 6 official Pearson VUE / TREC sections, layered on the national pool; the Full Licensing Exam composes the real 85 national + 40 state, 70% each section. (`/real-estate/study/tx`)
 - **Maine — live.** A 400-question Maine Sales Agent state-law pool modeled to the 5 official Pearson VUE sections, layered on the national pool; the Full Licensing Exam composes the real 80 national + 40 state, 75% each section. (`/real-estate/study/me`)
 - **Georgia — live.** A 400-question Georgia Sales Agent state-law pool modeled to the 3 official PSI/AMP sections, layered on the national pool; the Full Licensing Exam composes the real 100 national + 52 state, 75% each section. (`/real-estate/study/ga`)
-- **Arizona, North Carolina, and Indiana** — researched and queued next. All three fit the existing layered national + state architecture:
-  - Arizona Salesperson: 80 national + 60 state, 75% pass target.
+- **Arizona — live.** A 400-question Arizona Salesperson state-law pool modeled to the 11 official ADRE / Pearson VUE sections effective 2026-01-01; the Full Licensing Exam composes the real 80 national + 60 state, 75% pass target. (`/real-estate/study/az`)
+- **North Carolina and Indiana** — researched and queued next. Both fit the existing layered national + state architecture:
   - North Carolina Broker: 80 national + 40 state, separate national/state sections.
   - Indiana Broker: 80 national + 50 state, scaled 75 pass score.
 
@@ -65,7 +65,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (293 tests across 14 files), GitHub Actions CI
+- Vitest (304 tests across 14 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 
@@ -104,7 +104,7 @@ The next researched state modules fit the current architecture:
 
 | State | License exam | Composite simulator | State blueprint |
 |-------|--------------|--------------------|-----------------|
-| Arizona | Salesperson | 80 national + 60 state | 11 state-law sections, effective 2026-01-01 |
+| Arizona | Salesperson | 80 national + 60 state | Live: 400-question bank, 11 state-law sections, effective 2026-01-01 |
 | North Carolina | Broker | 80 national + 40 state | NCREC state section weighted across NC law/practice |
 | Indiana | Broker | 80 national + 50 state | 5 state-law sections, effective 2025-03-01 |
 

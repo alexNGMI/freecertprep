@@ -11,6 +11,7 @@ import realEstateNationalQuestionsUrl from './real-estate-national-questions.jso
 import realEstateTxStateQuestionsUrl from './real-estate-tx-state-questions.json?url'
 import realEstateMeStateQuestionsUrl from './real-estate-me-state-questions.json?url'
 import realEstateGaStateQuestionsUrl from './real-estate-ga-state-questions.json?url'
+import realEstateAzStateQuestionsUrl from './real-estate-az-state-questions.json?url'
 
 async function loadQuestionAsset(url) {
   const response = await fetch(url)
@@ -80,6 +81,24 @@ const GA_STATE_DOMAINS = [
   { name: 'Georgia State Laws and Rules', weight: 31 },              // 16 items
   { name: 'Real Estate Practice in Georgia', weight: 40 },           // 21 items
   { name: 'Finance and Closing in Georgia', weight: 29 },            // 15 items
+]
+
+// Arizona Salesperson STATE-LAW portion — 60 scored items across 11
+// sections per the ADRE / Pearson VUE outline effective 2026-01-01.
+// Integer weights preserve the 60-item allocation under largest-remainder
+// selection while avoiding floating-point drift in the registry tests.
+const AZ_STATE_DOMAINS = [
+  { name: 'Arizona Real Estate Regulatory Framework', weight: 8 },          // 5 items
+  { name: 'Arizona Consumer Protection Laws', weight: 8 },                  // 5 items
+  { name: 'Advertising', weight: 8 },                                       // 5 items
+  { name: 'Arizona Agency', weight: 10 },                                   // 6 items
+  { name: 'Licensee Duties and Obligations', weight: 10 },                  // 6 items
+  { name: 'Licensee Competencies and Duties', weight: 10 },                 // 6 items
+  { name: 'Reasonable Skill and Care', weight: 10 },                        // 6 items
+  { name: 'Contracts', weight: 14 },                                        // 8 items
+  { name: 'Critical Business Services for a Real Estate Transaction', weight: 8 }, // 5 items
+  { name: 'Ownership and Encumbrances', weight: 9 },                        // 5 items
+  { name: 'Foreclosure / Short Sale / Deed-in-Lieu Process', weight: 5 },   // 3 items
 ]
 
 const certs = {
@@ -460,6 +479,46 @@ const certs = {
       'Georgia State Laws and Rules':      { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
       'Real Estate Practice in Georgia':   { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
       'Finance and Closing in Georgia':    { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
+    },
+  },
+  // Arizona Salesperson module — layered national + state architecture.
+  // National half = shared real-estate-national pool (portion:'national');
+  // state half authored in real-estate-az-state-questions.json
+  // (portion:'state'). Full Licensing Exam mirrors the real Arizona split:
+  // 80 national + 60 state, 75% pass target.
+  'real-estate-az': {
+    id: 'real-estate-az',
+    title: 'Arizona Real Estate Salesperson Exam',
+    code: 'AZ ADRE',
+    provider: 'Real Estate',
+    description: 'Arizona Salesperson licensing exam: the portable national portion plus the Arizona state-law portion. State-law content is modeled to the official 11-section ADRE / Pearson VUE outline effective 2026-01-01; the Full Licensing Exam mirrors the real 80 national + 60 state split.',
+    difficulty: 'Foundational',
+    color: '#dc2626',
+    questionCount: 400,
+    examQuestions: 140,
+    examTime: 300,
+    passingScore: 75,
+    published: false,
+    loadQuestions: () => loadCompositeQuestions(realEstateAzStateQuestionsUrl),
+    // Real exam: 80 national + 60 state; Arizona uses a 75% pass target.
+    composite: {
+      national: { count: 80, domains: RE_NATIONAL_DOMAINS },
+      state: { count: 60, domains: AZ_STATE_DOMAINS },
+    },
+    // Dashboard / state-practice taxonomy is the Arizona state-law sections.
+    domains: AZ_STATE_DOMAINS,
+    domainColors: {
+      'Arizona Real Estate Regulatory Framework':              { dot: 'bg-[#dc2626]', bar: 'bg-[#dc2626]', text: 'text-[#dc2626]', hex: '#dc2626' },
+      'Arizona Consumer Protection Laws':                      { dot: 'bg-[#ea580c]', bar: 'bg-[#ea580c]', text: 'text-[#ea580c]', hex: '#ea580c' },
+      'Advertising':                                           { dot: 'bg-[#d97706]', bar: 'bg-[#d97706]', text: 'text-[#d97706]', hex: '#d97706' },
+      'Arizona Agency':                                        { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
+      'Licensee Duties and Obligations':                       { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
+      'Licensee Competencies and Duties':                      { dot: 'bg-[#2563eb]', bar: 'bg-[#2563eb]', text: 'text-[#2563eb]', hex: '#2563eb' },
+      'Reasonable Skill and Care':                             { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
+      'Contracts':                                             { dot: 'bg-[#db2777]', bar: 'bg-[#db2777]', text: 'text-[#db2777]', hex: '#db2777' },
+      'Critical Business Services for a Real Estate Transaction': { dot: 'bg-[#ca8a04]', bar: 'bg-[#ca8a04]', text: 'text-[#ca8a04]', hex: '#ca8a04' },
+      'Ownership and Encumbrances':                            { dot: 'bg-[#65a30d]', bar: 'bg-[#65a30d]', text: 'text-[#65a30d]', hex: '#65a30d' },
+      'Foreclosure / Short Sale / Deed-in-Lieu Process':       { dot: 'bg-[#4f46e5]', bar: 'bg-[#4f46e5]', text: 'text-[#4f46e5]', hex: '#4f46e5' },
     },
   },
 }
