@@ -176,10 +176,11 @@ export default function Docs() {
               afford them.
             </P>
             <P>
-              The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, NVIDIA, and CompTIA —
-              including Network+, Security+, and Server+. Every cert is chosen deliberately: these are exams where the test-taker is
-              typically paying out of pocket, studying independently, with no employer tuition pipeline to lean on. The catalog is
-              intentionally small so each cert gets the depth it deserves rather than being one of fifty shallow course pages.
+              The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, NVIDIA, HashiCorp,
+              and CompTIA - including Network+, Security+, Server+, and Terraform Associate. Every cert is chosen deliberately:
+              these are exams where the test-taker is typically paying out of pocket, studying independently, with no employer
+              tuition pipeline to lean on. The homepage now separates guided career paths from the direct catalog so beginners can
+              follow a sequence while experienced learners can jump straight to the cert they need.
             </P>
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
@@ -221,6 +222,7 @@ export default function Docs() {
                 [<Badge color="#c8202f">N10-009</Badge>, 'CompTIA', '750', '90', '90 min', '80%'],
                 [<Badge color="#c8202f">SY0-701</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
                 [<Badge color="#c8202f">SK0-005</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
+                [<Badge color="#7c3aed">TF 004</Badge>, 'HashiCorp', '632', '57', '60 min', '~70%'],
               ]}
             />
 
@@ -485,7 +487,8 @@ key = random() ** (1 / weight)
             <H3>Project structure</H3>
             <CodeBlock>{`src/
 ├── pages/
-│   ├── Home.jsx          — Landing page, cert catalog, visitor counter
+│   ├── Home.jsx          — Landing page, guided paths, cert catalog, visitor counter
+│   ├── CareerPath.jsx    - Guided IT Entry / Networking / Cyber / Cloud / NVIDIA path pages
 │   ├── Dashboard.jsx     — Per-cert stats, domain readiness, resets
 │   ├── Quiz.jsx          — Smart Practice / Bookmarked / Domain mode
 │   ├── Drill.jsx         — Timed 10-question drill with countdown
@@ -568,7 +571,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              354 Vitest tests across 16 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              357 Vitest tests across 18 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -585,6 +588,8 @@ key = random() ** (1 / weight)
 ├── progress-stats.test.js  — Domain and overall rollups, percentage rounding
 ├── markdown.test.js        — Explanation-text rendering and escaping
 ├── study-ui.test.jsx      — Cert nav labels, StudyWorkspace, question map
+├── home-career-path.test.jsx — Career-path homepage routing and catalog visibility
+├── career-path-page.test.jsx - Guided path pages, Cloud vendor choice, and fallback routing
 ├── realestate-registry.test.js — Sister-site picker / cert registry wiring
 ├── aplus-page.test.jsx     — Dedicated A+ Core 1/Core 2 selector behavior
 └── content-sanity.test.js  — Every question across every cert: ids unique,
@@ -598,9 +603,9 @@ key = random() ** (1 / weight)
           <Section id="roadmap" title="Roadmap">
             <P>
               The product is live and usable today, with nine IT certifications plus the real-estate sister site. The latest
-              refresh added a modern study UI, dashboard charts, route-level code splitting, JSON asset loading, and focused UI
-              regression tests. The roadmap now splits into two tracks: researched real-estate state modules that fit the
-              existing composite-exam engine, and platform features such as synced accounts, a custom domain, and PWA support.
+              refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
+              loading, and focused UI regression tests. The roadmap now splits into two tracks: making the guided IT paths richer
+              and adding platform features such as synced accounts, a custom domain, and PWA support.
             </P>
 
             {[
@@ -612,7 +617,8 @@ key = random() ** (1 / weight)
                   'CompTIA Network+ (N10-009) — 750-question pool, all five question types',
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
-                  'Catalog grouped by provider (CompTIA / Cloud / NVIDIA) for clearer scannability',
+                  'Homepage guided paths — IT Entry, Networking, Cybersecurity, Cloud, and NVIDIA path cards now route to dedicated /paths/* pages while the bottom catalog remains direct-to-cert.',
+                  'Cloud path flow — /paths/cloud guides learners to choose one vendor foundation (AWS, Azure, or Google Cloud) before moving into Terraform Associate.',
                   'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
                   'Per-route SEO — dynamic page titles, Open Graph, and canonical URLs; root error boundary and graceful question-load failure handling',
@@ -626,7 +632,7 @@ key = random() ** (1 / weight)
                   'AZ / NC / IN quality audit — all three new state modules verified for source-aligned exam splits, domain balance, unique IDs, duplicate-free stems, balanced answer positions, and frontend picker coverage.',
                   'CompTIA A+ guided track — preview live at /comptia/a-plus with separate Core 1 (220-1201) and Core 2 (220-1202) routes, 270 first-iteration questions per core, and a 750-question-per-core production target.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, route-level lazy loading, JSON question-bank assets, and 354-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 357-test regression suite.',
                 ],
               },
               {

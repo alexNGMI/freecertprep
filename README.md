@@ -22,6 +22,8 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **A+ track preview is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector that keeps Core 1 (220-1201) and Core 2 (220-1202) outside the main catalog grid. Each core has a first-iteration 270-question pool and a 90-question / 90-minute simulator; the production target is 750 reviewed questions per core.
 
+> **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. `/paths/it-entry`, `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence; the Cloud path starts with one vendor foundation (AWS, Azure, or Google Cloud) and then moves into Terraform.
+
 ### Sister site — Real Estate
 
 A separate, light-themed surface (Redfin/Zillow visual language) lives at `/real-estate`, with a full study app under `/real-estate/study`. It covers the **National Real Estate Salesperson Exam** — the portable national/uniform portion tested in ~48 states — with a **750-question pool** built to the post-October-2023 PSI blueprint (11 weighted domains, 100% single-choice, 80-question / 120-minute / 75%-pass simulator). It is intentionally not in the IT catalog above; it reuses the exact same Smart Practice, scoring, and exam-selection engine, keyed to its own cert id.
@@ -39,7 +41,8 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 ## Features
 
-- **Home** — Catalog grouped by provider with at-a-glance exam stats.
+- **Home** - Guided learning paths up top, direct certification catalog below.
+- **Path pages** - Dedicated lanes for IT Entry, Networking, Cybersecurity, Cloud, and NVIDIA. Cloud guides learners through AWS/Azure/Google Cloud first, then Terraform.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
 - **Timed Drill** — 10 questions in 10 minutes, color-shifting countdown timer.
@@ -66,7 +69,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (354 tests across 16 files), GitHub Actions CI
+- Vitest (357 tests across 18 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

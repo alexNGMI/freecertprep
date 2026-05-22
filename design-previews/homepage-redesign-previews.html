@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>freecertprep Homepage Preview Concepts</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #09090b;
+      --panel: #101013;
+      --panel-2: #151519;
+      --line: rgba(255,255,255,.1);
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --soft: #71717a;
+      --red: #ef4444;
+      --amber: #f59e0b;
+      --blue: #38bdf8;
+      --green: #34d399;
+      --violet: #a78bfa;
+      --rose: #fb7185;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(9,9,11,.7), #09090b 28rem),
+        radial-gradient(circle at 50% -18rem, rgba(82,82,91,.42), transparent 36rem),
+        radial-gradient(circle at 1px 1px, #1b1b20 1px, transparent 0);
+      background-size: auto, auto, 28px 28px;
+      color: var(--text);
+      font: 15px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 36px 28px 64px;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--soft);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 76px);
+      line-height: .95;
+      letter-spacing: -0.03em;
+    }
+
+    .intro p:last-child {
+      max-width: 560px;
+      color: var(--muted);
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .concept {
+      background: rgba(12,12,15,.86);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 30px 90px -60px #000;
+      min-height: 620px;
+    }
+
+    .concept.wide { grid-column: 1 / -1; }
+
+    .caption {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .caption h2 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+
+    .caption p {
+      margin: 4px 0 0;
+      color: var(--soft);
+      font-size: 13px;
+    }
+
+    .score {
+      color: #e4e4e7;
+      border: 1px solid var(--line);
+      background: #0c0c0f;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .mock {
+      min-height: 560px;
+      padding: 22px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      font-size: 20px;
+    }
+
+    .brand span:first-child,
+    .brand span:last-child { color: #71717a; }
+
+    .navlinks {
+      display: flex;
+      gap: 16px;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #d4d4d8;
+      background: rgba(255,255,255,.035);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 40px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 13px;
+      background: #f4f4f5;
+      color: #09090b;
+    }
+
+    .btn.secondary {
+      background: #17171b;
+      color: #e4e4e7;
+      border: 1px solid var(--line);
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255,255,255,.03);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 6px;
+      color: var(--soft);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .cert-card,
+    .row-card,
+    .path-card,
+    .table-row,
+    .mini-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+      border-radius: 8px;
+    }
+
+    .provider {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    .tag {
+      display: inline-flex;
+      font-size: 10px;
+      font-weight: 900;
+      color: #fecaca;
+      border: 1px solid rgba(239,68,68,.28);
+      background: rgba(239,68,68,.09);
+      border-radius: 5px;
+      padding: 4px 7px;
+    }
+
+    .title {
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin: 7px 0 5px;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: 10px;
+      color: var(--soft);
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 12px;
+    }
+
+    /* Concept 1 */
+    .provider-shell .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+
+    .provider-shell .hero h3 {
+      margin: 12px 0 8px;
+      font-size: 42px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .provider-row {
+      margin-top: 22px;
+    }
+
+    .provider-row-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .row-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .row-card {
+      padding: 14px;
+      min-height: 120px;
+    }
+
+    .accent-red { border-top: 3px solid var(--red); }
+    .accent-blue { border-top: 3px solid var(--blue); }
+    .accent-green { border-top: 3px solid var(--green); }
+    .accent-violet { border-top: 3px solid var(--violet); }
+
+    /* Concept 2 */
+    .path-shell .path-hero {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    .path-shell h3 {
+      margin: 12px 0 10px;
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .path-card {
+      padding: 16px;
+      min-height: 140px;
+      position: relative;
+    }
+
+    .path-card.big {
+      min-height: 256px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-color: rgba(239,68,68,.35);
+      background: linear-gradient(150deg, rgba(239,68,68,.13), rgba(255,255,255,.02));
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .path-line {
+      height: 5px;
+      background: #18181b;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    .path-line > span {
+      display: block;
+      height: 100%;
+      background: var(--red);
+      border-radius: inherit;
+    }
+
+    /* Concept 3 */
+    .dashboard-shell .dashboard {
+      display: grid;
+      grid-template-columns: 190px 1fr 230px;
+      gap: 14px;
+      min-height: 480px;
+    }
+
+    .side,
+    .recommend {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.025);
+      padding: 14px;
+    }
+
+    .filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 6px;
+      padding: 9px 10px;
+      margin-top: 8px;
+      color: #d4d4d8;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .table {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .table-head,
+    .table-row {
+      display: grid;
+      grid-template-columns: 1.4fr .7fr .7fr .7fr;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .table-head {
+      color: var(--soft);
+      background: rgba(255,255,255,.035);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .table-row {
+      border-radius: 0;
+      border-width: 1px 0 0;
+      font-size: 12px;
+      background: rgba(10,10,12,.72);
+    }
+
+    /* Concept 4 */
+    .featured-shell .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      border: 1px solid rgba(239,68,68,.26);
+      border-radius: 8px;
+      padding: 22px;
+      background: linear-gradient(135deg, rgba(239,68,68,.13), rgba(255,255,255,.02));
+      margin-bottom: 20px;
+    }
+
+    .featured-shell .feature h3 {
+      margin: 10px 0;
+      font-size: 42px;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .core-picker {
+      display: grid;
+      gap: 10px;
+    }
+
+    .core {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 8px;
+      padding: 15px;
+      background: rgba(0,0,0,.18);
+    }
+
+    .catalog-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    /* Concept 5 */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin: 18px 0;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      background: rgba(255,255,255,.025);
+    }
+
+    .tab.active {
+      color: #09090b;
+      background: #f4f4f5;
+    }
+
+    .tab-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 16px;
+    }
+
+    .tab-feature {
+      border: 1px solid rgba(239,68,68,.32);
+      background: rgba(239,68,68,.09);
+      border-radius: 8px;
+      padding: 20px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .mini-card {
+      padding: 14px;
+      min-height: 132px;
+    }
+
+    @media (max-width: 1000px) {
+      .concept-grid { grid-template-columns: 1fr; }
+      .provider-shell .hero,
+      .path-shell .path-hero,
+      .dashboard-shell .dashboard,
+      .featured-shell .feature,
+      .tab-layout { grid-template-columns: 1fr; }
+      .row-list,
+      .path-grid,
+      .catalog-strip,
+      .mini-grid { grid-template-columns: 1fr; }
+      .intro { align-items: start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="intro">
+      <div>
+        <p class="eyebrow">Homepage Redesign Previews</p>
+        <h1>Five catalog directions.</h1>
+      </div>
+      <p>Static visual previews for reorganizing freecertprep around all current certs, the A+ guided track, and future catalog growth.</p>
+    </div>
+
+    <div class="concept-grid">
+      <section class="concept wide">
+        <div class="caption">
+          <div>
+            <h2>1. Provider Sections + Compact Rows</h2>
+            <p>Best for clarity, scan speed, and preserving the current provider mental model.</p>
+          </div>
+          <span class="score">Recommended for now</span>
+        </div>
+        <div class="mock provider-shell">
+          <div class="nav">
+            <div class="brand"><span>free</span><span>cert</span><span>prep</span></div>
+            <div class="navlinks"><span>Catalog</span><span>A+ Track</span><span>Docs</span></div>
+          </div>
+          <div class="hero">
+            <div>
+              <span class="pill">Free forever · No signup</span>
+              <h3>Choose your next credential.</h3>
+              <p class="sub">Organized by provider, with every cert visible and compact enough to scale.</p>
+            </div>
+            <div class="metric-row" style="min-width: 420px;">
+              <div class="metric"><strong>9</strong><span>Live certs</span></div>
+              <div class="metric"><strong>A+</strong><span>Guided path</span></div>
+              <div class="metric"><strong>5.6k</strong><span>Questions</span></div>
+              <div class="metric"><strong>Free</strong><span>Forever</span></div>
+            </div>
+          </div>
+
+          <div class="provider-row">
+            <div class="provider-row-head"><span class="provider">Start IT · CompTIA</span><span class="tag">A+ preview</span></div>
+            <div class="row-list">
+              <div class="row-card accent-red"><span class="tag">Guided</span><div class="title">CompTIA A+</div><p class="sub">Core 1 + Core 2 selector</p><div class="stats"><span>270/core</span><span>90 min</span></div></div>
+              <div class="row-card accent-red"><span class="tag">N10-009</span><div class="title">Network+</div><p class="sub">Networking foundations</p><div class="stats"><span>750 Q</span><span>90 min</span></div></div>
+              <div class="row-card accent-red"><span class="tag">SY0-701</span><div class="title">Security+</div><p class="sub">Cybersecurity baseline</p><div class="stats"><span>750 Q</span><span>90 min</span></div></div>
+            </div>
+          </div>
+
+          <div class="provider-row">
+            <div class="provider-row-head"><span class="provider">Cloud</span><span class="sub">AWS · Azure · Google Cloud</span></div>
+            <div class="row-list">
+              <div class="row-card accent-blue"><span class="tag">CLF-C02</span><div class="title">AWS Cloud Practitioner</div><p class="sub">Cloud concepts and services</p><div class="stats"><span>731 Q</span><span>65 exam</span></div></div>
+              <div class="row-card accent-blue"><span class="tag">AZ-900</span><div class="title">Azure Fundamentals</div><p class="sub">Azure architecture and governance</p><div class="stats"><span>600 Q</span><span>45 min</span></div></div>
+              <div class="row-card accent-blue"><span class="tag">CDL</span><div class="title">Cloud Digital Leader</div><p class="sub">Google Cloud business fluency</p><div class="stats"><span>749 Q</span><span>90 min</span></div></div>
+            </div>
+          </div>
+
+          <div class="provider-row">
+            <div class="provider-row-head"><span class="provider">Infrastructure + AI</span><span class="sub">HashiCorp · NVIDIA</span></div>
+            <div class="row-list">
+              <div class="row-card accent-violet"><span class="tag">004</span><div class="title">Terraform Associate</div><p class="sub">IaC workflow and state</p><div class="stats"><span>632 Q</span><span>57 exam</span></div></div>
+              <div class="row-card accent-green"><span class="tag">NCA-AIIO</span><div class="title">AI Infrastructure</div><p class="sub">GPU systems and operations</p><div class="stats"><span>336 Q</span><span>50 exam</span></div></div>
+              <div class="row-card accent-green"><span class="tag">NCA-GENL</span><div class="title">Generative AI LLMs</div><p class="sub">LLM concepts and apps</p><div class="stats"><span>330 Q</span><span>50 exam</span></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept">
+        <div class="caption">
+          <div>
+            <h2>2. Career Path Layout</h2>
+            <p>Organizes by learner goal instead of vendor.</p>
+          </div>
+          <span class="score">Best onboarding</span>
+        </div>
+        <div class="mock path-shell">
+          <div class="nav">
+            <div class="brand"><span>free</span><span>cert</span><span>prep</span></div>
+            <div class="navlinks"><span>Paths</span><span>All Certs</span></div>
+          </div>
+          <div class="path-hero">
+            <div>
+              <span class="pill">Find your track</span>
+              <h3>Where are you headed?</h3>
+              <p class="sub">A homepage built around outcomes: get into IT, move into cloud, learn security, or specialize.</p>
+            </div>
+            <div class="path-card big">
+              <div>
+                <span class="tag">Recommended first step</span>
+                <div class="title" style="font-size: 30px;">Start IT Support</div>
+                <p class="sub">A+ Core 1 and Core 2, then Network+ when hardware and OS basics feel steady.</p>
+              </div>
+              <div>
+                <div class="stats"><span>A+ Core 1</span><span>A+ Core 2</span><span>Network+</span></div>
+                <div class="path-line"><span style="width: 68%;"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="path-grid">
+            <div class="path-card"><span class="provider">Cloud</span><div class="title">Cloud Foundations</div><p class="sub">AWS, Azure, and Google Cloud entry certs.</p><div class="stats"><span>3 certs</span></div></div>
+            <div class="path-card"><span class="provider">Security</span><div class="title">Cybersecurity</div><p class="sub">Security+ as the center of gravity.</p><div class="stats"><span>SY0-701</span></div></div>
+            <div class="path-card"><span class="provider">Infrastructure</span><div class="title">Build & Operate</div><p class="sub">Server+, Terraform, and AI infrastructure.</p><div class="stats"><span>3 certs</span></div></div>
+            <div class="path-card"><span class="provider">AI</span><div class="title">AI Systems</div><p class="sub">Generative AI and NVIDIA operations.</p><div class="stats"><span>2 certs</span></div></div>
+            <div class="path-card"><span class="provider">Real Estate</span><div class="title">Career Pivot</div><p class="sub">Separate sister-site licensing prep.</p><div class="stats"><span>6 states</span></div></div>
+            <div class="path-card"><span class="provider">All</span><div class="title">Browse Catalog</div><p class="sub">Every active exam in one sortable list.</p><div class="stats"><span>View all</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept">
+        <div class="caption">
+          <div>
+            <h2>3. Catalog Dashboard</h2>
+            <p>Dense, scalable, and built for a larger library.</p>
+          </div>
+          <span class="score">Most scalable</span>
+        </div>
+        <div class="mock dashboard-shell">
+          <div class="nav">
+            <div class="brand"><span>free</span><span>cert</span><span>prep</span></div>
+            <div class="navlinks"><span>Dashboard</span><span>Docs</span></div>
+          </div>
+          <div class="dashboard">
+            <aside class="side">
+              <span class="provider">Filters</span>
+              <div class="filter">CompTIA <span>4</span></div>
+              <div class="filter">Cloud <span>3</span></div>
+              <div class="filter">AI <span>2</span></div>
+              <div class="filter">Infrastructure <span>2</span></div>
+              <div class="filter">Beginner <span>6</span></div>
+              <div class="filter">90 min exams <span>6</span></div>
+            </aside>
+            <div>
+              <span class="pill">Full catalog · 9 live + A+ preview</span>
+              <div class="table" style="margin-top: 14px;">
+                <div class="table-head"><span>Certification</span><span>Provider</span><span>Questions</span><span>Action</span></div>
+                <div class="table-row"><strong>CompTIA A+ Track</strong><span>CompTIA</span><span>270/core</span><span class="tag">Open</span></div>
+                <div class="table-row"><strong>Network+</strong><span>CompTIA</span><span>750</span><span class="tag">Start</span></div>
+                <div class="table-row"><strong>Security+</strong><span>CompTIA</span><span>750</span><span class="tag">Start</span></div>
+                <div class="table-row"><strong>AWS Cloud Practitioner</strong><span>AWS</span><span>731</span><span class="tag">Start</span></div>
+                <div class="table-row"><strong>Azure Fundamentals</strong><span>Azure</span><span>600</span><span class="tag">Start</span></div>
+                <div class="table-row"><strong>Terraform Associate</strong><span>HashiCorp</span><span>632</span><span class="tag">Start</span></div>
+              </div>
+            </div>
+            <aside class="recommend">
+              <span class="provider">Suggested</span>
+              <div class="title" style="font-size: 26px;">New to IT?</div>
+              <p class="sub">Start with A+ Core 1. It is separate from the main grid, but always available here.</p>
+              <div style="height: 120px; border: 1px solid var(--line); border-radius: 8px; margin: 18px 0; display: grid; place-items: center; color: var(--soft);">Readiness preview</div>
+              <a class="btn" href="#">Choose A+ Core</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept wide">
+        <div class="caption">
+          <div>
+            <h2>4. Featured Path + Full Catalog</h2>
+            <p>Highlights A+ without a popup, then gives every cert a clean home below.</p>
+          </div>
+          <span class="score">My pick</span>
+        </div>
+        <div class="mock featured-shell">
+          <div class="nav">
+            <div class="brand"><span>free</span><span>cert</span><span>prep</span></div>
+            <div class="navlinks"><span>Start Here</span><span>Catalog</span><span>Docs</span></div>
+          </div>
+          <div class="feature">
+            <div>
+              <span class="pill">Recommended first step</span>
+              <h3>Start with CompTIA A+.</h3>
+              <p class="sub">For new IT learners, A+ becomes a clear guided path instead of an interruptive popup. Everyone else can jump straight to the full catalog below.</p>
+              <div style="display:flex; gap:10px; margin-top:18px;"><a class="btn" href="#">Choose A+ Core</a><a class="btn secondary" href="#">Browse all certs</a></div>
+            </div>
+            <div class="core-picker">
+              <div class="core"><span class="tag">Core 1 · 220-1201</span><div class="title">Hardware + Networking</div><p class="sub">270 live questions · 90-question simulator · 750 target</p></div>
+              <div class="core"><span class="tag">Core 2 · 220-1202</span><div class="title">OS + Security</div><p class="sub">270 live questions · 90-question simulator · 750 target</p></div>
+            </div>
+          </div>
+          <div class="provider-row-head"><span class="provider">Full catalog</span><span class="sub">Organized but compact</span></div>
+          <div class="catalog-strip">
+            <div class="mini-card accent-red"><span class="provider">CompTIA</span><div class="title">Network+</div><p class="sub">750 questions</p></div>
+            <div class="mini-card accent-red"><span class="provider">CompTIA</span><div class="title">Security+</div><p class="sub">750 questions</p></div>
+            <div class="mini-card accent-blue"><span class="provider">Cloud</span><div class="title">AWS CLF-C02</div><p class="sub">731 questions</p></div>
+            <div class="mini-card accent-blue"><span class="provider">Cloud</span><div class="title">Azure AZ-900</div><p class="sub">600 questions</p></div>
+          </div>
+          <div class="catalog-strip" style="margin-top:10px;">
+            <div class="mini-card accent-blue"><span class="provider">Cloud</span><div class="title">Google CDL</div><p class="sub">749 questions</p></div>
+            <div class="mini-card accent-violet"><span class="provider">Infrastructure</span><div class="title">Terraform</div><p class="sub">632 questions</p></div>
+            <div class="mini-card accent-green"><span class="provider">NVIDIA</span><div class="title">AI Infra</div><p class="sub">336 questions</p></div>
+            <div class="mini-card accent-green"><span class="provider">NVIDIA</span><div class="title">GenAI LLMs</div><p class="sub">330 questions</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept wide">
+        <div class="caption">
+          <div>
+            <h2>5. Tabbed Catalog</h2>
+            <p>Compact and flexible, especially once the catalog grows past a dozen certs.</p>
+          </div>
+          <span class="score">Cleanest mobile story</span>
+        </div>
+        <div class="mock tab-shell">
+          <div class="nav">
+            <div class="brand"><span>free</span><span>cert</span><span>prep</span></div>
+            <div class="navlinks"><span>All</span><span>Popular</span><span>Docs</span></div>
+          </div>
+          <span class="pill">Filter by track</span>
+          <div class="tabs">
+            <span class="tab active">All</span>
+            <span class="tab">Start IT</span>
+            <span class="tab">CompTIA</span>
+            <span class="tab">Cloud</span>
+            <span class="tab">AI</span>
+            <span class="tab">Infrastructure</span>
+            <span class="tab">Real Estate</span>
+          </div>
+          <div class="tab-layout">
+            <div class="tab-feature">
+              <div>
+                <span class="tag">Pinned in All</span>
+                <div class="title" style="font-size: 34px;">CompTIA A+ Track</div>
+                <p class="sub">A beginner-friendly entry point that does not compete with the cert grid. The tab system lets it appear in Start IT and All.</p>
+              </div>
+              <div class="stats"><span>Core 1</span><span>Core 2</span><span>270 each</span></div>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-card accent-red"><span class="provider">CompTIA</span><div class="title">Network+</div><p class="sub">Networking · 750 Q</p></div>
+              <div class="mini-card accent-red"><span class="provider">CompTIA</span><div class="title">Security+</div><p class="sub">Security · 750 Q</p></div>
+              <div class="mini-card accent-red"><span class="provider">CompTIA</span><div class="title">Server+</div><p class="sub">Servers · 750 Q</p></div>
+              <div class="mini-card accent-blue"><span class="provider">AWS</span><div class="title">Cloud Practitioner</div><p class="sub">Foundational cloud</p></div>
+              <div class="mini-card accent-blue"><span class="provider">Azure</span><div class="title">AZ-900</div><p class="sub">Azure basics</p></div>
+              <div class="mini-card accent-green"><span class="provider">NVIDIA</span><div class="title">GenAI LLMs</div><p class="sub">AI concepts</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
