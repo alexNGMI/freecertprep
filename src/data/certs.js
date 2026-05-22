@@ -6,6 +6,8 @@ import ncaGenlQuestionsUrl from './nca-genl-questions.json?url'
 import comptiaNetPlusQuestionsUrl from './comptia-net-plus-questions.json?url'
 import comptiaSecPlusQuestionsUrl from './comptia-sec-plus-questions.json?url'
 import comptiaServerPlusQuestionsUrl from './comptia-server-plus-questions.json?url'
+import comptiaAPlusCore1QuestionsUrl from './comptia-a-plus-core-1-questions.json?url'
+import comptiaAPlusCore2QuestionsUrl from './comptia-a-plus-core-2-questions.json?url'
 import terraformAssociateQuestionsUrl from './terraform-associate-questions.json?url'
 import realEstateNationalQuestionsUrl from './real-estate-national-questions.json?url'
 import realEstateTxStateQuestionsUrl from './real-estate-tx-state-questions.json?url'
@@ -128,6 +130,33 @@ const IN_STATE_DOMAINS = [
   { name: 'Statutes and Rules Governing Licensees', weight: 34 }, // 17 items
   { name: 'Real Estate Office Procedures', weight: 14 },        // 7 items
 ]
+
+const APLUS_CORE_1_DOMAINS = [
+  { name: 'Mobile Devices', weight: 13 },
+  { name: 'Networking', weight: 23 },
+  { name: 'Hardware', weight: 25 },
+  { name: 'Virtualization and Cloud Computing', weight: 11 },
+  { name: 'Hardware and Network Troubleshooting', weight: 28 },
+]
+
+const APLUS_CORE_2_DOMAINS = [
+  { name: 'Operating Systems', weight: 28 },
+  { name: 'Security', weight: 28 },
+  { name: 'Software Troubleshooting', weight: 23 },
+  { name: 'Operational Procedures', weight: 21 },
+]
+
+const APLUS_CORE_COLORS = {
+  'Mobile Devices': { dot: 'bg-[#c8202f]', bar: 'bg-[#c8202f]', text: 'text-[#c8202f]', hex: '#c8202f' },
+  'Networking': { dot: 'bg-[#e74c3c]', bar: 'bg-[#e74c3c]', text: 'text-[#e74c3c]', hex: '#e74c3c' },
+  'Hardware': { dot: 'bg-[#f39c12]', bar: 'bg-[#f39c12]', text: 'text-[#f39c12]', hex: '#f39c12' },
+  'Virtualization and Cloud Computing': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
+  'Hardware and Network Troubleshooting': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
+  'Operating Systems': { dot: 'bg-[#c8202f]', bar: 'bg-[#c8202f]', text: 'text-[#c8202f]', hex: '#c8202f' },
+  'Security': { dot: 'bg-[#e74c3c]', bar: 'bg-[#e74c3c]', text: 'text-[#e74c3c]', hex: '#e74c3c' },
+  'Software Troubleshooting': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
+  'Operational Procedures': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
+}
 
 const certs = {
   'az-900': {
@@ -339,6 +368,40 @@ const certs = {
       'Security and Disaster Recovery': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
       'Troubleshooting': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
     },
+  },
+  'comptia-a-plus-core-1': {
+    id: 'comptia-a-plus-core-1',
+    title: 'CompTIA A+ Core 1',
+    code: '220-1201',
+    provider: 'CompTIA',
+    description: 'First half of the CompTIA A+ V15 certification: mobile devices, networking, hardware, virtualization, cloud computing, and hardware/network troubleshooting.',
+    difficulty: 'Foundational',
+    color: '#c8202f',
+    questionCount: 270,
+    examQuestions: 90,
+    examTime: 90,
+    passingScore: 75,
+    published: false,
+    loadQuestions: () => loadQuestionAsset(comptiaAPlusCore1QuestionsUrl),
+    domains: APLUS_CORE_1_DOMAINS,
+    domainColors: APLUS_CORE_COLORS,
+  },
+  'comptia-a-plus-core-2': {
+    id: 'comptia-a-plus-core-2',
+    title: 'CompTIA A+ Core 2',
+    code: '220-1202',
+    provider: 'CompTIA',
+    description: 'Second half of the CompTIA A+ V15 certification: operating systems, security, software troubleshooting, and operational procedures.',
+    difficulty: 'Foundational',
+    color: '#c8202f',
+    questionCount: 270,
+    examQuestions: 90,
+    examTime: 90,
+    passingScore: 78,
+    published: false,
+    loadQuestions: () => loadQuestionAsset(comptiaAPlusCore2QuestionsUrl),
+    domains: APLUS_CORE_2_DOMAINS,
+    domainColors: APLUS_CORE_COLORS,
   },
   'terraform-associate': {
     id: 'terraform-associate',

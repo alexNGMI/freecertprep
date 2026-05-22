@@ -568,7 +568,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              330 Vitest tests across 15 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              354 Vitest tests across 16 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -586,6 +586,7 @@ key = random() ** (1 / weight)
 ├── markdown.test.js        — Explanation-text rendering and escaping
 ├── study-ui.test.jsx      — Cert nav labels, StudyWorkspace, question map
 ├── realestate-registry.test.js — Sister-site picker / cert registry wiring
+├── aplus-page.test.jsx     — Dedicated A+ Core 1/Core 2 selector behavior
 └── content-sanity.test.js  — Every question across every cert: ids unique,
                               domains valid, types recognized, correctAnswer
                               indices in range, MR sorted, ordering is a
@@ -623,8 +624,9 @@ key = random() ** (1 / weight)
                   'North Carolina state-law module — live: 400 questions, 8 NCREC / Pearson VUE sections, Full Licensing Exam mirrors 80 national + 60 state (75 each section).',
                   'Indiana state-law module — live: 400 questions, 5 Pearson VUE sections, Full Licensing Exam mirrors 80 national + 50 state (scaled 75 pass score).',
                   'AZ / NC / IN quality audit — all three new state modules verified for source-aligned exam splits, domain balance, unique IDs, duplicate-free stems, balanced answer positions, and frontend picker coverage.',
+                  'CompTIA A+ guided track — preview live at /comptia/a-plus with separate Core 1 (220-1201) and Core 2 (220-1202) routes, 270 first-iteration questions per core, and a 750-question-per-core production target.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, route-level lazy loading, JSON question-bank assets, and 330-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, route-level lazy loading, JSON question-bank assets, and 354-test regression suite.',
                 ],
               },
               {

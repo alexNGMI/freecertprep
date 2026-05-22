@@ -8,6 +8,8 @@ import ncaGenl from '../data/nca-genl-questions.json'
 import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
+import comptiaAPlusCore1 from '../data/comptia-a-plus-core-1-questions.json'
+import comptiaAPlusCore2 from '../data/comptia-a-plus-core-2-questions.json'
 import terraformAssoc from '../data/terraform-associate-questions.json'
 import reNational from '../data/real-estate-national-questions.json'
 import reTxState from '../data/real-estate-tx-state-questions.json'
@@ -29,6 +31,8 @@ const CERT_QUESTIONS = {
   'comptia-net-plus': comptiaNetPlus,
   'comptia-sec-plus': comptiaSecPlus,
   'comptia-server-plus': comptiaServerPlus,
+  'comptia-a-plus-core-1': comptiaAPlusCore1,
+  'comptia-a-plus-core-2': comptiaAPlusCore2,
   'terraform-associate': terraformAssoc,
   'real-estate-national': reNational,
   'real-estate-tx': reTxState,

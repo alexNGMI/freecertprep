@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
+import APlus from './pages/APlus'
 import Docs from './pages/Docs'
 import CertLayout from './components/CertLayout'
 import { CertProvider } from './hooks/useCert'
@@ -57,6 +58,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/comptia/a-plus" element={<APlus />} />
         <Route path="/docs" element={<Docs />} />
         <Route path="/real-estate" element={<RealEstate />} />
         <Route path="/real-estate/study" element={<REStudyPicker />} />

@@ -20,6 +20,8 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
+> **A+ track preview is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector that keeps Core 1 (220-1201) and Core 2 (220-1202) outside the main catalog grid. Each core has a first-iteration 270-question pool and a 90-question / 90-minute simulator; the production target is 750 reviewed questions per core.
+
 ### Sister site — Real Estate
 
 A separate, light-themed surface (Redfin/Zillow visual language) lives at `/real-estate`, with a full study app under `/real-estate/study`. It covers the **National Real Estate Salesperson Exam** — the portable national/uniform portion tested in ~48 states — with a **750-question pool** built to the post-October-2023 PSI blueprint (11 weighted domains, 100% single-choice, 80-question / 120-minute / 75%-pass simulator). It is intentionally not in the IT catalog above; it reuses the exact same Smart Practice, scoring, and exam-selection engine, keyed to its own cert id.
@@ -64,7 +66,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (330 tests across 15 files), GitHub Actions CI
+- Vitest (354 tests across 16 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

@@ -31,6 +31,7 @@ const providerStyles = {
 
 export default function Home() {
   const visitorCount = useVisitorCount()
+
   useDocumentMeta({
     description:
       'Free, open-source exam prep for AWS, Azure, Google Cloud, NVIDIA, and CompTIA (Network+, Security+, Server+). ~5,800 realistic questions, timed simulators, Smart Practice. No account, no paywall.',
@@ -320,6 +321,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
     </div>
   )
 }

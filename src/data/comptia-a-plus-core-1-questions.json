@@ -1,0 +1,3844 @@
+[
+  {
+    "id": "aplus-core1-001",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to replace a swelling laptop battery for a remote employee on ticket MOB-001. Which action is BEST?",
+    "choices": [
+      "Puncture the battery pack to relieve pressure",
+      "Shut the laptop down, remove power, follow ESD precautions, and replace the battery with an approved part",
+      "Keep using the battery until it fully discharges",
+      "Replace the system board before inspecting the battery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Swollen lithium-ion batteries are safety hazards. Power must be removed, ESD controls used, and the pack replaced with a compatible approved battery."
+  },
+  {
+    "id": "aplus-core1-002",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to configure a phone for corporate email during a help desk escalation on ticket MOB-002. Which action is BEST?",
+    "choices": [
+      "Disable device encryption to improve sync speed",
+      "Share the mailbox password through SMS",
+      "Use the organization-approved MDM enrollment and require screen lock before syncing mail",
+      "Install any third-party mail client without approval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MDM enrollment applies policy, remote wipe, certificates, and screen-lock requirements before business data is synchronized."
+  },
+  {
+    "id": "aplus-core1-003",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to connect a laptop to multiple monitors at a desk while preparing a replacement workstation on ticket MOB-003. Which action is BEST?",
+    "choices": [
+      "Use NFC pairing for external displays",
+      "Replace the laptop battery",
+      "Disable USB-C alternate mode",
+      "Use a docking station that supports the required display count and bandwidth"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Docking stations provide power, peripheral, network, and display expansion for mobile users at a workstation."
+  },
+  {
+    "id": "aplus-core1-004",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to pair a headset to a tablet after a department move on ticket MOB-004. Which action is BEST?",
+    "choices": [
+      "Enable Bluetooth, put the headset in pairing mode, and select it from discovered devices",
+      "Configure a static IP address",
+      "Enable cellular roaming",
+      "Install a printer driver"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bluetooth pairing requires discovery/pairing mode on the accessory and selection from the mobile device Bluetooth menu."
+  },
+  {
+    "id": "aplus-core1-005",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to use tap-to-pay on a smartphone for a small office rollout on ticket MOB-005. Which action is BEST?",
+    "choices": [
+      "Enable WPA3 personal mode",
+      "Confirm NFC is enabled and a supported wallet is configured",
+      "Install a SOHO router",
+      "Set the APN manually"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Near-field communication is used for short-range contactless payments, badges, and device pairing."
+  },
+  {
+    "id": "aplus-core1-006",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to improve mobile hotspot stability during a field-service visit on ticket MOB-006. Which action is BEST?",
+    "choices": [
+      "Change the laptop SATA mode",
+      "Disable DHCP on the phone",
+      "Move to a location with stronger cellular signal and verify hotspot data is allowed",
+      "Replace the printer fuser"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Hotspot reliability depends on cellular coverage, carrier plan support, and device battery/power conditions."
+  },
+  {
+    "id": "aplus-core1-007",
+    "domain": "Mobile Devices",
+    "type": "multiple-response",
+    "question": "A technician is asked to replace laptop memory while resolving a recurring ticket on ticket MOB-007. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check the service manual for supported SODIMM type, speed, and capacity",
+      "Verify the change after implementation and document the result",
+      "Install desktop DIMMs if the notch matches",
+      "Use ECC memory in every consumer laptop"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Laptops use SODIMMs and have strict compatibility limits for generation, speed, voltage, and maximum capacity. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-008",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to secure a lost company phone during a new-hire setup on ticket MOB-008. Which action is BEST?",
+    "choices": [
+      "Use MDM to locate, lock, or wipe the device according to policy",
+      "Wait until the battery dies",
+      "Delete the user account from payroll only",
+      "Disable the office wireless SSID"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MDM gives administrators remote lock, locate, and wipe controls to protect corporate data on mobile devices."
+  },
+  {
+    "id": "aplus-core1-009",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to replace a swelling laptop battery after a recent configuration change on ticket MOB-009. Which action is BEST?",
+    "choices": [
+      "Puncture the battery pack to relieve pressure",
+      "Shut the laptop down, remove power, follow ESD precautions, and replace the battery with an approved part",
+      "Keep using the battery until it fully discharges",
+      "Replace the system board before inspecting the battery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Swollen lithium-ion batteries are safety hazards. Power must be removed, ESD controls used, and the pack replaced with a compatible approved battery."
+  },
+  {
+    "id": "aplus-core1-010",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to configure a phone for corporate email while supporting a hybrid worker on ticket MOB-010. Which action is BEST?",
+    "choices": [
+      "Disable device encryption to improve sync speed",
+      "Share the mailbox password through SMS",
+      "Use the organization-approved MDM enrollment and require screen lock before syncing mail",
+      "Install any third-party mail client without approval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MDM enrollment applies policy, remote wipe, certificates, and screen-lock requirements before business data is synchronized."
+  },
+  {
+    "id": "aplus-core1-011",
+    "domain": "Mobile Devices",
+    "type": "statement-block",
+    "question": "Review these statements about how to connect a laptop to multiple monitors at a desk for a remote employee on ticket MOB-011.",
+    "statements": [
+      "Use a docking station that supports the required display count and bandwidth",
+      "Use NFC pairing for external displays",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Docking stations provide power, peripheral, network, and display expansion for mobile users at a workstation. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-012",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to pair a headset to a tablet during a help desk escalation on ticket MOB-012. Which action is BEST?",
+    "choices": [
+      "Enable Bluetooth, put the headset in pairing mode, and select it from discovered devices",
+      "Configure a static IP address",
+      "Enable cellular roaming",
+      "Install a printer driver"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bluetooth pairing requires discovery/pairing mode on the accessory and selection from the mobile device Bluetooth menu."
+  },
+  {
+    "id": "aplus-core1-013",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to use tap-to-pay on a smartphone while preparing a replacement workstation on ticket MOB-013. Which action is BEST?",
+    "choices": [
+      "Enable WPA3 personal mode",
+      "Confirm NFC is enabled and a supported wallet is configured",
+      "Install a SOHO router",
+      "Set the APN manually"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Near-field communication is used for short-range contactless payments, badges, and device pairing."
+  },
+  {
+    "id": "aplus-core1-014",
+    "domain": "Mobile Devices",
+    "type": "multiple-response",
+    "question": "A technician is asked to improve mobile hotspot stability after a department move on ticket MOB-014. Which TWO choices best support the requirement?",
+    "choices": [
+      "Move to a location with stronger cellular signal and verify hotspot data is allowed",
+      "Verify the change after implementation and document the result",
+      "Change the laptop SATA mode",
+      "Disable DHCP on the phone"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Hotspot reliability depends on cellular coverage, carrier plan support, and device battery/power conditions. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-015",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to replace laptop memory for a small office rollout on ticket MOB-015. Which action is BEST?",
+    "choices": [
+      "Install desktop DIMMs if the notch matches",
+      "Use ECC memory in every consumer laptop",
+      "Replace the LCD panel first",
+      "Check the service manual for supported SODIMM type, speed, and capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Laptops use SODIMMs and have strict compatibility limits for generation, speed, voltage, and maximum capacity."
+  },
+  {
+    "id": "aplus-core1-016",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to secure a lost company phone during a field-service visit on ticket MOB-016. Which action is BEST?",
+    "choices": [
+      "Use MDM to locate, lock, or wipe the device according to policy",
+      "Wait until the battery dies",
+      "Delete the user account from payroll only",
+      "Disable the office wireless SSID"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MDM gives administrators remote lock, locate, and wipe controls to protect corporate data on mobile devices."
+  },
+  {
+    "id": "aplus-core1-017",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to replace a swelling laptop battery while resolving a recurring ticket on ticket MOB-017. Which action is BEST?",
+    "choices": [
+      "Puncture the battery pack to relieve pressure",
+      "Shut the laptop down, remove power, follow ESD precautions, and replace the battery with an approved part",
+      "Keep using the battery until it fully discharges",
+      "Replace the system board before inspecting the battery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Swollen lithium-ion batteries are safety hazards. Power must be removed, ESD controls used, and the pack replaced with a compatible approved battery."
+  },
+  {
+    "id": "aplus-core1-018",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to configure a phone for corporate email during a new-hire setup on ticket MOB-018. Which action is BEST?",
+    "choices": [
+      "Disable device encryption to improve sync speed",
+      "Share the mailbox password through SMS",
+      "Use the organization-approved MDM enrollment and require screen lock before syncing mail",
+      "Install any third-party mail client without approval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MDM enrollment applies policy, remote wipe, certificates, and screen-lock requirements before business data is synchronized."
+  },
+  {
+    "id": "aplus-core1-019",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to connect a laptop to multiple monitors at a desk after a recent configuration change on ticket MOB-019. Which action is BEST?",
+    "choices": [
+      "Use NFC pairing for external displays",
+      "Replace the laptop battery",
+      "Disable USB-C alternate mode",
+      "Use a docking station that supports the required display count and bandwidth"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Docking stations provide power, peripheral, network, and display expansion for mobile users at a workstation."
+  },
+  {
+    "id": "aplus-core1-020",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to pair a headset to a tablet while supporting a hybrid worker on ticket MOB-020. Which action is BEST?",
+    "choices": [
+      "Enable Bluetooth, put the headset in pairing mode, and select it from discovered devices",
+      "Configure a static IP address",
+      "Enable cellular roaming",
+      "Install a printer driver"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bluetooth pairing requires discovery/pairing mode on the accessory and selection from the mobile device Bluetooth menu."
+  },
+  {
+    "id": "aplus-core1-021",
+    "domain": "Mobile Devices",
+    "type": "multiple-response",
+    "question": "A technician is asked to use tap-to-pay on a smartphone for a remote employee on ticket MOB-021. Which TWO choices best support the requirement?",
+    "choices": [
+      "Confirm NFC is enabled and a supported wallet is configured",
+      "Verify the change after implementation and document the result",
+      "Enable WPA3 personal mode",
+      "Install a SOHO router"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Near-field communication is used for short-range contactless payments, badges, and device pairing. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-022",
+    "domain": "Mobile Devices",
+    "type": "statement-block",
+    "question": "Review these statements about how to improve mobile hotspot stability during a help desk escalation on ticket MOB-022.",
+    "statements": [
+      "Move to a location with stronger cellular signal and verify hotspot data is allowed",
+      "Change the laptop SATA mode",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Hotspot reliability depends on cellular coverage, carrier plan support, and device battery/power conditions. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-023",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to replace laptop memory while preparing a replacement workstation on ticket MOB-023. Which action is BEST?",
+    "choices": [
+      "Install desktop DIMMs if the notch matches",
+      "Use ECC memory in every consumer laptop",
+      "Replace the LCD panel first",
+      "Check the service manual for supported SODIMM type, speed, and capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Laptops use SODIMMs and have strict compatibility limits for generation, speed, voltage, and maximum capacity."
+  },
+  {
+    "id": "aplus-core1-024",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to secure a lost company phone after a department move on ticket MOB-024. Which action is BEST?",
+    "choices": [
+      "Use MDM to locate, lock, or wipe the device according to policy",
+      "Wait until the battery dies",
+      "Delete the user account from payroll only",
+      "Disable the office wireless SSID"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MDM gives administrators remote lock, locate, and wipe controls to protect corporate data on mobile devices."
+  },
+  {
+    "id": "aplus-core1-025",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to replace a swelling laptop battery for a small office rollout on ticket MOB-025. Which action is BEST?",
+    "choices": [
+      "Puncture the battery pack to relieve pressure",
+      "Shut the laptop down, remove power, follow ESD precautions, and replace the battery with an approved part",
+      "Keep using the battery until it fully discharges",
+      "Replace the system board before inspecting the battery"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Swollen lithium-ion batteries are safety hazards. Power must be removed, ESD controls used, and the pack replaced with a compatible approved battery."
+  },
+  {
+    "id": "aplus-core1-026",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to configure a phone for corporate email during a field-service visit on ticket MOB-026. Which action is BEST?",
+    "choices": [
+      "Disable device encryption to improve sync speed",
+      "Share the mailbox password through SMS",
+      "Use the organization-approved MDM enrollment and require screen lock before syncing mail",
+      "Install any third-party mail client without approval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MDM enrollment applies policy, remote wipe, certificates, and screen-lock requirements before business data is synchronized."
+  },
+  {
+    "id": "aplus-core1-027",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to connect a laptop to multiple monitors at a desk while resolving a recurring ticket on ticket MOB-027. Which action is BEST?",
+    "choices": [
+      "Use NFC pairing for external displays",
+      "Replace the laptop battery",
+      "Disable USB-C alternate mode",
+      "Use a docking station that supports the required display count and bandwidth"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Docking stations provide power, peripheral, network, and display expansion for mobile users at a workstation."
+  },
+  {
+    "id": "aplus-core1-028",
+    "domain": "Mobile Devices",
+    "type": "multiple-response",
+    "question": "A technician is asked to pair a headset to a tablet during a new-hire setup on ticket MOB-028. Which TWO choices best support the requirement?",
+    "choices": [
+      "Enable Bluetooth, put the headset in pairing mode, and select it from discovered devices",
+      "Verify the change after implementation and document the result",
+      "Configure a static IP address",
+      "Enable cellular roaming"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Bluetooth pairing requires discovery/pairing mode on the accessory and selection from the mobile device Bluetooth menu. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-029",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to use tap-to-pay on a smartphone after a recent configuration change on ticket MOB-029. Which action is BEST?",
+    "choices": [
+      "Enable WPA3 personal mode",
+      "Confirm NFC is enabled and a supported wallet is configured",
+      "Install a SOHO router",
+      "Set the APN manually"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Near-field communication is used for short-range contactless payments, badges, and device pairing."
+  },
+  {
+    "id": "aplus-core1-030",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to improve mobile hotspot stability while supporting a hybrid worker on ticket MOB-030. Which action is BEST?",
+    "choices": [
+      "Change the laptop SATA mode",
+      "Disable DHCP on the phone",
+      "Move to a location with stronger cellular signal and verify hotspot data is allowed",
+      "Replace the printer fuser"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Hotspot reliability depends on cellular coverage, carrier plan support, and device battery/power conditions."
+  },
+  {
+    "id": "aplus-core1-031",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to replace laptop memory for a remote employee on ticket MOB-031. Which action is BEST?",
+    "choices": [
+      "Install desktop DIMMs if the notch matches",
+      "Use ECC memory in every consumer laptop",
+      "Replace the LCD panel first",
+      "Check the service manual for supported SODIMM type, speed, and capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Laptops use SODIMMs and have strict compatibility limits for generation, speed, voltage, and maximum capacity."
+  },
+  {
+    "id": "aplus-core1-032",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to secure a lost company phone during a help desk escalation on ticket MOB-032. Which action is BEST?",
+    "choices": [
+      "Use MDM to locate, lock, or wipe the device according to policy",
+      "Wait until the battery dies",
+      "Delete the user account from payroll only",
+      "Disable the office wireless SSID"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MDM gives administrators remote lock, locate, and wipe controls to protect corporate data on mobile devices."
+  },
+  {
+    "id": "aplus-core1-033",
+    "domain": "Mobile Devices",
+    "type": "statement-block",
+    "question": "Review these statements about how to replace a swelling laptop battery while preparing a replacement workstation on ticket MOB-033.",
+    "statements": [
+      "Shut the laptop down, remove power, follow ESD precautions, and replace the battery with an approved part",
+      "Puncture the battery pack to relieve pressure",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Swollen lithium-ion batteries are safety hazards. Power must be removed, ESD controls used, and the pack replaced with a compatible approved battery. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-034",
+    "domain": "Mobile Devices",
+    "question": "A technician needs to configure a phone for corporate email after a department move on ticket MOB-034. Which action is BEST?",
+    "choices": [
+      "Disable device encryption to improve sync speed",
+      "Share the mailbox password through SMS",
+      "Use the organization-approved MDM enrollment and require screen lock before syncing mail",
+      "Install any third-party mail client without approval"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MDM enrollment applies policy, remote wipe, certificates, and screen-lock requirements before business data is synchronized."
+  },
+  {
+    "id": "aplus-core1-035",
+    "domain": "Mobile Devices",
+    "type": "multiple-response",
+    "question": "A technician is asked to connect a laptop to multiple monitors at a desk for a small office rollout on ticket MOB-035. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use a docking station that supports the required display count and bandwidth",
+      "Verify the change after implementation and document the result",
+      "Use NFC pairing for external displays",
+      "Replace the laptop battery"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Docking stations provide power, peripheral, network, and display expansion for mobile users at a workstation. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-036",
+    "domain": "Networking",
+    "question": "A technician needs to identify HTTPS traffic for a remote employee on ticket NET-001. Which action is BEST?",
+    "choices": [
+      "TCP port 443",
+      "TCP port 25",
+      "UDP port 53",
+      "TCP port 3389"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HTTPS normally uses TCP 443 to provide encrypted web traffic."
+  },
+  {
+    "id": "aplus-core1-037",
+    "domain": "Networking",
+    "question": "A technician needs to provide automatic IP settings on a LAN during a help desk escalation on ticket NET-002. Which action is BEST?",
+    "choices": [
+      "DNS",
+      "DHCP",
+      "NTP",
+      "SNMP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DHCP leases IP address, subnet mask, gateway, and DNS settings to clients."
+  },
+  {
+    "id": "aplus-core1-038",
+    "domain": "Networking",
+    "question": "A technician needs to resolve host names to IP addresses while preparing a replacement workstation on ticket NET-003. Which action is BEST?",
+    "choices": [
+      "RDP",
+      "SSH",
+      "DNS",
+      "PoE"
+    ],
+    "correctAnswer": 2,
+    "explanation": "DNS maps host names to IP addresses so users do not need to remember numeric addresses."
+  },
+  {
+    "id": "aplus-core1-039",
+    "domain": "Networking",
+    "question": "A technician needs to connect network segments at layer 3 after a department move on ticket NET-004. Which action is BEST?",
+    "choices": [
+      "Patch panel",
+      "Unmanaged switch",
+      "Toner probe",
+      "Router"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Routers forward traffic between IP networks and act as the default gateway for clients."
+  },
+  {
+    "id": "aplus-core1-040",
+    "domain": "Networking",
+    "question": "A technician needs to power a ceiling-mounted access point through Ethernet for a small office rollout on ticket NET-005. Which action is BEST?",
+    "choices": [
+      "Use a PoE-capable switch or injector",
+      "Use a crossover cable only",
+      "Disable VLAN tagging",
+      "Install a modem at the AP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power over Ethernet can deliver data and electrical power to supported devices such as APs and VoIP phones."
+  },
+  {
+    "id": "aplus-core1-041",
+    "domain": "Networking",
+    "question": "A technician needs to separate guest Wi-Fi from employee systems during a field-service visit on ticket NET-006. Which action is BEST?",
+    "choices": [
+      "Put all clients in the same broadcast domain",
+      "Place guests on a separate VLAN or guest network",
+      "Disable WPA on both SSIDs",
+      "Use a hub for guest users"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Guest networks should be segmented from internal systems, commonly with separate VLANs and firewall rules."
+  },
+  {
+    "id": "aplus-core1-042",
+    "domain": "Networking",
+    "type": "multiple-response",
+    "question": "A technician is asked to test whether a remote host responds while resolving a recurring ticket on ticket NET-007. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use ping if ICMP is allowed",
+      "Verify the change after implementation and document the result",
+      "Use diskpart",
+      "Use gpupdate"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Ping sends ICMP echo requests to check basic reachability, although firewalls may block it. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-043",
+    "domain": "Networking",
+    "question": "A technician needs to find the path traffic takes to a destination during a new-hire setup on ticket NET-008. Which action is BEST?",
+    "choices": [
+      "Use format",
+      "Use msconfig",
+      "Use winver",
+      "Use tracert or traceroute"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Traceroute tools show hops between the client and destination, helping locate routing failures."
+  },
+  {
+    "id": "aplus-core1-044",
+    "domain": "Networking",
+    "type": "statement-block",
+    "question": "Review these statements about how to connect a cable to a patch panel after a recent configuration change on ticket NET-009.",
+    "statements": [
+      "Use a punchdown tool with the correct wiring standard",
+      "Use thermal paste",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Punchdown tools seat twisted-pair conductors into IDC terminals on patch panels and keystone jacks. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-045",
+    "domain": "Networking",
+    "question": "A technician needs to choose secure wireless encryption for a new SOHO router while supporting a hybrid worker on ticket NET-010. Which action is BEST?",
+    "choices": [
+      "WEP",
+      "WPA3-Personal where supported",
+      "Open authentication",
+      "MAC filtering only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "WPA3 is the preferred modern personal wireless security mode when all client devices support it."
+  },
+  {
+    "id": "aplus-core1-046",
+    "domain": "Networking",
+    "question": "A technician needs to identify HTTPS traffic for a remote employee on ticket NET-011. Which action is BEST?",
+    "choices": [
+      "TCP port 25",
+      "UDP port 53",
+      "TCP port 443",
+      "TCP port 3389"
+    ],
+    "correctAnswer": 2,
+    "explanation": "HTTPS normally uses TCP 443 to provide encrypted web traffic."
+  },
+  {
+    "id": "aplus-core1-047",
+    "domain": "Networking",
+    "question": "A technician needs to provide automatic IP settings on a LAN during a help desk escalation on ticket NET-012. Which action is BEST?",
+    "choices": [
+      "DNS",
+      "NTP",
+      "SNMP",
+      "DHCP"
+    ],
+    "correctAnswer": 3,
+    "explanation": "DHCP leases IP address, subnet mask, gateway, and DNS settings to clients."
+  },
+  {
+    "id": "aplus-core1-048",
+    "domain": "Networking",
+    "question": "A technician needs to resolve host names to IP addresses while preparing a replacement workstation on ticket NET-013. Which action is BEST?",
+    "choices": [
+      "DNS",
+      "RDP",
+      "SSH",
+      "PoE"
+    ],
+    "correctAnswer": 0,
+    "explanation": "DNS maps host names to IP addresses so users do not need to remember numeric addresses."
+  },
+  {
+    "id": "aplus-core1-049",
+    "domain": "Networking",
+    "type": "multiple-response",
+    "question": "A technician is asked to connect network segments at layer 3 after a department move on ticket NET-014. Which TWO choices best support the requirement?",
+    "choices": [
+      "Router",
+      "Verify the change after implementation and document the result",
+      "Patch panel",
+      "Unmanaged switch"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Routers forward traffic between IP networks and act as the default gateway for clients. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-050",
+    "domain": "Networking",
+    "question": "A technician needs to power a ceiling-mounted access point through Ethernet for a small office rollout on ticket NET-015. Which action is BEST?",
+    "choices": [
+      "Use a crossover cable only",
+      "Disable VLAN tagging",
+      "Use a PoE-capable switch or injector",
+      "Install a modem at the AP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Power over Ethernet can deliver data and electrical power to supported devices such as APs and VoIP phones."
+  },
+  {
+    "id": "aplus-core1-051",
+    "domain": "Networking",
+    "type": "matching",
+    "question": "Match each network tool to its purpose. Use the situation during a field-service visit on ticket NET-016.",
+    "itemsLeft": [
+      "Toner probe",
+      "Cable tester",
+      "Loopback plug",
+      "Wi-Fi analyzer"
+    ],
+    "itemsRight": [
+      "Trace cable runs",
+      "Verify wire map",
+      "Test a port or adapter",
+      "Review signal and channels"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core1-052",
+    "domain": "Networking",
+    "question": "A technician needs to test whether a remote host responds while resolving a recurring ticket on ticket NET-017. Which action is BEST?",
+    "choices": [
+      "Use ping if ICMP is allowed",
+      "Use diskpart",
+      "Use gpupdate",
+      "Use dxdiag"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ping sends ICMP echo requests to check basic reachability, although firewalls may block it."
+  },
+  {
+    "id": "aplus-core1-053",
+    "domain": "Networking",
+    "question": "A technician needs to find the path traffic takes to a destination during a new-hire setup on ticket NET-018. Which action is BEST?",
+    "choices": [
+      "Use format",
+      "Use tracert or traceroute",
+      "Use msconfig",
+      "Use winver"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Traceroute tools show hops between the client and destination, helping locate routing failures."
+  },
+  {
+    "id": "aplus-core1-054",
+    "domain": "Networking",
+    "question": "A technician needs to connect a cable to a patch panel after a recent configuration change on ticket NET-019. Which action is BEST?",
+    "choices": [
+      "Use thermal paste",
+      "Use a loopback plug on the switch",
+      "Use a punchdown tool with the correct wiring standard",
+      "Use a fuser kit"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Punchdown tools seat twisted-pair conductors into IDC terminals on patch panels and keystone jacks."
+  },
+  {
+    "id": "aplus-core1-055",
+    "domain": "Networking",
+    "type": "statement-block",
+    "question": "Review these statements about how to choose secure wireless encryption for a new SOHO router while supporting a hybrid worker on ticket NET-020.",
+    "statements": [
+      "WPA3-Personal where supported",
+      "WEP",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "WPA3 is the preferred modern personal wireless security mode when all client devices support it. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-056",
+    "domain": "Networking",
+    "type": "multiple-response",
+    "question": "A technician is asked to identify HTTPS traffic for a remote employee on ticket NET-021. Which TWO choices best support the requirement?",
+    "choices": [
+      "TCP port 443",
+      "Verify the change after implementation and document the result",
+      "TCP port 25",
+      "UDP port 53"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "HTTPS normally uses TCP 443 to provide encrypted web traffic. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-057",
+    "domain": "Networking",
+    "question": "A technician needs to provide automatic IP settings on a LAN during a help desk escalation on ticket NET-022. Which action is BEST?",
+    "choices": [
+      "DNS",
+      "DHCP",
+      "NTP",
+      "SNMP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DHCP leases IP address, subnet mask, gateway, and DNS settings to clients."
+  },
+  {
+    "id": "aplus-core1-058",
+    "domain": "Networking",
+    "question": "A technician needs to resolve host names to IP addresses while preparing a replacement workstation on ticket NET-023. Which action is BEST?",
+    "choices": [
+      "RDP",
+      "SSH",
+      "DNS",
+      "PoE"
+    ],
+    "correctAnswer": 2,
+    "explanation": "DNS maps host names to IP addresses so users do not need to remember numeric addresses."
+  },
+  {
+    "id": "aplus-core1-059",
+    "domain": "Networking",
+    "question": "A technician needs to connect network segments at layer 3 after a department move on ticket NET-024. Which action is BEST?",
+    "choices": [
+      "Patch panel",
+      "Unmanaged switch",
+      "Toner probe",
+      "Router"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Routers forward traffic between IP networks and act as the default gateway for clients."
+  },
+  {
+    "id": "aplus-core1-060",
+    "domain": "Networking",
+    "question": "A technician needs to power a ceiling-mounted access point through Ethernet for a small office rollout on ticket NET-025. Which action is BEST?",
+    "choices": [
+      "Use a PoE-capable switch or injector",
+      "Use a crossover cable only",
+      "Disable VLAN tagging",
+      "Install a modem at the AP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power over Ethernet can deliver data and electrical power to supported devices such as APs and VoIP phones."
+  },
+  {
+    "id": "aplus-core1-061",
+    "domain": "Networking",
+    "question": "A technician needs to separate guest Wi-Fi from employee systems during a field-service visit on ticket NET-026. Which action is BEST?",
+    "choices": [
+      "Put all clients in the same broadcast domain",
+      "Place guests on a separate VLAN or guest network",
+      "Disable WPA on both SSIDs",
+      "Use a hub for guest users"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Guest networks should be segmented from internal systems, commonly with separate VLANs and firewall rules."
+  },
+  {
+    "id": "aplus-core1-062",
+    "domain": "Networking",
+    "question": "A technician needs to test whether a remote host responds while resolving a recurring ticket on ticket NET-027. Which action is BEST?",
+    "choices": [
+      "Use diskpart",
+      "Use gpupdate",
+      "Use ping if ICMP is allowed",
+      "Use dxdiag"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Ping sends ICMP echo requests to check basic reachability, although firewalls may block it."
+  },
+  {
+    "id": "aplus-core1-063",
+    "domain": "Networking",
+    "type": "multiple-response",
+    "question": "A technician is asked to find the path traffic takes to a destination during a new-hire setup on ticket NET-028. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use tracert or traceroute",
+      "Verify the change after implementation and document the result",
+      "Use format",
+      "Use msconfig"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Traceroute tools show hops between the client and destination, helping locate routing failures. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-064",
+    "domain": "Networking",
+    "question": "A technician needs to connect a cable to a patch panel after a recent configuration change on ticket NET-029. Which action is BEST?",
+    "choices": [
+      "Use a punchdown tool with the correct wiring standard",
+      "Use thermal paste",
+      "Use a loopback plug on the switch",
+      "Use a fuser kit"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Punchdown tools seat twisted-pair conductors into IDC terminals on patch panels and keystone jacks."
+  },
+  {
+    "id": "aplus-core1-065",
+    "domain": "Networking",
+    "question": "A technician needs to choose secure wireless encryption for a new SOHO router while supporting a hybrid worker on ticket NET-030. Which action is BEST?",
+    "choices": [
+      "WEP",
+      "WPA3-Personal where supported",
+      "Open authentication",
+      "MAC filtering only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "WPA3 is the preferred modern personal wireless security mode when all client devices support it."
+  },
+  {
+    "id": "aplus-core1-066",
+    "domain": "Networking",
+    "type": "statement-block",
+    "question": "Review these statements about how to identify HTTPS traffic for a remote employee on ticket NET-031.",
+    "statements": [
+      "TCP port 443",
+      "TCP port 25",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "HTTPS normally uses TCP 443 to provide encrypted web traffic. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-067",
+    "domain": "Networking",
+    "question": "A technician needs to provide automatic IP settings on a LAN during a help desk escalation on ticket NET-032. Which action is BEST?",
+    "choices": [
+      "DNS",
+      "NTP",
+      "SNMP",
+      "DHCP"
+    ],
+    "correctAnswer": 3,
+    "explanation": "DHCP leases IP address, subnet mask, gateway, and DNS settings to clients."
+  },
+  {
+    "id": "aplus-core1-068",
+    "domain": "Networking",
+    "type": "matching",
+    "question": "Match each protocol to its usual purpose. Use the situation while preparing a replacement workstation on ticket NET-033.",
+    "itemsLeft": [
+      "DNS",
+      "DHCP",
+      "HTTPS",
+      "SSH"
+    ],
+    "itemsRight": [
+      "Name resolution",
+      "Automatic IP addressing",
+      "Encrypted web traffic",
+      "Secure remote shell"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core1-069",
+    "domain": "Networking",
+    "question": "A technician needs to connect network segments at layer 3 after a department move on ticket NET-034. Which action is BEST?",
+    "choices": [
+      "Patch panel",
+      "Router",
+      "Unmanaged switch",
+      "Toner probe"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Routers forward traffic between IP networks and act as the default gateway for clients."
+  },
+  {
+    "id": "aplus-core1-070",
+    "domain": "Networking",
+    "type": "multiple-response",
+    "question": "A technician is asked to power a ceiling-mounted access point through Ethernet for a small office rollout on ticket NET-035. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use a PoE-capable switch or injector",
+      "Verify the change after implementation and document the result",
+      "Use a crossover cable only",
+      "Disable VLAN tagging"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Power over Ethernet can deliver data and electrical power to supported devices such as APs and VoIP phones. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-071",
+    "domain": "Networking",
+    "question": "A technician needs to separate guest Wi-Fi from employee systems during a field-service visit on ticket NET-036. Which action is BEST?",
+    "choices": [
+      "Put all clients in the same broadcast domain",
+      "Disable WPA on both SSIDs",
+      "Use a hub for guest users",
+      "Place guests on a separate VLAN or guest network"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Guest networks should be segmented from internal systems, commonly with separate VLANs and firewall rules."
+  },
+  {
+    "id": "aplus-core1-072",
+    "domain": "Networking",
+    "question": "A technician needs to test whether a remote host responds while resolving a recurring ticket on ticket NET-037. Which action is BEST?",
+    "choices": [
+      "Use ping if ICMP is allowed",
+      "Use diskpart",
+      "Use gpupdate",
+      "Use dxdiag"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ping sends ICMP echo requests to check basic reachability, although firewalls may block it."
+  },
+  {
+    "id": "aplus-core1-073",
+    "domain": "Networking",
+    "question": "A technician needs to find the path traffic takes to a destination during a new-hire setup on ticket NET-038. Which action is BEST?",
+    "choices": [
+      "Use format",
+      "Use tracert or traceroute",
+      "Use msconfig",
+      "Use winver"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Traceroute tools show hops between the client and destination, helping locate routing failures."
+  },
+  {
+    "id": "aplus-core1-074",
+    "domain": "Networking",
+    "question": "A technician needs to connect a cable to a patch panel after a recent configuration change on ticket NET-039. Which action is BEST?",
+    "choices": [
+      "Use thermal paste",
+      "Use a loopback plug on the switch",
+      "Use a punchdown tool with the correct wiring standard",
+      "Use a fuser kit"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Punchdown tools seat twisted-pair conductors into IDC terminals on patch panels and keystone jacks."
+  },
+  {
+    "id": "aplus-core1-075",
+    "domain": "Networking",
+    "question": "A technician needs to choose secure wireless encryption for a new SOHO router while supporting a hybrid worker on ticket NET-040. Which action is BEST?",
+    "choices": [
+      "WEP",
+      "Open authentication",
+      "MAC filtering only",
+      "WPA3-Personal where supported"
+    ],
+    "correctAnswer": 3,
+    "explanation": "WPA3 is the preferred modern personal wireless security mode when all client devices support it."
+  },
+  {
+    "id": "aplus-core1-076",
+    "domain": "Networking",
+    "question": "A technician needs to identify HTTPS traffic for a remote employee on ticket NET-041. Which action is BEST?",
+    "choices": [
+      "TCP port 443",
+      "TCP port 25",
+      "UDP port 53",
+      "TCP port 3389"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HTTPS normally uses TCP 443 to provide encrypted web traffic."
+  },
+  {
+    "id": "aplus-core1-077",
+    "domain": "Networking",
+    "type": "statement-block",
+    "question": "Review these statements about how to provide automatic IP settings on a LAN during a help desk escalation on ticket NET-042.",
+    "statements": [
+      "DHCP",
+      "DNS",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "DHCP leases IP address, subnet mask, gateway, and DNS settings to clients. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-078",
+    "domain": "Networking",
+    "question": "A technician needs to resolve host names to IP addresses while preparing a replacement workstation on ticket NET-043. Which action is BEST?",
+    "choices": [
+      "RDP",
+      "SSH",
+      "DNS",
+      "PoE"
+    ],
+    "correctAnswer": 2,
+    "explanation": "DNS maps host names to IP addresses so users do not need to remember numeric addresses."
+  },
+  {
+    "id": "aplus-core1-079",
+    "domain": "Networking",
+    "question": "A technician needs to connect network segments at layer 3 after a department move on ticket NET-044. Which action is BEST?",
+    "choices": [
+      "Patch panel",
+      "Unmanaged switch",
+      "Toner probe",
+      "Router"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Routers forward traffic between IP networks and act as the default gateway for clients."
+  },
+  {
+    "id": "aplus-core1-080",
+    "domain": "Networking",
+    "question": "A technician needs to power a ceiling-mounted access point through Ethernet for a small office rollout on ticket NET-045. Which action is BEST?",
+    "choices": [
+      "Use a PoE-capable switch or injector",
+      "Use a crossover cable only",
+      "Disable VLAN tagging",
+      "Install a modem at the AP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power over Ethernet can deliver data and electrical power to supported devices such as APs and VoIP phones."
+  },
+  {
+    "id": "aplus-core1-081",
+    "domain": "Networking",
+    "question": "A technician needs to separate guest Wi-Fi from employee systems during a field-service visit on ticket NET-046. Which action is BEST?",
+    "choices": [
+      "Put all clients in the same broadcast domain",
+      "Place guests on a separate VLAN or guest network",
+      "Disable WPA on both SSIDs",
+      "Use a hub for guest users"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Guest networks should be segmented from internal systems, commonly with separate VLANs and firewall rules."
+  },
+  {
+    "id": "aplus-core1-082",
+    "domain": "Networking",
+    "question": "A technician needs to test whether a remote host responds while resolving a recurring ticket on ticket NET-047. Which action is BEST?",
+    "choices": [
+      "Use diskpart",
+      "Use gpupdate",
+      "Use ping if ICMP is allowed",
+      "Use dxdiag"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Ping sends ICMP echo requests to check basic reachability, although firewalls may block it."
+  },
+  {
+    "id": "aplus-core1-083",
+    "domain": "Networking",
+    "question": "A technician needs to find the path traffic takes to a destination during a new-hire setup on ticket NET-048. Which action is BEST?",
+    "choices": [
+      "Use format",
+      "Use msconfig",
+      "Use winver",
+      "Use tracert or traceroute"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Traceroute tools show hops between the client and destination, helping locate routing failures."
+  },
+  {
+    "id": "aplus-core1-084",
+    "domain": "Networking",
+    "type": "multiple-response",
+    "question": "A technician is asked to connect a cable to a patch panel after a recent configuration change on ticket NET-049. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use a punchdown tool with the correct wiring standard",
+      "Verify the change after implementation and document the result",
+      "Use thermal paste",
+      "Use a loopback plug on the switch"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Punchdown tools seat twisted-pair conductors into IDC terminals on patch panels and keystone jacks. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-085",
+    "domain": "Networking",
+    "type": "matching",
+    "question": "Match each network tool to its purpose. Use the situation while supporting a hybrid worker on ticket NET-050.",
+    "itemsLeft": [
+      "Toner probe",
+      "Cable tester",
+      "Loopback plug",
+      "Wi-Fi analyzer"
+    ],
+    "itemsRight": [
+      "Trace cable runs",
+      "Verify wire map",
+      "Test a port or adapter",
+      "Review signal and channels"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core1-086",
+    "domain": "Networking",
+    "question": "A technician needs to identify HTTPS traffic for a remote employee on ticket NET-051. Which action is BEST?",
+    "choices": [
+      "TCP port 25",
+      "UDP port 53",
+      "TCP port 443",
+      "TCP port 3389"
+    ],
+    "correctAnswer": 2,
+    "explanation": "HTTPS normally uses TCP 443 to provide encrypted web traffic."
+  },
+  {
+    "id": "aplus-core1-087",
+    "domain": "Networking",
+    "question": "A technician needs to provide automatic IP settings on a LAN during a help desk escalation on ticket NET-052. Which action is BEST?",
+    "choices": [
+      "DNS",
+      "NTP",
+      "SNMP",
+      "DHCP"
+    ],
+    "correctAnswer": 3,
+    "explanation": "DHCP leases IP address, subnet mask, gateway, and DNS settings to clients."
+  },
+  {
+    "id": "aplus-core1-088",
+    "domain": "Networking",
+    "type": "statement-block",
+    "question": "Review these statements about how to resolve host names to IP addresses while preparing a replacement workstation on ticket NET-053.",
+    "statements": [
+      "DNS",
+      "RDP",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "DNS maps host names to IP addresses so users do not need to remember numeric addresses. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-089",
+    "domain": "Networking",
+    "question": "A technician needs to connect network segments at layer 3 after a department move on ticket NET-054. Which action is BEST?",
+    "choices": [
+      "Patch panel",
+      "Router",
+      "Unmanaged switch",
+      "Toner probe"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Routers forward traffic between IP networks and act as the default gateway for clients."
+  },
+  {
+    "id": "aplus-core1-090",
+    "domain": "Networking",
+    "question": "A technician needs to power a ceiling-mounted access point through Ethernet for a small office rollout on ticket NET-055. Which action is BEST?",
+    "choices": [
+      "Use a crossover cable only",
+      "Disable VLAN tagging",
+      "Use a PoE-capable switch or injector",
+      "Install a modem at the AP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Power over Ethernet can deliver data and electrical power to supported devices such as APs and VoIP phones."
+  },
+  {
+    "id": "aplus-core1-091",
+    "domain": "Networking",
+    "type": "multiple-response",
+    "question": "A technician is asked to separate guest Wi-Fi from employee systems during a field-service visit on ticket NET-056. Which TWO choices best support the requirement?",
+    "choices": [
+      "Place guests on a separate VLAN or guest network",
+      "Verify the change after implementation and document the result",
+      "Put all clients in the same broadcast domain",
+      "Disable WPA on both SSIDs"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Guest networks should be segmented from internal systems, commonly with separate VLANs and firewall rules. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-092",
+    "domain": "Networking",
+    "question": "A technician needs to test whether a remote host responds while resolving a recurring ticket on ticket NET-057. Which action is BEST?",
+    "choices": [
+      "Use ping if ICMP is allowed",
+      "Use diskpart",
+      "Use gpupdate",
+      "Use dxdiag"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ping sends ICMP echo requests to check basic reachability, although firewalls may block it."
+  },
+  {
+    "id": "aplus-core1-093",
+    "domain": "Networking",
+    "question": "A technician needs to find the path traffic takes to a destination during a new-hire setup on ticket NET-058. Which action is BEST?",
+    "choices": [
+      "Use format",
+      "Use tracert or traceroute",
+      "Use msconfig",
+      "Use winver"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Traceroute tools show hops between the client and destination, helping locate routing failures."
+  },
+  {
+    "id": "aplus-core1-094",
+    "domain": "Networking",
+    "question": "A technician needs to connect a cable to a patch panel after a recent configuration change on ticket NET-059. Which action is BEST?",
+    "choices": [
+      "Use thermal paste",
+      "Use a loopback plug on the switch",
+      "Use a punchdown tool with the correct wiring standard",
+      "Use a fuser kit"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Punchdown tools seat twisted-pair conductors into IDC terminals on patch panels and keystone jacks."
+  },
+  {
+    "id": "aplus-core1-095",
+    "domain": "Networking",
+    "question": "A technician needs to choose secure wireless encryption for a new SOHO router while supporting a hybrid worker on ticket NET-060. Which action is BEST?",
+    "choices": [
+      "WEP",
+      "Open authentication",
+      "MAC filtering only",
+      "WPA3-Personal where supported"
+    ],
+    "correctAnswer": 3,
+    "explanation": "WPA3 is the preferred modern personal wireless security mode when all client devices support it."
+  },
+  {
+    "id": "aplus-core1-096",
+    "domain": "Networking",
+    "question": "A technician needs to identify HTTPS traffic for a remote employee on ticket NET-061. Which action is BEST?",
+    "choices": [
+      "TCP port 443",
+      "TCP port 25",
+      "UDP port 53",
+      "TCP port 3389"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HTTPS normally uses TCP 443 to provide encrypted web traffic."
+  },
+  {
+    "id": "aplus-core1-097",
+    "domain": "Networking",
+    "question": "A technician needs to provide automatic IP settings on a LAN during a help desk escalation on ticket NET-062. Which action is BEST?",
+    "choices": [
+      "DNS",
+      "DHCP",
+      "NTP",
+      "SNMP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DHCP leases IP address, subnet mask, gateway, and DNS settings to clients."
+  },
+  {
+    "id": "aplus-core1-098",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to choose storage for fastest boot times for a remote employee on ticket HAR-001. Which TWO choices best support the requirement?",
+    "choices": [
+      "NVMe SSD",
+      "Verify the change after implementation and document the result",
+      "5400 RPM HDD",
+      "DVD-RW drive"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "NVMe SSDs use PCIe and provide much lower latency and higher throughput than spinning disks. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-099",
+    "domain": "Hardware",
+    "type": "statement-block",
+    "question": "Review these statements about how to install a CPU safely during a help desk escalation on ticket HAR-002.",
+    "statements": [
+      "Align the CPU marker with the socket marker and lock the retention mechanism",
+      "Force the CPU into place if it resists",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Processors must be aligned with socket markings and installed without force to avoid bent pins or damaged contacts. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-100",
+    "domain": "Hardware",
+    "question": "A technician needs to cool a processor after replacing the heat sink while preparing a replacement workstation on ticket HAR-003. Which action is BEST?",
+    "choices": [
+      "Apply an appropriate amount of thermal paste before installing the heat sink",
+      "Clean the fan with water while powered",
+      "Leave the old dried compound in place",
+      "Disable all case fans"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Thermal paste fills microscopic gaps between the CPU heat spreader and heat sink for efficient heat transfer."
+  },
+  {
+    "id": "aplus-core1-101",
+    "domain": "Hardware",
+    "question": "A technician needs to select memory for a desktop motherboard after a department move on ticket HAR-004. Which action is BEST?",
+    "choices": [
+      "Mix any DDR generation if capacity matches",
+      "Match the motherboard-supported DDR generation, speed, and capacity",
+      "Use SODIMM memory in all desktops",
+      "Install only printer memory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Motherboards support specific memory generations and capacities; incompatible modules will not fit or operate correctly."
+  },
+  {
+    "id": "aplus-core1-102",
+    "domain": "Hardware",
+    "type": "matching",
+    "question": "Match each component to its role. Use the situation for a small office rollout on ticket HAR-005.",
+    "itemsLeft": [
+      "PSU",
+      "RAM",
+      "TPM",
+      "Fuser"
+    ],
+    "itemsRight": [
+      "Converts AC to DC power",
+      "Volatile working memory",
+      "Stores cryptographic keys",
+      "Bonds toner to paper"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core1-103",
+    "domain": "Hardware",
+    "question": "A technician needs to build a workstation for virtualization labs during a field-service visit on ticket HAR-006. Which action is BEST?",
+    "choices": [
+      "Prioritize a fax modem",
+      "Use the smallest possible SSD",
+      "Disable hardware virtualization",
+      "Prioritize CPU cores, RAM capacity, and fast SSD storage"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Virtualization workloads need CPU virtualization support, memory for guest VMs, and fast storage for virtual disks."
+  },
+  {
+    "id": "aplus-core1-104",
+    "domain": "Hardware",
+    "question": "A technician needs to replace a failed laser printer maintenance component while resolving a recurring ticket on ticket HAR-007. Which action is BEST?",
+    "choices": [
+      "Replace the fuser if toner smears and does not bond to paper",
+      "Replace the NIC",
+      "Replace the CMOS battery",
+      "Replace the Wi-Fi antenna"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The fuser uses heat and pressure to bond toner to paper; failure often causes smearing or poorly fused output."
+  },
+  {
+    "id": "aplus-core1-105",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to identify the purpose of TPM during a new-hire setup on ticket HAR-008. Which TWO choices best support the requirement?",
+    "choices": [
+      "Store cryptographic keys for features such as BitLocker",
+      "Verify the change after implementation and document the result",
+      "Increase CPU clock speed",
+      "Convert AC to DC power"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "A Trusted Platform Module securely stores keys and supports measured boot and disk encryption features. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-106",
+    "domain": "Hardware",
+    "question": "A technician needs to select the correct display cable for high bandwidth monitors after a recent configuration change on ticket HAR-009. Which action is BEST?",
+    "choices": [
+      "Use RJ-11",
+      "Use SATA data cable",
+      "Use DisplayPort or HDMI versions that support the required resolution and refresh rate",
+      "Use a Molex power splitter"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Modern high-resolution displays require display standards and cable versions with enough bandwidth."
+  },
+  {
+    "id": "aplus-core1-107",
+    "domain": "Hardware",
+    "question": "A technician needs to install expansion storage in a desktop while supporting a hybrid worker on ticket HAR-010. Which action is BEST?",
+    "choices": [
+      "Connect the drive to an RJ-45 port",
+      "Install it in a RAM slot",
+      "Attach it to a printer fuser",
+      "Use an available M.2 slot or SATA data and power connections as supported"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage devices connect through supported motherboard interfaces such as M.2 NVMe or SATA."
+  },
+  {
+    "id": "aplus-core1-108",
+    "domain": "Hardware",
+    "question": "A technician needs to choose storage for fastest boot times for a remote employee on ticket HAR-011. Which action is BEST?",
+    "choices": [
+      "NVMe SSD",
+      "5400 RPM HDD",
+      "DVD-RW drive",
+      "Tape cartridge"
+    ],
+    "correctAnswer": 0,
+    "explanation": "NVMe SSDs use PCIe and provide much lower latency and higher throughput than spinning disks."
+  },
+  {
+    "id": "aplus-core1-109",
+    "domain": "Hardware",
+    "question": "A technician needs to install a CPU safely during a help desk escalation on ticket HAR-012. Which action is BEST?",
+    "choices": [
+      "Force the CPU into place if it resists",
+      "Align the CPU marker with the socket marker and lock the retention mechanism",
+      "Apply thermal paste to the socket pins",
+      "Touch the contacts to verify orientation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Processors must be aligned with socket markings and installed without force to avoid bent pins or damaged contacts."
+  },
+  {
+    "id": "aplus-core1-110",
+    "domain": "Hardware",
+    "type": "statement-block",
+    "question": "Review these statements about how to cool a processor after replacing the heat sink while preparing a replacement workstation on ticket HAR-013.",
+    "statements": [
+      "Apply an appropriate amount of thermal paste before installing the heat sink",
+      "Clean the fan with water while powered",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Thermal paste fills microscopic gaps between the CPU heat spreader and heat sink for efficient heat transfer. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-111",
+    "domain": "Hardware",
+    "question": "A technician needs to select memory for a desktop motherboard after a department move on ticket HAR-014. Which action is BEST?",
+    "choices": [
+      "Mix any DDR generation if capacity matches",
+      "Use SODIMM memory in all desktops",
+      "Install only printer memory",
+      "Match the motherboard-supported DDR generation, speed, and capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Motherboards support specific memory generations and capacities; incompatible modules will not fit or operate correctly."
+  },
+  {
+    "id": "aplus-core1-112",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to protect a workstation from brief power loss for a small office rollout on ticket HAR-015. Which TWO choices best support the requirement?",
+    "choices": [
+      "Install a UPS sized for the load",
+      "Verify the change after implementation and document the result",
+      "Install a passive heat sink",
+      "Use a toner probe"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "A UPS provides battery-backed power long enough to ride through short outages or shut down safely. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-113",
+    "domain": "Hardware",
+    "question": "A technician needs to build a workstation for virtualization labs during a field-service visit on ticket HAR-016. Which action is BEST?",
+    "choices": [
+      "Prioritize a fax modem",
+      "Prioritize CPU cores, RAM capacity, and fast SSD storage",
+      "Use the smallest possible SSD",
+      "Disable hardware virtualization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Virtualization workloads need CPU virtualization support, memory for guest VMs, and fast storage for virtual disks."
+  },
+  {
+    "id": "aplus-core1-114",
+    "domain": "Hardware",
+    "question": "A technician needs to replace a failed laser printer maintenance component while resolving a recurring ticket on ticket HAR-017. Which action is BEST?",
+    "choices": [
+      "Replace the NIC",
+      "Replace the CMOS battery",
+      "Replace the fuser if toner smears and does not bond to paper",
+      "Replace the Wi-Fi antenna"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The fuser uses heat and pressure to bond toner to paper; failure often causes smearing or poorly fused output."
+  },
+  {
+    "id": "aplus-core1-115",
+    "domain": "Hardware",
+    "question": "A technician needs to identify the purpose of TPM during a new-hire setup on ticket HAR-018. Which action is BEST?",
+    "choices": [
+      "Increase CPU clock speed",
+      "Convert AC to DC power",
+      "Terminate coaxial cable",
+      "Store cryptographic keys for features such as BitLocker"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A Trusted Platform Module securely stores keys and supports measured boot and disk encryption features."
+  },
+  {
+    "id": "aplus-core1-116",
+    "domain": "Hardware",
+    "question": "A technician needs to select the correct display cable for high bandwidth monitors after a recent configuration change on ticket HAR-019. Which action is BEST?",
+    "choices": [
+      "Use DisplayPort or HDMI versions that support the required resolution and refresh rate",
+      "Use RJ-11",
+      "Use SATA data cable",
+      "Use a Molex power splitter"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Modern high-resolution displays require display standards and cable versions with enough bandwidth."
+  },
+  {
+    "id": "aplus-core1-117",
+    "domain": "Hardware",
+    "question": "A technician needs to install expansion storage in a desktop while supporting a hybrid worker on ticket HAR-020. Which action is BEST?",
+    "choices": [
+      "Connect the drive to an RJ-45 port",
+      "Use an available M.2 slot or SATA data and power connections as supported",
+      "Install it in a RAM slot",
+      "Attach it to a printer fuser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Storage devices connect through supported motherboard interfaces such as M.2 NVMe or SATA."
+  },
+  {
+    "id": "aplus-core1-118",
+    "domain": "Hardware",
+    "question": "A technician needs to choose storage for fastest boot times for a remote employee on ticket HAR-021. Which action is BEST?",
+    "choices": [
+      "5400 RPM HDD",
+      "DVD-RW drive",
+      "NVMe SSD",
+      "Tape cartridge"
+    ],
+    "correctAnswer": 2,
+    "explanation": "NVMe SSDs use PCIe and provide much lower latency and higher throughput than spinning disks."
+  },
+  {
+    "id": "aplus-core1-119",
+    "domain": "Hardware",
+    "type": "matching",
+    "question": "Match each component to its role. Use the situation during a help desk escalation on ticket HAR-022.",
+    "itemsLeft": [
+      "PSU",
+      "RAM",
+      "TPM",
+      "Fuser"
+    ],
+    "itemsRight": [
+      "Converts AC to DC power",
+      "Volatile working memory",
+      "Stores cryptographic keys",
+      "Bonds toner to paper"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core1-120",
+    "domain": "Hardware",
+    "question": "A technician needs to cool a processor after replacing the heat sink while preparing a replacement workstation on ticket HAR-023. Which action is BEST?",
+    "choices": [
+      "Apply an appropriate amount of thermal paste before installing the heat sink",
+      "Clean the fan with water while powered",
+      "Leave the old dried compound in place",
+      "Disable all case fans"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Thermal paste fills microscopic gaps between the CPU heat spreader and heat sink for efficient heat transfer."
+  },
+  {
+    "id": "aplus-core1-121",
+    "domain": "Hardware",
+    "type": "statement-block",
+    "question": "Review these statements about how to select memory for a desktop motherboard after a department move on ticket HAR-024.",
+    "statements": [
+      "Match the motherboard-supported DDR generation, speed, and capacity",
+      "Mix any DDR generation if capacity matches",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Motherboards support specific memory generations and capacities; incompatible modules will not fit or operate correctly. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-122",
+    "domain": "Hardware",
+    "question": "A technician needs to protect a workstation from brief power loss for a small office rollout on ticket HAR-025. Which action is BEST?",
+    "choices": [
+      "Install a passive heat sink",
+      "Use a toner probe",
+      "Install a UPS sized for the load",
+      "Replace the CMOS battery"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A UPS provides battery-backed power long enough to ride through short outages or shut down safely."
+  },
+  {
+    "id": "aplus-core1-123",
+    "domain": "Hardware",
+    "question": "A technician needs to build a workstation for virtualization labs during a field-service visit on ticket HAR-026. Which action is BEST?",
+    "choices": [
+      "Prioritize a fax modem",
+      "Use the smallest possible SSD",
+      "Disable hardware virtualization",
+      "Prioritize CPU cores, RAM capacity, and fast SSD storage"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Virtualization workloads need CPU virtualization support, memory for guest VMs, and fast storage for virtual disks."
+  },
+  {
+    "id": "aplus-core1-124",
+    "domain": "Hardware",
+    "question": "A technician needs to replace a failed laser printer maintenance component while resolving a recurring ticket on ticket HAR-027. Which action is BEST?",
+    "choices": [
+      "Replace the fuser if toner smears and does not bond to paper",
+      "Replace the NIC",
+      "Replace the CMOS battery",
+      "Replace the Wi-Fi antenna"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The fuser uses heat and pressure to bond toner to paper; failure often causes smearing or poorly fused output."
+  },
+  {
+    "id": "aplus-core1-125",
+    "domain": "Hardware",
+    "question": "A technician needs to identify the purpose of TPM during a new-hire setup on ticket HAR-028. Which action is BEST?",
+    "choices": [
+      "Increase CPU clock speed",
+      "Store cryptographic keys for features such as BitLocker",
+      "Convert AC to DC power",
+      "Terminate coaxial cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Trusted Platform Module securely stores keys and supports measured boot and disk encryption features."
+  },
+  {
+    "id": "aplus-core1-126",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to select the correct display cable for high bandwidth monitors after a recent configuration change on ticket HAR-029. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use DisplayPort or HDMI versions that support the required resolution and refresh rate",
+      "Verify the change after implementation and document the result",
+      "Use RJ-11",
+      "Use SATA data cable"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Modern high-resolution displays require display standards and cable versions with enough bandwidth. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-127",
+    "domain": "Hardware",
+    "question": "A technician needs to install expansion storage in a desktop while supporting a hybrid worker on ticket HAR-030. Which action is BEST?",
+    "choices": [
+      "Connect the drive to an RJ-45 port",
+      "Install it in a RAM slot",
+      "Attach it to a printer fuser",
+      "Use an available M.2 slot or SATA data and power connections as supported"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage devices connect through supported motherboard interfaces such as M.2 NVMe or SATA."
+  },
+  {
+    "id": "aplus-core1-128",
+    "domain": "Hardware",
+    "question": "A technician needs to choose storage for fastest boot times for a remote employee on ticket HAR-031. Which action is BEST?",
+    "choices": [
+      "NVMe SSD",
+      "5400 RPM HDD",
+      "DVD-RW drive",
+      "Tape cartridge"
+    ],
+    "correctAnswer": 0,
+    "explanation": "NVMe SSDs use PCIe and provide much lower latency and higher throughput than spinning disks."
+  },
+  {
+    "id": "aplus-core1-129",
+    "domain": "Hardware",
+    "question": "A technician needs to install a CPU safely during a help desk escalation on ticket HAR-032. Which action is BEST?",
+    "choices": [
+      "Force the CPU into place if it resists",
+      "Align the CPU marker with the socket marker and lock the retention mechanism",
+      "Apply thermal paste to the socket pins",
+      "Touch the contacts to verify orientation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Processors must be aligned with socket markings and installed without force to avoid bent pins or damaged contacts."
+  },
+  {
+    "id": "aplus-core1-130",
+    "domain": "Hardware",
+    "question": "A technician needs to cool a processor after replacing the heat sink while preparing a replacement workstation on ticket HAR-033. Which action is BEST?",
+    "choices": [
+      "Clean the fan with water while powered",
+      "Leave the old dried compound in place",
+      "Apply an appropriate amount of thermal paste before installing the heat sink",
+      "Disable all case fans"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Thermal paste fills microscopic gaps between the CPU heat spreader and heat sink for efficient heat transfer."
+  },
+  {
+    "id": "aplus-core1-131",
+    "domain": "Hardware",
+    "question": "A technician needs to select memory for a desktop motherboard after a department move on ticket HAR-034. Which action is BEST?",
+    "choices": [
+      "Mix any DDR generation if capacity matches",
+      "Use SODIMM memory in all desktops",
+      "Install only printer memory",
+      "Match the motherboard-supported DDR generation, speed, and capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Motherboards support specific memory generations and capacities; incompatible modules will not fit or operate correctly."
+  },
+  {
+    "id": "aplus-core1-132",
+    "domain": "Hardware",
+    "type": "statement-block",
+    "question": "Review these statements about how to protect a workstation from brief power loss for a small office rollout on ticket HAR-035.",
+    "statements": [
+      "Install a UPS sized for the load",
+      "Install a passive heat sink",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "A UPS provides battery-backed power long enough to ride through short outages or shut down safely. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-133",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to build a workstation for virtualization labs during a field-service visit on ticket HAR-036. Which TWO choices best support the requirement?",
+    "choices": [
+      "Prioritize CPU cores, RAM capacity, and fast SSD storage",
+      "Verify the change after implementation and document the result",
+      "Prioritize a fax modem",
+      "Use the smallest possible SSD"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Virtualization workloads need CPU virtualization support, memory for guest VMs, and fast storage for virtual disks. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-134",
+    "domain": "Hardware",
+    "question": "A technician needs to replace a failed laser printer maintenance component while resolving a recurring ticket on ticket HAR-037. Which action is BEST?",
+    "choices": [
+      "Replace the NIC",
+      "Replace the CMOS battery",
+      "Replace the fuser if toner smears and does not bond to paper",
+      "Replace the Wi-Fi antenna"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The fuser uses heat and pressure to bond toner to paper; failure often causes smearing or poorly fused output."
+  },
+  {
+    "id": "aplus-core1-135",
+    "domain": "Hardware",
+    "question": "A technician needs to identify the purpose of TPM during a new-hire setup on ticket HAR-038. Which action is BEST?",
+    "choices": [
+      "Increase CPU clock speed",
+      "Convert AC to DC power",
+      "Terminate coaxial cable",
+      "Store cryptographic keys for features such as BitLocker"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A Trusted Platform Module securely stores keys and supports measured boot and disk encryption features."
+  },
+  {
+    "id": "aplus-core1-136",
+    "domain": "Hardware",
+    "type": "matching",
+    "question": "Match each component to its role. Use the situation after a recent configuration change on ticket HAR-039.",
+    "itemsLeft": [
+      "PSU",
+      "RAM",
+      "TPM",
+      "Fuser"
+    ],
+    "itemsRight": [
+      "Converts AC to DC power",
+      "Volatile working memory",
+      "Stores cryptographic keys",
+      "Bonds toner to paper"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core1-137",
+    "domain": "Hardware",
+    "question": "A technician needs to install expansion storage in a desktop while supporting a hybrid worker on ticket HAR-040. Which action is BEST?",
+    "choices": [
+      "Connect the drive to an RJ-45 port",
+      "Use an available M.2 slot or SATA data and power connections as supported",
+      "Install it in a RAM slot",
+      "Attach it to a printer fuser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Storage devices connect through supported motherboard interfaces such as M.2 NVMe or SATA."
+  },
+  {
+    "id": "aplus-core1-138",
+    "domain": "Hardware",
+    "question": "A technician needs to choose storage for fastest boot times for a remote employee on ticket HAR-041. Which action is BEST?",
+    "choices": [
+      "5400 RPM HDD",
+      "DVD-RW drive",
+      "NVMe SSD",
+      "Tape cartridge"
+    ],
+    "correctAnswer": 2,
+    "explanation": "NVMe SSDs use PCIe and provide much lower latency and higher throughput than spinning disks."
+  },
+  {
+    "id": "aplus-core1-139",
+    "domain": "Hardware",
+    "question": "A technician needs to install a CPU safely during a help desk escalation on ticket HAR-042. Which action is BEST?",
+    "choices": [
+      "Force the CPU into place if it resists",
+      "Apply thermal paste to the socket pins",
+      "Touch the contacts to verify orientation",
+      "Align the CPU marker with the socket marker and lock the retention mechanism"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Processors must be aligned with socket markings and installed without force to avoid bent pins or damaged contacts."
+  },
+  {
+    "id": "aplus-core1-140",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to cool a processor after replacing the heat sink while preparing a replacement workstation on ticket HAR-043. Which TWO choices best support the requirement?",
+    "choices": [
+      "Apply an appropriate amount of thermal paste before installing the heat sink",
+      "Verify the change after implementation and document the result",
+      "Clean the fan with water while powered",
+      "Leave the old dried compound in place"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Thermal paste fills microscopic gaps between the CPU heat spreader and heat sink for efficient heat transfer. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-141",
+    "domain": "Hardware",
+    "question": "A technician needs to select memory for a desktop motherboard after a department move on ticket HAR-044. Which action is BEST?",
+    "choices": [
+      "Mix any DDR generation if capacity matches",
+      "Match the motherboard-supported DDR generation, speed, and capacity",
+      "Use SODIMM memory in all desktops",
+      "Install only printer memory"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Motherboards support specific memory generations and capacities; incompatible modules will not fit or operate correctly."
+  },
+  {
+    "id": "aplus-core1-142",
+    "domain": "Hardware",
+    "question": "A technician needs to protect a workstation from brief power loss for a small office rollout on ticket HAR-045. Which action is BEST?",
+    "choices": [
+      "Install a passive heat sink",
+      "Use a toner probe",
+      "Install a UPS sized for the load",
+      "Replace the CMOS battery"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A UPS provides battery-backed power long enough to ride through short outages or shut down safely."
+  },
+  {
+    "id": "aplus-core1-143",
+    "domain": "Hardware",
+    "type": "statement-block",
+    "question": "Review these statements about how to build a workstation for virtualization labs during a field-service visit on ticket HAR-046.",
+    "statements": [
+      "Prioritize CPU cores, RAM capacity, and fast SSD storage",
+      "Prioritize a fax modem",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Virtualization workloads need CPU virtualization support, memory for guest VMs, and fast storage for virtual disks. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-144",
+    "domain": "Hardware",
+    "question": "A technician needs to replace a failed laser printer maintenance component while resolving a recurring ticket on ticket HAR-047. Which action is BEST?",
+    "choices": [
+      "Replace the fuser if toner smears and does not bond to paper",
+      "Replace the NIC",
+      "Replace the CMOS battery",
+      "Replace the Wi-Fi antenna"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The fuser uses heat and pressure to bond toner to paper; failure often causes smearing or poorly fused output."
+  },
+  {
+    "id": "aplus-core1-145",
+    "domain": "Hardware",
+    "question": "A technician needs to identify the purpose of TPM during a new-hire setup on ticket HAR-048. Which action is BEST?",
+    "choices": [
+      "Increase CPU clock speed",
+      "Store cryptographic keys for features such as BitLocker",
+      "Convert AC to DC power",
+      "Terminate coaxial cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Trusted Platform Module securely stores keys and supports measured boot and disk encryption features."
+  },
+  {
+    "id": "aplus-core1-146",
+    "domain": "Hardware",
+    "question": "A technician needs to select the correct display cable for high bandwidth monitors after a recent configuration change on ticket HAR-049. Which action is BEST?",
+    "choices": [
+      "Use RJ-11",
+      "Use SATA data cable",
+      "Use DisplayPort or HDMI versions that support the required resolution and refresh rate",
+      "Use a Molex power splitter"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Modern high-resolution displays require display standards and cable versions with enough bandwidth."
+  },
+  {
+    "id": "aplus-core1-147",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to install expansion storage in a desktop while supporting a hybrid worker on ticket HAR-050. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use an available M.2 slot or SATA data and power connections as supported",
+      "Verify the change after implementation and document the result",
+      "Connect the drive to an RJ-45 port",
+      "Install it in a RAM slot"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Storage devices connect through supported motherboard interfaces such as M.2 NVMe or SATA. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-148",
+    "domain": "Hardware",
+    "question": "A technician needs to choose storage for fastest boot times for a remote employee on ticket HAR-051. Which action is BEST?",
+    "choices": [
+      "NVMe SSD",
+      "5400 RPM HDD",
+      "DVD-RW drive",
+      "Tape cartridge"
+    ],
+    "correctAnswer": 0,
+    "explanation": "NVMe SSDs use PCIe and provide much lower latency and higher throughput than spinning disks."
+  },
+  {
+    "id": "aplus-core1-149",
+    "domain": "Hardware",
+    "question": "A technician needs to install a CPU safely during a help desk escalation on ticket HAR-052. Which action is BEST?",
+    "choices": [
+      "Force the CPU into place if it resists",
+      "Align the CPU marker with the socket marker and lock the retention mechanism",
+      "Apply thermal paste to the socket pins",
+      "Touch the contacts to verify orientation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Processors must be aligned with socket markings and installed without force to avoid bent pins or damaged contacts."
+  },
+  {
+    "id": "aplus-core1-150",
+    "domain": "Hardware",
+    "question": "A technician needs to cool a processor after replacing the heat sink while preparing a replacement workstation on ticket HAR-053. Which action is BEST?",
+    "choices": [
+      "Clean the fan with water while powered",
+      "Leave the old dried compound in place",
+      "Apply an appropriate amount of thermal paste before installing the heat sink",
+      "Disable all case fans"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Thermal paste fills microscopic gaps between the CPU heat spreader and heat sink for efficient heat transfer."
+  },
+  {
+    "id": "aplus-core1-151",
+    "domain": "Hardware",
+    "question": "A technician needs to select memory for a desktop motherboard after a department move on ticket HAR-054. Which action is BEST?",
+    "choices": [
+      "Mix any DDR generation if capacity matches",
+      "Use SODIMM memory in all desktops",
+      "Install only printer memory",
+      "Match the motherboard-supported DDR generation, speed, and capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Motherboards support specific memory generations and capacities; incompatible modules will not fit or operate correctly."
+  },
+  {
+    "id": "aplus-core1-152",
+    "domain": "Hardware",
+    "question": "A technician needs to protect a workstation from brief power loss for a small office rollout on ticket HAR-055. Which action is BEST?",
+    "choices": [
+      "Install a UPS sized for the load",
+      "Install a passive heat sink",
+      "Use a toner probe",
+      "Replace the CMOS battery"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A UPS provides battery-backed power long enough to ride through short outages or shut down safely."
+  },
+  {
+    "id": "aplus-core1-153",
+    "domain": "Hardware",
+    "type": "matching",
+    "question": "Match each component to its role. Use the situation during a field-service visit on ticket HAR-056.",
+    "itemsLeft": [
+      "PSU",
+      "RAM",
+      "TPM",
+      "Fuser"
+    ],
+    "itemsRight": [
+      "Converts AC to DC power",
+      "Volatile working memory",
+      "Stores cryptographic keys",
+      "Bonds toner to paper"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core1-154",
+    "domain": "Hardware",
+    "type": "statement-block",
+    "question": "Review these statements about how to replace a failed laser printer maintenance component while resolving a recurring ticket on ticket HAR-057.",
+    "statements": [
+      "Replace the fuser if toner smears and does not bond to paper",
+      "Replace the NIC",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "The fuser uses heat and pressure to bond toner to paper; failure often causes smearing or poorly fused output. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-155",
+    "domain": "Hardware",
+    "question": "A technician needs to identify the purpose of TPM during a new-hire setup on ticket HAR-058. Which action is BEST?",
+    "choices": [
+      "Increase CPU clock speed",
+      "Convert AC to DC power",
+      "Terminate coaxial cable",
+      "Store cryptographic keys for features such as BitLocker"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A Trusted Platform Module securely stores keys and supports measured boot and disk encryption features."
+  },
+  {
+    "id": "aplus-core1-156",
+    "domain": "Hardware",
+    "question": "A technician needs to select the correct display cable for high bandwidth monitors after a recent configuration change on ticket HAR-059. Which action is BEST?",
+    "choices": [
+      "Use DisplayPort or HDMI versions that support the required resolution and refresh rate",
+      "Use RJ-11",
+      "Use SATA data cable",
+      "Use a Molex power splitter"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Modern high-resolution displays require display standards and cable versions with enough bandwidth."
+  },
+  {
+    "id": "aplus-core1-157",
+    "domain": "Hardware",
+    "question": "A technician needs to install expansion storage in a desktop while supporting a hybrid worker on ticket HAR-060. Which action is BEST?",
+    "choices": [
+      "Connect the drive to an RJ-45 port",
+      "Use an available M.2 slot or SATA data and power connections as supported",
+      "Install it in a RAM slot",
+      "Attach it to a printer fuser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Storage devices connect through supported motherboard interfaces such as M.2 NVMe or SATA."
+  },
+  {
+    "id": "aplus-core1-158",
+    "domain": "Hardware",
+    "question": "A technician needs to choose storage for fastest boot times for a remote employee on ticket HAR-061. Which action is BEST?",
+    "choices": [
+      "5400 RPM HDD",
+      "DVD-RW drive",
+      "NVMe SSD",
+      "Tape cartridge"
+    ],
+    "correctAnswer": 2,
+    "explanation": "NVMe SSDs use PCIe and provide much lower latency and higher throughput than spinning disks."
+  },
+  {
+    "id": "aplus-core1-159",
+    "domain": "Hardware",
+    "question": "A technician needs to install a CPU safely during a help desk escalation on ticket HAR-062. Which action is BEST?",
+    "choices": [
+      "Force the CPU into place if it resists",
+      "Apply thermal paste to the socket pins",
+      "Touch the contacts to verify orientation",
+      "Align the CPU marker with the socket marker and lock the retention mechanism"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Processors must be aligned with socket markings and installed without force to avoid bent pins or damaged contacts."
+  },
+  {
+    "id": "aplus-core1-160",
+    "domain": "Hardware",
+    "question": "A technician needs to cool a processor after replacing the heat sink while preparing a replacement workstation on ticket HAR-063. Which action is BEST?",
+    "choices": [
+      "Apply an appropriate amount of thermal paste before installing the heat sink",
+      "Clean the fan with water while powered",
+      "Leave the old dried compound in place",
+      "Disable all case fans"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Thermal paste fills microscopic gaps between the CPU heat spreader and heat sink for efficient heat transfer."
+  },
+  {
+    "id": "aplus-core1-161",
+    "domain": "Hardware",
+    "type": "multiple-response",
+    "question": "A technician is asked to select memory for a desktop motherboard after a department move on ticket HAR-064. Which TWO choices best support the requirement?",
+    "choices": [
+      "Match the motherboard-supported DDR generation, speed, and capacity",
+      "Verify the change after implementation and document the result",
+      "Mix any DDR generation if capacity matches",
+      "Use SODIMM memory in all desktops"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Motherboards support specific memory generations and capacities; incompatible modules will not fit or operate correctly. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-162",
+    "domain": "Hardware",
+    "question": "A technician needs to protect a workstation from brief power loss for a small office rollout on ticket HAR-065. Which action is BEST?",
+    "choices": [
+      "Install a passive heat sink",
+      "Use a toner probe",
+      "Install a UPS sized for the load",
+      "Replace the CMOS battery"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A UPS provides battery-backed power long enough to ride through short outages or shut down safely."
+  },
+  {
+    "id": "aplus-core1-163",
+    "domain": "Hardware",
+    "question": "A technician needs to build a workstation for virtualization labs during a field-service visit on ticket HAR-066. Which action is BEST?",
+    "choices": [
+      "Prioritize a fax modem",
+      "Use the smallest possible SSD",
+      "Disable hardware virtualization",
+      "Prioritize CPU cores, RAM capacity, and fast SSD storage"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Virtualization workloads need CPU virtualization support, memory for guest VMs, and fast storage for virtual disks."
+  },
+  {
+    "id": "aplus-core1-164",
+    "domain": "Hardware",
+    "question": "A technician needs to replace a failed laser printer maintenance component while resolving a recurring ticket on ticket HAR-067. Which action is BEST?",
+    "choices": [
+      "Replace the fuser if toner smears and does not bond to paper",
+      "Replace the NIC",
+      "Replace the CMOS battery",
+      "Replace the Wi-Fi antenna"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The fuser uses heat and pressure to bond toner to paper; failure often causes smearing or poorly fused output."
+  },
+  {
+    "id": "aplus-core1-165",
+    "domain": "Hardware",
+    "type": "statement-block",
+    "question": "Review these statements about how to identify the purpose of TPM during a new-hire setup on ticket HAR-068.",
+    "statements": [
+      "Store cryptographic keys for features such as BitLocker",
+      "Increase CPU clock speed",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "A Trusted Platform Module securely stores keys and supports measured boot and disk encryption features. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-166",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to run several test operating systems on one workstation for a remote employee on ticket VIR-001. Which action is BEST?",
+    "choices": [
+      "Use a KVM switch only",
+      "Use a toner probe",
+      "Use virtual machines on a hypervisor",
+      "Use print spooling"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A hypervisor lets multiple guest operating systems share one physical host."
+  },
+  {
+    "id": "aplus-core1-167",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to identify a bare-metal hypervisor during a help desk escalation on ticket VIR-002. Which action is BEST?",
+    "choices": [
+      "Type 2 hypervisor",
+      "Container registry",
+      "Print server",
+      "Type 1 hypervisor"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Type 1 hypervisors install directly on hardware, while Type 2 hypervisors run on a host OS."
+  },
+  {
+    "id": "aplus-core1-168",
+    "domain": "Virtualization and Cloud Computing",
+    "type": "multiple-response",
+    "question": "A technician is asked to describe SaaS while preparing a replacement workstation on ticket VIR-003. Which TWO choices best support the requirement?",
+    "choices": [
+      "A provider-hosted application consumed through a browser or client",
+      "Verify the change after implementation and document the result",
+      "Raw virtual machines only",
+      "Customer-owned data center power"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Software as a Service delivers complete applications managed by the provider. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-169",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to describe IaaS after a department move on ticket VIR-004. Which action is BEST?",
+    "choices": [
+      "A finished email application only",
+      "Provider-hosted compute, storage, and networking that customers configure",
+      "A printer maintenance kit",
+      "A mobile pairing protocol"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Infrastructure as a Service gives customers virtual infrastructure while the provider manages physical facilities."
+  },
+  {
+    "id": "aplus-core1-170",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to use snapshots safely for a small office rollout on ticket VIR-005. Which action is BEST?",
+    "choices": [
+      "Use snapshots as the only backup forever",
+      "Snapshot a powered-off printer",
+      "Take snapshots before risky changes and avoid keeping them as long-term backups",
+      "Disable storage before snapshotting"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Snapshots capture VM state for short-term rollback, but they are not a replacement for proper backups."
+  },
+  {
+    "id": "aplus-core1-171",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to give a VM network access through the host during a field-service visit on ticket VIR-006. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Change the monitor refresh rate",
+      "Replace the keyboard",
+      "Configure the VM virtual NIC for NAT or bridged networking as needed"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Virtual NIC mode controls how a VM communicates with the host network and external systems."
+  },
+  {
+    "id": "aplus-core1-172",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to run several test operating systems on one workstation while resolving a recurring ticket on ticket VIR-007. Which action is BEST?",
+    "choices": [
+      "Use virtual machines on a hypervisor",
+      "Use a KVM switch only",
+      "Use a toner probe",
+      "Use print spooling"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A hypervisor lets multiple guest operating systems share one physical host."
+  },
+  {
+    "id": "aplus-core1-173",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to identify a bare-metal hypervisor during a new-hire setup on ticket VIR-008. Which action is BEST?",
+    "choices": [
+      "Type 2 hypervisor",
+      "Type 1 hypervisor",
+      "Container registry",
+      "Print server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Type 1 hypervisors install directly on hardware, while Type 2 hypervisors run on a host OS."
+  },
+  {
+    "id": "aplus-core1-174",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to describe SaaS after a recent configuration change on ticket VIR-009. Which action is BEST?",
+    "choices": [
+      "Raw virtual machines only",
+      "Customer-owned data center power",
+      "A provider-hosted application consumed through a browser or client",
+      "A local-only BIOS feature"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Software as a Service delivers complete applications managed by the provider."
+  },
+  {
+    "id": "aplus-core1-175",
+    "domain": "Virtualization and Cloud Computing",
+    "type": "multiple-response",
+    "question": "A technician is asked to describe IaaS while supporting a hybrid worker on ticket VIR-010. Which TWO choices best support the requirement?",
+    "choices": [
+      "Provider-hosted compute, storage, and networking that customers configure",
+      "Verify the change after implementation and document the result",
+      "A finished email application only",
+      "A printer maintenance kit"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Infrastructure as a Service gives customers virtual infrastructure while the provider manages physical facilities. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-176",
+    "domain": "Virtualization and Cloud Computing",
+    "type": "statement-block",
+    "question": "Review these statements about how to use snapshots safely for a remote employee on ticket VIR-011.",
+    "statements": [
+      "Take snapshots before risky changes and avoid keeping them as long-term backups",
+      "Use snapshots as the only backup forever",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Snapshots capture VM state for short-term rollback, but they are not a replacement for proper backups. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-177",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to give a VM network access through the host during a help desk escalation on ticket VIR-012. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Configure the VM virtual NIC for NAT or bridged networking as needed",
+      "Change the monitor refresh rate",
+      "Replace the keyboard"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Virtual NIC mode controls how a VM communicates with the host network and external systems."
+  },
+  {
+    "id": "aplus-core1-178",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to run several test operating systems on one workstation while preparing a replacement workstation on ticket VIR-013. Which action is BEST?",
+    "choices": [
+      "Use a KVM switch only",
+      "Use a toner probe",
+      "Use virtual machines on a hypervisor",
+      "Use print spooling"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A hypervisor lets multiple guest operating systems share one physical host."
+  },
+  {
+    "id": "aplus-core1-179",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to identify a bare-metal hypervisor after a department move on ticket VIR-014. Which action is BEST?",
+    "choices": [
+      "Type 2 hypervisor",
+      "Container registry",
+      "Print server",
+      "Type 1 hypervisor"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Type 1 hypervisors install directly on hardware, while Type 2 hypervisors run on a host OS."
+  },
+  {
+    "id": "aplus-core1-180",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to describe SaaS for a small office rollout on ticket VIR-015. Which action is BEST?",
+    "choices": [
+      "A provider-hosted application consumed through a browser or client",
+      "Raw virtual machines only",
+      "Customer-owned data center power",
+      "A local-only BIOS feature"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Software as a Service delivers complete applications managed by the provider."
+  },
+  {
+    "id": "aplus-core1-181",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to describe IaaS during a field-service visit on ticket VIR-016. Which action is BEST?",
+    "choices": [
+      "A finished email application only",
+      "Provider-hosted compute, storage, and networking that customers configure",
+      "A printer maintenance kit",
+      "A mobile pairing protocol"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Infrastructure as a Service gives customers virtual infrastructure while the provider manages physical facilities."
+  },
+  {
+    "id": "aplus-core1-182",
+    "domain": "Virtualization and Cloud Computing",
+    "type": "multiple-response",
+    "question": "A technician is asked to use snapshots safely while resolving a recurring ticket on ticket VIR-017. Which TWO choices best support the requirement?",
+    "choices": [
+      "Take snapshots before risky changes and avoid keeping them as long-term backups",
+      "Verify the change after implementation and document the result",
+      "Use snapshots as the only backup forever",
+      "Snapshot a powered-off printer"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Snapshots capture VM state for short-term rollback, but they are not a replacement for proper backups. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-183",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to give a VM network access through the host during a new-hire setup on ticket VIR-018. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Change the monitor refresh rate",
+      "Replace the keyboard",
+      "Configure the VM virtual NIC for NAT or bridged networking as needed"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Virtual NIC mode controls how a VM communicates with the host network and external systems."
+  },
+  {
+    "id": "aplus-core1-184",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to run several test operating systems on one workstation after a recent configuration change on ticket VIR-019. Which action is BEST?",
+    "choices": [
+      "Use virtual machines on a hypervisor",
+      "Use a KVM switch only",
+      "Use a toner probe",
+      "Use print spooling"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A hypervisor lets multiple guest operating systems share one physical host."
+  },
+  {
+    "id": "aplus-core1-185",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to identify a bare-metal hypervisor while supporting a hybrid worker on ticket VIR-020. Which action is BEST?",
+    "choices": [
+      "Type 2 hypervisor",
+      "Type 1 hypervisor",
+      "Container registry",
+      "Print server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Type 1 hypervisors install directly on hardware, while Type 2 hypervisors run on a host OS."
+  },
+  {
+    "id": "aplus-core1-186",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to describe SaaS for a remote employee on ticket VIR-021. Which action is BEST?",
+    "choices": [
+      "Raw virtual machines only",
+      "Customer-owned data center power",
+      "A provider-hosted application consumed through a browser or client",
+      "A local-only BIOS feature"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Software as a Service delivers complete applications managed by the provider."
+  },
+  {
+    "id": "aplus-core1-187",
+    "domain": "Virtualization and Cloud Computing",
+    "type": "statement-block",
+    "question": "Review these statements about how to describe IaaS during a help desk escalation on ticket VIR-022.",
+    "statements": [
+      "Provider-hosted compute, storage, and networking that customers configure",
+      "A finished email application only",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Infrastructure as a Service gives customers virtual infrastructure while the provider manages physical facilities. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-188",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to use snapshots safely while preparing a replacement workstation on ticket VIR-023. Which action is BEST?",
+    "choices": [
+      "Take snapshots before risky changes and avoid keeping them as long-term backups",
+      "Use snapshots as the only backup forever",
+      "Snapshot a powered-off printer",
+      "Disable storage before snapshotting"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Snapshots capture VM state for short-term rollback, but they are not a replacement for proper backups."
+  },
+  {
+    "id": "aplus-core1-189",
+    "domain": "Virtualization and Cloud Computing",
+    "type": "multiple-response",
+    "question": "A technician is asked to give a VM network access through the host after a department move on ticket VIR-024. Which TWO choices best support the requirement?",
+    "choices": [
+      "Configure the VM virtual NIC for NAT or bridged networking as needed",
+      "Verify the change after implementation and document the result",
+      "Install more thermal paste",
+      "Change the monitor refresh rate"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Virtual NIC mode controls how a VM communicates with the host network and external systems. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-190",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to run several test operating systems on one workstation for a small office rollout on ticket VIR-025. Which action is BEST?",
+    "choices": [
+      "Use a KVM switch only",
+      "Use a toner probe",
+      "Use virtual machines on a hypervisor",
+      "Use print spooling"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A hypervisor lets multiple guest operating systems share one physical host."
+  },
+  {
+    "id": "aplus-core1-191",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to identify a bare-metal hypervisor during a field-service visit on ticket VIR-026. Which action is BEST?",
+    "choices": [
+      "Type 2 hypervisor",
+      "Container registry",
+      "Print server",
+      "Type 1 hypervisor"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Type 1 hypervisors install directly on hardware, while Type 2 hypervisors run on a host OS."
+  },
+  {
+    "id": "aplus-core1-192",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to describe SaaS while resolving a recurring ticket on ticket VIR-027. Which action is BEST?",
+    "choices": [
+      "A provider-hosted application consumed through a browser or client",
+      "Raw virtual machines only",
+      "Customer-owned data center power",
+      "A local-only BIOS feature"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Software as a Service delivers complete applications managed by the provider."
+  },
+  {
+    "id": "aplus-core1-193",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to describe IaaS during a new-hire setup on ticket VIR-028. Which action is BEST?",
+    "choices": [
+      "A finished email application only",
+      "Provider-hosted compute, storage, and networking that customers configure",
+      "A printer maintenance kit",
+      "A mobile pairing protocol"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Infrastructure as a Service gives customers virtual infrastructure while the provider manages physical facilities."
+  },
+  {
+    "id": "aplus-core1-194",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to use snapshots safely after a recent configuration change on ticket VIR-029. Which action is BEST?",
+    "choices": [
+      "Use snapshots as the only backup forever",
+      "Snapshot a powered-off printer",
+      "Take snapshots before risky changes and avoid keeping them as long-term backups",
+      "Disable storage before snapshotting"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Snapshots capture VM state for short-term rollback, but they are not a replacement for proper backups."
+  },
+  {
+    "id": "aplus-core1-195",
+    "domain": "Virtualization and Cloud Computing",
+    "question": "A technician needs to give a VM network access through the host while supporting a hybrid worker on ticket VIR-030. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Change the monitor refresh rate",
+      "Replace the keyboard",
+      "Configure the VM virtual NIC for NAT or bridged networking as needed"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Virtual NIC mode controls how a VM communicates with the host network and external systems."
+  },
+  {
+    "id": "aplus-core1-196",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-001. Which TWO choices best support the requirement?",
+    "choices": [
+      "Reseat compatible RAM and verify it is in the correct slots",
+      "Verify the change after implementation and document the result",
+      "Reinstall the printer driver first",
+      "Change the DNS server"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "No-display conditions after memory work often come from incompatible or improperly seated RAM. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-197",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-002. Which action is BEST?",
+    "choices": [
+      "Replace the wireless router",
+      "Check battery health and replace the battery if it no longer holds charge",
+      "Flush DNS",
+      "Install a print fuser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A system that runs on AC but fails on battery points to battery, charging, or power-management issues."
+  },
+  {
+    "id": "aplus-core1-198",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-003.",
+    "statements": [
+      "Check signal strength, interference, AP placement, and channel overlap",
+      "Replace every SSD",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Wireless performance depends on signal quality, interference, channel planning, and access point placement. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-199",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-004. Which action is BEST?",
+    "choices": [
+      "Replace the monitor cable",
+      "Install more printer toner",
+      "Change the CPU cooler",
+      "Verify DHCP reachability and network connectivity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "APIPA addresses indicate the client could not obtain a DHCP lease."
+  },
+  {
+    "id": "aplus-core1-200",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-005. Which action is BEST?",
+    "choices": [
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Replace the default gateway",
+      "Disable Bluetooth",
+      "Clear browser cookies only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers."
+  },
+  {
+    "id": "aplus-core1-201",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-006. Which action is BEST?",
+    "choices": [
+      "Rename the computer",
+      "Check temperatures, fans, heat sink contact, and power supply capacity",
+      "Disable DNS recursion",
+      "Replace the keyboard"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Thermal or power problems often appear when load increases."
+  },
+  {
+    "id": "aplus-core1-202",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-007. Which action is BEST?",
+    "choices": [
+      "Run Disk Cleanup",
+      "Rebuild the Windows profile",
+      "Test the cable, port, and endpoint NIC",
+      "Replace the printer tray"
+    ],
+    "correctAnswer": 2,
+    "explanation": "No link light points to physical layer issues such as cable, port, or NIC failure."
+  },
+  {
+    "id": "aplus-core1-203",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a new NVMe drive is not detected during a new-hire setup on ticket HAR-008. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check BIOS/UEFI settings, slot compatibility, and seating",
+      "Verify the change after implementation and document the result",
+      "Change the email password",
+      "Use WPA3"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Drive detection problems often involve seating, firmware settings, lane sharing, or unsupported form factors. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-204",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-009. Which action is BEST?",
+    "choices": [
+      "Troubleshoot DNS configuration",
+      "Replace the CPU",
+      "Clean the scanner glass",
+      "Disable the touchpad"
+    ],
+    "correctAnswer": 0,
+    "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem."
+  },
+  {
+    "id": "aplus-core1-205",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-010. Which action is BEST?",
+    "choices": [
+      "Replace DHCP",
+      "Check brightness, cable seating, display settings, and external monitor behavior",
+      "Install a domain controller",
+      "Reset the print queue"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Display symptoms should be isolated between panel, cable, GPU, settings, and power conditions."
+  },
+  {
+    "id": "aplus-core1-206",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-011. Which action is BEST?",
+    "choices": [
+      "Reinstall the printer driver first",
+      "Change the DNS server",
+      "Reseat compatible RAM and verify it is in the correct slots",
+      "Replace the mouse"
+    ],
+    "correctAnswer": 2,
+    "explanation": "No-display conditions after memory work often come from incompatible or improperly seated RAM."
+  },
+  {
+    "id": "aplus-core1-207",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-012. Which action is BEST?",
+    "choices": [
+      "Replace the wireless router",
+      "Flush DNS",
+      "Install a print fuser",
+      "Check battery health and replace the battery if it no longer holds charge"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A system that runs on AC but fails on battery points to battery, charging, or power-management issues."
+  },
+  {
+    "id": "aplus-core1-208",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-013. Which action is BEST?",
+    "choices": [
+      "Check signal strength, interference, AP placement, and channel overlap",
+      "Replace every SSD",
+      "Run chkdsk on the file server only",
+      "Disable all encryption"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Wireless performance depends on signal quality, interference, channel planning, and access point placement."
+  },
+  {
+    "id": "aplus-core1-209",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "ordering",
+    "question": "Place the troubleshooting flow in the best order for a failed network connection. Use the situation after a department move on ticket HAR-014.",
+    "items": [
+      "Identify symptoms and scope",
+      "Check physical link and IP settings",
+      "Test name resolution and routing",
+      "Implement the fix and verify connectivity"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core1-210",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-015. Which TWO choices best support the requirement?",
+    "choices": [
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Verify the change after implementation and document the result",
+      "Replace the default gateway",
+      "Disable Bluetooth"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-211",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-016. Which action is BEST?",
+    "choices": [
+      "Rename the computer",
+      "Disable DNS recursion",
+      "Replace the keyboard",
+      "Check temperatures, fans, heat sink contact, and power supply capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Thermal or power problems often appear when load increases."
+  },
+  {
+    "id": "aplus-core1-212",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-017. Which action is BEST?",
+    "choices": [
+      "Test the cable, port, and endpoint NIC",
+      "Run Disk Cleanup",
+      "Rebuild the Windows profile",
+      "Replace the printer tray"
+    ],
+    "correctAnswer": 0,
+    "explanation": "No link light points to physical layer issues such as cable, port, or NIC failure."
+  },
+  {
+    "id": "aplus-core1-213",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-018. Which action is BEST?",
+    "choices": [
+      "Change the email password",
+      "Check BIOS/UEFI settings, slot compatibility, and seating",
+      "Use WPA3",
+      "Replace the toner"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Drive detection problems often involve seating, firmware settings, lane sharing, or unsupported form factors."
+  },
+  {
+    "id": "aplus-core1-214",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-019. Which action is BEST?",
+    "choices": [
+      "Replace the CPU",
+      "Clean the scanner glass",
+      "Troubleshoot DNS configuration",
+      "Disable the touchpad"
+    ],
+    "correctAnswer": 2,
+    "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem."
+  },
+  {
+    "id": "aplus-core1-215",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-020. Which action is BEST?",
+    "choices": [
+      "Replace DHCP",
+      "Install a domain controller",
+      "Reset the print queue",
+      "Check brightness, cable seating, display settings, and external monitor behavior"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Display symptoms should be isolated between panel, cable, GPU, settings, and power conditions."
+  },
+  {
+    "id": "aplus-core1-216",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-021. Which action is BEST?",
+    "choices": [
+      "Reseat compatible RAM and verify it is in the correct slots",
+      "Reinstall the printer driver first",
+      "Change the DNS server",
+      "Replace the mouse"
+    ],
+    "correctAnswer": 0,
+    "explanation": "No-display conditions after memory work often come from incompatible or improperly seated RAM."
+  },
+  {
+    "id": "aplus-core1-217",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-022. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check battery health and replace the battery if it no longer holds charge",
+      "Verify the change after implementation and document the result",
+      "Replace the wireless router",
+      "Flush DNS"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "A system that runs on AC but fails on battery points to battery, charging, or power-management issues. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-218",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-023. Which action is BEST?",
+    "choices": [
+      "Replace every SSD",
+      "Run chkdsk on the file server only",
+      "Check signal strength, interference, AP placement, and channel overlap",
+      "Disable all encryption"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Wireless performance depends on signal quality, interference, channel planning, and access point placement."
+  },
+  {
+    "id": "aplus-core1-219",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-024. Which action is BEST?",
+    "choices": [
+      "Replace the monitor cable",
+      "Install more printer toner",
+      "Change the CPU cooler",
+      "Verify DHCP reachability and network connectivity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "APIPA addresses indicate the client could not obtain a DHCP lease."
+  },
+  {
+    "id": "aplus-core1-220",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-025.",
+    "statements": [
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Replace the default gateway",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-221",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-026. Which action is BEST?",
+    "choices": [
+      "Rename the computer",
+      "Check temperatures, fans, heat sink contact, and power supply capacity",
+      "Disable DNS recursion",
+      "Replace the keyboard"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Thermal or power problems often appear when load increases."
+  },
+  {
+    "id": "aplus-core1-222",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-027. Which action is BEST?",
+    "choices": [
+      "Run Disk Cleanup",
+      "Rebuild the Windows profile",
+      "Test the cable, port, and endpoint NIC",
+      "Replace the printer tray"
+    ],
+    "correctAnswer": 2,
+    "explanation": "No link light points to physical layer issues such as cable, port, or NIC failure."
+  },
+  {
+    "id": "aplus-core1-223",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-028. Which action is BEST?",
+    "choices": [
+      "Change the email password",
+      "Use WPA3",
+      "Replace the toner",
+      "Check BIOS/UEFI settings, slot compatibility, and seating"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Drive detection problems often involve seating, firmware settings, lane sharing, or unsupported form factors."
+  },
+  {
+    "id": "aplus-core1-224",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-029. Which TWO choices best support the requirement?",
+    "choices": [
+      "Troubleshoot DNS configuration",
+      "Verify the change after implementation and document the result",
+      "Replace the CPU",
+      "Clean the scanner glass"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-225",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-030. Which action is BEST?",
+    "choices": [
+      "Replace DHCP",
+      "Check brightness, cable seating, display settings, and external monitor behavior",
+      "Install a domain controller",
+      "Reset the print queue"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Display symptoms should be isolated between panel, cable, GPU, settings, and power conditions."
+  },
+  {
+    "id": "aplus-core1-226",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-031. Which action is BEST?",
+    "choices": [
+      "Reinstall the printer driver first",
+      "Change the DNS server",
+      "Reseat compatible RAM and verify it is in the correct slots",
+      "Replace the mouse"
+    ],
+    "correctAnswer": 2,
+    "explanation": "No-display conditions after memory work often come from incompatible or improperly seated RAM."
+  },
+  {
+    "id": "aplus-core1-227",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-032. Which action is BEST?",
+    "choices": [
+      "Replace the wireless router",
+      "Flush DNS",
+      "Install a print fuser",
+      "Check battery health and replace the battery if it no longer holds charge"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A system that runs on AC but fails on battery points to battery, charging, or power-management issues."
+  },
+  {
+    "id": "aplus-core1-228",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "ordering",
+    "question": "Place the troubleshooting flow in the best order for a failed network connection. Use the situation while preparing a replacement workstation on ticket HAR-033.",
+    "items": [
+      "Identify symptoms and scope",
+      "Check physical link and IP settings",
+      "Test name resolution and routing",
+      "Implement the fix and verify connectivity"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core1-229",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-034. Which action is BEST?",
+    "choices": [
+      "Replace the monitor cable",
+      "Verify DHCP reachability and network connectivity",
+      "Install more printer toner",
+      "Change the CPU cooler"
+    ],
+    "correctAnswer": 1,
+    "explanation": "APIPA addresses indicate the client could not obtain a DHCP lease."
+  },
+  {
+    "id": "aplus-core1-230",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-035. Which action is BEST?",
+    "choices": [
+      "Replace the default gateway",
+      "Disable Bluetooth",
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Clear browser cookies only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers."
+  },
+  {
+    "id": "aplus-core1-231",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a PC randomly shuts down under load during a field-service visit on ticket HAR-036.",
+    "statements": [
+      "Check temperatures, fans, heat sink contact, and power supply capacity",
+      "Rename the computer",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Thermal or power problems often appear when load increases. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-232",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-037. Which action is BEST?",
+    "choices": [
+      "Test the cable, port, and endpoint NIC",
+      "Run Disk Cleanup",
+      "Rebuild the Windows profile",
+      "Replace the printer tray"
+    ],
+    "correctAnswer": 0,
+    "explanation": "No link light points to physical layer issues such as cable, port, or NIC failure."
+  },
+  {
+    "id": "aplus-core1-233",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-038. Which action is BEST?",
+    "choices": [
+      "Change the email password",
+      "Check BIOS/UEFI settings, slot compatibility, and seating",
+      "Use WPA3",
+      "Replace the toner"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Drive detection problems often involve seating, firmware settings, lane sharing, or unsupported form factors."
+  },
+  {
+    "id": "aplus-core1-234",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-039. Which action is BEST?",
+    "choices": [
+      "Replace the CPU",
+      "Clean the scanner glass",
+      "Troubleshoot DNS configuration",
+      "Disable the touchpad"
+    ],
+    "correctAnswer": 2,
+    "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem."
+  },
+  {
+    "id": "aplus-core1-235",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-040. Which action is BEST?",
+    "choices": [
+      "Replace DHCP",
+      "Install a domain controller",
+      "Reset the print queue",
+      "Check brightness, cable seating, display settings, and external monitor behavior"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Display symptoms should be isolated between panel, cable, GPU, settings, and power conditions."
+  },
+  {
+    "id": "aplus-core1-236",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-041. Which action is BEST?",
+    "choices": [
+      "Reseat compatible RAM and verify it is in the correct slots",
+      "Reinstall the printer driver first",
+      "Change the DNS server",
+      "Replace the mouse"
+    ],
+    "correctAnswer": 0,
+    "explanation": "No-display conditions after memory work often come from incompatible or improperly seated RAM."
+  },
+  {
+    "id": "aplus-core1-237",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-042. Which action is BEST?",
+    "choices": [
+      "Replace the wireless router",
+      "Check battery health and replace the battery if it no longer holds charge",
+      "Flush DNS",
+      "Install a print fuser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A system that runs on AC but fails on battery points to battery, charging, or power-management issues."
+  },
+  {
+    "id": "aplus-core1-238",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-043. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check signal strength, interference, AP placement, and channel overlap",
+      "Verify the change after implementation and document the result",
+      "Replace every SSD",
+      "Run chkdsk on the file server only"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Wireless performance depends on signal quality, interference, channel planning, and access point placement. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-239",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-044. Which action is BEST?",
+    "choices": [
+      "Replace the monitor cable",
+      "Install more printer toner",
+      "Change the CPU cooler",
+      "Verify DHCP reachability and network connectivity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "APIPA addresses indicate the client could not obtain a DHCP lease."
+  },
+  {
+    "id": "aplus-core1-240",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-045. Which action is BEST?",
+    "choices": [
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Replace the default gateway",
+      "Disable Bluetooth",
+      "Clear browser cookies only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers."
+  },
+  {
+    "id": "aplus-core1-241",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-046. Which action is BEST?",
+    "choices": [
+      "Rename the computer",
+      "Check temperatures, fans, heat sink contact, and power supply capacity",
+      "Disable DNS recursion",
+      "Replace the keyboard"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Thermal or power problems often appear when load increases."
+  },
+  {
+    "id": "aplus-core1-242",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a switch port has no link light while resolving a recurring ticket on ticket HAR-047.",
+    "statements": [
+      "Test the cable, port, and endpoint NIC",
+      "Run Disk Cleanup",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "No link light points to physical layer issues such as cable, port, or NIC failure. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-243",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-048. Which action is BEST?",
+    "choices": [
+      "Change the email password",
+      "Use WPA3",
+      "Replace the toner",
+      "Check BIOS/UEFI settings, slot compatibility, and seating"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Drive detection problems often involve seating, firmware settings, lane sharing, or unsupported form factors."
+  },
+  {
+    "id": "aplus-core1-244",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-049. Which action is BEST?",
+    "choices": [
+      "Troubleshoot DNS configuration",
+      "Replace the CPU",
+      "Clean the scanner glass",
+      "Disable the touchpad"
+    ],
+    "correctAnswer": 0,
+    "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem."
+  },
+  {
+    "id": "aplus-core1-245",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-050. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check brightness, cable seating, display settings, and external monitor behavior",
+      "Verify the change after implementation and document the result",
+      "Replace DHCP",
+      "Install a domain controller"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Display symptoms should be isolated between panel, cable, GPU, settings, and power conditions. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-246",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-051. Which action is BEST?",
+    "choices": [
+      "Reinstall the printer driver first",
+      "Change the DNS server",
+      "Reseat compatible RAM and verify it is in the correct slots",
+      "Replace the mouse"
+    ],
+    "correctAnswer": 2,
+    "explanation": "No-display conditions after memory work often come from incompatible or improperly seated RAM."
+  },
+  {
+    "id": "aplus-core1-247",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "ordering",
+    "question": "Place the troubleshooting flow in the best order for a failed network connection. Use the situation during a help desk escalation on ticket HAR-052.",
+    "items": [
+      "Identify symptoms and scope",
+      "Check physical link and IP settings",
+      "Test name resolution and routing",
+      "Implement the fix and verify connectivity"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core1-248",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-053. Which action is BEST?",
+    "choices": [
+      "Check signal strength, interference, AP placement, and channel overlap",
+      "Replace every SSD",
+      "Run chkdsk on the file server only",
+      "Disable all encryption"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Wireless performance depends on signal quality, interference, channel planning, and access point placement."
+  },
+  {
+    "id": "aplus-core1-249",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-054. Which action is BEST?",
+    "choices": [
+      "Replace the monitor cable",
+      "Verify DHCP reachability and network connectivity",
+      "Install more printer toner",
+      "Change the CPU cooler"
+    ],
+    "correctAnswer": 1,
+    "explanation": "APIPA addresses indicate the client could not obtain a DHCP lease."
+  },
+  {
+    "id": "aplus-core1-250",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-055. Which action is BEST?",
+    "choices": [
+      "Replace the default gateway",
+      "Disable Bluetooth",
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Clear browser cookies only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers."
+  },
+  {
+    "id": "aplus-core1-251",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-056. Which action is BEST?",
+    "choices": [
+      "Rename the computer",
+      "Disable DNS recursion",
+      "Replace the keyboard",
+      "Check temperatures, fans, heat sink contact, and power supply capacity"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Thermal or power problems often appear when load increases."
+  },
+  {
+    "id": "aplus-core1-252",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a switch port has no link light while resolving a recurring ticket on ticket HAR-057. Which TWO choices best support the requirement?",
+    "choices": [
+      "Test the cable, port, and endpoint NIC",
+      "Verify the change after implementation and document the result",
+      "Run Disk Cleanup",
+      "Rebuild the Windows profile"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "No link light points to physical layer issues such as cable, port, or NIC failure. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-253",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a new NVMe drive is not detected during a new-hire setup on ticket HAR-058.",
+    "statements": [
+      "Check BIOS/UEFI settings, slot compatibility, and seating",
+      "Change the email password",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Drive detection problems often involve seating, firmware settings, lane sharing, or unsupported form factors. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-254",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-059. Which action is BEST?",
+    "choices": [
+      "Replace the CPU",
+      "Clean the scanner glass",
+      "Troubleshoot DNS configuration",
+      "Disable the touchpad"
+    ],
+    "correctAnswer": 2,
+    "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem."
+  },
+  {
+    "id": "aplus-core1-255",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-060. Which action is BEST?",
+    "choices": [
+      "Replace DHCP",
+      "Install a domain controller",
+      "Reset the print queue",
+      "Check brightness, cable seating, display settings, and external monitor behavior"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Display symptoms should be isolated between panel, cable, GPU, settings, and power conditions."
+  },
+  {
+    "id": "aplus-core1-256",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-061. Which action is BEST?",
+    "choices": [
+      "Reseat compatible RAM and verify it is in the correct slots",
+      "Reinstall the printer driver first",
+      "Change the DNS server",
+      "Replace the mouse"
+    ],
+    "correctAnswer": 0,
+    "explanation": "No-display conditions after memory work often come from incompatible or improperly seated RAM."
+  },
+  {
+    "id": "aplus-core1-257",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-062. Which action is BEST?",
+    "choices": [
+      "Replace the wireless router",
+      "Check battery health and replace the battery if it no longer holds charge",
+      "Flush DNS",
+      "Install a print fuser"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A system that runs on AC but fails on battery points to battery, charging, or power-management issues."
+  },
+  {
+    "id": "aplus-core1-258",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-063. Which action is BEST?",
+    "choices": [
+      "Replace every SSD",
+      "Run chkdsk on the file server only",
+      "Check signal strength, interference, AP placement, and channel overlap",
+      "Disable all encryption"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Wireless performance depends on signal quality, interference, channel planning, and access point placement."
+  },
+  {
+    "id": "aplus-core1-259",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a workstation has an APIPA address after a department move on ticket HAR-064. Which TWO choices best support the requirement?",
+    "choices": [
+      "Verify DHCP reachability and network connectivity",
+      "Verify the change after implementation and document the result",
+      "Replace the monitor cable",
+      "Install more printer toner"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "APIPA addresses indicate the client could not obtain a DHCP lease. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core1-260",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-065. Which action is BEST?",
+    "choices": [
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Replace the default gateway",
+      "Disable Bluetooth",
+      "Clear browser cookies only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers."
+  },
+  {
+    "id": "aplus-core1-261",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-066. Which action is BEST?",
+    "choices": [
+      "Rename the computer",
+      "Check temperatures, fans, heat sink contact, and power supply capacity",
+      "Disable DNS recursion",
+      "Replace the keyboard"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Thermal or power problems often appear when load increases."
+  },
+  {
+    "id": "aplus-core1-262",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-067. Which action is BEST?",
+    "choices": [
+      "Run Disk Cleanup",
+      "Rebuild the Windows profile",
+      "Test the cable, port, and endpoint NIC",
+      "Replace the printer tray"
+    ],
+    "correctAnswer": 2,
+    "explanation": "No link light points to physical layer issues such as cable, port, or NIC failure."
+  },
+  {
+    "id": "aplus-core1-263",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-068. Which action is BEST?",
+    "choices": [
+      "Change the email password",
+      "Use WPA3",
+      "Replace the toner",
+      "Check BIOS/UEFI settings, slot compatibility, and seating"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Drive detection problems often involve seating, firmware settings, lane sharing, or unsupported form factors."
+  },
+  {
+    "id": "aplus-core1-264",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-069.",
+    "statements": [
+      "Troubleshoot DNS configuration",
+      "Replace the CPU",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core1-265",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-070. Which action is BEST?",
+    "choices": [
+      "Replace DHCP",
+      "Check brightness, cable seating, display settings, and external monitor behavior",
+      "Install a domain controller",
+      "Reset the print queue"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Display symptoms should be isolated between panel, cable, GPU, settings, and power conditions."
+  },
+  {
+    "id": "aplus-core1-266",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "ordering",
+    "question": "Place the troubleshooting flow in the best order for a failed network connection. Use the situation for a remote employee on ticket HAR-071.",
+    "items": [
+      "Identify symptoms and scope",
+      "Check physical link and IP settings",
+      "Test name resolution and routing",
+      "Implement the fix and verify connectivity"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core1-267",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-072. Which action is BEST?",
+    "choices": [
+      "Replace the wireless router",
+      "Flush DNS",
+      "Install a print fuser",
+      "Check battery health and replace the battery if it no longer holds charge"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A system that runs on AC but fails on battery points to battery, charging, or power-management issues."
+  },
+  {
+    "id": "aplus-core1-268",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-073. Which action is BEST?",
+    "choices": [
+      "Check signal strength, interference, AP placement, and channel overlap",
+      "Replace every SSD",
+      "Run chkdsk on the file server only",
+      "Disable all encryption"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Wireless performance depends on signal quality, interference, channel planning, and access point placement."
+  },
+  {
+    "id": "aplus-core1-269",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-074. Which action is BEST?",
+    "choices": [
+      "Replace the monitor cable",
+      "Verify DHCP reachability and network connectivity",
+      "Install more printer toner",
+      "Change the CPU cooler"
+    ],
+    "correctAnswer": 1,
+    "explanation": "APIPA addresses indicate the client could not obtain a DHCP lease."
+  },
+  {
+    "id": "aplus-core1-270",
+    "domain": "Hardware and Network Troubleshooting",
+    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-075. Which action is BEST?",
+    "choices": [
+      "Replace the default gateway",
+      "Disable Bluetooth",
+      "Inspect rollers, drum, and fuser for defects or contamination",
+      "Clear browser cookies only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Repeating defects usually map to rotating printer components such as rollers, drums, or fusers."
+  }
+]

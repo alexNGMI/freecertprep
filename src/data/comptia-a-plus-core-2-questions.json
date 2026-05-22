@@ -1,0 +1,3868 @@
+[
+  {
+    "id": "aplus-core2-001",
+    "domain": "Operating Systems",
+    "question": "A technician needs to create disk partitions in Windows for a remote employee on ticket OPE-001. Which action is BEST?",
+    "choices": [
+      "Use nslookup",
+      "Use Disk Management or diskpart",
+      "Use netstat only",
+      "Use Device Manager exclusively"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Disk Management and diskpart manage partitions, volumes, and drive letters in Windows."
+  },
+  {
+    "id": "aplus-core2-002",
+    "domain": "Operating Systems",
+    "question": "A technician needs to view running processes and startup impact during a help desk escalation on ticket OPE-002. Which action is BEST?",
+    "choices": [
+      "Use ping",
+      "Use BitLocker Recovery",
+      "Use Task Manager",
+      "Use printui only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions."
+  },
+  {
+    "id": "aplus-core2-003",
+    "domain": "Operating Systems",
+    "question": "A technician needs to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-003. Which action is BEST?",
+    "choices": [
+      "Use Windows Home edition without upgrade",
+      "Use a printer share wizard",
+      "Use AirDrop",
+      "Use System properties or Settings with domain credentials"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity."
+  },
+  {
+    "id": "aplus-core2-004",
+    "domain": "Operating Systems",
+    "question": "A technician needs to install software on Linux from repositories after a department move on ticket OPE-004. Which action is BEST?",
+    "choices": [
+      "Use the distribution package manager",
+      "Edit the BIOS clock only",
+      "Use Windows Update Catalog",
+      "Format the EFI partition"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Linux package managers install and update software from trusted repositories."
+  },
+  {
+    "id": "aplus-core2-005",
+    "domain": "Operating Systems",
+    "question": "A technician needs to manage macOS application permissions for a small office rollout on ticket OPE-005. Which action is BEST?",
+    "choices": [
+      "Use regedit",
+      "Use Privacy and Security settings",
+      "Use Group Policy Editor on macOS",
+      "Use diskpart"
+    ],
+    "correctAnswer": 1,
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings."
+  },
+  {
+    "id": "aplus-core2-006",
+    "domain": "Operating Systems",
+    "question": "A technician needs to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-006. Which action is BEST?",
+    "choices": [
+      "Replace the monitor stand",
+      "Change DHCP scope size",
+      "Boot to recovery options and roll back or remove the driver",
+      "Rebuild the toner cartridge"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup."
+  },
+  {
+    "id": "aplus-core2-007",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to choose a file system for modern Windows system volume while resolving a recurring ticket on ticket OPE-007. Which TWO choices best support the requirement?",
+    "choices": [
+      "NTFS",
+      "Verify the change after implementation and document the result",
+      "ext4",
+      "APFS"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "NTFS supports Windows permissions, journaling, compression, encryption, and large system volumes. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-008",
+    "domain": "Operating Systems",
+    "question": "A technician needs to run a command as another user in Linux during a new-hire setup on ticket OPE-008. Which action is BEST?",
+    "choices": [
+      "sudo",
+      "robocopy",
+      "gpupdate",
+      "sfc"
+    ],
+    "correctAnswer": 0,
+    "explanation": "sudo allows authorized users to run commands with elevated privileges and creates an audit trail."
+  },
+  {
+    "id": "aplus-core2-009",
+    "domain": "Operating Systems",
+    "question": "A technician needs to automate a simple Windows administrative task after a recent configuration change on ticket OPE-009. Which action is BEST?",
+    "choices": [
+      "Use BIOS beep codes",
+      "Use PowerShell or a batch script",
+      "Use a toner probe",
+      "Use NFC tags only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "PowerShell and batch files are common Windows scripting options for repeatable administrative tasks."
+  },
+  {
+    "id": "aplus-core2-010",
+    "domain": "Operating Systems",
+    "question": "A technician needs to verify Windows system files while supporting a hybrid worker on ticket OPE-010. Which action is BEST?",
+    "choices": [
+      "Run ipconfig /release only",
+      "Run chmod 777",
+      "Run sfc /scannow",
+      "Run traceroute"
+    ],
+    "correctAnswer": 2,
+    "explanation": "System File Checker scans protected Windows system files and attempts repair."
+  },
+  {
+    "id": "aplus-core2-011",
+    "domain": "Operating Systems",
+    "type": "statement-block",
+    "question": "Review these statements about how to create disk partitions in Windows for a remote employee on ticket OPE-011.",
+    "statements": [
+      "Use Disk Management or diskpart",
+      "Use nslookup",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Disk Management and diskpart manage partitions, volumes, and drive letters in Windows. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-012",
+    "domain": "Operating Systems",
+    "question": "A technician needs to view running processes and startup impact during a help desk escalation on ticket OPE-012. Which action is BEST?",
+    "choices": [
+      "Use Task Manager",
+      "Use ping",
+      "Use BitLocker Recovery",
+      "Use printui only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions."
+  },
+  {
+    "id": "aplus-core2-013",
+    "domain": "Operating Systems",
+    "question": "A technician needs to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-013. Which action is BEST?",
+    "choices": [
+      "Use Windows Home edition without upgrade",
+      "Use System properties or Settings with domain credentials",
+      "Use a printer share wizard",
+      "Use AirDrop"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity."
+  },
+  {
+    "id": "aplus-core2-014",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to install software on Linux from repositories after a department move on ticket OPE-014. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use the distribution package manager",
+      "Verify the change after implementation and document the result",
+      "Edit the BIOS clock only",
+      "Use Windows Update Catalog"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Linux package managers install and update software from trusted repositories. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-015",
+    "domain": "Operating Systems",
+    "question": "A technician needs to manage macOS application permissions for a small office rollout on ticket OPE-015. Which action is BEST?",
+    "choices": [
+      "Use regedit",
+      "Use Group Policy Editor on macOS",
+      "Use diskpart",
+      "Use Privacy and Security settings"
+    ],
+    "correctAnswer": 3,
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings."
+  },
+  {
+    "id": "aplus-core2-016",
+    "domain": "Operating Systems",
+    "question": "A technician needs to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-016. Which action is BEST?",
+    "choices": [
+      "Boot to recovery options and roll back or remove the driver",
+      "Replace the monitor stand",
+      "Change DHCP scope size",
+      "Rebuild the toner cartridge"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup."
+  },
+  {
+    "id": "aplus-core2-017",
+    "domain": "Operating Systems",
+    "type": "matching",
+    "question": "Match each command or tool to its purpose. Use the situation while resolving a recurring ticket on ticket OPE-017.",
+    "itemsLeft": [
+      "sfc",
+      "diskpart",
+      "sudo",
+      "Task Manager"
+    ],
+    "itemsRight": [
+      "Verify protected Windows files",
+      "Manage disks and partitions",
+      "Run authorized Linux commands as elevated user",
+      "View running processes"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-018",
+    "domain": "Operating Systems",
+    "question": "A technician needs to run a command as another user in Linux during a new-hire setup on ticket OPE-018. Which action is BEST?",
+    "choices": [
+      "robocopy",
+      "gpupdate",
+      "sudo",
+      "sfc"
+    ],
+    "correctAnswer": 2,
+    "explanation": "sudo allows authorized users to run commands with elevated privileges and creates an audit trail."
+  },
+  {
+    "id": "aplus-core2-019",
+    "domain": "Operating Systems",
+    "question": "A technician needs to automate a simple Windows administrative task after a recent configuration change on ticket OPE-019. Which action is BEST?",
+    "choices": [
+      "Use BIOS beep codes",
+      "Use a toner probe",
+      "Use NFC tags only",
+      "Use PowerShell or a batch script"
+    ],
+    "correctAnswer": 3,
+    "explanation": "PowerShell and batch files are common Windows scripting options for repeatable administrative tasks."
+  },
+  {
+    "id": "aplus-core2-020",
+    "domain": "Operating Systems",
+    "question": "A technician needs to verify Windows system files while supporting a hybrid worker on ticket OPE-020. Which action is BEST?",
+    "choices": [
+      "Run sfc /scannow",
+      "Run ipconfig /release only",
+      "Run chmod 777",
+      "Run traceroute"
+    ],
+    "correctAnswer": 0,
+    "explanation": "System File Checker scans protected Windows system files and attempts repair."
+  },
+  {
+    "id": "aplus-core2-021",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to create disk partitions in Windows for a remote employee on ticket OPE-021. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use Disk Management or diskpart",
+      "Verify the change after implementation and document the result",
+      "Use nslookup",
+      "Use netstat only"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Disk Management and diskpart manage partitions, volumes, and drive letters in Windows. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-022",
+    "domain": "Operating Systems",
+    "type": "statement-block",
+    "question": "Review these statements about how to view running processes and startup impact during a help desk escalation on ticket OPE-022.",
+    "statements": [
+      "Use Task Manager",
+      "Use ping",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-023",
+    "domain": "Operating Systems",
+    "question": "A technician needs to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-023. Which action is BEST?",
+    "choices": [
+      "Use Windows Home edition without upgrade",
+      "Use a printer share wizard",
+      "Use AirDrop",
+      "Use System properties or Settings with domain credentials"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity."
+  },
+  {
+    "id": "aplus-core2-024",
+    "domain": "Operating Systems",
+    "question": "A technician needs to install software on Linux from repositories after a department move on ticket OPE-024. Which action is BEST?",
+    "choices": [
+      "Use the distribution package manager",
+      "Edit the BIOS clock only",
+      "Use Windows Update Catalog",
+      "Format the EFI partition"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Linux package managers install and update software from trusted repositories."
+  },
+  {
+    "id": "aplus-core2-025",
+    "domain": "Operating Systems",
+    "question": "A technician needs to manage macOS application permissions for a small office rollout on ticket OPE-025. Which action is BEST?",
+    "choices": [
+      "Use regedit",
+      "Use Privacy and Security settings",
+      "Use Group Policy Editor on macOS",
+      "Use diskpart"
+    ],
+    "correctAnswer": 1,
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings."
+  },
+  {
+    "id": "aplus-core2-026",
+    "domain": "Operating Systems",
+    "question": "A technician needs to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-026. Which action is BEST?",
+    "choices": [
+      "Replace the monitor stand",
+      "Change DHCP scope size",
+      "Boot to recovery options and roll back or remove the driver",
+      "Rebuild the toner cartridge"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup."
+  },
+  {
+    "id": "aplus-core2-027",
+    "domain": "Operating Systems",
+    "question": "A technician needs to choose a file system for modern Windows system volume while resolving a recurring ticket on ticket OPE-027. Which action is BEST?",
+    "choices": [
+      "ext4",
+      "APFS",
+      "exFAT only",
+      "NTFS"
+    ],
+    "correctAnswer": 3,
+    "explanation": "NTFS supports Windows permissions, journaling, compression, encryption, and large system volumes."
+  },
+  {
+    "id": "aplus-core2-028",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to run a command as another user in Linux during a new-hire setup on ticket OPE-028. Which TWO choices best support the requirement?",
+    "choices": [
+      "sudo",
+      "Verify the change after implementation and document the result",
+      "robocopy",
+      "gpupdate"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "sudo allows authorized users to run commands with elevated privileges and creates an audit trail. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-029",
+    "domain": "Operating Systems",
+    "question": "A technician needs to automate a simple Windows administrative task after a recent configuration change on ticket OPE-029. Which action is BEST?",
+    "choices": [
+      "Use BIOS beep codes",
+      "Use PowerShell or a batch script",
+      "Use a toner probe",
+      "Use NFC tags only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "PowerShell and batch files are common Windows scripting options for repeatable administrative tasks."
+  },
+  {
+    "id": "aplus-core2-030",
+    "domain": "Operating Systems",
+    "question": "A technician needs to verify Windows system files while supporting a hybrid worker on ticket OPE-030. Which action is BEST?",
+    "choices": [
+      "Run ipconfig /release only",
+      "Run chmod 777",
+      "Run sfc /scannow",
+      "Run traceroute"
+    ],
+    "correctAnswer": 2,
+    "explanation": "System File Checker scans protected Windows system files and attempts repair."
+  },
+  {
+    "id": "aplus-core2-031",
+    "domain": "Operating Systems",
+    "question": "A technician needs to create disk partitions in Windows for a remote employee on ticket OPE-031. Which action is BEST?",
+    "choices": [
+      "Use nslookup",
+      "Use netstat only",
+      "Use Device Manager exclusively",
+      "Use Disk Management or diskpart"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Disk Management and diskpart manage partitions, volumes, and drive letters in Windows."
+  },
+  {
+    "id": "aplus-core2-032",
+    "domain": "Operating Systems",
+    "question": "A technician needs to view running processes and startup impact during a help desk escalation on ticket OPE-032. Which action is BEST?",
+    "choices": [
+      "Use Task Manager",
+      "Use ping",
+      "Use BitLocker Recovery",
+      "Use printui only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions."
+  },
+  {
+    "id": "aplus-core2-033",
+    "domain": "Operating Systems",
+    "type": "statement-block",
+    "question": "Review these statements about how to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-033.",
+    "statements": [
+      "Use System properties or Settings with domain credentials",
+      "Use Windows Home edition without upgrade",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-034",
+    "domain": "Operating Systems",
+    "type": "matching",
+    "question": "Match each command or tool to its purpose. Use the situation after a department move on ticket OPE-034.",
+    "itemsLeft": [
+      "sfc",
+      "diskpart",
+      "sudo",
+      "Task Manager"
+    ],
+    "itemsRight": [
+      "Verify protected Windows files",
+      "Manage disks and partitions",
+      "Run authorized Linux commands as elevated user",
+      "View running processes"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-035",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to manage macOS application permissions for a small office rollout on ticket OPE-035. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use Privacy and Security settings",
+      "Verify the change after implementation and document the result",
+      "Use regedit",
+      "Use Group Policy Editor on macOS"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-036",
+    "domain": "Operating Systems",
+    "question": "A technician needs to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-036. Which action is BEST?",
+    "choices": [
+      "Boot to recovery options and roll back or remove the driver",
+      "Replace the monitor stand",
+      "Change DHCP scope size",
+      "Rebuild the toner cartridge"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup."
+  },
+  {
+    "id": "aplus-core2-037",
+    "domain": "Operating Systems",
+    "question": "A technician needs to choose a file system for modern Windows system volume while resolving a recurring ticket on ticket OPE-037. Which action is BEST?",
+    "choices": [
+      "ext4",
+      "NTFS",
+      "APFS",
+      "exFAT only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NTFS supports Windows permissions, journaling, compression, encryption, and large system volumes."
+  },
+  {
+    "id": "aplus-core2-038",
+    "domain": "Operating Systems",
+    "question": "A technician needs to run a command as another user in Linux during a new-hire setup on ticket OPE-038. Which action is BEST?",
+    "choices": [
+      "robocopy",
+      "gpupdate",
+      "sudo",
+      "sfc"
+    ],
+    "correctAnswer": 2,
+    "explanation": "sudo allows authorized users to run commands with elevated privileges and creates an audit trail."
+  },
+  {
+    "id": "aplus-core2-039",
+    "domain": "Operating Systems",
+    "question": "A technician needs to automate a simple Windows administrative task after a recent configuration change on ticket OPE-039. Which action is BEST?",
+    "choices": [
+      "Use BIOS beep codes",
+      "Use a toner probe",
+      "Use NFC tags only",
+      "Use PowerShell or a batch script"
+    ],
+    "correctAnswer": 3,
+    "explanation": "PowerShell and batch files are common Windows scripting options for repeatable administrative tasks."
+  },
+  {
+    "id": "aplus-core2-040",
+    "domain": "Operating Systems",
+    "question": "A technician needs to verify Windows system files while supporting a hybrid worker on ticket OPE-040. Which action is BEST?",
+    "choices": [
+      "Run sfc /scannow",
+      "Run ipconfig /release only",
+      "Run chmod 777",
+      "Run traceroute"
+    ],
+    "correctAnswer": 0,
+    "explanation": "System File Checker scans protected Windows system files and attempts repair."
+  },
+  {
+    "id": "aplus-core2-041",
+    "domain": "Operating Systems",
+    "question": "A technician needs to create disk partitions in Windows for a remote employee on ticket OPE-041. Which action is BEST?",
+    "choices": [
+      "Use nslookup",
+      "Use Disk Management or diskpart",
+      "Use netstat only",
+      "Use Device Manager exclusively"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Disk Management and diskpart manage partitions, volumes, and drive letters in Windows."
+  },
+  {
+    "id": "aplus-core2-042",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to view running processes and startup impact during a help desk escalation on ticket OPE-042. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use Task Manager",
+      "Verify the change after implementation and document the result",
+      "Use ping",
+      "Use BitLocker Recovery"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-043",
+    "domain": "Operating Systems",
+    "question": "A technician needs to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-043. Which action is BEST?",
+    "choices": [
+      "Use Windows Home edition without upgrade",
+      "Use a printer share wizard",
+      "Use AirDrop",
+      "Use System properties or Settings with domain credentials"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity."
+  },
+  {
+    "id": "aplus-core2-044",
+    "domain": "Operating Systems",
+    "type": "statement-block",
+    "question": "Review these statements about how to install software on Linux from repositories after a department move on ticket OPE-044.",
+    "statements": [
+      "Use the distribution package manager",
+      "Edit the BIOS clock only",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Linux package managers install and update software from trusted repositories. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-045",
+    "domain": "Operating Systems",
+    "question": "A technician needs to manage macOS application permissions for a small office rollout on ticket OPE-045. Which action is BEST?",
+    "choices": [
+      "Use regedit",
+      "Use Privacy and Security settings",
+      "Use Group Policy Editor on macOS",
+      "Use diskpart"
+    ],
+    "correctAnswer": 1,
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings."
+  },
+  {
+    "id": "aplus-core2-046",
+    "domain": "Operating Systems",
+    "question": "A technician needs to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-046. Which action is BEST?",
+    "choices": [
+      "Replace the monitor stand",
+      "Change DHCP scope size",
+      "Boot to recovery options and roll back or remove the driver",
+      "Rebuild the toner cartridge"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup."
+  },
+  {
+    "id": "aplus-core2-047",
+    "domain": "Operating Systems",
+    "question": "A technician needs to choose a file system for modern Windows system volume while resolving a recurring ticket on ticket OPE-047. Which action is BEST?",
+    "choices": [
+      "ext4",
+      "APFS",
+      "exFAT only",
+      "NTFS"
+    ],
+    "correctAnswer": 3,
+    "explanation": "NTFS supports Windows permissions, journaling, compression, encryption, and large system volumes."
+  },
+  {
+    "id": "aplus-core2-048",
+    "domain": "Operating Systems",
+    "question": "A technician needs to run a command as another user in Linux during a new-hire setup on ticket OPE-048. Which action is BEST?",
+    "choices": [
+      "sudo",
+      "robocopy",
+      "gpupdate",
+      "sfc"
+    ],
+    "correctAnswer": 0,
+    "explanation": "sudo allows authorized users to run commands with elevated privileges and creates an audit trail."
+  },
+  {
+    "id": "aplus-core2-049",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to automate a simple Windows administrative task after a recent configuration change on ticket OPE-049. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use PowerShell or a batch script",
+      "Verify the change after implementation and document the result",
+      "Use BIOS beep codes",
+      "Use a toner probe"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "PowerShell and batch files are common Windows scripting options for repeatable administrative tasks. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-050",
+    "domain": "Operating Systems",
+    "question": "A technician needs to verify Windows system files while supporting a hybrid worker on ticket OPE-050. Which action is BEST?",
+    "choices": [
+      "Run ipconfig /release only",
+      "Run chmod 777",
+      "Run sfc /scannow",
+      "Run traceroute"
+    ],
+    "correctAnswer": 2,
+    "explanation": "System File Checker scans protected Windows system files and attempts repair."
+  },
+  {
+    "id": "aplus-core2-051",
+    "domain": "Operating Systems",
+    "type": "matching",
+    "question": "Match each command or tool to its purpose. Use the situation for a remote employee on ticket OPE-051.",
+    "itemsLeft": [
+      "sfc",
+      "diskpart",
+      "sudo",
+      "Task Manager"
+    ],
+    "itemsRight": [
+      "Verify protected Windows files",
+      "Manage disks and partitions",
+      "Run authorized Linux commands as elevated user",
+      "View running processes"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-052",
+    "domain": "Operating Systems",
+    "question": "A technician needs to view running processes and startup impact during a help desk escalation on ticket OPE-052. Which action is BEST?",
+    "choices": [
+      "Use Task Manager",
+      "Use ping",
+      "Use BitLocker Recovery",
+      "Use printui only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions."
+  },
+  {
+    "id": "aplus-core2-053",
+    "domain": "Operating Systems",
+    "question": "A technician needs to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-053. Which action is BEST?",
+    "choices": [
+      "Use Windows Home edition without upgrade",
+      "Use System properties or Settings with domain credentials",
+      "Use a printer share wizard",
+      "Use AirDrop"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity."
+  },
+  {
+    "id": "aplus-core2-054",
+    "domain": "Operating Systems",
+    "question": "A technician needs to install software on Linux from repositories after a department move on ticket OPE-054. Which action is BEST?",
+    "choices": [
+      "Edit the BIOS clock only",
+      "Use Windows Update Catalog",
+      "Use the distribution package manager",
+      "Format the EFI partition"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Linux package managers install and update software from trusted repositories."
+  },
+  {
+    "id": "aplus-core2-055",
+    "domain": "Operating Systems",
+    "type": "statement-block",
+    "question": "Review these statements about how to manage macOS application permissions for a small office rollout on ticket OPE-055.",
+    "statements": [
+      "Use Privacy and Security settings",
+      "Use regedit",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-056",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-056. Which TWO choices best support the requirement?",
+    "choices": [
+      "Boot to recovery options and roll back or remove the driver",
+      "Verify the change after implementation and document the result",
+      "Replace the monitor stand",
+      "Change DHCP scope size"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-057",
+    "domain": "Operating Systems",
+    "question": "A technician needs to choose a file system for modern Windows system volume while resolving a recurring ticket on ticket OPE-057. Which action is BEST?",
+    "choices": [
+      "ext4",
+      "NTFS",
+      "APFS",
+      "exFAT only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "NTFS supports Windows permissions, journaling, compression, encryption, and large system volumes."
+  },
+  {
+    "id": "aplus-core2-058",
+    "domain": "Operating Systems",
+    "question": "A technician needs to run a command as another user in Linux during a new-hire setup on ticket OPE-058. Which action is BEST?",
+    "choices": [
+      "robocopy",
+      "gpupdate",
+      "sudo",
+      "sfc"
+    ],
+    "correctAnswer": 2,
+    "explanation": "sudo allows authorized users to run commands with elevated privileges and creates an audit trail."
+  },
+  {
+    "id": "aplus-core2-059",
+    "domain": "Operating Systems",
+    "question": "A technician needs to automate a simple Windows administrative task after a recent configuration change on ticket OPE-059. Which action is BEST?",
+    "choices": [
+      "Use BIOS beep codes",
+      "Use a toner probe",
+      "Use NFC tags only",
+      "Use PowerShell or a batch script"
+    ],
+    "correctAnswer": 3,
+    "explanation": "PowerShell and batch files are common Windows scripting options for repeatable administrative tasks."
+  },
+  {
+    "id": "aplus-core2-060",
+    "domain": "Operating Systems",
+    "question": "A technician needs to verify Windows system files while supporting a hybrid worker on ticket OPE-060. Which action is BEST?",
+    "choices": [
+      "Run sfc /scannow",
+      "Run ipconfig /release only",
+      "Run chmod 777",
+      "Run traceroute"
+    ],
+    "correctAnswer": 0,
+    "explanation": "System File Checker scans protected Windows system files and attempts repair."
+  },
+  {
+    "id": "aplus-core2-061",
+    "domain": "Operating Systems",
+    "question": "A technician needs to create disk partitions in Windows for a remote employee on ticket OPE-061. Which action is BEST?",
+    "choices": [
+      "Use nslookup",
+      "Use Disk Management or diskpart",
+      "Use netstat only",
+      "Use Device Manager exclusively"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Disk Management and diskpart manage partitions, volumes, and drive letters in Windows."
+  },
+  {
+    "id": "aplus-core2-062",
+    "domain": "Operating Systems",
+    "question": "A technician needs to view running processes and startup impact during a help desk escalation on ticket OPE-062. Which action is BEST?",
+    "choices": [
+      "Use ping",
+      "Use BitLocker Recovery",
+      "Use Task Manager",
+      "Use printui only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions."
+  },
+  {
+    "id": "aplus-core2-063",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-063. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use System properties or Settings with domain credentials",
+      "Verify the change after implementation and document the result",
+      "Use Windows Home edition without upgrade",
+      "Use a printer share wizard"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-064",
+    "domain": "Operating Systems",
+    "question": "A technician needs to install software on Linux from repositories after a department move on ticket OPE-064. Which action is BEST?",
+    "choices": [
+      "Use the distribution package manager",
+      "Edit the BIOS clock only",
+      "Use Windows Update Catalog",
+      "Format the EFI partition"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Linux package managers install and update software from trusted repositories."
+  },
+  {
+    "id": "aplus-core2-065",
+    "domain": "Operating Systems",
+    "question": "A technician needs to manage macOS application permissions for a small office rollout on ticket OPE-065. Which action is BEST?",
+    "choices": [
+      "Use regedit",
+      "Use Privacy and Security settings",
+      "Use Group Policy Editor on macOS",
+      "Use diskpart"
+    ],
+    "correctAnswer": 1,
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings."
+  },
+  {
+    "id": "aplus-core2-066",
+    "domain": "Operating Systems",
+    "type": "statement-block",
+    "question": "Review these statements about how to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-066.",
+    "statements": [
+      "Boot to recovery options and roll back or remove the driver",
+      "Replace the monitor stand",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-067",
+    "domain": "Operating Systems",
+    "question": "A technician needs to choose a file system for modern Windows system volume while resolving a recurring ticket on ticket OPE-067. Which action is BEST?",
+    "choices": [
+      "ext4",
+      "APFS",
+      "exFAT only",
+      "NTFS"
+    ],
+    "correctAnswer": 3,
+    "explanation": "NTFS supports Windows permissions, journaling, compression, encryption, and large system volumes."
+  },
+  {
+    "id": "aplus-core2-068",
+    "domain": "Operating Systems",
+    "type": "matching",
+    "question": "Match each command or tool to its purpose. Use the situation during a new-hire setup on ticket OPE-068.",
+    "itemsLeft": [
+      "sfc",
+      "diskpart",
+      "sudo",
+      "Task Manager"
+    ],
+    "itemsRight": [
+      "Verify protected Windows files",
+      "Manage disks and partitions",
+      "Run authorized Linux commands as elevated user",
+      "View running processes"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-069",
+    "domain": "Operating Systems",
+    "question": "A technician needs to automate a simple Windows administrative task after a recent configuration change on ticket OPE-069. Which action is BEST?",
+    "choices": [
+      "Use BIOS beep codes",
+      "Use PowerShell or a batch script",
+      "Use a toner probe",
+      "Use NFC tags only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "PowerShell and batch files are common Windows scripting options for repeatable administrative tasks."
+  },
+  {
+    "id": "aplus-core2-070",
+    "domain": "Operating Systems",
+    "type": "multiple-response",
+    "question": "A technician is asked to verify Windows system files while supporting a hybrid worker on ticket OPE-070. Which TWO choices best support the requirement?",
+    "choices": [
+      "Run sfc /scannow",
+      "Verify the change after implementation and document the result",
+      "Run ipconfig /release only",
+      "Run chmod 777"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "System File Checker scans protected Windows system files and attempts repair. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-071",
+    "domain": "Operating Systems",
+    "question": "A technician needs to create disk partitions in Windows for a remote employee on ticket OPE-071. Which action is BEST?",
+    "choices": [
+      "Use nslookup",
+      "Use netstat only",
+      "Use Device Manager exclusively",
+      "Use Disk Management or diskpart"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Disk Management and diskpart manage partitions, volumes, and drive letters in Windows."
+  },
+  {
+    "id": "aplus-core2-072",
+    "domain": "Operating Systems",
+    "question": "A technician needs to view running processes and startup impact during a help desk escalation on ticket OPE-072. Which action is BEST?",
+    "choices": [
+      "Use Task Manager",
+      "Use ping",
+      "Use BitLocker Recovery",
+      "Use printui only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Task Manager shows processes, performance, startup impact, and user sessions."
+  },
+  {
+    "id": "aplus-core2-073",
+    "domain": "Operating Systems",
+    "question": "A technician needs to join a Windows Pro computer to a domain while preparing a replacement workstation on ticket OPE-073. Which action is BEST?",
+    "choices": [
+      "Use Windows Home edition without upgrade",
+      "Use System properties or Settings with domain credentials",
+      "Use a printer share wizard",
+      "Use AirDrop"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Domain join requires an edition that supports it plus valid domain credentials and network connectivity."
+  },
+  {
+    "id": "aplus-core2-074",
+    "domain": "Operating Systems",
+    "question": "A technician needs to install software on Linux from repositories after a department move on ticket OPE-074. Which action is BEST?",
+    "choices": [
+      "Edit the BIOS clock only",
+      "Use Windows Update Catalog",
+      "Use the distribution package manager",
+      "Format the EFI partition"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Linux package managers install and update software from trusted repositories."
+  },
+  {
+    "id": "aplus-core2-075",
+    "domain": "Operating Systems",
+    "question": "A technician needs to manage macOS application permissions for a small office rollout on ticket OPE-075. Which action is BEST?",
+    "choices": [
+      "Use regedit",
+      "Use Group Policy Editor on macOS",
+      "Use diskpart",
+      "Use Privacy and Security settings"
+    ],
+    "correctAnswer": 3,
+    "explanation": "macOS centralizes privacy permissions such as camera, microphone, and full disk access in system settings."
+  },
+  {
+    "id": "aplus-core2-076",
+    "domain": "Operating Systems",
+    "question": "A technician needs to recover a Windows system that fails after a driver update during a field-service visit on ticket OPE-076. Which action is BEST?",
+    "choices": [
+      "Boot to recovery options and roll back or remove the driver",
+      "Replace the monitor stand",
+      "Change DHCP scope size",
+      "Rebuild the toner cartridge"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Recovery options and Safe Mode help remove bad drivers or updates that prevent normal startup."
+  },
+  {
+    "id": "aplus-core2-077",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Review these statements about how to protect a lost laptop drive for a remote employee on ticket SEC-001.",
+    "statements": [
+      "Use full-disk encryption such as BitLocker",
+      "Use an open guest Wi-Fi network",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-078",
+    "domain": "Security",
+    "question": "A technician needs to reduce risk from phishing during a help desk escalation on ticket SEC-002. Which action is BEST?",
+    "choices": [
+      "Disable MFA",
+      "Share passwords verbally",
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Allow all attachments"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits."
+  },
+  {
+    "id": "aplus-core2-079",
+    "domain": "Security",
+    "question": "A technician needs to apply least privilege while preparing a replacement workstation on ticket SEC-003. Which action is BEST?",
+    "choices": [
+      "Make all users local administrators",
+      "Share one admin account",
+      "Disable audit logs",
+      "Give users only the permissions required for their work"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Least privilege limits damage from mistakes, malware, or compromised accounts."
+  },
+  {
+    "id": "aplus-core2-080",
+    "domain": "Security",
+    "question": "A technician needs to secure a SOHO wireless network after a department move on ticket SEC-004. Which action is BEST?",
+    "choices": [
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Use WEP",
+      "Hide SSID as the only control",
+      "Leave the default admin password"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls."
+  },
+  {
+    "id": "aplus-core2-081",
+    "domain": "Security",
+    "question": "A technician needs to remove malware safely for a small office rollout on ticket SEC-005. Which action is BEST?",
+    "choices": [
+      "Ignore symptoms after reboot",
+      "Isolate the system, identify symptoms, remediate, update, and educate the user",
+      "Disable anti-malware permanently",
+      "Copy suspected malware to shared drives"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned."
+  },
+  {
+    "id": "aplus-core2-082",
+    "domain": "Security",
+    "question": "A technician needs to harden a workstation login during a field-service visit on ticket SEC-006. Which action is BEST?",
+    "choices": [
+      "Use blank local passwords",
+      "Disable lock screen timeout",
+      "Require MFA where supported and strong password or PIN policy",
+      "Use shared credentials"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MFA and strong authentication reduce the chance that stolen passwords lead to compromise."
+  },
+  {
+    "id": "aplus-core2-083",
+    "domain": "Security",
+    "question": "A technician needs to handle a suspicious USB drive found in a parking lot while resolving a recurring ticket on ticket SEC-007. Which action is BEST?",
+    "choices": [
+      "Open every file to identify the owner",
+      "Format it on the file server",
+      "Copy contents to a shared drive",
+      "Do not plug it into a production machine; follow security policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Unknown removable media can contain malware or malicious firmware and should be handled according to policy."
+  },
+  {
+    "id": "aplus-core2-084",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to physically secure a public workstation during a new-hire setup on ticket SEC-008. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use cable locks, privacy screens, and restricted access as appropriate",
+      "Verify the change after implementation and document the result",
+      "Disable all updates",
+      "Use open Wi-Fi"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Physical controls reduce theft, shoulder surfing, and unauthorized access. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-085",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each control to its security goal. Use the situation after a recent configuration change on ticket SEC-009.",
+    "itemsLeft": [
+      "MFA",
+      "Full-disk encryption",
+      "Least privilege",
+      "MDM remote wipe"
+    ],
+    "itemsRight": [
+      "Stronger authentication",
+      "Data-at-rest protection",
+      "Reduced permission exposure",
+      "Lost-device data protection"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-086",
+    "domain": "Security",
+    "question": "A technician needs to identify social engineering while supporting a hybrid worker on ticket SEC-010. Which action is BEST?",
+    "choices": [
+      "A CPU fan fails",
+      "A switch negotiates speed",
+      "An attacker impersonates trusted staff to persuade a user to reveal information",
+      "A printer runs out of toner"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Social engineering manipulates people rather than exploiting only technical vulnerabilities."
+  },
+  {
+    "id": "aplus-core2-087",
+    "domain": "Security",
+    "question": "A technician needs to protect a lost laptop drive for a remote employee on ticket SEC-011. Which action is BEST?",
+    "choices": [
+      "Use an open guest Wi-Fi network",
+      "Disable screen lock",
+      "Store the password in a text file",
+      "Use full-disk encryption such as BitLocker"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen."
+  },
+  {
+    "id": "aplus-core2-088",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Review these statements about how to reduce risk from phishing during a help desk escalation on ticket SEC-012.",
+    "statements": [
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Disable MFA",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-089",
+    "domain": "Security",
+    "question": "A technician needs to apply least privilege while preparing a replacement workstation on ticket SEC-013. Which action is BEST?",
+    "choices": [
+      "Make all users local administrators",
+      "Give users only the permissions required for their work",
+      "Share one admin account",
+      "Disable audit logs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Least privilege limits damage from mistakes, malware, or compromised accounts."
+  },
+  {
+    "id": "aplus-core2-090",
+    "domain": "Security",
+    "question": "A technician needs to secure a SOHO wireless network after a department move on ticket SEC-014. Which action is BEST?",
+    "choices": [
+      "Use WEP",
+      "Hide SSID as the only control",
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Leave the default admin password"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls."
+  },
+  {
+    "id": "aplus-core2-091",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to remove malware safely for a small office rollout on ticket SEC-015. Which TWO choices best support the requirement?",
+    "choices": [
+      "Isolate the system, identify symptoms, remediate, update, and educate the user",
+      "Verify the change after implementation and document the result",
+      "Ignore symptoms after reboot",
+      "Disable anti-malware permanently"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-092",
+    "domain": "Security",
+    "question": "A technician needs to harden a workstation login during a field-service visit on ticket SEC-016. Which action is BEST?",
+    "choices": [
+      "Require MFA where supported and strong password or PIN policy",
+      "Use blank local passwords",
+      "Disable lock screen timeout",
+      "Use shared credentials"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MFA and strong authentication reduce the chance that stolen passwords lead to compromise."
+  },
+  {
+    "id": "aplus-core2-093",
+    "domain": "Security",
+    "question": "A technician needs to handle a suspicious USB drive found in a parking lot while resolving a recurring ticket on ticket SEC-017. Which action is BEST?",
+    "choices": [
+      "Open every file to identify the owner",
+      "Do not plug it into a production machine; follow security policy",
+      "Format it on the file server",
+      "Copy contents to a shared drive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Unknown removable media can contain malware or malicious firmware and should be handled according to policy."
+  },
+  {
+    "id": "aplus-core2-094",
+    "domain": "Security",
+    "question": "A technician needs to physically secure a public workstation during a new-hire setup on ticket SEC-018. Which action is BEST?",
+    "choices": [
+      "Disable all updates",
+      "Use open Wi-Fi",
+      "Use cable locks, privacy screens, and restricted access as appropriate",
+      "Leave admin sessions unlocked"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Physical controls reduce theft, shoulder surfing, and unauthorized access."
+  },
+  {
+    "id": "aplus-core2-095",
+    "domain": "Security",
+    "question": "A technician needs to protect mobile devices from unauthorized access after a recent configuration change on ticket SEC-019. Which action is BEST?",
+    "choices": [
+      "Disable passcodes for convenience",
+      "Use one shared Apple ID for all users",
+      "Turn off app updates forever",
+      "Require screen lock, encryption, and remote wipe through MDM"
+    ],
+    "correctAnswer": 3,
+    "explanation": "MDM and baseline mobile policies protect business data on phones and tablets."
+  },
+  {
+    "id": "aplus-core2-096",
+    "domain": "Security",
+    "question": "A technician needs to identify social engineering while supporting a hybrid worker on ticket SEC-020. Which action is BEST?",
+    "choices": [
+      "An attacker impersonates trusted staff to persuade a user to reveal information",
+      "A CPU fan fails",
+      "A switch negotiates speed",
+      "A printer runs out of toner"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Social engineering manipulates people rather than exploiting only technical vulnerabilities."
+  },
+  {
+    "id": "aplus-core2-097",
+    "domain": "Security",
+    "question": "A technician needs to protect a lost laptop drive for a remote employee on ticket SEC-021. Which action is BEST?",
+    "choices": [
+      "Use an open guest Wi-Fi network",
+      "Use full-disk encryption such as BitLocker",
+      "Disable screen lock",
+      "Store the password in a text file"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen."
+  },
+  {
+    "id": "aplus-core2-098",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to reduce risk from phishing during a help desk escalation on ticket SEC-022. Which TWO choices best support the requirement?",
+    "choices": [
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Verify the change after implementation and document the result",
+      "Disable MFA",
+      "Share passwords verbally"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-099",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Review these statements about how to apply least privilege while preparing a replacement workstation on ticket SEC-023.",
+    "statements": [
+      "Give users only the permissions required for their work",
+      "Make all users local administrators",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Least privilege limits damage from mistakes, malware, or compromised accounts. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-100",
+    "domain": "Security",
+    "question": "A technician needs to secure a SOHO wireless network after a department move on ticket SEC-024. Which action is BEST?",
+    "choices": [
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Use WEP",
+      "Hide SSID as the only control",
+      "Leave the default admin password"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls."
+  },
+  {
+    "id": "aplus-core2-101",
+    "domain": "Security",
+    "question": "A technician needs to remove malware safely for a small office rollout on ticket SEC-025. Which action is BEST?",
+    "choices": [
+      "Ignore symptoms after reboot",
+      "Isolate the system, identify symptoms, remediate, update, and educate the user",
+      "Disable anti-malware permanently",
+      "Copy suspected malware to shared drives"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned."
+  },
+  {
+    "id": "aplus-core2-102",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each control to its security goal. Use the situation during a field-service visit on ticket SEC-026.",
+    "itemsLeft": [
+      "MFA",
+      "Full-disk encryption",
+      "Least privilege",
+      "MDM remote wipe"
+    ],
+    "itemsRight": [
+      "Stronger authentication",
+      "Data-at-rest protection",
+      "Reduced permission exposure",
+      "Lost-device data protection"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-103",
+    "domain": "Security",
+    "question": "A technician needs to handle a suspicious USB drive found in a parking lot while resolving a recurring ticket on ticket SEC-027. Which action is BEST?",
+    "choices": [
+      "Open every file to identify the owner",
+      "Format it on the file server",
+      "Copy contents to a shared drive",
+      "Do not plug it into a production machine; follow security policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Unknown removable media can contain malware or malicious firmware and should be handled according to policy."
+  },
+  {
+    "id": "aplus-core2-104",
+    "domain": "Security",
+    "question": "A technician needs to physically secure a public workstation during a new-hire setup on ticket SEC-028. Which action is BEST?",
+    "choices": [
+      "Use cable locks, privacy screens, and restricted access as appropriate",
+      "Disable all updates",
+      "Use open Wi-Fi",
+      "Leave admin sessions unlocked"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Physical controls reduce theft, shoulder surfing, and unauthorized access."
+  },
+  {
+    "id": "aplus-core2-105",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to protect mobile devices from unauthorized access after a recent configuration change on ticket SEC-029. Which TWO choices best support the requirement?",
+    "choices": [
+      "Require screen lock, encryption, and remote wipe through MDM",
+      "Verify the change after implementation and document the result",
+      "Disable passcodes for convenience",
+      "Use one shared Apple ID for all users"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "MDM and baseline mobile policies protect business data on phones and tablets. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-106",
+    "domain": "Security",
+    "question": "A technician needs to identify social engineering while supporting a hybrid worker on ticket SEC-030. Which action is BEST?",
+    "choices": [
+      "A CPU fan fails",
+      "A switch negotiates speed",
+      "An attacker impersonates trusted staff to persuade a user to reveal information",
+      "A printer runs out of toner"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Social engineering manipulates people rather than exploiting only technical vulnerabilities."
+  },
+  {
+    "id": "aplus-core2-107",
+    "domain": "Security",
+    "question": "A technician needs to protect a lost laptop drive for a remote employee on ticket SEC-031. Which action is BEST?",
+    "choices": [
+      "Use an open guest Wi-Fi network",
+      "Disable screen lock",
+      "Store the password in a text file",
+      "Use full-disk encryption such as BitLocker"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen."
+  },
+  {
+    "id": "aplus-core2-108",
+    "domain": "Security",
+    "question": "A technician needs to reduce risk from phishing during a help desk escalation on ticket SEC-032. Which action is BEST?",
+    "choices": [
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Disable MFA",
+      "Share passwords verbally",
+      "Allow all attachments"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits."
+  },
+  {
+    "id": "aplus-core2-109",
+    "domain": "Security",
+    "question": "A technician needs to apply least privilege while preparing a replacement workstation on ticket SEC-033. Which action is BEST?",
+    "choices": [
+      "Make all users local administrators",
+      "Give users only the permissions required for their work",
+      "Share one admin account",
+      "Disable audit logs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Least privilege limits damage from mistakes, malware, or compromised accounts."
+  },
+  {
+    "id": "aplus-core2-110",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Review these statements about how to secure a SOHO wireless network after a department move on ticket SEC-034.",
+    "statements": [
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Use WEP",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-111",
+    "domain": "Security",
+    "question": "A technician needs to remove malware safely for a small office rollout on ticket SEC-035. Which action is BEST?",
+    "choices": [
+      "Ignore symptoms after reboot",
+      "Disable anti-malware permanently",
+      "Copy suspected malware to shared drives",
+      "Isolate the system, identify symptoms, remediate, update, and educate the user"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned."
+  },
+  {
+    "id": "aplus-core2-112",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to harden a workstation login during a field-service visit on ticket SEC-036. Which TWO choices best support the requirement?",
+    "choices": [
+      "Require MFA where supported and strong password or PIN policy",
+      "Verify the change after implementation and document the result",
+      "Use blank local passwords",
+      "Disable lock screen timeout"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "MFA and strong authentication reduce the chance that stolen passwords lead to compromise. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-113",
+    "domain": "Security",
+    "question": "A technician needs to handle a suspicious USB drive found in a parking lot while resolving a recurring ticket on ticket SEC-037. Which action is BEST?",
+    "choices": [
+      "Open every file to identify the owner",
+      "Do not plug it into a production machine; follow security policy",
+      "Format it on the file server",
+      "Copy contents to a shared drive"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Unknown removable media can contain malware or malicious firmware and should be handled according to policy."
+  },
+  {
+    "id": "aplus-core2-114",
+    "domain": "Security",
+    "question": "A technician needs to physically secure a public workstation during a new-hire setup on ticket SEC-038. Which action is BEST?",
+    "choices": [
+      "Disable all updates",
+      "Use open Wi-Fi",
+      "Use cable locks, privacy screens, and restricted access as appropriate",
+      "Leave admin sessions unlocked"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Physical controls reduce theft, shoulder surfing, and unauthorized access."
+  },
+  {
+    "id": "aplus-core2-115",
+    "domain": "Security",
+    "question": "A technician needs to protect mobile devices from unauthorized access after a recent configuration change on ticket SEC-039. Which action is BEST?",
+    "choices": [
+      "Disable passcodes for convenience",
+      "Use one shared Apple ID for all users",
+      "Turn off app updates forever",
+      "Require screen lock, encryption, and remote wipe through MDM"
+    ],
+    "correctAnswer": 3,
+    "explanation": "MDM and baseline mobile policies protect business data on phones and tablets."
+  },
+  {
+    "id": "aplus-core2-116",
+    "domain": "Security",
+    "question": "A technician needs to identify social engineering while supporting a hybrid worker on ticket SEC-040. Which action is BEST?",
+    "choices": [
+      "An attacker impersonates trusted staff to persuade a user to reveal information",
+      "A CPU fan fails",
+      "A switch negotiates speed",
+      "A printer runs out of toner"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Social engineering manipulates people rather than exploiting only technical vulnerabilities."
+  },
+  {
+    "id": "aplus-core2-117",
+    "domain": "Security",
+    "question": "A technician needs to protect a lost laptop drive for a remote employee on ticket SEC-041. Which action is BEST?",
+    "choices": [
+      "Use an open guest Wi-Fi network",
+      "Use full-disk encryption such as BitLocker",
+      "Disable screen lock",
+      "Store the password in a text file"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen."
+  },
+  {
+    "id": "aplus-core2-118",
+    "domain": "Security",
+    "question": "A technician needs to reduce risk from phishing during a help desk escalation on ticket SEC-042. Which action is BEST?",
+    "choices": [
+      "Disable MFA",
+      "Share passwords verbally",
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Allow all attachments"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits."
+  },
+  {
+    "id": "aplus-core2-119",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each control to its security goal. Use the situation while preparing a replacement workstation on ticket SEC-043.",
+    "itemsLeft": [
+      "MFA",
+      "Full-disk encryption",
+      "Least privilege",
+      "MDM remote wipe"
+    ],
+    "itemsRight": [
+      "Stronger authentication",
+      "Data-at-rest protection",
+      "Reduced permission exposure",
+      "Lost-device data protection"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-120",
+    "domain": "Security",
+    "question": "A technician needs to secure a SOHO wireless network after a department move on ticket SEC-044. Which action is BEST?",
+    "choices": [
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Use WEP",
+      "Hide SSID as the only control",
+      "Leave the default admin password"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls."
+  },
+  {
+    "id": "aplus-core2-121",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Review these statements about how to remove malware safely for a small office rollout on ticket SEC-045.",
+    "statements": [
+      "Isolate the system, identify symptoms, remediate, update, and educate the user",
+      "Ignore symptoms after reboot",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-122",
+    "domain": "Security",
+    "question": "A technician needs to harden a workstation login during a field-service visit on ticket SEC-046. Which action is BEST?",
+    "choices": [
+      "Use blank local passwords",
+      "Disable lock screen timeout",
+      "Require MFA where supported and strong password or PIN policy",
+      "Use shared credentials"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MFA and strong authentication reduce the chance that stolen passwords lead to compromise."
+  },
+  {
+    "id": "aplus-core2-123",
+    "domain": "Security",
+    "question": "A technician needs to handle a suspicious USB drive found in a parking lot while resolving a recurring ticket on ticket SEC-047. Which action is BEST?",
+    "choices": [
+      "Open every file to identify the owner",
+      "Format it on the file server",
+      "Copy contents to a shared drive",
+      "Do not plug it into a production machine; follow security policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Unknown removable media can contain malware or malicious firmware and should be handled according to policy."
+  },
+  {
+    "id": "aplus-core2-124",
+    "domain": "Security",
+    "question": "A technician needs to physically secure a public workstation during a new-hire setup on ticket SEC-048. Which action is BEST?",
+    "choices": [
+      "Use cable locks, privacy screens, and restricted access as appropriate",
+      "Disable all updates",
+      "Use open Wi-Fi",
+      "Leave admin sessions unlocked"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Physical controls reduce theft, shoulder surfing, and unauthorized access."
+  },
+  {
+    "id": "aplus-core2-125",
+    "domain": "Security",
+    "question": "A technician needs to protect mobile devices from unauthorized access after a recent configuration change on ticket SEC-049. Which action is BEST?",
+    "choices": [
+      "Disable passcodes for convenience",
+      "Require screen lock, encryption, and remote wipe through MDM",
+      "Use one shared Apple ID for all users",
+      "Turn off app updates forever"
+    ],
+    "correctAnswer": 1,
+    "explanation": "MDM and baseline mobile policies protect business data on phones and tablets."
+  },
+  {
+    "id": "aplus-core2-126",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to identify social engineering while supporting a hybrid worker on ticket SEC-050. Which TWO choices best support the requirement?",
+    "choices": [
+      "An attacker impersonates trusted staff to persuade a user to reveal information",
+      "Verify the change after implementation and document the result",
+      "A CPU fan fails",
+      "A switch negotiates speed"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Social engineering manipulates people rather than exploiting only technical vulnerabilities. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-127",
+    "domain": "Security",
+    "question": "A technician needs to protect a lost laptop drive for a remote employee on ticket SEC-051. Which action is BEST?",
+    "choices": [
+      "Use an open guest Wi-Fi network",
+      "Disable screen lock",
+      "Store the password in a text file",
+      "Use full-disk encryption such as BitLocker"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen."
+  },
+  {
+    "id": "aplus-core2-128",
+    "domain": "Security",
+    "question": "A technician needs to reduce risk from phishing during a help desk escalation on ticket SEC-052. Which action is BEST?",
+    "choices": [
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Disable MFA",
+      "Share passwords verbally",
+      "Allow all attachments"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits."
+  },
+  {
+    "id": "aplus-core2-129",
+    "domain": "Security",
+    "question": "A technician needs to apply least privilege while preparing a replacement workstation on ticket SEC-053. Which action is BEST?",
+    "choices": [
+      "Make all users local administrators",
+      "Give users only the permissions required for their work",
+      "Share one admin account",
+      "Disable audit logs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Least privilege limits damage from mistakes, malware, or compromised accounts."
+  },
+  {
+    "id": "aplus-core2-130",
+    "domain": "Security",
+    "question": "A technician needs to secure a SOHO wireless network after a department move on ticket SEC-054. Which action is BEST?",
+    "choices": [
+      "Use WEP",
+      "Hide SSID as the only control",
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Leave the default admin password"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls."
+  },
+  {
+    "id": "aplus-core2-131",
+    "domain": "Security",
+    "question": "A technician needs to remove malware safely for a small office rollout on ticket SEC-055. Which action is BEST?",
+    "choices": [
+      "Ignore symptoms after reboot",
+      "Disable anti-malware permanently",
+      "Copy suspected malware to shared drives",
+      "Isolate the system, identify symptoms, remediate, update, and educate the user"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned."
+  },
+  {
+    "id": "aplus-core2-132",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Review these statements about how to harden a workstation login during a field-service visit on ticket SEC-056.",
+    "statements": [
+      "Require MFA where supported and strong password or PIN policy",
+      "Use blank local passwords",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "MFA and strong authentication reduce the chance that stolen passwords lead to compromise. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-133",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to handle a suspicious USB drive found in a parking lot while resolving a recurring ticket on ticket SEC-057. Which TWO choices best support the requirement?",
+    "choices": [
+      "Do not plug it into a production machine; follow security policy",
+      "Verify the change after implementation and document the result",
+      "Open every file to identify the owner",
+      "Format it on the file server"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Unknown removable media can contain malware or malicious firmware and should be handled according to policy. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-134",
+    "domain": "Security",
+    "question": "A technician needs to physically secure a public workstation during a new-hire setup on ticket SEC-058. Which action is BEST?",
+    "choices": [
+      "Disable all updates",
+      "Use open Wi-Fi",
+      "Use cable locks, privacy screens, and restricted access as appropriate",
+      "Leave admin sessions unlocked"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Physical controls reduce theft, shoulder surfing, and unauthorized access."
+  },
+  {
+    "id": "aplus-core2-135",
+    "domain": "Security",
+    "question": "A technician needs to protect mobile devices from unauthorized access after a recent configuration change on ticket SEC-059. Which action is BEST?",
+    "choices": [
+      "Disable passcodes for convenience",
+      "Use one shared Apple ID for all users",
+      "Turn off app updates forever",
+      "Require screen lock, encryption, and remote wipe through MDM"
+    ],
+    "correctAnswer": 3,
+    "explanation": "MDM and baseline mobile policies protect business data on phones and tablets."
+  },
+  {
+    "id": "aplus-core2-136",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each control to its security goal. Use the situation while supporting a hybrid worker on ticket SEC-060.",
+    "itemsLeft": [
+      "MFA",
+      "Full-disk encryption",
+      "Least privilege",
+      "MDM remote wipe"
+    ],
+    "itemsRight": [
+      "Stronger authentication",
+      "Data-at-rest protection",
+      "Reduced permission exposure",
+      "Lost-device data protection"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "Each item maps to the function or tool most commonly associated with that support task."
+  },
+  {
+    "id": "aplus-core2-137",
+    "domain": "Security",
+    "question": "A technician needs to protect a lost laptop drive for a remote employee on ticket SEC-061. Which action is BEST?",
+    "choices": [
+      "Use an open guest Wi-Fi network",
+      "Use full-disk encryption such as BitLocker",
+      "Disable screen lock",
+      "Store the password in a text file"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen."
+  },
+  {
+    "id": "aplus-core2-138",
+    "domain": "Security",
+    "question": "A technician needs to reduce risk from phishing during a help desk escalation on ticket SEC-062. Which action is BEST?",
+    "choices": [
+      "Disable MFA",
+      "Share passwords verbally",
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Allow all attachments"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits."
+  },
+  {
+    "id": "aplus-core2-139",
+    "domain": "Security",
+    "question": "A technician needs to apply least privilege while preparing a replacement workstation on ticket SEC-063. Which action is BEST?",
+    "choices": [
+      "Make all users local administrators",
+      "Share one admin account",
+      "Disable audit logs",
+      "Give users only the permissions required for their work"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Least privilege limits damage from mistakes, malware, or compromised accounts."
+  },
+  {
+    "id": "aplus-core2-140",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to secure a SOHO wireless network after a department move on ticket SEC-064. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Verify the change after implementation and document the result",
+      "Use WEP",
+      "Hide SSID as the only control"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-141",
+    "domain": "Security",
+    "question": "A technician needs to remove malware safely for a small office rollout on ticket SEC-065. Which action is BEST?",
+    "choices": [
+      "Ignore symptoms after reboot",
+      "Isolate the system, identify symptoms, remediate, update, and educate the user",
+      "Disable anti-malware permanently",
+      "Copy suspected malware to shared drives"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned."
+  },
+  {
+    "id": "aplus-core2-142",
+    "domain": "Security",
+    "question": "A technician needs to harden a workstation login during a field-service visit on ticket SEC-066. Which action is BEST?",
+    "choices": [
+      "Use blank local passwords",
+      "Disable lock screen timeout",
+      "Require MFA where supported and strong password or PIN policy",
+      "Use shared credentials"
+    ],
+    "correctAnswer": 2,
+    "explanation": "MFA and strong authentication reduce the chance that stolen passwords lead to compromise."
+  },
+  {
+    "id": "aplus-core2-143",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Review these statements about how to handle a suspicious USB drive found in a parking lot while resolving a recurring ticket on ticket SEC-067.",
+    "statements": [
+      "Do not plug it into a production machine; follow security policy",
+      "Open every file to identify the owner",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Unknown removable media can contain malware or malicious firmware and should be handled according to policy. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-144",
+    "domain": "Security",
+    "question": "A technician needs to physically secure a public workstation during a new-hire setup on ticket SEC-068. Which action is BEST?",
+    "choices": [
+      "Use cable locks, privacy screens, and restricted access as appropriate",
+      "Disable all updates",
+      "Use open Wi-Fi",
+      "Leave admin sessions unlocked"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Physical controls reduce theft, shoulder surfing, and unauthorized access."
+  },
+  {
+    "id": "aplus-core2-145",
+    "domain": "Security",
+    "question": "A technician needs to protect mobile devices from unauthorized access after a recent configuration change on ticket SEC-069. Which action is BEST?",
+    "choices": [
+      "Disable passcodes for convenience",
+      "Require screen lock, encryption, and remote wipe through MDM",
+      "Use one shared Apple ID for all users",
+      "Turn off app updates forever"
+    ],
+    "correctAnswer": 1,
+    "explanation": "MDM and baseline mobile policies protect business data on phones and tablets."
+  },
+  {
+    "id": "aplus-core2-146",
+    "domain": "Security",
+    "question": "A technician needs to identify social engineering while supporting a hybrid worker on ticket SEC-070. Which action is BEST?",
+    "choices": [
+      "A CPU fan fails",
+      "A switch negotiates speed",
+      "An attacker impersonates trusted staff to persuade a user to reveal information",
+      "A printer runs out of toner"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Social engineering manipulates people rather than exploiting only technical vulnerabilities."
+  },
+  {
+    "id": "aplus-core2-147",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A technician is asked to protect a lost laptop drive for a remote employee on ticket SEC-071. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use full-disk encryption such as BitLocker",
+      "Verify the change after implementation and document the result",
+      "Use an open guest Wi-Fi network",
+      "Disable screen lock"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Full-disk encryption protects data at rest if a device is lost or stolen. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-148",
+    "domain": "Security",
+    "question": "A technician needs to reduce risk from phishing during a help desk escalation on ticket SEC-072. Which action is BEST?",
+    "choices": [
+      "Train users, filter mail, and verify suspicious links before entering credentials",
+      "Disable MFA",
+      "Share passwords verbally",
+      "Allow all attachments"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Phishing defense combines user awareness, filtering, MFA, and verification habits."
+  },
+  {
+    "id": "aplus-core2-149",
+    "domain": "Security",
+    "question": "A technician needs to apply least privilege while preparing a replacement workstation on ticket SEC-073. Which action is BEST?",
+    "choices": [
+      "Make all users local administrators",
+      "Give users only the permissions required for their work",
+      "Share one admin account",
+      "Disable audit logs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Least privilege limits damage from mistakes, malware, or compromised accounts."
+  },
+  {
+    "id": "aplus-core2-150",
+    "domain": "Security",
+    "question": "A technician needs to secure a SOHO wireless network after a department move on ticket SEC-074. Which action is BEST?",
+    "choices": [
+      "Use WEP",
+      "Hide SSID as the only control",
+      "Use WPA3 or WPA2 with a strong passphrase and updated firmware",
+      "Leave the default admin password"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Modern encryption, strong credentials, and firmware updates are basic SOHO security controls."
+  },
+  {
+    "id": "aplus-core2-151",
+    "domain": "Security",
+    "question": "A technician needs to remove malware safely for a small office rollout on ticket SEC-075. Which action is BEST?",
+    "choices": [
+      "Ignore symptoms after reboot",
+      "Disable anti-malware permanently",
+      "Copy suspected malware to shared drives",
+      "Isolate the system, identify symptoms, remediate, update, and educate the user"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Malware response should prevent spread, remove the infection, patch/update, and document lessons learned."
+  },
+  {
+    "id": "aplus-core2-152",
+    "domain": "Security",
+    "question": "A technician needs to harden a workstation login during a field-service visit on ticket SEC-076. Which action is BEST?",
+    "choices": [
+      "Require MFA where supported and strong password or PIN policy",
+      "Use blank local passwords",
+      "Disable lock screen timeout",
+      "Use shared credentials"
+    ],
+    "correctAnswer": 0,
+    "explanation": "MFA and strong authentication reduce the chance that stolen passwords lead to compromise."
+  },
+  {
+    "id": "aplus-core2-153",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to an application crashes after an update for a remote employee on ticket SOF-001. Which action is BEST?",
+    "choices": [
+      "Replace the CPU immediately",
+      "Check logs, repair or reinstall the app, and verify compatibility",
+      "Disable the firewall permanently",
+      "Change the monitor cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Application crashes after updates often involve compatibility, corrupt install files, dependencies, or profiles."
+  },
+  {
+    "id": "aplus-core2-154",
+    "domain": "Software Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a browser redirects to unwanted sites during a help desk escalation on ticket SOF-002.",
+    "statements": [
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Replace the SSD first",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-155",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to Windows displays a blue screen repeatedly while preparing a replacement workstation on ticket SOF-003. Which action is BEST?",
+    "choices": [
+      "Ignore the stop code",
+      "Change the Wi-Fi SSID",
+      "Replace the keyboard first",
+      "Record the stop code and check drivers, hardware, and recent changes"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Stop codes and recent changes help isolate driver, memory, storage, and hardware failures."
+  },
+  {
+    "id": "aplus-core2-156",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a user profile loads with a temporary profile after a department move on ticket SOF-004. Which action is BEST?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Replace the router antenna",
+      "Run toner calibration",
+      "Disable DNS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly."
+  },
+  {
+    "id": "aplus-core2-157",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a phone app will not open after an OS update for a small office rollout on ticket SOF-005. Which action is BEST?",
+    "choices": [
+      "Replace the SIM tray first",
+      "Update or reinstall the app and verify OS compatibility",
+      "Disable all network security",
+      "Format the company file server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mobile apps may need updates or reinstall after OS changes."
+  },
+  {
+    "id": "aplus-core2-158",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a system is slow after login during a field-service visit on ticket SOF-006. Which action is BEST?",
+    "choices": [
+      "Replace the monitor",
+      "Change the printer paper",
+      "Review startup apps, resource usage, malware, and disk health",
+      "Disable DHCP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Slow login can come from startup load, malware, storage problems, or profile and network delays."
+  },
+  {
+    "id": "aplus-core2-159",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a mapped drive does not reconnect while resolving a recurring ticket on ticket SOF-007. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Replace the mouse pad",
+      "Disable antivirus without testing",
+      "Verify network connectivity, credentials, share permissions, and path"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Mapped-drive failures involve network, authentication, share path, or permission issues."
+  },
+  {
+    "id": "aplus-core2-160",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to email works on webmail but not in the desktop app during a new-hire setup on ticket SOF-008. Which action is BEST?",
+    "choices": [
+      "Check app profile, server settings, credentials, and cached data",
+      "Replace RAM immediately",
+      "Change the wall outlet",
+      "Rebuild the switch stack"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When webmail works, the account is likely active; the local client profile or settings are likely at fault."
+  },
+  {
+    "id": "aplus-core2-161",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to an application crashes after an update after a recent configuration change on ticket SOF-009. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check logs, repair or reinstall the app, and verify compatibility",
+      "Verify the change after implementation and document the result",
+      "Replace the CPU immediately",
+      "Disable the firewall permanently"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Application crashes after updates often involve compatibility, corrupt install files, dependencies, or profiles. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-162",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a browser redirects to unwanted sites while supporting a hybrid worker on ticket SOF-010. Which action is BEST?",
+    "choices": [
+      "Replace the SSD first",
+      "Change the power supply",
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Clean the printer rollers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware."
+  },
+  {
+    "id": "aplus-core2-163",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to Windows displays a blue screen repeatedly for a remote employee on ticket SOF-011. Which action is BEST?",
+    "choices": [
+      "Ignore the stop code",
+      "Change the Wi-Fi SSID",
+      "Replace the keyboard first",
+      "Record the stop code and check drivers, hardware, and recent changes"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Stop codes and recent changes help isolate driver, memory, storage, and hardware failures."
+  },
+  {
+    "id": "aplus-core2-164",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a user profile loads with a temporary profile during a help desk escalation on ticket SOF-012. Which action is BEST?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Replace the router antenna",
+      "Run toner calibration",
+      "Disable DNS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly."
+  },
+  {
+    "id": "aplus-core2-165",
+    "domain": "Software Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a phone app will not open after an OS update while preparing a replacement workstation on ticket SOF-013.",
+    "statements": [
+      "Update or reinstall the app and verify OS compatibility",
+      "Replace the SIM tray first",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Mobile apps may need updates or reinstall after OS changes. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-166",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a system is slow after login after a department move on ticket SOF-014. Which action is BEST?",
+    "choices": [
+      "Replace the monitor",
+      "Change the printer paper",
+      "Review startup apps, resource usage, malware, and disk health",
+      "Disable DHCP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Slow login can come from startup load, malware, storage problems, or profile and network delays."
+  },
+  {
+    "id": "aplus-core2-167",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a mapped drive does not reconnect for a small office rollout on ticket SOF-015. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Replace the mouse pad",
+      "Disable antivirus without testing",
+      "Verify network connectivity, credentials, share permissions, and path"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Mapped-drive failures involve network, authentication, share path, or permission issues."
+  },
+  {
+    "id": "aplus-core2-168",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to email works on webmail but not in the desktop app during a field-service visit on ticket SOF-016. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check app profile, server settings, credentials, and cached data",
+      "Verify the change after implementation and document the result",
+      "Replace RAM immediately",
+      "Change the wall outlet"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "When webmail works, the account is likely active; the local client profile or settings are likely at fault. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-169",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to an application crashes after an update while resolving a recurring ticket on ticket SOF-017. Which action is BEST?",
+    "choices": [
+      "Replace the CPU immediately",
+      "Check logs, repair or reinstall the app, and verify compatibility",
+      "Disable the firewall permanently",
+      "Change the monitor cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Application crashes after updates often involve compatibility, corrupt install files, dependencies, or profiles."
+  },
+  {
+    "id": "aplus-core2-170",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a browser redirects to unwanted sites during a new-hire setup on ticket SOF-018. Which action is BEST?",
+    "choices": [
+      "Replace the SSD first",
+      "Change the power supply",
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Clean the printer rollers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware."
+  },
+  {
+    "id": "aplus-core2-171",
+    "domain": "Software Troubleshooting",
+    "type": "ordering",
+    "question": "Place the malware response actions in the best order. Use the situation after a recent configuration change on ticket SOF-019.",
+    "items": [
+      "Isolate the affected system",
+      "Identify symptoms and likely malware",
+      "Remediate and update defenses",
+      "Verify normal operation and educate the user"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core2-172",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a user profile loads with a temporary profile while supporting a hybrid worker on ticket SOF-020. Which action is BEST?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Replace the router antenna",
+      "Run toner calibration",
+      "Disable DNS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly."
+  },
+  {
+    "id": "aplus-core2-173",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a phone app will not open after an OS update for a remote employee on ticket SOF-021. Which action is BEST?",
+    "choices": [
+      "Replace the SIM tray first",
+      "Update or reinstall the app and verify OS compatibility",
+      "Disable all network security",
+      "Format the company file server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mobile apps may need updates or reinstall after OS changes."
+  },
+  {
+    "id": "aplus-core2-174",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a system is slow after login during a help desk escalation on ticket SOF-022. Which action is BEST?",
+    "choices": [
+      "Replace the monitor",
+      "Change the printer paper",
+      "Review startup apps, resource usage, malware, and disk health",
+      "Disable DHCP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Slow login can come from startup load, malware, storage problems, or profile and network delays."
+  },
+  {
+    "id": "aplus-core2-175",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a mapped drive does not reconnect while preparing a replacement workstation on ticket SOF-023. Which TWO choices best support the requirement?",
+    "choices": [
+      "Verify network connectivity, credentials, share permissions, and path",
+      "Verify the change after implementation and document the result",
+      "Install more thermal paste",
+      "Replace the mouse pad"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Mapped-drive failures involve network, authentication, share path, or permission issues. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-176",
+    "domain": "Software Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to email works on webmail but not in the desktop app after a department move on ticket SOF-024.",
+    "statements": [
+      "Check app profile, server settings, credentials, and cached data",
+      "Replace RAM immediately",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "When webmail works, the account is likely active; the local client profile or settings are likely at fault. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-177",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to an application crashes after an update for a small office rollout on ticket SOF-025. Which action is BEST?",
+    "choices": [
+      "Replace the CPU immediately",
+      "Check logs, repair or reinstall the app, and verify compatibility",
+      "Disable the firewall permanently",
+      "Change the monitor cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Application crashes after updates often involve compatibility, corrupt install files, dependencies, or profiles."
+  },
+  {
+    "id": "aplus-core2-178",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a browser redirects to unwanted sites during a field-service visit on ticket SOF-026. Which action is BEST?",
+    "choices": [
+      "Replace the SSD first",
+      "Change the power supply",
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Clean the printer rollers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware."
+  },
+  {
+    "id": "aplus-core2-179",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to Windows displays a blue screen repeatedly while resolving a recurring ticket on ticket SOF-027. Which action is BEST?",
+    "choices": [
+      "Ignore the stop code",
+      "Change the Wi-Fi SSID",
+      "Replace the keyboard first",
+      "Record the stop code and check drivers, hardware, and recent changes"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Stop codes and recent changes help isolate driver, memory, storage, and hardware failures."
+  },
+  {
+    "id": "aplus-core2-180",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a user profile loads with a temporary profile during a new-hire setup on ticket SOF-028. Which action is BEST?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Replace the router antenna",
+      "Run toner calibration",
+      "Disable DNS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly."
+  },
+  {
+    "id": "aplus-core2-181",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a phone app will not open after an OS update after a recent configuration change on ticket SOF-029. Which action is BEST?",
+    "choices": [
+      "Replace the SIM tray first",
+      "Update or reinstall the app and verify OS compatibility",
+      "Disable all network security",
+      "Format the company file server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mobile apps may need updates or reinstall after OS changes."
+  },
+  {
+    "id": "aplus-core2-182",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a system is slow after login while supporting a hybrid worker on ticket SOF-030. Which TWO choices best support the requirement?",
+    "choices": [
+      "Review startup apps, resource usage, malware, and disk health",
+      "Verify the change after implementation and document the result",
+      "Replace the monitor",
+      "Change the printer paper"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Slow login can come from startup load, malware, storage problems, or profile and network delays. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-183",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a mapped drive does not reconnect for a remote employee on ticket SOF-031. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Replace the mouse pad",
+      "Disable antivirus without testing",
+      "Verify network connectivity, credentials, share permissions, and path"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Mapped-drive failures involve network, authentication, share path, or permission issues."
+  },
+  {
+    "id": "aplus-core2-184",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to email works on webmail but not in the desktop app during a help desk escalation on ticket SOF-032. Which action is BEST?",
+    "choices": [
+      "Check app profile, server settings, credentials, and cached data",
+      "Replace RAM immediately",
+      "Change the wall outlet",
+      "Rebuild the switch stack"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When webmail works, the account is likely active; the local client profile or settings are likely at fault."
+  },
+  {
+    "id": "aplus-core2-185",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to an application crashes after an update while preparing a replacement workstation on ticket SOF-033. Which action is BEST?",
+    "choices": [
+      "Replace the CPU immediately",
+      "Check logs, repair or reinstall the app, and verify compatibility",
+      "Disable the firewall permanently",
+      "Change the monitor cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Application crashes after updates often involve compatibility, corrupt install files, dependencies, or profiles."
+  },
+  {
+    "id": "aplus-core2-186",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a browser redirects to unwanted sites after a department move on ticket SOF-034. Which action is BEST?",
+    "choices": [
+      "Replace the SSD first",
+      "Change the power supply",
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Clean the printer rollers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware."
+  },
+  {
+    "id": "aplus-core2-187",
+    "domain": "Software Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to Windows displays a blue screen repeatedly for a small office rollout on ticket SOF-035.",
+    "statements": [
+      "Record the stop code and check drivers, hardware, and recent changes",
+      "Ignore the stop code",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Stop codes and recent changes help isolate driver, memory, storage, and hardware failures. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-188",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a user profile loads with a temporary profile during a field-service visit on ticket SOF-036. Which action is BEST?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Replace the router antenna",
+      "Run toner calibration",
+      "Disable DNS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly."
+  },
+  {
+    "id": "aplus-core2-189",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a phone app will not open after an OS update while resolving a recurring ticket on ticket SOF-037. Which TWO choices best support the requirement?",
+    "choices": [
+      "Update or reinstall the app and verify OS compatibility",
+      "Verify the change after implementation and document the result",
+      "Replace the SIM tray first",
+      "Disable all network security"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Mobile apps may need updates or reinstall after OS changes. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-190",
+    "domain": "Software Troubleshooting",
+    "type": "ordering",
+    "question": "Place the malware response actions in the best order. Use the situation during a new-hire setup on ticket SOF-038.",
+    "items": [
+      "Isolate the affected system",
+      "Identify symptoms and likely malware",
+      "Remediate and update defenses",
+      "Verify normal operation and educate the user"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core2-191",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a mapped drive does not reconnect after a recent configuration change on ticket SOF-039. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Replace the mouse pad",
+      "Disable antivirus without testing",
+      "Verify network connectivity, credentials, share permissions, and path"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Mapped-drive failures involve network, authentication, share path, or permission issues."
+  },
+  {
+    "id": "aplus-core2-192",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to email works on webmail but not in the desktop app while supporting a hybrid worker on ticket SOF-040. Which action is BEST?",
+    "choices": [
+      "Check app profile, server settings, credentials, and cached data",
+      "Replace RAM immediately",
+      "Change the wall outlet",
+      "Rebuild the switch stack"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When webmail works, the account is likely active; the local client profile or settings are likely at fault."
+  },
+  {
+    "id": "aplus-core2-193",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to an application crashes after an update for a remote employee on ticket SOF-041. Which action is BEST?",
+    "choices": [
+      "Replace the CPU immediately",
+      "Check logs, repair or reinstall the app, and verify compatibility",
+      "Disable the firewall permanently",
+      "Change the monitor cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Application crashes after updates often involve compatibility, corrupt install files, dependencies, or profiles."
+  },
+  {
+    "id": "aplus-core2-194",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a browser redirects to unwanted sites during a help desk escalation on ticket SOF-042. Which action is BEST?",
+    "choices": [
+      "Replace the SSD first",
+      "Change the power supply",
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Clean the printer rollers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware."
+  },
+  {
+    "id": "aplus-core2-195",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to Windows displays a blue screen repeatedly while preparing a replacement workstation on ticket SOF-043. Which action is BEST?",
+    "choices": [
+      "Ignore the stop code",
+      "Change the Wi-Fi SSID",
+      "Replace the keyboard first",
+      "Record the stop code and check drivers, hardware, and recent changes"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Stop codes and recent changes help isolate driver, memory, storage, and hardware failures."
+  },
+  {
+    "id": "aplus-core2-196",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a user profile loads with a temporary profile after a department move on ticket SOF-044. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Verify the change after implementation and document the result",
+      "Replace the router antenna",
+      "Run toner calibration"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-197",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a phone app will not open after an OS update for a small office rollout on ticket SOF-045. Which action is BEST?",
+    "choices": [
+      "Replace the SIM tray first",
+      "Update or reinstall the app and verify OS compatibility",
+      "Disable all network security",
+      "Format the company file server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mobile apps may need updates or reinstall after OS changes."
+  },
+  {
+    "id": "aplus-core2-198",
+    "domain": "Software Troubleshooting",
+    "type": "statement-block",
+    "question": "Review these statements about how to a system is slow after login during a field-service visit on ticket SOF-046.",
+    "statements": [
+      "Review startup apps, resource usage, malware, and disk health",
+      "Replace the monitor",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Slow login can come from startup load, malware, storage problems, or profile and network delays. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-199",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a mapped drive does not reconnect while resolving a recurring ticket on ticket SOF-047. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Replace the mouse pad",
+      "Disable antivirus without testing",
+      "Verify network connectivity, credentials, share permissions, and path"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Mapped-drive failures involve network, authentication, share path, or permission issues."
+  },
+  {
+    "id": "aplus-core2-200",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to email works on webmail but not in the desktop app during a new-hire setup on ticket SOF-048. Which action is BEST?",
+    "choices": [
+      "Check app profile, server settings, credentials, and cached data",
+      "Replace RAM immediately",
+      "Change the wall outlet",
+      "Rebuild the switch stack"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When webmail works, the account is likely active; the local client profile or settings are likely at fault."
+  },
+  {
+    "id": "aplus-core2-201",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to an application crashes after an update after a recent configuration change on ticket SOF-049. Which action is BEST?",
+    "choices": [
+      "Replace the CPU immediately",
+      "Check logs, repair or reinstall the app, and verify compatibility",
+      "Disable the firewall permanently",
+      "Change the monitor cable"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Application crashes after updates often involve compatibility, corrupt install files, dependencies, or profiles."
+  },
+  {
+    "id": "aplus-core2-202",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a browser redirects to unwanted sites while supporting a hybrid worker on ticket SOF-050. Which action is BEST?",
+    "choices": [
+      "Replace the SSD first",
+      "Change the power supply",
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Clean the printer rollers"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware."
+  },
+  {
+    "id": "aplus-core2-203",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to Windows displays a blue screen repeatedly for a remote employee on ticket SOF-051. Which TWO choices best support the requirement?",
+    "choices": [
+      "Record the stop code and check drivers, hardware, and recent changes",
+      "Verify the change after implementation and document the result",
+      "Ignore the stop code",
+      "Change the Wi-Fi SSID"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Stop codes and recent changes help isolate driver, memory, storage, and hardware failures. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-204",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a user profile loads with a temporary profile during a help desk escalation on ticket SOF-052. Which action is BEST?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Replace the router antenna",
+      "Run toner calibration",
+      "Disable DNS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly."
+  },
+  {
+    "id": "aplus-core2-205",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a phone app will not open after an OS update while preparing a replacement workstation on ticket SOF-053. Which action is BEST?",
+    "choices": [
+      "Replace the SIM tray first",
+      "Update or reinstall the app and verify OS compatibility",
+      "Disable all network security",
+      "Format the company file server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mobile apps may need updates or reinstall after OS changes."
+  },
+  {
+    "id": "aplus-core2-206",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a system is slow after login after a department move on ticket SOF-054. Which action is BEST?",
+    "choices": [
+      "Replace the monitor",
+      "Change the printer paper",
+      "Review startup apps, resource usage, malware, and disk health",
+      "Disable DHCP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Slow login can come from startup load, malware, storage problems, or profile and network delays."
+  },
+  {
+    "id": "aplus-core2-207",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a mapped drive does not reconnect for a small office rollout on ticket SOF-055. Which action is BEST?",
+    "choices": [
+      "Install more thermal paste",
+      "Replace the mouse pad",
+      "Disable antivirus without testing",
+      "Verify network connectivity, credentials, share permissions, and path"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Mapped-drive failures involve network, authentication, share path, or permission issues."
+  },
+  {
+    "id": "aplus-core2-208",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to email works on webmail but not in the desktop app during a field-service visit on ticket SOF-056. Which action is BEST?",
+    "choices": [
+      "Check app profile, server settings, credentials, and cached data",
+      "Replace RAM immediately",
+      "Change the wall outlet",
+      "Rebuild the switch stack"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When webmail works, the account is likely active; the local client profile or settings are likely at fault."
+  },
+  {
+    "id": "aplus-core2-209",
+    "domain": "Software Troubleshooting",
+    "type": "ordering",
+    "question": "Place the malware response actions in the best order. Use the situation while resolving a recurring ticket on ticket SOF-057.",
+    "items": [
+      "Isolate the affected system",
+      "Identify symptoms and likely malware",
+      "Remediate and update defenses",
+      "Verify normal operation and educate the user"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core2-210",
+    "domain": "Software Troubleshooting",
+    "type": "multiple-response",
+    "question": "A technician is asked to a browser redirects to unwanted sites during a new-hire setup on ticket SOF-058. Which TWO choices best support the requirement?",
+    "choices": [
+      "Check extensions, proxy settings, malware, and browser reset options",
+      "Verify the change after implementation and document the result",
+      "Replace the SSD first",
+      "Change the power supply"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Unexpected redirects often come from malicious extensions, proxy changes, or browser hijacking malware. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-211",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to Windows displays a blue screen repeatedly after a recent configuration change on ticket SOF-059. Which action is BEST?",
+    "choices": [
+      "Ignore the stop code",
+      "Change the Wi-Fi SSID",
+      "Replace the keyboard first",
+      "Record the stop code and check drivers, hardware, and recent changes"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Stop codes and recent changes help isolate driver, memory, storage, and hardware failures."
+  },
+  {
+    "id": "aplus-core2-212",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a user profile loads with a temporary profile while supporting a hybrid worker on ticket SOF-060. Which action is BEST?",
+    "choices": [
+      "Check profile corruption, permissions, and profile registry entries",
+      "Replace the router antenna",
+      "Run toner calibration",
+      "Disable DNS"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Temporary profiles usually indicate Windows could not load the normal profile correctly."
+  },
+  {
+    "id": "aplus-core2-213",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a phone app will not open after an OS update for a remote employee on ticket SOF-061. Which action is BEST?",
+    "choices": [
+      "Replace the SIM tray first",
+      "Update or reinstall the app and verify OS compatibility",
+      "Disable all network security",
+      "Format the company file server"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mobile apps may need updates or reinstall after OS changes."
+  },
+  {
+    "id": "aplus-core2-214",
+    "domain": "Software Troubleshooting",
+    "question": "A technician needs to a system is slow after login during a help desk escalation on ticket SOF-062. Which action is BEST?",
+    "choices": [
+      "Replace the monitor",
+      "Change the printer paper",
+      "Review startup apps, resource usage, malware, and disk health",
+      "Disable DHCP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Slow login can come from startup load, malware, storage problems, or profile and network delays."
+  },
+  {
+    "id": "aplus-core2-215",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to document a completed repair for a remote employee on ticket OPE-001. Which action is BEST?",
+    "choices": [
+      "Rely only on memory",
+      "Delete ticket notes after closure",
+      "Share passwords in the ticket",
+      "Record symptoms, actions taken, parts used, and final verification"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Documentation preserves history, supports audits, and helps future troubleshooting."
+  },
+  {
+    "id": "aplus-core2-216",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to work inside a desktop safely during a help desk escalation on ticket OPE-002. Which action is BEST?",
+    "choices": [
+      "Disconnect power and use ESD protection before handling components",
+      "Wear wool gloves and keep power connected",
+      "Vacuum the motherboard directly",
+      "Stack parts on carpet"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power removal and ESD protection reduce shock and component damage risk."
+  },
+  {
+    "id": "aplus-core2-217",
+    "domain": "Operational Procedures",
+    "type": "multiple-response",
+    "question": "A technician is asked to communicate with an upset user while preparing a replacement workstation on ticket OPE-003. Which TWO choices best support the requirement?",
+    "choices": [
+      "Listen, acknowledge the issue, set expectations, and provide updates",
+      "Verify the change after implementation and document the result",
+      "Blame the user immediately",
+      "Use unexplained jargon"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Professional communication is part of effective technical support. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-218",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to make a production configuration change after a department move on ticket OPE-004. Which action is BEST?",
+    "choices": [
+      "Change it immediately without record",
+      "Skip backups to save time",
+      "Follow change-management approval, testing, rollback, and documentation steps",
+      "Tell no one until users complain"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Change management reduces risk through review, testing, communication, and rollback planning."
+  },
+  {
+    "id": "aplus-core2-219",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to dispose of an old drive containing business data for a small office rollout on ticket OPE-005. Which action is BEST?",
+    "choices": [
+      "Throw it in regular trash",
+      "Sell it without wiping",
+      "Leave it in a public area",
+      "Sanitize or destroy it according to data-handling policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure."
+  },
+  {
+    "id": "aplus-core2-220",
+    "domain": "Operational Procedures",
+    "type": "statement-block",
+    "question": "Review these statements about how to handle customer confidential information during a field-service visit on ticket OPE-006.",
+    "statements": [
+      "Follow privacy policy and share only with authorized parties",
+      "Discuss it in public areas",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Privacy and confidentiality obligations apply during support work. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-221",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to choose a backup approach for critical workstations while resolving a recurring ticket on ticket OPE-007. Which action is BEST?",
+    "choices": [
+      "Assume RAID is a backup",
+      "Use scheduled backups and verify restore capability",
+      "Keep one copy on the same disk",
+      "Never test restores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Backups must be scheduled, protected, and tested through restoration."
+  },
+  {
+    "id": "aplus-core2-222",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to escalate an issue properly during a new-hire setup on ticket OPE-008. Which action is BEST?",
+    "choices": [
+      "Escalate with no details",
+      "Delete troubleshooting notes",
+      "Provide clear notes, impact, steps tried, and current status",
+      "Restart from scratch without context"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Good escalation gives the next tier enough context to continue efficiently."
+  },
+  {
+    "id": "aplus-core2-223",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to document a completed repair after a recent configuration change on ticket OPE-009. Which action is BEST?",
+    "choices": [
+      "Rely only on memory",
+      "Delete ticket notes after closure",
+      "Share passwords in the ticket",
+      "Record symptoms, actions taken, parts used, and final verification"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Documentation preserves history, supports audits, and helps future troubleshooting."
+  },
+  {
+    "id": "aplus-core2-224",
+    "domain": "Operational Procedures",
+    "type": "multiple-response",
+    "question": "A technician is asked to work inside a desktop safely while supporting a hybrid worker on ticket OPE-010. Which TWO choices best support the requirement?",
+    "choices": [
+      "Disconnect power and use ESD protection before handling components",
+      "Verify the change after implementation and document the result",
+      "Wear wool gloves and keep power connected",
+      "Vacuum the motherboard directly"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Power removal and ESD protection reduce shock and component damage risk. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-225",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to communicate with an upset user for a remote employee on ticket OPE-011. Which action is BEST?",
+    "choices": [
+      "Blame the user immediately",
+      "Listen, acknowledge the issue, set expectations, and provide updates",
+      "Use unexplained jargon",
+      "Close the ticket without response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Professional communication is part of effective technical support."
+  },
+  {
+    "id": "aplus-core2-226",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to make a production configuration change during a help desk escalation on ticket OPE-012. Which action is BEST?",
+    "choices": [
+      "Change it immediately without record",
+      "Skip backups to save time",
+      "Follow change-management approval, testing, rollback, and documentation steps",
+      "Tell no one until users complain"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Change management reduces risk through review, testing, communication, and rollback planning."
+  },
+  {
+    "id": "aplus-core2-227",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to dispose of an old drive containing business data while preparing a replacement workstation on ticket OPE-013. Which action is BEST?",
+    "choices": [
+      "Throw it in regular trash",
+      "Sell it without wiping",
+      "Leave it in a public area",
+      "Sanitize or destroy it according to data-handling policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure."
+  },
+  {
+    "id": "aplus-core2-228",
+    "domain": "Operational Procedures",
+    "type": "ordering",
+    "question": "Place the change process in the best order. Use the situation after a department move on ticket OPE-014.",
+    "items": [
+      "Document the proposed change",
+      "Get approval and schedule a window",
+      "Implement with a rollback plan ready",
+      "Verify results and close the record"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core2-229",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to choose a backup approach for critical workstations for a small office rollout on ticket OPE-015. Which action is BEST?",
+    "choices": [
+      "Assume RAID is a backup",
+      "Use scheduled backups and verify restore capability",
+      "Keep one copy on the same disk",
+      "Never test restores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Backups must be scheduled, protected, and tested through restoration."
+  },
+  {
+    "id": "aplus-core2-230",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to escalate an issue properly during a field-service visit on ticket OPE-016. Which action is BEST?",
+    "choices": [
+      "Escalate with no details",
+      "Delete troubleshooting notes",
+      "Provide clear notes, impact, steps tried, and current status",
+      "Restart from scratch without context"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Good escalation gives the next tier enough context to continue efficiently."
+  },
+  {
+    "id": "aplus-core2-231",
+    "domain": "Operational Procedures",
+    "type": "statement-block",
+    "question": "Review these statements about how to document a completed repair while resolving a recurring ticket on ticket OPE-017.",
+    "statements": [
+      "Record symptoms, actions taken, parts used, and final verification",
+      "Rely only on memory",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Documentation preserves history, supports audits, and helps future troubleshooting. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-232",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to work inside a desktop safely during a new-hire setup on ticket OPE-018. Which action is BEST?",
+    "choices": [
+      "Disconnect power and use ESD protection before handling components",
+      "Wear wool gloves and keep power connected",
+      "Vacuum the motherboard directly",
+      "Stack parts on carpet"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power removal and ESD protection reduce shock and component damage risk."
+  },
+  {
+    "id": "aplus-core2-233",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to communicate with an upset user after a recent configuration change on ticket OPE-019. Which action is BEST?",
+    "choices": [
+      "Blame the user immediately",
+      "Listen, acknowledge the issue, set expectations, and provide updates",
+      "Use unexplained jargon",
+      "Close the ticket without response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Professional communication is part of effective technical support."
+  },
+  {
+    "id": "aplus-core2-234",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to make a production configuration change while supporting a hybrid worker on ticket OPE-020. Which action is BEST?",
+    "choices": [
+      "Change it immediately without record",
+      "Skip backups to save time",
+      "Follow change-management approval, testing, rollback, and documentation steps",
+      "Tell no one until users complain"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Change management reduces risk through review, testing, communication, and rollback planning."
+  },
+  {
+    "id": "aplus-core2-235",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to dispose of an old drive containing business data for a remote employee on ticket OPE-021. Which action is BEST?",
+    "choices": [
+      "Throw it in regular trash",
+      "Sell it without wiping",
+      "Leave it in a public area",
+      "Sanitize or destroy it according to data-handling policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure."
+  },
+  {
+    "id": "aplus-core2-236",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to handle customer confidential information during a help desk escalation on ticket OPE-022. Which action is BEST?",
+    "choices": [
+      "Follow privacy policy and share only with authorized parties",
+      "Discuss it in public areas",
+      "Copy it to personal email",
+      "Post it in chat for convenience"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Privacy and confidentiality obligations apply during support work."
+  },
+  {
+    "id": "aplus-core2-237",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to choose a backup approach for critical workstations while preparing a replacement workstation on ticket OPE-023. Which action is BEST?",
+    "choices": [
+      "Assume RAID is a backup",
+      "Use scheduled backups and verify restore capability",
+      "Keep one copy on the same disk",
+      "Never test restores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Backups must be scheduled, protected, and tested through restoration."
+  },
+  {
+    "id": "aplus-core2-238",
+    "domain": "Operational Procedures",
+    "type": "multiple-response",
+    "question": "A technician is asked to escalate an issue properly after a department move on ticket OPE-024. Which TWO choices best support the requirement?",
+    "choices": [
+      "Provide clear notes, impact, steps tried, and current status",
+      "Verify the change after implementation and document the result",
+      "Escalate with no details",
+      "Delete troubleshooting notes"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Good escalation gives the next tier enough context to continue efficiently. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-239",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to document a completed repair for a small office rollout on ticket OPE-025. Which action is BEST?",
+    "choices": [
+      "Rely only on memory",
+      "Delete ticket notes after closure",
+      "Share passwords in the ticket",
+      "Record symptoms, actions taken, parts used, and final verification"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Documentation preserves history, supports audits, and helps future troubleshooting."
+  },
+  {
+    "id": "aplus-core2-240",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to work inside a desktop safely during a field-service visit on ticket OPE-026. Which action is BEST?",
+    "choices": [
+      "Disconnect power and use ESD protection before handling components",
+      "Wear wool gloves and keep power connected",
+      "Vacuum the motherboard directly",
+      "Stack parts on carpet"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power removal and ESD protection reduce shock and component damage risk."
+  },
+  {
+    "id": "aplus-core2-241",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to communicate with an upset user while resolving a recurring ticket on ticket OPE-027. Which action is BEST?",
+    "choices": [
+      "Blame the user immediately",
+      "Listen, acknowledge the issue, set expectations, and provide updates",
+      "Use unexplained jargon",
+      "Close the ticket without response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Professional communication is part of effective technical support."
+  },
+  {
+    "id": "aplus-core2-242",
+    "domain": "Operational Procedures",
+    "type": "statement-block",
+    "question": "Review these statements about how to make a production configuration change during a new-hire setup on ticket OPE-028.",
+    "statements": [
+      "Follow change-management approval, testing, rollback, and documentation steps",
+      "Change it immediately without record",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Change management reduces risk through review, testing, communication, and rollback planning. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-243",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to dispose of an old drive containing business data after a recent configuration change on ticket OPE-029. Which action is BEST?",
+    "choices": [
+      "Throw it in regular trash",
+      "Sell it without wiping",
+      "Leave it in a public area",
+      "Sanitize or destroy it according to data-handling policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure."
+  },
+  {
+    "id": "aplus-core2-244",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to handle customer confidential information while supporting a hybrid worker on ticket OPE-030. Which action is BEST?",
+    "choices": [
+      "Follow privacy policy and share only with authorized parties",
+      "Discuss it in public areas",
+      "Copy it to personal email",
+      "Post it in chat for convenience"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Privacy and confidentiality obligations apply during support work."
+  },
+  {
+    "id": "aplus-core2-245",
+    "domain": "Operational Procedures",
+    "type": "multiple-response",
+    "question": "A technician is asked to choose a backup approach for critical workstations for a remote employee on ticket OPE-031. Which TWO choices best support the requirement?",
+    "choices": [
+      "Use scheduled backups and verify restore capability",
+      "Verify the change after implementation and document the result",
+      "Assume RAID is a backup",
+      "Keep one copy on the same disk"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Backups must be scheduled, protected, and tested through restoration. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-246",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to escalate an issue properly during a help desk escalation on ticket OPE-032. Which action is BEST?",
+    "choices": [
+      "Escalate with no details",
+      "Delete troubleshooting notes",
+      "Provide clear notes, impact, steps tried, and current status",
+      "Restart from scratch without context"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Good escalation gives the next tier enough context to continue efficiently."
+  },
+  {
+    "id": "aplus-core2-247",
+    "domain": "Operational Procedures",
+    "type": "ordering",
+    "question": "Place the change process in the best order. Use the situation while preparing a replacement workstation on ticket OPE-033.",
+    "items": [
+      "Document the proposed change",
+      "Get approval and schedule a window",
+      "Implement with a rollback plan ready",
+      "Verify results and close the record"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core2-248",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to work inside a desktop safely after a department move on ticket OPE-034. Which action is BEST?",
+    "choices": [
+      "Disconnect power and use ESD protection before handling components",
+      "Wear wool gloves and keep power connected",
+      "Vacuum the motherboard directly",
+      "Stack parts on carpet"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power removal and ESD protection reduce shock and component damage risk."
+  },
+  {
+    "id": "aplus-core2-249",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to communicate with an upset user for a small office rollout on ticket OPE-035. Which action is BEST?",
+    "choices": [
+      "Blame the user immediately",
+      "Listen, acknowledge the issue, set expectations, and provide updates",
+      "Use unexplained jargon",
+      "Close the ticket without response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Professional communication is part of effective technical support."
+  },
+  {
+    "id": "aplus-core2-250",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to make a production configuration change during a field-service visit on ticket OPE-036. Which action is BEST?",
+    "choices": [
+      "Change it immediately without record",
+      "Skip backups to save time",
+      "Follow change-management approval, testing, rollback, and documentation steps",
+      "Tell no one until users complain"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Change management reduces risk through review, testing, communication, and rollback planning."
+  },
+  {
+    "id": "aplus-core2-251",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to dispose of an old drive containing business data while resolving a recurring ticket on ticket OPE-037. Which action is BEST?",
+    "choices": [
+      "Throw it in regular trash",
+      "Sell it without wiping",
+      "Leave it in a public area",
+      "Sanitize or destroy it according to data-handling policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure."
+  },
+  {
+    "id": "aplus-core2-252",
+    "domain": "Operational Procedures",
+    "type": "multiple-response",
+    "question": "A technician is asked to handle customer confidential information during a new-hire setup on ticket OPE-038. Which TWO choices best support the requirement?",
+    "choices": [
+      "Follow privacy policy and share only with authorized parties",
+      "Verify the change after implementation and document the result",
+      "Discuss it in public areas",
+      "Copy it to personal email"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Privacy and confidentiality obligations apply during support work. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-253",
+    "domain": "Operational Procedures",
+    "type": "statement-block",
+    "question": "Review these statements about how to choose a backup approach for critical workstations after a recent configuration change on ticket OPE-039.",
+    "statements": [
+      "Use scheduled backups and verify restore capability",
+      "Assume RAID is a backup",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Backups must be scheduled, protected, and tested through restoration. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-254",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to escalate an issue properly while supporting a hybrid worker on ticket OPE-040. Which action is BEST?",
+    "choices": [
+      "Escalate with no details",
+      "Delete troubleshooting notes",
+      "Provide clear notes, impact, steps tried, and current status",
+      "Restart from scratch without context"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Good escalation gives the next tier enough context to continue efficiently."
+  },
+  {
+    "id": "aplus-core2-255",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to document a completed repair for a remote employee on ticket OPE-041. Which action is BEST?",
+    "choices": [
+      "Rely only on memory",
+      "Delete ticket notes after closure",
+      "Share passwords in the ticket",
+      "Record symptoms, actions taken, parts used, and final verification"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Documentation preserves history, supports audits, and helps future troubleshooting."
+  },
+  {
+    "id": "aplus-core2-256",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to work inside a desktop safely during a help desk escalation on ticket OPE-042. Which action is BEST?",
+    "choices": [
+      "Disconnect power and use ESD protection before handling components",
+      "Wear wool gloves and keep power connected",
+      "Vacuum the motherboard directly",
+      "Stack parts on carpet"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Power removal and ESD protection reduce shock and component damage risk."
+  },
+  {
+    "id": "aplus-core2-257",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to communicate with an upset user while preparing a replacement workstation on ticket OPE-043. Which action is BEST?",
+    "choices": [
+      "Blame the user immediately",
+      "Listen, acknowledge the issue, set expectations, and provide updates",
+      "Use unexplained jargon",
+      "Close the ticket without response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Professional communication is part of effective technical support."
+  },
+  {
+    "id": "aplus-core2-258",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to make a production configuration change after a department move on ticket OPE-044. Which action is BEST?",
+    "choices": [
+      "Change it immediately without record",
+      "Skip backups to save time",
+      "Follow change-management approval, testing, rollback, and documentation steps",
+      "Tell no one until users complain"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Change management reduces risk through review, testing, communication, and rollback planning."
+  },
+  {
+    "id": "aplus-core2-259",
+    "domain": "Operational Procedures",
+    "type": "multiple-response",
+    "question": "A technician is asked to dispose of an old drive containing business data for a small office rollout on ticket OPE-045. Which TWO choices best support the requirement?",
+    "choices": [
+      "Sanitize or destroy it according to data-handling policy",
+      "Verify the change after implementation and document the result",
+      "Throw it in regular trash",
+      "Sell it without wiping"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure. Verification and documentation confirm the fix and preserve support history."
+  },
+  {
+    "id": "aplus-core2-260",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to handle customer confidential information during a field-service visit on ticket OPE-046. Which action is BEST?",
+    "choices": [
+      "Follow privacy policy and share only with authorized parties",
+      "Discuss it in public areas",
+      "Copy it to personal email",
+      "Post it in chat for convenience"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Privacy and confidentiality obligations apply during support work."
+  },
+  {
+    "id": "aplus-core2-261",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to choose a backup approach for critical workstations while resolving a recurring ticket on ticket OPE-047. Which action is BEST?",
+    "choices": [
+      "Assume RAID is a backup",
+      "Use scheduled backups and verify restore capability",
+      "Keep one copy on the same disk",
+      "Never test restores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Backups must be scheduled, protected, and tested through restoration."
+  },
+  {
+    "id": "aplus-core2-262",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to escalate an issue properly during a new-hire setup on ticket OPE-048. Which action is BEST?",
+    "choices": [
+      "Escalate with no details",
+      "Delete troubleshooting notes",
+      "Provide clear notes, impact, steps tried, and current status",
+      "Restart from scratch without context"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Good escalation gives the next tier enough context to continue efficiently."
+  },
+  {
+    "id": "aplus-core2-263",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to document a completed repair after a recent configuration change on ticket OPE-049. Which action is BEST?",
+    "choices": [
+      "Rely only on memory",
+      "Delete ticket notes after closure",
+      "Share passwords in the ticket",
+      "Record symptoms, actions taken, parts used, and final verification"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Documentation preserves history, supports audits, and helps future troubleshooting."
+  },
+  {
+    "id": "aplus-core2-264",
+    "domain": "Operational Procedures",
+    "type": "statement-block",
+    "question": "Review these statements about how to work inside a desktop safely while supporting a hybrid worker on ticket OPE-050.",
+    "statements": [
+      "Disconnect power and use ESD protection before handling components",
+      "Wear wool gloves and keep power connected",
+      "Documenting the final outcome helps future support work"
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Power removal and ESD protection reduce shock and component damage risk. The incorrect statement describes an unsafe, unrelated, or ineffective action."
+  },
+  {
+    "id": "aplus-core2-265",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to communicate with an upset user for a remote employee on ticket OPE-051. Which action is BEST?",
+    "choices": [
+      "Blame the user immediately",
+      "Listen, acknowledge the issue, set expectations, and provide updates",
+      "Use unexplained jargon",
+      "Close the ticket without response"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Professional communication is part of effective technical support."
+  },
+  {
+    "id": "aplus-core2-266",
+    "domain": "Operational Procedures",
+    "type": "ordering",
+    "question": "Place the change process in the best order. Use the situation during a help desk escalation on ticket OPE-052.",
+    "items": [
+      "Document the proposed change",
+      "Get approval and schedule a window",
+      "Implement with a rollback plan ready",
+      "Verify results and close the record"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "explanation": "The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation."
+  },
+  {
+    "id": "aplus-core2-267",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to dispose of an old drive containing business data while preparing a replacement workstation on ticket OPE-053. Which action is BEST?",
+    "choices": [
+      "Throw it in regular trash",
+      "Sell it without wiping",
+      "Leave it in a public area",
+      "Sanitize or destroy it according to data-handling policy"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure."
+  },
+  {
+    "id": "aplus-core2-268",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to handle customer confidential information after a department move on ticket OPE-054. Which action is BEST?",
+    "choices": [
+      "Follow privacy policy and share only with authorized parties",
+      "Discuss it in public areas",
+      "Copy it to personal email",
+      "Post it in chat for convenience"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Privacy and confidentiality obligations apply during support work."
+  },
+  {
+    "id": "aplus-core2-269",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to choose a backup approach for critical workstations for a small office rollout on ticket OPE-055. Which action is BEST?",
+    "choices": [
+      "Assume RAID is a backup",
+      "Use scheduled backups and verify restore capability",
+      "Keep one copy on the same disk",
+      "Never test restores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Backups must be scheduled, protected, and tested through restoration."
+  },
+  {
+    "id": "aplus-core2-270",
+    "domain": "Operational Procedures",
+    "question": "A technician needs to escalate an issue properly during a field-service visit on ticket OPE-056. Which action is BEST?",
+    "choices": [
+      "Escalate with no details",
+      "Delete troubleshooting notes",
+      "Provide clear notes, impact, steps tried, and current status",
+      "Restart from scratch without context"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Good escalation gives the next tier enough context to continue efficiently."
+  }
+]
