@@ -33,12 +33,23 @@ const PATHS = {
     eyebrow: 'Networking',
     title: 'Build the network and systems layer.',
     description:
-      'Pair network fundamentals with server operations so the infrastructure underneath every modern stack feels concrete.',
+      'Choose a vendor-neutral or Cisco-oriented networking foundation, then add server operations so the infrastructure underneath every modern stack feels concrete.',
     icon: Network,
     color: '#f97316',
-    steps: [
-      certStep('Foundation', 'comptia-net-plus', 'Start with routing, switching, wireless, security basics, and troubleshooting.'),
-      certStep('Next Layer', 'comptia-server-plus', 'Move into server hardware, administration, disaster recovery, and systems troubleshooting.'),
+    groups: [
+      {
+        label: 'Choose your networking foundation',
+        items: [
+          certStep('Vendor-neutral', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and environments.'),
+          certStep('Cisco-oriented', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
+        ],
+      },
+      {
+        label: 'Then add systems context',
+        items: [
+          certStep('Server Layer', 'comptia-server-plus', 'Move into server hardware, administration, disaster recovery, and systems troubleshooting.'),
+        ],
+      },
     ],
   },
   cybersecurity: {

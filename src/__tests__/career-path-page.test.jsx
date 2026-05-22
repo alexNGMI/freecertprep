@@ -33,6 +33,17 @@ describe('career path pages', () => {
     expect(screen.getByRole('link', { name: /HashiCorp Terraform Associate/ }).getAttribute('href')).toBe('/terraform-associate')
   })
 
+  it('offers CCST Networking as the Cisco-oriented Network+ alternative', () => {
+    renderPath('/paths/networking')
+
+    expect(screen.getByRole('heading', { name: 'Build the network and systems layer.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Choose your networking foundation' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then add systems context' })).toBeTruthy()
+    expect(screen.getByRole('link', { name: /CompTIA Network\+/ }).getAttribute('href')).toBe('/comptia-net-plus')
+    expect(screen.getByRole('link', { name: /Cisco CCST Networking/ }).getAttribute('href')).toBe('/ccst-networking')
+    expect(screen.getByRole('link', { name: /CompTIA Server\+/ }).getAttribute('href')).toBe('/comptia-server-plus')
+  })
+
   it('redirects unknown path ids home', () => {
     renderPath('/paths/missing')
 

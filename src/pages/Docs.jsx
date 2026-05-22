@@ -219,6 +219,7 @@ export default function Docs() {
                 [<Badge color="#4285f4">CDL</Badge>, 'Google Cloud', '749', '50', '90 min', '70%'],
                 [<Badge color="#76b900">NCA-AIIO</Badge>, 'NVIDIA', '336', '50', '60 min', '70%'],
                 [<Badge color="#76b900">NCA-GENL</Badge>, 'NVIDIA', '330', '50', '60 min', '70%'],
+                [<Badge color="#1d4ed8">100-150</Badge>, 'Cisco', '270', '50', '50 min', '70% practice'],
                 [<Badge color="#c8202f">N10-009</Badge>, 'CompTIA', '750', '90', '90 min', '80%'],
                 [<Badge color="#c8202f">SY0-701</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
                 [<Badge color="#c8202f">SK0-005</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
@@ -571,7 +572,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              357 Vitest tests across 18 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              369 Vitest tests across 18 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -602,7 +603,7 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today, with nine IT certifications plus the real-estate sister site. The latest
+              The product is live and usable today, with ten IT certifications plus the real-estate sister site. The latest
               refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
               loading, and focused UI regression tests. The roadmap now splits into two tracks: making the guided IT paths richer
               and adding platform features such as synced accounts, a custom domain, and PWA support.
@@ -615,6 +616,7 @@ key = random() ** (1 / weight)
                 items: [
                   'Vercel deployment — public URL, auto-deploy on push to main',
                   'CompTIA Network+ (N10-009) — 750-question pool, all five question types',
+                  'Cisco CCST Networking (100-150) - live first-iteration 270-question pool across the 6 public Cisco objective areas; Networking path now offers CCST as the Cisco / CCNA-oriented alternative to Network+.',
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
                   'Homepage guided paths — IT Entry, Networking, Cybersecurity, Cloud, and NVIDIA path cards now route to dedicated /paths/* pages while the bottom catalog remains direct-to-cert.',
@@ -632,7 +634,7 @@ key = random() ** (1 / weight)
                   'AZ / NC / IN quality audit — all three new state modules verified for source-aligned exam splits, domain balance, unique IDs, duplicate-free stems, balanced answer positions, and frontend picker coverage.',
                   'CompTIA A+ guided track — preview live at /comptia/a-plus with separate Core 1 (220-1201) and Core 2 (220-1202) routes, 270 first-iteration questions per core, and a 750-question-per-core production target.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 357-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 369-test regression suite.',
                 ],
               },
               {

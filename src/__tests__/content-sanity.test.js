@@ -5,6 +5,7 @@ import clfc02 from '../data/questions.json'
 import cdl from '../data/cdl-questions.json'
 import ncaAiio from '../data/nca-aiio-questions.json'
 import ncaGenl from '../data/nca-genl-questions.json'
+import ccstNetworking from '../data/ccst-networking-questions.json'
 import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
@@ -28,6 +29,7 @@ const CERT_QUESTIONS = {
   'cdl': cdl,
   'nca-aiio': ncaAiio,
   'nca-genl': ncaGenl,
+  'ccst-networking': ccstNetworking,
   'comptia-net-plus': comptiaNetPlus,
   'comptia-sec-plus': comptiaSecPlus,
   'comptia-server-plus': comptiaServerPlus,

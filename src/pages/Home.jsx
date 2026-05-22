@@ -55,7 +55,7 @@ const paths = [
     icon: Network,
     color: '#f97316',
     to: '/paths/networking',
-    meta: 'Network+ to Server+',
+    meta: 'Network+ or CCST to Server+',
     certIds: ['comptia-net-plus', 'comptia-server-plus'],
   },
   {
@@ -119,6 +119,7 @@ const providerStyles = {
   'Google Cloud': { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-300' },
   NVIDIA: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-300' },
   'Microsoft Azure': { bg: 'bg-cyan-500/10 border-cyan-500/20', text: 'text-cyan-300' },
+  Cisco: { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-300' },
   CompTIA: { bg: 'bg-red-500/10 border-red-500/20', text: 'text-red-300' },
   HashiCorp: { bg: 'bg-violet-500/10 border-violet-500/20', text: 'text-violet-300' },
 }
@@ -348,7 +349,7 @@ function PathCta({ to, label, accentColor, compact = false }) {
 
 function CertRow({ cert }) {
   const ps = providerStyles[cert.provider] || { bg: 'bg-zinc-800 border-zinc-700', text: 'text-zinc-400' }
-  const Icon = cert.provider === 'CompTIA'
+  const Icon = cert.provider === 'CompTIA' || cert.provider === 'Cisco'
     ? Network
     : cert.provider === 'HashiCorp'
       ? Server

@@ -1,0 +1,4509 @@
+[
+  {
+    "id": "ccst-standards-and-concepts-001",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Layer 1 moves raw bits over media and includes signaling, cabling, radio, and connector concerns.\" Which networking concept is being described? [Scenario 1]",
+    "choices": [
+      "OSI physical layer",
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Troubleshooting a damaged copper cable belongs at OSI Layer 1 because the medium itself is failing."
+  },
+  {
+    "id": "ccst-standards-and-concepts-002",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Layer 2 handles local frames, MAC addressing, switching, and VLAN tagging.\" Which networking concept is being described? [Scenario 2]",
+    "choices": [
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting",
+      "OSI data link layer"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A switch forwarding Ethernet frames by MAC address is operating primarily at the data link layer."
+  },
+  {
+    "id": "ccst-standards-and-concepts-003",
+    "domain": "Standards and Concepts",
+    "type": "statement-block",
+    "question": "Evaluate these statements about OSI network layer. [Scenario 3]",
+    "statements": [
+      "OSI network layer: Layer 3 handles logical addressing and routing between networks.",
+      "PoE budgeting is the best description of OSI network layer.",
+      "OSI network layer is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Routers make forwarding decisions with IP addresses, so routing belongs to the network layer. The second statement confuses OSI network layer with PoE budgeting, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-004",
+    "domain": "Standards and Concepts",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a standards and concepts task. [Scenario 4]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-005",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"TCP is connection-oriented and uses sequencing, acknowledgments, and retransmission.\" Which networking concept is being described? [Scenario 5]",
+    "choices": [
+      "TCP reliability",
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Use TCP when ordered, reliable delivery matters more than minimizing overhead."
+  },
+  {
+    "id": "ccst-standards-and-concepts-006",
+    "domain": "Standards and Concepts",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Standards and Concepts. Which two choices fit this objective area? (Select two.) [Scenario 6]",
+    "choices": [
+      "UDP behavior",
+      "NAT",
+      "HTTPS",
+      "VLAN pruning"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "UDP behavior and HTTPS are both tested within Standards and Concepts. Voice, video, DNS lookups, and other low-latency flows often use UDP. HTTPS is the secure default for browser-based administrative portals and web apps."
+  },
+  {
+    "id": "ccst-standards-and-concepts-007",
+    "domain": "Standards and Concepts",
+    "type": "matching",
+    "question": "Match each standards and concepts term to the best description. [Scenario 7]",
+    "itemsLeft": [
+      "DNS",
+      "DHCP",
+      "HTTPS"
+    ],
+    "itemsRight": [
+      "DNS resolves names to IP addresses so people can use hostnames instead of numeric addresses.",
+      "DHCP automatically leases IP settings such as address, mask, gateway, and DNS servers.",
+      "HTTPS protects web sessions with TLS, normally on TCP port 443."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "DNS: If users can ping an IP but not browse by name, DNS should be checked early. DHCP: An APIPA 169.254.x.x address often means DHCP did not answer. HTTPS: HTTPS is the secure default for browser-based administrative portals and web apps."
+  },
+  {
+    "id": "ccst-standards-and-concepts-008",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"DHCP automatically leases IP settings such as address, mask, gateway, and DNS servers.\" Which networking concept is being described? [Scenario 8]",
+    "choices": [
+      "PoE budgeting",
+      "DHCP",
+      "NAT",
+      "VLAN pruning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "An APIPA 169.254.x.x address often means DHCP did not answer."
+  },
+  {
+    "id": "ccst-standards-and-concepts-009",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"HTTPS protects web sessions with TLS, normally on TCP port 443.\" Which networking concept is being described? [Scenario 9]",
+    "choices": [
+      "HTTPS",
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HTTPS is the secure default for browser-based administrative portals and web apps."
+  },
+  {
+    "id": "ccst-standards-and-concepts-010",
+    "domain": "Standards and Concepts",
+    "type": "statement-block",
+    "question": "Evaluate these statements about SSH. [Scenario 10]",
+    "statements": [
+      "SSH: SSH provides encrypted remote command-line administration, normally on TCP port 22.",
+      "VLAN pruning is the best description of SSH.",
+      "SSH is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "SSH is preferred over Telnet because credentials and session traffic are encrypted. The second statement confuses SSH with VLAN pruning, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-011",
+    "domain": "Standards and Concepts",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a standards and concepts task. [Scenario 11]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-012",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"NTP synchronizes clocks across devices for accurate logs, certificates, and authentication.\" Which networking concept is being described? [Scenario 12]",
+    "choices": [
+      "PoE budgeting",
+      "NTP",
+      "NAT",
+      "VLAN pruning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Time drift can break certificates and make event correlation unreliable."
+  },
+  {
+    "id": "ccst-standards-and-concepts-013",
+    "domain": "Standards and Concepts",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Standards and Concepts. Which two choices fit this objective area? (Select two.) [Scenario 13]",
+    "choices": [
+      "OSI physical layer",
+      "NAT",
+      "OSI transport layer",
+      "VLAN pruning"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "OSI physical layer and OSI transport layer are both tested within Standards and Concepts. Troubleshooting a damaged copper cable belongs at OSI Layer 1 because the medium itself is failing. TCP acknowledgments and port numbers are transport-layer concepts."
+  },
+  {
+    "id": "ccst-standards-and-concepts-014",
+    "domain": "Standards and Concepts",
+    "type": "matching",
+    "question": "Match each standards and concepts term to the best description. [Scenario 14]",
+    "itemsLeft": [
+      "OSI data link layer",
+      "OSI network layer",
+      "OSI transport layer"
+    ],
+    "itemsRight": [
+      "Layer 2 handles local frames, MAC addressing, switching, and VLAN tagging.",
+      "Layer 3 handles logical addressing and routing between networks.",
+      "Layer 4 provides TCP/UDP transport behavior such as ports, sessions, reliability, and flow control."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "OSI data link layer: A switch forwarding Ethernet frames by MAC address is operating primarily at the data link layer. OSI network layer: Routers make forwarding decisions with IP addresses, so routing belongs to the network layer. OSI transport layer: TCP acknowledgments and port numbers are transport-layer concepts."
+  },
+  {
+    "id": "ccst-standards-and-concepts-015",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Layer 3 handles logical addressing and routing between networks.\" Which networking concept is being described? [Scenario 15]",
+    "choices": [
+      "VLAN pruning",
+      "PoE budgeting",
+      "OSI network layer",
+      "NAT"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Routers make forwarding decisions with IP addresses, so routing belongs to the network layer."
+  },
+  {
+    "id": "ccst-standards-and-concepts-016",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Layer 4 provides TCP/UDP transport behavior such as ports, sessions, reliability, and flow control.\" Which networking concept is being described? [Scenario 16]",
+    "choices": [
+      "PoE budgeting",
+      "OSI transport layer",
+      "NAT",
+      "VLAN pruning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TCP acknowledgments and port numbers are transport-layer concepts."
+  },
+  {
+    "id": "ccst-standards-and-concepts-017",
+    "domain": "Standards and Concepts",
+    "type": "statement-block",
+    "question": "Evaluate these statements about TCP reliability. [Scenario 17]",
+    "statements": [
+      "TCP reliability: TCP is connection-oriented and uses sequencing, acknowledgments, and retransmission.",
+      "NAT is the best description of TCP reliability.",
+      "TCP reliability is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Use TCP when ordered, reliable delivery matters more than minimizing overhead. The second statement confuses TCP reliability with NAT, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-018",
+    "domain": "Standards and Concepts",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a standards and concepts task. [Scenario 18]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-019",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"DNS resolves names to IP addresses so people can use hostnames instead of numeric addresses.\" Which networking concept is being described? [Scenario 19]",
+    "choices": [
+      "VLAN pruning",
+      "PoE budgeting",
+      "DNS",
+      "NAT"
+    ],
+    "correctAnswer": 2,
+    "explanation": "If users can ping an IP but not browse by name, DNS should be checked early."
+  },
+  {
+    "id": "ccst-standards-and-concepts-020",
+    "domain": "Standards and Concepts",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Standards and Concepts. Which two choices fit this objective area? (Select two.) [Scenario 20]",
+    "choices": [
+      "DHCP",
+      "NAT",
+      "SNMP",
+      "VLAN pruning"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "DHCP and SNMP are both tested within Standards and Concepts. An APIPA 169.254.x.x address often means DHCP did not answer. A monitoring system polling switch interface counters is using SNMP-style operations."
+  },
+  {
+    "id": "ccst-standards-and-concepts-021",
+    "domain": "Standards and Concepts",
+    "type": "matching",
+    "question": "Match each standards and concepts term to the best description. [Scenario 21]",
+    "itemsLeft": [
+      "HTTPS",
+      "SSH",
+      "SNMP"
+    ],
+    "itemsRight": [
+      "HTTPS protects web sessions with TLS, normally on TCP port 443.",
+      "SSH provides encrypted remote command-line administration, normally on TCP port 22.",
+      "SNMP is commonly used to monitor network device status, counters, and alerts."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "HTTPS: HTTPS is the secure default for browser-based administrative portals and web apps. SSH: SSH is preferred over Telnet because credentials and session traffic are encrypted. SNMP: A monitoring system polling switch interface counters is using SNMP-style operations."
+  },
+  {
+    "id": "ccst-standards-and-concepts-022",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"SSH provides encrypted remote command-line administration, normally on TCP port 22.\" Which networking concept is being described? [Scenario 22]",
+    "choices": [
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting",
+      "SSH"
+    ],
+    "correctAnswer": 3,
+    "explanation": "SSH is preferred over Telnet because credentials and session traffic are encrypted."
+  },
+  {
+    "id": "ccst-standards-and-concepts-023",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"SNMP is commonly used to monitor network device status, counters, and alerts.\" Which networking concept is being described? [Scenario 23]",
+    "choices": [
+      "VLAN pruning",
+      "PoE budgeting",
+      "SNMP",
+      "NAT"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A monitoring system polling switch interface counters is using SNMP-style operations."
+  },
+  {
+    "id": "ccst-standards-and-concepts-024",
+    "domain": "Standards and Concepts",
+    "type": "statement-block",
+    "question": "Evaluate these statements about NTP. [Scenario 24]",
+    "statements": [
+      "NTP: NTP synchronizes clocks across devices for accurate logs, certificates, and authentication.",
+      "MAC filtering is the best description of NTP.",
+      "NTP is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Time drift can break certificates and make event correlation unreliable. The second statement confuses NTP with MAC filtering, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-025",
+    "domain": "Standards and Concepts",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a standards and concepts task. [Scenario 25]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-026",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Layer 2 handles local frames, MAC addressing, switching, and VLAN tagging.\" Which networking concept is being described? [Scenario 26]",
+    "choices": [
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting",
+      "OSI data link layer"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A switch forwarding Ethernet frames by MAC address is operating primarily at the data link layer."
+  },
+  {
+    "id": "ccst-standards-and-concepts-027",
+    "domain": "Standards and Concepts",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Standards and Concepts. Which two choices fit this objective area? (Select two.) [Scenario 27]",
+    "choices": [
+      "OSI network layer",
+      "NAT",
+      "UDP behavior",
+      "VLAN pruning"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "OSI network layer and UDP behavior are both tested within Standards and Concepts. Routers make forwarding decisions with IP addresses, so routing belongs to the network layer. Voice, video, DNS lookups, and other low-latency flows often use UDP."
+  },
+  {
+    "id": "ccst-standards-and-concepts-028",
+    "domain": "Standards and Concepts",
+    "type": "matching",
+    "question": "Match each standards and concepts term to the best description. [Scenario 28]",
+    "itemsLeft": [
+      "OSI transport layer",
+      "TCP reliability",
+      "UDP behavior"
+    ],
+    "itemsRight": [
+      "Layer 4 provides TCP/UDP transport behavior such as ports, sessions, reliability, and flow control.",
+      "TCP is connection-oriented and uses sequencing, acknowledgments, and retransmission.",
+      "UDP is connectionless and avoids reliability overhead for latency-sensitive traffic."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "OSI transport layer: TCP acknowledgments and port numbers are transport-layer concepts. TCP reliability: Use TCP when ordered, reliable delivery matters more than minimizing overhead. UDP behavior: Voice, video, DNS lookups, and other low-latency flows often use UDP."
+  },
+  {
+    "id": "ccst-standards-and-concepts-029",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"TCP is connection-oriented and uses sequencing, acknowledgments, and retransmission.\" Which networking concept is being described? [Scenario 29]",
+    "choices": [
+      "TCP reliability",
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Use TCP when ordered, reliable delivery matters more than minimizing overhead."
+  },
+  {
+    "id": "ccst-standards-and-concepts-030",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"UDP is connectionless and avoids reliability overhead for latency-sensitive traffic.\" Which networking concept is being described? [Scenario 30]",
+    "choices": [
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting",
+      "UDP behavior"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Voice, video, DNS lookups, and other low-latency flows often use UDP."
+  },
+  {
+    "id": "ccst-standards-and-concepts-031",
+    "domain": "Standards and Concepts",
+    "type": "statement-block",
+    "question": "Evaluate these statements about DNS. [Scenario 31]",
+    "statements": [
+      "DNS: DNS resolves names to IP addresses so people can use hostnames instead of numeric addresses.",
+      "PoE budgeting is the best description of DNS.",
+      "DNS is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "If users can ping an IP but not browse by name, DNS should be checked early. The second statement confuses DNS with PoE budgeting, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-032",
+    "domain": "Standards and Concepts",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a standards and concepts task. [Scenario 32]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-033",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"HTTPS protects web sessions with TLS, normally on TCP port 443.\" Which networking concept is being described? [Scenario 33]",
+    "choices": [
+      "HTTPS",
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HTTPS is the secure default for browser-based administrative portals and web apps."
+  },
+  {
+    "id": "ccst-standards-and-concepts-034",
+    "domain": "Standards and Concepts",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Standards and Concepts. Which two choices fit this objective area? (Select two.) [Scenario 34]",
+    "choices": [
+      "SSH",
+      "NAT",
+      "OSI physical layer",
+      "VLAN pruning"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "SSH and OSI physical layer are both tested within Standards and Concepts. SSH is preferred over Telnet because credentials and session traffic are encrypted. Troubleshooting a damaged copper cable belongs at OSI Layer 1 because the medium itself is failing."
+  },
+  {
+    "id": "ccst-standards-and-concepts-035",
+    "domain": "Standards and Concepts",
+    "type": "matching",
+    "question": "Match each standards and concepts term to the best description. [Scenario 35]",
+    "itemsLeft": [
+      "SNMP",
+      "NTP",
+      "OSI physical layer"
+    ],
+    "itemsRight": [
+      "SNMP is commonly used to monitor network device status, counters, and alerts.",
+      "NTP synchronizes clocks across devices for accurate logs, certificates, and authentication.",
+      "Layer 1 moves raw bits over media and includes signaling, cabling, radio, and connector concerns."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "SNMP: A monitoring system polling switch interface counters is using SNMP-style operations. NTP: Time drift can break certificates and make event correlation unreliable. OSI physical layer: Troubleshooting a damaged copper cable belongs at OSI Layer 1 because the medium itself is failing."
+  },
+  {
+    "id": "ccst-standards-and-concepts-036",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"NTP synchronizes clocks across devices for accurate logs, certificates, and authentication.\" Which networking concept is being described? [Scenario 36]",
+    "choices": [
+      "PoE budgeting",
+      "NTP",
+      "NAT",
+      "VLAN pruning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Time drift can break certificates and make event correlation unreliable."
+  },
+  {
+    "id": "ccst-standards-and-concepts-037",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Layer 1 moves raw bits over media and includes signaling, cabling, radio, and connector concerns.\" Which networking concept is being described? [Scenario 37]",
+    "choices": [
+      "OSI physical layer",
+      "NAT",
+      "VLAN pruning",
+      "PoE budgeting"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Troubleshooting a damaged copper cable belongs at OSI Layer 1 because the medium itself is failing."
+  },
+  {
+    "id": "ccst-standards-and-concepts-038",
+    "domain": "Standards and Concepts",
+    "type": "statement-block",
+    "question": "Evaluate these statements about OSI data link layer. [Scenario 38]",
+    "statements": [
+      "OSI data link layer: Layer 2 handles local frames, MAC addressing, switching, and VLAN tagging.",
+      "VLAN pruning is the best description of OSI data link layer.",
+      "OSI data link layer is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "A switch forwarding Ethernet frames by MAC address is operating primarily at the data link layer. The second statement confuses OSI data link layer with VLAN pruning, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-039",
+    "domain": "Standards and Concepts",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a standards and concepts task. [Scenario 39]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-standards-and-concepts-040",
+    "domain": "Standards and Concepts",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Layer 4 provides TCP/UDP transport behavior such as ports, sessions, reliability, and flow control.\" Which networking concept is being described? [Scenario 40]",
+    "choices": [
+      "PoE budgeting",
+      "OSI transport layer",
+      "NAT",
+      "VLAN pruning"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TCP acknowledgments and port numbers are transport-layer concepts."
+  },
+  {
+    "id": "ccst-standards-and-concepts-041",
+    "domain": "Standards and Concepts",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Standards and Concepts. Which two choices fit this objective area? (Select two.) [Scenario 41]",
+    "choices": [
+      "TCP reliability",
+      "NAT",
+      "DHCP",
+      "VLAN pruning"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "TCP reliability and DHCP are both tested within Standards and Concepts. Use TCP when ordered, reliable delivery matters more than minimizing overhead. An APIPA 169.254.x.x address often means DHCP did not answer."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-001",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 42]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-002",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"IPv6 uses 128-bit hexadecimal addresses and supports abbreviation with double colons.\" Which networking concept is being described? [Scenario 43]",
+    "choices": [
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring",
+      "IPv6 address"
+    ],
+    "correctAnswer": 3,
+    "explanation": "IPv6 was created to provide a much larger address space than IPv4."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-003",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 44]",
+    "choices": [
+      "MAC address",
+      "fiber attenuation",
+      "private IPv4 ranges",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "MAC address and private IPv4 ranges are both tested within Addressing and Subnet Formats. Switches forward Ethernet frames using destination MAC addresses. Private addresses are not routed directly across the public internet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-004",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 45]",
+    "itemsLeft": [
+      "subnet mask",
+      "default gateway",
+      "private IPv4 ranges"
+    ],
+    "itemsRight": [
+      "A subnet mask or prefix length identifies which part of an IP address is the network portion.",
+      "The default gateway is the router a host uses to reach remote networks.",
+      "RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "subnet mask: The mask tells a host whether a destination is local or must be sent to the gateway. default gateway: A wrong gateway can allow local communication while blocking off-subnet traffic. private IPv4 ranges: Private addresses are not routed directly across the public internet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-005",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"The default gateway is the router a host uses to reach remote networks.\" Which networking concept is being described? [Scenario 46]",
+    "choices": [
+      "default gateway",
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A wrong gateway can allow local communication while blocking off-subnet traffic."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-006",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.\" Which networking concept is being described? [Scenario 47]",
+    "choices": [
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring",
+      "private IPv4 ranges"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Private addresses are not routed directly across the public internet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-007",
+    "domain": "Addressing and Subnet Formats",
+    "type": "statement-block",
+    "question": "Evaluate these statements about APIPA. [Scenario 48]",
+    "statements": [
+      "APIPA: APIPA 169.254.0.0/16 addresses are self-assigned when DHCP fails.",
+      "port mirroring is the best description of APIPA.",
+      "APIPA is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Seeing 169.254.x.x is a strong clue to investigate DHCP reachability. The second statement confuses APIPA with port mirroring, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-008",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 49]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-009",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A /30 prefix provides four total addresses and two usable host addresses.\" Which networking concept is being described? [Scenario 50]",
+    "choices": [
+      "CIDR /30",
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Point-to-point IPv4 links historically used /30 because only two endpoints needed addresses."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-010",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 51]",
+    "choices": [
+      "ARP",
+      "fiber attenuation",
+      "IPv4 address",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "ARP and IPv4 address are both tested within Addressing and Subnet Formats. Before sending a local IPv4 frame, a host needs the destination MAC address. IPv4 addresses identify hosts at Layer 3 and are paired with a subnet mask."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-011",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 52]",
+    "itemsLeft": [
+      "network ID",
+      "broadcast address",
+      "IPv4 address"
+    ],
+    "itemsRight": [
+      "The network ID identifies the subnet itself and is not assigned to a host.",
+      "An IPv4 broadcast address reaches all hosts on the subnet and is not assigned to a host.",
+      "IPv4 uses 32-bit dotted-decimal addresses such as 192.168.1.25."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "network ID: In 192.168.10.0/24, 192.168.10.0 is the network address. broadcast address: In 192.168.10.0/24, 192.168.10.255 is the directed broadcast address. IPv4 address: IPv4 addresses identify hosts at Layer 3 and are paired with a subnet mask."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-012",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An IPv4 broadcast address reaches all hosts on the subnet and is not assigned to a host.\" Which networking concept is being described? [Scenario 53]",
+    "choices": [
+      "port mirroring",
+      "broadcast address",
+      "fiber attenuation",
+      "SSID roaming"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In 192.168.10.0/24, 192.168.10.255 is the directed broadcast address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-013",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"IPv4 uses 32-bit dotted-decimal addresses such as 192.168.1.25.\" Which networking concept is being described? [Scenario 54]",
+    "choices": [
+      "IPv4 address",
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "IPv4 addresses identify hosts at Layer 3 and are paired with a subnet mask."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-014",
+    "domain": "Addressing and Subnet Formats",
+    "type": "statement-block",
+    "question": "Evaluate these statements about IPv6 address. [Scenario 55]",
+    "statements": [
+      "IPv6 address: IPv6 uses 128-bit hexadecimal addresses and supports abbreviation with double colons.",
+      "SSID roaming is the best description of IPv6 address.",
+      "IPv6 address is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "IPv6 was created to provide a much larger address space than IPv4. The second statement confuses IPv6 address with SSID roaming, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-015",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 56]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-016",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A subnet mask or prefix length identifies which part of an IP address is the network portion.\" Which networking concept is being described? [Scenario 57]",
+    "choices": [
+      "port mirroring",
+      "subnet mask",
+      "fiber attenuation",
+      "SSID roaming"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The mask tells a host whether a destination is local or must be sent to the gateway."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-017",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 58]",
+    "choices": [
+      "default gateway",
+      "fiber attenuation",
+      "CIDR /24",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "default gateway and CIDR /24 are both tested within Addressing and Subnet Formats. A wrong gateway can allow local communication while blocking off-subnet traffic. Most small LAN examples use /24 because the host portion is one octet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-018",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 59]",
+    "itemsLeft": [
+      "private IPv4 ranges",
+      "APIPA",
+      "CIDR /24"
+    ],
+    "itemsRight": [
+      "RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.",
+      "APIPA 169.254.0.0/16 addresses are self-assigned when DHCP fails.",
+      "A /24 prefix is equivalent to 255.255.255.0 and provides 256 total IPv4 addresses."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "private IPv4 ranges: Private addresses are not routed directly across the public internet. APIPA: Seeing 169.254.x.x is a strong clue to investigate DHCP reachability. CIDR /24: Most small LAN examples use /24 because the host portion is one octet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-019",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"APIPA 169.254.0.0/16 addresses are self-assigned when DHCP fails.\" Which networking concept is being described? [Scenario 60]",
+    "choices": [
+      "SSID roaming",
+      "port mirroring",
+      "APIPA",
+      "fiber attenuation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Seeing 169.254.x.x is a strong clue to investigate DHCP reachability."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-020",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A /24 prefix is equivalent to 255.255.255.0 and provides 256 total IPv4 addresses.\" Which networking concept is being described? [Scenario 61]",
+    "choices": [
+      "port mirroring",
+      "CIDR /24",
+      "fiber attenuation",
+      "SSID roaming"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Most small LAN examples use /24 because the host portion is one octet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-021",
+    "domain": "Addressing and Subnet Formats",
+    "type": "statement-block",
+    "question": "Evaluate these statements about CIDR /30. [Scenario 62]",
+    "statements": [
+      "CIDR /30: A /30 prefix provides four total addresses and two usable host addresses.",
+      "fiber attenuation is the best description of CIDR /30.",
+      "CIDR /30 is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Point-to-point IPv4 links historically used /30 because only two endpoints needed addresses. The second statement confuses CIDR /30 with fiber attenuation, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-022",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 63]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-023",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"The network ID identifies the subnet itself and is not assigned to a host.\" Which networking concept is being described? [Scenario 64]",
+    "choices": [
+      "SSID roaming",
+      "port mirroring",
+      "network ID",
+      "fiber attenuation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "In 192.168.10.0/24, 192.168.10.0 is the network address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-024",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 65]",
+    "choices": [
+      "broadcast address",
+      "fiber attenuation",
+      "MAC address",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "broadcast address and MAC address are both tested within Addressing and Subnet Formats. In 192.168.10.0/24, 192.168.10.255 is the directed broadcast address. Switches forward Ethernet frames using destination MAC addresses."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-025",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 66]",
+    "itemsLeft": [
+      "IPv4 address",
+      "IPv6 address",
+      "MAC address"
+    ],
+    "itemsRight": [
+      "IPv4 uses 32-bit dotted-decimal addresses such as 192.168.1.25.",
+      "IPv6 uses 128-bit hexadecimal addresses and supports abbreviation with double colons.",
+      "A MAC address is a Layer 2 hardware address used on the local network segment."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "IPv4 address: IPv4 addresses identify hosts at Layer 3 and are paired with a subnet mask. IPv6 address: IPv6 was created to provide a much larger address space than IPv4. MAC address: Switches forward Ethernet frames using destination MAC addresses."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-026",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"IPv6 uses 128-bit hexadecimal addresses and supports abbreviation with double colons.\" Which networking concept is being described? [Scenario 67]",
+    "choices": [
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring",
+      "IPv6 address"
+    ],
+    "correctAnswer": 3,
+    "explanation": "IPv6 was created to provide a much larger address space than IPv4."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-027",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A MAC address is a Layer 2 hardware address used on the local network segment.\" Which networking concept is being described? [Scenario 68]",
+    "choices": [
+      "SSID roaming",
+      "port mirroring",
+      "MAC address",
+      "fiber attenuation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Switches forward Ethernet frames using destination MAC addresses."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-028",
+    "domain": "Addressing and Subnet Formats",
+    "type": "statement-block",
+    "question": "Evaluate these statements about subnet mask. [Scenario 69]",
+    "statements": [
+      "subnet mask: A subnet mask or prefix length identifies which part of an IP address is the network portion.",
+      "duplex mismatch is the best description of subnet mask.",
+      "subnet mask is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "The mask tells a host whether a destination is local or must be sent to the gateway. The second statement confuses subnet mask with duplex mismatch, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-029",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 70]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-030",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.\" Which networking concept is being described? [Scenario 71]",
+    "choices": [
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring",
+      "private IPv4 ranges"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Private addresses are not routed directly across the public internet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-031",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 72]",
+    "choices": [
+      "APIPA",
+      "fiber attenuation",
+      "ARP",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "APIPA and ARP are both tested within Addressing and Subnet Formats. Seeing 169.254.x.x is a strong clue to investigate DHCP reachability. Before sending a local IPv4 frame, a host needs the destination MAC address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-032",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 73]",
+    "itemsLeft": [
+      "CIDR /24",
+      "CIDR /30",
+      "ARP"
+    ],
+    "itemsRight": [
+      "A /24 prefix is equivalent to 255.255.255.0 and provides 256 total IPv4 addresses.",
+      "A /30 prefix provides four total addresses and two usable host addresses.",
+      "ARP maps IPv4 addresses to MAC addresses on the local network."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "CIDR /24: Most small LAN examples use /24 because the host portion is one octet. CIDR /30: Point-to-point IPv4 links historically used /30 because only two endpoints needed addresses. ARP: Before sending a local IPv4 frame, a host needs the destination MAC address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-033",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A /30 prefix provides four total addresses and two usable host addresses.\" Which networking concept is being described? [Scenario 74]",
+    "choices": [
+      "CIDR /30",
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Point-to-point IPv4 links historically used /30 because only two endpoints needed addresses."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-034",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"ARP maps IPv4 addresses to MAC addresses on the local network.\" Which networking concept is being described? [Scenario 75]",
+    "choices": [
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring",
+      "ARP"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Before sending a local IPv4 frame, a host needs the destination MAC address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-035",
+    "domain": "Addressing and Subnet Formats",
+    "type": "statement-block",
+    "question": "Evaluate these statements about network ID. [Scenario 76]",
+    "statements": [
+      "network ID: The network ID identifies the subnet itself and is not assigned to a host.",
+      "port mirroring is the best description of network ID.",
+      "network ID is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "In 192.168.10.0/24, 192.168.10.0 is the network address. The second statement confuses network ID with port mirroring, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-036",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 77]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-037",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"IPv4 uses 32-bit dotted-decimal addresses such as 192.168.1.25.\" Which networking concept is being described? [Scenario 78]",
+    "choices": [
+      "IPv4 address",
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "IPv4 addresses identify hosts at Layer 3 and are paired with a subnet mask."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-038",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 79]",
+    "choices": [
+      "IPv6 address",
+      "fiber attenuation",
+      "default gateway",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "IPv6 address and default gateway are both tested within Addressing and Subnet Formats. IPv6 was created to provide a much larger address space than IPv4. A wrong gateway can allow local communication while blocking off-subnet traffic."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-039",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 80]",
+    "itemsLeft": [
+      "MAC address",
+      "subnet mask",
+      "default gateway"
+    ],
+    "itemsRight": [
+      "A MAC address is a Layer 2 hardware address used on the local network segment.",
+      "A subnet mask or prefix length identifies which part of an IP address is the network portion.",
+      "The default gateway is the router a host uses to reach remote networks."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "MAC address: Switches forward Ethernet frames using destination MAC addresses. subnet mask: The mask tells a host whether a destination is local or must be sent to the gateway. default gateway: A wrong gateway can allow local communication while blocking off-subnet traffic."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-040",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A subnet mask or prefix length identifies which part of an IP address is the network portion.\" Which networking concept is being described? [Scenario 81]",
+    "choices": [
+      "port mirroring",
+      "subnet mask",
+      "fiber attenuation",
+      "SSID roaming"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The mask tells a host whether a destination is local or must be sent to the gateway."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-041",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"The default gateway is the router a host uses to reach remote networks.\" Which networking concept is being described? [Scenario 82]",
+    "choices": [
+      "default gateway",
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A wrong gateway can allow local communication while blocking off-subnet traffic."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-042",
+    "domain": "Addressing and Subnet Formats",
+    "type": "statement-block",
+    "question": "Evaluate these statements about private IPv4 ranges. [Scenario 83]",
+    "statements": [
+      "private IPv4 ranges: RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.",
+      "SSID roaming is the best description of private IPv4 ranges.",
+      "private IPv4 ranges is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Private addresses are not routed directly across the public internet. The second statement confuses private IPv4 ranges with SSID roaming, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-043",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 84]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-044",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A /24 prefix is equivalent to 255.255.255.0 and provides 256 total IPv4 addresses.\" Which networking concept is being described? [Scenario 85]",
+    "choices": [
+      "port mirroring",
+      "CIDR /24",
+      "fiber attenuation",
+      "SSID roaming"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Most small LAN examples use /24 because the host portion is one octet."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-045",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 86]",
+    "choices": [
+      "CIDR /30",
+      "fiber attenuation",
+      "broadcast address",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "CIDR /30 and broadcast address are both tested within Addressing and Subnet Formats. Point-to-point IPv4 links historically used /30 because only two endpoints needed addresses. In 192.168.10.0/24, 192.168.10.255 is the directed broadcast address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-046",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 87]",
+    "itemsLeft": [
+      "ARP",
+      "network ID",
+      "broadcast address"
+    ],
+    "itemsRight": [
+      "ARP maps IPv4 addresses to MAC addresses on the local network.",
+      "The network ID identifies the subnet itself and is not assigned to a host.",
+      "An IPv4 broadcast address reaches all hosts on the subnet and is not assigned to a host."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "ARP: Before sending a local IPv4 frame, a host needs the destination MAC address. network ID: In 192.168.10.0/24, 192.168.10.0 is the network address. broadcast address: In 192.168.10.0/24, 192.168.10.255 is the directed broadcast address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-047",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"The network ID identifies the subnet itself and is not assigned to a host.\" Which networking concept is being described? [Scenario 88]",
+    "choices": [
+      "SSID roaming",
+      "port mirroring",
+      "network ID",
+      "fiber attenuation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "In 192.168.10.0/24, 192.168.10.0 is the network address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-048",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An IPv4 broadcast address reaches all hosts on the subnet and is not assigned to a host.\" Which networking concept is being described? [Scenario 89]",
+    "choices": [
+      "port mirroring",
+      "broadcast address",
+      "fiber attenuation",
+      "SSID roaming"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In 192.168.10.0/24, 192.168.10.255 is the directed broadcast address."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-049",
+    "domain": "Addressing and Subnet Formats",
+    "type": "statement-block",
+    "question": "Evaluate these statements about IPv4 address. [Scenario 90]",
+    "statements": [
+      "IPv4 address: IPv4 uses 32-bit dotted-decimal addresses such as 192.168.1.25.",
+      "fiber attenuation is the best description of IPv4 address.",
+      "IPv4 address is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "IPv4 addresses identify hosts at Layer 3 and are paired with a subnet mask. The second statement confuses IPv4 address with fiber attenuation, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-050",
+    "domain": "Addressing and Subnet Formats",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a addressing and subnet formats task. [Scenario 91]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-051",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A MAC address is a Layer 2 hardware address used on the local network segment.\" Which networking concept is being described? [Scenario 92]",
+    "choices": [
+      "SSID roaming",
+      "port mirroring",
+      "MAC address",
+      "fiber attenuation"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Switches forward Ethernet frames using destination MAC addresses."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-052",
+    "domain": "Addressing and Subnet Formats",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Addressing and Subnet Formats. Which two choices fit this objective area? (Select two.) [Scenario 93]",
+    "choices": [
+      "subnet mask",
+      "fiber attenuation",
+      "APIPA",
+      "SSID roaming"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "subnet mask and APIPA are both tested within Addressing and Subnet Formats. The mask tells a host whether a destination is local or must be sent to the gateway. Seeing 169.254.x.x is a strong clue to investigate DHCP reachability."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-053",
+    "domain": "Addressing and Subnet Formats",
+    "type": "matching",
+    "question": "Match each addressing and subnet formats term to the best description. [Scenario 94]",
+    "itemsLeft": [
+      "default gateway",
+      "private IPv4 ranges",
+      "APIPA"
+    ],
+    "itemsRight": [
+      "The default gateway is the router a host uses to reach remote networks.",
+      "RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.",
+      "APIPA 169.254.0.0/16 addresses are self-assigned when DHCP fails."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "default gateway: A wrong gateway can allow local communication while blocking off-subnet traffic. private IPv4 ranges: Private addresses are not routed directly across the public internet. APIPA: Seeing 169.254.x.x is a strong clue to investigate DHCP reachability."
+  },
+  {
+    "id": "ccst-addressing-and-subnet-formats-054",
+    "domain": "Addressing and Subnet Formats",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.\" Which networking concept is being described? [Scenario 95]",
+    "choices": [
+      "fiber attenuation",
+      "SSID roaming",
+      "port mirroring",
+      "private IPv4 ranges"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Private addresses are not routed directly across the public internet."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-001",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about workstation. [Scenario 96]",
+    "statements": [
+      "workstation: A workstation is an end-user endpoint that consumes network services.",
+      "DNS recursion is the best description of workstation.",
+      "workstation is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Laptops and desktops are common client endpoints. The second statement confuses workstation with DNS recursion, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-002",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 97]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-003",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An IP phone uses the data network for voice and often depends on PoE and voice VLANs.\" Which networking concept is being described? [Scenario 98]",
+    "choices": [
+      "CIDR summarization",
+      "route redistribution",
+      "IP phone",
+      "DNS recursion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Voice devices need low latency and may receive power through the Ethernet cable."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-004",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 99]",
+    "choices": [
+      "IoT endpoint",
+      "DNS recursion",
+      "wireless media",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "IoT endpoint and wireless media are both tested within Endpoints and Media Types. IoT devices often need segmentation because they may be harder to patch. Wi-Fi performance can drop because of channel congestion or weak signal."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-005",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 100]",
+    "itemsLeft": [
+      "copper Ethernet",
+      "fiber optic cable",
+      "wireless media"
+    ],
+    "itemsRight": [
+      "Twisted-pair copper Ethernet is common for access-layer cabling.",
+      "Fiber uses light over glass or plastic strands for longer distances and EMI resistance.",
+      "Wireless uses radio frequencies and is affected by interference, distance, and obstacles."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "copper Ethernet: Copper is inexpensive and supports PoE, but distance is normally limited to 100 meters. fiber optic cable: Fiber is preferred for uplinks, buildings, and noisy electrical environments. wireless media: Wi-Fi performance can drop because of channel congestion or weak signal."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-006",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Fiber uses light over glass or plastic strands for longer distances and EMI resistance.\" Which networking concept is being described? [Scenario 101]",
+    "choices": [
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution",
+      "fiber optic cable"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Fiber is preferred for uplinks, buildings, and noisy electrical environments."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-007",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Wireless uses radio frequencies and is affected by interference, distance, and obstacles.\" Which networking concept is being described? [Scenario 102]",
+    "choices": [
+      "CIDR summarization",
+      "route redistribution",
+      "wireless media",
+      "DNS recursion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Wi-Fi performance can drop because of channel congestion or weak signal."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-008",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about PoE. [Scenario 103]",
+    "statements": [
+      "PoE: Power over Ethernet delivers electrical power and data over the same Ethernet cable.",
+      "NAT overload is the best description of PoE.",
+      "PoE is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "PoE is common for access points, IP phones, and security cameras. The second statement confuses PoE with NAT overload, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-009",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 104]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-010",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"SFP modules provide modular fiber or copper uplink interfaces.\" Which networking concept is being described? [Scenario 105]",
+    "choices": [
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution",
+      "SFP transceiver"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A switch may use an SFP optic to connect a fiber uplink."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-011",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 106]",
+    "choices": [
+      "half duplex",
+      "DNS recursion",
+      "server",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "half duplex and server are both tested within Endpoints and Media Types. Duplex mismatches can cause collisions and poor performance. Servers are endpoints too, but they usually provide resources to clients."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-012",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 107]",
+    "itemsLeft": [
+      "full duplex",
+      "workstation",
+      "server"
+    ],
+    "itemsRight": [
+      "Full duplex allows simultaneous send and receive on a link.",
+      "A workstation is an end-user endpoint that consumes network services.",
+      "A server provides shared services such as files, web apps, DNS, DHCP, or authentication."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "full duplex: Modern switched Ethernet links normally negotiate full duplex. workstation: Laptops and desktops are common client endpoints. server: Servers are endpoints too, but they usually provide resources to clients."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-013",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A workstation is an end-user endpoint that consumes network services.\" Which networking concept is being described? [Scenario 108]",
+    "choices": [
+      "workstation",
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Laptops and desktops are common client endpoints."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-014",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A server provides shared services such as files, web apps, DNS, DHCP, or authentication.\" Which networking concept is being described? [Scenario 109]",
+    "choices": [
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution",
+      "server"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Servers are endpoints too, but they usually provide resources to clients."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-015",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about IP phone. [Scenario 110]",
+    "statements": [
+      "IP phone: An IP phone uses the data network for voice and often depends on PoE and voice VLANs.",
+      "route redistribution is the best description of IP phone.",
+      "IP phone is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Voice devices need low latency and may receive power through the Ethernet cable. The second statement confuses IP phone with route redistribution, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-016",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 111]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-017",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Twisted-pair copper Ethernet is common for access-layer cabling.\" Which networking concept is being described? [Scenario 112]",
+    "choices": [
+      "copper Ethernet",
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Copper is inexpensive and supports PoE, but distance is normally limited to 100 meters."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-018",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 113]",
+    "choices": [
+      "fiber optic cable",
+      "DNS recursion",
+      "RJ-45 connector",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "fiber optic cable and RJ-45 connector are both tested within Endpoints and Media Types. Fiber is preferred for uplinks, buildings, and noisy electrical environments. Most copper Ethernet patch cables use RJ-45 connectors."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-019",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 114]",
+    "itemsLeft": [
+      "wireless media",
+      "PoE",
+      "RJ-45 connector"
+    ],
+    "itemsRight": [
+      "Wireless uses radio frequencies and is affected by interference, distance, and obstacles.",
+      "Power over Ethernet delivers electrical power and data over the same Ethernet cable.",
+      "RJ-45 connectors terminate common twisted-pair Ethernet patch cables."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "wireless media: Wi-Fi performance can drop because of channel congestion or weak signal. PoE: PoE is common for access points, IP phones, and security cameras. RJ-45 connector: Most copper Ethernet patch cables use RJ-45 connectors."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-020",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Power over Ethernet delivers electrical power and data over the same Ethernet cable.\" Which networking concept is being described? [Scenario 115]",
+    "choices": [
+      "route redistribution",
+      "PoE",
+      "DNS recursion",
+      "CIDR summarization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "PoE is common for access points, IP phones, and security cameras."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-021",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"RJ-45 connectors terminate common twisted-pair Ethernet patch cables.\" Which networking concept is being described? [Scenario 116]",
+    "choices": [
+      "RJ-45 connector",
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Most copper Ethernet patch cables use RJ-45 connectors."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-022",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about SFP transceiver. [Scenario 117]",
+    "statements": [
+      "SFP transceiver: SFP modules provide modular fiber or copper uplink interfaces.",
+      "CIDR summarization is the best description of SFP transceiver.",
+      "SFP transceiver is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "A switch may use an SFP optic to connect a fiber uplink. The second statement confuses SFP transceiver with CIDR summarization, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-023",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 118]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-024",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Full duplex allows simultaneous send and receive on a link.\" Which networking concept is being described? [Scenario 119]",
+    "choices": [
+      "route redistribution",
+      "full duplex",
+      "DNS recursion",
+      "CIDR summarization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Modern switched Ethernet links normally negotiate full duplex."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-025",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 120]",
+    "choices": [
+      "workstation",
+      "DNS recursion",
+      "IoT endpoint",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "workstation and IoT endpoint are both tested within Endpoints and Media Types. Laptops and desktops are common client endpoints. IoT devices often need segmentation because they may be harder to patch."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-026",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 121]",
+    "itemsLeft": [
+      "server",
+      "IP phone",
+      "IoT endpoint"
+    ],
+    "itemsRight": [
+      "A server provides shared services such as files, web apps, DNS, DHCP, or authentication.",
+      "An IP phone uses the data network for voice and often depends on PoE and voice VLANs.",
+      "IoT devices are network-connected sensors, cameras, controllers, and appliances."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "server: Servers are endpoints too, but they usually provide resources to clients. IP phone: Voice devices need low latency and may receive power through the Ethernet cable. IoT endpoint: IoT devices often need segmentation because they may be harder to patch."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-027",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An IP phone uses the data network for voice and often depends on PoE and voice VLANs.\" Which networking concept is being described? [Scenario 122]",
+    "choices": [
+      "CIDR summarization",
+      "route redistribution",
+      "IP phone",
+      "DNS recursion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Voice devices need low latency and may receive power through the Ethernet cable."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-028",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"IoT devices are network-connected sensors, cameras, controllers, and appliances.\" Which networking concept is being described? [Scenario 123]",
+    "choices": [
+      "route redistribution",
+      "IoT endpoint",
+      "DNS recursion",
+      "CIDR summarization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "IoT devices often need segmentation because they may be harder to patch."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-029",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about copper Ethernet. [Scenario 124]",
+    "statements": [
+      "copper Ethernet: Twisted-pair copper Ethernet is common for access-layer cabling.",
+      "DNS recursion is the best description of copper Ethernet.",
+      "copper Ethernet is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Copper is inexpensive and supports PoE, but distance is normally limited to 100 meters. The second statement confuses copper Ethernet with DNS recursion, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-030",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 125]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-031",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Wireless uses radio frequencies and is affected by interference, distance, and obstacles.\" Which networking concept is being described? [Scenario 126]",
+    "choices": [
+      "CIDR summarization",
+      "route redistribution",
+      "wireless media",
+      "DNS recursion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Wi-Fi performance can drop because of channel congestion or weak signal."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-032",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 127]",
+    "choices": [
+      "PoE",
+      "DNS recursion",
+      "half duplex",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "PoE and half duplex are both tested within Endpoints and Media Types. PoE is common for access points, IP phones, and security cameras. Duplex mismatches can cause collisions and poor performance."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-033",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 128]",
+    "itemsLeft": [
+      "RJ-45 connector",
+      "SFP transceiver",
+      "half duplex"
+    ],
+    "itemsRight": [
+      "RJ-45 connectors terminate common twisted-pair Ethernet patch cables.",
+      "SFP modules provide modular fiber or copper uplink interfaces.",
+      "Half duplex allows communication in only one direction at a time."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "RJ-45 connector: Most copper Ethernet patch cables use RJ-45 connectors. SFP transceiver: A switch may use an SFP optic to connect a fiber uplink. half duplex: Duplex mismatches can cause collisions and poor performance."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-034",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"SFP modules provide modular fiber or copper uplink interfaces.\" Which networking concept is being described? [Scenario 129]",
+    "choices": [
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution",
+      "SFP transceiver"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A switch may use an SFP optic to connect a fiber uplink."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-035",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Half duplex allows communication in only one direction at a time.\" Which networking concept is being described? [Scenario 130]",
+    "choices": [
+      "CIDR summarization",
+      "route redistribution",
+      "half duplex",
+      "DNS recursion"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Duplex mismatches can cause collisions and poor performance."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-036",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about full duplex. [Scenario 131]",
+    "statements": [
+      "full duplex: Full duplex allows simultaneous send and receive on a link.",
+      "NAT overload is the best description of full duplex.",
+      "full duplex is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Modern switched Ethernet links normally negotiate full duplex. The second statement confuses full duplex with NAT overload, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-037",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 132]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-038",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A server provides shared services such as files, web apps, DNS, DHCP, or authentication.\" Which networking concept is being described? [Scenario 133]",
+    "choices": [
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution",
+      "server"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Servers are endpoints too, but they usually provide resources to clients."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-039",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 134]",
+    "choices": [
+      "IP phone",
+      "DNS recursion",
+      "fiber optic cable",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "IP phone and fiber optic cable are both tested within Endpoints and Media Types. Voice devices need low latency and may receive power through the Ethernet cable. Fiber is preferred for uplinks, buildings, and noisy electrical environments."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-040",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 135]",
+    "itemsLeft": [
+      "IoT endpoint",
+      "copper Ethernet",
+      "fiber optic cable"
+    ],
+    "itemsRight": [
+      "IoT devices are network-connected sensors, cameras, controllers, and appliances.",
+      "Twisted-pair copper Ethernet is common for access-layer cabling.",
+      "Fiber uses light over glass or plastic strands for longer distances and EMI resistance."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "IoT endpoint: IoT devices often need segmentation because they may be harder to patch. copper Ethernet: Copper is inexpensive and supports PoE, but distance is normally limited to 100 meters. fiber optic cable: Fiber is preferred for uplinks, buildings, and noisy electrical environments."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-041",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Twisted-pair copper Ethernet is common for access-layer cabling.\" Which networking concept is being described? [Scenario 136]",
+    "choices": [
+      "copper Ethernet",
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Copper is inexpensive and supports PoE, but distance is normally limited to 100 meters."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-042",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Fiber uses light over glass or plastic strands for longer distances and EMI resistance.\" Which networking concept is being described? [Scenario 137]",
+    "choices": [
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution",
+      "fiber optic cable"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Fiber is preferred for uplinks, buildings, and noisy electrical environments."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-043",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about wireless media. [Scenario 138]",
+    "statements": [
+      "wireless media: Wireless uses radio frequencies and is affected by interference, distance, and obstacles.",
+      "route redistribution is the best description of wireless media.",
+      "wireless media is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Wi-Fi performance can drop because of channel congestion or weak signal. The second statement confuses wireless media with route redistribution, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-044",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 139]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-045",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"RJ-45 connectors terminate common twisted-pair Ethernet patch cables.\" Which networking concept is being described? [Scenario 140]",
+    "choices": [
+      "RJ-45 connector",
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Most copper Ethernet patch cables use RJ-45 connectors."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-046",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 141]",
+    "choices": [
+      "SFP transceiver",
+      "DNS recursion",
+      "workstation",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "SFP transceiver and workstation are both tested within Endpoints and Media Types. A switch may use an SFP optic to connect a fiber uplink. Laptops and desktops are common client endpoints."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-047",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 142]",
+    "itemsLeft": [
+      "half duplex",
+      "full duplex",
+      "workstation"
+    ],
+    "itemsRight": [
+      "Half duplex allows communication in only one direction at a time.",
+      "Full duplex allows simultaneous send and receive on a link.",
+      "A workstation is an end-user endpoint that consumes network services."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "half duplex: Duplex mismatches can cause collisions and poor performance. full duplex: Modern switched Ethernet links normally negotiate full duplex. workstation: Laptops and desktops are common client endpoints."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-048",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Full duplex allows simultaneous send and receive on a link.\" Which networking concept is being described? [Scenario 143]",
+    "choices": [
+      "route redistribution",
+      "full duplex",
+      "DNS recursion",
+      "CIDR summarization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Modern switched Ethernet links normally negotiate full duplex."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-049",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A workstation is an end-user endpoint that consumes network services.\" Which networking concept is being described? [Scenario 144]",
+    "choices": [
+      "workstation",
+      "DNS recursion",
+      "CIDR summarization",
+      "route redistribution"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Laptops and desktops are common client endpoints."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-050",
+    "domain": "Endpoints and Media Types",
+    "type": "statement-block",
+    "question": "Evaluate these statements about server. [Scenario 145]",
+    "statements": [
+      "server: A server provides shared services such as files, web apps, DNS, DHCP, or authentication.",
+      "CIDR summarization is the best description of server.",
+      "server is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Servers are endpoints too, but they usually provide resources to clients. The second statement confuses server with CIDR summarization, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-051",
+    "domain": "Endpoints and Media Types",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a endpoints and media types task. [Scenario 146]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-052",
+    "domain": "Endpoints and Media Types",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"IoT devices are network-connected sensors, cameras, controllers, and appliances.\" Which networking concept is being described? [Scenario 147]",
+    "choices": [
+      "route redistribution",
+      "IoT endpoint",
+      "DNS recursion",
+      "CIDR summarization"
+    ],
+    "correctAnswer": 1,
+    "explanation": "IoT devices often need segmentation because they may be harder to patch."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-053",
+    "domain": "Endpoints and Media Types",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Endpoints and Media Types. Which two choices fit this objective area? (Select two.) [Scenario 148]",
+    "choices": [
+      "copper Ethernet",
+      "DNS recursion",
+      "PoE",
+      "CIDR summarization"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "copper Ethernet and PoE are both tested within Endpoints and Media Types. Copper is inexpensive and supports PoE, but distance is normally limited to 100 meters. PoE is common for access points, IP phones, and security cameras."
+  },
+  {
+    "id": "ccst-endpoints-and-media-types-054",
+    "domain": "Endpoints and Media Types",
+    "type": "matching",
+    "question": "Match each endpoints and media types term to the best description. [Scenario 149]",
+    "itemsLeft": [
+      "fiber optic cable",
+      "wireless media",
+      "PoE"
+    ],
+    "itemsRight": [
+      "Fiber uses light over glass or plastic strands for longer distances and EMI resistance.",
+      "Wireless uses radio frequencies and is affected by interference, distance, and obstacles.",
+      "Power over Ethernet delivers electrical power and data over the same Ethernet cable."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "fiber optic cable: Fiber is preferred for uplinks, buildings, and noisy electrical environments. wireless media: Wi-Fi performance can drop because of channel congestion or weak signal. PoE: PoE is common for access points, IP phones, and security cameras."
+  },
+  {
+    "id": "ccst-infrastructure-001",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A switch connects devices inside a LAN and forwards frames by MAC address.\" Which networking concept is being described? [Scenario 150]",
+    "choices": [
+      "switch",
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Switches are the access-layer devices most endpoints plug into."
+  },
+  {
+    "id": "ccst-infrastructure-002",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about router. [Scenario 151]",
+    "statements": [
+      "router: A router connects different IP networks and forwards packets by IP address.",
+      "malware quarantine is the best description of router.",
+      "router is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Traffic leaving a subnet normally goes to a router or Layer 3 switch. The second statement confuses router with malware quarantine, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-003",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 152]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-004",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A firewall filters traffic according to security policy.\" Which networking concept is being described? [Scenario 153]",
+    "choices": [
+      "password rotation",
+      "firewall",
+      "APIPA addressing",
+      "malware quarantine"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Firewalls commonly enforce rules between networks or between a LAN and the internet."
+  },
+  {
+    "id": "ccst-infrastructure-005",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 154]",
+    "choices": [
+      "VLAN",
+      "APIPA addressing",
+      "NAT",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "VLAN and NAT are both tested within Infrastructure. VLANs let one physical switch support multiple separated networks. Home and small-office routers commonly use NAT for internet access."
+  },
+  {
+    "id": "ccst-infrastructure-006",
+    "domain": "Infrastructure",
+    "type": "matching",
+    "question": "Match each infrastructure term to the best description. [Scenario 155]",
+    "itemsLeft": [
+      "trunk port",
+      "access port",
+      "NAT"
+    ],
+    "itemsRight": [
+      "A trunk carries traffic for multiple VLANs, usually with 802.1Q tags.",
+      "An access port carries traffic for one VLAN and usually connects to an endpoint.",
+      "NAT translates addresses, often allowing private hosts to share a public IP."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "trunk port: Switch-to-switch links often use trunks so several VLANs can cross one link. access port: A normal workstation port is typically configured as an access port. NAT: Home and small-office routers commonly use NAT for internet access."
+  },
+  {
+    "id": "ccst-infrastructure-007",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An access port carries traffic for one VLAN and usually connects to an endpoint.\" Which networking concept is being described? [Scenario 156]",
+    "choices": [
+      "malware quarantine",
+      "password rotation",
+      "access port",
+      "APIPA addressing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A normal workstation port is typically configured as an access port."
+  },
+  {
+    "id": "ccst-infrastructure-008",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"NAT translates addresses, often allowing private hosts to share a public IP.\" Which networking concept is being described? [Scenario 157]",
+    "choices": [
+      "password rotation",
+      "NAT",
+      "APIPA addressing",
+      "malware quarantine"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Home and small-office routers commonly use NAT for internet access."
+  },
+  {
+    "id": "ccst-infrastructure-009",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about DHCP server. [Scenario 158]",
+    "statements": [
+      "DHCP server: A DHCP server leases addressing information to clients.",
+      "APIPA addressing is the best description of DHCP server.",
+      "DHCP server is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Central DHCP reduces manual addressing errors. The second statement confuses DHCP server with APIPA addressing, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-010",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 159]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-011",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A patch panel terminates building cabling and organizes connections to switches.\" Which networking concept is being described? [Scenario 160]",
+    "choices": [
+      "malware quarantine",
+      "password rotation",
+      "patch panel",
+      "APIPA addressing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Patch panels make cable management easier in wiring closets."
+  },
+  {
+    "id": "ccst-infrastructure-012",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 161]",
+    "choices": [
+      "WAN link",
+      "APIPA addressing",
+      "wireless access point",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "WAN link and wireless access point are both tested within Infrastructure. Branch offices commonly reach headquarters through WAN services or VPNs. AP placement and channel planning affect roaming and signal quality."
+  },
+  {
+    "id": "ccst-infrastructure-013",
+    "domain": "Infrastructure",
+    "type": "matching",
+    "question": "Match each infrastructure term to the best description. [Scenario 162]",
+    "itemsLeft": [
+      "switch",
+      "router",
+      "wireless access point"
+    ],
+    "itemsRight": [
+      "A switch connects devices inside a LAN and forwards frames by MAC address.",
+      "A router connects different IP networks and forwards packets by IP address.",
+      "An access point bridges wireless clients onto the wired network."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "switch: Switches are the access-layer devices most endpoints plug into. router: Traffic leaving a subnet normally goes to a router or Layer 3 switch. wireless access point: AP placement and channel planning affect roaming and signal quality."
+  },
+  {
+    "id": "ccst-infrastructure-014",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A router connects different IP networks and forwards packets by IP address.\" Which networking concept is being described? [Scenario 163]",
+    "choices": [
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation",
+      "router"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Traffic leaving a subnet normally goes to a router or Layer 3 switch."
+  },
+  {
+    "id": "ccst-infrastructure-015",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An access point bridges wireless clients onto the wired network.\" Which networking concept is being described? [Scenario 164]",
+    "choices": [
+      "malware quarantine",
+      "password rotation",
+      "wireless access point",
+      "APIPA addressing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "AP placement and channel planning affect roaming and signal quality."
+  },
+  {
+    "id": "ccst-infrastructure-016",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about firewall. [Scenario 165]",
+    "statements": [
+      "firewall: A firewall filters traffic according to security policy.",
+      "certificate renewal is the best description of firewall.",
+      "firewall is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Firewalls commonly enforce rules between networks or between a LAN and the internet. The second statement confuses firewall with certificate renewal, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-017",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 166]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-018",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A trunk carries traffic for multiple VLANs, usually with 802.1Q tags.\" Which networking concept is being described? [Scenario 167]",
+    "choices": [
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation",
+      "trunk port"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Switch-to-switch links often use trunks so several VLANs can cross one link."
+  },
+  {
+    "id": "ccst-infrastructure-019",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 168]",
+    "choices": [
+      "access port",
+      "APIPA addressing",
+      "DNS server",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "access port and DNS server are both tested within Infrastructure. A normal workstation port is typically configured as an access port. Clients need DNS server settings to resolve hostnames."
+  },
+  {
+    "id": "ccst-infrastructure-020",
+    "domain": "Infrastructure",
+    "type": "matching",
+    "question": "Match each infrastructure term to the best description. [Scenario 169]",
+    "itemsLeft": [
+      "NAT",
+      "DHCP server",
+      "DNS server"
+    ],
+    "itemsRight": [
+      "NAT translates addresses, often allowing private hosts to share a public IP.",
+      "A DHCP server leases addressing information to clients.",
+      "A DNS server answers name-resolution queries."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "NAT: Home and small-office routers commonly use NAT for internet access. DHCP server: Central DHCP reduces manual addressing errors. DNS server: Clients need DNS server settings to resolve hostnames."
+  },
+  {
+    "id": "ccst-infrastructure-021",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A DHCP server leases addressing information to clients.\" Which networking concept is being described? [Scenario 170]",
+    "choices": [
+      "DHCP server",
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Central DHCP reduces manual addressing errors."
+  },
+  {
+    "id": "ccst-infrastructure-022",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A DNS server answers name-resolution queries.\" Which networking concept is being described? [Scenario 171]",
+    "choices": [
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation",
+      "DNS server"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Clients need DNS server settings to resolve hostnames."
+  },
+  {
+    "id": "ccst-infrastructure-023",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about patch panel. [Scenario 172]",
+    "statements": [
+      "patch panel: A patch panel terminates building cabling and organizes connections to switches.",
+      "password rotation is the best description of patch panel.",
+      "patch panel is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Patch panels make cable management easier in wiring closets. The second statement confuses patch panel with password rotation, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-024",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 173]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-025",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A switch connects devices inside a LAN and forwards frames by MAC address.\" Which networking concept is being described? [Scenario 174]",
+    "choices": [
+      "switch",
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Switches are the access-layer devices most endpoints plug into."
+  },
+  {
+    "id": "ccst-infrastructure-026",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 175]",
+    "choices": [
+      "router",
+      "APIPA addressing",
+      "VLAN",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "router and VLAN are both tested within Infrastructure. Traffic leaving a subnet normally goes to a router or Layer 3 switch. VLANs let one physical switch support multiple separated networks."
+  },
+  {
+    "id": "ccst-infrastructure-027",
+    "domain": "Infrastructure",
+    "type": "matching",
+    "question": "Match each infrastructure term to the best description. [Scenario 176]",
+    "itemsLeft": [
+      "wireless access point",
+      "firewall",
+      "VLAN"
+    ],
+    "itemsRight": [
+      "An access point bridges wireless clients onto the wired network.",
+      "A firewall filters traffic according to security policy.",
+      "A VLAN is a logical Layer 2 segment used to separate broadcast domains."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "wireless access point: AP placement and channel planning affect roaming and signal quality. firewall: Firewalls commonly enforce rules between networks or between a LAN and the internet. VLAN: VLANs let one physical switch support multiple separated networks."
+  },
+  {
+    "id": "ccst-infrastructure-028",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A firewall filters traffic according to security policy.\" Which networking concept is being described? [Scenario 177]",
+    "choices": [
+      "password rotation",
+      "firewall",
+      "APIPA addressing",
+      "malware quarantine"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Firewalls commonly enforce rules between networks or between a LAN and the internet."
+  },
+  {
+    "id": "ccst-infrastructure-029",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A VLAN is a logical Layer 2 segment used to separate broadcast domains.\" Which networking concept is being described? [Scenario 178]",
+    "choices": [
+      "VLAN",
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "VLANs let one physical switch support multiple separated networks."
+  },
+  {
+    "id": "ccst-infrastructure-030",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about trunk port. [Scenario 179]",
+    "statements": [
+      "trunk port: A trunk carries traffic for multiple VLANs, usually with 802.1Q tags.",
+      "malware quarantine is the best description of trunk port.",
+      "trunk port is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Switch-to-switch links often use trunks so several VLANs can cross one link. The second statement confuses trunk port with malware quarantine, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-031",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 180]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-032",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"NAT translates addresses, often allowing private hosts to share a public IP.\" Which networking concept is being described? [Scenario 181]",
+    "choices": [
+      "password rotation",
+      "NAT",
+      "APIPA addressing",
+      "malware quarantine"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Home and small-office routers commonly use NAT for internet access."
+  },
+  {
+    "id": "ccst-infrastructure-033",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 182]",
+    "choices": [
+      "DHCP server",
+      "APIPA addressing",
+      "WAN link",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "DHCP server and WAN link are both tested within Infrastructure. Central DHCP reduces manual addressing errors. Branch offices commonly reach headquarters through WAN services or VPNs."
+  },
+  {
+    "id": "ccst-infrastructure-034",
+    "domain": "Infrastructure",
+    "type": "matching",
+    "question": "Match each infrastructure term to the best description. [Scenario 183]",
+    "itemsLeft": [
+      "DNS server",
+      "patch panel",
+      "WAN link"
+    ],
+    "itemsRight": [
+      "A DNS server answers name-resolution queries.",
+      "A patch panel terminates building cabling and organizes connections to switches.",
+      "A WAN link connects networks across a provider or long-distance connection."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "DNS server: Clients need DNS server settings to resolve hostnames. patch panel: Patch panels make cable management easier in wiring closets. WAN link: Branch offices commonly reach headquarters through WAN services or VPNs."
+  },
+  {
+    "id": "ccst-infrastructure-035",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A patch panel terminates building cabling and organizes connections to switches.\" Which networking concept is being described? [Scenario 184]",
+    "choices": [
+      "malware quarantine",
+      "password rotation",
+      "patch panel",
+      "APIPA addressing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Patch panels make cable management easier in wiring closets."
+  },
+  {
+    "id": "ccst-infrastructure-036",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A WAN link connects networks across a provider or long-distance connection.\" Which networking concept is being described? [Scenario 185]",
+    "choices": [
+      "password rotation",
+      "WAN link",
+      "APIPA addressing",
+      "malware quarantine"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Branch offices commonly reach headquarters through WAN services or VPNs."
+  },
+  {
+    "id": "ccst-infrastructure-037",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about switch. [Scenario 186]",
+    "statements": [
+      "switch: A switch connects devices inside a LAN and forwards frames by MAC address.",
+      "APIPA addressing is the best description of switch.",
+      "switch is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Switches are the access-layer devices most endpoints plug into. The second statement confuses switch with APIPA addressing, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-038",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 187]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-039",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An access point bridges wireless clients onto the wired network.\" Which networking concept is being described? [Scenario 188]",
+    "choices": [
+      "malware quarantine",
+      "password rotation",
+      "wireless access point",
+      "APIPA addressing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "AP placement and channel planning affect roaming and signal quality."
+  },
+  {
+    "id": "ccst-infrastructure-040",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 189]",
+    "choices": [
+      "firewall",
+      "APIPA addressing",
+      "access port",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "firewall and access port are both tested within Infrastructure. Firewalls commonly enforce rules between networks or between a LAN and the internet. A normal workstation port is typically configured as an access port."
+  },
+  {
+    "id": "ccst-infrastructure-041",
+    "domain": "Infrastructure",
+    "type": "matching",
+    "question": "Match each infrastructure term to the best description. [Scenario 190]",
+    "itemsLeft": [
+      "VLAN",
+      "trunk port",
+      "access port"
+    ],
+    "itemsRight": [
+      "A VLAN is a logical Layer 2 segment used to separate broadcast domains.",
+      "A trunk carries traffic for multiple VLANs, usually with 802.1Q tags.",
+      "An access port carries traffic for one VLAN and usually connects to an endpoint."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "VLAN: VLANs let one physical switch support multiple separated networks. trunk port: Switch-to-switch links often use trunks so several VLANs can cross one link. access port: A normal workstation port is typically configured as an access port."
+  },
+  {
+    "id": "ccst-infrastructure-042",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A trunk carries traffic for multiple VLANs, usually with 802.1Q tags.\" Which networking concept is being described? [Scenario 191]",
+    "choices": [
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation",
+      "trunk port"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Switch-to-switch links often use trunks so several VLANs can cross one link."
+  },
+  {
+    "id": "ccst-infrastructure-043",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An access port carries traffic for one VLAN and usually connects to an endpoint.\" Which networking concept is being described? [Scenario 192]",
+    "choices": [
+      "malware quarantine",
+      "password rotation",
+      "access port",
+      "APIPA addressing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A normal workstation port is typically configured as an access port."
+  },
+  {
+    "id": "ccst-infrastructure-044",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about NAT. [Scenario 193]",
+    "statements": [
+      "NAT: NAT translates addresses, often allowing private hosts to share a public IP.",
+      "certificate renewal is the best description of NAT.",
+      "NAT is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Home and small-office routers commonly use NAT for internet access. The second statement confuses NAT with certificate renewal, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-045",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 194]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-046",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A DNS server answers name-resolution queries.\" Which networking concept is being described? [Scenario 195]",
+    "choices": [
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation",
+      "DNS server"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Clients need DNS server settings to resolve hostnames."
+  },
+  {
+    "id": "ccst-infrastructure-047",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 196]",
+    "choices": [
+      "patch panel",
+      "APIPA addressing",
+      "router",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "patch panel and router are both tested within Infrastructure. Patch panels make cable management easier in wiring closets. Traffic leaving a subnet normally goes to a router or Layer 3 switch."
+  },
+  {
+    "id": "ccst-infrastructure-048",
+    "domain": "Infrastructure",
+    "type": "matching",
+    "question": "Match each infrastructure term to the best description. [Scenario 197]",
+    "itemsLeft": [
+      "WAN link",
+      "switch",
+      "router"
+    ],
+    "itemsRight": [
+      "A WAN link connects networks across a provider or long-distance connection.",
+      "A switch connects devices inside a LAN and forwards frames by MAC address.",
+      "A router connects different IP networks and forwards packets by IP address."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "WAN link: Branch offices commonly reach headquarters through WAN services or VPNs. switch: Switches are the access-layer devices most endpoints plug into. router: Traffic leaving a subnet normally goes to a router or Layer 3 switch."
+  },
+  {
+    "id": "ccst-infrastructure-049",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A switch connects devices inside a LAN and forwards frames by MAC address.\" Which networking concept is being described? [Scenario 198]",
+    "choices": [
+      "switch",
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Switches are the access-layer devices most endpoints plug into."
+  },
+  {
+    "id": "ccst-infrastructure-050",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A router connects different IP networks and forwards packets by IP address.\" Which networking concept is being described? [Scenario 199]",
+    "choices": [
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation",
+      "router"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Traffic leaving a subnet normally goes to a router or Layer 3 switch."
+  },
+  {
+    "id": "ccst-infrastructure-051",
+    "domain": "Infrastructure",
+    "type": "statement-block",
+    "question": "Evaluate these statements about wireless access point. [Scenario 200]",
+    "statements": [
+      "wireless access point: An access point bridges wireless clients onto the wired network.",
+      "password rotation is the best description of wireless access point.",
+      "wireless access point is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "AP placement and channel planning affect roaming and signal quality. The second statement confuses wireless access point with password rotation, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-infrastructure-052",
+    "domain": "Infrastructure",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a infrastructure task. [Scenario 201]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-infrastructure-053",
+    "domain": "Infrastructure",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A VLAN is a logical Layer 2 segment used to separate broadcast domains.\" Which networking concept is being described? [Scenario 202]",
+    "choices": [
+      "VLAN",
+      "APIPA addressing",
+      "malware quarantine",
+      "password rotation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "VLANs let one physical switch support multiple separated networks."
+  },
+  {
+    "id": "ccst-infrastructure-054",
+    "domain": "Infrastructure",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Infrastructure. Which two choices fit this objective area? (Select two.) [Scenario 203]",
+    "choices": [
+      "trunk port",
+      "APIPA addressing",
+      "DHCP server",
+      "malware quarantine"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "trunk port and DHCP server are both tested within Infrastructure. Switch-to-switch links often use trunks so several VLANs can cross one link. Central DHCP reduces manual addressing errors."
+  },
+  {
+    "id": "ccst-diagnosing-problems-001",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Ping uses ICMP echo to test basic IP reachability.\" Which networking concept is being described? [Scenario 204]",
+    "choices": [
+      "ping",
+      "software licensing",
+      "data classification",
+      "vendor renewal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A successful ping confirms some Layer 3 connectivity, but not every application service."
+  },
+  {
+    "id": "ccst-diagnosing-problems-002",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Traceroute shows the Layer 3 path toward a destination hop by hop.\" Which networking concept is being described? [Scenario 205]",
+    "choices": [
+      "software licensing",
+      "data classification",
+      "vendor renewal",
+      "traceroute"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Use traceroute when traffic fails beyond the local network and you need to see where it stops."
+  },
+  {
+    "id": "ccst-diagnosing-problems-003",
+    "domain": "Diagnosing Problems",
+    "type": "statement-block",
+    "question": "Evaluate these statements about ipconfig. [Scenario 206]",
+    "statements": [
+      "ipconfig: ipconfig or ifconfig displays local IP configuration.",
+      "vendor renewal is the best description of ipconfig.",
+      "ipconfig is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "The first troubleshooting step is often verifying the host address, mask, gateway, and DNS settings. The second statement confuses ipconfig with vendor renewal, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-diagnosing-problems-004",
+    "domain": "Diagnosing Problems",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a diagnosing problems task. [Scenario 207]",
+    "items": [
+      "Check local IP configuration",
+      "Escalate or change configuration",
+      "Verify physical link and power",
+      "Test local and remote reachability"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Check link lights, cable seating, and device power before changing logical settings. Step 2: Confirm address, mask, gateway, and DNS settings. Step 3: Use ping or similar tests to isolate where communication stops. Step 4: Apply the targeted fix only after the failing layer is identified."
+  },
+  {
+    "id": "ccst-diagnosing-problems-005",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A cable tester checks copper wiring continuity, pinout, and faults.\" Which networking concept is being described? [Scenario 208]",
+    "choices": [
+      "cable tester",
+      "software licensing",
+      "data classification",
+      "vendor renewal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Use a cable tester for suspected bad patch cables or wall drops."
+  },
+  {
+    "id": "ccst-diagnosing-problems-006",
+    "domain": "Diagnosing Problems",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Diagnosing Problems. Which two choices fit this objective area? (Select two.) [Scenario 209]",
+    "choices": [
+      "link lights",
+      "software licensing",
+      "VLAN mismatch",
+      "data classification"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "link lights and VLAN mismatch are both tested within Diagnosing Problems. No link light often points to cable, port, power, or NIC issues. Wrong VLAN assignment can block access to expected DHCP scopes and resources."
+  },
+  {
+    "id": "ccst-diagnosing-problems-007",
+    "domain": "Diagnosing Problems",
+    "type": "matching",
+    "question": "Match each diagnosing problems term to the best description. [Scenario 210]",
+    "itemsLeft": [
+      "DHCP failure",
+      "DNS failure",
+      "VLAN mismatch"
+    ],
+    "itemsRight": [
+      "DHCP failure commonly leaves a host with no valid lease or an APIPA address.",
+      "DNS failure lets IP traffic work while hostname-based access fails.",
+      "A VLAN mismatch places a device in the wrong broadcast domain."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "DHCP failure: Check DHCP server availability, VLAN helper configuration, and cabling. DNS failure: DNS symptoms often look like web failures even when the network path is fine. VLAN mismatch: Wrong VLAN assignment can block access to expected DHCP scopes and resources."
+  },
+  {
+    "id": "ccst-diagnosing-problems-008",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"DNS failure lets IP traffic work while hostname-based access fails.\" Which networking concept is being described? [Scenario 211]",
+    "choices": [
+      "vendor renewal",
+      "DNS failure",
+      "software licensing",
+      "data classification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DNS symptoms often look like web failures even when the network path is fine."
+  },
+  {
+    "id": "ccst-diagnosing-problems-009",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A VLAN mismatch places a device in the wrong broadcast domain.\" Which networking concept is being described? [Scenario 212]",
+    "choices": [
+      "VLAN mismatch",
+      "software licensing",
+      "data classification",
+      "vendor renewal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Wrong VLAN assignment can block access to expected DHCP scopes and resources."
+  },
+  {
+    "id": "ccst-diagnosing-problems-010",
+    "domain": "Diagnosing Problems",
+    "type": "statement-block",
+    "question": "Evaluate these statements about wireless interference. [Scenario 213]",
+    "statements": [
+      "wireless interference: Wireless interference reduces throughput and reliability.",
+      "data classification is the best description of wireless interference.",
+      "wireless interference is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Crowded channels, distance, walls, and competing RF sources can degrade Wi-Fi. The second statement confuses wireless interference with data classification, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-diagnosing-problems-011",
+    "domain": "Diagnosing Problems",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a diagnosing problems task. [Scenario 214]",
+    "items": [
+      "Test local and remote reachability",
+      "Verify physical link and power",
+      "Escalate or change configuration",
+      "Check local IP configuration"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Check link lights, cable seating, and device power before changing logical settings. Step 2: Confirm address, mask, gateway, and DNS settings. Step 3: Use ping or similar tests to isolate where communication stops. Step 4: Apply the targeted fix only after the failing layer is identified."
+  },
+  {
+    "id": "ccst-diagnosing-problems-012",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Duplicate IP addresses cause intermittent or conflicting connectivity.\" Which networking concept is being described? [Scenario 215]",
+    "choices": [
+      "vendor renewal",
+      "duplicate IP",
+      "software licensing",
+      "data classification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Address conflicts often appear as unstable access for one or both hosts."
+  },
+  {
+    "id": "ccst-diagnosing-problems-013",
+    "domain": "Diagnosing Problems",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Diagnosing Problems. Which two choices fit this objective area? (Select two.) [Scenario 216]",
+    "choices": [
+      "ping",
+      "software licensing",
+      "nslookup",
+      "data classification"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "ping and nslookup are both tested within Diagnosing Problems. A successful ping confirms some Layer 3 connectivity, but not every application service. If IP access works but names fail, nslookup helps confirm DNS behavior."
+  },
+  {
+    "id": "ccst-diagnosing-problems-014",
+    "domain": "Diagnosing Problems",
+    "type": "matching",
+    "question": "Match each diagnosing problems term to the best description. [Scenario 217]",
+    "itemsLeft": [
+      "traceroute",
+      "ipconfig",
+      "nslookup"
+    ],
+    "itemsRight": [
+      "Traceroute shows the Layer 3 path toward a destination hop by hop.",
+      "ipconfig or ifconfig displays local IP configuration.",
+      "nslookup tests DNS name resolution."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "traceroute: Use traceroute when traffic fails beyond the local network and you need to see where it stops. ipconfig: The first troubleshooting step is often verifying the host address, mask, gateway, and DNS settings. nslookup: If IP access works but names fail, nslookup helps confirm DNS behavior."
+  },
+  {
+    "id": "ccst-diagnosing-problems-015",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"ipconfig or ifconfig displays local IP configuration.\" Which networking concept is being described? [Scenario 218]",
+    "choices": [
+      "data classification",
+      "vendor renewal",
+      "ipconfig",
+      "software licensing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The first troubleshooting step is often verifying the host address, mask, gateway, and DNS settings."
+  },
+  {
+    "id": "ccst-diagnosing-problems-016",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"nslookup tests DNS name resolution.\" Which networking concept is being described? [Scenario 219]",
+    "choices": [
+      "vendor renewal",
+      "nslookup",
+      "software licensing",
+      "data classification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If IP access works but names fail, nslookup helps confirm DNS behavior."
+  },
+  {
+    "id": "ccst-diagnosing-problems-017",
+    "domain": "Diagnosing Problems",
+    "type": "statement-block",
+    "question": "Evaluate these statements about cable tester. [Scenario 220]",
+    "statements": [
+      "cable tester: A cable tester checks copper wiring continuity, pinout, and faults.",
+      "software licensing is the best description of cable tester.",
+      "cable tester is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Use a cable tester for suspected bad patch cables or wall drops. The second statement confuses cable tester with software licensing, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-diagnosing-problems-018",
+    "domain": "Diagnosing Problems",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a diagnosing problems task. [Scenario 221]",
+    "items": [
+      "Check local IP configuration",
+      "Escalate or change configuration",
+      "Verify physical link and power",
+      "Test local and remote reachability"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Check link lights, cable seating, and device power before changing logical settings. Step 2: Confirm address, mask, gateway, and DNS settings. Step 3: Use ping or similar tests to isolate where communication stops. Step 4: Apply the targeted fix only after the failing layer is identified."
+  },
+  {
+    "id": "ccst-diagnosing-problems-019",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"DHCP failure commonly leaves a host with no valid lease or an APIPA address.\" Which networking concept is being described? [Scenario 222]",
+    "choices": [
+      "data classification",
+      "vendor renewal",
+      "DHCP failure",
+      "software licensing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Check DHCP server availability, VLAN helper configuration, and cabling."
+  },
+  {
+    "id": "ccst-diagnosing-problems-020",
+    "domain": "Diagnosing Problems",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Diagnosing Problems. Which two choices fit this objective area? (Select two.) [Scenario 223]",
+    "choices": [
+      "DNS failure",
+      "software licensing",
+      "gateway issue",
+      "data classification"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "DNS failure and gateway issue are both tested within Diagnosing Problems. DNS symptoms often look like web failures even when the network path is fine. Local subnet traffic may still work when the gateway is wrong."
+  },
+  {
+    "id": "ccst-diagnosing-problems-021",
+    "domain": "Diagnosing Problems",
+    "type": "matching",
+    "question": "Match each diagnosing problems term to the best description. [Scenario 224]",
+    "itemsLeft": [
+      "VLAN mismatch",
+      "wireless interference",
+      "gateway issue"
+    ],
+    "itemsRight": [
+      "A VLAN mismatch places a device in the wrong broadcast domain.",
+      "Wireless interference reduces throughput and reliability.",
+      "A bad default gateway breaks access to remote networks."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "VLAN mismatch: Wrong VLAN assignment can block access to expected DHCP scopes and resources. wireless interference: Crowded channels, distance, walls, and competing RF sources can degrade Wi-Fi. gateway issue: Local subnet traffic may still work when the gateway is wrong."
+  },
+  {
+    "id": "ccst-diagnosing-problems-022",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Wireless interference reduces throughput and reliability.\" Which networking concept is being described? [Scenario 225]",
+    "choices": [
+      "software licensing",
+      "data classification",
+      "vendor renewal",
+      "wireless interference"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Crowded channels, distance, walls, and competing RF sources can degrade Wi-Fi."
+  },
+  {
+    "id": "ccst-diagnosing-problems-023",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A bad default gateway breaks access to remote networks.\" Which networking concept is being described? [Scenario 226]",
+    "choices": [
+      "data classification",
+      "vendor renewal",
+      "gateway issue",
+      "software licensing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Local subnet traffic may still work when the gateway is wrong."
+  },
+  {
+    "id": "ccst-diagnosing-problems-024",
+    "domain": "Diagnosing Problems",
+    "type": "statement-block",
+    "question": "Evaluate these statements about duplicate IP. [Scenario 227]",
+    "statements": [
+      "duplicate IP: Duplicate IP addresses cause intermittent or conflicting connectivity.",
+      "acceptable use policy is the best description of duplicate IP.",
+      "duplicate IP is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Address conflicts often appear as unstable access for one or both hosts. The second statement confuses duplicate IP with acceptable use policy, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-diagnosing-problems-025",
+    "domain": "Diagnosing Problems",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a diagnosing problems task. [Scenario 228]",
+    "items": [
+      "Test local and remote reachability",
+      "Verify physical link and power",
+      "Escalate or change configuration",
+      "Check local IP configuration"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Check link lights, cable seating, and device power before changing logical settings. Step 2: Confirm address, mask, gateway, and DNS settings. Step 3: Use ping or similar tests to isolate where communication stops. Step 4: Apply the targeted fix only after the failing layer is identified."
+  },
+  {
+    "id": "ccst-diagnosing-problems-026",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Traceroute shows the Layer 3 path toward a destination hop by hop.\" Which networking concept is being described? [Scenario 229]",
+    "choices": [
+      "software licensing",
+      "data classification",
+      "vendor renewal",
+      "traceroute"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Use traceroute when traffic fails beyond the local network and you need to see where it stops."
+  },
+  {
+    "id": "ccst-diagnosing-problems-027",
+    "domain": "Diagnosing Problems",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Diagnosing Problems. Which two choices fit this objective area? (Select two.) [Scenario 230]",
+    "choices": [
+      "ipconfig",
+      "software licensing",
+      "link lights",
+      "data classification"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "ipconfig and link lights are both tested within Diagnosing Problems. The first troubleshooting step is often verifying the host address, mask, gateway, and DNS settings. No link light often points to cable, port, power, or NIC issues."
+  },
+  {
+    "id": "ccst-diagnosing-problems-028",
+    "domain": "Diagnosing Problems",
+    "type": "matching",
+    "question": "Match each diagnosing problems term to the best description. [Scenario 231]",
+    "itemsLeft": [
+      "nslookup",
+      "cable tester",
+      "link lights"
+    ],
+    "itemsRight": [
+      "nslookup tests DNS name resolution.",
+      "A cable tester checks copper wiring continuity, pinout, and faults.",
+      "Link lights indicate physical connectivity and negotiated activity."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "nslookup: If IP access works but names fail, nslookup helps confirm DNS behavior. cable tester: Use a cable tester for suspected bad patch cables or wall drops. link lights: No link light often points to cable, port, power, or NIC issues."
+  },
+  {
+    "id": "ccst-diagnosing-problems-029",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A cable tester checks copper wiring continuity, pinout, and faults.\" Which networking concept is being described? [Scenario 232]",
+    "choices": [
+      "cable tester",
+      "software licensing",
+      "data classification",
+      "vendor renewal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Use a cable tester for suspected bad patch cables or wall drops."
+  },
+  {
+    "id": "ccst-diagnosing-problems-030",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Link lights indicate physical connectivity and negotiated activity.\" Which networking concept is being described? [Scenario 233]",
+    "choices": [
+      "software licensing",
+      "data classification",
+      "vendor renewal",
+      "link lights"
+    ],
+    "correctAnswer": 3,
+    "explanation": "No link light often points to cable, port, power, or NIC issues."
+  },
+  {
+    "id": "ccst-diagnosing-problems-031",
+    "domain": "Diagnosing Problems",
+    "type": "statement-block",
+    "question": "Evaluate these statements about DHCP failure. [Scenario 234]",
+    "statements": [
+      "DHCP failure: DHCP failure commonly leaves a host with no valid lease or an APIPA address.",
+      "vendor renewal is the best description of DHCP failure.",
+      "DHCP failure is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Check DHCP server availability, VLAN helper configuration, and cabling. The second statement confuses DHCP failure with vendor renewal, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-diagnosing-problems-032",
+    "domain": "Diagnosing Problems",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a diagnosing problems task. [Scenario 235]",
+    "items": [
+      "Check local IP configuration",
+      "Escalate or change configuration",
+      "Verify physical link and power",
+      "Test local and remote reachability"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Check link lights, cable seating, and device power before changing logical settings. Step 2: Confirm address, mask, gateway, and DNS settings. Step 3: Use ping or similar tests to isolate where communication stops. Step 4: Apply the targeted fix only after the failing layer is identified."
+  },
+  {
+    "id": "ccst-diagnosing-problems-033",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"A VLAN mismatch places a device in the wrong broadcast domain.\" Which networking concept is being described? [Scenario 236]",
+    "choices": [
+      "VLAN mismatch",
+      "software licensing",
+      "data classification",
+      "vendor renewal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Wrong VLAN assignment can block access to expected DHCP scopes and resources."
+  },
+  {
+    "id": "ccst-diagnosing-problems-034",
+    "domain": "Diagnosing Problems",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Diagnosing Problems. Which two choices fit this objective area? (Select two.) [Scenario 237]",
+    "choices": [
+      "wireless interference",
+      "software licensing",
+      "ping",
+      "data classification"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "wireless interference and ping are both tested within Diagnosing Problems. Crowded channels, distance, walls, and competing RF sources can degrade Wi-Fi. A successful ping confirms some Layer 3 connectivity, but not every application service."
+  },
+  {
+    "id": "ccst-diagnosing-problems-035",
+    "domain": "Diagnosing Problems",
+    "type": "matching",
+    "question": "Match each diagnosing problems term to the best description. [Scenario 238]",
+    "itemsLeft": [
+      "gateway issue",
+      "duplicate IP",
+      "ping"
+    ],
+    "itemsRight": [
+      "A bad default gateway breaks access to remote networks.",
+      "Duplicate IP addresses cause intermittent or conflicting connectivity.",
+      "Ping uses ICMP echo to test basic IP reachability."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "gateway issue: Local subnet traffic may still work when the gateway is wrong. duplicate IP: Address conflicts often appear as unstable access for one or both hosts. ping: A successful ping confirms some Layer 3 connectivity, but not every application service."
+  },
+  {
+    "id": "ccst-diagnosing-problems-036",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Duplicate IP addresses cause intermittent or conflicting connectivity.\" Which networking concept is being described? [Scenario 239]",
+    "choices": [
+      "vendor renewal",
+      "duplicate IP",
+      "software licensing",
+      "data classification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Address conflicts often appear as unstable access for one or both hosts."
+  },
+  {
+    "id": "ccst-diagnosing-problems-037",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Ping uses ICMP echo to test basic IP reachability.\" Which networking concept is being described? [Scenario 240]",
+    "choices": [
+      "ping",
+      "software licensing",
+      "data classification",
+      "vendor renewal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A successful ping confirms some Layer 3 connectivity, but not every application service."
+  },
+  {
+    "id": "ccst-diagnosing-problems-038",
+    "domain": "Diagnosing Problems",
+    "type": "statement-block",
+    "question": "Evaluate these statements about traceroute. [Scenario 241]",
+    "statements": [
+      "traceroute: Traceroute shows the Layer 3 path toward a destination hop by hop.",
+      "data classification is the best description of traceroute.",
+      "traceroute is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Use traceroute when traffic fails beyond the local network and you need to see where it stops. The second statement confuses traceroute with data classification, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-diagnosing-problems-039",
+    "domain": "Diagnosing Problems",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a diagnosing problems task. [Scenario 242]",
+    "items": [
+      "Test local and remote reachability",
+      "Verify physical link and power",
+      "Escalate or change configuration",
+      "Check local IP configuration"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Check link lights, cable seating, and device power before changing logical settings. Step 2: Confirm address, mask, gateway, and DNS settings. Step 3: Use ping or similar tests to isolate where communication stops. Step 4: Apply the targeted fix only after the failing layer is identified."
+  },
+  {
+    "id": "ccst-diagnosing-problems-040",
+    "domain": "Diagnosing Problems",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"nslookup tests DNS name resolution.\" Which networking concept is being described? [Scenario 243]",
+    "choices": [
+      "vendor renewal",
+      "nslookup",
+      "software licensing",
+      "data classification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "If IP access works but names fail, nslookup helps confirm DNS behavior."
+  },
+  {
+    "id": "ccst-security-001",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each security term to the best description. [Scenario 244]",
+    "itemsLeft": [
+      "CIA triad",
+      "MFA",
+      "strong passwords"
+    ],
+    "itemsRight": [
+      "Confidentiality, integrity, and availability are core security goals.",
+      "Multi-factor authentication requires more than one factor to prove identity.",
+      "Strong password policy reduces guessing and credential-stuffing risk."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "CIA triad: Network controls should protect data secrecy, correctness, and uptime. MFA: MFA reduces risk when passwords are stolen. strong passwords: Length, uniqueness, and password managers matter more than simple complexity tricks."
+  },
+  {
+    "id": "ccst-security-002",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Multi-factor authentication requires more than one factor to prove identity.\" Which networking concept is being described? [Scenario 245]",
+    "choices": [
+      "cable category rating",
+      "subnet broadcast math",
+      "interface speed negotiation",
+      "MFA"
+    ],
+    "correctAnswer": 3,
+    "explanation": "MFA reduces risk when passwords are stolen."
+  },
+  {
+    "id": "ccst-security-003",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Strong password policy reduces guessing and credential-stuffing risk.\" Which networking concept is being described? [Scenario 246]",
+    "choices": [
+      "subnet broadcast math",
+      "interface speed negotiation",
+      "strong passwords",
+      "cable category rating"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Length, uniqueness, and password managers matter more than simple complexity tricks."
+  },
+  {
+    "id": "ccst-security-004",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Evaluate these statements about WPA3. [Scenario 247]",
+    "statements": [
+      "WPA3: WPA3 is a modern Wi-Fi security standard that improves wireless authentication and encryption.",
+      "routing metric is the best description of WPA3.",
+      "WPA3 is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Use WPA2/WPA3 rather than open or obsolete wireless security. The second statement confuses WPA3 with routing metric, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-security-005",
+    "domain": "Security",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a security task. [Scenario 248]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-security-006",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Least privilege gives users and systems only the access required.\" Which networking concept is being described? [Scenario 249]",
+    "choices": [
+      "cable category rating",
+      "subnet broadcast math",
+      "interface speed negotiation",
+      "least privilege"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Restricting permissions limits blast radius if an account is compromised."
+  },
+  {
+    "id": "ccst-security-007",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Security. Which two choices fit this objective area? (Select two.) [Scenario 250]",
+    "choices": [
+      "physical security",
+      "cable category rating",
+      "ACL",
+      "subnet broadcast math"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "physical security and ACL are both tested within Security. Locked closets and controlled console access protect infrastructure. ACLs can limit which sources reach sensitive services."
+  },
+  {
+    "id": "ccst-security-008",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each security term to the best description. [Scenario 251]",
+    "itemsLeft": [
+      "phishing",
+      "patching",
+      "ACL"
+    ],
+    "itemsRight": [
+      "Phishing attempts to trick users into revealing credentials or running malicious actions.",
+      "Patching fixes known vulnerabilities in operating systems, applications, and firmware.",
+      "An access control list permits or denies traffic based on policy."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "phishing: Security awareness and MFA help reduce phishing impact. patching: Unpatched network devices and endpoints are common attack paths. ACL: ACLs can limit which sources reach sensitive services."
+  },
+  {
+    "id": "ccst-security-009",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Patching fixes known vulnerabilities in operating systems, applications, and firmware.\" Which networking concept is being described? [Scenario 252]",
+    "choices": [
+      "patching",
+      "cable category rating",
+      "subnet broadcast math",
+      "interface speed negotiation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Unpatched network devices and endpoints are common attack paths."
+  },
+  {
+    "id": "ccst-security-010",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An access control list permits or denies traffic based on policy.\" Which networking concept is being described? [Scenario 253]",
+    "choices": [
+      "cable category rating",
+      "subnet broadcast math",
+      "interface speed negotiation",
+      "ACL"
+    ],
+    "correctAnswer": 3,
+    "explanation": "ACLs can limit which sources reach sensitive services."
+  },
+  {
+    "id": "ccst-security-011",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Evaluate these statements about CIA triad. [Scenario 254]",
+    "statements": [
+      "CIA triad: Confidentiality, integrity, and availability are core security goals.",
+      "interface speed negotiation is the best description of CIA triad.",
+      "CIA triad is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Network controls should protect data secrecy, correctness, and uptime. The second statement confuses CIA triad with interface speed negotiation, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-security-012",
+    "domain": "Security",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a security task. [Scenario 255]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-security-013",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Strong password policy reduces guessing and credential-stuffing risk.\" Which networking concept is being described? [Scenario 256]",
+    "choices": [
+      "strong passwords",
+      "cable category rating",
+      "subnet broadcast math",
+      "interface speed negotiation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Length, uniqueness, and password managers matter more than simple complexity tricks."
+  },
+  {
+    "id": "ccst-security-014",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Security. Which two choices fit this objective area? (Select two.) [Scenario 257]",
+    "choices": [
+      "WPA3",
+      "cable category rating",
+      "physical security",
+      "subnet broadcast math"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "WPA3 and physical security are both tested within Security. Use WPA2/WPA3 rather than open or obsolete wireless security. Locked closets and controlled console access protect infrastructure."
+  },
+  {
+    "id": "ccst-security-015",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each security term to the best description. [Scenario 258]",
+    "itemsLeft": [
+      "guest network",
+      "least privilege",
+      "physical security"
+    ],
+    "itemsRight": [
+      "Guest networks isolate visitor devices from internal resources.",
+      "Least privilege gives users and systems only the access required.",
+      "Physical access to network gear can become logical access."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "guest network: Guest Wi-Fi should not place unmanaged devices on the production LAN. least privilege: Restricting permissions limits blast radius if an account is compromised. physical security: Locked closets and controlled console access protect infrastructure."
+  },
+  {
+    "id": "ccst-security-016",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Least privilege gives users and systems only the access required.\" Which networking concept is being described? [Scenario 259]",
+    "choices": [
+      "interface speed negotiation",
+      "least privilege",
+      "cable category rating",
+      "subnet broadcast math"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Restricting permissions limits blast radius if an account is compromised."
+  },
+  {
+    "id": "ccst-security-017",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Physical access to network gear can become logical access.\" Which networking concept is being described? [Scenario 260]",
+    "choices": [
+      "physical security",
+      "cable category rating",
+      "subnet broadcast math",
+      "interface speed negotiation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Locked closets and controlled console access protect infrastructure."
+  },
+  {
+    "id": "ccst-security-018",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Evaluate these statements about phishing. [Scenario 261]",
+    "statements": [
+      "phishing: Phishing attempts to trick users into revealing credentials or running malicious actions.",
+      "subnet broadcast math is the best description of phishing.",
+      "phishing is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Security awareness and MFA help reduce phishing impact. The second statement confuses phishing with subnet broadcast math, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-security-019",
+    "domain": "Security",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a security task. [Scenario 262]",
+    "items": [
+      "Validate the configuration or behavior",
+      "Identify the requirement",
+      "Document the result",
+      "Map the requirement to the right network concept"
+    ],
+    "correctOrder": [
+      1,
+      3,
+      0,
+      2
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-security-020",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"An access control list permits or denies traffic based on policy.\" Which networking concept is being described? [Scenario 263]",
+    "choices": [
+      "interface speed negotiation",
+      "ACL",
+      "cable category rating",
+      "subnet broadcast math"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ACLs can limit which sources reach sensitive services."
+  },
+  {
+    "id": "ccst-security-021",
+    "domain": "Security",
+    "type": "multiple-response",
+    "question": "A learner wants to identify two concepts that belong to Security. Which two choices fit this objective area? (Select two.) [Scenario 264]",
+    "choices": [
+      "CIA triad",
+      "cable category rating",
+      "WPA3",
+      "subnet broadcast math"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "CIA triad and WPA3 are both tested within Security. Network controls should protect data secrecy, correctness, and uptime. Use WPA2/WPA3 rather than open or obsolete wireless security."
+  },
+  {
+    "id": "ccst-security-022",
+    "domain": "Security",
+    "type": "matching",
+    "question": "Match each security term to the best description. [Scenario 265]",
+    "itemsLeft": [
+      "MFA",
+      "strong passwords",
+      "WPA3"
+    ],
+    "itemsRight": [
+      "Multi-factor authentication requires more than one factor to prove identity.",
+      "Strong password policy reduces guessing and credential-stuffing risk.",
+      "WPA3 is a modern Wi-Fi security standard that improves wireless authentication and encryption."
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "MFA: MFA reduces risk when passwords are stolen. strong passwords: Length, uniqueness, and password managers matter more than simple complexity tricks. WPA3: Use WPA2/WPA3 rather than open or obsolete wireless security."
+  },
+  {
+    "id": "ccst-security-023",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Strong password policy reduces guessing and credential-stuffing risk.\" Which networking concept is being described? [Scenario 266]",
+    "choices": [
+      "subnet broadcast math",
+      "interface speed negotiation",
+      "strong passwords",
+      "cable category rating"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Length, uniqueness, and password managers matter more than simple complexity tricks."
+  },
+  {
+    "id": "ccst-security-024",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"WPA3 is a modern Wi-Fi security standard that improves wireless authentication and encryption.\" Which networking concept is being described? [Scenario 267]",
+    "choices": [
+      "interface speed negotiation",
+      "WPA3",
+      "cable category rating",
+      "subnet broadcast math"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Use WPA2/WPA3 rather than open or obsolete wireless security."
+  },
+  {
+    "id": "ccst-security-025",
+    "domain": "Security",
+    "type": "statement-block",
+    "question": "Evaluate these statements about guest network. [Scenario 268]",
+    "statements": [
+      "guest network: Guest networks isolate visitor devices from internal resources.",
+      "cable category rating is the best description of guest network.",
+      "guest network is relevant to entry-level network support tasks."
+    ],
+    "correctAnswers": [
+      true,
+      false,
+      true
+    ],
+    "explanation": "Guest Wi-Fi should not place unmanaged devices on the production LAN. The second statement confuses guest network with cable category rating, which belongs to a different troubleshooting or design context."
+  },
+  {
+    "id": "ccst-security-026",
+    "domain": "Security",
+    "type": "ordering",
+    "question": "Place the support workflow steps in the best order for a security task. [Scenario 269]",
+    "items": [
+      "Map the requirement to the right network concept",
+      "Document the result",
+      "Identify the requirement",
+      "Validate the configuration or behavior"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "explanation": "Step 1: Start from the user or business need. Step 2: Choose the relevant protocol, device, or addressing behavior. Step 3: Use commands, documentation, or tests to confirm. Step 4: Record the finding so the next technician has context."
+  },
+  {
+    "id": "ccst-security-027",
+    "domain": "Security",
+    "type": "single-choice",
+    "question": "A junior technician is reviewing a support ticket. The clue says: \"Physical access to network gear can become logical access.\" Which networking concept is being described? [Scenario 270]",
+    "choices": [
+      "subnet broadcast math",
+      "interface speed negotiation",
+      "physical security",
+      "cable category rating"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Locked closets and controlled console access protect infrastructure."
+  }
+]

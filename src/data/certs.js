@@ -3,6 +3,7 @@ import awsCloudPractitionerQuestionsUrl from './questions.json?url'
 import cdlQuestionsUrl from './cdl-questions.json?url'
 import ncaAiioQuestionsUrl from './nca-aiio-questions.json?url'
 import ncaGenlQuestionsUrl from './nca-genl-questions.json?url'
+import ccstNetworkingQuestionsUrl from './ccst-networking-questions.json?url'
 import comptiaNetPlusQuestionsUrl from './comptia-net-plus-questions.json?url'
 import comptiaSecPlusQuestionsUrl from './comptia-sec-plus-questions.json?url'
 import comptiaServerPlusQuestionsUrl from './comptia-server-plus-questions.json?url'
@@ -138,6 +139,24 @@ const APLUS_CORE_1_DOMAINS = [
   { name: 'Virtualization and Cloud Computing', weight: 11 },
   { name: 'Hardware and Network Troubleshooting', weight: 28 },
 ]
+
+const CCST_NETWORKING_DOMAINS = [
+  { name: 'Standards and Concepts', weight: 15 },
+  { name: 'Addressing and Subnet Formats', weight: 20 },
+  { name: 'Endpoints and Media Types', weight: 20 },
+  { name: 'Infrastructure', weight: 20 },
+  { name: 'Diagnosing Problems', weight: 15 },
+  { name: 'Security', weight: 10 },
+]
+
+const CCST_NETWORKING_COLORS = {
+  'Standards and Concepts': { dot: 'bg-[#1d4ed8]', bar: 'bg-[#1d4ed8]', text: 'text-[#1d4ed8]', hex: '#1d4ed8' },
+  'Addressing and Subnet Formats': { dot: 'bg-[#0284c7]', bar: 'bg-[#0284c7]', text: 'text-[#0284c7]', hex: '#0284c7' },
+  'Endpoints and Media Types': { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
+  Infrastructure: { dot: 'bg-[#0f766e]', bar: 'bg-[#0f766e]', text: 'text-[#0f766e]', hex: '#0f766e' },
+  'Diagnosing Problems': { dot: 'bg-[#4f46e5]', bar: 'bg-[#4f46e5]', text: 'text-[#4f46e5]', hex: '#4f46e5' },
+  Security: { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
+}
 
 const APLUS_CORE_2_DOMAINS = [
   { name: 'Operating Systems', weight: 28 },
@@ -314,6 +333,22 @@ const certs = {
       'Network Security': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
       'Network Troubleshooting': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
     },
+  },
+  'ccst-networking': {
+    id: 'ccst-networking',
+    title: 'Cisco CCST Networking',
+    code: '100-150',
+    provider: 'Cisco',
+    description: 'Cisco-oriented foundational networking support credential for learners who want a CCNA-aligned starting point before deeper Cisco study.',
+    difficulty: 'Foundational',
+    color: '#1d4ed8',
+    questionCount: 270,
+    examQuestions: 50,
+    examTime: 50,
+    passingScore: 70,
+    loadQuestions: () => loadQuestionAsset(ccstNetworkingQuestionsUrl),
+    domains: CCST_NETWORKING_DOMAINS,
+    domainColors: CCST_NETWORKING_COLORS,
   },
   'comptia-sec-plus': {
     id: 'comptia-sec-plus',
