@@ -36,9 +36,9 @@ const paths = [
   {
     id: 'it-entry',
     eyebrow: 'IT Entry',
-    title: 'Start here',
+    title: 'Start with A+ if you are brand new',
     description:
-      'A guided foundation for support roles before you choose a deeper technical lane.',
+      'A+ is the clean first step for hardware, operating systems, troubleshooting, and everyday support skills.',
     icon: GraduationCap,
     color: '#ef4444',
     featured: true,
@@ -157,7 +157,7 @@ export default function Home() {
                 Free practice for modern IT certifications
               </div>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-100 leading-none mb-7">
-                Choose a direction. Build exam confidence.
+                Choose a direction. Build confidence.
               </h1>
               <p className="text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
                 FreeCertPrep organizes certifications around career momentum, not vendor logos. Start at the level that fits, practice with exam-shaped sessions, and let Smart Practice keep the right questions in rotation.
@@ -179,7 +179,7 @@ export default function Home() {
               </div>
             </div>
 
-            <HeroPanel />
+            <div aria-hidden="true" className="hidden lg:block" />
           </div>
         </section>
 
@@ -275,41 +275,6 @@ export default function Home() {
   )
 }
 
-function HeroPanel() {
-  return (
-    <div className="animate-fade-up" style={{ animationDelay: '120ms' }}>
-      <div className="border border-white/10 bg-zinc-950/75 rounded-lg p-6 shadow-2xl shadow-black/20">
-        <div className="flex items-center justify-between gap-4 border-b border-white/5 pb-5 mb-5">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">Recommended flow</p>
-            <h2 className="text-2xl font-bold text-zinc-100">Start broad. Specialize with intent.</h2>
-          </div>
-          <div className="w-11 h-11 rounded-lg border border-white/10 bg-zinc-900 flex items-center justify-center text-red-300">
-            <GraduationCap className="w-5 h-5" />
-          </div>
-        </div>
-        <div className="space-y-3">
-          <HeroStep number="01" title="Foundation" desc="Build practical support fluency before chasing a specialization." />
-          <HeroStep number="02" title="Core Skill" desc="Choose networking, cloud, security, or NVIDIA based on the work you want." />
-          <HeroStep number="03" title="Exam Readiness" desc="Move into timed practice once the weak spots are visible." />
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function HeroStep({ number, title, desc }) {
-  return (
-    <div className="grid grid-cols-[auto_1fr] gap-4 rounded-lg border border-white/5 bg-zinc-900/35 p-4">
-      <span className="text-xs font-bold text-zinc-500">{number}</span>
-      <div>
-        <p className="text-sm font-bold text-zinc-100">{title}</p>
-        <p className="text-sm text-zinc-500 leading-relaxed mt-1">{desc}</p>
-      </div>
-    </div>
-  )
-}
-
 function PathCard({ path, className = '', variant = 'default' }) {
   const Icon = path.icon
   const featured = path.featured
@@ -333,7 +298,7 @@ function PathCard({ path, className = '', variant = 'default' }) {
               <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">{path.description}</p>
             </div>
           </div>
-          <PathCta to={path.to} label="Open path" accentColor={path.color} />
+          <PathCta to={path.to} label="View A+ path" accentColor={path.color} compact />
         </div>
       </div>
     )
@@ -368,11 +333,11 @@ function PathCard({ path, className = '', variant = 'default' }) {
   )
 }
 
-function PathCta({ to, label, accentColor }) {
+function PathCta({ to, label, accentColor, compact = false }) {
   return (
     <Link
       to={to}
-      className="inline-flex w-full items-center justify-between gap-3 rounded-md border border-white/10 bg-zinc-900/55 px-3 py-2.5 text-sm font-semibold text-zinc-100 hover:bg-zinc-900 transition-colors"
+      className={`inline-flex items-center justify-between gap-3 rounded-md border border-white/10 bg-zinc-900/55 px-3 py-2.5 text-sm font-semibold text-zinc-100 hover:bg-zinc-900 transition-colors ${compact ? 'w-auto self-start' : 'w-full'}`}
       style={{ borderColor: `${accentColor}35` }}
     >
       {label}
