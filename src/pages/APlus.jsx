@@ -10,6 +10,8 @@ const CORE_BLUEPRINTS = {
     route: '/comptia-a-plus-core-1',
     title: 'Hardware, networking, mobile, cloud',
     passingScore: '675 / 900',
+    liveQuestions: 750,
+    status: 'Production pool live',
     focus: 'Best first stop for device support, network basics, printers, virtualization, and hardware troubleshooting.',
     domains: [
       ['Mobile Devices', 13],
@@ -25,6 +27,8 @@ const CORE_BLUEPRINTS = {
     route: '/comptia-a-plus-core-2',
     title: 'Operating systems, security, procedures',
     passingScore: '700 / 900',
+    liveQuestions: 750,
+    status: 'Production pool live',
     focus: 'Best second stop for Windows, macOS, Linux, malware response, software troubleshooting, and support process.',
     domains: [
       ['Operating Systems', 28],
@@ -35,16 +39,15 @@ const CORE_BLUEPRINTS = {
   },
 }
 
-const CONTENT_TARGETS = [
-  ['270', 'live questions per core'],
-  ['750', 'target per core'],
-  ['90', 'exam questions'],
-  ['90', 'minutes per exam'],
-]
-
 export default function APlus() {
   const [selectedCore, setSelectedCore] = useState('core1')
   const core = CORE_BLUEPRINTS[selectedCore]
+  const contentTargets = [
+    [String(core.liveQuestions), `${core.label} live questions`],
+    ['750', `${core.label} target`],
+    ['90', 'exam questions'],
+    ['90', 'minutes per exam'],
+  ]
 
   useDocumentMeta({
     title: 'CompTIA A+ Core 1 and Core 2 | freecertprep',
@@ -83,7 +86,7 @@ export default function APlus() {
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              {CONTENT_TARGETS.map(([value, label]) => (
+              {contentTargets.map(([value, label]) => (
                 <div key={label} className="glass-panel rounded-2xl p-5">
                   <p className="text-3xl font-bold text-zinc-100">{value}</p>
                   <p className="text-xs font-semibold text-zinc-500 uppercase tracking-widest mt-1">{label}</p>
@@ -134,7 +137,7 @@ export default function APlus() {
                 {core.label} {core.code}
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed mb-6">
-                First iteration: 270 reviewed questions for this core, with a production target of 750. The 90-question simulator draws by official domain weights.
+                {core.label} currently has {core.liveQuestions.toLocaleString()} reviewed questions, with a production target of 750. The 90-question simulator draws by official domain weights.
               </p>
               <div className="glass-panel rounded-2xl p-5">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">
@@ -143,7 +146,7 @@ export default function APlus() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-zinc-500">Status</span>
-                  <span className="text-sm font-semibold text-emerald-300">First pool live</span>
+                  <span className="text-sm font-semibold text-emerald-300">{core.status}</span>
                 </div>
               </div>
               <div className="mt-5 flex flex-col sm:flex-row gap-3">

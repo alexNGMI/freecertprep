@@ -20,7 +20,7 @@ Cisco Certified Support Technician (CCST) Networking is a good fit for freecertp
 - Level: Foundational
 - Duration: 50 minutes
 - Published scope: entry-level networking support skills and CCNA-oriented foundation
-- Practice model in this repo: 270-question first-iteration pool, 50-question timed simulator, 50-minute timer, 70% practice pass threshold
+- Practice model in this repo: 750-question production pool, 50-question timed simulator, 50-minute timer, 70% practice pass threshold
 
 Cisco reports certification results through its own scoring process. The local simulator uses a percentage pass threshold only as a practice benchmark and should not be represented as Cisco's official scaled score.
 
@@ -30,24 +30,32 @@ The first implementation uses the public Cisco CCST Networking objective areas a
 
 | Domain | Weight |
 | --- | ---: |
-| Standards and Concepts | 15% |
-| Addressing and Subnet Formats | 20% |
-| Endpoints and Media Types | 20% |
-| Infrastructure | 20% |
-| Diagnosing Problems | 15% |
-| Security | 10% |
+| Standards and Concepts | 15% | 113 |
+| Addressing and Subnet Formats | 20% | 150 |
+| Endpoints and Media Types | 20% | 150 |
+| Infrastructure | 20% | 150 |
+| Diagnosing Problems | 15% | 112 |
+| Security | 10% | 75 |
 
 ## Question-Type Mapping
 
-The app already supports the item formats needed for an exam-like CCST pool:
+Cisco's public CCST Networking pages confirm the exam scope, 50-minute duration, proctored delivery, and CCNA-stepstone positioning, but they do not publish a precise item-type mix. The production pool therefore mirrors the Cisco written-exam surface we can responsibly model in this app:
 
 - Cisco-style single-answer items -> `single-choice`
 - Cisco-style multi-answer items -> `multiple-response`
 - Drag/drop categorization -> `matching`
 - Drag/drop process ordering -> `ordering`
-- True/false concept validation tables -> `statement-block`
 
-No new renderer is required for CCST. The existing IT `QuestionCard`, scoring utility, and content-sanity checks cover the necessary schema.
+The first iteration also used `statement-block` items, but those have been removed from the CCST production generator because they are a freecertprep study format rather than a direct Cisco exam analogue. No new renderer is required for CCST. The existing IT `QuestionCard`, scoring utility, and content-sanity checks cover the necessary schema.
+
+Production item mix:
+
+| Type | Questions |
+| --- | ---: |
+| Single-choice | 450 |
+| Multiple-response | 150 |
+| Matching | 75 |
+| Ordering | 75 |
 
 ## Catalog Integration
 
@@ -64,6 +72,6 @@ The Networking guided path should offer:
 2. Cisco CCST Networking as the Cisco/CCNA-oriented route
 3. CompTIA Server+ as the systems follow-up
 
-## Production Target
+## Production Status
 
-First iteration ships 270 questions. The production target should be 750 reviewed questions, matching the depth standard used by the mature CompTIA pools.
+CCST Networking now ships 750 reviewed questions, matching the depth standard used by the mature CompTIA pools.

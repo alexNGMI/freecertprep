@@ -3,12 +3,12 @@ import fs from 'node:fs'
 const OUT = 'src/data/ccst-networking-questions.json'
 
 const domains = [
-  { name: 'Standards and Concepts', count: 41 },
-  { name: 'Addressing and Subnet Formats', count: 54 },
-  { name: 'Endpoints and Media Types', count: 54 },
-  { name: 'Infrastructure', count: 54 },
-  { name: 'Diagnosing Problems', count: 40 },
-  { name: 'Security', count: 27 },
+  { name: 'Standards and Concepts', count: 113 },
+  { name: 'Addressing and Subnet Formats', count: 150 },
+  { name: 'Endpoints and Media Types', count: 150 },
+  { name: 'Infrastructure', count: 150 },
+  { name: 'Diagnosing Problems', count: 112 },
+  { name: 'Security', count: 75 },
 ]
 
 const concepts = {
@@ -105,7 +105,18 @@ const distractors = {
   Security: ['cable category rating', 'subnet broadcast math', 'interface speed negotiation', 'routing metric'],
 }
 
-const typePlan = ['single', 'single', 'single', 'mr', 'statement', 'matching', 'ordering']
+const typePlan = [
+  'single',
+  'single',
+  'single',
+  'single',
+  'single',
+  'single',
+  'mr',
+  'mr',
+  'matching',
+  'ordering',
+]
 
 function idFor(domain, n) {
   return `ccst-${domain.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}-${String(n).padStart(3, '0')}`
@@ -121,10 +132,16 @@ function single(domain, fact, n) {
   const choices = [term, ...wrong]
   const offset = n % choices.length
   const rotated = [...choices.slice(offset), ...choices.slice(0, offset)]
+  const prompts = [
+    `A junior technician is reviewing a support ticket. The clue says: "${definition}" Which networking concept is being described?`,
+    `A help desk technician sees this description in a knowledge-base note: "${definition}" Which term best matches it?`,
+    `A learner is mapping Cisco CCST Networking concepts to support tasks. Which option matches this description: "${definition}"?`,
+    `A network support ticket includes this finding: "${definition}" What should the technician identify it as?`,
+  ]
   return {
     type: 'single-choice',
     domain,
-    question: `A junior technician is reviewing a support ticket. The clue says: "${definition}" Which networking concept is being described?`,
+    question: prompts[n % prompts.length],
     choices: rotated,
     correctAnswer: rotated.indexOf(term),
     explanation,
@@ -226,7 +243,7 @@ function buildQuestion(domain, type, domainIndex, globalIndex) {
 const questions = []
 for (const domain of domains) {
   for (let i = 0; i < domain.count; i += 1) {
-    const type = typePlan[(i + questions.length) % typePlan.length]
+    const type = typePlan[questions.length % typePlan.length]
     questions.push(buildQuestion(domain.name, type, i, questions.length))
   }
 }

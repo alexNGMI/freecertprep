@@ -11,21 +11,21 @@ Free, open-source certification exam prep for the IT certifications that open do
 | Google Cloud Digital Leader | Google Cloud | CDL | Foundational | 749 | 50 | 90 min | 70% |
 | NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 336 | 50 | 60 min | 70% |
 | NVIDIA Generative AI LLMs | NVIDIA | NCA-GENL | Associate | 330 | 50 | 60 min | 70% |
-| Cisco CCST Networking | Cisco | 100-150 | Foundational | 270 | 50 | 50 min | 70% practice |
+| Cisco CCST Networking | Cisco | 100-150 | Foundational | 750 | 50 | 50 min | 70% practice |
 | CompTIA Network+ | CompTIA | N10-009 | Foundational | 750 | 90 | 90 min | 80% |
 | CompTIA Security+ | CompTIA | SY0-701 | Foundational | 750 | 90 | 90 min | 83% |
 | CompTIA Server+ | CompTIA | SK0-005 | Foundational | 750 | 90 | 90 min | 83% |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
 
-**5,898 questions across 10 certifications.**
+**6,378 questions across 10 certifications.**
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
-> **A+ track preview is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector that keeps Core 1 (220-1201) and Core 2 (220-1202) outside the main catalog grid. Each core has a first-iteration 270-question pool and a 90-question / 90-minute simulator; the production target is 750 reviewed questions per core.
+> **A+ track preview is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector that keeps Core 1 (220-1201) and Core 2 (220-1202) outside the main catalog grid. Each core now has a 750-question production pool and a 90-question / 90-minute simulator aligned to the official domain weights.
 
 > **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. `/paths/it-entry`, `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence; the Cloud path starts with one vendor foundation (AWS, Azure, or Google Cloud) and then moves into Terraform.
 
-> **Cisco path preview is live:** Cisco CCST Networking (100-150) adds a 270-question first-iteration pool as a Cisco / CCNA-oriented alternative to Network+. It uses all five supported item types, including matching and ordering to model Cisco-style drag/drop categorization and workflow items.
+> **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
 ### Sister site — Real Estate
 
@@ -46,6 +46,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 - **Home** - Guided learning paths up top, direct certification catalog below.
 - **Path pages** - Dedicated lanes for IT Entry, Networking, Cybersecurity, Cloud, and NVIDIA. Networking offers Network+ or Cisco CCST before Server+; Cloud guides learners through AWS/Azure/Google Cloud first, then Terraform.
+- **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) and Cisco CCNA (200-301) are planned as separate advanced tracks. SAA can start with deep scenario MCQ/MR and architecture tradeoff rationales; CCNA should wait for topology, drag/drop, and CLI-style troubleshooting simulations before entering the catalog.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
 - **Timed Drill** — 10 questions in 10 minutes, color-shifting countdown timer.

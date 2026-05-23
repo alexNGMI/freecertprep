@@ -1,4 +1,4 @@
-# CompTIA A+ First Iteration Audit
+# CompTIA A+ Production Pool Audit
 
 Date: 2026-05-22
 
@@ -6,8 +6,9 @@ Date: 2026-05-22
 
 - Core 1: `comptia-a-plus-core-1` / `220-1201`
 - Core 2: `comptia-a-plus-core-2` / `220-1202`
-- First iteration size: 270 questions per core
-- Production target: 750 questions per core
+- Core 1 production pool: 750 questions
+- Core 2 production pool: 750 questions
+- Production target: met for both cores
 - Catalog behavior: registered as `published: false`, routable from `/comptia/a-plus`, hidden from the main 3x3 homepage catalog
 
 ## Blueprint Alignment
@@ -16,33 +17,33 @@ Core 1 domain allocation:
 
 | Domain | Weight | Questions |
 | --- | ---: | ---: |
-| Mobile Devices | 13% | 35 |
-| Networking | 23% | 62 |
-| Hardware | 25% | 68 |
-| Virtualization and Cloud Computing | 11% | 30 |
-| Hardware and Network Troubleshooting | 28% | 75 |
+| Mobile Devices | 13% | 98 |
+| Networking | 23% | 173 |
+| Hardware | 25% | 188 |
+| Virtualization and Cloud Computing | 11% | 82 |
+| Hardware and Network Troubleshooting | 28% | 209 |
 
 Core 2 domain allocation:
 
 | Domain | Weight | Questions |
 | --- | ---: | ---: |
-| Operating Systems | 28% | 76 |
-| Security | 28% | 76 |
-| Software Troubleshooting | 23% | 62 |
-| Operational Procedures | 21% | 56 |
+| Operating Systems | 28% | 210 |
+| Security | 28% | 210 |
+| Software Troubleshooting | 23% | 173 |
+| Operational Procedures | 21% | 157 |
 
 ## Quality Checks
 
 | Check | Core 1 | Core 2 |
 | --- | ---: | ---: |
-| Total questions | 270 | 270 |
+| Total questions | 750 | 750 |
 | Duplicate stems | 0 | 0 |
-| Single-choice answer balance | 49 / 52 / 52 / 50 | 49 / 52 / 50 / 49 |
-| Single-choice | 203 | 200 |
-| Multiple-response | 33 | 33 |
-| Statement-block | 23 | 23 |
-| Matching | 7 | 8 |
-| Ordering | 4 | 6 |
+| Single-choice answer balance | 139 / 141 / 139 / 139 | 137 / 138 / 138 / 138 |
+| Single-choice | 558 | 551 |
+| Multiple-response | 94 | 93 |
+| Statement-block | 65 | 65 |
+| Matching | 22 | 24 |
+| Ordering | 11 | 17 |
 
 Automated gates passed:
 
@@ -53,4 +54,4 @@ Automated gates passed:
 
 ## Verdict
 
-The first A+ iteration is usable for Core 1 and Core 2 practice while staying separate from the main catalog grid. The next content milestone is expanding each core from 270 to 750 questions with deeper scenario coverage and additional PBQ-style matching/ordering items.
+Core 1 and Core 2 now both meet the 750-question production target while staying separate from the main catalog grid. Each core keeps its own route, passing score, official domain weighting, 90-question simulator, and mixed item-type coverage for single-choice, multiple-response, statement-block, matching, and ordering practice.

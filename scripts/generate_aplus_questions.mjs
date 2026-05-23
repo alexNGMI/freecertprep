@@ -5,18 +5,18 @@ import { fileURLToPath } from 'node:url'
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
 const core1Domains = [
-  ['Mobile Devices', 35],
-  ['Networking', 62],
-  ['Hardware', 68],
-  ['Virtualization and Cloud Computing', 30],
-  ['Hardware and Network Troubleshooting', 75],
+  ['Mobile Devices', 98],
+  ['Networking', 173],
+  ['Hardware', 188],
+  ['Virtualization and Cloud Computing', 82],
+  ['Hardware and Network Troubleshooting', 209],
 ]
 
 const core2Domains = [
-  ['Operating Systems', 76],
-  ['Security', 76],
-  ['Software Troubleshooting', 62],
-  ['Operational Procedures', 56],
+  ['Operating Systems', 210],
+  ['Security', 210],
+  ['Software Troubleshooting', 173],
+  ['Operational Procedures', 157],
 ]
 
 const banks = {
@@ -159,6 +159,34 @@ const contexts = [
   'during a new-hire setup',
   'after a recent configuration change',
   'while supporting a hybrid worker',
+  'during an executive device refresh',
+  'while onboarding a contractor',
+  'for a classroom lab environment',
+  'during a warranty repair intake',
+  'while validating a spare device',
+  'after a power outage',
+  'during a branch-office visit',
+  'while documenting a repeat failure',
+  'for a shared workstation area',
+  'while replacing an aging endpoint',
+  'during a mobile-device enrollment',
+  'after a failed self-service setup',
+  'while preparing loaner equipment',
+  'for a secure work-from-home kit',
+  'during a printer and workstation refresh',
+  'while checking a newly imaged system',
+  'after a user reports intermittent behavior',
+  'during a network closet inspection',
+  'while supporting a conference room device',
+  'for a technician training scenario',
+]
+
+const prompts = [
+  'Which action is BEST?',
+  'What should the technician do FIRST?',
+  'Which choice is the MOST appropriate fix?',
+  'Which option best matches the requirement?',
+  'What is the most likely correct next step?',
 ]
 
 function rotateChoices(correct, distractors, offset) {
@@ -174,7 +202,7 @@ function singleQuestion(prefix, idNum, domain, topic, variant) {
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
-    question: `A technician needs to ${task} ${variant}. Which action is BEST?`,
+    question: `A technician needs to ${task} ${variant}. ${prompts[idNum % prompts.length]}`,
     choices,
     correctAnswer,
     explanation: why,
