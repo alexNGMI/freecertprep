@@ -118,12 +118,37 @@ const typePlan = [
   'ordering',
 ]
 
+const ccstContexts = [
+  'while checking a small-office outage',
+  'during a new switch deployment',
+  'while reviewing a help desk escalation',
+  'during a classroom lab',
+  'while documenting a branch-office issue',
+  'during a wireless support call',
+  'while preparing a CCNA study plan',
+  'during a ticket handoff',
+]
+
 function idFor(domain, n) {
   return `ccst-${domain.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}-${String(n).padStart(3, '0')}`
 }
 
 function rotate(arr, n) {
   return arr[n % arr.length]
+}
+
+function context(n) {
+  return `${ccstContexts[n % ccstContexts.length]} on case ${String(n + 1).padStart(3, '0')}`
+}
+
+function shuffleWithMatches(itemsRight, offset) {
+  const decorated = itemsRight.map((item, original) => ({ item, original }))
+  const rotations = itemsRight.length > 1 ? (offset % (itemsRight.length - 1)) + 1 : 0
+  const shuffled = [...decorated.slice(rotations), ...decorated.slice(0, rotations)]
+  return {
+    itemsRight: shuffled.map(({ item }) => item),
+    correctMatches: decorated.map((_, original) => shuffled.findIndex(item => item.original === original)),
+  }
 }
 
 function single(domain, fact, n) {
@@ -133,10 +158,10 @@ function single(domain, fact, n) {
   const offset = n % choices.length
   const rotated = [...choices.slice(offset), ...choices.slice(0, offset)]
   const prompts = [
-    `A junior technician is reviewing a support ticket. The clue says: "${definition}" Which networking concept is being described?`,
-    `A help desk technician sees this description in a knowledge-base note: "${definition}" Which term best matches it?`,
-    `A learner is mapping Cisco CCST Networking concepts to support tasks. Which option matches this description: "${definition}"?`,
-    `A network support ticket includes this finding: "${definition}" What should the technician identify it as?`,
+    `A junior technician is reviewing a support ticket ${context(n)}. The clue says: "${definition}" Which networking concept is being described?`,
+    `A help desk technician sees this description in a knowledge-base note ${context(n)}: "${definition}" Which term best matches it?`,
+    `A learner is mapping Cisco CCST Networking concepts to support tasks ${context(n)}. Which option matches this description: "${definition}"?`,
+    `A network support ticket includes this finding ${context(n)}: "${definition}" What should the technician identify it as?`,
   ]
   return {
     type: 'single-choice',
@@ -153,10 +178,15 @@ function multipleResponse(domain, facts, n) {
   const b = rotate(facts, n + 3)
   const wrong = distractors[domain].slice(0, 2)
   const choices = [a[0], wrong[0], b[0], wrong[1]]
+  const prompts = [
+    `A learner is building a Cisco CCST review sheet ${context(n)}. Which two choices belong to ${domain}? (Select two.)`,
+    `A technician is sorting ticket notes by objective area ${context(n)}. Which two entries match ${domain}? (Select two.)`,
+    `A mentor asks a trainee to identify concepts from ${domain} ${context(n)}. Which two should the trainee choose? (Select two.)`,
+  ]
   return {
     type: 'multiple-response',
     domain,
-    question: `A learner wants to identify two concepts that belong to ${domain}. Which two choices fit this objective area? (Select two.)`,
+    question: prompts[n % prompts.length],
     choices,
     correctAnswers: [0, 2],
     explanation: `${a[0]} and ${b[0]} are both tested within ${domain}. ${a[2]} ${b[2]}`,
@@ -182,37 +212,64 @@ function statementBlock(domain, fact, n) {
 
 function matching(domain, facts, n) {
   const selected = [rotate(facts, n), rotate(facts, n + 1), rotate(facts, n + 2)]
+  const shuffled = shuffleWithMatches(selected.map(f => f[1]), n)
   return {
     type: 'matching',
     domain,
-    question: `Match each ${domain.toLowerCase()} term to the best description.`,
+    question: `Match each ${domain.toLowerCase()} term to the best description ${context(n)}.`,
     itemsLeft: selected.map(f => f[0]),
-    itemsRight: selected.map(f => f[1]),
-    correctMatches: [0, 1, 2],
+    itemsRight: shuffled.itemsRight,
+    correctMatches: shuffled.correctMatches,
     explanation: selected.map(f => `${f[0]}: ${f[2]}`).join(' '),
   }
 }
 
 function ordering(domain, facts, n) {
-  const troubleshooting = [
-    ['Verify physical link and power', 'Check link lights, cable seating, and device power before changing logical settings.'],
-    ['Check local IP configuration', 'Confirm address, mask, gateway, and DNS settings.'],
-    ['Test local and remote reachability', 'Use ping or similar tests to isolate where communication stops.'],
-    ['Escalate or change configuration', 'Apply the targeted fix only after the failing layer is identified.'],
-  ]
-  const cloudless = [
-    ['Identify the requirement', 'Start from the user or business need.'],
-    ['Map the requirement to the right network concept', 'Choose the relevant protocol, device, or addressing behavior.'],
-    ['Validate the configuration or behavior', 'Use commands, documentation, or tests to confirm.'],
-    ['Document the result', 'Record the finding so the next technician has context.'],
-  ]
-  const steps = domain === 'Diagnosing Problems' ? troubleshooting : cloudless
+  const workflowSets = {
+    'Standards and Concepts': [
+      ['Identify the affected OSI layer', 'Start by mapping the symptom to the likely layer.'],
+      ['Choose the matching protocol or device behavior', 'Tie the layer to the relevant networking concept.'],
+      ['Verify with a simple observation or command', 'Use link lights, address output, or reachability checks.'],
+      ['Document the concept and evidence', 'Record why the concept explains the symptom.'],
+    ],
+    'Addressing and Subnet Formats': [
+      ['Record the IP address and prefix', 'Capture the current addressing details first.'],
+      ['Determine the network and host portions', 'Use the mask or prefix to identify subnet membership.'],
+      ['Compare gateway and destination subnet', 'Decide whether traffic should stay local or route away.'],
+      ['Document the valid addressing fix', 'Record the corrected address, mask, or gateway.'],
+    ],
+    'Endpoints and Media Types': [
+      ['Identify the endpoint and media type', 'Know whether the issue involves copper, fiber, wireless, or a device.'],
+      ['Check power, link, and connector status', 'Physical media and endpoint power are common first failures.'],
+      ['Validate negotiated speed or wireless signal', 'Confirm the endpoint is connected at an expected quality.'],
+      ['Document replacement or escalation needs', 'Record faulty media, transceivers, or endpoint behavior.'],
+    ],
+    Infrastructure: [
+      ['Identify the infrastructure device role', 'Determine whether the device switches, routes, filters, or provides services.'],
+      ['Check the connected VLAN or network path', 'Confirm the device is attached to the expected logical segment.'],
+      ['Validate the service or forwarding behavior', 'Test DHCP, DNS, NAT, routing, or switching as appropriate.'],
+      ['Record the change or escalation path', 'Document the verified behavior and next owner if needed.'],
+    ],
+    'Diagnosing Problems': [
+      ['Verify physical link and power', 'Check link lights, cable seating, and device power before changing logical settings.'],
+      ['Check local IP configuration', 'Confirm address, mask, gateway, and DNS settings.'],
+      ['Test local and remote reachability', 'Use ping or similar tests to isolate where communication stops.'],
+      ['Escalate or change configuration', 'Apply the targeted fix only after the failing layer is identified.'],
+    ],
+    Security: [
+      ['Identify the asset or access risk', 'Start with what needs protection and who should have access.'],
+      ['Choose the appropriate control', 'Map the risk to MFA, segmentation, ACLs, patching, or wireless security.'],
+      ['Verify the control is applied', 'Confirm the policy actually changes access or exposure.'],
+      ['Document the security outcome', 'Record what was protected and any remaining risk.'],
+    ],
+  }
+  const steps = workflowSets[domain]
   const order = [0, 1, 2, 3]
   const display = n % 2 === 0 ? [2, 0, 3, 1] : [1, 3, 0, 2]
   return {
     type: 'ordering',
     domain,
-    question: `Place the support workflow steps in the best order for a ${domain.toLowerCase()} task.`,
+    question: `Place the support workflow steps in the best order for a task in ${domain.toLowerCase()} ${context(n)}.`,
     items: display.map(i => steps[i][0]),
     correctOrder: order.map(i => display.indexOf(i)),
     explanation: steps.map(([, why], i) => `Step ${i + 1}: ${why}`).join(' '),
@@ -236,7 +293,6 @@ function buildQuestion(domain, type, domainIndex, globalIndex) {
     id: idFor(domain, domainIndex + 1),
     domain,
     ...q,
-    question: `${q.question} [Scenario ${globalIndex + 1}]`,
   }
 }
 

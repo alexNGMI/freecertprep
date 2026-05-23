@@ -1412,16 +1412,16 @@
       "SSH"
     ],
     "itemsRight": [
-      "Name resolution",
       "Automatic IP addressing",
       "Encrypted web traffic",
-      "Secure remote shell"
+      "Secure remote shell",
+      "Name resolution"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -1657,16 +1657,16 @@
       "Wi-Fi analyzer"
     ],
     "itemsRight": [
+      "Review signal and channels",
       "Trace cable runs",
       "Verify wire map",
-      "Test a port or adapter",
-      "Review signal and channels"
+      "Test a port or adapter"
     ],
     "correctMatches": [
-      0,
       1,
       2,
-      3
+      3,
+      0
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -1906,16 +1906,16 @@
       "SSH"
     ],
     "itemsRight": [
-      "Name resolution",
-      "Automatic IP addressing",
       "Encrypted web traffic",
-      "Secure remote shell"
+      "Secure remote shell",
+      "Name resolution",
+      "Automatic IP addressing"
     ],
     "correctMatches": [
-      0,
-      1,
       2,
-      3
+      3,
+      0,
+      1
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -2151,16 +2151,16 @@
       "Wi-Fi analyzer"
     ],
     "itemsRight": [
-      "Trace cable runs",
       "Verify wire map",
       "Test a port or adapter",
-      "Review signal and channels"
+      "Review signal and channels",
+      "Trace cable runs"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -2400,16 +2400,16 @@
       "SSH"
     ],
     "itemsRight": [
+      "Secure remote shell",
       "Name resolution",
       "Automatic IP addressing",
-      "Encrypted web traffic",
-      "Secure remote shell"
+      "Encrypted web traffic"
     ],
     "correctMatches": [
-      0,
       1,
       2,
-      3
+      3,
+      0
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -2645,16 +2645,16 @@
       "Wi-Fi analyzer"
     ],
     "itemsRight": [
-      "Trace cable runs",
-      "Verify wire map",
       "Test a port or adapter",
-      "Review signal and channels"
+      "Review signal and channels",
+      "Trace cable runs",
+      "Verify wire map"
     ],
     "correctMatches": [
-      0,
-      1,
       2,
-      3
+      3,
+      0,
+      1
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -2894,16 +2894,16 @@
       "SSH"
     ],
     "itemsRight": [
-      "Name resolution",
       "Automatic IP addressing",
       "Encrypted web traffic",
-      "Secure remote shell"
+      "Secure remote shell",
+      "Name resolution"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -3143,16 +3143,16 @@
       "Wi-Fi analyzer"
     ],
     "itemsRight": [
+      "Review signal and channels",
       "Trace cable runs",
       "Verify wire map",
-      "Test a port or adapter",
-      "Review signal and channels"
+      "Test a port or adapter"
     ],
     "correctMatches": [
-      0,
       1,
       2,
-      3
+      3,
+      0
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -3384,16 +3384,16 @@
       "SSH"
     ],
     "itemsRight": [
-      "Name resolution",
-      "Automatic IP addressing",
       "Encrypted web traffic",
-      "Secure remote shell"
+      "Secure remote shell",
+      "Name resolution",
+      "Automatic IP addressing"
     ],
     "correctMatches": [
-      0,
-      1,
       2,
-      3
+      3,
+      0,
+      1
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -3633,16 +3633,16 @@
       "Wi-Fi analyzer"
     ],
     "itemsRight": [
-      "Trace cable runs",
       "Verify wire map",
       "Test a port or adapter",
-      "Review signal and channels"
+      "Review signal and channels",
+      "Trace cable runs"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -3878,16 +3878,16 @@
       "Fuser"
     ],
     "itemsRight": [
+      "Bonds toner to paper",
       "Converts AC to DC power",
       "Volatile working memory",
-      "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Stores cryptographic keys"
     ],
     "correctMatches": [
-      0,
       1,
       2,
-      3
+      3,
+      0
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -4131,16 +4131,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
-      "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power",
+      "Volatile working memory"
     ],
     "correctMatches": [
-      0,
-      1,
       2,
-      3
+      3,
+      0,
+      1
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -4376,16 +4376,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
       "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -4625,16 +4625,16 @@
       "Fuser"
     ],
     "itemsRight": [
+      "Bonds toner to paper",
       "Converts AC to DC power",
       "Volatile working memory",
-      "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Stores cryptographic keys"
     ],
     "correctMatches": [
-      0,
       1,
       2,
-      3
+      3,
+      0
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -4870,16 +4870,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
-      "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power",
+      "Volatile working memory"
     ],
     "correctMatches": [
-      0,
-      1,
       2,
-      3
+      3,
+      0,
+      1
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -5119,16 +5119,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
       "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -5364,16 +5364,16 @@
       "Fuser"
     ],
     "itemsRight": [
+      "Bonds toner to paper",
       "Converts AC to DC power",
       "Volatile working memory",
-      "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Stores cryptographic keys"
     ],
     "correctMatches": [
-      0,
       1,
       2,
-      3
+      3,
+      0
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -5605,16 +5605,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
-      "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power",
+      "Volatile working memory"
     ],
     "correctMatches": [
-      0,
-      1,
       2,
-      3
+      3,
+      0,
+      1
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -5858,16 +5858,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
       "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -6103,16 +6103,16 @@
       "Fuser"
     ],
     "itemsRight": [
+      "Bonds toner to paper",
       "Converts AC to DC power",
       "Volatile working memory",
-      "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Stores cryptographic keys"
     ],
     "correctMatches": [
-      0,
       1,
       2,
-      3
+      3,
+      0
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -6356,16 +6356,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
-      "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power",
+      "Volatile working memory"
     ],
     "correctMatches": [
-      0,
-      1,
       2,
-      3
+      3,
+      0,
+      1
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -6601,16 +6601,16 @@
       "Fuser"
     ],
     "itemsRight": [
-      "Converts AC to DC power",
       "Volatile working memory",
       "Stores cryptographic keys",
-      "Bonds toner to paper"
+      "Bonds toner to paper",
+      "Converts AC to DC power"
     ],
     "correctMatches": [
+      3,
       0,
       1,
-      2,
-      3
+      2
     ],
     "explanation": "Each item maps to the function or tool most commonly associated with that support task."
   },
@@ -7755,7 +7755,7 @@
   {
     "id": "aplus-core1-542",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-001. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue for a remote employee on ticket HAR-001: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reinstall the printer driver first",
       "Change the DNS server",
@@ -7768,7 +7768,7 @@
   {
     "id": "aplus-core1-543",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-002. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a help desk escalation on ticket HAR-002: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -7781,7 +7781,7 @@
   {
     "id": "aplus-core1-544",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-003. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing a replacement workstation on ticket HAR-003: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -7794,7 +7794,7 @@
   {
     "id": "aplus-core1-545",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-004. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a department move on ticket HAR-004: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -7808,7 +7808,7 @@
     "id": "aplus-core1-546",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-005. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue for a small office rollout on ticket HAR-005: a laser printer leaves repeated marks down the page. Which TWO choices best support the response?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Verify the change after implementation and document the result",
@@ -7824,7 +7824,7 @@
   {
     "id": "aplus-core1-547",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-006. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a field-service visit on ticket HAR-006: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -7837,7 +7837,7 @@
   {
     "id": "aplus-core1-548",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-007. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while resolving a recurring ticket on ticket HAR-007: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -7850,7 +7850,7 @@
   {
     "id": "aplus-core1-549",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-008. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a new-hire setup on ticket HAR-008: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Check BIOS/UEFI settings, slot compatibility, and seating",
@@ -7864,7 +7864,7 @@
     "id": "aplus-core1-550",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-009.",
+    "question": "Review these statements about this troubleshooting issue after a recent configuration change on ticket HAR-009: a user cannot reach websites but can ping public IP addresses.",
     "statements": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -7899,7 +7899,7 @@
   {
     "id": "aplus-core1-552",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during an executive device refresh on ticket HAR-011. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during an executive device refresh on ticket HAR-011: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -7913,7 +7913,7 @@
     "id": "aplus-core1-553",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a laptop works on AC power but not battery while onboarding a contractor on ticket HAR-012. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while onboarding a contractor on ticket HAR-012: a laptop works on AC power but not battery. Which TWO choices best support the response?",
     "choices": [
       "Check battery health and replace the battery if it no longer holds charge",
       "Verify the change after implementation and document the result",
@@ -7929,7 +7929,7 @@
   {
     "id": "aplus-core1-554",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office for a classroom lab environment on ticket HAR-013. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue for a classroom lab environment on ticket HAR-013: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Replace every SSD",
       "Run chkdsk on the file server only",
@@ -7942,7 +7942,7 @@
   {
     "id": "aplus-core1-555",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address during a warranty repair intake on ticket HAR-014. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue during a warranty repair intake on ticket HAR-014: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Install more printer toner",
@@ -7955,7 +7955,7 @@
   {
     "id": "aplus-core1-556",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page while validating a spare device on ticket HAR-015. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while validating a spare device on ticket HAR-015: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -7968,7 +7968,7 @@
   {
     "id": "aplus-core1-557",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load after a power outage on ticket HAR-016. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue after a power outage on ticket HAR-016: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -7981,7 +7981,7 @@
   {
     "id": "aplus-core1-558",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light during a branch-office visit on ticket HAR-017. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a branch-office visit on ticket HAR-017: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -7994,7 +7994,7 @@
   {
     "id": "aplus-core1-559",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected while documenting a repeat failure on ticket HAR-018. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while documenting a repeat failure on ticket HAR-018: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -8008,7 +8008,7 @@
     "id": "aplus-core1-560",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a user cannot reach websites but can ping public IP addresses for a shared workstation area on ticket HAR-019. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue for a shared workstation area on ticket HAR-019: a user cannot reach websites but can ping public IP addresses. Which TWO choices best support the response?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Verify the change after implementation and document the result",
@@ -8025,7 +8025,7 @@
     "id": "aplus-core1-561",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a display image is dim or flickering while replacing an aging endpoint on ticket HAR-020.",
+    "question": "Review these statements about this troubleshooting issue while replacing an aging endpoint on ticket HAR-020: a display image is dim or flickering.",
     "statements": [
       "Check brightness, cable seating, display settings, and external monitor behavior",
       "Replace DHCP",
@@ -8041,7 +8041,7 @@
   {
     "id": "aplus-core1-562",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during a mobile-device enrollment on ticket HAR-021. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a mobile-device enrollment on ticket HAR-021: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reinstall the printer driver first",
       "Change the DNS server",
@@ -8054,7 +8054,7 @@
   {
     "id": "aplus-core1-563",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery after a failed self-service setup on ticket HAR-022. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a failed self-service setup on ticket HAR-022: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -8067,7 +8067,7 @@
   {
     "id": "aplus-core1-564",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing loaner equipment on ticket HAR-023. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing loaner equipment on ticket HAR-023: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -8080,7 +8080,7 @@
   {
     "id": "aplus-core1-565",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address for a secure work-from-home kit on ticket HAR-024. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a secure work-from-home kit on ticket HAR-024: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -8093,7 +8093,7 @@
   {
     "id": "aplus-core1-566",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page during a printer and workstation refresh on ticket HAR-025. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue during a printer and workstation refresh on ticket HAR-025: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Replace the default gateway",
       "Disable Bluetooth",
@@ -8107,7 +8107,7 @@
     "id": "aplus-core1-567",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a PC randomly shuts down under load while checking a newly imaged system on ticket HAR-026. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while checking a newly imaged system on ticket HAR-026: a PC randomly shuts down under load. Which TWO choices best support the response?",
     "choices": [
       "Check temperatures, fans, heat sink contact, and power supply capacity",
       "Verify the change after implementation and document the result",
@@ -8123,7 +8123,7 @@
   {
     "id": "aplus-core1-568",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light after a user reports intermittent behavior on ticket HAR-027. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a user reports intermittent behavior on ticket HAR-027: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -8136,7 +8136,7 @@
   {
     "id": "aplus-core1-569",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a network closet inspection on ticket HAR-028. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a network closet inspection on ticket HAR-028: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Check BIOS/UEFI settings, slot compatibility, and seating",
@@ -8168,7 +8168,7 @@
   {
     "id": "aplus-core1-571",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering for a technician training scenario on ticket HAR-030. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a technician training scenario on ticket HAR-030: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Install a domain controller",
@@ -8182,7 +8182,7 @@
     "id": "aplus-core1-572",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-031.",
+    "question": "Review these statements about this troubleshooting issue for a remote employee on ticket HAR-031: a PC powers on but no display appears after RAM replacement.",
     "statements": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -8198,7 +8198,7 @@
   {
     "id": "aplus-core1-573",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-032. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a help desk escalation on ticket HAR-032: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -8212,7 +8212,7 @@
     "id": "aplus-core1-574",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-033. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while preparing a replacement workstation on ticket HAR-033: users report slow Wi-Fi in one corner of the office. Which TWO choices best support the response?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Verify the change after implementation and document the result",
@@ -8228,7 +8228,7 @@
   {
     "id": "aplus-core1-575",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-034. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a department move on ticket HAR-034: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Install more printer toner",
@@ -8241,7 +8241,7 @@
   {
     "id": "aplus-core1-576",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-035. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a small office rollout on ticket HAR-035: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -8254,7 +8254,7 @@
   {
     "id": "aplus-core1-577",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-036. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a field-service visit on ticket HAR-036: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -8267,7 +8267,7 @@
   {
     "id": "aplus-core1-578",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-037. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while resolving a recurring ticket on ticket HAR-037: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -8280,7 +8280,7 @@
   {
     "id": "aplus-core1-579",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-038. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a new-hire setup on ticket HAR-038: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -8293,7 +8293,7 @@
   {
     "id": "aplus-core1-580",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-039. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a recent configuration change on ticket HAR-039: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -8307,7 +8307,7 @@
     "id": "aplus-core1-581",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-040. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while supporting a hybrid worker on ticket HAR-040: a display image is dim or flickering. Which TWO choices best support the response?",
     "choices": [
       "Check brightness, cable seating, display settings, and external monitor behavior",
       "Verify the change after implementation and document the result",
@@ -8323,7 +8323,7 @@
   {
     "id": "aplus-core1-582",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during an executive device refresh on ticket HAR-041. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during an executive device refresh on ticket HAR-041: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reinstall the printer driver first",
       "Change the DNS server",
@@ -8337,7 +8337,7 @@
     "id": "aplus-core1-583",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a laptop works on AC power but not battery while onboarding a contractor on ticket HAR-042.",
+    "question": "Review these statements about this troubleshooting issue while onboarding a contractor on ticket HAR-042: a laptop works on AC power but not battery.",
     "statements": [
       "Check battery health and replace the battery if it no longer holds charge",
       "Replace the wireless router",
@@ -8353,7 +8353,7 @@
   {
     "id": "aplus-core1-584",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office for a classroom lab environment on ticket HAR-043. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue for a classroom lab environment on ticket HAR-043: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -8366,7 +8366,7 @@
   {
     "id": "aplus-core1-585",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address during a warranty repair intake on ticket HAR-044. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue during a warranty repair intake on ticket HAR-044: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -8379,7 +8379,7 @@
   {
     "id": "aplus-core1-586",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page while validating a spare device on ticket HAR-045. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while validating a spare device on ticket HAR-045: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Replace the default gateway",
       "Disable Bluetooth",
@@ -8392,7 +8392,7 @@
   {
     "id": "aplus-core1-587",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load after a power outage on ticket HAR-046. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue after a power outage on ticket HAR-046: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -8406,7 +8406,7 @@
     "id": "aplus-core1-588",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a switch port has no link light during a branch-office visit on ticket HAR-047. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during a branch-office visit on ticket HAR-047: a switch port has no link light. Which TWO choices best support the response?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Verify the change after implementation and document the result",
@@ -8441,7 +8441,7 @@
   {
     "id": "aplus-core1-590",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses for a shared workstation area on ticket HAR-049. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a shared workstation area on ticket HAR-049: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",
@@ -8454,7 +8454,7 @@
   {
     "id": "aplus-core1-591",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while replacing an aging endpoint on ticket HAR-050. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while replacing an aging endpoint on ticket HAR-050: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Install a domain controller",
@@ -8467,7 +8467,7 @@
   {
     "id": "aplus-core1-592",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during a mobile-device enrollment on ticket HAR-051. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a mobile-device enrollment on ticket HAR-051: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -8480,7 +8480,7 @@
   {
     "id": "aplus-core1-593",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery after a failed self-service setup on ticket HAR-052. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a failed self-service setup on ticket HAR-052: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -8494,7 +8494,7 @@
     "id": "aplus-core1-594",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to users report slow Wi-Fi in one corner of the office while preparing loaner equipment on ticket HAR-053.",
+    "question": "Review these statements about this troubleshooting issue while preparing loaner equipment on ticket HAR-053: users report slow Wi-Fi in one corner of the office.",
     "statements": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -8511,7 +8511,7 @@
     "id": "aplus-core1-595",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a workstation has an APIPA address for a secure work-from-home kit on ticket HAR-054. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue for a secure work-from-home kit on ticket HAR-054: a workstation has an APIPA address. Which TWO choices best support the response?",
     "choices": [
       "Verify DHCP reachability and network connectivity",
       "Verify the change after implementation and document the result",
@@ -8527,7 +8527,7 @@
   {
     "id": "aplus-core1-596",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page during a printer and workstation refresh on ticket HAR-055. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue during a printer and workstation refresh on ticket HAR-055: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -8540,7 +8540,7 @@
   {
     "id": "aplus-core1-597",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load while checking a newly imaged system on ticket HAR-056. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue while checking a newly imaged system on ticket HAR-056: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -8553,7 +8553,7 @@
   {
     "id": "aplus-core1-598",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light after a user reports intermittent behavior on ticket HAR-057. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a user reports intermittent behavior on ticket HAR-057: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -8566,7 +8566,7 @@
   {
     "id": "aplus-core1-599",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a network closet inspection on ticket HAR-058. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a network closet inspection on ticket HAR-058: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -8579,7 +8579,7 @@
   {
     "id": "aplus-core1-600",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses while supporting a conference room device on ticket HAR-059. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue while supporting a conference room device on ticket HAR-059: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -8592,7 +8592,7 @@
   {
     "id": "aplus-core1-601",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering for a technician training scenario on ticket HAR-060. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a technician training scenario on ticket HAR-060: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Check brightness, cable seating, display settings, and external monitor behavior",
@@ -8606,7 +8606,7 @@
     "id": "aplus-core1-602",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-061. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue for a remote employee on ticket HAR-061: a PC powers on but no display appears after RAM replacement. Which TWO choices best support the response?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Verify the change after implementation and document the result",
@@ -8622,7 +8622,7 @@
   {
     "id": "aplus-core1-603",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-062. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a help desk escalation on ticket HAR-062: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -8635,7 +8635,7 @@
   {
     "id": "aplus-core1-604",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-063. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing a replacement workstation on ticket HAR-063: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -8649,7 +8649,7 @@
     "id": "aplus-core1-605",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a workstation has an APIPA address after a department move on ticket HAR-064.",
+    "question": "Review these statements about this troubleshooting issue after a department move on ticket HAR-064: a workstation has an APIPA address.",
     "statements": [
       "Verify DHCP reachability and network connectivity",
       "Replace the monitor cable",
@@ -8665,7 +8665,7 @@
   {
     "id": "aplus-core1-606",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-065. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a small office rollout on ticket HAR-065: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Replace the default gateway",
       "Disable Bluetooth",
@@ -8678,7 +8678,7 @@
   {
     "id": "aplus-core1-607",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-066. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a field-service visit on ticket HAR-066: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -8711,7 +8711,7 @@
     "id": "aplus-core1-609",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a new NVMe drive is not detected during a new-hire setup on ticket HAR-068. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during a new-hire setup on ticket HAR-068: a new NVMe drive is not detected. Which TWO choices best support the response?",
     "choices": [
       "Check BIOS/UEFI settings, slot compatibility, and seating",
       "Verify the change after implementation and document the result",
@@ -8727,7 +8727,7 @@
   {
     "id": "aplus-core1-610",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-069. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a recent configuration change on ticket HAR-069: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",
@@ -8740,7 +8740,7 @@
   {
     "id": "aplus-core1-611",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-070. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while supporting a hybrid worker on ticket HAR-070: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Install a domain controller",
@@ -8753,7 +8753,7 @@
   {
     "id": "aplus-core1-612",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during an executive device refresh on ticket HAR-071. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during an executive device refresh on ticket HAR-071: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -8766,7 +8766,7 @@
   {
     "id": "aplus-core1-613",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery while onboarding a contractor on ticket HAR-072. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while onboarding a contractor on ticket HAR-072: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -8779,7 +8779,7 @@
   {
     "id": "aplus-core1-614",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office for a classroom lab environment on ticket HAR-073. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue for a classroom lab environment on ticket HAR-073: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Replace every SSD",
       "Run chkdsk on the file server only",
@@ -8792,7 +8792,7 @@
   {
     "id": "aplus-core1-615",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address during a warranty repair intake on ticket HAR-074. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue during a warranty repair intake on ticket HAR-074: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Install more printer toner",
@@ -8806,7 +8806,7 @@
     "id": "aplus-core1-616",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a laser printer leaves repeated marks down the page while validating a spare device on ticket HAR-075.",
+    "question": "Review these statements about this troubleshooting issue while validating a spare device on ticket HAR-075: a laser printer leaves repeated marks down the page.",
     "statements": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -8822,7 +8822,7 @@
   {
     "id": "aplus-core1-617",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load after a power outage on ticket HAR-076. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue after a power outage on ticket HAR-076: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -8835,7 +8835,7 @@
   {
     "id": "aplus-core1-618",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light during a branch-office visit on ticket HAR-077. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a branch-office visit on ticket HAR-077: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -8848,7 +8848,7 @@
   {
     "id": "aplus-core1-619",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected while documenting a repeat failure on ticket HAR-078. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while documenting a repeat failure on ticket HAR-078: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -8861,7 +8861,7 @@
   {
     "id": "aplus-core1-620",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses for a shared workstation area on ticket HAR-079. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a shared workstation area on ticket HAR-079: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -8874,7 +8874,7 @@
   {
     "id": "aplus-core1-621",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while replacing an aging endpoint on ticket HAR-080. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while replacing an aging endpoint on ticket HAR-080: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Check brightness, cable seating, display settings, and external monitor behavior",
@@ -8887,7 +8887,7 @@
   {
     "id": "aplus-core1-622",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during a mobile-device enrollment on ticket HAR-081. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a mobile-device enrollment on ticket HAR-081: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reinstall the printer driver first",
       "Change the DNS server",
@@ -8901,7 +8901,7 @@
     "id": "aplus-core1-623",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a laptop works on AC power but not battery after a failed self-service setup on ticket HAR-082. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue after a failed self-service setup on ticket HAR-082: a laptop works on AC power but not battery. Which TWO choices best support the response?",
     "choices": [
       "Check battery health and replace the battery if it no longer holds charge",
       "Verify the change after implementation and document the result",
@@ -8917,7 +8917,7 @@
   {
     "id": "aplus-core1-624",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing loaner equipment on ticket HAR-083. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing loaner equipment on ticket HAR-083: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -8930,7 +8930,7 @@
   {
     "id": "aplus-core1-625",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address for a secure work-from-home kit on ticket HAR-084. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a secure work-from-home kit on ticket HAR-084: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -8943,7 +8943,7 @@
   {
     "id": "aplus-core1-626",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page during a printer and workstation refresh on ticket HAR-085. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue during a printer and workstation refresh on ticket HAR-085: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Replace the default gateway",
       "Disable Bluetooth",
@@ -8975,7 +8975,7 @@
   {
     "id": "aplus-core1-628",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light after a user reports intermittent behavior on ticket HAR-087. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a user reports intermittent behavior on ticket HAR-087: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -8988,7 +8988,7 @@
   {
     "id": "aplus-core1-629",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a network closet inspection on ticket HAR-088. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a network closet inspection on ticket HAR-088: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Check BIOS/UEFI settings, slot compatibility, and seating",
@@ -9002,7 +9002,7 @@
     "id": "aplus-core1-630",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a user cannot reach websites but can ping public IP addresses while supporting a conference room device on ticket HAR-089. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while supporting a conference room device on ticket HAR-089: a user cannot reach websites but can ping public IP addresses. Which TWO choices best support the response?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Verify the change after implementation and document the result",
@@ -9018,7 +9018,7 @@
   {
     "id": "aplus-core1-631",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering for a technician training scenario on ticket HAR-090. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a technician training scenario on ticket HAR-090: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Install a domain controller",
@@ -9031,7 +9031,7 @@
   {
     "id": "aplus-core1-632",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-091. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue for a remote employee on ticket HAR-091: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -9044,7 +9044,7 @@
   {
     "id": "aplus-core1-633",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-092. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a help desk escalation on ticket HAR-092: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -9057,7 +9057,7 @@
   {
     "id": "aplus-core1-634",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-093. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing a replacement workstation on ticket HAR-093: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Replace every SSD",
       "Run chkdsk on the file server only",
@@ -9070,7 +9070,7 @@
   {
     "id": "aplus-core1-635",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-094. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a department move on ticket HAR-094: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Install more printer toner",
@@ -9083,7 +9083,7 @@
   {
     "id": "aplus-core1-636",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-095. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a small office rollout on ticket HAR-095: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -9097,7 +9097,7 @@
     "id": "aplus-core1-637",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a PC randomly shuts down under load during a field-service visit on ticket HAR-096. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during a field-service visit on ticket HAR-096: a PC randomly shuts down under load. Which TWO choices best support the response?",
     "choices": [
       "Check temperatures, fans, heat sink contact, and power supply capacity",
       "Verify the change after implementation and document the result",
@@ -9114,7 +9114,7 @@
     "id": "aplus-core1-638",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a switch port has no link light while resolving a recurring ticket on ticket HAR-097.",
+    "question": "Review these statements about this troubleshooting issue while resolving a recurring ticket on ticket HAR-097: a switch port has no link light.",
     "statements": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -9130,7 +9130,7 @@
   {
     "id": "aplus-core1-639",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-098. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a new-hire setup on ticket HAR-098: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -9143,7 +9143,7 @@
   {
     "id": "aplus-core1-640",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-099. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a recent configuration change on ticket HAR-099: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -9156,7 +9156,7 @@
   {
     "id": "aplus-core1-641",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-100. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while supporting a hybrid worker on ticket HAR-100: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Check brightness, cable seating, display settings, and external monitor behavior",
@@ -9169,7 +9169,7 @@
   {
     "id": "aplus-core1-642",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during an executive device refresh on ticket HAR-101. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during an executive device refresh on ticket HAR-101: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reinstall the printer driver first",
       "Change the DNS server",
@@ -9182,7 +9182,7 @@
   {
     "id": "aplus-core1-643",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery while onboarding a contractor on ticket HAR-102. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while onboarding a contractor on ticket HAR-102: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -9196,7 +9196,7 @@
     "id": "aplus-core1-644",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to users report slow Wi-Fi in one corner of the office for a classroom lab environment on ticket HAR-103. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue for a classroom lab environment on ticket HAR-103: users report slow Wi-Fi in one corner of the office. Which TWO choices best support the response?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Verify the change after implementation and document the result",
@@ -9212,7 +9212,7 @@
   {
     "id": "aplus-core1-645",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address during a warranty repair intake on ticket HAR-104. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue during a warranty repair intake on ticket HAR-104: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -9244,7 +9244,7 @@
   {
     "id": "aplus-core1-647",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load after a power outage on ticket HAR-106. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue after a power outage on ticket HAR-106: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -9257,7 +9257,7 @@
   {
     "id": "aplus-core1-648",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light during a branch-office visit on ticket HAR-107. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a branch-office visit on ticket HAR-107: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -9271,7 +9271,7 @@
     "id": "aplus-core1-649",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a new NVMe drive is not detected while documenting a repeat failure on ticket HAR-108.",
+    "question": "Review these statements about this troubleshooting issue while documenting a repeat failure on ticket HAR-108: a new NVMe drive is not detected.",
     "statements": [
       "Check BIOS/UEFI settings, slot compatibility, and seating",
       "Change the email password",
@@ -9287,7 +9287,7 @@
   {
     "id": "aplus-core1-650",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses for a shared workstation area on ticket HAR-109. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a shared workstation area on ticket HAR-109: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",
@@ -9301,7 +9301,7 @@
     "id": "aplus-core1-651",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a display image is dim or flickering while replacing an aging endpoint on ticket HAR-110. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while replacing an aging endpoint on ticket HAR-110: a display image is dim or flickering. Which TWO choices best support the response?",
     "choices": [
       "Check brightness, cable seating, display settings, and external monitor behavior",
       "Verify the change after implementation and document the result",
@@ -9317,7 +9317,7 @@
   {
     "id": "aplus-core1-652",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during a mobile-device enrollment on ticket HAR-111. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a mobile-device enrollment on ticket HAR-111: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -9330,7 +9330,7 @@
   {
     "id": "aplus-core1-653",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery after a failed self-service setup on ticket HAR-112. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a failed self-service setup on ticket HAR-112: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -9343,7 +9343,7 @@
   {
     "id": "aplus-core1-654",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing loaner equipment on ticket HAR-113. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing loaner equipment on ticket HAR-113: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Replace every SSD",
       "Run chkdsk on the file server only",
@@ -9356,7 +9356,7 @@
   {
     "id": "aplus-core1-655",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address for a secure work-from-home kit on ticket HAR-114. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a secure work-from-home kit on ticket HAR-114: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Install more printer toner",
@@ -9369,7 +9369,7 @@
   {
     "id": "aplus-core1-656",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page during a printer and workstation refresh on ticket HAR-115. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue during a printer and workstation refresh on ticket HAR-115: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -9382,7 +9382,7 @@
   {
     "id": "aplus-core1-657",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load while checking a newly imaged system on ticket HAR-116. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue while checking a newly imaged system on ticket HAR-116: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -9396,7 +9396,7 @@
     "id": "aplus-core1-658",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a switch port has no link light after a user reports intermittent behavior on ticket HAR-117. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue after a user reports intermittent behavior on ticket HAR-117: a switch port has no link light. Which TWO choices best support the response?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Verify the change after implementation and document the result",
@@ -9412,7 +9412,7 @@
   {
     "id": "aplus-core1-659",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a network closet inspection on ticket HAR-118. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a network closet inspection on ticket HAR-118: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -9426,7 +9426,7 @@
     "id": "aplus-core1-660",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a user cannot reach websites but can ping public IP addresses while supporting a conference room device on ticket HAR-119.",
+    "question": "Review these statements about this troubleshooting issue while supporting a conference room device on ticket HAR-119: a user cannot reach websites but can ping public IP addresses.",
     "statements": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -9442,7 +9442,7 @@
   {
     "id": "aplus-core1-661",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering for a technician training scenario on ticket HAR-120. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a technician training scenario on ticket HAR-120: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Check brightness, cable seating, display settings, and external monitor behavior",
@@ -9455,7 +9455,7 @@
   {
     "id": "aplus-core1-662",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-121. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue for a remote employee on ticket HAR-121: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reinstall the printer driver first",
       "Change the DNS server",
@@ -9468,7 +9468,7 @@
   {
     "id": "aplus-core1-663",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-122. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a help desk escalation on ticket HAR-122: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -9481,7 +9481,7 @@
   {
     "id": "aplus-core1-664",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-123. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing a replacement workstation on ticket HAR-123: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -9513,7 +9513,7 @@
   {
     "id": "aplus-core1-666",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-125. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a small office rollout on ticket HAR-125: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Replace the default gateway",
       "Disable Bluetooth",
@@ -9526,7 +9526,7 @@
   {
     "id": "aplus-core1-667",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-126. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a field-service visit on ticket HAR-126: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -9539,7 +9539,7 @@
   {
     "id": "aplus-core1-668",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-127. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while resolving a recurring ticket on ticket HAR-127: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -9552,7 +9552,7 @@
   {
     "id": "aplus-core1-669",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-128. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a new-hire setup on ticket HAR-128: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Check BIOS/UEFI settings, slot compatibility, and seating",
@@ -9565,7 +9565,7 @@
   {
     "id": "aplus-core1-670",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-129. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a recent configuration change on ticket HAR-129: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",
@@ -9579,7 +9579,7 @@
     "id": "aplus-core1-671",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-130.",
+    "question": "Review these statements about this troubleshooting issue while supporting a hybrid worker on ticket HAR-130: a display image is dim or flickering.",
     "statements": [
       "Check brightness, cable seating, display settings, and external monitor behavior",
       "Replace DHCP",
@@ -9596,7 +9596,7 @@
     "id": "aplus-core1-672",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a PC powers on but no display appears after RAM replacement during an executive device refresh on ticket HAR-131. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during an executive device refresh on ticket HAR-131: a PC powers on but no display appears after RAM replacement. Which TWO choices best support the response?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Verify the change after implementation and document the result",
@@ -9612,7 +9612,7 @@
   {
     "id": "aplus-core1-673",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery while onboarding a contractor on ticket HAR-132. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while onboarding a contractor on ticket HAR-132: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -9625,7 +9625,7 @@
   {
     "id": "aplus-core1-674",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office for a classroom lab environment on ticket HAR-133. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue for a classroom lab environment on ticket HAR-133: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Replace every SSD",
       "Run chkdsk on the file server only",
@@ -9638,7 +9638,7 @@
   {
     "id": "aplus-core1-675",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address during a warranty repair intake on ticket HAR-134. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue during a warranty repair intake on ticket HAR-134: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Install more printer toner",
@@ -9651,7 +9651,7 @@
   {
     "id": "aplus-core1-676",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page while validating a spare device on ticket HAR-135. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while validating a spare device on ticket HAR-135: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -9664,7 +9664,7 @@
   {
     "id": "aplus-core1-677",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load after a power outage on ticket HAR-136. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue after a power outage on ticket HAR-136: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -9677,7 +9677,7 @@
   {
     "id": "aplus-core1-678",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light during a branch-office visit on ticket HAR-137. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a branch-office visit on ticket HAR-137: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -9691,7 +9691,7 @@
     "id": "aplus-core1-679",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a new NVMe drive is not detected while documenting a repeat failure on ticket HAR-138. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while documenting a repeat failure on ticket HAR-138: a new NVMe drive is not detected. Which TWO choices best support the response?",
     "choices": [
       "Check BIOS/UEFI settings, slot compatibility, and seating",
       "Verify the change after implementation and document the result",
@@ -9707,7 +9707,7 @@
   {
     "id": "aplus-core1-680",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses for a shared workstation area on ticket HAR-139. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a shared workstation area on ticket HAR-139: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -9720,7 +9720,7 @@
   {
     "id": "aplus-core1-681",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while replacing an aging endpoint on ticket HAR-140. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while replacing an aging endpoint on ticket HAR-140: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Check brightness, cable seating, display settings, and external monitor behavior",
@@ -9734,7 +9734,7 @@
     "id": "aplus-core1-682",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a PC powers on but no display appears after RAM replacement during a mobile-device enrollment on ticket HAR-141.",
+    "question": "Review these statements about this troubleshooting issue during a mobile-device enrollment on ticket HAR-141: a PC powers on but no display appears after RAM replacement.",
     "statements": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -9750,7 +9750,7 @@
   {
     "id": "aplus-core1-683",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery after a failed self-service setup on ticket HAR-142. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a failed self-service setup on ticket HAR-142: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -9782,7 +9782,7 @@
   {
     "id": "aplus-core1-685",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address for a secure work-from-home kit on ticket HAR-144. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a secure work-from-home kit on ticket HAR-144: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -9796,7 +9796,7 @@
     "id": "aplus-core1-686",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a laser printer leaves repeated marks down the page during a printer and workstation refresh on ticket HAR-145. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during a printer and workstation refresh on ticket HAR-145: a laser printer leaves repeated marks down the page. Which TWO choices best support the response?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Verify the change after implementation and document the result",
@@ -9812,7 +9812,7 @@
   {
     "id": "aplus-core1-687",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load while checking a newly imaged system on ticket HAR-146. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue while checking a newly imaged system on ticket HAR-146: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -9825,7 +9825,7 @@
   {
     "id": "aplus-core1-688",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light after a user reports intermittent behavior on ticket HAR-147. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a user reports intermittent behavior on ticket HAR-147: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -9838,7 +9838,7 @@
   {
     "id": "aplus-core1-689",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a network closet inspection on ticket HAR-148. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a network closet inspection on ticket HAR-148: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Check BIOS/UEFI settings, slot compatibility, and seating",
@@ -9851,7 +9851,7 @@
   {
     "id": "aplus-core1-690",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses while supporting a conference room device on ticket HAR-149. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue while supporting a conference room device on ticket HAR-149: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",
@@ -9864,7 +9864,7 @@
   {
     "id": "aplus-core1-691",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering for a technician training scenario on ticket HAR-150. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a technician training scenario on ticket HAR-150: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Install a domain controller",
@@ -9877,7 +9877,7 @@
   {
     "id": "aplus-core1-692",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement for a remote employee on ticket HAR-151. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue for a remote employee on ticket HAR-151: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -9891,7 +9891,7 @@
     "id": "aplus-core1-693",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-152.",
+    "question": "Review these statements about this troubleshooting issue during a help desk escalation on ticket HAR-152: a laptop works on AC power but not battery.",
     "statements": [
       "Check battery health and replace the battery if it no longer holds charge",
       "Replace the wireless router",
@@ -9907,7 +9907,7 @@
   {
     "id": "aplus-core1-694",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-153. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing a replacement workstation on ticket HAR-153: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Replace every SSD",
       "Run chkdsk on the file server only",
@@ -9920,7 +9920,7 @@
   {
     "id": "aplus-core1-695",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-154. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a department move on ticket HAR-154: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Install more printer toner",
@@ -9933,7 +9933,7 @@
   {
     "id": "aplus-core1-696",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-155. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue for a small office rollout on ticket HAR-155: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -9946,7 +9946,7 @@
   {
     "id": "aplus-core1-697",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-156. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a field-service visit on ticket HAR-156: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -9959,7 +9959,7 @@
   {
     "id": "aplus-core1-698",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light while resolving a recurring ticket on ticket HAR-157. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while resolving a recurring ticket on ticket HAR-157: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -9972,7 +9972,7 @@
   {
     "id": "aplus-core1-699",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-158. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a new-hire setup on ticket HAR-158: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -9986,7 +9986,7 @@
     "id": "aplus-core1-700",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-159. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue after a recent configuration change on ticket HAR-159: a user cannot reach websites but can ping public IP addresses. Which TWO choices best support the response?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Verify the change after implementation and document the result",
@@ -10002,7 +10002,7 @@
   {
     "id": "aplus-core1-701",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-160. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while supporting a hybrid worker on ticket HAR-160: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Check brightness, cable seating, display settings, and external monitor behavior",
@@ -10015,7 +10015,7 @@
   {
     "id": "aplus-core1-702",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during an executive device refresh on ticket HAR-161. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during an executive device refresh on ticket HAR-161: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reinstall the printer driver first",
       "Change the DNS server",
@@ -10048,7 +10048,7 @@
     "id": "aplus-core1-704",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to users report slow Wi-Fi in one corner of the office for a classroom lab environment on ticket HAR-163.",
+    "question": "Review these statements about this troubleshooting issue for a classroom lab environment on ticket HAR-163: users report slow Wi-Fi in one corner of the office.",
     "statements": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -10064,7 +10064,7 @@
   {
     "id": "aplus-core1-705",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address during a warranty repair intake on ticket HAR-164. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue during a warranty repair intake on ticket HAR-164: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -10077,7 +10077,7 @@
   {
     "id": "aplus-core1-706",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page while validating a spare device on ticket HAR-165. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while validating a spare device on ticket HAR-165: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Replace the default gateway",
       "Disable Bluetooth",
@@ -10091,7 +10091,7 @@
     "id": "aplus-core1-707",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a PC randomly shuts down under load after a power outage on ticket HAR-166. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue after a power outage on ticket HAR-166: a PC randomly shuts down under load. Which TWO choices best support the response?",
     "choices": [
       "Check temperatures, fans, heat sink contact, and power supply capacity",
       "Verify the change after implementation and document the result",
@@ -10107,7 +10107,7 @@
   {
     "id": "aplus-core1-708",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light during a branch-office visit on ticket HAR-167. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a branch-office visit on ticket HAR-167: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -10120,7 +10120,7 @@
   {
     "id": "aplus-core1-709",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected while documenting a repeat failure on ticket HAR-168. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while documenting a repeat failure on ticket HAR-168: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Check BIOS/UEFI settings, slot compatibility, and seating",
@@ -10133,7 +10133,7 @@
   {
     "id": "aplus-core1-710",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses for a shared workstation area on ticket HAR-169. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a shared workstation area on ticket HAR-169: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",
@@ -10146,7 +10146,7 @@
   {
     "id": "aplus-core1-711",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while replacing an aging endpoint on ticket HAR-170. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while replacing an aging endpoint on ticket HAR-170: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Install a domain controller",
@@ -10159,7 +10159,7 @@
   {
     "id": "aplus-core1-712",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during a mobile-device enrollment on ticket HAR-171. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a mobile-device enrollment on ticket HAR-171: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -10172,7 +10172,7 @@
   {
     "id": "aplus-core1-713",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery after a failed self-service setup on ticket HAR-172. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a failed self-service setup on ticket HAR-172: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -10186,7 +10186,7 @@
     "id": "aplus-core1-714",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to users report slow Wi-Fi in one corner of the office while preparing loaner equipment on ticket HAR-173. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while preparing loaner equipment on ticket HAR-173: users report slow Wi-Fi in one corner of the office. Which TWO choices best support the response?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Verify the change after implementation and document the result",
@@ -10203,7 +10203,7 @@
     "id": "aplus-core1-715",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a workstation has an APIPA address for a secure work-from-home kit on ticket HAR-174.",
+    "question": "Review these statements about this troubleshooting issue for a secure work-from-home kit on ticket HAR-174: a workstation has an APIPA address.",
     "statements": [
       "Verify DHCP reachability and network connectivity",
       "Replace the monitor cable",
@@ -10219,7 +10219,7 @@
   {
     "id": "aplus-core1-716",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page during a printer and workstation refresh on ticket HAR-175. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue during a printer and workstation refresh on ticket HAR-175: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -10232,7 +10232,7 @@
   {
     "id": "aplus-core1-717",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load while checking a newly imaged system on ticket HAR-176. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue while checking a newly imaged system on ticket HAR-176: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Check temperatures, fans, heat sink contact, and power supply capacity",
@@ -10245,7 +10245,7 @@
   {
     "id": "aplus-core1-718",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light after a user reports intermittent behavior on ticket HAR-177. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a user reports intermittent behavior on ticket HAR-177: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -10258,7 +10258,7 @@
   {
     "id": "aplus-core1-719",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a network closet inspection on ticket HAR-178. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a network closet inspection on ticket HAR-178: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -10271,7 +10271,7 @@
   {
     "id": "aplus-core1-720",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses while supporting a conference room device on ticket HAR-179. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue while supporting a conference room device on ticket HAR-179: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -10285,7 +10285,7 @@
     "id": "aplus-core1-721",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a display image is dim or flickering for a technician training scenario on ticket HAR-180. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue for a technician training scenario on ticket HAR-180: a display image is dim or flickering. Which TWO choices best support the response?",
     "choices": [
       "Check brightness, cable seating, display settings, and external monitor behavior",
       "Verify the change after implementation and document the result",
@@ -10320,7 +10320,7 @@
   {
     "id": "aplus-core1-723",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery during a help desk escalation on ticket HAR-182. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a help desk escalation on ticket HAR-182: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -10333,7 +10333,7 @@
   {
     "id": "aplus-core1-724",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing a replacement workstation on ticket HAR-183. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing a replacement workstation on ticket HAR-183: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -10346,7 +10346,7 @@
   {
     "id": "aplus-core1-725",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address after a department move on ticket HAR-184. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a department move on ticket HAR-184: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -10360,7 +10360,7 @@
     "id": "aplus-core1-726",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a laser printer leaves repeated marks down the page for a small office rollout on ticket HAR-185.",
+    "question": "Review these statements about this troubleshooting issue for a small office rollout on ticket HAR-185: a laser printer leaves repeated marks down the page.",
     "statements": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -10376,7 +10376,7 @@
   {
     "id": "aplus-core1-727",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load during a field-service visit on ticket HAR-186. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during a field-service visit on ticket HAR-186: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -10390,7 +10390,7 @@
     "id": "aplus-core1-728",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a switch port has no link light while resolving a recurring ticket on ticket HAR-187. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue while resolving a recurring ticket on ticket HAR-187: a switch port has no link light. Which TWO choices best support the response?",
     "choices": [
       "Test the cable, port, and endpoint NIC",
       "Verify the change after implementation and document the result",
@@ -10406,7 +10406,7 @@
   {
     "id": "aplus-core1-729",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected during a new-hire setup on ticket HAR-188. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue during a new-hire setup on ticket HAR-188: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Check BIOS/UEFI settings, slot compatibility, and seating",
@@ -10419,7 +10419,7 @@
   {
     "id": "aplus-core1-730",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses after a recent configuration change on ticket HAR-189. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue after a recent configuration change on ticket HAR-189: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",
@@ -10432,7 +10432,7 @@
   {
     "id": "aplus-core1-731",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a display image is dim or flickering while supporting a hybrid worker on ticket HAR-190. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while supporting a hybrid worker on ticket HAR-190: a display image is dim or flickering. What should the technician do FIRST?",
     "choices": [
       "Replace DHCP",
       "Install a domain controller",
@@ -10445,7 +10445,7 @@
   {
     "id": "aplus-core1-732",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC powers on but no display appears after RAM replacement during an executive device refresh on ticket HAR-191. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue during an executive device refresh on ticket HAR-191: a PC powers on but no display appears after RAM replacement. Which choice is the MOST appropriate fix?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Reinstall the printer driver first",
@@ -10458,7 +10458,7 @@
   {
     "id": "aplus-core1-733",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery while onboarding a contractor on ticket HAR-192. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue while onboarding a contractor on ticket HAR-192: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Check battery health and replace the battery if it no longer holds charge",
@@ -10471,7 +10471,7 @@
   {
     "id": "aplus-core1-734",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office for a classroom lab environment on ticket HAR-193. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue for a classroom lab environment on ticket HAR-193: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Replace every SSD",
       "Run chkdsk on the file server only",
@@ -10485,7 +10485,7 @@
     "id": "aplus-core1-735",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a workstation has an APIPA address during a warranty repair intake on ticket HAR-194. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during a warranty repair intake on ticket HAR-194: a workstation has an APIPA address. Which TWO choices best support the response?",
     "choices": [
       "Verify DHCP reachability and network connectivity",
       "Verify the change after implementation and document the result",
@@ -10501,7 +10501,7 @@
   {
     "id": "aplus-core1-736",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page while validating a spare device on ticket HAR-195. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue while validating a spare device on ticket HAR-195: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Inspect rollers, drum, and fuser for defects or contamination",
       "Replace the default gateway",
@@ -10515,7 +10515,7 @@
     "id": "aplus-core1-737",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a PC randomly shuts down under load after a power outage on ticket HAR-196.",
+    "question": "Review these statements about this troubleshooting issue after a power outage on ticket HAR-196: a PC randomly shuts down under load.",
     "statements": [
       "Check temperatures, fans, heat sink contact, and power supply capacity",
       "Rename the computer",
@@ -10531,7 +10531,7 @@
   {
     "id": "aplus-core1-738",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a switch port has no link light during a branch-office visit on ticket HAR-197. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue during a branch-office visit on ticket HAR-197: a switch port has no link light. Which option best matches the requirement?",
     "choices": [
       "Run Disk Cleanup",
       "Rebuild the Windows profile",
@@ -10544,7 +10544,7 @@
   {
     "id": "aplus-core1-739",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a new NVMe drive is not detected while documenting a repeat failure on ticket HAR-198. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while documenting a repeat failure on ticket HAR-198: a new NVMe drive is not detected. What is the most likely correct next step?",
     "choices": [
       "Change the email password",
       "Use WPA3",
@@ -10557,7 +10557,7 @@
   {
     "id": "aplus-core1-740",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses for a shared workstation area on ticket HAR-199. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a shared workstation area on ticket HAR-199: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Troubleshoot DNS configuration",
       "Replace the CPU",
@@ -10590,7 +10590,7 @@
     "id": "aplus-core1-742",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a PC powers on but no display appears after RAM replacement during a mobile-device enrollment on ticket HAR-201. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during a mobile-device enrollment on ticket HAR-201: a PC powers on but no display appears after RAM replacement. Which TWO choices best support the response?",
     "choices": [
       "Reseat compatible RAM and verify it is in the correct slots",
       "Verify the change after implementation and document the result",
@@ -10606,7 +10606,7 @@
   {
     "id": "aplus-core1-743",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laptop works on AC power but not battery after a failed self-service setup on ticket HAR-202. Which option best matches the requirement?",
+    "question": "A technician is troubleshooting this issue after a failed self-service setup on ticket HAR-202: a laptop works on AC power but not battery. Which option best matches the requirement?",
     "choices": [
       "Replace the wireless router",
       "Flush DNS",
@@ -10619,7 +10619,7 @@
   {
     "id": "aplus-core1-744",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to users report slow Wi-Fi in one corner of the office while preparing loaner equipment on ticket HAR-203. What is the most likely correct next step?",
+    "question": "A technician is troubleshooting this issue while preparing loaner equipment on ticket HAR-203: users report slow Wi-Fi in one corner of the office. What is the most likely correct next step?",
     "choices": [
       "Check signal strength, interference, AP placement, and channel overlap",
       "Replace every SSD",
@@ -10632,7 +10632,7 @@
   {
     "id": "aplus-core1-745",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a workstation has an APIPA address for a secure work-from-home kit on ticket HAR-204. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue for a secure work-from-home kit on ticket HAR-204: a workstation has an APIPA address. Which action is BEST?",
     "choices": [
       "Replace the monitor cable",
       "Verify DHCP reachability and network connectivity",
@@ -10645,7 +10645,7 @@
   {
     "id": "aplus-core1-746",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a laser printer leaves repeated marks down the page during a printer and workstation refresh on ticket HAR-205. What should the technician do FIRST?",
+    "question": "A technician is troubleshooting this issue during a printer and workstation refresh on ticket HAR-205: a laser printer leaves repeated marks down the page. What should the technician do FIRST?",
     "choices": [
       "Replace the default gateway",
       "Disable Bluetooth",
@@ -10658,7 +10658,7 @@
   {
     "id": "aplus-core1-747",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a PC randomly shuts down under load while checking a newly imaged system on ticket HAR-206. Which choice is the MOST appropriate fix?",
+    "question": "A technician is troubleshooting this issue while checking a newly imaged system on ticket HAR-206: a PC randomly shuts down under load. Which choice is the MOST appropriate fix?",
     "choices": [
       "Rename the computer",
       "Disable DNS recursion",
@@ -10672,7 +10672,7 @@
     "id": "aplus-core1-748",
     "domain": "Hardware and Network Troubleshooting",
     "type": "statement-block",
-    "question": "Review these statements about how to a switch port has no link light after a user reports intermittent behavior on ticket HAR-207.",
+    "question": "Review these statements about this troubleshooting issue after a user reports intermittent behavior on ticket HAR-207: a switch port has no link light.",
     "statements": [
       "Test the cable, port, and endpoint NIC",
       "Run Disk Cleanup",
@@ -10689,7 +10689,7 @@
     "id": "aplus-core1-749",
     "domain": "Hardware and Network Troubleshooting",
     "type": "multiple-response",
-    "question": "A technician is asked to a new NVMe drive is not detected during a network closet inspection on ticket HAR-208. Which TWO choices best support the requirement?",
+    "question": "A technician is troubleshooting this issue during a network closet inspection on ticket HAR-208: a new NVMe drive is not detected. Which TWO choices best support the response?",
     "choices": [
       "Check BIOS/UEFI settings, slot compatibility, and seating",
       "Verify the change after implementation and document the result",
@@ -10705,7 +10705,7 @@
   {
     "id": "aplus-core1-750",
     "domain": "Hardware and Network Troubleshooting",
-    "question": "A technician needs to a user cannot reach websites but can ping public IP addresses while supporting a conference room device on ticket HAR-209. Which action is BEST?",
+    "question": "A technician is troubleshooting this issue while supporting a conference room device on ticket HAR-209: a user cannot reach websites but can ping public IP addresses. Which action is BEST?",
     "choices": [
       "Replace the CPU",
       "Clean the scanner glass",

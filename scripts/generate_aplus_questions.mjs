@@ -196,13 +196,34 @@ function rotateChoices(correct, distractors, offset) {
   return { choices, correctAnswer: index }
 }
 
+function isSymptom(task) {
+  return /^(a|an|users|windows|email)\b/i.test(task)
+}
+
+function scenarioStem(task, variant, prompt) {
+  if (isSymptom(task)) {
+    return `A technician is troubleshooting this issue ${variant}: ${task}. ${prompt}`
+  }
+  return `A technician needs to ${task} ${variant}. ${prompt}`
+}
+
+function shuffleWithMatches(itemsRight, offset) {
+  const decorated = itemsRight.map((item, original) => ({ item, original }))
+  const rotations = itemsRight.length > 1 ? (offset % (itemsRight.length - 1)) + 1 : 0
+  const shuffled = [...decorated.slice(rotations), ...decorated.slice(0, rotations)]
+  return {
+    itemsRight: shuffled.map(({ item }) => item),
+    correctMatches: decorated.map((_, original) => shuffled.findIndex(item => item.original === original)),
+  }
+}
+
 function singleQuestion(prefix, idNum, domain, topic, variant) {
   const [task, correct, distractors, why] = topic
   const { choices, correctAnswer } = rotateChoices(correct, distractors, idNum)
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
-    question: `A technician needs to ${task} ${variant}. ${prompts[idNum % prompts.length]}`,
+    question: scenarioStem(task, variant, prompts[idNum % prompts.length]),
     choices,
     correctAnswer,
     explanation: why,
@@ -215,7 +236,9 @@ function multipleResponse(prefix, idNum, domain, topic, variant) {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
     type: 'multiple-response',
-    question: `A technician is asked to ${task} ${variant}. Which TWO choices best support the requirement?`,
+    question: isSymptom(task)
+      ? `A technician is troubleshooting this issue ${variant}: ${task}. Which TWO choices best support the response?`
+      : `A technician is asked to ${task} ${variant}. Which TWO choices best support the requirement?`,
     choices: [correct, `Verify the change after implementation and document the result`, ...distractors.slice(0, 2)],
     correctAnswers: [0, 1],
     explanation: `${why} Verification and documentation confirm the fix and preserve support history.`,
@@ -228,7 +251,9 @@ function statementBlock(prefix, idNum, domain, topic, variant) {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
     type: 'statement-block',
-    question: `Review these statements about how to ${task} ${variant}.`,
+    question: isSymptom(task)
+      ? `Review these statements about this troubleshooting issue ${variant}: ${task}.`
+      : `Review these statements about how to ${task} ${variant}.`,
     statements: [
       correct,
       distractors[0],
@@ -243,14 +268,15 @@ function matchingQuestion(prefix, idNum, domain, variant) {
   const sets = matchSets[domain]
   if (!sets) return null
   const [question, itemsLeft, itemsRight, correctMatches] = sets[idNum % sets.length]
+  const shuffled = shuffleWithMatches(itemsRight, idNum)
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
     type: 'matching',
     question: `${question} Use the situation ${variant}.`,
     itemsLeft,
-    itemsRight,
-    correctMatches,
+    itemsRight: shuffled.itemsRight,
+    correctMatches: correctMatches.map(match => shuffled.correctMatches[match]),
     explanation: 'Each item maps to the function or tool most commonly associated with that support task.',
   }
 }
