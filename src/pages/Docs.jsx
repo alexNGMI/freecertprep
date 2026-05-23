@@ -642,7 +642,8 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'Advanced certification tracks - research AWS Solutions Architect - Associate (SAA-C03) and Cisco CCNA (200-301). SAA can start with long-form scenario MCQ/MR and architecture tradeoff explanations using the existing renderer; CCNA should wait for topology, drag/drop, and CLI-style troubleshooting simulations before being treated as exam-quality.',
+                  'AWS Solutions Architect - Associate (SAA-C03) - hidden 750-question production pool is registered and aligned to the official 30/26/24/20 domain weights; next step is deeper human editorial review before public catalog launch.',
+                  'Cisco CCNA (200-301) - research and design topology, drag/drop, and CLI-style troubleshooting simulations before treating it as exam-quality.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',

@@ -21,6 +21,8 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
+> **SAA-C03 preview is in authoring:** AWS Solutions Architect - Associate now has a hidden 750-question production pool aligned to the official 30/26/24/20 domain weights. SAA uses the existing MCQ/MR renderer; the remaining work is deeper human editorial review before it enters the public catalog.
+
 > **A+ track preview is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector that keeps Core 1 (220-1201) and Core 2 (220-1202) outside the main catalog grid. Each core now has a 750-question production pool and a 90-question / 90-minute simulator aligned to the official domain weights.
 
 > **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. `/paths/it-entry`, `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence; the Cloud path starts with one vendor foundation (AWS, Azure, or Google Cloud) and then moves into Terraform.

@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import certs from '../data/certs.js'
 import az900 from '../data/az-900-questions.json'
 import clfc02 from '../data/questions.json'
+import awsSaaC03 from '../data/aws-saa-c03-questions.json'
 import cdl from '../data/cdl-questions.json'
 import ncaAiio from '../data/nca-aiio-questions.json'
 import ncaGenl from '../data/nca-genl-questions.json'
@@ -26,6 +27,7 @@ import reInState from '../data/real-estate-in-state-questions.json'
 const CERT_QUESTIONS = {
   'az-900': az900,
   'clf-c02': clfc02,
+  'aws-saa-c03': awsSaaC03,
   'cdl': cdl,
   'nca-aiio': ncaAiio,
   'nca-genl': ncaGenl,

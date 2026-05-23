@@ -1,5 +1,6 @@
 import az900QuestionsUrl from './az-900-questions.json?url'
 import awsCloudPractitionerQuestionsUrl from './questions.json?url'
+import awsSaaC03QuestionsUrl from './aws-saa-c03-questions.json?url'
 import cdlQuestionsUrl from './cdl-questions.json?url'
 import ncaAiioQuestionsUrl from './nca-aiio-questions.json?url'
 import ncaGenlQuestionsUrl from './nca-genl-questions.json?url'
@@ -226,6 +227,33 @@ const certs = {
       'Security and Compliance': { dot: 'bg-[#acd157]', bar: 'bg-[#acd157]', text: 'text-[#acd157]', hex: '#acd157' },
       'Cloud Technology and Services': { dot: 'bg-[#dbb8ff]', bar: 'bg-[#dbb8ff]', text: 'text-[#dbb8ff]', hex: '#dbb8ff' },
       'Billing, Pricing and Support': { dot: 'bg-[#f1be32]', bar: 'bg-[#f1be32]', text: 'text-[#f1be32]', hex: '#f1be32' },
+    },
+  },
+  'aws-saa-c03': {
+    id: 'aws-saa-c03',
+    title: 'AWS Solutions Architect - Associate',
+    code: 'SAA-C03',
+    provider: 'AWS',
+    description: 'Associate-level AWS architecture exam focused on secure, resilient, high-performing, and cost-optimized workload design.',
+    difficulty: 'Associate',
+    color: '#ff9900',
+    questionCount: 750,
+    examQuestions: 65,
+    examTime: 130,
+    passingScore: 72,
+    published: false,
+    loadQuestions: () => loadQuestionAsset(awsSaaC03QuestionsUrl),
+    domains: [
+      { name: 'Design Secure Architectures', weight: 30 },
+      { name: 'Design Resilient Architectures', weight: 26 },
+      { name: 'Design High-Performing Architectures', weight: 24 },
+      { name: 'Design Cost-Optimized Architectures', weight: 20 },
+    ],
+    domainColors: {
+      'Design Secure Architectures': { dot: 'bg-[#ff9900]', bar: 'bg-[#ff9900]', text: 'text-[#ff9900]', hex: '#ff9900' },
+      'Design Resilient Architectures': { dot: 'bg-[#f97316]', bar: 'bg-[#f97316]', text: 'text-[#f97316]', hex: '#f97316' },
+      'Design High-Performing Architectures': { dot: 'bg-[#38bdf8]', bar: 'bg-[#38bdf8]', text: 'text-[#38bdf8]', hex: '#38bdf8' },
+      'Design Cost-Optimized Architectures': { dot: 'bg-[#22c55e]', bar: 'bg-[#22c55e]', text: 'text-[#22c55e]', hex: '#22c55e' },
     },
   },
   'cdl': {
