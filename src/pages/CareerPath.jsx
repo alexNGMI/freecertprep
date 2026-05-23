@@ -66,30 +66,28 @@ const PATHS = {
   },
   cloud: {
     eyebrow: 'Cloud',
-    title: 'Pick a cloud vendor, automate the stack, then architect it.',
+    title: 'Build around the AWS cloud lane.',
     description:
-      'Start with one provider foundation. Once the cloud model is clear, Terraform adds portable infrastructure automation, and SAA turns AWS fluency into architecture judgment.',
+      'Use AWS Cloud Practitioner for the foundation, SAA for architecture judgment, and Terraform as the infrastructure automation layer once AWS design patterns feel concrete. Azure and Google Cloud stay in the full catalog for vendor-specific goals.',
     icon: Cloud,
     color: '#38bdf8',
     groups: [
       {
-        label: 'Choose one vendor foundation',
+        label: 'Start with AWS foundation',
         items: [
-          certStep('AWS', 'clf-c02', 'Best fit if you want the largest cloud ecosystem and a broad practitioner-level entry point.'),
-          certStep('Azure', 'az-900', 'Best fit if your target workplace leans Microsoft, identity, hybrid, or enterprise cloud.'),
-          certStep('Google Cloud', 'cdl', 'Best fit if you want product, data, collaboration, and digital transformation fluency.'),
+          certStep('AWS Foundation', 'clf-c02', 'Start here for broad AWS service, billing, security, and cloud operating model fluency.'),
+        ],
+      },
+      {
+        label: 'Then move into architecture',
+        items: [
+          certStep('Architecture Layer', 'aws-saa-c03', 'Use SAA after cloud fundamentals to practice secure, resilient, high-performing, and cost-optimized AWS design.'),
         ],
       },
       {
         label: 'Then add infrastructure as code',
         items: [
-          certStep('Automation Layer', 'terraform-associate', 'Use Terraform after one cloud foundation so infrastructure concepts have something concrete to attach to.'),
-        ],
-      },
-      {
-        label: 'Then move into AWS architecture',
-        items: [
-          certStep('Architecture Layer', 'aws-saa-c03', 'Use SAA after cloud fundamentals and infrastructure automation to practice secure, resilient, high-performing, and cost-optimized design.'),
+          certStep('Automation Layer', 'terraform-associate', 'Use Terraform after AWS architecture so infrastructure concepts have realistic designs to attach to.'),
         ],
       },
     ],

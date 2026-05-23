@@ -6,7 +6,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import CareerPath from '../pages/CareerPath.jsx'
 
 function renderPath(path) {
-  render(
+  return render(
     <MemoryRouter initialEntries={[path]}>
       <Routes>
         <Route path="/paths/:pathId" element={<CareerPath />} />
@@ -21,18 +21,21 @@ describe('career path pages', () => {
     cleanup()
   })
 
-  it('guides cloud learners through vendor choice, Terraform, and SAA', () => {
-    renderPath('/paths/cloud')
+  it('guides cloud learners through AWS foundation, SAA, and Terraform', () => {
+    const { container } = renderPath('/paths/cloud')
 
-    expect(screen.getByRole('heading', { name: 'Pick a cloud vendor, automate the stack, then architect it.' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Choose one vendor foundation' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Build around the AWS cloud lane.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Start with AWS foundation' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then move into architecture' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Then add infrastructure as code' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Then move into AWS architecture' })).toBeTruthy()
     expect(screen.getByRole('link', { name: /AWS Cloud Practitioner/ }).getAttribute('href')).toBe('/clf-c02')
-    expect(screen.getByRole('link', { name: /Microsoft Azure Fundamentals/ }).getAttribute('href')).toBe('/az-900')
-    expect(screen.getByRole('link', { name: /Google Cloud Digital Leader/ }).getAttribute('href')).toBe('/cdl')
     expect(screen.getByRole('link', { name: /HashiCorp Terraform Associate/ }).getAttribute('href')).toBe('/terraform-associate')
     expect(screen.getByRole('link', { name: /AWS Solutions Architect - Associate/ }).getAttribute('href')).toBe('/aws-saa-c03')
+    const pageText = container.textContent
+    expect(pageText.indexOf('AWS Cloud Practitioner')).toBeLessThan(pageText.indexOf('AWS Solutions Architect - Associate'))
+    expect(pageText.indexOf('AWS Solutions Architect - Associate')).toBeLessThan(pageText.indexOf('HashiCorp Terraform Associate'))
+    expect(screen.queryByText('Azure Solutions Architect Expert')).toBeNull()
+    expect(screen.queryByText('Google Professional Cloud Architect')).toBeNull()
   })
 
   it('offers CCST Networking as the Cisco-oriented Network+ alternative', () => {
