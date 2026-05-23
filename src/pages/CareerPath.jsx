@@ -66,9 +66,9 @@ const PATHS = {
   },
   cloud: {
     eyebrow: 'Cloud',
-    title: 'Pick a cloud vendor, then automate the stack.',
+    title: 'Pick a cloud vendor, automate the stack, then architect it.',
     description:
-      'Start with one provider foundation. Once the cloud model is clear, Terraform becomes the portable infrastructure skill that ties the lane together.',
+      'Start with one provider foundation. Once the cloud model is clear, Terraform adds portable infrastructure automation, and SAA turns AWS fluency into architecture judgment.',
     icon: Cloud,
     color: '#38bdf8',
     groups: [
@@ -84,6 +84,12 @@ const PATHS = {
         label: 'Then add infrastructure as code',
         items: [
           certStep('Automation Layer', 'terraform-associate', 'Use Terraform after one cloud foundation so infrastructure concepts have something concrete to attach to.'),
+        ],
+      },
+      {
+        label: 'Then move into AWS architecture',
+        items: [
+          certStep('Architecture Layer', 'aws-saa-c03', 'Use SAA after cloud fundamentals and infrastructure automation to practice secure, resilient, high-performing, and cost-optimized design.'),
         ],
       },
     ],

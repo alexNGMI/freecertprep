@@ -21,16 +21,18 @@ describe('career path pages', () => {
     cleanup()
   })
 
-  it('guides cloud learners through vendor choice before Terraform', () => {
+  it('guides cloud learners through vendor choice, Terraform, and SAA', () => {
     renderPath('/paths/cloud')
 
-    expect(screen.getByRole('heading', { name: 'Pick a cloud vendor, then automate the stack.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Pick a cloud vendor, automate the stack, then architect it.' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Choose one vendor foundation' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Then add infrastructure as code' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then move into AWS architecture' })).toBeTruthy()
     expect(screen.getByRole('link', { name: /AWS Cloud Practitioner/ }).getAttribute('href')).toBe('/clf-c02')
     expect(screen.getByRole('link', { name: /Microsoft Azure Fundamentals/ }).getAttribute('href')).toBe('/az-900')
     expect(screen.getByRole('link', { name: /Google Cloud Digital Leader/ }).getAttribute('href')).toBe('/cdl')
     expect(screen.getByRole('link', { name: /HashiCorp Terraform Associate/ }).getAttribute('href')).toBe('/terraform-associate')
+    expect(screen.getByRole('link', { name: /AWS Solutions Architect - Associate/ }).getAttribute('href')).toBe('/aws-saa-c03')
   })
 
   it('offers CCST Networking as the Cisco-oriented Network+ alternative', () => {

@@ -603,7 +603,7 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today, with ten IT certifications plus the real-estate sister site. The latest
+              The product is live and usable today, with thirteen IT certifications plus the real-estate sister site. The latest
               refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
               loading, and focused UI regression tests. The roadmap now splits into three tracks: making the guided IT paths richer,
               adding platform features such as synced accounts, a custom domain, and PWA support, and preparing advanced
@@ -621,7 +621,7 @@ key = random() ** (1 / weight)
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
                   'Homepage guided paths — IT Entry, Networking, Cybersecurity, Cloud, and NVIDIA path cards now route to dedicated /paths/* pages while the bottom catalog remains direct-to-cert.',
-                  'Cloud path flow — /paths/cloud guides learners to choose one vendor foundation (AWS, Azure, or Google Cloud) before moving into Terraform Associate.',
+                  'Cloud path flow - /paths/cloud guides learners to choose one vendor foundation (AWS, Azure, or Google Cloud), then move into Terraform Associate, then SAA-C03 as the AWS architecture tier.',
                   'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
                   'Per-route SEO — dynamic page titles, Open Graph, and canonical URLs; root error boundary and graceful question-load failure handling',
@@ -633,7 +633,8 @@ key = random() ** (1 / weight)
                   'North Carolina state-law module — live: 400 questions, 8 NCREC / Pearson VUE sections, Full Licensing Exam mirrors 80 national + 60 state (75 each section).',
                   'Indiana state-law module — live: 400 questions, 5 Pearson VUE sections, Full Licensing Exam mirrors 80 national + 50 state (scaled 75 pass score).',
                   'AZ / NC / IN quality audit — all three new state modules verified for source-aligned exam splits, domain balance, unique IDs, duplicate-free stems, balanced answer positions, and frontend picker coverage.',
-                  'CompTIA A+ guided track - preview live at /comptia/a-plus with separate Core 1 (220-1201) and Core 2 (220-1202) routes, each backed by a 750-question production pool and 90-question simulator.',
+                  'CompTIA A+ guided track - live at /comptia/a-plus with separate Core 1 (220-1201) and Core 2 (220-1202) routes, each backed by a 750-question production pool and 90-question simulator; both cores now also appear in the full catalog grid.',
+                  'AWS Solutions Architect - Associate (SAA-C03) - live 750-question production pool aligned to the official 30/26/24/20 domain weights, now listed in the full catalog and Cloud path.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 369-test regression suite.',
                 ],
@@ -642,7 +643,7 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'AWS Solutions Architect - Associate (SAA-C03) - hidden 750-question production pool is registered and aligned to the official 30/26/24/20 domain weights; next step is deeper human editorial review before public catalog launch.',
+                  'AWS Solutions Architect - Associate (SAA-C03) editorial pass - deepen scenario variety and review architectural nuance before expanding advanced cloud guidance.',
                   'Cisco CCNA (200-301) - research and design topology, drag/drop, and CLI-style troubleshooting simulations before treating it as exam-quality.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',

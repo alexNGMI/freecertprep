@@ -241,7 +241,6 @@ const certs = {
     examQuestions: 65,
     examTime: 130,
     passingScore: 72,
-    published: false,
     loadQuestions: () => loadQuestionAsset(awsSaaC03QuestionsUrl),
     domains: [
       { name: 'Design Secure Architectures', weight: 30 },
@@ -444,7 +443,6 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 75,
-    published: false,
     loadQuestions: () => loadQuestionAsset(comptiaAPlusCore1QuestionsUrl),
     domains: APLUS_CORE_1_DOMAINS,
     domainColors: APLUS_CORE_COLORS,
@@ -461,7 +459,6 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 78,
-    published: false,
     loadQuestions: () => loadQuestionAsset(comptiaAPlusCore2QuestionsUrl),
     domains: APLUS_CORE_2_DOMAINS,
     domainColors: APLUS_CORE_COLORS,
