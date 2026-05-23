@@ -34,7 +34,7 @@ describe('homepage career-path layout', () => {
     expect(screen.getByRole('heading', { name: 'Move into security' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Cloud fluency' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'NVIDIA fluency' })).toBeTruthy()
-    expect(screen.getByRole('link', { name: /View A\+ path/ }).getAttribute('href')).toBe('/paths/it-entry')
+    expect(screen.getByRole('link', { name: /View A\+ path/ }).getAttribute('href')).toBe('/comptia/a-plus')
     expect(screen.getAllByRole('link', { name: /Open path/ })[0].getAttribute('href')).toBe('/paths/networking')
     expect(screen.getAllByRole('link', { name: /Open path/ })[1].getAttribute('href')).toBe('/paths/cybersecurity')
     expect(screen.getAllByRole('link', { name: /Open path/ })[2].getAttribute('href')).toBe('/paths/cloud')

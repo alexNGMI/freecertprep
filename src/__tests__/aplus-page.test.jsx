@@ -25,6 +25,7 @@ describe('A+ selection page', () => {
     expect(screen.getByText('Core 1 target')).toBeTruthy()
     expect(screen.getByText('Production pool live')).toBeTruthy()
     expect(screen.getAllByText('90')).toHaveLength(2)
+    expect(screen.queryByRole('link', { name: 'Exam Simulator' })).toBeNull()
     expect(screen.queryByText('Choose your next step')).toBeNull()
   })
 

@@ -42,7 +42,7 @@ const paths = [
     icon: GraduationCap,
     color: '#ef4444',
     featured: true,
-    to: '/paths/it-entry',
+    to: '/comptia/a-plus',
     meta: 'A+ foundation',
     certIds: [],
   },

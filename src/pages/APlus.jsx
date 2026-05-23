@@ -149,18 +149,12 @@ export default function APlus() {
                   <span className="text-sm font-semibold text-emerald-300">{core.status}</span>
                 </div>
               </div>
-              <div className="mt-5 flex flex-col sm:flex-row gap-3">
+              <div className="mt-5">
                 <Link
                   to={core.route}
                   className="inline-flex items-center justify-center rounded-lg bg-zinc-100 text-zinc-950 text-sm font-semibold px-5 py-3 hover:bg-white transition-colors"
                 >
                   Start {core.label}
-                </Link>
-                <Link
-                  to={`${core.route}/exam`}
-                  className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-zinc-900/70 text-zinc-200 text-sm font-semibold px-5 py-3 hover:bg-zinc-800 transition-colors"
-                >
-                  Exam Simulator
                 </Link>
               </div>
             </div>

@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Cloud,
   Cpu,
-  GraduationCap,
   LockKeyhole,
   Network,
 } from 'lucide-react'
@@ -13,22 +12,6 @@ import { getCert } from '../data/certs'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const PATHS = {
-  'it-entry': {
-    eyebrow: 'IT Entry',
-    title: 'Start with practical IT support.',
-    description:
-      'Use A+ as the broad foundation before deciding whether networking, systems, cloud, or security should come next.',
-    icon: GraduationCap,
-    color: '#ef4444',
-    steps: [
-      {
-        label: 'Foundation',
-        title: 'CompTIA A+',
-        description: 'Choose the A+ core that matches your current study plan.',
-        to: '/comptia/a-plus',
-      },
-    ],
-  },
   networking: {
     eyebrow: 'Networking',
     title: 'Build the network and systems layer.',
@@ -69,6 +52,11 @@ const PATHS = {
     title: 'Build around the AWS cloud lane.',
     description:
       'Use AWS Cloud Practitioner for the foundation, SAA for architecture judgment, and Terraform as the infrastructure automation layer once AWS design patterns feel concrete. Azure and Google Cloud stay in the full catalog for vendor-specific goals.',
+    highlights: [
+      'AWS is the default role-focused lane.',
+      'SAA comes before Terraform so architecture tradeoffs have context.',
+      'Azure Fundamentals and Google CDL remain in the full catalog.',
+    ],
     icon: Cloud,
     color: '#38bdf8',
     groups: [
@@ -133,6 +121,14 @@ export default function CareerPath() {
 
   const Icon = path.icon
   const groups = path.groups || [{ label: 'Recommended sequence', items: path.steps }]
+  let stepCount = 0
+  const numberedGroups = groups.map((group) => ({
+    ...group,
+    items: group.items.map((item) => ({
+      ...item,
+      stepNumber: ++stepCount,
+    })),
+  }))
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
@@ -171,22 +167,36 @@ export default function CareerPath() {
             </div>
 
             <div className="border border-white/10 bg-zinc-950/75 rounded-lg p-5">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">How to use this path</p>
-              <p className="text-sm text-zinc-400 leading-relaxed">
-                This page is a guided sequence, not a lock-in. Use it when you want a recommendation. Use the homepage catalog when you already know the exact cert you want.
-              </p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">Path logic</p>
+              {path.highlights ? (
+                <ul className="space-y-3">
+                  {path.highlights.map((highlight) => (
+                    <li key={highlight} className="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: path.color }} />
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm text-zinc-400 leading-relaxed">
+                  This page is a guided sequence, not a lock-in. Use it when you want a recommendation. Use the homepage catalog when you already know the exact cert you want.
+                </p>
+              )}
             </div>
           </div>
         </section>
 
         <section className="max-w-7xl mx-auto px-6 py-14 border-y border-white/5">
           <div className="space-y-8">
-            {groups.map((group) => (
+            {numberedGroups.map((group) => (
               <div key={group.label}>
-                <h2 className="text-xl font-bold text-zinc-100 mb-4">{group.label}</h2>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="h-px w-8" style={{ backgroundColor: path.color }} />
+                  <h2 className="text-xl font-bold text-zinc-100">{group.label}</h2>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                  {group.items.map((item, index) => (
-                    <StepCard key={`${group.label}-${item.title}`} item={item} index={index} color={path.color} />
+                  {group.items.map((item) => (
+                    <StepCard key={`${group.label}-${item.title}`} item={item} color={path.color} />
                   ))}
                 </div>
               </div>
@@ -198,7 +208,7 @@ export default function CareerPath() {
   )
 }
 
-function StepCard({ item, index, color }) {
+function StepCard({ item, color }) {
   return (
     <Link
       to={item.to}
@@ -207,7 +217,7 @@ function StepCard({ item, index, color }) {
       <div className="flex items-start justify-between gap-4 mb-5">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">
-            {String(index + 1).padStart(2, '0')} · {item.label}
+            Step {String(item.stepNumber).padStart(2, '0')} / {item.label}
           </p>
           <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">{item.title}</h3>
         </div>

@@ -211,6 +211,27 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }
   })
 
+  it('SAA-C03 multiple-response questions use exam-like option counts', () => {
+    if (certId !== 'aws-saa-c03') return
+
+    const mrs = questions.filter(q => typeOf(q) === 'multiple-response')
+    for (const q of mrs) {
+      expect(q.choices.length, `${certId} q${q.id} should have at least five options`).toBeGreaterThanOrEqual(5)
+      expect(q.correctAnswers.length, `${certId} q${q.id} should have at least two correct answers`).toBeGreaterThanOrEqual(2)
+    }
+  })
+
+  it('SAA-C03 stems and explanations avoid generated editorial placeholders', () => {
+    if (certId !== 'aws-saa-c03') return
+
+    for (const q of questions) {
+      expect(q.question, `${certId} q${q.id} still contains generated case phrasing`).not.toMatch(/case SAA-\d+/i)
+      expect(q.explanation, `${certId} q${q.id} still contains generic explanation filler`).not.toContain(
+        'The other options either add operational risk, weaken the design goal, or use a service for a purpose it does not provide.'
+      )
+    }
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {

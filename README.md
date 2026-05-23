@@ -24,11 +24,11 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
-> **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane.
+> **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, and SAA multiple-response items use five-option exam-style formatting.
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 750-question production pool and a 90-question / 90-minute simulator aligned to the official domain weights.
 
-> **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. `/paths/it-entry`, `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence; the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform as the automation tier.
+> **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. The A+ entry card opens `/comptia/a-plus` directly, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence; the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform as the automation tier.
 
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
@@ -50,7 +50,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 ## Features
 
 - **Home** - Guided learning paths up top, direct certification catalog below.
-- **Path pages** - Dedicated lanes for IT Entry, Networking, Cybersecurity, Cloud, and NVIDIA. Networking offers Network+ or Cisco CCST before Server+; Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.
+- **Path pages** - Dedicated lanes for Networking, Cybersecurity, Cloud, and NVIDIA, plus a direct A+ selector for brand-new learners. Networking offers Network+ or Cisco CCST before Server+; Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) and Cisco CCNA (200-301) are planned as separate advanced tracks. SAA can start with deep scenario MCQ/MR and architecture tradeoff rationales; CCNA should wait for topology, drag/drop, and CLI-style troubleshooting simulations before entering the catalog.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.

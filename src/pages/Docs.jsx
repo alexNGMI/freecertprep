@@ -489,7 +489,7 @@ key = random() ** (1 / weight)
             <CodeBlock>{`src/
 ├── pages/
 │   ├── Home.jsx          — Landing page, guided paths, cert catalog, visitor counter
-│   ├── CareerPath.jsx    - Guided IT Entry / Networking / Cyber / Cloud / NVIDIA path pages
+│   ├── CareerPath.jsx    - Guided Networking / Cyber / Cloud / NVIDIA path pages
 │   ├── Dashboard.jsx     — Per-cert stats, domain readiness, resets
 │   ├── Quiz.jsx          — Smart Practice / Bookmarked / Domain mode
 │   ├── Drill.jsx         — Timed 10-question drill with countdown
@@ -606,8 +606,8 @@ key = random() ** (1 / weight)
               The product is live and usable today, with thirteen IT certifications plus the real-estate sister site. The latest
               refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
               loading, and focused UI regression tests. The roadmap now splits into three tracks: making the guided IT paths richer,
-              adding platform features such as synced accounts, a custom domain, and PWA support, and preparing advanced
-              certification tracks for role-breaking credentials such as AWS SAA and Cisco CCNA.
+              adding platform features such as synced accounts, a custom domain, and PWA support, and hardening advanced
+              certification tracks such as AWS SAA while researching Cisco CCNA simulation quality.
             </P>
 
             {[
@@ -620,7 +620,7 @@ key = random() ** (1 / weight)
                   'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path offers CCST as the Cisco / CCNA-oriented alternative to Network+.',
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
-                  'Homepage guided paths — IT Entry, Networking, Cybersecurity, Cloud, and NVIDIA path cards now route to dedicated /paths/* pages while the bottom catalog remains direct-to-cert.',
+                  'Homepage guided paths — the A+ entry card routes directly to /comptia/a-plus, while Networking, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the automation tier. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
@@ -635,15 +635,15 @@ key = random() ** (1 / weight)
                   'AZ / NC / IN quality audit — all three new state modules verified for source-aligned exam splits, domain balance, unique IDs, duplicate-free stems, balanced answer positions, and frontend picker coverage.',
                   'CompTIA A+ guided track - live at /comptia/a-plus with separate Core 1 (220-1201) and Core 2 (220-1202) routes, each backed by a 750-question production pool and 90-question simulator; both cores now also appear in the full catalog grid.',
                   'AWS Solutions Architect - Associate (SAA-C03) - live 750-question production pool aligned to the official 30/26/24/20 domain weights, now listed in the full catalog and Cloud path.',
+                  'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 369-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 420-test regression suite.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'AWS Solutions Architect - Associate (SAA-C03) editorial pass - deepen scenario variety and review architectural nuance before expanding advanced cloud guidance.',
                   'Cisco CCNA (200-301) - research and design topology, drag/drop, and CLI-style troubleshooting simulations before treating it as exam-quality.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
