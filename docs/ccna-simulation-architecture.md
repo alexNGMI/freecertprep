@@ -228,6 +228,35 @@ Roadmap item #2 expansion notes:
 - Kept `ccna-200-301` unpublished until the larger public advanced-track bar is met.
 - Updated content sanity validation to lock the 160-item milestone, domain allocation, simulation counts, answer-position balance, and domain-aligned scenario checks.
 
+Part 1 audit status:
+
+- Mechanical audit completed on 2026-05-24 and captured in `scripts/audits/ccna-preview-audit.md`.
+- The 160-item pool is structurally valid, exactly domain-weighted, and explanation-complete enough for continued hidden QA.
+- The pool should not publish yet because several written and CLI families are too template-like across repeated concept clusters.
+- The next content pass should add 140 items while also diversifying repeated frames around switching fundamentals, trunk output, administrative distance, longest-prefix match, NAT/PAT, SSH/ACL management access, and REST/JSON basics.
+
+300-item target:
+
+| Domain | Current | Target | Add |
+| --- | ---: | ---: | ---: |
+| Network Fundamentals | 32 | 60 | 28 |
+| Network Access | 32 | 60 | 28 |
+| IP Connectivity | 40 | 75 | 35 |
+| IP Services | 16 | 30 | 14 |
+| Security Fundamentals | 24 | 45 | 21 |
+| Automation and Programmability | 16 | 30 | 14 |
+
+Recommended 300-item type mix:
+
+| Type | Target range |
+| --- | ---: |
+| Standard written single-choice | 115-125 |
+| Multiple-response / applied written | 15-25 |
+| CLI output | 60-65 |
+| Topology scenario | 45-50 |
+| Config repair | 30-35 |
+| Subnetting drill | 15-20 |
+
 ### Phase 3: Public Advanced Track
 
 Only publish CCNA once simulation quality is strong enough.

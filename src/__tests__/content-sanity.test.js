@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { describe, it, expect } from 'vitest'
 import certs, { getAllCerts, getAllCertsIncludingUnpublished } from '../data/certs.js'
 import az900 from '../data/az-900-questions.json'
@@ -496,6 +497,19 @@ describe('CCNA preview pool', () => {
       const text = JSON.stringify(q).toLowerCase()
       expect(text, `${q.id} should stay focused on security controls`).toMatch(/acl|ssh|vty|bpdu|guard|least|access|deny|permit/)
     }
+  })
+
+  it('keeps the CCNA audit plan aligned with the hidden 300-item readiness target', () => {
+    const audit = readFileSync('scripts/audits/ccna-preview-audit.md', 'utf8')
+
+    expect(audit).toContain('Status: `ccna-200-301` remains unpublished')
+    expect(audit).toContain('| Network Fundamentals | 32 | 60 | +28 |')
+    expect(audit).toContain('| Network Access | 32 | 60 | +28 |')
+    expect(audit).toContain('| IP Connectivity | 40 | 75 | +35 |')
+    expect(audit).toContain('| IP Services | 16 | 30 | +14 |')
+    expect(audit).toContain('| Security Fundamentals | 24 | 45 | +21 |')
+    expect(audit).toContain('| Automation and Programmability | 16 | 30 | +14 |')
+    expect(audit).toContain('Do not add CCST-level vocabulary checks')
   })
 
 })
