@@ -10715,4 +10715,473 @@
     "correctAnswer": 2,
     "explanation": "IP reachability with name-resolution failure indicates DNS is the likely problem."
   }
+,
+  {
+    "id": "aplus-core1-pbq-001",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Desktop display and boot ticket",
+      "scenario": "A technician receives three hardware tickets after a small office moved desks and reconnected workstations. Use the symptoms and quick checks to choose the best next action.",
+      "evidence": [
+        {
+          "title": "Ticket notes",
+          "items": [
+            {
+              "label": "PC-A",
+              "value": "Powers on, fans spin, no video on either monitor"
+            },
+            {
+              "label": "PC-B",
+              "value": "Intermittent shutdowns during video calls after being moved under a desk"
+            },
+            {
+              "label": "PC-C",
+              "value": "POST reports keyboard error and stops before booting"
+            }
+          ]
+        },
+        {
+          "title": "Initial checks",
+          "items": [
+            {
+              "label": "PC-A",
+              "value": "Monitor input is correct; discrete GPU was reseated during the move"
+            },
+            {
+              "label": "PC-B",
+              "value": "CPU temperature rises quickly; dust is visible at the intake"
+            },
+            {
+              "label": "PC-C",
+              "value": "Keyboard works on another computer; front USB ports feel loose"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each workstation symptom to the best next troubleshooting action.",
+    "itemsLeft": [
+      "PC-A has power but no display after the discrete GPU was disturbed",
+      "PC-B shuts down under load and shows rapidly rising temperatures",
+      "PC-C stops at POST with a keyboard error and loose front USB ports"
+    ],
+    "itemsRight": [
+      "Inspect airflow, clean dust from vents, and verify CPU fan/heatsink contact",
+      "Test with a rear motherboard USB port or replace/repair the front-panel USB connection",
+      "Verify GPU power connectors, reseat the card, and test onboard video if available"
+    ],
+    "correctMatches": [
+      2,
+      0,
+      1
+    ],
+    "explanation": "No video after a GPU reseat points first to GPU seating, power, or fallback video. Thermal shutdown under load calls for cooling and airflow checks. A keyboard POST error with loose front USB ports should be isolated by testing a known-good rear USB port before replacing the keyboard."
+  },
+  {
+    "id": "aplus-core1-pbq-002",
+    "domain": "Networking",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Small office connectivity ticket",
+      "scenario": "Three users report network issues after a desk move. The switch is online and other users are working normally.",
+      "evidence": [
+        {
+          "title": "Observed details",
+          "items": [
+            {
+              "label": "User 1",
+              "value": "Link light is off; cable latch is broken"
+            },
+            {
+              "label": "User 2",
+              "value": "169.254.x.x address; DHCP works on nearby desks"
+            },
+            {
+              "label": "User 3",
+              "value": "Can ping the gateway but cannot resolve intranet names"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each networking symptom to the best next action.",
+    "itemsLeft": [
+      "A workstation has no link light after the move",
+      "A workstation receives an APIPA address while other desks get DHCP leases",
+      "A workstation reaches the gateway but fails name resolution"
+    ],
+    "itemsRight": [
+      "Check DHCP scope availability and verify the client is on the correct VLAN",
+      "Replace or re-terminate the Ethernet patch cable and confirm the switchport link",
+      "Check DNS server settings and test lookup with a known hostname"
+    ],
+    "correctMatches": [
+      1,
+      0,
+      2
+    ],
+    "explanation": "No link light is a physical-layer issue first. APIPA means the client did not receive a DHCP lease, so DHCP/VLAN placement is the right path. Gateway reachability with failed name resolution points to DNS."
+  }
+,
+  {
+    "id": "aplus-core1-pbq-003",
+    "domain": "Mobile Devices",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Mobile device accessory ticket",
+      "scenario": "A technician supports three mobile users after a device refresh. Match each symptom to the best hardware or accessory action.",
+      "evidence": [
+        {
+          "title": "Symptoms",
+          "items": [
+            {
+              "label": "Tablet",
+              "value": "Charges only when the cable is held at an angle"
+            },
+            {
+              "label": "Phone",
+              "value": "Bluetooth headset pairs but audio stays on speaker"
+            },
+            {
+              "label": "Laptop",
+              "value": "External display works at low resolution only"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each mobile-device symptom to the best next action.",
+    "itemsLeft": [
+      "Tablet charging is intermittent when the cable moves",
+      "Bluetooth headset pairs but does not become the audio output",
+      "External monitor is detected but limited to low resolution"
+    ],
+    "itemsRight": [
+      "Replace the damaged charging cable or inspect the charge port for debris/damage",
+      "Select the paired headset as the active audio output and verify profile support",
+      "Check adapter/cable capability and display settings for the target resolution"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Intermittent charging points to cable or port damage. A paired headset still needs to be selected as the audio output and use the correct profile. Low external-display resolution often comes from adapter/cable limits or display configuration."
+  },
+  {
+    "id": "aplus-core1-pbq-004",
+    "domain": "Mobile Devices",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Laptop field-repair ticket",
+      "scenario": "A field technician receives three laptop hardware tickets. Use the observations to choose the best replacement or adjustment.",
+      "evidence": [
+        {
+          "title": "Observations",
+          "items": [
+            {
+              "label": "Unit A",
+              "value": "Trackpad works in BIOS but not in Windows"
+            },
+            {
+              "label": "Unit B",
+              "value": "Screen flickers when the lid angle changes"
+            },
+            {
+              "label": "Unit C",
+              "value": "Battery drains rapidly and reports poor health"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each laptop issue to the most appropriate action.",
+    "itemsLeft": [
+      "Trackpad works before the OS loads but fails in Windows",
+      "Screen flickers when the display hinge angle changes",
+      "Battery health is poor and runtime is much shorter than expected"
+    ],
+    "itemsRight": [
+      "Update or reinstall the touchpad driver and check OS settings",
+      "Inspect or replace the display cable routed through the hinge",
+      "Replace the battery with a compatible approved pack"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Hardware that works in BIOS but not Windows usually points to driver/settings. Flicker tied to hinge movement suggests a display cable issue. Poor battery health calls for battery replacement."
+  },
+  {
+    "id": "aplus-core1-pbq-005",
+    "domain": "Hardware",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Printer support ticket",
+      "scenario": "Three office printers show different failure modes after supply replacement. Match each issue to the correct maintenance action.",
+      "evidence": [
+        {
+          "title": "Printer findings",
+          "items": [
+            {
+              "label": "Laser A",
+              "value": "Pages have repeating spots at a regular interval"
+            },
+            {
+              "label": "Inkjet B",
+              "value": "Colors are faded after cartridge replacement"
+            },
+            {
+              "label": "Thermal C",
+              "value": "Labels print blank after media was reloaded"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each printer symptom to the best maintenance action.",
+    "itemsLeft": [
+      "Laser pages show repeating marks at a fixed interval",
+      "Inkjet output is faded after new cartridges were installed",
+      "Thermal labels advance but print blank"
+    ],
+    "itemsRight": [
+      "Inspect/replace the drum or roller associated with the repeating defect",
+      "Run printhead cleaning/alignment and verify protective tape was removed",
+      "Reload thermal media in the correct orientation and verify compatible labels"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Repeating laser defects usually map to a rotating drum/roller. Faded inkjet output after replacement suggests cartridge tape, alignment, or printhead cleaning. Blank thermal labels often mean the media is reversed or incompatible."
+  },
+  {
+    "id": "aplus-core1-pbq-006",
+    "domain": "Hardware",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Storage upgrade ticket",
+      "scenario": "A technician is upgrading three systems with different storage requirements. Match each requirement to the best storage choice.",
+      "evidence": [
+        {
+          "title": "Requirements",
+          "items": [
+            {
+              "label": "Workstation",
+              "value": "Needs fastest local OS/application load times"
+            },
+            {
+              "label": "NAS",
+              "value": "Needs fault tolerance across multiple drives"
+            },
+            {
+              "label": "Old laptop",
+              "value": "Only supports 2.5-inch SATA bay"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each storage requirement to the best option.",
+    "itemsLeft": [
+      "High-performance workstation boot/application drive",
+      "Small NAS needing drive failure tolerance",
+      "Older laptop with only a 2.5-inch SATA bay"
+    ],
+    "itemsRight": [
+      "Use an NVMe SSD in an available M.2 PCIe slot",
+      "Use a supported RAID configuration with NAS-rated drives",
+      "Use a 2.5-inch SATA SSD compatible with the bay"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "NVMe over PCIe is the best local performance option. NAS fault tolerance requires a supported RAID layout and appropriate drives. Older 2.5-inch SATA bays need a compatible SATA SSD."
+  },
+  {
+    "id": "aplus-core1-pbq-007",
+    "domain": "Virtualization and Cloud Computing",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Virtual workstation ticket",
+      "scenario": "A support tech is asked to prepare three virtual-workstation scenarios. Match each requirement to the best setting or service.",
+      "evidence": [
+        {
+          "title": "Requests",
+          "items": [
+            {
+              "label": "Developer VM",
+              "value": "Needs nested test networks isolated from production"
+            },
+            {
+              "label": "Training lab",
+              "value": "Needs quick rollback after students break settings"
+            },
+            {
+              "label": "Remote app",
+              "value": "Needs browser access without local installation"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each virtualization/cloud requirement to the best action.",
+    "itemsLeft": [
+      "Create an isolated virtual test network",
+      "Return lab systems to a known-good state after exercises",
+      "Provide app access without installing the app locally"
+    ],
+    "itemsRight": [
+      "Use an internal/private virtual switch or isolated network",
+      "Create snapshots/checkpoints before the lab begins",
+      "Use a cloud-hosted or virtual app delivery option"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Virtual switches can isolate VM traffic. Snapshots/checkpoints support rollback. Cloud/virtual app delivery lets users access software without local installation."
+  },
+  {
+    "id": "aplus-core1-pbq-008",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "No-boot triage ticket",
+      "scenario": "Three desktops fail startup in different ways. Match each symptom to the best first hardware check.",
+      "evidence": [
+        {
+          "title": "Startup clues",
+          "items": [
+            {
+              "label": "Desktop A",
+              "value": "No fans, no lights, known-good outlet"
+            },
+            {
+              "label": "Desktop B",
+              "value": "Beeps after memory was upgraded"
+            },
+            {
+              "label": "Desktop C",
+              "value": "Boot device not found after drive replacement"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each startup symptom to the best first check.",
+    "itemsLeft": [
+      "No power signs from a known-good outlet",
+      "POST beeps after RAM upgrade",
+      "Boot device not found after replacing storage"
+    ],
+    "itemsRight": [
+      "Test PSU power connections, switch position, and power supply health",
+      "Reseat RAM and verify module compatibility/slot population",
+      "Check BIOS/UEFI boot order and storage detection"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "No power starts with PSU and power path. POST beeps after RAM changes point to memory seating/compatibility. Boot-device errors after storage work call for UEFI detection and boot order checks."
+  },
+  {
+    "id": "aplus-core1-pbq-009",
+    "domain": "Networking",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Wireless setup ticket",
+      "scenario": "A technician configures Wi-Fi for three small-office use cases. Match each requirement to the best wireless choice.",
+      "evidence": [
+        {
+          "title": "Use cases",
+          "items": [
+            {
+              "label": "Guest Wi-Fi",
+              "value": "Visitors need internet only"
+            },
+            {
+              "label": "Warehouse",
+              "value": "Many scanners use older 2.4 GHz radios"
+            },
+            {
+              "label": "Conference room",
+              "value": "High-density video meetings"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each wireless requirement to the best configuration choice.",
+    "itemsLeft": [
+      "Guest users should be isolated from internal devices",
+      "Older scanners require broad 2.4 GHz compatibility",
+      "Dense conference room needs higher throughput and less interference"
+    ],
+    "itemsRight": [
+      "Create a guest SSID/VLAN with client isolation and internet-only access",
+      "Enable appropriate 2.4 GHz support while managing channel overlap",
+      "Prefer 5 GHz/6 GHz capable AP design with capacity planning"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Guest access should be segmented. Older devices may require 2.4 GHz. Dense, high-throughput areas benefit from higher-frequency bands and capacity planning."
+  },
+  {
+    "id": "aplus-core1-pbq-010",
+    "domain": "Hardware and Network Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Peripheral troubleshooting ticket",
+      "scenario": "Three peripherals stop working after a workstation image deployment. Match each symptom to the most likely fix.",
+      "evidence": [
+        {
+          "title": "Peripheral notes",
+          "items": [
+            {
+              "label": "Scanner",
+              "value": "Needs vendor TWAIN driver"
+            },
+            {
+              "label": "Dock",
+              "value": "Network and display fail until firmware update"
+            },
+            {
+              "label": "Webcam",
+              "value": "Blocked by OS privacy setting"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each peripheral issue to the best fix.",
+    "itemsLeft": [
+      "Scanner is detected but line-of-business app cannot use it",
+      "Dock ports fail after imaging on multiple laptops",
+      "Webcam works in test utility but not meeting apps"
+    ],
+    "itemsRight": [
+      "Install the correct vendor scanner/TWAIN driver package",
+      "Update dock firmware and verify supported host drivers",
+      "Allow camera access in OS privacy/application permissions"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Application scanner support often depends on vendor/TWAIN drivers. Dock problems across systems commonly require firmware/driver updates. Webcam app failures with working hardware often trace to privacy permissions."
+  }
 ]
