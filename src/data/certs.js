@@ -375,7 +375,7 @@ const certs = {
     description: 'Establishes foundational networking knowledge — protocols, topologies, troubleshooting, and security — for entry-level network roles.',
     difficulty: 'Foundational',
     color: '#c8202f',
-    questionCount: 750,
+    questionCount: 751,
     examQuestions: 90,
     examTime: 90,
     passingScore: 80,

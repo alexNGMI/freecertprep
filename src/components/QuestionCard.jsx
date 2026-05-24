@@ -8,7 +8,8 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   const isMultiple = question.type === 'multiple-response'
   const isStatement = question.type === 'statement-block'
   const isOrdering = question.type === 'ordering'
-  const isMatching = question.type === 'matching'
+  const isPbqMatching = question.type === 'pbq-matching'
+  const isMatching = question.type === 'matching' || isPbqMatching
   const isCliOutput = question.type === 'cli-output'
   const isTopologyScenario = question.type === 'topology-scenario'
   const isConfigRepair = question.type === 'config-repair'
@@ -158,7 +159,8 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
           {isMultiple && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Select {question.correctAnswers.length}</span>}
           {isStatement && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Yes / No required</span>}
           {isOrdering && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Click to order ({activeOrder.length}/{question.items?.length})</span>}
-          {isMatching && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Match each item</span>}
+          {isPbqMatching && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">PBQ-lite matching</span>}
+          {!isPbqMatching && isMatching && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Match each item</span>}
           {isCliOutput && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Interpret command output</span>}
           {isTopologyScenario && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Read the topology</span>}
           {isConfigRepair && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Repair the config</span>}
@@ -182,6 +184,9 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
           activeAnswer={activeSubnetAnswer}
           onChange={setSubnetField}
         />
+      )}
+      {isPbqMatching && (
+        <PbqMatchingPanel question={question} />
       )}
 
       <RichText text={question.question} className="text-zinc-100 text-xl font-medium leading-relaxed" />
@@ -440,6 +445,45 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
             </p>
             <RichText text={question.explanation} className="text-zinc-300/90 pr-4" />
           </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function PbqMatchingPanel({ question }) {
+  const pbq = question.pbq || {}
+  const evidence = pbq.evidence || []
+
+  return (
+    <div className="space-y-4 rounded-2xl border border-amber-500/20 bg-amber-950/10 p-4">
+      <div className="space-y-2">
+        <p className="text-xs font-semibold uppercase tracking-widest text-amber-300">
+          {pbq.title || 'Performance-based scenario'}
+        </p>
+        {pbq.scenario && (
+          <p className="text-sm leading-relaxed text-zinc-300">
+            {pbq.scenario}
+          </p>
+        )}
+      </div>
+      {evidence.length > 0 && (
+        <div className="grid gap-3 md:grid-cols-2">
+          {evidence.map((group) => (
+            <div key={group.title} className="rounded-xl border border-white/10 bg-zinc-950/70 p-4">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-500">
+                {group.title}
+              </p>
+              <div className="space-y-2">
+                {group.items.map((item) => (
+                  <div key={item.label} className="grid grid-cols-[auto_1fr] gap-3 text-sm">
+                    <span className="font-semibold text-amber-200">{item.label}</span>
+                    <span className="text-zinc-300">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

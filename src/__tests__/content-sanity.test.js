@@ -62,6 +62,7 @@ const VALID_TYPES = new Set([
   'statement-block',
   'ordering',
   'matching',
+  'pbq-matching',
   'cli-output',
   'topology-scenario',
   'config-repair',
@@ -115,6 +116,7 @@ describe('cert registry', () => {
     expect(publicIds).not.toContain('ccna-200-301')
     expect(allIds).toContain('ccna-200-301')
   })
+
 })
 
 // ─── Per-cert sanity ────────────────────────────────────────────────────────
@@ -359,7 +361,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     // matches are valid (e.g., 4 services → 3 categories). The real contract:
     //   - correctMatches.length === itemsLeft.length (one answer per left item)
     //   - each value is a valid index into itemsRight
-    const matches = questions.filter(q => typeOf(q) === 'matching')
+    const matches = questions.filter(q => typeOf(q) === 'matching' || typeOf(q) === 'pbq-matching')
     for (const q of matches) {
       expect(Array.isArray(q.itemsLeft), `${certId} q${q.id} missing itemsLeft`).toBe(true)
       expect(Array.isArray(q.itemsRight), `${certId} q${q.id} missing itemsRight`).toBe(true)
@@ -376,6 +378,27 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
           idx >= 0 && idx < q.itemsRight.length,
           `${certId} q${q.id} correctMatches has out-of-range index ${idx}`
         ).toBe(true)
+      }
+    }
+  })
+
+  it('pbq-matching questions include scenario evidence', () => {
+    const pbqs = questions.filter(q => typeOf(q) === 'pbq-matching')
+    for (const q of pbqs) {
+      expect(q.pbq && typeof q.pbq === 'object' && !Array.isArray(q.pbq), `${certId} q${q.id} missing pbq context`).toBe(true)
+      expect(typeof q.pbq.title === 'string' && q.pbq.title.trim().length > 0, `${certId} q${q.id} missing pbq title`).toBe(true)
+      expect(typeof q.pbq.scenario === 'string' && q.pbq.scenario.trim().length > 0, `${certId} q${q.id} missing pbq scenario`).toBe(true)
+      expect(Array.isArray(q.pbq.evidence), `${certId} q${q.id} pbq evidence must be an array`).toBe(true)
+      expect(q.pbq.evidence.length, `${certId} q${q.id} needs at least one evidence group`).toBeGreaterThan(0)
+
+      for (const [groupIndex, group] of q.pbq.evidence.entries()) {
+        expect(typeof group.title === 'string' && group.title.trim().length > 0, `${certId} q${q.id} evidence group ${groupIndex} missing title`).toBe(true)
+        expect(Array.isArray(group.items), `${certId} q${q.id} evidence group ${groupIndex} missing items`).toBe(true)
+        expect(group.items.length, `${certId} q${q.id} evidence group ${groupIndex} needs at least one item`).toBeGreaterThan(0)
+        for (const [itemIndex, item] of group.items.entries()) {
+          expect(typeof item.label === 'string' && item.label.trim().length > 0, `${certId} q${q.id} evidence ${groupIndex}.${itemIndex} missing label`).toBe(true)
+          expect(typeof item.value === 'string' && item.value.trim().length > 0, `${certId} q${q.id} evidence ${groupIndex}.${itemIndex} missing value`).toBe(true)
+        }
       }
     }
   })
@@ -474,4 +497,5 @@ describe('CCNA preview pool', () => {
       expect(text, `${q.id} should stay focused on security controls`).toMatch(/acl|ssh|vty|bpdu|guard|least|access|deny|permit/)
     }
   })
+
 })
