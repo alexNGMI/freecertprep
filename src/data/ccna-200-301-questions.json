@@ -3369,5 +3369,916 @@
     ],
     "correctAnswer": 3,
     "explanation": "Config clue: Case 120: JSON string values must be quoted; the unquoted description value makes the API payload invalid."
+  },
+  {
+    "id": "ccna-network-fundamentals-single-010",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "A workstation can ping hosts in its own subnet but cannot reach any remote subnet. The IP address and mask are correct. Which setting should the technician verify next?",
+    "choices": [
+      "Duplex mode",
+      "Native VLAN",
+      "OSPF process ID",
+      "Default gateway"
+    ],
+    "correctAnswer": 3,
+    "explanation": "A host needs a default gateway to send traffic outside its local subnet. Local pings can work even when the gateway is missing or incorrect."
+  },
+  {
+    "id": "ccna-network-fundamentals-single-017",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Which field in an Ethernet frame is used by a switch to decide where to forward a known unicast frame?",
+    "choices": [
+      "Source IP address",
+      "TCP destination port",
+      "IPv4 TTL",
+      "Destination MAC address"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Layer 2 switches forward frames by looking up the destination MAC address in the MAC address table. IP addresses and TCP ports are not used for basic switch forwarding."
+  },
+  {
+    "id": "ccna-network-fundamentals-single-018",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "A packet arrives at a router with TTL set to 1. What happens when the router tries to forward it?",
+    "choices": [
+      "The router forwards the packet unchanged",
+      "The router converts it to a broadcast frame",
+      "The router drops the packet and can send an ICMP Time Exceeded message",
+      "The router increases the TTL before forwarding"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Routers decrement the TTL before forwarding IPv4 packets. If the TTL reaches zero, the packet is discarded and an ICMP Time Exceeded message can be generated."
+  },
+  {
+    "id": "ccna-network-fundamentals-cli-003",
+    "domain": "Network Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the interface status output.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show interfaces status",
+        "output": "Port      Name               Status       Vlan       Duplex  Speed Type\nGi0/1     User-PC            connected    10         a-full  a-100 10/100/1000BaseTX\nGi0/2     Printer            notconnect   20           auto   auto 10/100/1000BaseTX\nGi0/24    Uplink             connected    trunk      a-full  a-1000 10/100/1000BaseTX"
+      }
+    ],
+    "question": "Which statement is supported by the output?",
+    "choices": [
+      "Gi0/24 is operating as a routed port",
+      "Gi0/1 negotiated full duplex and 100 Mb/s",
+      "Gi0/2 is forwarding traffic in VLAN 20",
+      "Gi0/1 is configured as a trunk"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The a-full and a-100 values indicate negotiated full duplex and 100 Mb/s on Gi0/1. Gi0/2 is not connected, and Gi0/24 is shown as a trunk."
+  },
+  {
+    "id": "ccna-network-fundamentals-topology-004",
+    "domain": "Network Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the local segment topology.",
+    "topology": {
+      "label": "Default gateway forwarding path",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        { "id": "PC1", "label": "PC1\n192.168.10.25/24", "kind": "client", "x": 90, "y": 150 },
+        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 300, "y": 150 },
+        { "id": "R1", "label": "R1\n192.168.10.1", "kind": "router", "x": 520, "y": 150 }
+      ],
+      "links": [
+        { "from": "PC1", "to": "SW1", "label": "access VLAN 10" },
+        { "from": "SW1", "to": "R1", "label": "G0/1" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "PC1 settings",
+        "columns": ["Setting", "Value"],
+        "rows": [
+          ["IP address", "192.168.10.25"],
+          ["Mask", "255.255.255.0"],
+          ["Default gateway", "192.168.20.1"]
+        ]
+      }
+    ],
+    "question": "Why will PC1 fail to reach remote networks?",
+    "choices": [
+      "The switch must have an OSPF neighbor",
+      "The access link should use VLAN 1 only",
+      "The router address must be a broadcast address",
+      "The default gateway is outside PC1's subnet"
+    ],
+    "correctAnswer": 3,
+    "explanation": "PC1 is in 192.168.10.0/24, so its default gateway should be an address in that same subnet, such as 192.168.10.1."
+  },
+  {
+    "id": "ccna-network-fundamentals-subnet-004",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "question": "Subnetting drill: calculate the key values for 10.14.32.128/26.",
+    "given": "10.14.32.128/26",
+    "asks": ["network", "broadcast", "firstUsable", "lastUsable", "hostCount"],
+    "correct": {
+      "network": "10.14.32.128",
+      "broadcast": "10.14.32.191",
+      "firstUsable": "10.14.32.129",
+      "lastUsable": "10.14.32.190",
+      "hostCount": 62
+    },
+    "explanation": "A /26 has a block size of 64 addresses in the last octet. The 128 block runs from .128 through .191, leaving .129 through .190 as usable host addresses."
+  },
+  {
+    "id": "ccna-network-fundamentals-subnet-005",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "question": "Subnetting drill: calculate the key values for 172.16.44.96/28.",
+    "given": "172.16.44.96/28",
+    "asks": ["network", "broadcast", "firstUsable", "lastUsable", "hostCount"],
+    "correct": {
+      "network": "172.16.44.96",
+      "broadcast": "172.16.44.111",
+      "firstUsable": "172.16.44.97",
+      "lastUsable": "172.16.44.110",
+      "hostCount": 14
+    },
+    "explanation": "A /28 has 16 addresses per subnet. The 96 block ends at 111, with 14 usable host addresses between the network and broadcast addresses."
+  },
+  {
+    "id": "ccna-network-fundamentals-subnet-006",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "question": "Subnetting drill: calculate the key values for 192.168.50.200/29.",
+    "given": "192.168.50.200/29",
+    "asks": ["network", "broadcast", "firstUsable", "lastUsable", "hostCount"],
+    "correct": {
+      "network": "192.168.50.200",
+      "broadcast": "192.168.50.207",
+      "firstUsable": "192.168.50.201",
+      "lastUsable": "192.168.50.206",
+      "hostCount": 6
+    },
+    "explanation": "A /29 advances in blocks of 8 addresses. The 200 block spans .200 through .207, so six addresses are usable."
+  },
+  {
+    "id": "ccna-network-access-single-010",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "A switchport connected to an IP phone and workstation must carry the user's data VLAN and the phone's voice VLAN. Which configuration is most appropriate?",
+    "choices": [
+      "switchport mode trunk only",
+      "switchport access vlan 20 and switchport voice vlan 30",
+      "no switchport",
+      "ip helper-address 30.30.30.30"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cisco access ports can carry a data VLAN for the attached workstation and a voice VLAN for the IP phone. A routed port or DHCP helper does not solve this access-layer requirement."
+  },
+  {
+    "id": "ccna-network-access-single-011",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Which STP feature immediately places an edge port into forwarding state while still protecting against accidental loops if BPDUs are received?",
+    "choices": [
+      "Root guard",
+      "Loop guard",
+      "PortFast with BPDU Guard",
+      "UDLD aggressive mode"
+    ],
+    "correctAnswer": 2,
+    "explanation": "PortFast speeds up host-facing edge ports. BPDU Guard can err-disable the port if a BPDU appears, protecting against an unexpected switch connection."
+  },
+  {
+    "id": "ccna-network-access-single-012",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Two switches form an EtherChannel. Which requirement must match on the member interfaces?",
+    "choices": [
+      "Interface descriptions",
+      "Console password",
+      "SNMP contact",
+      "Speed, duplex, trunking mode, and allowed VLANs"
+    ],
+    "correctAnswer": 3,
+    "explanation": "EtherChannel member links must have compatible Layer 2 settings, including speed, duplex, trunking mode, native VLAN, and allowed VLANs."
+  },
+  {
+    "id": "ccna-network-access-cli-009",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the trunk status.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show interfaces trunk",
+        "output": "Port        Mode         Encapsulation  Status        Native vlan\nGi0/24      on           802.1q         trunking      99\n\nPort        Vlans allowed on trunk\nGi0/24      10,20\n\nPort        Vlans in spanning tree forwarding state and not pruned\nGi0/24      10"
+      }
+    ],
+    "question": "VLAN 20 is allowed on the trunk but users in VLAN 20 cannot cross it. What is the best clue?",
+    "choices": [
+      "The trunk uses 802.1Q encapsulation",
+      "The native VLAN is 99",
+      "The trunk mode is on",
+      "VLAN 20 is not listed as forwarding and not pruned"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The output shows VLAN 20 is allowed, but only VLAN 10 is currently forwarding and not pruned on the trunk. That points to an STP or pruning state issue for VLAN 20."
+  },
+  {
+    "id": "ccna-network-access-cli-010",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the wireless client summary.",
+    "commands": [
+      {
+        "device": "WLC1",
+        "command": "show client summary",
+        "output": "MAC Address        AP Name     WLAN  State      Protocol  VLAN\n3c22.fb10.1111     AP-2       Corp  Run        802.11ac  30\n70d3.79aa.2222     AP-2       Corp  WebAuth    802.11ax  30\n001b.54cc.3333     AP-1       Guest Run        802.11n   40"
+      }
+    ],
+    "question": "Which client is associated but still waiting for web authentication?",
+    "choices": [
+      "3c22.fb10.1111",
+      "001b.54cc.3333",
+      "70d3.79aa.2222",
+      "No clients are using web authentication"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The client 70d3.79aa.2222 is listed in WebAuth state, while the other shown clients are in Run state."
+  },
+  {
+    "id": "ccna-network-access-topology-006",
+    "domain": "Network Access",
+    "type": "topology-scenario",
+    "prompt": "Review the VLAN access topology.",
+    "topology": {
+      "label": "Voice and data VLAN edge port",
+      "width": 640,
+      "height": 320,
+      "nodes": [
+        { "id": "PC1", "label": "PC1", "kind": "client", "x": 90, "y": 210 },
+        { "id": "PHONE", "label": "Phone", "kind": "client", "x": 260, "y": 210 },
+        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 470, "y": 210 },
+        { "id": "CUCM", "label": "Call Control", "kind": "server", "x": 470, "y": 80 }
+      ],
+      "links": [
+        { "from": "PC1", "to": "PHONE", "label": "PC port" },
+        { "from": "PHONE", "to": "SW1", "label": "Gi0/10" },
+        { "from": "SW1", "to": "CUCM", "label": "VLAN 30" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "SW1 Gi0/10",
+        "columns": ["Setting", "Value"],
+        "rows": [
+          ["Access VLAN", "20"],
+          ["Voice VLAN", "not configured"],
+          ["Port mode", "access"]
+        ]
+      }
+    ],
+    "question": "What should be added so the phone tags voice traffic separately from the PC data traffic?",
+    "choices": [
+      "ip route 0.0.0.0 0.0.0.0 vlan 30",
+      "spanning-tree vlan 20 priority 0",
+      "no cdp enable",
+      "switchport voice vlan 30"
+    ],
+    "correctAnswer": 3,
+    "explanation": "The port already has a data access VLAN. Adding a voice VLAN lets the IP phone tag voice frames separately while the PC remains in the access VLAN."
+  },
+  {
+    "id": "ccna-network-access-topology-007",
+    "domain": "Network Access",
+    "type": "topology-scenario",
+    "prompt": "Review the EtherChannel topology.",
+    "topology": {
+      "label": "EtherChannel member mismatch",
+      "width": 640,
+      "height": 260,
+      "nodes": [
+        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 180, "y": 130 },
+        { "id": "SW2", "label": "SW2", "kind": "switch", "x": 460, "y": 130 }
+      ],
+      "links": [
+        { "from": "SW1", "to": "SW2", "label": "Gi0/1" },
+        { "from": "SW1", "to": "SW2", "label": "Gi0/2" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Member link settings",
+        "columns": ["Interface", "SW1 allowed VLANs", "SW2 allowed VLANs"],
+        "rows": [
+          ["Gi0/1", "10,20,30", "10,20,30"],
+          ["Gi0/2", "10,20", "10,20,30"]
+        ]
+      }
+    ],
+    "question": "Why is Gi0/2 likely suspended from the port channel?",
+    "choices": [
+      "EtherChannel requires routed ports only",
+      "Gi0/1 and Gi0/2 must use different native VLANs",
+      "LACP cannot use two physical links",
+      "The member link allowed VLANs do not match"
+    ],
+    "correctAnswer": 3,
+    "explanation": "EtherChannel member interfaces need matching trunk parameters. Gi0/2 has a different allowed VLAN list, so it can be suspended or fail to bundle."
+  },
+  {
+    "id": "ccna-network-access-config-003",
+    "domain": "Network Access",
+    "type": "config-repair",
+    "scenario": "An access-layer switchport connects to a user workstation. The port should not negotiate trunking with an attached device.",
+    "device": "SW1",
+    "configTitle": "Interface Gi0/12",
+    "config": [
+      "interface GigabitEthernet0/12",
+      " description User workstation",
+      " switchport access vlan 20",
+      " spanning-tree portfast"
+    ],
+    "question": "Which command should be added to lock the port as an access port?",
+    "choices": [
+      "switchport trunk native vlan 20",
+      "switchport mode access",
+      "channel-group 1 mode active",
+      "ip routing"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The interface should explicitly use switchport mode access for a workstation-facing port. That prevents dynamic trunk negotiation from making the port a trunk."
+  },
+  {
+    "id": "ccna-ip-connectivity-single-015",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "A router has two routes to 10.10.8.0/24: an OSPF route with administrative distance 110 and a static route with administrative distance 1. Which route is installed if both are valid?",
+    "choices": [
+      "The OSPF route because it is dynamic",
+      "The static route because it has the lower administrative distance",
+      "Both routes are always load balanced",
+      "The route with the higher metric is preferred"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When prefix length is the same, the route with the lower administrative distance is preferred. A default static route uses AD 1 unless changed."
+  },
+  {
+    "id": "ccna-ip-connectivity-single-012",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Which OSPF neighbor state indicates that two routers have fully exchanged link-state information on a point-to-point link?",
+    "choices": [
+      "Init",
+      "2-Way",
+      "Full",
+      "Down"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Full is the expected completed adjacency state on a point-to-point OSPF link. Init and 2-Way occur earlier in neighbor formation."
+  },
+  {
+    "id": "ccna-ip-connectivity-single-013",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "A router chooses between 192.0.2.0/24 and 192.0.2.128/25 for destination 192.0.2.130. Which route is selected?",
+    "choices": [
+      "192.0.2.0/24 because it has more addresses",
+      "The route with the newest timestamp",
+      "The route with the highest next-hop IP address",
+      "192.0.2.128/25 because it is the longest prefix match"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Routers first choose the longest prefix match. The /25 route is more specific and includes 192.0.2.130, so it is selected over the /24."
+  },
+  {
+    "id": "ccna-ip-connectivity-single-014",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Which first-hop redundancy protocol uses an active router and a standby router for a virtual default gateway?",
+    "choices": [
+      "HSRP",
+      "CDP",
+      "LLDP",
+      "NTP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HSRP provides a virtual default gateway with active and standby routers. CDP and LLDP discover neighbors, and NTP synchronizes time."
+  },
+  {
+    "id": "ccna-ip-connectivity-cli-008",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the OSPF neighbor output.",
+    "commands": [
+      {
+        "device": "R1",
+        "command": "show ip ospf neighbor",
+        "output": "Neighbor ID     Pri   State           Dead Time   Address         Interface\n2.2.2.2           1   FULL/DR         00:00:33    10.0.12.2       GigabitEthernet0/0\n3.3.3.3           1   EXSTART/BDR     00:00:37    10.0.13.3       GigabitEthernet0/1"
+      }
+    ],
+    "question": "Which neighbor is not yet fully adjacent?",
+    "choices": [
+      "2.2.2.2",
+      "3.3.3.3",
+      "Both neighbors are fully adjacent",
+      "Neither neighbor has reached ExStart"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Neighbor 3.3.3.3 is in EXSTART, so it has not reached FULL. Neighbor 2.2.2.2 is fully adjacent."
+  },
+  {
+    "id": "ccna-ip-connectivity-cli-009",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the routing table excerpt.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show ip route 172.16.40.10",
+        "output": "Routing entry for 172.16.40.0/24\n  Known via \"ospf 10\", distance 110, metric 20\n  Last update from 10.0.23.3 on GigabitEthernet0/1\n\nRouting entry for 172.16.40.0/25\n  Known via \"static\", distance 1, metric 0\n  Routing Descriptor Blocks:\n  * 10.0.24.4"
+      }
+    ],
+    "question": "Which path is used for traffic to 172.16.40.10?",
+    "choices": [
+      "The OSPF /24 route because OSPF has a metric",
+      "Both routes because they are equal prefixes",
+      "The static /25 route through 10.0.24.4",
+      "No route because static and OSPF cannot coexist"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The destination 172.16.40.10 matches both entries, but /25 is the longest prefix match. Administrative distance is considered after prefix length."
+  },
+  {
+    "id": "ccna-ip-connectivity-topology-008",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the OSPF adjacency topology.",
+    "topology": {
+      "label": "OSPF area mismatch",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        { "id": "R1", "label": "R1\nArea 0", "kind": "router", "x": 150, "y": 150 },
+        { "id": "R2", "label": "R2\nArea 10", "kind": "router", "x": 490, "y": 150 }
+      ],
+      "links": [
+        { "from": "R1", "to": "R2", "label": "10.0.12.0/30" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Interface settings",
+        "columns": ["Router", "Interface", "OSPF area"],
+        "rows": [
+          ["R1", "G0/0", "0"],
+          ["R2", "G0/0", "10"]
+        ]
+      }
+    ],
+    "question": "What prevents the routers from becoming OSPF neighbors?",
+    "choices": [
+      "The routers are connected by Ethernet",
+      "The OSPF areas do not match on the shared link",
+      "The link uses a /30 mask",
+      "The routers have different hostnames"
+    ],
+    "correctAnswer": 1,
+    "explanation": "OSPF neighbors on a shared link must agree on key parameters, including area ID. R1 is in area 0 and R2 is in area 10."
+  },
+  {
+    "id": "ccna-ip-connectivity-topology-009",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the first-hop redundancy topology.",
+    "topology": {
+      "label": "HSRP default gateway",
+      "width": 640,
+      "height": 320,
+      "nodes": [
+        { "id": "PC1", "label": "PC1", "kind": "client", "x": 90, "y": 230 },
+        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 280, "y": 230 },
+        { "id": "R1", "label": "R1", "kind": "router", "x": 500, "y": 130 },
+        { "id": "R2", "label": "R2", "kind": "router", "x": 500, "y": 260 }
+      ],
+      "links": [
+        { "from": "PC1", "to": "SW1", "label": "VLAN 10" },
+        { "from": "SW1", "to": "R1", "label": "G0/0" },
+        { "from": "SW1", "to": "R2", "label": "G0/0" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Gateway configuration",
+        "columns": ["Device", "Address", "HSRP state"],
+        "rows": [
+          ["R1", "192.168.10.2", "Active"],
+          ["R2", "192.168.10.3", "Standby"],
+          ["Virtual IP", "192.168.10.1", "-"]
+        ]
+      }
+    ],
+    "question": "Which default gateway should PC1 use?",
+    "choices": [
+      "192.168.10.2 only",
+      "192.168.10.3 only",
+      "192.168.10.1",
+      "The MAC address of SW1"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Hosts should use the HSRP virtual IP as their default gateway. The active router forwards for the virtual address, and the standby can take over."
+  },
+  {
+    "id": "ccna-ip-connectivity-config-004",
+    "domain": "IP Connectivity",
+    "type": "config-repair",
+    "scenario": "R1 and R2 are directly connected on 10.0.12.0/30, but OSPF neighbors are not forming.",
+    "device": "R1",
+    "configTitle": "R1 OSPF excerpt",
+    "config": [
+      "router ospf 10",
+      " router-id 1.1.1.1",
+      " network 10.0.12.0 0.0.0.3 area 0",
+      "!",
+      "interface GigabitEthernet0/0",
+      " ip address 10.0.12.1 255.255.255.252",
+      " ip ospf network point-to-point"
+    ],
+    "notes": [
+      "R2 advertises the same link in area 1."
+    ],
+    "question": "Which repair should be made on R2?",
+    "choices": [
+      "Change R2 to EIGRP",
+      "Configure the link as a trunk",
+      "Remove the /30 mask",
+      "Move the shared interface into OSPF area 0"
+    ],
+    "correctAnswer": 3,
+    "explanation": "OSPF neighbors on the same link must use the same area. R2 should place the shared interface in area 0 to match R1."
+  },
+  {
+    "id": "ccna-ip-connectivity-config-005",
+    "domain": "IP Connectivity",
+    "type": "config-repair",
+    "scenario": "R3 should use R1 as a backup default path only when the primary dynamic route is unavailable.",
+    "device": "R3",
+    "configTitle": "Static route candidate",
+    "config": [
+      "interface GigabitEthernet0/0",
+      " ip address 10.0.13.3 255.255.255.252",
+      "!",
+      "ip route 0.0.0.0 0.0.0.0 10.0.13.1"
+    ],
+    "question": "Which change turns this into a floating static default route?",
+    "choices": [
+      "Add an administrative distance higher than the dynamic route, such as 200",
+      "Change the mask to 255.255.255.255",
+      "Replace the next hop with the local interface IP",
+      "Add switchport mode trunk"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A floating static route uses a higher administrative distance so it is installed only when the preferred route is absent."
+  },
+  {
+    "id": "ccna-ip-services-single-005",
+    "domain": "IP Services",
+    "type": "single-choice",
+    "question": "A branch router must relay DHCP requests from local clients to a centralized DHCP server on another subnet. Which command belongs on the client-facing interface?",
+    "choices": [
+      "ip nat inside",
+      "ntp server 10.10.10.50",
+      "ip helper-address 10.10.10.50",
+      "snmp-server community public"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The ip helper-address command forwards DHCP broadcasts as unicast packets to a DHCP server on another subnet."
+  },
+  {
+    "id": "ccna-ip-services-cli-005",
+    "domain": "IP Services",
+    "type": "cli-output",
+    "prompt": "Review the NAT translation table.",
+    "commands": [
+      {
+        "device": "R1",
+        "command": "show ip nat translations",
+        "output": "Pro  Inside global      Inside local       Outside local      Outside global\ntcp  203.0.113.10:49152 192.168.10.25:49152 198.51.100.20:443 198.51.100.20:443\ntcp  203.0.113.10:49153 192.168.10.26:49153 198.51.100.20:443 198.51.100.20:443"
+      }
+    ],
+    "question": "What NAT behavior is shown?",
+    "choices": [
+      "Static one-to-one NAT without ports",
+      "DHCP relay using UDP broadcasts",
+      "PAT using one inside global address with unique source ports",
+      "NTP synchronization to an outside server"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Both inside local hosts share the same inside global address, but each translation has a unique port. That is PAT overload behavior."
+  },
+  {
+    "id": "ccna-ip-services-topology-003",
+    "domain": "IP Services",
+    "type": "topology-scenario",
+    "prompt": "Review the DHCP relay topology.",
+    "topology": {
+      "label": "Central DHCP server",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        { "id": "PC1", "label": "Client\nVLAN 20", "kind": "client", "x": 90, "y": 170 },
+        { "id": "R1", "label": "R1", "kind": "router", "x": 320, "y": 170 },
+        { "id": "DHCP", "label": "DHCP Server\n10.10.10.50", "kind": "server", "x": 550, "y": 170 }
+      ],
+      "links": [
+        { "from": "PC1", "to": "R1", "label": "192.168.20.0/24" },
+        { "from": "R1", "to": "DHCP", "label": "routed WAN" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "R1 client-facing interface",
+        "columns": ["Interface", "Address", "DHCP relay"],
+        "rows": [
+          ["G0/0.20", "192.168.20.1/24", "not configured"]
+        ]
+      }
+    ],
+    "question": "What is missing for clients in VLAN 20 to receive addresses from the central server?",
+    "choices": [
+      "ip helper-address 10.10.10.50 on G0/0.20",
+      "A static route on every client",
+      "A native VLAN change to 20",
+      "An OSPF passive-interface command on the server"
+    ],
+    "correctAnswer": 0,
+    "explanation": "DHCP requests are broadcasts and do not cross routers by default. The client-facing routed interface needs an ip helper-address pointing to the DHCP server."
+  },
+  {
+    "id": "ccna-ip-services-config-003",
+    "domain": "IP Services",
+    "type": "config-repair",
+    "scenario": "Inside users should use PAT to reach the internet, but translations are not being created.",
+    "device": "R1",
+    "configTitle": "NAT excerpt",
+    "config": [
+      "access-list 10 permit 192.168.10.0 0.0.0.255",
+      "ip nat inside source list 10 interface GigabitEthernet0/1 overload",
+      "!",
+      "interface GigabitEthernet0/0",
+      " ip address 192.168.10.1 255.255.255.0",
+      "!",
+      "interface GigabitEthernet0/1",
+      " ip address 203.0.113.2 255.255.255.252",
+      " ip nat outside"
+    ],
+    "question": "Which command is missing from the inside interface?",
+    "choices": [
+      "ip nat inside",
+      "ip helper-address 203.0.113.1",
+      "ntp server 192.168.10.1",
+      "switchport mode access"
+    ],
+    "correctAnswer": 0,
+    "explanation": "NAT requires interfaces to be marked as inside and outside. Gi0/1 is outside, but the LAN interface lacks ip nat inside."
+  },
+  {
+    "id": "ccna-security-fundamentals-single-012",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Which control best limits management access to a router's VTY lines to an approved admin subnet?",
+    "choices": [
+      "A standard ACL applied with access-class on the VTY lines",
+      "A trunk native VLAN change",
+      "A DHCP excluded-address range",
+      "A floating static route"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A standard ACL can match the approved source subnet, and access-class applies that ACL to inbound VTY management sessions."
+  },
+  {
+    "id": "ccna-security-fundamentals-single-013",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "A switchport should allow only one learned MAC address and shut down if another address appears. Which feature should be configured?",
+    "choices": [
+      "DHCP snooping trust",
+      "HSRP preemption",
+      "Port security with maximum 1 and violation shutdown",
+      "OSPF passive interface"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Port security can restrict the number of source MAC addresses on an access port and shut the port down when a violation occurs."
+  },
+  {
+    "id": "ccna-security-fundamentals-cli-005",
+    "domain": "Security Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the port-security output.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show port-security interface gi0/7",
+        "output": "Port Security              : Enabled\nPort Status                : Secure-shutdown\nViolation Mode             : Shutdown\nMaximum MAC Addresses      : 1\nTotal MAC Addresses        : 1\nSecurity Violation Count   : 3"
+      }
+    ],
+    "question": "What is the current state of Gi0/7?",
+    "choices": [
+      "It is forwarding normally with no violations",
+      "It is administratively shut down by configuration",
+      "It is in a secure-shutdown state after violations",
+      "It is a DHCP snooping trusted port"
+    ],
+    "correctAnswer": 2,
+    "explanation": "The Port Status value is Secure-shutdown and the violation count is 3, indicating port security shut the port down after violations."
+  },
+  {
+    "id": "ccna-security-fundamentals-cli-006",
+    "domain": "Security Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the SSH configuration output.",
+    "commands": [
+      {
+        "device": "R1",
+        "command": "show running-config | section line vty",
+        "output": "line vty 0 4\n login local\n transport input telnet ssh\n access-class 12 in\n!\naccess-list 12 permit 10.10.50.0 0.0.0.255"
+      }
+    ],
+    "question": "Which change best hardens remote management transport?",
+    "choices": [
+      "Remove the access-class command",
+      "Change transport input to ssh only",
+      "Permit any in ACL 12",
+      "Add a native VLAN"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The VTY lines currently allow Telnet and SSH. Restricting transport input to ssh only removes clear-text Telnet access."
+  },
+  {
+    "id": "ccna-security-fundamentals-topology-004",
+    "domain": "Security Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the management access topology.",
+    "topology": {
+      "label": "VTY access-class restriction",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        { "id": "ADMIN", "label": "Admin PC\n10.10.50.25", "kind": "client", "x": 100, "y": 150 },
+        { "id": "USER", "label": "User PC\n10.10.60.25", "kind": "client", "x": 100, "y": 245 },
+        { "id": "R1", "label": "R1", "kind": "router", "x": 500, "y": 190 }
+      ],
+      "links": [
+        { "from": "ADMIN", "to": "R1", "label": "SSH" },
+        { "from": "USER", "to": "R1", "label": "blocked" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "VTY restriction",
+        "columns": ["ACL", "Permit source"],
+        "rows": [
+          ["12", "10.10.50.0/24"]
+        ]
+      }
+    ],
+    "question": "Which source should be able to SSH to R1 when ACL 12 is applied inbound to the VTY lines?",
+    "choices": [
+      "Only 10.10.50.25",
+      "Only 10.10.60.25",
+      "Both clients because ACLs do not affect VTY",
+      "Neither client because SSH requires a trunk"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The access-class permits only the 10.10.50.0/24 management subnet, so the admin PC is allowed while the user subnet is denied."
+  },
+  {
+    "id": "ccna-security-fundamentals-config-003",
+    "domain": "Security Fundamentals",
+    "type": "config-repair",
+    "scenario": "Remote management must use SSH only, with local usernames and a restricted admin subnet.",
+    "device": "R1",
+    "configTitle": "VTY excerpt",
+    "config": [
+      "username admin secret Str0ngPass!",
+      "ip domain-name example.local",
+      "crypto key generate rsa modulus 2048",
+      "access-list 12 permit 10.10.50.0 0.0.0.255",
+      "line vty 0 4",
+      " login local",
+      " transport input telnet ssh",
+      " access-class 12 in"
+    ],
+    "question": "Which command should replace the transport line?",
+    "choices": [
+      "transport input ssh",
+      "transport output telnet",
+      "login password cisco",
+      "switchport port-security"
+    ],
+    "correctAnswer": 0,
+    "explanation": "transport input ssh limits inbound VTY sessions to SSH and removes Telnet. The existing login local and access-class lines already support local authentication and source restriction."
+  },
+  {
+    "id": "ccna-automation-programmability-single-010",
+    "domain": "Automation and Programmability",
+    "type": "single-choice",
+    "question": "A network engineer uses a controller to push policy to many switches instead of configuring each CLI manually. Which automation benefit is most directly shown?",
+    "choices": [
+      "Centralized policy deployment through a controller",
+      "Longer spanning-tree convergence timers",
+      "Manual per-device configuration drift",
+      "Replacement of IP addressing with MAC learning"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Controller-based automation lets engineers define or push policy centrally, reducing repeated manual CLI work and configuration drift."
+  },
+  {
+    "id": "ccna-automation-programmability-cli-002",
+    "domain": "Automation and Programmability",
+    "type": "cli-output",
+    "prompt": "Review the REST API exchange.",
+    "commands": [
+      {
+        "device": "API",
+        "command": "PATCH /restconf/data/native/interface/GigabitEthernet=1",
+        "output": "HTTP/1.1 204 No Content\nContent-Type: application/yang-data+json\n\n"
+      }
+    ],
+    "question": "What does the 204 response most likely indicate?",
+    "choices": [
+      "The request failed authentication",
+      "The server returned a routing table",
+      "The update succeeded and no response body was returned",
+      "The payload was converted to SNMP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "HTTP 204 No Content commonly indicates that the request succeeded but the server did not return a message body."
+  },
+  {
+    "id": "ccna-automation-programmability-topology-002",
+    "domain": "Automation and Programmability",
+    "type": "topology-scenario",
+    "prompt": "Review the model-driven telemetry topology.",
+    "topology": {
+      "label": "Telemetry subscription",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        { "id": "R1", "label": "R1", "kind": "router", "x": 100, "y": 150 },
+        { "id": "COLLECTOR", "label": "Telemetry Collector", "kind": "server", "x": 330, "y": 150 },
+        { "id": "DASH", "label": "Dashboard", "kind": "server", "x": 560, "y": 150 }
+      ],
+      "links": [
+        { "from": "R1", "to": "COLLECTOR", "label": "streamed state" },
+        { "from": "COLLECTOR", "to": "DASH", "label": "metrics" }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Subscription",
+        "columns": ["Value", "Setting"],
+        "rows": [
+          ["Encoding", "JSON"],
+          ["Path", "/interfaces/interface/statistics"],
+          ["Mode", "periodic"]
+        ]
+      }
+    ],
+    "question": "What is R1 doing in this model-driven telemetry workflow?",
+    "choices": [
+      "Streaming structured interface statistics to a collector",
+      "Electing a wireless controller",
+      "Translating private addresses with PAT",
+      "Blocking SSH with an access-class"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The topology and subscription table show R1 periodically streaming structured interface statistics to a telemetry collector."
+  },
+  {
+    "id": "ccna-automation-programmability-config-002",
+    "domain": "Automation and Programmability",
+    "type": "config-repair",
+    "scenario": "A RESTCONF client sends a request to retrieve interface data but uses the wrong method for a read operation.",
+    "device": "API",
+    "configTitle": "API request excerpt",
+    "config": [
+      "POST /restconf/data/ietf-interfaces:interfaces",
+      "Accept: application/yang-data+json"
+    ],
+    "notes": [
+      "The client should retrieve data without changing server state."
+    ],
+    "question": "Which method should replace POST?",
+    "choices": [
+      "DELETE",
+      "GET",
+      "PATCH",
+      "PUT"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GET retrieves data from a REST-style API without changing server state. POST is used for create or submit operations, depending on the API."
   }
 ]

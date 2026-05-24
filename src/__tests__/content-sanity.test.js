@@ -400,31 +400,31 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
 })
 
 describe('CCNA preview pool', () => {
-  it('stays unpublished while covering the planned 120-item simulation mix', () => {
+  it('stays unpublished while covering the expanded 160-item simulation mix', () => {
     expect(certs['ccna-200-301'].published).toBe(false)
-    expect(ccna200301).toHaveLength(120)
+    expect(ccna200301).toHaveLength(160)
 
     const byDomain = ccna200301.reduce((acc, q) => {
       acc[q.domain] = (acc[q.domain] || 0) + 1
       return acc
     }, {})
     expect(byDomain).toEqual({
-      'Network Fundamentals': 24,
-      'Network Access': 24,
-      'IP Connectivity': 30,
-      'IP Services': 12,
-      'Security Fundamentals': 18,
-      'Automation and Programmability': 12,
+      'Network Fundamentals': 32,
+      'Network Access': 32,
+      'IP Connectivity': 40,
+      'IP Services': 16,
+      'Security Fundamentals': 24,
+      'Automation and Programmability': 16,
     })
 
     const byType = ccna200301.reduce((acc, q) => {
       acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
       return acc
     }, {})
-    expect(byType['cli-output']).toBe(25)
-    expect(byType['topology-scenario']).toBe(20)
-    expect(byType['config-repair']).toBe(10)
-    expect(byType['subnetting-drill']).toBe(5)
+    expect(byType['cli-output']).toBe(34)
+    expect(byType['topology-scenario']).toBe(28)
+    expect(byType['config-repair']).toBe(16)
+    expect(byType['subnetting-drill']).toBe(8)
   })
 
   it('keeps the preview pool varied enough for editorial QA', () => {

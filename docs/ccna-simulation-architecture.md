@@ -1,6 +1,6 @@
 # CCNA 200-301 Simulation Architecture
 
-Status: simulation foundation implemented; `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` renderers plus schema validation are implemented. A 120-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA and is intentionally hidden from the public catalog.
+Status: simulation foundation implemented; `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` renderers plus schema validation are implemented. A 160-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA and is intentionally hidden from the public catalog.
 
 ## Official Scope
 
@@ -203,23 +203,30 @@ Build the renderer framework before adding a large CCNA pool.
 
 Add an unpublished or preview CCNA track with a small, high-quality set.
 
-First preview pool status: implemented as an unpublished 120-item pool.
+First preview pool status: expanded as an unpublished 160-item pool.
 
-- 120 total items.
-- 60 standard written items using existing types.
-- 25 CLI output items.
-- 20 topology scenario items.
-- 10 config repair items.
-- 5 subnetting drill items.
+- 160 total items.
+- 74 standard written items using existing types.
+- 34 CLI output items.
+- 28 topology scenario items.
+- 16 config repair items.
+- 8 subnetting drill items.
 
 Domain distribution should follow Cisco weights:
 
-- Network Fundamentals: 24
-- Network Access: 24
-- IP Connectivity: 30
-- IP Services: 12
-- Security Fundamentals: 18
-- Automation and Programmability: 12
+- Network Fundamentals: 32
+- Network Access: 32
+- IP Connectivity: 40
+- IP Services: 16
+- Security Fundamentals: 24
+- Automation and Programmability: 16
+
+Roadmap item #2 expansion notes:
+
+- Added 40 scenario-forward items beyond the original 120-item preview while preserving exact official domain weights.
+- Increased simulation density with new CLI-output, topology-scenario, config-repair, and subnetting-drill items across the CCNA slice.
+- Kept `ccna-200-301` unpublished until the larger public advanced-track bar is met.
+- Updated content sanity validation to lock the 160-item milestone, domain allocation, simulation counts, answer-position balance, and domain-aligned scenario checks.
 
 ### Phase 3: Public Advanced Track
 
