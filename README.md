@@ -32,7 +32,7 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
-> **CCNA simulation foundation is implemented:** `docs/ccna-simulation-architecture.md` maps the official 200-301 CCNA v1.1 domains to the simulation layer the app needs before CCNA can be exam-quality. CLI output interpretation, topology scenarios, config repair, and subnetting drills are now supported, with a 120-item unpublished preview pool registered for QA.
+> **CCNA simulation foundation is implemented:** `docs/ccna-simulation-architecture.md` maps the official 200-301 CCNA v1.1 domains to the simulation layer the app needs before CCNA can be exam-quality. CLI output interpretation, topology scenarios, config repair, and subnetting drills are now supported, with a 750-item unpublished preview pool registered for QA.
 
 ### Sister site — Real Estate
 
@@ -54,6 +54,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Home** - Guided learning paths up top, direct certification catalog below.
 - **Path pages** - Dedicated lanes for Networking, Cybersecurity, Cloud, and NVIDIA, plus a direct A+ selector for brand-new learners. Networking offers Network+ or Cisco CCST before Server+; Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is in unpublished preview. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented; the CCNA pool stays hidden from the catalog while it goes through QA.
+- **Content accuracy roadmap** - Latest full-bank blueprint audit found the next hardening sequence: rebalance Network+ toward N10-009 Troubleshooting, refresh Google CDL to the current six-section guide, rebalance NVIDIA AIIO, tighten AZ-900 domain distribution, and recheck real-estate state handbooks before public placement.
 - **Trust layer roadmap** - Public quality signals, per-question issue reporting, editorial review status, and source/blueprint audit trails are planned as a backend-backed milestone. The current app stays zero-account/local-first while advanced trust workflows are designed.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
@@ -76,7 +77,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - **Ordering** — Place items in the correct sequence.
 - **Matching** — Match left-column items to right-column options.
 
-CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. A 120-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA. See `docs/ccna-simulation-architecture.md`.
+CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. A 750-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA. See `docs/ccna-simulation-architecture.md`.
 
 ## Tech stack
 

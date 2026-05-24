@@ -1,6 +1,6 @@
 # CCNA 200-301 Simulation Architecture
 
-Status: simulation foundation implemented; `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` renderers plus schema validation are implemented. A 160-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA and is intentionally hidden from the public catalog.
+Status: simulation foundation implemented; `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` renderers plus schema validation are implemented. A 750-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA and is intentionally hidden from the public catalog until manual mobile, scoring, and editorial review are complete.
 
 ## Official Scope
 
@@ -201,25 +201,25 @@ Build the renderer framework before adding a large CCNA pool.
 
 ### Phase 2: CCNA Preview Track
 
-Add an unpublished or preview CCNA track with a small, high-quality set.
+Add an unpublished CCNA track with a large hidden pool that can be QA hardened before public placement.
 
-First preview pool status: expanded as an unpublished 160-item pool.
+First preview pool status: expanded as an unpublished 750-item pool.
 
-- 160 total items.
-- 74 standard written items using existing types.
-- 34 CLI output items.
-- 28 topology scenario items.
-- 16 config repair items.
-- 8 subnetting drill items.
+- 750 total items.
+- 310 standard written items using existing types.
+- 170 CLI output items.
+- 120 topology scenario items.
+- 100 config repair items.
+- 50 subnetting drill items.
 
-Domain distribution should follow Cisco weights:
+Domain distribution follows the closest whole-question split to Cisco weights:
 
-- Network Fundamentals: 32
-- Network Access: 32
-- IP Connectivity: 40
-- IP Services: 16
-- Security Fundamentals: 24
-- Automation and Programmability: 16
+- Network Fundamentals: 150
+- Network Access: 150
+- IP Connectivity: 188
+- IP Services: 75
+- Security Fundamentals: 112
+- Automation and Programmability: 75
 
 Roadmap item #2 expansion notes:
 
@@ -227,6 +227,42 @@ Roadmap item #2 expansion notes:
 - Increased simulation density with new CLI-output, topology-scenario, config-repair, and subnetting-drill items across the CCNA slice.
 - Kept `ccna-200-301` unpublished until the larger public advanced-track bar is met.
 - Updated content sanity validation to lock the 160-item milestone, domain allocation, simulation counts, answer-position balance, and domain-aligned scenario checks.
+- Added a second 140-item expansion to reach the first 300-item readiness bar while preserving exact official domain weights.
+- Final 300-item mix: 113 single-choice, 21 multiple-response, 64 CLI-output, 50 topology-scenario, 34 config-repair, and 18 subnetting-drill items.
+- Added a third 200-item expansion to reach the 500-item hidden QA milestone while preserving exact official domain weights.
+- Final 500-item mix: 180 single-choice, 40 multiple-response, 110 CLI-output, 80 topology-scenario, 60 config-repair, and 30 subnetting-drill items.
+- Added a final 250-item expansion to reach the 750-item hidden production-depth milestone with the closest possible whole-question official-weight split.
+- Final 750-item mix: 250 single-choice, 60 multiple-response, 170 CLI-output, 120 topology-scenario, 100 config-repair, and 50 subnetting-drill items.
+- Kept the pool unpublished because public placement still needs manual mobile/topology review, simulation scoring review, and editorial cleanup for repeated concept frames.
+
+Part 1 audit status:
+
+- Mechanical audit completed on 2026-05-24 and captured in `scripts/audits/ccna-preview-audit.md`.
+- The original 160-item pool was structurally valid, exactly domain-weighted, and explanation-complete enough for continued hidden QA.
+- The 750-item pool now meets the production-depth content target, but it should not publish yet because public placement still needs manual layout/scoring/editorial review.
+- The next QA pass should rewrite or diversify visible repeated frames around switching fundamentals, trunk output, administrative distance, longest-prefix match, NAT/PAT, SSH/ACL management access, and REST/JSON basics.
+
+750-item milestone:
+
+| Domain | Current |
+| --- | ---: |
+| Network Fundamentals | 150 |
+| Network Access | 150 |
+| IP Connectivity | 188 |
+| IP Services | 75 |
+| Security Fundamentals | 112 |
+| Automation and Programmability | 75 |
+
+Actual 750-item type mix:
+
+| Type | Count |
+| --- | ---: |
+| Single-choice | 250 |
+| Multiple-response | 60 |
+| CLI output | 170 |
+| Topology scenario | 120 |
+| Config repair | 100 |
+| Subnetting drill | 50 |
 
 ### Phase 3: Public Advanced Track
 
@@ -234,27 +270,26 @@ Only publish CCNA once simulation quality is strong enough.
 
 Minimum bar:
 
-- At least 300 high-quality questions/simulations.
+- 750 high-quality questions/simulations.
 - All six domains represented by official weights.
 - CLI/topology/config items heavily represented in Network Access, IP Connectivity, and IP Services.
 - Mobile layout verified for topology and terminal panels.
 - Exam mode can mix standard and simulation questions without broken scoring or review.
+- Editorial pass completed on repeated or template-like concept clusters.
 
-### Phase 4: Full Production Pool
+### Phase 4: Public Readiness Polish
 
-Long-term target:
+Remaining target:
 
-- 750 total items.
-- At least 200 simulation-style items.
 - Timed 120-minute exam mode.
 - Separate subnetting speed drill.
 - Optional CCST-to-CCNA transition path page.
 
 ## Suggested Implementation Order
 
-1. Audit the 120-item unpublished CCNA preview pool against official domain expectations and remove any templated, vague, or overly easy items.
-2. Use the preview pool to harden mobile layout, review state, exam-mode behavior, and content validation for all simulation types.
-3. Expand only after the simulation UX and editorial quality bar are stable.
+1. Use the 750-item unpublished CCNA pool to harden mobile layout, review state, exam-mode behavior, and content validation for all simulation types.
+2. Run an editorial rewrite pass on any repeated or template-like concept clusters before public placement.
+3. Publish only after the advanced-track UX feels meaningfully different from CCST and Network+.
 
 ## Decision
 

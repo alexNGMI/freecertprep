@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { describe, it, expect } from 'vitest'
 import certs, { getAllCerts, getAllCertsIncludingUnpublished } from '../data/certs.js'
 import az900 from '../data/az-900-questions.json'
@@ -423,31 +424,33 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
 })
 
 describe('CCNA preview pool', () => {
-  it('stays unpublished while covering the expanded 160-item simulation mix', () => {
+  it('stays unpublished while covering the 750-item simulation readiness mix', () => {
     expect(certs['ccna-200-301'].published).toBe(false)
-    expect(ccna200301).toHaveLength(160)
+    expect(ccna200301).toHaveLength(750)
 
     const byDomain = ccna200301.reduce((acc, q) => {
       acc[q.domain] = (acc[q.domain] || 0) + 1
       return acc
     }, {})
     expect(byDomain).toEqual({
-      'Network Fundamentals': 32,
-      'Network Access': 32,
-      'IP Connectivity': 40,
-      'IP Services': 16,
-      'Security Fundamentals': 24,
-      'Automation and Programmability': 16,
+      'Network Fundamentals': 150,
+      'Network Access': 150,
+      'IP Connectivity': 188,
+      'IP Services': 75,
+      'Security Fundamentals': 112,
+      'Automation and Programmability': 75,
     })
 
     const byType = ccna200301.reduce((acc, q) => {
       acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
       return acc
     }, {})
-    expect(byType['cli-output']).toBe(34)
-    expect(byType['topology-scenario']).toBe(28)
-    expect(byType['config-repair']).toBe(16)
-    expect(byType['subnetting-drill']).toBe(8)
+    expect(byType['single-choice']).toBe(250)
+    expect(byType['multiple-response']).toBe(60)
+    expect(byType['cli-output']).toBe(170)
+    expect(byType['topology-scenario']).toBe(120)
+    expect(byType['config-repair']).toBe(100)
+    expect(byType['subnetting-drill']).toBe(50)
   })
 
   it('keeps the preview pool varied enough for editorial QA', () => {
@@ -496,6 +499,23 @@ describe('CCNA preview pool', () => {
       const text = JSON.stringify(q).toLowerCase()
       expect(text, `${q.id} should stay focused on security controls`).toMatch(/acl|ssh|vty|bpdu|guard|least|access|deny|permit/)
     }
+  })
+
+  it('keeps the CCNA audit plan aligned with the hidden 750-item readiness target', () => {
+    const audit = readFileSync('scripts/audits/ccna-preview-audit.md', 'utf8')
+
+    expect(audit).toContain('Status: `ccna-200-301` remains unpublished')
+    expect(audit).toContain('| Network Fundamentals | 150 |')
+    expect(audit).toContain('| Network Access | 150 |')
+    expect(audit).toContain('| IP Connectivity | 188 |')
+    expect(audit).toContain('| IP Services | 75 |')
+    expect(audit).toContain('| Security Fundamentals | 112 |')
+    expect(audit).toContain('| Automation and Programmability | 75 |')
+    expect(audit).toContain('| CLI output | 170 |')
+    expect(audit).toContain('| Subnetting drill | 50 |')
+    expect(audit).toContain('Do not add CCST-level vocabulary checks')
+    expect(audit).toContain('## Manual QA Gate Before Publishing')
+    expect(audit).toContain('Complete an editorial cleanup pass')
   })
 
 })

@@ -419,7 +419,7 @@ const certs = {
     description: 'Unpublished CCNA preview pool for topology, CLI-output, config-repair, subnetting, and written networking practice aligned to the official 200-301 v1.1 domains.',
     difficulty: 'Associate',
     color: '#1d4ed8',
-    questionCount: 160,
+    questionCount: 750,
     examQuestions: 60,
     examTime: 120,
     passingScore: 70,
