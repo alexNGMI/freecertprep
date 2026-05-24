@@ -11391,5 +11391,67 @@
       true
     ],
     "explanation": "True: zero trust verifies every request regardless of location, SASE converges SD-WAN with cloud security, and defense in depth layers controls so no single failure is catastrophic. False: micro-segmentation is widely used in virtualized/cloud environments, not just physical servers."
+  },
+  {
+    "id": "netplus-pbq-001",
+    "domain": "Network Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Branch wireless troubleshooting ticket",
+      "scenario": "A branch refreshed two access points overnight. Users can see the SSIDs, but three groups report different symptoms. Use the ticket notes and controller alerts to choose the best next action for each observation.",
+      "evidence": [
+        {
+          "title": "Controller alerts",
+          "items": [
+            {
+              "label": "AP-01",
+              "value": "High retries and low SNR on 2.4 GHz channel 6"
+            },
+            {
+              "label": "AP-02",
+              "value": "RADIUS rejects for the Contractor SSID"
+            },
+            {
+              "label": "Switch Gi1/0/18",
+              "value": "AP link negotiated at 100 Mbps/full"
+            }
+          ]
+        },
+        {
+          "title": "User reports",
+          "items": [
+            {
+              "label": "Warehouse scanners",
+              "value": "Connected, but file uploads are slow near the break room microwave"
+            },
+            {
+              "label": "Contractors",
+              "value": "Valid passphrase accepted, then authentication fails"
+            },
+            {
+              "label": "Conference room",
+              "value": "Video calls work, but throughput caps below expected rates"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each observation to the best next troubleshooting action.",
+    "itemsLeft": [
+      "Warehouse scanners show high retries and poor performance near the microwave",
+      "Contractor devices fail after the wireless passphrase is accepted",
+      "Conference room clients are stable, but throughput is capped after the AP refresh"
+    ],
+    "itemsRight": [
+      "Review RADIUS policy, shared secret, and certificate trust for the Contractor SSID",
+      "Move clients to 5 GHz or adjust channel and power to reduce 2.4 GHz interference",
+      "Check the AP switchport cabling, speed/duplex negotiation, and PoE link status"
+    ],
+    "correctMatches": [
+      1,
+      0,
+      2
+    ],
+    "explanation": "The warehouse symptom maps to RF interference, especially with high retries on 2.4 GHz near a microwave. Contractor failures after the passphrase point to 802.1X/RADIUS policy or trust. A refreshed AP capped by a 100 Mbps uplink should be checked at the switchport, cabling, negotiation, and PoE/link layer before changing WLAN policy."
   }
 ]

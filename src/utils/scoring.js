@@ -5,7 +5,7 @@
  * - multiple-response: sorted array match against question.correctAnswers
  * - statement-block: boolean array match against question.correctAnswers
  * - ordering: index array match against question.correctOrder
- * - matching: index array match against question.correctMatches
+ * - matching/pbq-matching: index array match against question.correctMatches
  * - subnetting-drill: object field match against question.correct
  */
 export function isAnswerCorrect(selectedChoice, question) {
@@ -41,7 +41,7 @@ export function isAnswerComplete(selectedChoice, question) {
     return Array.isArray(selectedChoice) && selectedChoice.length === question.items?.length
   }
 
-  if (question?.type === 'matching') {
+  if (question?.type === 'matching' || question?.type === 'pbq-matching') {
     return Array.isArray(selectedChoice)
       && selectedChoice.length === question.itemsLeft?.length
       && selectedChoice.every((answer) => answer !== null && answer !== undefined)
