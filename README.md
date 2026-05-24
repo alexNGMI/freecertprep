@@ -14,23 +14,23 @@ Free, open-source certification exam prep for the IT certifications that open do
 | NVIDIA Generative AI LLMs | NVIDIA | NCA-GENL | Associate | 330 | 50 | 60 min | 70% |
 | Cisco CCST Networking | Cisco | 100-150 | Foundational | 750 | 50 | 50 min | 70% practice |
 | Cisco CCNA | Cisco | 200-301 | Associate | 750 | 60 | 120 min | 70% practice |
-| CompTIA A+ Core 1 | CompTIA | 220-1201 | Foundational | 750 | 90 | 90 min | 75% |
-| CompTIA A+ Core 2 | CompTIA | 220-1202 | Foundational | 750 | 90 | 90 min | 78% |
-| CompTIA Network+ | CompTIA | N10-009 | Foundational | 751 | 90 | 90 min | 80% |
-| CompTIA Security+ | CompTIA | SY0-701 | Foundational | 750 | 90 | 90 min | 83% |
+| CompTIA A+ Core 1 | CompTIA | 220-1201 | Foundational | 760 | 90 | 90 min | 75% |
+| CompTIA A+ Core 2 | CompTIA | 220-1202 | Foundational | 760 | 90 | 90 min | 78% |
+| CompTIA Network+ | CompTIA | N10-009 | Foundational | 760 | 90 | 90 min | 80% |
+| CompTIA Security+ | CompTIA | SY0-701 | Foundational | 760 | 90 | 90 min | 83% |
 | Splunk Core Certified User | Splunk | SPLK-1001 | Entry-Level | 750 | 60 | 60 min | 70% practice |
-| CompTIA Server+ | CompTIA | SK0-005 | Foundational | 750 | 90 | 90 min | 83% |
+| CompTIA Server+ | CompTIA | SK0-005 | Foundational | 760 | 90 | 90 min | 83% |
 | CompTIA Linux+ | CompTIA | XK0-006 | Foundational | 750 | 90 | 90 min | 80% |
 | Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
 
-**11,629 questions across 17 certifications.**
+**11,678 questions across 17 certifications.**
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
 
-> **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 750-question production pool and a 90-question / 90-minute simulator aligned to the official domain weights.
+> **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.
 
 > **Guided paths are live:** The homepage focuses on recommended learning lanes, while `/catalog` holds the direct certification grid and Real Estate sister-site link. A+ appears as the wide entry card for brand-new learners, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence. The Networking Career Path starts with Network+ or CCST Networking and builds toward CCNA; the Cybersecurity path runs Network+ to Security+ to live Splunk Core Certified User practice; and the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform.
 

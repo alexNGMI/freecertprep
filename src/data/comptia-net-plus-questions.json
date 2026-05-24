@@ -11454,4 +11454,411 @@
     ],
     "explanation": "The warehouse symptom maps to RF interference, especially with high retries on 2.4 GHz near a microwave. Contractor failures after the passphrase point to 802.1X/RADIUS policy or trust. A refreshed AP capped by a 100 Mbps uplink should be checked at the switchport, cabling, negotiation, and PoE/link layer before changing WLAN policy."
   }
+,
+  {
+    "id": "netplus-pbq-002",
+    "domain": "Network Operations",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Change window validation ticket",
+      "scenario": "After a planned network change, the operations team validates monitoring alerts before closing the change record.",
+      "evidence": [
+        {
+          "title": "Monitoring observations",
+          "items": [
+            {
+              "label": "Core switch",
+              "value": "Interface errors increase after a fiber move"
+            },
+            {
+              "label": "WAN link",
+              "value": "Latency rises only during backup replication"
+            },
+            {
+              "label": "Syslog",
+              "value": "NTP offset warnings on several network devices"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each operations observation to the best next validation step.",
+    "itemsLeft": [
+      "Interface errors rise after a fiber move",
+      "WAN latency rises only during scheduled backups",
+      "Several devices report time offset warnings"
+    ],
+    "itemsRight": [
+      "Review QoS, backup schedule, and utilization graphs for congestion during the window",
+      "Verify NTP source reachability, authentication if used, and device time settings",
+      "Inspect optics, fiber polarity/cleanliness, and interface counters on both ends"
+    ],
+    "correctMatches": [
+      2,
+      0,
+      1
+    ],
+    "explanation": "Post-move interface errors call for physical fiber/optic checks. Backup-related latency should be validated against utilization and QoS. NTP offset warnings require checking NTP reachability, trust/authentication, and device time configuration."
+  }
+,
+  {
+    "id": "netplus-pbq-003",
+    "domain": "Network Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "VLAN outage ticket",
+      "scenario": "A network technician investigates three connectivity symptoms after switch cleanup. Match each clue to the best fix.",
+      "evidence": [
+        {
+          "title": "Switch clues",
+          "items": [
+            {
+              "label": "Port 12",
+              "value": "User gets IP from wrong subnet"
+            },
+            {
+              "label": "Port 18",
+              "value": "Phone works, PC behind phone cannot reach LAN"
+            },
+            {
+              "label": "Port 22",
+              "value": "New AP connected to access VLAN only"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each switch symptom to the most likely corrective action.",
+    "itemsLeft": [
+      "User receives an address from the wrong subnet",
+      "IP phone works but attached PC cannot reach the LAN",
+      "Access point needs multiple SSIDs but port is access-only"
+    ],
+    "itemsRight": [
+      "Assign the port to the correct access VLAN",
+      "Verify voice/data VLAN configuration and phone pass-through tagging",
+      "Configure the AP uplink as a trunk with allowed VLANs"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Wrong subnet usually means wrong VLAN. Phone/PC pass-through issues often involve voice/data VLAN tagging. Multi-SSID APs generally require trunking."
+  },
+  {
+    "id": "netplus-pbq-004",
+    "domain": "Network Security",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Firewall rule review ticket",
+      "scenario": "A firewall change request contains three requirements. Match each requirement to the best rule approach.",
+      "evidence": [
+        {
+          "title": "Requests",
+          "items": [
+            {
+              "label": "Web app",
+              "value": "Public HTTPS only"
+            },
+            {
+              "label": "Admin",
+              "value": "SSH only from management subnet"
+            },
+            {
+              "label": "DNS",
+              "value": "Internal clients need recursive DNS to resolver"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each firewall requirement to the correct rule.",
+    "itemsLeft": [
+      "Expose a public web application securely",
+      "Limit SSH administration to trusted hosts",
+      "Allow clients to use internal DNS resolution"
+    ],
+    "itemsRight": [
+      "Allow TCP 443 to the web server/load balancer and deny unnecessary inbound ports",
+      "Allow TCP 22 only from the management subnet",
+      "Allow DNS TCP/UDP 53 from client networks to approved resolvers"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Public web access should be limited to HTTPS. Admin protocols should be restricted by source. DNS requires TCP/UDP 53 to approved resolvers."
+  },
+  {
+    "id": "netplus-pbq-005",
+    "domain": "Networking Concepts",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "IP addressing ticket",
+      "scenario": "Three hosts have addressing issues. Match each issue to the correct diagnosis.",
+      "evidence": [
+        {
+          "title": "Host details",
+          "items": [
+            {
+              "label": "Host A",
+              "value": "IP 192.168.10.25/24, gateway 192.168.11.1"
+            },
+            {
+              "label": "Host B",
+              "value": "IP 169.254.44.8 after reboot"
+            },
+            {
+              "label": "Host C",
+              "value": "Duplicate address warning on startup"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each addressing clue to the best diagnosis.",
+    "itemsLeft": [
+      "Default gateway is outside the configured subnet",
+      "Host self-assigned a 169.254 address",
+      "System reports a duplicate IP address"
+    ],
+    "itemsRight": [
+      "Correct the gateway or subnet mask so the gateway is reachable locally",
+      "Investigate DHCP reachability/scope/VLAN assignment",
+      "Find and correct the conflicting static or leased address"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "A gateway must be reachable in the local subnet. APIPA points to DHCP failure. Duplicate warnings require finding the conflicting assignment."
+  },
+  {
+    "id": "netplus-pbq-006",
+    "domain": "Network Implementation",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Cable plant validation ticket",
+      "scenario": "A technician validates new cabling. Match each test result to the next action.",
+      "evidence": [
+        {
+          "title": "Tester output",
+          "items": [
+            {
+              "label": "Run A",
+              "value": "Open pair on pins 1-2"
+            },
+            {
+              "label": "Run B",
+              "value": "Near-end crosstalk fails certification"
+            },
+            {
+              "label": "Run C",
+              "value": "Fiber link has high loss after patching"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each cabling result to the best next action.",
+    "itemsLeft": [
+      "Copper run shows an open pair",
+      "Copper run fails NEXT certification",
+      "Fiber link shows high optical loss"
+    ],
+    "itemsRight": [
+      "Re-terminate or replace the cable section with the open pair",
+      "Check cable category, bend radius, untwist length, and termination quality",
+      "Clean/inspect connectors and verify patch polarity and optic compatibility"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Open pairs require termination/cable repair. NEXT failures often come from cable/termination quality. Fiber loss calls for cleaning, inspection, polarity, and optic checks."
+  },
+  {
+    "id": "netplus-pbq-007",
+    "domain": "Network Operations",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Monitoring baseline ticket",
+      "scenario": "A team builds monitoring baselines for three services. Match each metric to the best operational use.",
+      "evidence": [
+        {
+          "title": "Metrics",
+          "items": [
+            {
+              "label": "Interface",
+              "value": "95th percentile utilization"
+            },
+            {
+              "label": "Server",
+              "value": "Packet loss during business hours"
+            },
+            {
+              "label": "Device",
+              "value": "Configuration change detected outside window"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each metric to the best operational response.",
+    "itemsLeft": [
+      "Interface utilization trends near capacity",
+      "Packet loss appears during business hours",
+      "Configuration change occurs outside the approved window"
+    ],
+    "itemsRight": [
+      "Use capacity planning or upgrade path before saturation",
+      "Investigate congestion, errors, or path instability impacting service",
+      "Review change logs and validate authorization/rollback need"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Utilization baselines drive capacity planning. Packet loss requires service-path investigation. Unauthorized changes need change-control review."
+  },
+  {
+    "id": "netplus-pbq-008",
+    "domain": "Network Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Wireless roaming ticket",
+      "scenario": "Three wireless symptoms appear after AP placement changes. Match each to the best next check.",
+      "evidence": [
+        {
+          "title": "Wireless findings",
+          "items": [
+            {
+              "label": "Area A",
+              "value": "Clients cling to distant APs"
+            },
+            {
+              "label": "Area B",
+              "value": "VoIP drops while walking between rooms"
+            },
+            {
+              "label": "Area C",
+              "value": "Only one channel used by nearby 2.4 GHz APs"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each wireless symptom to the best corrective check.",
+    "itemsLeft": [
+      "Clients remain associated with distant APs",
+      "Voice calls drop during roaming",
+      "Multiple nearby 2.4 GHz APs overlap on one channel"
+    ],
+    "itemsRight": [
+      "Review transmit power/cell sizing and roaming thresholds",
+      "Validate roaming support, coverage overlap, and authentication delay",
+      "Adjust channel plan to non-overlapping 2.4 GHz channels"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Sticky clients often need power/cell tuning. Roaming drops involve overlap and authentication delay. 2.4 GHz overlap needs channel planning."
+  },
+  {
+    "id": "netplus-pbq-009",
+    "domain": "Network Security",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Remote access ticket",
+      "scenario": "A company reviews remote access options. Match each scenario to the best network security choice.",
+      "evidence": [
+        {
+          "title": "Scenarios",
+          "items": [
+            {
+              "label": "Vendor",
+              "value": "Needs limited access to one internal web tool"
+            },
+            {
+              "label": "Employee",
+              "value": "Needs full tunnel to internal apps from managed laptop"
+            },
+            {
+              "label": "Admin",
+              "value": "Needs emergency access with strong auditing"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each remote-access scenario to the best control.",
+    "itemsLeft": [
+      "Vendor needs limited access to one app",
+      "Employee needs managed-device access to several internal apps",
+      "Administrator needs highly audited emergency access"
+    ],
+    "itemsRight": [
+      "Publish only the app through a controlled reverse proxy or ZTNA policy",
+      "Use VPN/ZTNA with device posture and MFA requirements",
+      "Use privileged access workflow with MFA, logging, and time-bounded access"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Vendors should receive narrow app-level access. Employees may need broader managed access with posture/MFA. Admin access needs stronger privileged controls and auditing."
+  },
+  {
+    "id": "netplus-pbq-010",
+    "domain": "Network Implementation",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Routing handoff ticket",
+      "scenario": "A technician checks three routing problems after a branch turn-up. Match each symptom to the best next step.",
+      "evidence": [
+        {
+          "title": "Routing clues",
+          "items": [
+            {
+              "label": "Branch A",
+              "value": "Default route missing"
+            },
+            {
+              "label": "Branch B",
+              "value": "Static route points to retired next hop"
+            },
+            {
+              "label": "Branch C",
+              "value": "Dynamic neighbors stuck in init state"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each routing symptom to the best action.",
+    "itemsLeft": [
+      "No default route exists for internet-bound traffic",
+      "Static route uses an old next-hop address",
+      "Routing neighbors do not reach full adjacency"
+    ],
+    "itemsRight": [
+      "Add or restore the appropriate default route",
+      "Update the static route next hop and verify reachability",
+      "Check neighbor parameters, ACLs, timers, and interface/network settings"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Missing defaults break unknown-destination forwarding. Retired next hops require static route correction. Adjacency failures need neighbor and filtering checks."
+  }
 ]

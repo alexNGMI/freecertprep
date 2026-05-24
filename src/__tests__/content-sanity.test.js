@@ -475,11 +475,11 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }, {})
 
     expect(byDomain).toEqual({
-      'Networking Concepts': 173,
-      'Network Implementation': 150,
-      'Network Operations': 143,
-      'Network Security': 105,
-      'Network Troubleshooting': 180,
+      'Networking Concepts': 174,
+      'Network Implementation': 152,
+      'Network Operations': 145,
+      'Network Security': 107,
+      'Network Troubleshooting': 182,
     })
   })
 
@@ -487,7 +487,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     if (certId !== 'comptia-net-plus') return
 
     const troubleshootingQuestions = questions.filter(q => q.domain === 'Network Troubleshooting')
-    expect(troubleshootingQuestions).toHaveLength(180)
+    expect(troubleshootingQuestions).toHaveLength(182)
 
     const evidenceBasedCount = troubleshootingQuestions.filter(q =>
       /^At branch \d{2},/.test(q.question)

@@ -10,10 +10,10 @@ Prepared from the current workspace and Git history through commit `2a46a8e`
 freecertprep has moved beyond an early prototype. It is now a functioning, reusable exam-preparation platform with:
 
 - 17 published IT certifications.
-- 11,629 published IT practice questions.
+- 11,678 published IT practice questions.
 - A separate Real Estate sister experience with a national exam bank and six state-law modules.
 - 3,151 Real Estate questions.
-- 14,780 authored questions across both product surfaces.
+- 14,829 authored questions across both product surfaces.
 - Smart Practice, timed drills, full exam simulation, bookmarks, results review, progress tracking, import/export, and multiple advanced question types.
 - 908 passing automated tests across 26 test files.
 - Automated GitHub Actions checks for lint, tests, and production builds.
@@ -61,11 +61,11 @@ The recommended next phase is therefore:
 | Generative AI LLMs | NVIDIA | 330 | 50 / 60 |
 | CCST Networking, 100-150 | Cisco | 750 | 50 / 50 |
 | CCNA, 200-301 | Cisco | 750 | 60 / 120 |
-| A+ Core 1, 220-1201 | CompTIA | 750 | 90 / 90 |
-| A+ Core 2, 220-1202 | CompTIA | 750 | 90 / 90 |
-| Network+, N10-009 | CompTIA | 751 | 90 / 90 |
-| Security+, SY0-701 | CompTIA | 750 | 90 / 90 |
-| Server+, SK0-005 | CompTIA | 750 | 90 / 90 |
+| A+ Core 1, 220-1201 | CompTIA | 760 | 90 / 90 |
+| A+ Core 2, 220-1202 | CompTIA | 760 | 90 / 90 |
+| Network+, N10-009 | CompTIA | 760 | 90 / 90 |
+| Security+, SY0-701 | CompTIA | 760 | 90 / 90 |
+| Server+, SK0-005 | CompTIA | 760 | 90 / 90 |
 | Linux+, XK0-006 | CompTIA | 750 | 90 / 90 |
 | Splunk Core Certified User | Splunk | 750 | 60 / 60 |
 | Data Center Certified Associate | Schneider Electric | 750 | 100 / 120 |
@@ -268,7 +268,7 @@ Some live banks are technically valid but visibly generated. If learners encount
 
 Examples found during this review:
 
-- `index.html` still advertises approximately 5,800 questions, while the IT catalog alone has 11,629.
+- `index.html` still advertises approximately 5,800 questions, while the IT catalog alone has 11,678.
 - Static social descriptions omit many current providers and offerings.
 - README and Docs test counts have lagged the current 908-test suite.
 - The roadmap references a future `freecertprep.org` custom domain while canonical metadata uses `freecertprep.com`.

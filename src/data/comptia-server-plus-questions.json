@@ -11399,4 +11399,456 @@
     ],
     "explanation": "True: time-zone mismatches complicate log correlation, license expiry can stop a service without grace, and missing as-built/runbook docs slow triage. False: service-affecting alerts should be tuned/prioritized, not left to wake operators on every threshold hit."
   }
+,
+  {
+    "id": "serverplus-pbq-001",
+    "domain": "Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Server outage triage ticket",
+      "scenario": "A technician is triaging three server alerts after a weekend maintenance window.",
+      "evidence": [
+        {
+          "title": "Alerts",
+          "items": [
+            {
+              "label": "Server A",
+              "value": "RAID controller reports one failed drive in a RAID 5 array"
+            },
+            {
+              "label": "Server B",
+              "value": "Application slows as memory paging increases sharply"
+            },
+            {
+              "label": "Server C",
+              "value": "Dual power supply server reports PSU 2 failed, PSU 1 healthy"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each server alert to the best next action.",
+    "itemsLeft": [
+      "RAID 5 array reports a single failed drive",
+      "Application performance degrades while paging increases sharply",
+      "One redundant power supply fails while the other remains healthy"
+    ],
+    "itemsRight": [
+      "Replace the failed PSU during an approved maintenance window and verify redundancy",
+      "Replace the failed disk with a compatible drive and monitor rebuild status",
+      "Check memory utilization, application demand, and add memory or tune workload as needed"
+    ],
+    "correctMatches": [
+      1,
+      2,
+      0
+    ],
+    "explanation": "A degraded RAID 5 set needs prompt disk replacement and rebuild monitoring. Heavy paging points to memory pressure or workload tuning. A failed redundant PSU should be replaced while verifying the remaining supply carries the load."
+  },
+  {
+    "id": "serverplus-pbq-002",
+    "domain": "Security and Disaster Recovery",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Backup and recovery validation ticket",
+      "scenario": "A systems administrator reviews backup health before signing off on disaster recovery readiness.",
+      "evidence": [
+        {
+          "title": "Backup findings",
+          "items": [
+            {
+              "label": "File server",
+              "value": "Backups complete, but no restore test has been performed this quarter"
+            },
+            {
+              "label": "Database server",
+              "value": "Backup job fails after credentials were rotated"
+            },
+            {
+              "label": "Archive copy",
+              "value": "Only local backups exist in the same rack as production storage"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each backup finding to the best corrective action.",
+    "itemsLeft": [
+      "Backups complete but restore capability has not been validated recently",
+      "Database backup job fails after service account credentials changed",
+      "Backups are stored only beside the production systems they protect"
+    ],
+    "itemsRight": [
+      "Update the backup credential or service account secret and rerun the failed job",
+      "Add an offsite, cloud, or otherwise isolated copy according to the backup strategy",
+      "Perform and document a test restore to confirm recoverability"
+    ],
+    "correctMatches": [
+      2,
+      0,
+      1
+    ],
+    "explanation": "Completed backups are not enough without restore testing. Credential rotation can break backup jobs and should be corrected in the backup system. Copies stored only with production do not protect against site or rack-level loss."
+  }
+,
+  {
+    "id": "serverplus-pbq-003",
+    "domain": "Server Hardware Installation and Management",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Rack installation ticket",
+      "scenario": "A technician prepares three rack installation tasks. Match each requirement to the best practice.",
+      "evidence": [
+        {
+          "title": "Tasks",
+          "items": [
+            {
+              "label": "Server A",
+              "value": "Heavy 2U server installation"
+            },
+            {
+              "label": "Rack B",
+              "value": "New equipment may overload circuit"
+            },
+            {
+              "label": "Cable C",
+              "value": "Dual NIC paths should be traceable"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each installation requirement to the best practice.",
+    "itemsLeft": [
+      "Install a heavy rack server safely",
+      "Avoid overloading rack power capacity",
+      "Make redundant network paths easy to identify"
+    ],
+    "itemsRight": [
+      "Use rails/lift assistance and mount heavy equipment low in the rack",
+      "Verify PDU/circuit capacity and balance load",
+      "Label cables and route redundant paths cleanly"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Heavy gear belongs low and should be installed safely. Power must be capacity-checked. Redundant cabling needs clear labeling and routing."
+  },
+  {
+    "id": "serverplus-pbq-004",
+    "domain": "Server Administration",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Service startup ticket",
+      "scenario": "Three services fail after maintenance. Match each symptom to the best admin action.",
+      "evidence": [
+        {
+          "title": "Service notes",
+          "items": [
+            {
+              "label": "Web",
+              "value": "Service account password expired"
+            },
+            {
+              "label": "Backup",
+              "value": "Job disabled during maintenance"
+            },
+            {
+              "label": "Database",
+              "value": "Dependency service starts too late"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each service issue to the best action.",
+    "itemsLeft": [
+      "Service account password expired",
+      "Backup job remains disabled after maintenance",
+      "Database starts before a required dependency"
+    ],
+    "itemsRight": [
+      "Update/rotate stored service credentials and verify policy",
+      "Re-enable and run the scheduled job after validation",
+      "Adjust service dependencies/startup order"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Expired service credentials break startup. Disabled jobs need re-enabling and validation. Dependency timing requires startup-order/dependency configuration."
+  },
+  {
+    "id": "serverplus-pbq-005",
+    "domain": "Security and Disaster Recovery",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Access hardening ticket",
+      "scenario": "An administrator hardens three server access paths. Match each requirement to the best control.",
+      "evidence": [
+        {
+          "title": "Requirements",
+          "items": [
+            {
+              "label": "SSH",
+              "value": "Admin logins from anywhere currently allowed"
+            },
+            {
+              "label": "Console",
+              "value": "Shared root/admin account is used"
+            },
+            {
+              "label": "Files",
+              "value": "Sensitive share grants broad write access"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each access issue to the best control.",
+    "itemsLeft": [
+      "Remote admin service is open too broadly",
+      "Shared admin account prevents accountability",
+      "Sensitive file share has excessive permissions"
+    ],
+    "itemsRight": [
+      "Restrict admin access by management network/VPN and MFA",
+      "Create named admin accounts and disable shared interactive use",
+      "Apply least-privilege ACLs and review group membership"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Admin access should be network/MFA restricted. Named accounts support accountability. Sensitive shares require least privilege."
+  },
+  {
+    "id": "serverplus-pbq-006",
+    "domain": "Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Performance triage ticket",
+      "scenario": "A server team investigates three performance alerts. Match each alert to the best first check.",
+      "evidence": [
+        {
+          "title": "Alerts",
+          "items": [
+            {
+              "label": "CPU",
+              "value": "Sustained 95 percent during batch job"
+            },
+            {
+              "label": "Disk",
+              "value": "High latency on storage volume"
+            },
+            {
+              "label": "Network",
+              "value": "Packet drops on teamed NIC"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each performance alert to the best first check.",
+    "itemsLeft": [
+      "CPU stays near saturation during batch job",
+      "Storage volume latency is high",
+      "Teamed network adapter reports drops"
+    ],
+    "itemsRight": [
+      "Review process utilization, scheduling, and capacity",
+      "Check storage path, queue depth, array health, and IOPS demand",
+      "Verify NIC team status, switch config, drivers, and errors"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "CPU saturation starts with process/capacity review. Storage latency requires path/array/demand checks. NIC drops in a team require team, switch, driver, and error validation."
+  },
+  {
+    "id": "serverplus-pbq-007",
+    "domain": "Server Administration",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Virtual host resource ticket",
+      "scenario": "A virtualization host shows three resource problems. Match each to the best corrective action.",
+      "evidence": [
+        {
+          "title": "Host findings",
+          "items": [
+            {
+              "label": "Memory",
+              "value": "Ballooning/swapping during peak"
+            },
+            {
+              "label": "Storage",
+              "value": "Datastore nearly full"
+            },
+            {
+              "label": "CPU",
+              "value": "Ready time high on several VMs"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each virtualization finding to the best action.",
+    "itemsLeft": [
+      "Host memory pressure causes swapping",
+      "Datastore is nearly full",
+      "VMs wait for CPU scheduling"
+    ],
+    "itemsRight": [
+      "Add memory, reduce overcommit, or migrate workloads",
+      "Expand datastore or reclaim/delete unused snapshots/files",
+      "Reduce vCPU overcommit or migrate CPU-heavy workloads"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Memory swapping indicates overcommit/pressure. Full datastores require capacity/reclamation. High CPU ready points to scheduling contention."
+  },
+  {
+    "id": "serverplus-pbq-008",
+    "domain": "Security and Disaster Recovery",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "DR objective ticket",
+      "scenario": "A business owner defines three recovery needs. Match each need to the correct DR concept.",
+      "evidence": [
+        {
+          "title": "Needs",
+          "items": [
+            {
+              "label": "Need A",
+              "value": "Maximum tolerable data loss is 15 minutes"
+            },
+            {
+              "label": "Need B",
+              "value": "Service must return within 4 hours"
+            },
+            {
+              "label": "Need C",
+              "value": "System must be restored at alternate facility if site fails"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each recovery need to the correct concept.",
+    "itemsLeft": [
+      "Maximum acceptable data loss",
+      "Maximum acceptable restoration time",
+      "Restore service at another location after site failure"
+    ],
+    "itemsRight": [
+      "Recovery Point Objective (RPO)",
+      "Recovery Time Objective (RTO)",
+      "Disaster recovery site/failover plan"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "RPO defines acceptable data loss. RTO defines restoration time. Alternate-site recovery is part of DR/failover planning."
+  },
+  {
+    "id": "serverplus-pbq-009",
+    "domain": "Server Hardware Installation and Management",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Firmware maintenance ticket",
+      "scenario": "A technician plans firmware work on three server components. Match each item to the safest approach.",
+      "evidence": [
+        {
+          "title": "Items",
+          "items": [
+            {
+              "label": "BIOS",
+              "value": "Update available for stability issue"
+            },
+            {
+              "label": "RAID",
+              "value": "Controller firmware update required"
+            },
+            {
+              "label": "NIC",
+              "value": "Driver/firmware mismatch after OS update"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each firmware task to the best approach.",
+    "itemsLeft": [
+      "BIOS update addresses a known stability issue",
+      "RAID controller firmware must be updated",
+      "NIC driver and firmware versions are mismatched"
+    ],
+    "itemsRight": [
+      "Schedule maintenance, confirm power/backup, and follow vendor update process",
+      "Verify array health/backups before controller update and monitor after reboot",
+      "Install compatible driver/firmware pair from vendor support matrix"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Firmware work needs maintenance planning and vendor process. RAID updates require extra data-protection checks. NIC driver/firmware compatibility should follow vendor matrices."
+  },
+  {
+    "id": "serverplus-pbq-010",
+    "domain": "Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Environmental alert ticket",
+      "scenario": "A data-room monitoring system reports three environmental issues. Match each alert to the best response.",
+      "evidence": [
+        {
+          "title": "Alerts",
+          "items": [
+            {
+              "label": "Temp",
+              "value": "Hot aisle temperature rising"
+            },
+            {
+              "label": "Humidity",
+              "value": "Static risk warning"
+            },
+            {
+              "label": "UPS",
+              "value": "Runtime below required threshold"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each environmental alert to the best response.",
+    "itemsLeft": [
+      "Hot aisle temperature is rising",
+      "Humidity is low enough to increase static risk",
+      "UPS runtime no longer meets requirement"
+    ],
+    "itemsRight": [
+      "Check airflow, blanking panels, CRAC/HVAC operation, and load placement",
+      "Adjust environmental controls to approved humidity range",
+      "Replace batteries/add capacity or reduce load to meet runtime objective"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Temperature issues require airflow/cooling checks. Low humidity raises static risk. UPS runtime gaps need battery/capacity/load correction."
+  }
 ]

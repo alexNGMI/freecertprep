@@ -11233,4 +11233,456 @@
     ],
     "explanation": "Statement 1 (TRUE): Purpose limitation (GDPR Article 5(1)(b)) restricts using personal data for secondary purposes incompatible with the original collection purpose \u2014 a core Fair Information Practice Principle. Statement 2 (TRUE): Data minimization (GDPR Article 5(1)(c)) requires collecting only what is adequate, relevant, and limited to what is necessary \u2014 preventing excessive data accumulation. Statement 3 (FALSE): GDPR Article 6 provides six lawful bases for processing: consent, contract performance, legal obligation, vital interests, public task, and legitimate interests. Consent is one option, not the only one \u2014 many processing activities rely on contract or legitimate interests without requiring explicit consent."
   }
+,
+  {
+    "id": "secplus-pbq-001",
+    "domain": "Security Operations",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "SOC alert triage queue",
+      "scenario": "A junior analyst is triaging three alerts from endpoint, identity, and network tools during the same hour.",
+      "evidence": [
+        {
+          "title": "Alerts",
+          "items": [
+            {
+              "label": "EDR",
+              "value": "PowerShell launched with encoded command from a user temp directory"
+            },
+            {
+              "label": "IAM",
+              "value": "Successful login from an impossible-travel location"
+            },
+            {
+              "label": "Firewall",
+              "value": "Repeated outbound connections to a known command-and-control IP"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each SOC alert to the best initial response.",
+    "itemsLeft": [
+      "Encoded PowerShell executes from a temporary user path",
+      "A user account logs in from an impossible-travel location",
+      "A host repeatedly connects to a known command-and-control address"
+    ],
+    "itemsRight": [
+      "Disable or step-up verify the account, revoke sessions, and review sign-in logs",
+      "Isolate the endpoint and collect process, command line, and parent-child evidence",
+      "Block the indicator, identify the internal host, and begin incident containment"
+    ],
+    "correctMatches": [
+      1,
+      0,
+      2
+    ],
+    "explanation": "Suspicious encoded PowerShell requires endpoint investigation and evidence collection. Impossible travel is an identity compromise signal. Known C2 traffic should be blocked and traced to contain the affected host."
+  },
+  {
+    "id": "secplus-pbq-002",
+    "domain": "Security Architecture",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Cloud workload hardening review",
+      "scenario": "A security engineer reviews three findings from a new cloud application before approving production release.",
+      "evidence": [
+        {
+          "title": "Findings",
+          "items": [
+            {
+              "label": "Storage",
+              "value": "Object bucket allows public read access"
+            },
+            {
+              "label": "Database",
+              "value": "Production database is reachable from the internet"
+            },
+            {
+              "label": "Secrets",
+              "value": "API key appears in the application repository"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each cloud security finding to the most appropriate mitigation.",
+    "itemsLeft": [
+      "Object storage is publicly readable without a business requirement",
+      "A production database accepts internet-routable connections",
+      "An API key is committed into source control"
+    ],
+    "itemsRight": [
+      "Move the database to private subnets/security groups and require controlled application access",
+      "Rotate the key, remove it from history where feasible, and store it in a secrets manager",
+      "Block public access and apply least-privilege bucket/object policies"
+    ],
+    "correctMatches": [
+      2,
+      0,
+      1
+    ],
+    "explanation": "Public buckets should be blocked and restricted by least privilege. Databases should not be internet-exposed unless explicitly designed and protected. Exposed secrets must be rotated and moved to managed secret storage."
+  }
+,
+  {
+    "id": "secplus-pbq-003",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Vulnerability response ticket",
+      "scenario": "A security team reviews three vulnerability findings. Match each finding to the best mitigation.",
+      "evidence": [
+        {
+          "title": "Findings",
+          "items": [
+            {
+              "label": "Web",
+              "value": "Input field reflects script in browser"
+            },
+            {
+              "label": "Server",
+              "value": "Critical CVE with vendor patch available"
+            },
+            {
+              "label": "Endpoint",
+              "value": "Unsupported OS still on production network"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each finding to the best mitigation.",
+    "itemsLeft": [
+      "Reflected script executes from a web input",
+      "Critical vulnerability has a vendor patch",
+      "Unsupported OS remains in production"
+    ],
+    "itemsRight": [
+      "Apply output encoding/input validation and test for XSS remediation",
+      "Patch during approved emergency/change process and verify version",
+      "Isolate/replace the system or apply compensating controls until retired"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "XSS requires validation/encoding fixes. Patchable critical CVEs should be remediated through change control. Unsupported systems need retirement or compensating isolation."
+  },
+  {
+    "id": "secplus-pbq-004",
+    "domain": "General Security Concepts",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Control classification ticket",
+      "scenario": "An auditor asks a technician to classify three controls. Match each example to its primary control type.",
+      "evidence": [
+        {
+          "title": "Examples",
+          "items": [
+            {
+              "label": "Badge reader",
+              "value": "Stops unauthorized door entry"
+            },
+            {
+              "label": "SIEM alert",
+              "value": "Identifies suspicious authentication activity"
+            },
+            {
+              "label": "Security policy",
+              "value": "Defines acceptable use and sanctions"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each control example to the best classification.",
+    "itemsLeft": [
+      "Badge reader blocks unauthorized physical access",
+      "SIEM alert reports suspicious sign-in activity",
+      "Acceptable-use policy defines required behavior"
+    ],
+    "itemsRight": [
+      "Preventive physical control",
+      "Detective technical control",
+      "Managerial/administrative control"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Badge readers prevent entry. SIEM alerts detect events. Policies are managerial/administrative controls."
+  },
+  {
+    "id": "secplus-pbq-005",
+    "domain": "Security Operations",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Log investigation ticket",
+      "scenario": "An analyst correlates three log entries. Match each entry to the best investigation focus.",
+      "evidence": [
+        {
+          "title": "Log entries",
+          "items": [
+            {
+              "label": "Proxy",
+              "value": "Large upload to unknown file-sharing site"
+            },
+            {
+              "label": "Windows",
+              "value": "Multiple failed logons followed by success"
+            },
+            {
+              "label": "DNS",
+              "value": "Many random subdomain lookups to one domain"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each log pattern to the best focus.",
+    "itemsLeft": [
+      "Large outbound upload to unsanctioned file sharing",
+      "Password failures followed by success",
+      "Random-looking DNS subdomains to one domain"
+    ],
+    "itemsRight": [
+      "Investigate possible data exfiltration and DLP policy violation",
+      "Investigate brute force/password spraying and account compromise",
+      "Investigate DNS tunneling or malware command-and-control behavior"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Large uploads can indicate exfiltration. Failed logons then success suggests credential attack. Random DNS subdomains can indicate tunneling or malware beaconing."
+  },
+  {
+    "id": "secplus-pbq-006",
+    "domain": "Security Architecture",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Network segmentation ticket",
+      "scenario": "A security architect reviews three segmentation needs. Match each need to the best design.",
+      "evidence": [
+        {
+          "title": "Needs",
+          "items": [
+            {
+              "label": "POS",
+              "value": "Cardholder systems must be isolated"
+            },
+            {
+              "label": "Guest",
+              "value": "Visitors need internet only"
+            },
+            {
+              "label": "Admin",
+              "value": "Management interfaces need restricted access"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each segmentation need to the best control.",
+    "itemsLeft": [
+      "Cardholder systems must be separated from general users",
+      "Guests need internet access without internal reachability",
+      "Management interfaces should be reachable only by admins"
+    ],
+    "itemsRight": [
+      "Place systems in a dedicated restricted VLAN/security zone",
+      "Use guest network segmentation with internet-only policy",
+      "Use a management network/jump host with ACLs and MFA"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Sensitive systems need restricted zones. Guest networks should be isolated. Management planes need dedicated access paths and strong controls."
+  },
+  {
+    "id": "secplus-pbq-007",
+    "domain": "Security Program Management and Oversight",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Risk treatment ticket",
+      "scenario": "A risk owner chooses responses for three risks. Match each situation to the right treatment.",
+      "evidence": [
+        {
+          "title": "Risk notes",
+          "items": [
+            {
+              "label": "Legacy app",
+              "value": "Cannot be patched; compensating WAF is approved"
+            },
+            {
+              "label": "Cloud service",
+              "value": "Risk exceeds appetite and service is not required"
+            },
+            {
+              "label": "Insurance",
+              "value": "Financial impact is shifted through cyber policy"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each risk situation to the correct treatment.",
+    "itemsLeft": [
+      "Risk reduced with a compensating WAF",
+      "Unneeded risky service is discontinued",
+      "Financial impact is shifted with insurance"
+    ],
+    "itemsRight": [
+      "Mitigate",
+      "Avoid",
+      "Transfer"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Compensating controls mitigate risk. Discontinuing the activity avoids risk. Insurance transfers some financial impact."
+  },
+  {
+    "id": "secplus-pbq-008",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Social engineering triage ticket",
+      "scenario": "A help desk receives three suspicious user reports. Match each to the most likely attack type.",
+      "evidence": [
+        {
+          "title": "Reports",
+          "items": [
+            {
+              "label": "Call",
+              "value": "Caller claims to be IT and asks for MFA code"
+            },
+            {
+              "label": "Email",
+              "value": "Invoice link leads to credential page"
+            },
+            {
+              "label": "Lobby",
+              "value": "Visitor follows employee through secure door"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each report to the likely social engineering technique.",
+    "itemsLeft": [
+      "Caller asks user to reveal an MFA code",
+      "Email invoice link harvests credentials",
+      "Visitor enters by following an employee"
+    ],
+    "itemsRight": [
+      "Vishing/MFA social engineering",
+      "Phishing",
+      "Tailgating"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Phone-based credential/MFA requests are vishing/social engineering. Credential-harvesting emails are phishing. Following someone through a door is tailgating."
+  },
+  {
+    "id": "secplus-pbq-009",
+    "domain": "Security Operations",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Incident response phase ticket",
+      "scenario": "An incident lead assigns three tasks during an investigation. Match each task to the correct incident-response phase.",
+      "evidence": [
+        {
+          "title": "Tasks",
+          "items": [
+            {
+              "label": "Task A",
+              "value": "Disconnect infected host from network"
+            },
+            {
+              "label": "Task B",
+              "value": "Restore files from clean backup"
+            },
+            {
+              "label": "Task C",
+              "value": "Update playbook after review meeting"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each task to the correct phase.",
+    "itemsLeft": [
+      "Disconnect infected host from network",
+      "Restore files from clean backup",
+      "Update playbook after lessons learned"
+    ],
+    "itemsRight": [
+      "Containment",
+      "Recovery",
+      "Lessons learned/post-incident activity"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Isolation is containment. Restoring service/data is recovery. Updating playbooks after review is lessons learned."
+  },
+  {
+    "id": "secplus-pbq-010",
+    "domain": "Security Architecture",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Identity design review ticket",
+      "scenario": "A team improves identity controls for three systems. Match each requirement to the best design.",
+      "evidence": [
+        {
+          "title": "Requirements",
+          "items": [
+            {
+              "label": "Admin portal",
+              "value": "Privileged users need extra verification"
+            },
+            {
+              "label": "Service app",
+              "value": "App needs secrets without hardcoding"
+            },
+            {
+              "label": "HR system",
+              "value": "Users should receive access based on job role"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each identity requirement to the best control.",
+    "itemsLeft": [
+      "Privileged users need stronger verification",
+      "Application needs secrets without source-code exposure",
+      "Access should align to job responsibilities"
+    ],
+    "itemsRight": [
+      "Require MFA/step-up authentication for privileged actions",
+      "Use a secrets manager or managed identity",
+      "Implement role-based access control"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Privileged access should use stronger verification. Secrets should be managed outside code. RBAC maps access to job functions."
+  }
 ]

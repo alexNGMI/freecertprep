@@ -10771,4 +10771,473 @@
     "correctAnswer": 2,
     "explanation": "Storage media must be sanitized or destroyed to prevent data disclosure."
   }
+,
+  {
+    "id": "aplus-core2-pbq-001",
+    "domain": "Software Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Windows application support tickets",
+      "scenario": "A help desk technician is triaging three Windows tickets that started after routine updates.",
+      "evidence": [
+        {
+          "title": "User reports",
+          "items": [
+            {
+              "label": "Ticket A",
+              "value": "Line-of-business app crashes only for one user profile"
+            },
+            {
+              "label": "Ticket B",
+              "value": "Laptop boots to recovery after repeated failed startup attempts"
+            },
+            {
+              "label": "Ticket C",
+              "value": "Browser redirects search results and shows unexpected extensions"
+            }
+          ]
+        },
+        {
+          "title": "Quick checks",
+          "items": [
+            {
+              "label": "Ticket A",
+              "value": "Same app works under a newly created local test account"
+            },
+            {
+              "label": "Ticket B",
+              "value": "Startup Repair is available from Windows Recovery Environment"
+            },
+            {
+              "label": "Ticket C",
+              "value": "Endpoint protection shows a potentially unwanted program alert"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each support ticket to the best next action.",
+    "itemsLeft": [
+      "Application crashes only inside one damaged user profile",
+      "System repeatedly fails startup and enters recovery",
+      "Browser redirects and unwanted extensions appear after a PUP alert"
+    ],
+    "itemsRight": [
+      "Run antimalware cleanup, remove suspicious extensions, and reset browser settings",
+      "Use WinRE Startup Repair or restore options before reinstalling the OS",
+      "Repair the user profile or migrate data to a new profile after confirming app health"
+    ],
+    "correctMatches": [
+      2,
+      1,
+      0
+    ],
+    "explanation": "A profile-only crash should be handled as profile corruption after confirming the app works elsewhere. Repeated boot failure belongs in WinRE repair workflow. Redirects with unwanted extensions and a PUP alert call for malware/PUP cleanup and browser reset."
+  },
+  {
+    "id": "aplus-core2-pbq-002",
+    "domain": "Security",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Endpoint security response ticket",
+      "scenario": "A technician is asked to respond to three security events on end-user systems without losing evidence or spreading the issue.",
+      "evidence": [
+        {
+          "title": "Events",
+          "items": [
+            {
+              "label": "Laptop A",
+              "value": "User clicked a phishing link and entered credentials"
+            },
+            {
+              "label": "Laptop B",
+              "value": "Ransom note appears and files are actively being renamed"
+            },
+            {
+              "label": "Laptop C",
+              "value": "Lost device contains cached corporate email"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each endpoint security event to the best immediate response.",
+    "itemsLeft": [
+      "A user submitted credentials to a confirmed phishing page",
+      "A system shows active ransomware-like file changes",
+      "A managed laptop with cached email is reported lost"
+    ],
+    "itemsRight": [
+      "Isolate the host from the network and escalate according to incident response procedures",
+      "Trigger remote lock or wipe and document the asset incident",
+      "Reset the password, revoke sessions/tokens, and report the account compromise"
+    ],
+    "correctMatches": [
+      2,
+      0,
+      1
+    ],
+    "explanation": "Phished credentials require account containment, password/session reset, and reporting. Active ransomware behavior should be isolated immediately. A lost managed device should be locked or wiped according to policy and documented."
+  }
+,
+  {
+    "id": "aplus-core2-pbq-003",
+    "domain": "Operating Systems",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Windows account access ticket",
+      "scenario": "A help desk technician triages three user access problems. Match each symptom to the best OS-level action.",
+      "evidence": [
+        {
+          "title": "Access notes",
+          "items": [
+            {
+              "label": "User A",
+              "value": "Forgot local password on a domain-joined laptop"
+            },
+            {
+              "label": "User B",
+              "value": "Needs temporary admin rights for approved installer"
+            },
+            {
+              "label": "User C",
+              "value": "Profile loads with temporary profile warning"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each access issue to the best next action.",
+    "itemsLeft": [
+      "Domain user forgot the password",
+      "User needs temporary elevated rights for approved software",
+      "Windows loads a temporary profile warning"
+    ],
+    "itemsRight": [
+      "Reset the domain account password through approved identity tools",
+      "Use approved elevation/admin workflow and remove rights after the task",
+      "Repair/recreate the profile and migrate user data as appropriate"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Domain password issues are handled through identity tooling. Temporary admin access should follow least privilege and approval. Temporary profiles indicate profile corruption or load failure."
+  },
+  {
+    "id": "aplus-core2-pbq-004",
+    "domain": "Operating Systems",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Disk maintenance ticket",
+      "scenario": "Three Windows systems report storage-related issues. Match each clue to the best tool or action.",
+      "evidence": [
+        {
+          "title": "Storage clues",
+          "items": [
+            {
+              "label": "PC A",
+              "value": "Disk is nearly full with old update/cache files"
+            },
+            {
+              "label": "PC B",
+              "value": "File system errors after an improper shutdown"
+            },
+            {
+              "label": "PC C",
+              "value": "Needs partition resized before encryption rollout"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each storage issue to the best action.",
+    "itemsLeft": [
+      "Recover space from old cache/update files",
+      "Check and repair file system errors",
+      "Resize a partition before enabling encryption"
+    ],
+    "itemsRight": [
+      "Run Disk Cleanup/Storage Sense with approved cleanup categories",
+      "Run chkdsk or equivalent file-system repair workflow",
+      "Use Disk Management or approved partitioning tool"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Cleanup tools remove safe temporary/update files. File-system errors call for repair checks. Partition size/layout changes belong in disk management tooling."
+  },
+  {
+    "id": "aplus-core2-pbq-005",
+    "domain": "Security",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Malware response ticket",
+      "scenario": "A technician responds to three suspicious endpoint behaviors. Match each to the best containment or remediation step.",
+      "evidence": [
+        {
+          "title": "Security clues",
+          "items": [
+            {
+              "label": "Host A",
+              "value": "Antivirus disabled and unknown service persists"
+            },
+            {
+              "label": "Host B",
+              "value": "User sees fake antivirus pop-ups"
+            },
+            {
+              "label": "Host C",
+              "value": "Sensitive browser sessions remain open after compromise"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each malware-response clue to the best step.",
+    "itemsLeft": [
+      "Unknown persistent service with disabled protection",
+      "Fake antivirus pop-ups pressure the user to pay",
+      "Open sessions remain after suspected account compromise"
+    ],
+    "itemsRight": [
+      "Isolate, re-enable/update protection, scan offline if needed, and remove persistence",
+      "Remove rogue software/browser changes and educate user not to pay/click",
+      "Revoke sessions/tokens and reset affected credentials"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Persistent malware should be isolated and scanned with trusted tools. Scareware/rogue AV requires removal and user coaching. Active sessions after compromise must be revoked."
+  },
+  {
+    "id": "aplus-core2-pbq-006",
+    "domain": "Software Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Mobile OS support ticket",
+      "scenario": "Three mobile users report application or OS issues. Match each symptom to the best support action.",
+      "evidence": [
+        {
+          "title": "Mobile notes",
+          "items": [
+            {
+              "label": "Phone A",
+              "value": "App crashes after update; other apps work"
+            },
+            {
+              "label": "Phone B",
+              "value": "Corporate mail stops after password change"
+            },
+            {
+              "label": "Phone C",
+              "value": "Device is slow and storage is almost full"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each mobile support issue to the best action.",
+    "itemsLeft": [
+      "One app crashes immediately after it was updated",
+      "Corporate mail fails after password change",
+      "Device performance is poor with nearly full storage"
+    ],
+    "itemsRight": [
+      "Clear app cache/reinstall or roll back through approved app management",
+      "Update saved credentials or re-enroll mail profile if required",
+      "Free storage by removing cached/offline data and unused apps"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "A single-app crash points to app cache/reinstall. Password changes often require updated mail credentials or profile refresh. Low storage can degrade mobile performance."
+  },
+  {
+    "id": "aplus-core2-pbq-007",
+    "domain": "Operational Procedures",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Change-control ticket",
+      "scenario": "A junior technician is preparing three maintenance actions. Match each action to the right operational procedure.",
+      "evidence": [
+        {
+          "title": "Work items",
+          "items": [
+            {
+              "label": "Patch",
+              "value": "Server restart required during business hours"
+            },
+            {
+              "label": "Repair",
+              "value": "Customer data may be visible on screen"
+            },
+            {
+              "label": "Install",
+              "value": "New software could affect a shared workstation image"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each work item to the correct procedure.",
+    "itemsLeft": [
+      "Restart required during business hours",
+      "Customer data may be visible during repair",
+      "Software install may affect a shared image"
+    ],
+    "itemsRight": [
+      "Get approval, communicate impact, and schedule a maintenance window",
+      "Protect privacy by minimizing exposure and following data-handling policy",
+      "Test/approve the change before adding it to the standard image"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Service-impacting restarts need approval and communication. Visible customer data requires privacy controls. Shared images need tested and approved changes."
+  },
+  {
+    "id": "aplus-core2-pbq-008",
+    "domain": "Security",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Authentication hardening ticket",
+      "scenario": "A small office is improving authentication. Match each requirement to the best control.",
+      "evidence": [
+        {
+          "title": "Requirements",
+          "items": [
+            {
+              "label": "Remote access",
+              "value": "Needs stronger sign-in than password only"
+            },
+            {
+              "label": "Shared workstation",
+              "value": "Needs unique accountability"
+            },
+            {
+              "label": "Privileged task",
+              "value": "Needs admin rights only during approved work"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each authentication requirement to the best control.",
+    "itemsLeft": [
+      "Remote users need stronger authentication",
+      "Shared workstation actions need user accountability",
+      "Admin rights should exist only during approved tasks"
+    ],
+    "itemsRight": [
+      "Require MFA for remote access",
+      "Assign unique user accounts instead of shared logins",
+      "Use least privilege with just-in-time or temporary elevation"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "MFA reduces risk for remote access. Unique accounts support accountability. Temporary elevation limits privileged exposure."
+  },
+  {
+    "id": "aplus-core2-pbq-009",
+    "domain": "Software Troubleshooting",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Print and application queue ticket",
+      "scenario": "A support technician reviews three post-update issues. Match each symptom to the best first fix.",
+      "evidence": [
+        {
+          "title": "Queue notes",
+          "items": [
+            {
+              "label": "Print",
+              "value": "Jobs stuck after spooler error"
+            },
+            {
+              "label": "App",
+              "value": "Crashes after plugin update"
+            },
+            {
+              "label": "Service",
+              "value": "Required service is set to disabled"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each software symptom to the best first action.",
+    "itemsLeft": [
+      "Print jobs are stuck after a spooler error",
+      "Application crashes immediately after a plugin update",
+      "Required background service is disabled"
+    ],
+    "itemsRight": [
+      "Clear stuck jobs and restart the print spooler service",
+      "Disable/remove the plugin or restore the previous version",
+      "Set the service startup correctly and start the service"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Print spooler errors often require clearing the queue and restarting the service. Plugin-related crashes should be isolated by disabling/removing the plugin. Disabled required services must be re-enabled."
+  },
+  {
+    "id": "aplus-core2-pbq-010",
+    "domain": "Operational Procedures",
+    "type": "pbq-matching",
+    "pbq": {
+      "title": "Documentation handoff ticket",
+      "scenario": "A technician closes three support tasks. Match each completed task to the documentation that should be updated.",
+      "evidence": [
+        {
+          "title": "Completed tasks",
+          "items": [
+            {
+              "label": "Network fix",
+              "value": "Static IP changed on a shared printer"
+            },
+            {
+              "label": "Hardware swap",
+              "value": "Laptop motherboard replaced under warranty"
+            },
+            {
+              "label": "Security event",
+              "value": "Phishing credential reset completed"
+            }
+          ]
+        }
+      ]
+    },
+    "question": "Match each completed task to the best documentation update.",
+    "itemsLeft": [
+      "Static IP changed on a shared printer",
+      "Motherboard replaced under warranty",
+      "Credential reset completed after phishing"
+    ],
+    "itemsRight": [
+      "Update asset/network records and printer documentation",
+      "Update asset history, warranty/RMA notes, and serial details",
+      "Document incident ticket actions and user/security notifications"
+    ],
+    "correctMatches": [
+      0,
+      1,
+      2
+    ],
+    "explanation": "Shared network changes need accurate records. Hardware replacements affect asset/warranty history. Security events require incident documentation and notification trail."
+  }
 ]
