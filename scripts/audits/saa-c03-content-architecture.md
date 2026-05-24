@@ -57,6 +57,18 @@ The SAA cert now carries optional `studyPlan` and `practiceGuidance` metadata in
 - Scope: these are registry-driven optional surfaces, so other certifications keep their existing dashboard and practice setup behavior unless they add the same metadata.
 - Content principle: no new questions are needed for this polish pass; the improvement is about making the existing 750-question pool feel organized around SAA decision-making.
 
+## Review-Mode Polish
+
+The first SAA review-quality pass keeps the existing 750 questions and answer keys intact while improving the explanation shape shown after practice and exam review.
+
+Every SAA explanation now uses three teaching anchors:
+
+- `Why this is right:` names the selected service pattern and restates why it satisfies the scenario.
+- `Why distractors fail:` explains how the non-selected options miss an architecture constraint, add risk, add operational burden, or solve a different problem.
+- `Architecture takeaway:` gives the learner a domain-specific rule of thumb tied to secure, resilient, high-performing, or cost-optimized AWS architecture.
+
+The content sanity suite now enforces these anchors for every SAA item so future edits cannot silently regress review-mode learning value.
+
 ## First Batch Quality Audit
 
 Generated pool: `src/data/aws-saa-c03-questions.json`

@@ -338,6 +338,16 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }
   })
 
+  it('SAA-C03 explanations teach the review-mode decision path', () => {
+    if (certId !== 'aws-saa-c03') return
+
+    for (const q of questions) {
+      expect(q.explanation, `${certId} q${q.id} should explain why the answer is right`).toContain('Why this is right:')
+      expect(q.explanation, `${certId} q${q.id} should explain why distractors fail`).toContain('Why distractors fail:')
+      expect(q.explanation, `${certId} q${q.id} should include architecture guidance`).toContain('Architecture takeaway:')
+    }
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {
