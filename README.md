@@ -32,6 +32,8 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
+> **CCNA simulation foundation is implemented:** `docs/ccna-simulation-architecture.md` maps the official 200-301 CCNA v1.1 domains to the simulation layer the app needs before CCNA can be exam-quality. CLI output interpretation, topology scenarios, config repair, and subnetting drills are now supported, with a 120-item unpublished preview pool registered for QA.
+
 ### Sister site — Real Estate
 
 A separate, light-themed surface (Redfin/Zillow visual language) lives at `/real-estate`, with a full study app under `/real-estate/study`. It covers the **National Real Estate Salesperson Exam** — the portable national/uniform portion tested in ~48 states — with a **750-question pool** built to the post-October-2023 PSI blueprint (11 weighted domains, 100% single-choice, 80-question / 120-minute / 75%-pass simulator). It is intentionally not in the IT catalog above; it reuses the exact same Smart Practice, scoring, and exam-selection engine, keyed to its own cert id.
@@ -51,7 +53,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 - **Home** - Guided learning paths up top, direct certification catalog below.
 - **Path pages** - Dedicated lanes for Networking, Cybersecurity, Cloud, and NVIDIA, plus a direct A+ selector for brand-new learners. Networking offers Network+ or Cisco CCST before Server+; Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.
-- **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) and Cisco CCNA (200-301) are planned as separate advanced tracks. SAA can start with deep scenario MCQ/MR and architecture tradeoff rationales; CCNA should wait for topology, drag/drop, and CLI-style troubleshooting simulations before entering the catalog.
+- **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live, and Cisco CCNA (200-301) is in unpublished preview. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented; the CCNA pool stays hidden from the catalog while it goes through QA.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
 - **Timed Drill** — 10 questions in 10 minutes, color-shifting countdown timer.
@@ -73,12 +75,14 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - **Ordering** — Place items in the correct sequence.
 - **Matching** — Match left-column items to right-column options.
 
+CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. A 120-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA. See `docs/ccna-simulation-architecture.md`.
+
 ## Tech stack
 
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (369 tests across 18 files), GitHub Actions CI
+- Vitest (532 tests across 22 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

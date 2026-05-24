@@ -572,7 +572,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              369 Vitest tests across 18 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              532 Vitest tests across 22 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -636,15 +636,16 @@ key = random() ** (1 / weight)
                   'CompTIA A+ guided track - live at /comptia/a-plus with separate Core 1 (220-1201) and Core 2 (220-1202) routes, each backed by a 750-question production pool and 90-question simulator; both cores now also appear in the full catalog grid.',
                   'AWS Solutions Architect - Associate (SAA-C03) - live 750-question production pool aligned to the official 30/26/24/20 domain weights, now listed in the full catalog and Cloud path.',
                   'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
+                  'CCNA simulation foundation - docs/ccna-simulation-architecture.md maps the official 200-301 CCNA v1.1 domains to the simulation layer needed before catalog placement; CLI output interpretation, topology scenarios, config repair, subnetting drills, and a hidden 120-item preview pool are now implemented.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 420-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 532-test regression suite.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'Cisco CCNA (200-301) - research and design topology, drag/drop, and CLI-style troubleshooting simulations before treating it as exam-quality.',
+                  'CCNA preview audit - review the unpublished 120-item preview set for official-domain alignment, practical troubleshooting depth, mobile layout, review-state behavior, and simulation scoring before any catalog placement.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',

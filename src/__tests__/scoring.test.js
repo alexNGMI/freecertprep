@@ -90,4 +90,40 @@ describe('isAnswerCorrect', () => {
       expect(isAnswerCorrect([1, 2, 0], question)).toBe(false)
     })
   })
+
+  describe('subnetting-drill', () => {
+    const question = {
+      type: 'subnetting-drill',
+      asks: ['network', 'broadcast', 'hostCount'],
+      correct: {
+        network: '192.168.10.64',
+        broadcast: '192.168.10.95',
+        hostCount: 30,
+      },
+    }
+
+    it('returns true when all requested fields match', () => {
+      expect(isAnswerCorrect({
+        network: '192.168.10.64',
+        broadcast: '192.168.10.95',
+        hostCount: '30',
+      }, question)).toBe(true)
+    })
+
+    it('trims text field values before comparing', () => {
+      expect(isAnswerCorrect({
+        network: ' 192.168.10.64 ',
+        broadcast: '192.168.10.95',
+        hostCount: '30 ',
+      }, question)).toBe(true)
+    })
+
+    it('returns false when any requested field is wrong', () => {
+      expect(isAnswerCorrect({
+        network: '192.168.10.64',
+        broadcast: '192.168.10.94',
+        hostCount: '30',
+      }, question)).toBe(false)
+    })
+  })
 })

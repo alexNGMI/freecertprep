@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import certs from '../data/certs.js'
+import certs, { getAllCerts, getAllCertsIncludingUnpublished } from '../data/certs.js'
 import az900 from '../data/az-900-questions.json'
 import clfc02 from '../data/questions.json'
 import awsSaaC03 from '../data/aws-saa-c03-questions.json'
@@ -7,6 +7,7 @@ import cdl from '../data/cdl-questions.json'
 import ncaAiio from '../data/nca-aiio-questions.json'
 import ncaGenl from '../data/nca-genl-questions.json'
 import ccstNetworking from '../data/ccst-networking-questions.json'
+import ccna200301 from '../data/ccna-200-301-questions.json'
 import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
@@ -32,6 +33,7 @@ const CERT_QUESTIONS = {
   'nca-aiio': ncaAiio,
   'nca-genl': ncaGenl,
   'ccst-networking': ccstNetworking,
+  'ccna-200-301': ccna200301,
   'comptia-net-plus': comptiaNetPlus,
   'comptia-sec-plus': comptiaSecPlus,
   'comptia-server-plus': comptiaServerPlus,
@@ -60,6 +62,10 @@ const VALID_TYPES = new Set([
   'statement-block',
   'ordering',
   'matching',
+  'cli-output',
+  'topology-scenario',
+  'config-repair',
+  'subnetting-drill',
 ])
 
 function typeOf(q) {
@@ -101,6 +107,13 @@ describe('cert registry', () => {
       const sum = cert.domains.reduce((s, d) => s + d.weight, 0)
       expect(sum, `${id} domain weights sum to ${sum}, expected 100`).toBe(100)
     }
+  })
+
+  it('keeps unpublished authoring pools out of the public catalog list', () => {
+    const publicIds = getAllCerts().map(c => c.id)
+    const allIds = getAllCertsIncludingUnpublished().map(c => c.id)
+    expect(publicIds).not.toContain('ccna-200-301')
+    expect(allIds).toContain('ccna-200-301')
   })
 })
 
@@ -172,7 +185,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
   })
 
   it('single-choice questions have choices and a valid correctAnswer index', () => {
-    const scs = questions.filter(q => typeOf(q) === 'single-choice')
+    const scs = questions.filter(q => ['single-choice', 'cli-output', 'topology-scenario', 'config-repair'].includes(typeOf(q)))
     for (const q of scs) {
       expect(Array.isArray(q.choices), `${certId} q${q.id} missing choices`).toBe(true)
       expect(q.choices.length, `${certId} q${q.id} has <2 choices`).toBeGreaterThanOrEqual(2)
@@ -181,6 +194,96 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
         q.correctAnswer >= 0 && q.correctAnswer < q.choices.length,
         `${certId} q${q.id} correctAnswer ${q.correctAnswer} out of range [0, ${q.choices.length})`
       ).toBe(true)
+    }
+  })
+
+  it('cli-output questions include command output blocks', () => {
+    const cliQuestions = questions.filter(q => typeOf(q) === 'cli-output')
+    for (const q of cliQuestions) {
+      expect(Array.isArray(q.commands), `${certId} q${q.id} missing commands`).toBe(true)
+      expect(q.commands.length, `${certId} q${q.id} needs at least one command`).toBeGreaterThan(0)
+      for (const [index, command] of q.commands.entries()) {
+        expect(typeof command.command === 'string' && command.command.trim().length > 0, `${certId} q${q.id} command ${index} missing command text`).toBe(true)
+        expect(typeof command.output === 'string' && command.output.trim().length > 0, `${certId} q${q.id} command ${index} missing output`).toBe(true)
+        if (command.device !== undefined) {
+          expect(typeof command.device === 'string' && command.device.trim().length > 0, `${certId} q${q.id} command ${index} has invalid device`).toBe(true)
+        }
+      }
+    }
+  })
+
+  it('topology-scenario questions include valid topology data', () => {
+    const topologyQuestions = questions.filter(q => typeOf(q) === 'topology-scenario')
+    for (const q of topologyQuestions) {
+      expect(q.topology && typeof q.topology === 'object', `${certId} q${q.id} missing topology`).toBe(true)
+      expect(Array.isArray(q.topology.nodes), `${certId} q${q.id} missing topology nodes`).toBe(true)
+      expect(q.topology.nodes.length, `${certId} q${q.id} needs at least two nodes`).toBeGreaterThanOrEqual(2)
+      expect(Array.isArray(q.topology.links), `${certId} q${q.id} missing topology links`).toBe(true)
+
+      const nodeIds = new Set()
+      for (const [index, node] of q.topology.nodes.entries()) {
+        expect(typeof node.id === 'string' && node.id.trim().length > 0, `${certId} q${q.id} node ${index} missing id`).toBe(true)
+        expect(typeof node.x === 'number', `${certId} q${q.id} node ${node.id} missing numeric x`).toBe(true)
+        expect(typeof node.y === 'number', `${certId} q${q.id} node ${node.id} missing numeric y`).toBe(true)
+        nodeIds.add(node.id)
+      }
+
+      for (const [index, link] of q.topology.links.entries()) {
+        expect(nodeIds.has(link.from), `${certId} q${q.id} link ${index} references missing from node "${link.from}"`).toBe(true)
+        expect(nodeIds.has(link.to), `${certId} q${q.id} link ${index} references missing to node "${link.to}"`).toBe(true)
+      }
+
+      if (Array.isArray(q.tables)) {
+        for (const [index, table] of q.tables.entries()) {
+          expect(typeof table.title === 'string' && table.title.trim().length > 0, `${certId} q${q.id} table ${index} missing title`).toBe(true)
+          expect(Array.isArray(table.columns) && table.columns.length > 0, `${certId} q${q.id} table ${index} missing columns`).toBe(true)
+          expect(Array.isArray(table.rows), `${certId} q${q.id} table ${index} missing rows`).toBe(true)
+          for (const [rowIndex, row] of table.rows.entries()) {
+            expect(row.length, `${certId} q${q.id} table ${index} row ${rowIndex} length must match columns`).toBe(table.columns.length)
+          }
+        }
+      }
+    }
+  })
+
+  it('config-repair questions include valid configuration blocks', () => {
+    const configQuestions = questions.filter(q => typeOf(q) === 'config-repair')
+    for (const q of configQuestions) {
+      expect(Array.isArray(q.config), `${certId} q${q.id} missing config lines`).toBe(true)
+      expect(q.config.length, `${certId} q${q.id} needs at least one config line`).toBeGreaterThan(0)
+      for (const [index, line] of q.config.entries()) {
+        expect(typeof line === 'string', `${certId} q${q.id} config line ${index} must be a string`).toBe(true)
+      }
+      if (q.scenario !== undefined) {
+        expect(typeof q.scenario === 'string' && q.scenario.trim().length > 0, `${certId} q${q.id} has invalid scenario`).toBe(true)
+      }
+      if (q.device !== undefined) {
+        expect(typeof q.device === 'string' && q.device.trim().length > 0, `${certId} q${q.id} has invalid device`).toBe(true)
+      }
+      if (q.configTitle !== undefined) {
+        expect(typeof q.configTitle === 'string' && q.configTitle.trim().length > 0, `${certId} q${q.id} has invalid configTitle`).toBe(true)
+      }
+      if (q.notes !== undefined) {
+        expect(Array.isArray(q.notes), `${certId} q${q.id} notes must be an array`).toBe(true)
+        for (const [index, note] of q.notes.entries()) {
+          expect(typeof note === 'string' && note.trim().length > 0, `${certId} q${q.id} note ${index} must be non-empty`).toBe(true)
+        }
+      }
+    }
+  })
+
+  it('subnetting-drill questions include requested fields and correct values', () => {
+    const subnetQuestions = questions.filter(q => typeOf(q) === 'subnetting-drill')
+    for (const q of subnetQuestions) {
+      expect(typeof q.given === 'string' && q.given.trim().length > 0, `${certId} q${q.id} missing subnet prompt`).toBe(true)
+      expect(Array.isArray(q.asks), `${certId} q${q.id} missing asks`).toBe(true)
+      expect(q.asks.length, `${certId} q${q.id} needs at least one requested field`).toBeGreaterThan(0)
+      expect(q.correct && typeof q.correct === 'object' && !Array.isArray(q.correct), `${certId} q${q.id} missing correct answer object`).toBe(true)
+      for (const field of q.asks) {
+        expect(typeof field === 'string' && field.trim().length > 0, `${certId} q${q.id} has invalid ask field`).toBe(true)
+        expect(q.correct[field] !== undefined, `${certId} q${q.id} missing correct value for ${field}`).toBe(true)
+        expect(String(q.correct[field]).trim().length > 0, `${certId} q${q.id} correct value for ${field} is empty`).toBe(true)
+      }
     }
   })
 
@@ -292,6 +395,83 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
           `${certId} q${q.id} correctAnswers must be all booleans`
         ).toBe(true)
       }
+    }
+  })
+})
+
+describe('CCNA preview pool', () => {
+  it('stays unpublished while covering the planned 120-item simulation mix', () => {
+    expect(certs['ccna-200-301'].published).toBe(false)
+    expect(ccna200301).toHaveLength(120)
+
+    const byDomain = ccna200301.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+    expect(byDomain).toEqual({
+      'Network Fundamentals': 24,
+      'Network Access': 24,
+      'IP Connectivity': 30,
+      'IP Services': 12,
+      'Security Fundamentals': 18,
+      'Automation and Programmability': 12,
+    })
+
+    const byType = ccna200301.reduce((acc, q) => {
+      acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
+      return acc
+    }, {})
+    expect(byType['cli-output']).toBe(25)
+    expect(byType['topology-scenario']).toBe(20)
+    expect(byType['config-repair']).toBe(10)
+    expect(byType['subnetting-drill']).toBe(5)
+  })
+
+  it('keeps the preview pool varied enough for editorial QA', () => {
+    const stems = ccna200301.map(q => q.question)
+    expect(new Set(stems).size).toBe(stems.length)
+
+    const answerPositions = ccna200301.reduce((acc, q) => {
+      if (Number.isInteger(q.correctAnswer)) {
+        acc[q.correctAnswer] = (acc[q.correctAnswer] || 0) + 1
+      }
+      return acc
+    }, {})
+    const counts = Object.values(answerPositions)
+    expect(Math.max(...counts) - Math.min(...counts)).toBeLessThanOrEqual(6)
+
+    const explanationPrefixes = ccna200301.map(q => q.explanation.slice(0, 100))
+    const repeatedPrefixCount = explanationPrefixes.length - new Set(explanationPrefixes).size
+    expect(repeatedPrefixCount).toBeLessThanOrEqual(2)
+  })
+
+  it('keeps simulation scenarios aligned to their CCNA domain', () => {
+    const automationSims = ccna200301.filter(q =>
+      q.domain === 'Automation and Programmability'
+      && ['topology-scenario', 'config-repair'].includes(typeOf(q))
+    )
+    for (const q of automationSims) {
+      const text = JSON.stringify(q).toLowerCase()
+      expect(text, `${q.id} should be API/controller focused`).toMatch(/api|rest|json|controller|yang|restconf|netconf/)
+      expect(text, `${q.id} should not reuse VLAN trunk repair content`).not.toMatch(/trunk allowed vlan|vlan 20 users cannot cross/)
+    }
+
+    const serviceSims = ccna200301.filter(q =>
+      q.domain === 'IP Services'
+      && ['topology-scenario', 'config-repair'].includes(typeOf(q))
+    )
+    for (const q of serviceSims) {
+      const text = JSON.stringify(q).toLowerCase()
+      expect(text, `${q.id} should stay focused on infrastructure services`).toMatch(/nat|pat|dhcp|helper|ntp|dns|snmp|syslog/)
+    }
+
+    const securitySims = ccna200301.filter(q =>
+      q.domain === 'Security Fundamentals'
+      && ['topology-scenario', 'config-repair'].includes(typeOf(q))
+    )
+    for (const q of securitySims) {
+      const text = JSON.stringify(q).toLowerCase()
+      expect(text, `${q.id} should stay focused on security controls`).toMatch(/acl|ssh|vty|bpdu|guard|least|access|deny|permit/)
     }
   })
 })
