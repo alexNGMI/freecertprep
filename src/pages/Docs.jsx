@@ -649,6 +649,7 @@ key = random() ** (1 / weight)
                 color: '#a1a1aa',
                 items: [
                   'CCNA preview QA - keep the unpublished 750-item pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
+                  'Content accuracy hardening - follow the full-bank blueprint audit: rebalance Network+ toward N10-009 Troubleshooting, refresh Google CDL to the current six-section guide, rebalance NVIDIA AIIO toward Essential AI Knowledge, tighten AZ-900 domain distribution, and recheck real-estate state handbooks before public placement.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
                   'Custom domain — freecertprep.org',

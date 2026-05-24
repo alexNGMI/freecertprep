@@ -53,6 +53,27 @@ All six audited banks now have:
 - Valid domain assignments against the registry.
 - Balanced or already acceptable single-choice answer positions.
 
+## 2026-05-24 full-bank blueprint comparison
+
+The broader catalog comparison against current official/vendor exam guides found that the mature banks are structurally strong, but the next quality standard should move beyond schema validity and duplicate cleanup into blueprint-weight accuracy.
+
+Highest-confidence aligned banks:
+
+1. AWS Solutions Architect - Associate (SAA-C03): exact 30 / 26 / 24 / 20 split.
+2. Cisco CCST Networking: within 0.5 questions of the 15 / 20 / 20 / 20 / 15 / 10 target.
+3. Cisco CCNA preview: within 0.5 questions of the 20 / 20 / 25 / 10 / 15 / 10 target, still unpublished pending simulation QA.
+4. CompTIA A+ Core 1 and Core 2: within 1 question of the official V15 domain weights.
+5. CompTIA Server+: within 1 question of the SK0-005 domain weights.
+6. NVIDIA Generative AI LLMs and Indiana / North Carolina / Arizona real-estate state modules: close enough for the current authored-pool standard.
+
+Priority hardening sequence:
+
+1. CompTIA Network+ N10-009: current pool is too light on Network Troubleshooting (about 12% vs. 24% target) and too heavy on Networking Concepts / Network Security. Rebalance before calling the bank blueprint-complete.
+2. Google Cloud Digital Leader: refresh the app taxonomy from the older four-domain model to the current six-section Google guide that separates data, AI, trust/security, and operations.
+3. NVIDIA AI Infrastructure & Operations: rebalance toward Essential AI Knowledge and reduce the current AI Operations overweight.
+4. AZ-900: tighten the pool into Microsoft's current ranged weights; architecture/services is currently too heavy and cloud concepts is light.
+5. Real-estate state modules: recheck each state against the current Pearson VUE / PSI / commission handbook before public placement because state exam structures are actively changing.
+
 ## Next recommended quality pass
 
 After the NVIDIA/cloud/CompTIA sweep, the remaining content modules to audit with the same rubric are:
