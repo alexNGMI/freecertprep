@@ -572,7 +572,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              532 Vitest tests across 22 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              533 Vitest tests across 23 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -593,6 +593,7 @@ key = random() ** (1 / weight)
 ├── career-path-page.test.jsx - Guided path pages, Cloud vendor choice, and fallback routing
 ├── realestate-registry.test.js — Sister-site picker / cert registry wiring
 ├── aplus-page.test.jsx     — Dedicated A+ Core 1/Core 2 selector behavior
+├── results-simulation-review.test.jsx — CCNA simulation items in results review
 └── content-sanity.test.js  — Every question across every cert: ids unique,
                               domains valid, types recognized, correctAnswer
                               indices in range, MR sorted, ordering is a
@@ -638,7 +639,7 @@ key = random() ** (1 / weight)
                   'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
                   'CCNA simulation foundation - docs/ccna-simulation-architecture.md maps the official 200-301 CCNA v1.1 domains to the simulation layer needed before catalog placement; CLI output interpretation, topology scenarios, config repair, subnetting drills, and a hidden 120-item preview pool are now implemented.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 532-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 533-test regression suite.',
                 ],
               },
               {
