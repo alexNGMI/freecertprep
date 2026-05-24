@@ -3,6 +3,7 @@ import { motion as Motion } from 'motion/react'
 import { Button } from './ui/button'
 import { Surface } from './ui/surface'
 import { cn } from '../utils/cn'
+import { isAnswerComplete } from '../utils/scoring'
 
 export function StudyWorkspace({
   cert,
@@ -99,9 +100,11 @@ export function QuestionNavigator({ items, currentIndex, selectedAnswers = {}, o
     <div className="space-y-3">
       <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Question map</p>
       <div className="grid grid-cols-5 gap-2">
-        {items.map((_, index) => {
+        {items.map((item, index) => {
           const isCurrent = index === currentIndex
-          const isAnswered = selectedAnswers[index] !== undefined
+          const isAnswered = item && typeof item === 'object'
+            ? isAnswerComplete(selectedAnswers[index], item)
+            : selectedAnswers[index] !== undefined
           return (
             <Button
               key={index}

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { isAnswerCorrect } from '../utils/scoring.js'
+import { isAnswerComplete, isAnswerCorrect } from '../utils/scoring.js'
 
 describe('isAnswerCorrect', () => {
   describe('single-choice', () => {
@@ -124,6 +124,29 @@ describe('isAnswerCorrect', () => {
         broadcast: '192.168.10.94',
         hostCount: '30',
       }, question)).toBe(false)
+    })
+  })
+
+  describe('isAnswerComplete', () => {
+    it('requires every subnetting field before marking an exam item answered', () => {
+      const question = {
+        type: 'subnetting-drill',
+        asks: ['network', 'broadcast', 'hostCount'],
+      }
+
+      expect(isAnswerComplete({ network: '192.168.10.64' }, question)).toBe(false)
+      expect(isAnswerComplete({
+        network: '192.168.10.64',
+        broadcast: '192.168.10.95',
+        hostCount: '30',
+      }, question)).toBe(true)
+    })
+
+    it('requires complete interactive selections for ordered and matching items', () => {
+      expect(isAnswerComplete([0, 1], { type: 'ordering', items: ['a', 'b', 'c'] })).toBe(false)
+      expect(isAnswerComplete([0, 1, 2], { type: 'ordering', items: ['a', 'b', 'c'] })).toBe(true)
+      expect(isAnswerComplete([0, null], { type: 'matching', itemsLeft: ['a', 'b'] })).toBe(false)
+      expect(isAnswerComplete([0, 1], { type: 'matching', itemsLeft: ['a', 'b'] })).toBe(true)
     })
   })
 })

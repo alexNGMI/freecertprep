@@ -82,7 +82,7 @@ CCNA simulation types implemented: CLI output interpretation, topology scenarios
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (533 tests across 23 files), GitHub Actions CI
+- Vitest (536 tests across 23 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

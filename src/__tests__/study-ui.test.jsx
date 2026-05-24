@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
-import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { afterEach, describe, it, expect, vi } from 'vitest'
+import { cleanup, render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import CertLayout from '../components/CertLayout.jsx'
 import { QuestionNavigator, StudyWorkspace } from '../components/StudyWorkspace.jsx'
@@ -18,6 +18,10 @@ vi.mock('../hooks/useCert', () => ({
 }))
 
 describe('cert study UI', () => {
+  afterEach(() => {
+    cleanup()
+  })
+
   it('gives icon-only navigation links stable accessible names', () => {
     render(
       <MemoryRouter initialEntries={['/clf-c02']}>
@@ -81,5 +85,34 @@ describe('cert study UI', () => {
     expect(onGoToQuestion).toHaveBeenCalledWith(1)
     expect(screen.getByRole('button', { name: 'Go to question 1' })).toBeTruthy()
     expect(screen.getByRole('button', { name: 'Go to question 3' })).toBeTruthy()
+  })
+
+  it('does not mark subnetting questions answered until every field has a value', () => {
+    render(
+      <QuestionNavigator
+        items={[
+          {
+            id: 'subnet-1',
+            type: 'subnetting-drill',
+            asks: ['network', 'broadcast', 'hostCount'],
+          },
+          {
+            id: 'subnet-2',
+            type: 'subnetting-drill',
+            asks: ['network', 'broadcast', 'hostCount'],
+          },
+        ]}
+        currentIndex={0}
+        selectedAnswers={{
+          0: { network: '192.168.10.64' },
+          1: { network: '192.168.10.64', broadcast: '192.168.10.95', hostCount: '30' },
+        }}
+        onGoToQuestion={() => {}}
+        accentColor="#f1be32"
+      />,
+    )
+
+    expect(screen.getByRole('button', { name: 'Go to question 1' })).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Go to question 2 answered' })).toBeTruthy()
   })
 })

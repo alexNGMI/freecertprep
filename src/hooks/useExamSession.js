@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { weightedSelect, selectLicensingExam } from '../utils/exam-selection'
-import { isAnswerCorrect } from '../utils/scoring'
+import { isAnswerComplete, isAnswerCorrect } from '../utils/scoring'
 import { useProgress } from './useProgress'
 
 export function useExamSession({ cert, questions, resultsPath }) {
@@ -74,7 +74,9 @@ export function useExamSession({ cert, questions, resultsPath }) {
   }
 
   return {
-    answeredCount: Object.keys(selectedAnswers).length,
+    answeredCount: examQuestions.reduce((count, question, index) =>
+      count + (isAnswerComplete(selectedAnswers[index], question) ? 1 : 0)
+    , 0),
     currentIndex,
     currentQuestion: examQuestions[currentIndex],
     examQuestionCount,

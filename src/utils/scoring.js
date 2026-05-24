@@ -23,6 +23,37 @@ export function isAnswerCorrect(selectedChoice, question) {
   return selectedChoice === question.correctAnswer
 }
 
+export function isAnswerComplete(selectedChoice, question) {
+  if (selectedChoice === undefined || selectedChoice === null || selectedChoice === -1) return false
+
+  if (question?.type === 'subnetting-drill') {
+    if (typeof selectedChoice !== 'object' || Array.isArray(selectedChoice)) return false
+    return (question.asks || []).every((field) => String(selectedChoice[field] ?? '').trim().length > 0)
+  }
+
+  if (question?.type === 'statement-block') {
+    return Array.isArray(selectedChoice)
+      && selectedChoice.length === question.correctAnswers?.length
+      && selectedChoice.every((answer) => answer !== null && answer !== undefined)
+  }
+
+  if (question?.type === 'ordering') {
+    return Array.isArray(selectedChoice) && selectedChoice.length === question.items?.length
+  }
+
+  if (question?.type === 'matching') {
+    return Array.isArray(selectedChoice)
+      && selectedChoice.length === question.itemsLeft?.length
+      && selectedChoice.every((answer) => answer !== null && answer !== undefined)
+  }
+
+  if (question?.type === 'multiple-response') {
+    return Array.isArray(selectedChoice) && selectedChoice.length === question.correctAnswers?.length
+  }
+
+  return true
+}
+
 function normalizeSubnetAnswer(value) {
   return String(value ?? '').trim().toLowerCase()
 }
