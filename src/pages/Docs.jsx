@@ -606,9 +606,10 @@ key = random() ** (1 / weight)
             <P>
               The product is live and usable today, with thirteen IT certifications plus the real-estate sister site. The latest
               refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
-              loading, and focused UI regression tests. The roadmap now splits into three tracks: making the guided IT paths richer,
-              adding platform features such as synced accounts, a custom domain, and PWA support, and hardening advanced
-              certification tracks such as AWS SAA while researching Cisco CCNA simulation quality.
+              loading, and focused UI regression tests. The roadmap now splits into four tracks: making the guided IT paths richer,
+              adding platform features such as synced accounts, a custom domain, and PWA support, hardening advanced certification
+              tracks such as CCNA simulations and AWS SAA review quality, and designing a backend-backed trust layer for public
+              content quality signals.
             </P>
 
             {[
@@ -648,6 +649,7 @@ key = random() ** (1 / weight)
                 items: [
                   'CCNA preview audit - review the unpublished 120-item preview set for official-domain alignment, practical troubleshooting depth, mobile layout, review-state behavior, and simulation scoring before any catalog placement.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
+                  'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',
                 ],
