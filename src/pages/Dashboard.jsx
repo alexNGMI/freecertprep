@@ -6,6 +6,7 @@ import {
   ArrowRight,
   BookOpenCheck,
   CheckCircle2,
+  Compass,
   Download,
   FileUp,
   Gauge,
@@ -176,6 +177,32 @@ export default function Dashboard() {
           </div>
         </Surface>
       </section>
+
+      {cert.studyPlan && (
+        <Surface className="overflow-hidden">
+          <div className="grid gap-0 lg:grid-cols-[320px_minmax(0,1fr)]">
+            <div className="border-b border-white/10 p-6 lg:border-b-0 lg:border-r lg:p-7">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border" style={{ color: cert.color, borderColor: `${cert.color}45`, backgroundColor: `${cert.color}12` }}>
+                <Compass className="h-6 w-6" />
+              </div>
+              <p className="mt-6 text-xs font-bold uppercase tracking-wider text-zinc-500">Study architecture</p>
+              <h2 className="mt-2 text-2xl font-black text-zinc-50">{cert.studyPlan.headline}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">{cert.studyPlan.summary}</p>
+            </div>
+            <div className="grid gap-3 p-5 md:grid-cols-2 lg:p-7">
+              {cert.studyPlan.checkpoints.map((checkpoint) => {
+                const [label, body] = checkpoint.split(': ')
+                return (
+                  <div key={checkpoint} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
+                    <p className="text-sm font-black text-zinc-100">{body ? label : checkpoint}</p>
+                    {body && <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </Surface>
+      )}
 
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
         <Surface className="p-6">

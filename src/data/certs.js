@@ -253,7 +253,7 @@ const certs = {
     title: 'AWS Solutions Architect - Associate',
     code: 'SAA-C03',
     provider: 'AWS',
-    description: 'Associate-level AWS architecture exam focused on secure, resilient, high-performing, and cost-optimized workload design.',
+    description: 'Associate-level AWS architecture exam for designing secure, resilient, high-performing, and cost-optimized workloads across real AWS service tradeoffs.',
     difficulty: 'Associate',
     color: '#ff9900',
     questionCount: 750,
@@ -266,6 +266,21 @@ const certs = {
       { name: 'Design Resilient Architectures', weight: 26 },
       { name: 'Design High-Performing Architectures', weight: 24 },
       { name: 'Design Cost-Optimized Architectures', weight: 20 },
+    ],
+    studyPlan: {
+      headline: 'Architecture-first SAA prep',
+      summary: 'Treat the 750-question pool as a design lab: read the scenario constraint, pick the managed service pattern that satisfies it, then use the explanation to name the tradeoff you almost missed.',
+      checkpoints: [
+        'Secure: identity boundaries, private access, encryption, and least-privilege service integration.',
+        'Resilient: multi-AZ data paths, recovery behavior, decoupling, and graceful failure modes.',
+        'Performance: caching, async flow, right-sized compute, global routing, and storage access patterns.',
+        'Cost: demand shape, managed capacity choices, storage tiers, and when cheap options create operational risk.',
+      ],
+    },
+    practiceGuidance: [
+      'Use Smart Practice after each full block so weak architecture decisions reappear quickly.',
+      'Run domain sessions when a service pair keeps blurring, such as NAT gateway vs VPC endpoint or CloudFront vs Global Accelerator.',
+      'Review missed explanations out loud as a tradeoff: "this wins because..., the distractor fails because...".',
     ],
     domainColors: {
       'Design Secure Architectures': { dot: 'bg-[#ff9900]', bar: 'bg-[#ff9900]', text: 'text-[#ff9900]', hex: '#ff9900' },
