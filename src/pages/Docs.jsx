@@ -639,7 +639,7 @@ key = random() ** (1 / weight)
                   'AWS Solutions Architect - Associate (SAA-C03) - live 750-question production pool aligned to the official 30/26/24/20 domain weights, now listed in the full catalog and Cloud path.',
                   'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
-                  'CCNA simulation foundation - docs/ccna-simulation-architecture.md maps the official 200-301 CCNA v1.1 domains to the simulation layer needed before catalog placement; CLI output interpretation, topology scenarios, config repair, subnetting drills, and a hidden 120-item preview pool are now implemented.',
+                  'CCNA simulation foundation - docs/ccna-simulation-architecture.md maps the official 200-301 CCNA v1.1 domains to the simulation layer needed before catalog placement; CLI output interpretation, topology scenarios, config repair, subnetting drills, and a hidden 300-item preview pool are now implemented.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 536-test regression suite.',
                 ],
@@ -648,7 +648,7 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'CCNA preview audit - review the unpublished 120-item preview set for official-domain alignment, practical troubleshooting depth, mobile layout, review-state behavior, and simulation scoring before any catalog placement.',
+                  'CCNA preview QA - keep the unpublished 300-item pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
                   'Custom domain — freecertprep.org',

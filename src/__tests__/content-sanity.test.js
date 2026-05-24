@@ -424,31 +424,33 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
 })
 
 describe('CCNA preview pool', () => {
-  it('stays unpublished while covering the expanded 160-item simulation mix', () => {
+  it('stays unpublished while covering the 300-item simulation readiness mix', () => {
     expect(certs['ccna-200-301'].published).toBe(false)
-    expect(ccna200301).toHaveLength(160)
+    expect(ccna200301).toHaveLength(300)
 
     const byDomain = ccna200301.reduce((acc, q) => {
       acc[q.domain] = (acc[q.domain] || 0) + 1
       return acc
     }, {})
     expect(byDomain).toEqual({
-      'Network Fundamentals': 32,
-      'Network Access': 32,
-      'IP Connectivity': 40,
-      'IP Services': 16,
-      'Security Fundamentals': 24,
-      'Automation and Programmability': 16,
+      'Network Fundamentals': 60,
+      'Network Access': 60,
+      'IP Connectivity': 75,
+      'IP Services': 30,
+      'Security Fundamentals': 45,
+      'Automation and Programmability': 30,
     })
 
     const byType = ccna200301.reduce((acc, q) => {
       acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
       return acc
     }, {})
-    expect(byType['cli-output']).toBe(34)
-    expect(byType['topology-scenario']).toBe(28)
-    expect(byType['config-repair']).toBe(16)
-    expect(byType['subnetting-drill']).toBe(8)
+    expect(byType['single-choice']).toBe(113)
+    expect(byType['multiple-response']).toBe(21)
+    expect(byType['cli-output']).toBe(64)
+    expect(byType['topology-scenario']).toBe(50)
+    expect(byType['config-repair']).toBe(34)
+    expect(byType['subnetting-drill']).toBe(18)
   })
 
   it('keeps the preview pool varied enough for editorial QA', () => {
@@ -503,12 +505,14 @@ describe('CCNA preview pool', () => {
     const audit = readFileSync('scripts/audits/ccna-preview-audit.md', 'utf8')
 
     expect(audit).toContain('Status: `ccna-200-301` remains unpublished')
-    expect(audit).toContain('| Network Fundamentals | 32 | 60 | +28 |')
-    expect(audit).toContain('| Network Access | 32 | 60 | +28 |')
-    expect(audit).toContain('| IP Connectivity | 40 | 75 | +35 |')
-    expect(audit).toContain('| IP Services | 16 | 30 | +14 |')
-    expect(audit).toContain('| Security Fundamentals | 24 | 45 | +21 |')
-    expect(audit).toContain('| Automation and Programmability | 16 | 30 | +14 |')
+    expect(audit).toContain('| Network Fundamentals | 60 |')
+    expect(audit).toContain('| Network Access | 60 |')
+    expect(audit).toContain('| IP Connectivity | 75 |')
+    expect(audit).toContain('| IP Services | 30 |')
+    expect(audit).toContain('| Security Fundamentals | 45 |')
+    expect(audit).toContain('| Automation and Programmability | 30 |')
+    expect(audit).toContain('| CLI output | 64 |')
+    expect(audit).toContain('| Subnetting drill | 18 |')
     expect(audit).toContain('Do not add CCST-level vocabulary checks')
   })
 

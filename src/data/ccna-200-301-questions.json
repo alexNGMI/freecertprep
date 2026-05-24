@@ -3444,23 +3444,61 @@
       "width": 640,
       "height": 300,
       "nodes": [
-        { "id": "PC1", "label": "PC1\n192.168.10.25/24", "kind": "client", "x": 90, "y": 150 },
-        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 300, "y": 150 },
-        { "id": "R1", "label": "R1\n192.168.10.1", "kind": "router", "x": 520, "y": 150 }
+        {
+          "id": "PC1",
+          "label": "PC1\n192.168.10.25/24",
+          "kind": "client",
+          "x": 90,
+          "y": 150
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 150
+        },
+        {
+          "id": "R1",
+          "label": "R1\n192.168.10.1",
+          "kind": "router",
+          "x": 520,
+          "y": 150
+        }
       ],
       "links": [
-        { "from": "PC1", "to": "SW1", "label": "access VLAN 10" },
-        { "from": "SW1", "to": "R1", "label": "G0/1" }
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access VLAN 10"
+        },
+        {
+          "from": "SW1",
+          "to": "R1",
+          "label": "G0/1"
+        }
       ]
     },
     "tables": [
       {
         "title": "PC1 settings",
-        "columns": ["Setting", "Value"],
+        "columns": [
+          "Setting",
+          "Value"
+        ],
         "rows": [
-          ["IP address", "192.168.10.25"],
-          ["Mask", "255.255.255.0"],
-          ["Default gateway", "192.168.20.1"]
+          [
+            "IP address",
+            "192.168.10.25"
+          ],
+          [
+            "Mask",
+            "255.255.255.0"
+          ],
+          [
+            "Default gateway",
+            "192.168.20.1"
+          ]
         ]
       }
     ],
@@ -3480,7 +3518,13 @@
     "type": "subnetting-drill",
     "question": "Subnetting drill: calculate the key values for 10.14.32.128/26.",
     "given": "10.14.32.128/26",
-    "asks": ["network", "broadcast", "firstUsable", "lastUsable", "hostCount"],
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
     "correct": {
       "network": "10.14.32.128",
       "broadcast": "10.14.32.191",
@@ -3496,7 +3540,13 @@
     "type": "subnetting-drill",
     "question": "Subnetting drill: calculate the key values for 172.16.44.96/28.",
     "given": "172.16.44.96/28",
-    "asks": ["network", "broadcast", "firstUsable", "lastUsable", "hostCount"],
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
     "correct": {
       "network": "172.16.44.96",
       "broadcast": "172.16.44.111",
@@ -3512,7 +3562,13 @@
     "type": "subnetting-drill",
     "question": "Subnetting drill: calculate the key values for 192.168.50.200/29.",
     "given": "192.168.50.200/29",
-    "asks": ["network", "broadcast", "firstUsable", "lastUsable", "hostCount"],
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
     "correct": {
       "network": "192.168.50.200",
       "broadcast": "192.168.50.207",
@@ -3618,25 +3674,73 @@
       "width": 640,
       "height": 320,
       "nodes": [
-        { "id": "PC1", "label": "PC1", "kind": "client", "x": 90, "y": 210 },
-        { "id": "PHONE", "label": "Phone", "kind": "client", "x": 260, "y": 210 },
-        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 470, "y": 210 },
-        { "id": "CUCM", "label": "Call Control", "kind": "server", "x": 470, "y": 80 }
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "client",
+          "x": 90,
+          "y": 210
+        },
+        {
+          "id": "PHONE",
+          "label": "Phone",
+          "kind": "client",
+          "x": 260,
+          "y": 210
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 470,
+          "y": 210
+        },
+        {
+          "id": "CUCM",
+          "label": "Call Control",
+          "kind": "server",
+          "x": 470,
+          "y": 80
+        }
       ],
       "links": [
-        { "from": "PC1", "to": "PHONE", "label": "PC port" },
-        { "from": "PHONE", "to": "SW1", "label": "Gi0/10" },
-        { "from": "SW1", "to": "CUCM", "label": "VLAN 30" }
+        {
+          "from": "PC1",
+          "to": "PHONE",
+          "label": "PC port"
+        },
+        {
+          "from": "PHONE",
+          "to": "SW1",
+          "label": "Gi0/10"
+        },
+        {
+          "from": "SW1",
+          "to": "CUCM",
+          "label": "VLAN 30"
+        }
       ]
     },
     "tables": [
       {
         "title": "SW1 Gi0/10",
-        "columns": ["Setting", "Value"],
+        "columns": [
+          "Setting",
+          "Value"
+        ],
         "rows": [
-          ["Access VLAN", "20"],
-          ["Voice VLAN", "not configured"],
-          ["Port mode", "access"]
+          [
+            "Access VLAN",
+            "20"
+          ],
+          [
+            "Voice VLAN",
+            "not configured"
+          ],
+          [
+            "Port mode",
+            "access"
+          ]
         ]
       }
     ],
@@ -3660,21 +3764,53 @@
       "width": 640,
       "height": 260,
       "nodes": [
-        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 180, "y": 130 },
-        { "id": "SW2", "label": "SW2", "kind": "switch", "x": 460, "y": 130 }
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 180,
+          "y": 130
+        },
+        {
+          "id": "SW2",
+          "label": "SW2",
+          "kind": "switch",
+          "x": 460,
+          "y": 130
+        }
       ],
       "links": [
-        { "from": "SW1", "to": "SW2", "label": "Gi0/1" },
-        { "from": "SW1", "to": "SW2", "label": "Gi0/2" }
+        {
+          "from": "SW1",
+          "to": "SW2",
+          "label": "Gi0/1"
+        },
+        {
+          "from": "SW1",
+          "to": "SW2",
+          "label": "Gi0/2"
+        }
       ]
     },
     "tables": [
       {
         "title": "Member link settings",
-        "columns": ["Interface", "SW1 allowed VLANs", "SW2 allowed VLANs"],
+        "columns": [
+          "Interface",
+          "SW1 allowed VLANs",
+          "SW2 allowed VLANs"
+        ],
         "rows": [
-          ["Gi0/1", "10,20,30", "10,20,30"],
-          ["Gi0/2", "10,20", "10,20,30"]
+          [
+            "Gi0/1",
+            "10,20,30",
+            "10,20,30"
+          ],
+          [
+            "Gi0/2",
+            "10,20",
+            "10,20,30"
+          ]
         ]
       }
     ],
@@ -3821,20 +3957,48 @@
       "width": 640,
       "height": 300,
       "nodes": [
-        { "id": "R1", "label": "R1\nArea 0", "kind": "router", "x": 150, "y": 150 },
-        { "id": "R2", "label": "R2\nArea 10", "kind": "router", "x": 490, "y": 150 }
+        {
+          "id": "R1",
+          "label": "R1\nArea 0",
+          "kind": "router",
+          "x": 150,
+          "y": 150
+        },
+        {
+          "id": "R2",
+          "label": "R2\nArea 10",
+          "kind": "router",
+          "x": 490,
+          "y": 150
+        }
       ],
       "links": [
-        { "from": "R1", "to": "R2", "label": "10.0.12.0/30" }
+        {
+          "from": "R1",
+          "to": "R2",
+          "label": "10.0.12.0/30"
+        }
       ]
     },
     "tables": [
       {
         "title": "Interface settings",
-        "columns": ["Router", "Interface", "OSPF area"],
+        "columns": [
+          "Router",
+          "Interface",
+          "OSPF area"
+        ],
         "rows": [
-          ["R1", "G0/0", "0"],
-          ["R2", "G0/0", "10"]
+          [
+            "R1",
+            "G0/0",
+            "0"
+          ],
+          [
+            "R2",
+            "G0/0",
+            "10"
+          ]
         ]
       }
     ],
@@ -3858,25 +4022,77 @@
       "width": 640,
       "height": 320,
       "nodes": [
-        { "id": "PC1", "label": "PC1", "kind": "client", "x": 90, "y": 230 },
-        { "id": "SW1", "label": "SW1", "kind": "switch", "x": 280, "y": 230 },
-        { "id": "R1", "label": "R1", "kind": "router", "x": 500, "y": 130 },
-        { "id": "R2", "label": "R2", "kind": "router", "x": 500, "y": 260 }
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "client",
+          "x": 90,
+          "y": 230
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 280,
+          "y": 230
+        },
+        {
+          "id": "R1",
+          "label": "R1",
+          "kind": "router",
+          "x": 500,
+          "y": 130
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 500,
+          "y": 260
+        }
       ],
       "links": [
-        { "from": "PC1", "to": "SW1", "label": "VLAN 10" },
-        { "from": "SW1", "to": "R1", "label": "G0/0" },
-        { "from": "SW1", "to": "R2", "label": "G0/0" }
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "VLAN 10"
+        },
+        {
+          "from": "SW1",
+          "to": "R1",
+          "label": "G0/0"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "G0/0"
+        }
       ]
     },
     "tables": [
       {
         "title": "Gateway configuration",
-        "columns": ["Device", "Address", "HSRP state"],
+        "columns": [
+          "Device",
+          "Address",
+          "HSRP state"
+        ],
         "rows": [
-          ["R1", "192.168.10.2", "Active"],
-          ["R2", "192.168.10.3", "Standby"],
-          ["Virtual IP", "192.168.10.1", "-"]
+          [
+            "R1",
+            "192.168.10.2",
+            "Active"
+          ],
+          [
+            "R2",
+            "192.168.10.3",
+            "Standby"
+          ],
+          [
+            "Virtual IP",
+            "192.168.10.1",
+            "-"
+          ]
         ]
       }
     ],
@@ -3988,21 +4204,55 @@
       "width": 640,
       "height": 300,
       "nodes": [
-        { "id": "PC1", "label": "Client\nVLAN 20", "kind": "client", "x": 90, "y": 170 },
-        { "id": "R1", "label": "R1", "kind": "router", "x": 320, "y": 170 },
-        { "id": "DHCP", "label": "DHCP Server\n10.10.10.50", "kind": "server", "x": 550, "y": 170 }
+        {
+          "id": "PC1",
+          "label": "Client\nVLAN 20",
+          "kind": "client",
+          "x": 90,
+          "y": 170
+        },
+        {
+          "id": "R1",
+          "label": "R1",
+          "kind": "router",
+          "x": 320,
+          "y": 170
+        },
+        {
+          "id": "DHCP",
+          "label": "DHCP Server\n10.10.10.50",
+          "kind": "server",
+          "x": 550,
+          "y": 170
+        }
       ],
       "links": [
-        { "from": "PC1", "to": "R1", "label": "192.168.20.0/24" },
-        { "from": "R1", "to": "DHCP", "label": "routed WAN" }
+        {
+          "from": "PC1",
+          "to": "R1",
+          "label": "192.168.20.0/24"
+        },
+        {
+          "from": "R1",
+          "to": "DHCP",
+          "label": "routed WAN"
+        }
       ]
     },
     "tables": [
       {
         "title": "R1 client-facing interface",
-        "columns": ["Interface", "Address", "DHCP relay"],
+        "columns": [
+          "Interface",
+          "Address",
+          "DHCP relay"
+        ],
         "rows": [
-          ["G0/0.20", "192.168.20.1/24", "not configured"]
+          [
+            "G0/0.20",
+            "192.168.20.1/24",
+            "not configured"
+          ]
         ]
       }
     ],
@@ -4126,21 +4376,53 @@
       "width": 640,
       "height": 300,
       "nodes": [
-        { "id": "ADMIN", "label": "Admin PC\n10.10.50.25", "kind": "client", "x": 100, "y": 150 },
-        { "id": "USER", "label": "User PC\n10.10.60.25", "kind": "client", "x": 100, "y": 245 },
-        { "id": "R1", "label": "R1", "kind": "router", "x": 500, "y": 190 }
+        {
+          "id": "ADMIN",
+          "label": "Admin PC\n10.10.50.25",
+          "kind": "client",
+          "x": 100,
+          "y": 150
+        },
+        {
+          "id": "USER",
+          "label": "User PC\n10.10.60.25",
+          "kind": "client",
+          "x": 100,
+          "y": 245
+        },
+        {
+          "id": "R1",
+          "label": "R1",
+          "kind": "router",
+          "x": 500,
+          "y": 190
+        }
       ],
       "links": [
-        { "from": "ADMIN", "to": "R1", "label": "SSH" },
-        { "from": "USER", "to": "R1", "label": "blocked" }
+        {
+          "from": "ADMIN",
+          "to": "R1",
+          "label": "SSH"
+        },
+        {
+          "from": "USER",
+          "to": "R1",
+          "label": "blocked"
+        }
       ]
     },
     "tables": [
       {
         "title": "VTY restriction",
-        "columns": ["ACL", "Permit source"],
+        "columns": [
+          "ACL",
+          "Permit source"
+        ],
         "rows": [
-          ["12", "10.10.50.0/24"]
+          [
+            "12",
+            "10.10.50.0/24"
+          ]
         ]
       }
     ],
@@ -4227,23 +4509,61 @@
       "width": 640,
       "height": 300,
       "nodes": [
-        { "id": "R1", "label": "R1", "kind": "router", "x": 100, "y": 150 },
-        { "id": "COLLECTOR", "label": "Telemetry Collector", "kind": "server", "x": 330, "y": 150 },
-        { "id": "DASH", "label": "Dashboard", "kind": "server", "x": 560, "y": 150 }
+        {
+          "id": "R1",
+          "label": "R1",
+          "kind": "router",
+          "x": 100,
+          "y": 150
+        },
+        {
+          "id": "COLLECTOR",
+          "label": "Telemetry Collector",
+          "kind": "server",
+          "x": 330,
+          "y": 150
+        },
+        {
+          "id": "DASH",
+          "label": "Dashboard",
+          "kind": "server",
+          "x": 560,
+          "y": 150
+        }
       ],
       "links": [
-        { "from": "R1", "to": "COLLECTOR", "label": "streamed state" },
-        { "from": "COLLECTOR", "to": "DASH", "label": "metrics" }
+        {
+          "from": "R1",
+          "to": "COLLECTOR",
+          "label": "streamed state"
+        },
+        {
+          "from": "COLLECTOR",
+          "to": "DASH",
+          "label": "metrics"
+        }
       ]
     },
     "tables": [
       {
         "title": "Subscription",
-        "columns": ["Value", "Setting"],
+        "columns": [
+          "Value",
+          "Setting"
+        ],
         "rows": [
-          ["Encoding", "JSON"],
-          ["Path", "/interfaces/interface/statistics"],
-          ["Mode", "periodic"]
+          [
+            "Encoding",
+            "JSON"
+          ],
+          [
+            "Path",
+            "/interfaces/interface/statistics"
+          ],
+          [
+            "Mode",
+            "periodic"
+          ]
         ]
       }
     ],
@@ -4280,5 +4600,4060 @@
     ],
     "correctAnswer": 1,
     "explanation": "GET retrieves data from a REST-style API without changing server state. POST is used for create or submit operations, depending on the API."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-001",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 001: MTU mismatch discovery: A campus uplink carries larger frames for storage replication, but one switch still uses the default MTU. What result is most likely?",
+    "choices": [
+      "STP disables all access ports",
+      "The native VLAN changes automatically",
+      "OSPF elects a new DR because MTU is larger",
+      "Oversized frames are dropped or fragmented depending on path behavior"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network fundamentals single 001: MTU mismatch discovery reasoning: MTU consistency matters because a device that cannot forward the larger frame can drop traffic even when addressing is correct."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-002",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 002: ARP cache investigation: A host can ping its default gateway after ARP resolves the gateway MAC address. What did ARP provide?",
+    "choices": [
+      "A public IP address for NAT",
+      "A TCP port number for the application",
+      "A DNS name for the gateway",
+      "A Layer 2 destination MAC for the local next hop"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network fundamentals single 002: ARP cache investigation reasoning: ARP maps a local IPv4 next-hop address to a MAC address so the host can build an Ethernet frame."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-003",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 003: Copper uplink planning: A switch uplink must support 10 Gbps over existing Cat6A cabling within a wiring closet. Which medium is appropriate?",
+    "choices": [
+      "1000BASE-SX over multimode fiber only",
+      "802.11ax wireless bridge",
+      "Serial WAN crossover cable",
+      "10GBASE-T over supported twisted-pair cabling"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network fundamentals single 003: Copper uplink planning reasoning: 10GBASE-T supports 10 Gbps Ethernet over suitable twisted-pair cable such as Cat6A within distance limits."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-004",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 004: Layer boundary triage: A server has the correct IP settings, but frames never leave the NIC and the switch sees no link. Which layer should be checked first?",
+    "choices": [
+      "Physical layer cabling, transceiver, or NIC state",
+      "BGP path attributes",
+      "DNS recursion policy",
+      "Application session cookies"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network fundamentals single 004: Layer boundary triage reasoning: No link points first to Layer 1: cable, optics, NIC, or switchport physical state."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-005",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 005: MTU mismatch discovery: A campus uplink carries larger frames for storage replication, but one switch still uses the default MTU. What result is most likely?",
+    "choices": [
+      "STP disables all access ports",
+      "The native VLAN changes automatically",
+      "OSPF elects a new DR because MTU is larger",
+      "Oversized frames are dropped or fragmented depending on path behavior"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network fundamentals single 005: MTU mismatch discovery reasoning: MTU consistency matters because a device that cannot forward the larger frame can drop traffic even when addressing is correct."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-006",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 006: ARP cache investigation: A host can ping its default gateway after ARP resolves the gateway MAC address. What did ARP provide?",
+    "choices": [
+      "A Layer 2 destination MAC for the local next hop",
+      "A public IP address for NAT",
+      "A TCP port number for the application",
+      "A DNS name for the gateway"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network fundamentals single 006: ARP cache investigation reasoning: ARP maps a local IPv4 next-hop address to a MAC address so the host can build an Ethernet frame."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-007",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 007: Copper uplink planning: A switch uplink must support 10 Gbps over existing Cat6A cabling within a wiring closet. Which medium is appropriate?",
+    "choices": [
+      "1000BASE-SX over multimode fiber only",
+      "802.11ax wireless bridge",
+      "Serial WAN crossover cable",
+      "10GBASE-T over supported twisted-pair cabling"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network fundamentals single 007: Copper uplink planning reasoning: 10GBASE-T supports 10 Gbps Ethernet over suitable twisted-pair cable such as Cat6A within distance limits."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-008",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 008: Layer boundary triage: A server has the correct IP settings, but frames never leave the NIC and the switch sees no link. Which layer should be checked first?",
+    "choices": [
+      "Physical layer cabling, transceiver, or NIC state",
+      "BGP path attributes",
+      "DNS recursion policy",
+      "Application session cookies"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network fundamentals single 008: Layer boundary triage reasoning: No link points first to Layer 1: cable, optics, NIC, or switchport physical state."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-009",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 009: MTU mismatch discovery: A campus uplink carries larger frames for storage replication, but one switch still uses the default MTU. What result is most likely?",
+    "choices": [
+      "STP disables all access ports",
+      "Oversized frames are dropped or fragmented depending on path behavior",
+      "The native VLAN changes automatically",
+      "OSPF elects a new DR because MTU is larger"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network fundamentals single 009: MTU mismatch discovery reasoning: MTU consistency matters because a device that cannot forward the larger frame can drop traffic even when addressing is correct."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-single-010",
+    "domain": "Network Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario network fundamentals single 010: ARP cache investigation: A host can ping its default gateway after ARP resolves the gateway MAC address. What did ARP provide?",
+    "choices": [
+      "A public IP address for NAT",
+      "A TCP port number for the application",
+      "A Layer 2 destination MAC for the local next hop",
+      "A DNS name for the gateway"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network fundamentals single 010: ARP cache investigation reasoning: ARP maps a local IPv4 next-hop address to a MAC address so the host can build an Ethernet frame."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-mr-001",
+    "domain": "Network Fundamentals",
+    "type": "multiple-response",
+    "question": "Expansion scenario network fundamentals mr 001: Network Fundamentals applied review 1: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "Longest prefix match is evaluated before administrative distance among different prefix lengths",
+      "Hostnames alone determine network fundamentals forwarding behavior",
+      "ARP resolves a local next-hop IPv4 address to a MAC address",
+      "Changing the console password repairs all network fundamentals data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review network fundamentals mr 001: Network Fundamentals multi-select reasoning: Longest prefix match is evaluated before administrative distance among different prefix lengths Also, ARP resolves a local next-hop IPv4 address to a MAC address The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-mr-002",
+    "domain": "Network Fundamentals",
+    "type": "multiple-response",
+    "question": "Expansion scenario network fundamentals mr 002: Network Fundamentals applied review 2: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "Longest prefix match is evaluated before administrative distance among different prefix lengths",
+      "Hostnames alone determine network fundamentals forwarding behavior",
+      "ARP resolves a local next-hop IPv4 address to a MAC address",
+      "Changing the console password repairs all network fundamentals data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review network fundamentals mr 002: Network Fundamentals multi-select reasoning: Longest prefix match is evaluated before administrative distance among different prefix lengths Also, ARP resolves a local next-hop IPv4 address to a MAC address The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-cli-001",
+    "domain": "Network Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show interfaces status output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show interfaces status",
+        "output": "Port      Name     Status       Vlan  Duplex Speed Type\nGi0/1     PC1      connected    10    a-full a-1000 10/100/1000BaseTX\nGi0/2     Uplink   notconnect   trunk auto   auto   SFP"
+      }
+    ],
+    "question": "Expansion scenario network fundamentals cli 001: Which interface lacks physical link?",
+    "choices": [
+      "Gi0/1",
+      "VLAN 10",
+      "The switch SVI",
+      "Gi0/2"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network fundamentals cli 001: show interfaces status interpretation: Status notconnect on Gi0/2 indicates the physical link is absent or not negotiated."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-cli-002",
+    "domain": "Network Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show arp output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show arp",
+        "output": "Protocol  Address          Age (min)  Hardware Addr   Type   Interface\nInternet  192.168.10.1           2   aabb.cc00.0101  ARPA   Gi0/0\nInternet  192.168.10.25          0   aabb.cc00.1025  ARPA   Gi0/0"
+      }
+    ],
+    "question": "Expansion scenario network fundamentals cli 002: What information did the router learn for 192.168.10.25?",
+    "choices": [
+      "The host MAC address aabb.cc00.1025",
+      "The DNS server address",
+      "The OSPF router ID",
+      "The TCP source port"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network fundamentals cli 002: show arp interpretation: The ARP table maps IPv4 addresses to MAC addresses on the local segment."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-cli-003",
+    "domain": "Network Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show ip interface brief output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show ip interface brief",
+        "output": "Interface              IP-Address      OK? Method Status                Protocol\nGi0/0                  10.1.1.1        YES manual up                    up\nGi0/1                  unassigned      YES unset  up                    down"
+      }
+    ],
+    "question": "Expansion scenario network fundamentals cli 003: What does up/down usually suggest?",
+    "choices": [
+      "The interface is administratively shut down",
+      "Layer 1 is up but Layer 2 protocol is not operational",
+      "The IP address is duplicated",
+      "The router is missing DNS"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network fundamentals cli 003: show ip interface brief interpretation: Interface status up with protocol down means carrier exists but data-link protocol is not up."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-cli-004",
+    "domain": "Network Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show version output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show version",
+        "output": "Cisco IOS XE Software, Version 17.09\nSystem image file is flash:packages.conf\nConfiguration register is 0x2102"
+      }
+    ],
+    "question": "Expansion scenario network fundamentals cli 004: What does configuration register 0x2102 indicate at a basic CCNA level?",
+    "choices": [
+      "The device will ignore NVRAM startup configuration",
+      "The device is in ROMMON permanently",
+      "The device should load the startup configuration normally",
+      "The device has disabled all interfaces"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network fundamentals cli 004: show version interpretation: A normal 0x2102 register loads IOS and uses the startup configuration."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-topology-001",
+    "domain": "Network Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Fundamentals forwarding path topology and table.",
+    "topology": {
+      "label": "Network Fundamentals forwarding path 1",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network fundamentals topology 001: Based on the topology, where should the network fundamentals investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP",
+      "The failure should be isolated at the shown forwarding boundary"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network fundamentals topology 001: Network Fundamentals forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-topology-002",
+    "domain": "Network Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Fundamentals forwarding path topology and table.",
+    "topology": {
+      "label": "Network Fundamentals forwarding path 2",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network fundamentals topology 002: Based on the topology, where should the network fundamentals investigation focus first?",
+    "choices": [
+      "The failure should be isolated at the shown forwarding boundary",
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network fundamentals topology 002: Network Fundamentals forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-topology-003",
+    "domain": "Network Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Fundamentals forwarding path topology and table.",
+    "topology": {
+      "label": "Network Fundamentals forwarding path 3",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network fundamentals topology 003: Based on the topology, where should the network fundamentals investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network fundamentals topology 003: Network Fundamentals forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-topology-004",
+    "domain": "Network Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Fundamentals forwarding path topology and table.",
+    "topology": {
+      "label": "Network Fundamentals forwarding path 4",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network fundamentals topology 004: Based on the topology, where should the network fundamentals investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network fundamentals topology 004: Network Fundamentals forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-001",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "192.168.40.0/26",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "192.168.40.0",
+      "broadcast": "192.168.40.63",
+      "firstUsable": "192.168.40.1",
+      "lastUsable": "192.168.40.62",
+      "hostCount": 62
+    },
+    "question": "Expansion scenario network fundamentals subnet 001: Calculate the requested subnet values for 192.168.40.0/26.",
+    "explanation": "Expansion review network fundamentals subnet 001: Subnet drill 192.168.40.0/26: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-002",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "192.168.40.64/26",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "192.168.40.64",
+      "broadcast": "192.168.40.127",
+      "firstUsable": "192.168.40.65",
+      "lastUsable": "192.168.40.126",
+      "hostCount": 62
+    },
+    "question": "Expansion scenario network fundamentals subnet 002: Calculate the requested subnet values for 192.168.40.64/26.",
+    "explanation": "Expansion review network fundamentals subnet 002: Subnet drill 192.168.40.64/26: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-003",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "10.10.5.128/27",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "10.10.5.128",
+      "broadcast": "10.10.5.159",
+      "firstUsable": "10.10.5.129",
+      "lastUsable": "10.10.5.158",
+      "hostCount": 30
+    },
+    "question": "Expansion scenario network fundamentals subnet 003: Calculate the requested subnet values for 10.10.5.128/27.",
+    "explanation": "Expansion review network fundamentals subnet 003: Subnet drill 10.10.5.128/27: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-004",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "10.10.5.160/27",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "10.10.5.160",
+      "broadcast": "10.10.5.191",
+      "firstUsable": "10.10.5.161",
+      "lastUsable": "10.10.5.190",
+      "hostCount": 30
+    },
+    "question": "Expansion scenario network fundamentals subnet 004: Calculate the requested subnet values for 10.10.5.160/27.",
+    "explanation": "Expansion review network fundamentals subnet 004: Subnet drill 10.10.5.160/27: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-005",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "172.16.8.0/28",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "172.16.8.0",
+      "broadcast": "172.16.8.15",
+      "firstUsable": "172.16.8.1",
+      "lastUsable": "172.16.8.14",
+      "hostCount": 14
+    },
+    "question": "Expansion scenario network fundamentals subnet 005: Calculate the requested subnet values for 172.16.8.0/28.",
+    "explanation": "Expansion review network fundamentals subnet 005: Subnet drill 172.16.8.0/28: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-006",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "172.16.8.16/28",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "172.16.8.16",
+      "broadcast": "172.16.8.31",
+      "firstUsable": "172.16.8.17",
+      "lastUsable": "172.16.8.30",
+      "hostCount": 14
+    },
+    "question": "Expansion scenario network fundamentals subnet 006: Calculate the requested subnet values for 172.16.8.16/28.",
+    "explanation": "Expansion review network fundamentals subnet 006: Subnet drill 172.16.8.16/28: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-007",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "192.0.2.32/29",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "192.0.2.32",
+      "broadcast": "192.0.2.39",
+      "firstUsable": "192.0.2.33",
+      "lastUsable": "192.0.2.38",
+      "hostCount": 6
+    },
+    "question": "Expansion scenario network fundamentals subnet 007: Calculate the requested subnet values for 192.0.2.32/29.",
+    "explanation": "Expansion review network fundamentals subnet 007: Subnet drill 192.0.2.32/29: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-fundamentals-subnet-008",
+    "domain": "Network Fundamentals",
+    "type": "subnetting-drill",
+    "given": "192.0.2.40/29",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "192.0.2.40",
+      "broadcast": "192.0.2.47",
+      "firstUsable": "192.0.2.41",
+      "lastUsable": "192.0.2.46",
+      "hostCount": 6
+    },
+    "question": "Expansion scenario network fundamentals subnet 008: Calculate the requested subnet values for 192.0.2.40/29.",
+    "explanation": "Expansion review network fundamentals subnet 008: Subnet drill 192.0.2.40/29: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-network-access-single-001",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 001: Native VLAN review: A trunk has native VLAN 99 on one switch and native VLAN 1 on the neighbor. What should be corrected?",
+    "choices": [
+      "Convert both ports to routed ports",
+      "Disable all allowed VLANs",
+      "Change the access VLAN on host ports only",
+      "Configure the same native VLAN on both trunk endpoints"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network access single 001: Native VLAN review reasoning: Native VLAN mismatch can cause untagged traffic issues and security warnings."
+  },
+  {
+    "id": "ccna-exp-network-access-single-002",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 002: STP port role: A switch receives superior BPDUs on a redundant uplink and blocks that port to prevent a loop. Which STP role/state behavior is shown?",
+    "choices": [
+      "Alternate port blocking to prevent a Layer 2 loop",
+      "Designated port forwarding toward hosts",
+      "Root port forwarding on root bridge",
+      "Access port negotiating EtherChannel"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network access single 002: STP port role reasoning: An alternate port provides a backup path and blocks to prevent loops."
+  },
+  {
+    "id": "ccna-exp-network-access-single-003",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 003: EtherChannel mode: Two switches should form an EtherChannel using LACP. Which mode pair can negotiate the bundle?",
+    "choices": [
+      "auto and desirable",
+      "active and passive",
+      "on and passive",
+      "access and trunk"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network access single 003: EtherChannel mode reasoning: LACP uses active/passive; PAgP uses desirable/auto; on does not negotiate."
+  },
+  {
+    "id": "ccna-exp-network-access-single-004",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 004: Native VLAN review: A trunk has native VLAN 99 on one switch and native VLAN 1 on the neighbor. What should be corrected?",
+    "choices": [
+      "Convert both ports to routed ports",
+      "Disable all allowed VLANs",
+      "Configure the same native VLAN on both trunk endpoints",
+      "Change the access VLAN on host ports only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network access single 004: Native VLAN review reasoning: Native VLAN mismatch can cause untagged traffic issues and security warnings."
+  },
+  {
+    "id": "ccna-exp-network-access-single-005",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 005: STP port role: A switch receives superior BPDUs on a redundant uplink and blocks that port to prevent a loop. Which STP role/state behavior is shown?",
+    "choices": [
+      "Designated port forwarding toward hosts",
+      "Root port forwarding on root bridge",
+      "Access port negotiating EtherChannel",
+      "Alternate port blocking to prevent a Layer 2 loop"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network access single 005: STP port role reasoning: An alternate port provides a backup path and blocks to prevent loops."
+  },
+  {
+    "id": "ccna-exp-network-access-single-006",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 006: EtherChannel mode: Two switches should form an EtherChannel using LACP. Which mode pair can negotiate the bundle?",
+    "choices": [
+      "active and passive",
+      "auto and desirable",
+      "on and passive",
+      "access and trunk"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network access single 006: EtherChannel mode reasoning: LACP uses active/passive; PAgP uses desirable/auto; on does not negotiate."
+  },
+  {
+    "id": "ccna-exp-network-access-single-007",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 007: Native VLAN review: A trunk has native VLAN 99 on one switch and native VLAN 1 on the neighbor. What should be corrected?",
+    "choices": [
+      "Convert both ports to routed ports",
+      "Configure the same native VLAN on both trunk endpoints",
+      "Disable all allowed VLANs",
+      "Change the access VLAN on host ports only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network access single 007: Native VLAN review reasoning: Native VLAN mismatch can cause untagged traffic issues and security warnings."
+  },
+  {
+    "id": "ccna-exp-network-access-single-008",
+    "domain": "Network Access",
+    "type": "single-choice",
+    "question": "Expansion scenario network access single 008: STP port role: A switch receives superior BPDUs on a redundant uplink and blocks that port to prevent a loop. Which STP role/state behavior is shown?",
+    "choices": [
+      "Designated port forwarding toward hosts",
+      "Root port forwarding on root bridge",
+      "Alternate port blocking to prevent a Layer 2 loop",
+      "Access port negotiating EtherChannel"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network access single 008: STP port role reasoning: An alternate port provides a backup path and blocks to prevent loops."
+  },
+  {
+    "id": "ccna-exp-network-access-mr-001",
+    "domain": "Network Access",
+    "type": "multiple-response",
+    "question": "Expansion scenario network access mr 001: Network Access applied review 1: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "A trunk can carry multiple VLANs between switches",
+      "Hostnames alone determine network access forwarding behavior",
+      "LACP can negotiate an EtherChannel when at least one side is active",
+      "Changing the console password repairs all network access data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review network access mr 001: Network Access multi-select reasoning: A trunk can carry multiple VLANs between switches Also, LACP can negotiate an EtherChannel when at least one side is active The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-network-access-mr-002",
+    "domain": "Network Access",
+    "type": "multiple-response",
+    "question": "Expansion scenario network access mr 002: Network Access applied review 2: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "A trunk can carry multiple VLANs between switches",
+      "Hostnames alone determine network access forwarding behavior",
+      "LACP can negotiate an EtherChannel when at least one side is active",
+      "Changing the console password repairs all network access data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review network access mr 002: Network Access multi-select reasoning: A trunk can carry multiple VLANs between switches Also, LACP can negotiate an EtherChannel when at least one side is active The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-network-access-cli-001",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the show interfaces trunk output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show interfaces trunk",
+        "output": "Port        Mode         Encapsulation  Status        Native vlan\nGi0/1       on           802.1q         trunking      99\n\nVlans allowed on trunk\nGi0/1       10,20"
+      }
+    ],
+    "question": "Expansion scenario network access cli 001: What should be checked on the neighbor first?",
+    "choices": [
+      "OSPF area type",
+      "DHCP lease duration",
+      "NTP authentication key",
+      "Native VLAN and allowed VLAN consistency"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network access cli 001: show interfaces trunk interpretation: Trunks must agree on native VLAN and carry required VLANs."
+  },
+  {
+    "id": "ccna-exp-network-access-cli-002",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the show spanning-tree vlan 20 output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show spanning-tree vlan 20",
+        "output": "Interface           Role Sts Cost Prio.Nbr Type\nGi0/1               Root FWD 4    128.1    P2p\nGi0/2               Altn BLK 4    128.2    P2p"
+      }
+    ],
+    "question": "Expansion scenario network access cli 002: Why is Gi0/2 blocking?",
+    "choices": [
+      "STP selected it as an alternate redundant path",
+      "The interface is administratively shut down",
+      "The VLAN is not created",
+      "The port is a routed interface"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network access cli 002: show spanning-tree vlan 20 interpretation: Alternate blocking is normal STP loop prevention."
+  },
+  {
+    "id": "ccna-exp-network-access-cli-003",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the show etherchannel summary output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show etherchannel summary",
+        "output": "Group  Port-channel  Protocol    Ports\n1      Po1(SD)       LACP        Gi0/1(I) Gi0/2(I)"
+      }
+    ],
+    "question": "Expansion scenario network access cli 003: What does this output indicate?",
+    "choices": [
+      "The bundle is forwarding normally",
+      "The port-channel is down and member links are standalone/individual",
+      "Both links are routed OSPF links",
+      "The ports are blocked by DHCP snooping"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network access cli 003: show etherchannel summary interpretation: SD and individual member flags show the bundle did not form."
+  },
+  {
+    "id": "ccna-exp-network-access-cli-004",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the show vlan brief output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show vlan brief",
+        "output": "VLAN Name                             Status    Ports\n10   USERS                            active    Gi0/3, Gi0/4\n20   VOICE                            active\n30   GUEST                            active    Gi0/5"
+      }
+    ],
+    "question": "Expansion scenario network access cli 004: Which issue is visible for VLAN 20?",
+    "choices": [
+      "VLAN 20 is suspended",
+      "VLAN 20 is the native VLAN",
+      "No access ports are assigned to VLAN 20 in this output",
+      "VLAN 20 is routed by OSPF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network access cli 004: show vlan brief interpretation: The VLAN exists but has no listed access ports."
+  },
+  {
+    "id": "ccna-exp-network-access-cli-005",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the show interfaces trunk output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show interfaces trunk",
+        "output": "Port        Mode         Encapsulation  Status        Native vlan\nGi0/1       on           802.1q         trunking      99\n\nVlans allowed on trunk\nGi0/1       10,20"
+      }
+    ],
+    "question": "Expansion scenario network access cli 005: What should be checked on the neighbor first?",
+    "choices": [
+      "OSPF area type",
+      "DHCP lease duration",
+      "NTP authentication key",
+      "Native VLAN and allowed VLAN consistency"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network access cli 005: show interfaces trunk interpretation: Trunks must agree on native VLAN and carry required VLANs."
+  },
+  {
+    "id": "ccna-exp-network-access-cli-006",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the show spanning-tree vlan 20 output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show spanning-tree vlan 20",
+        "output": "Interface           Role Sts Cost Prio.Nbr Type\nGi0/1               Root FWD 4    128.1    P2p\nGi0/2               Altn BLK 4    128.2    P2p"
+      }
+    ],
+    "question": "Expansion scenario network access cli 006: Why is Gi0/2 blocking?",
+    "choices": [
+      "STP selected it as an alternate redundant path",
+      "The interface is administratively shut down",
+      "The VLAN is not created",
+      "The port is a routed interface"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network access cli 006: show spanning-tree vlan 20 interpretation: Alternate blocking is normal STP loop prevention."
+  },
+  {
+    "id": "ccna-exp-network-access-cli-007",
+    "domain": "Network Access",
+    "type": "cli-output",
+    "prompt": "Review the show etherchannel summary output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show etherchannel summary",
+        "output": "Group  Port-channel  Protocol    Ports\n1      Po1(SD)       LACP        Gi0/1(I) Gi0/2(I)"
+      }
+    ],
+    "question": "Expansion scenario network access cli 007: What does this output indicate?",
+    "choices": [
+      "The bundle is forwarding normally",
+      "The port-channel is down and member links are standalone/individual",
+      "Both links are routed OSPF links",
+      "The ports are blocked by DHCP snooping"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network access cli 007: show etherchannel summary interpretation: SD and individual member flags show the bundle did not form."
+  },
+  {
+    "id": "ccna-exp-network-access-topology-001",
+    "domain": "Network Access",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Access forwarding path topology and table.",
+    "topology": {
+      "label": "Network Access forwarding path 1",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network access topology 001: Based on the topology, where should the network access investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network access topology 001: Network Access forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-access-topology-002",
+    "domain": "Network Access",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Access forwarding path topology and table.",
+    "topology": {
+      "label": "Network Access forwarding path 2",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network access topology 002: Based on the topology, where should the network access investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP",
+      "The failure should be isolated at the shown forwarding boundary"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network access topology 002: Network Access forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-access-topology-003",
+    "domain": "Network Access",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Access forwarding path topology and table.",
+    "topology": {
+      "label": "Network Access forwarding path 3",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network access topology 003: Based on the topology, where should the network access investigation focus first?",
+    "choices": [
+      "The failure should be isolated at the shown forwarding boundary",
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network access topology 003: Network Access forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-access-topology-004",
+    "domain": "Network Access",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Access forwarding path topology and table.",
+    "topology": {
+      "label": "Network Access forwarding path 4",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network access topology 004: Based on the topology, where should the network access investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network access topology 004: Network Access forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-access-topology-005",
+    "domain": "Network Access",
+    "type": "topology-scenario",
+    "prompt": "Review the Network Access forwarding path topology and table.",
+    "topology": {
+      "label": "Network Access forwarding path 5",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario network access topology 005: Based on the topology, where should the network access investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network access topology 005: Network Access forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-network-access-config-001",
+    "domain": "Network Access",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario network access config 001: Which correction best repairs this network access scenario?",
+    "choices": [
+      "Change the console password",
+      "Add switchport mode access",
+      "Disable CEF globally",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network access config 001: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-network-access-config-002",
+    "domain": "Network Access",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario network access config 002: Which correction best repairs this network access scenario?",
+    "choices": [
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Change the console password",
+      "Add switchport mode access",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network access config 002: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-network-access-config-003",
+    "domain": "Network Access",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario network access config 003: Which correction best repairs this network access scenario?",
+    "choices": [
+      "Change the console password",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Add switchport mode access",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review network access config 003: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-network-access-config-004",
+    "domain": "Network Access",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario network access config 004: Which correction best repairs this network access scenario?",
+    "choices": [
+      "Change the console password",
+      "Add switchport mode access",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review network access config 004: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-network-access-config-005",
+    "domain": "Network Access",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario network access config 005: Which correction best repairs this network access scenario?",
+    "choices": [
+      "Change the console password",
+      "Add switchport mode access",
+      "Disable CEF globally",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review network access config 005: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-network-access-config-006",
+    "domain": "Network Access",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario network access config 006: Which correction best repairs this network access scenario?",
+    "choices": [
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Change the console password",
+      "Add switchport mode access",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review network access config 006: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-001",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 001: Route selection: A router has 10.20.0.0/16 via OSPF and 10.20.30.0/24 via static route. A packet is destined for 10.20.30.50. Which route wins?",
+    "choices": [
+      "10.20.0.0/16 because OSPF is dynamic",
+      "10.20.30.0/24 because longest prefix match is most specific",
+      "The default route because static routes are ignored",
+      "Both routes load balance automatically"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity single 001: Route selection reasoning: Routers choose the longest matching prefix before considering administrative distance among same-prefix candidates."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-002",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 002: OSPF neighbor basics: Two routers share a subnet but never form OSPF adjacency. Area IDs differ. What must match?",
+    "choices": [
+      "The hostname string",
+      "The console password",
+      "The OSPF area on the shared link",
+      "The DNS suffix"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity single 002: OSPF neighbor basics reasoning: OSPF neighbors on a link must agree on area and key parameters."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-003",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 003: Floating static route: A backup static route should be used only if OSPF disappears. What should be configured?",
+    "choices": [
+      "A static route with distance 1",
+      "A default gateway on every router interface",
+      "A lower subnet mask than OSPF",
+      "A static route with administrative distance higher than OSPF"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip connectivity single 003: Floating static route reasoning: A floating static route uses a higher AD than the primary route source."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-004",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 004: Route selection: A router has 10.20.0.0/16 via OSPF and 10.20.30.0/24 via static route. A packet is destined for 10.20.30.50. Which route wins?",
+    "choices": [
+      "10.20.30.0/24 because longest prefix match is most specific",
+      "10.20.0.0/16 because OSPF is dynamic",
+      "The default route because static routes are ignored",
+      "Both routes load balance automatically"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip connectivity single 004: Route selection reasoning: Routers choose the longest matching prefix before considering administrative distance among same-prefix candidates."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-005",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 005: OSPF neighbor basics: Two routers share a subnet but never form OSPF adjacency. Area IDs differ. What must match?",
+    "choices": [
+      "The hostname string",
+      "The OSPF area on the shared link",
+      "The console password",
+      "The DNS suffix"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity single 005: OSPF neighbor basics reasoning: OSPF neighbors on a link must agree on area and key parameters."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-006",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 006: Floating static route: A backup static route should be used only if OSPF disappears. What should be configured?",
+    "choices": [
+      "A static route with distance 1",
+      "A default gateway on every router interface",
+      "A static route with administrative distance higher than OSPF",
+      "A lower subnet mask than OSPF"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity single 006: Floating static route reasoning: A floating static route uses a higher AD than the primary route source."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-007",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 007: Route selection: A router has 10.20.0.0/16 via OSPF and 10.20.30.0/24 via static route. A packet is destined for 10.20.30.50. Which route wins?",
+    "choices": [
+      "10.20.0.0/16 because OSPF is dynamic",
+      "The default route because static routes are ignored",
+      "Both routes load balance automatically",
+      "10.20.30.0/24 because longest prefix match is most specific"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip connectivity single 007: Route selection reasoning: Routers choose the longest matching prefix before considering administrative distance among same-prefix candidates."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-008",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 008: OSPF neighbor basics: Two routers share a subnet but never form OSPF adjacency. Area IDs differ. What must match?",
+    "choices": [
+      "The OSPF area on the shared link",
+      "The hostname string",
+      "The console password",
+      "The DNS suffix"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip connectivity single 008: OSPF neighbor basics reasoning: OSPF neighbors on a link must agree on area and key parameters."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-009",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 009: Floating static route: A backup static route should be used only if OSPF disappears. What should be configured?",
+    "choices": [
+      "A static route with distance 1",
+      "A static route with administrative distance higher than OSPF",
+      "A default gateway on every router interface",
+      "A lower subnet mask than OSPF"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity single 009: Floating static route reasoning: A floating static route uses a higher AD than the primary route source."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-010",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 010: Route selection: A router has 10.20.0.0/16 via OSPF and 10.20.30.0/24 via static route. A packet is destined for 10.20.30.50. Which route wins?",
+    "choices": [
+      "10.20.0.0/16 because OSPF is dynamic",
+      "The default route because static routes are ignored",
+      "10.20.30.0/24 because longest prefix match is most specific",
+      "Both routes load balance automatically"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity single 010: Route selection reasoning: Routers choose the longest matching prefix before considering administrative distance among same-prefix candidates."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-single-011",
+    "domain": "IP Connectivity",
+    "type": "single-choice",
+    "question": "Expansion scenario ip connectivity single 011: OSPF neighbor basics: Two routers share a subnet but never form OSPF adjacency. Area IDs differ. What must match?",
+    "choices": [
+      "The hostname string",
+      "The console password",
+      "The DNS suffix",
+      "The OSPF area on the shared link"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip connectivity single 011: OSPF neighbor basics reasoning: OSPF neighbors on a link must agree on area and key parameters."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-mr-001",
+    "domain": "IP Connectivity",
+    "type": "multiple-response",
+    "question": "Expansion scenario ip connectivity mr 001: IP Connectivity applied review 1: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "OSPF neighbors must agree on area parameters on a shared segment",
+      "Hostnames alone determine ip connectivity forwarding behavior",
+      "A floating static route uses a higher administrative distance than the primary route",
+      "Changing the console password repairs all ip connectivity data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review ip connectivity mr 001: IP Connectivity multi-select reasoning: OSPF neighbors must agree on area parameters on a shared segment Also, A floating static route uses a higher administrative distance than the primary route The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-mr-002",
+    "domain": "IP Connectivity",
+    "type": "multiple-response",
+    "question": "Expansion scenario ip connectivity mr 002: IP Connectivity applied review 2: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "OSPF neighbors must agree on area parameters on a shared segment",
+      "Hostnames alone determine ip connectivity forwarding behavior",
+      "A floating static route uses a higher administrative distance than the primary route",
+      "Changing the console password repairs all ip connectivity data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review ip connectivity mr 002: IP Connectivity multi-select reasoning: OSPF neighbors must agree on area parameters on a shared segment Also, A floating static route uses a higher administrative distance than the primary route The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-mr-003",
+    "domain": "IP Connectivity",
+    "type": "multiple-response",
+    "question": "Expansion scenario ip connectivity mr 003: IP Connectivity applied review 3: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "OSPF neighbors must agree on area parameters on a shared segment",
+      "Hostnames alone determine ip connectivity forwarding behavior",
+      "A floating static route uses a higher administrative distance than the primary route",
+      "Changing the console password repairs all ip connectivity data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review ip connectivity mr 003: IP Connectivity multi-select reasoning: OSPF neighbors must agree on area parameters on a shared segment Also, A floating static route uses a higher administrative distance than the primary route The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-001",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip route output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show ip route",
+        "output": "O    10.10.0.0/16 [110/20] via 192.0.2.2, Gi0/0\nS    10.10.30.0/24 [1/0] via 192.0.2.6\nS*   0.0.0.0/0 [1/0] via 203.0.113.1"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 001: Which route forwards traffic to 10.10.30.44?",
+    "choices": [
+      "The static 10.10.30.0/24 route via 192.0.2.6",
+      "The OSPF 10.10.0.0/16 route",
+      "The default route",
+      "No route matches"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip connectivity cli 001: show ip route interpretation: The /24 is the longest match for 10.10.30.44."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-002",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip ospf neighbor output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show ip ospf neighbor",
+        "output": "Neighbor ID     Pri   State           Dead Time   Address       Interface\n2.2.2.2           1   EXSTART/DR       00:00:33    10.0.12.2     Gi0/0"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 002: What is a likely area to check when neighbors stick in EXSTART?",
+    "choices": [
+      "DNS recursion",
+      "MTU mismatch or adjacency negotiation parameters",
+      "Native VLAN pruning only",
+      "NTP stratum"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity cli 002: show ip ospf neighbor interpretation: OSPF EXSTART problems commonly involve MTU or negotiation mismatch."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-003",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip protocols output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show ip protocols",
+        "output": "Routing Protocol is \"ospf 1\"\nRouter ID 1.1.1.1\nRouting for Networks:\n  10.1.0.0 0.0.255.255 area 0"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 003: Which interfaces can participate automatically?",
+    "choices": [
+      "Only loopback interfaces",
+      "Only interfaces named Gi0/0",
+      "Interfaces with addresses inside 10.1.0.0/16",
+      "All interfaces regardless of IP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity cli 003: show ip protocols interpretation: The network statement with wildcard includes matching interface addresses."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-004",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip route output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show ip route",
+        "output": "O    10.10.0.0/16 [110/20] via 192.0.2.2, Gi0/0\nS    10.10.30.0/24 [1/0] via 192.0.2.6\nS*   0.0.0.0/0 [1/0] via 203.0.113.1"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 004: Which route forwards traffic to 10.10.30.44?",
+    "choices": [
+      "The OSPF 10.10.0.0/16 route",
+      "The default route",
+      "No route matches",
+      "The static 10.10.30.0/24 route via 192.0.2.6"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip connectivity cli 004: show ip route interpretation: The /24 is the longest match for 10.10.30.44."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-005",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip ospf neighbor output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show ip ospf neighbor",
+        "output": "Neighbor ID     Pri   State           Dead Time   Address       Interface\n2.2.2.2           1   EXSTART/DR       00:00:33    10.0.12.2     Gi0/0"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 005: What is a likely area to check when neighbors stick in EXSTART?",
+    "choices": [
+      "MTU mismatch or adjacency negotiation parameters",
+      "DNS recursion",
+      "Native VLAN pruning only",
+      "NTP stratum"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip connectivity cli 005: show ip ospf neighbor interpretation: OSPF EXSTART problems commonly involve MTU or negotiation mismatch."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-006",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip protocols output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show ip protocols",
+        "output": "Routing Protocol is \"ospf 1\"\nRouter ID 1.1.1.1\nRouting for Networks:\n  10.1.0.0 0.0.255.255 area 0"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 006: Which interfaces can participate automatically?",
+    "choices": [
+      "Only loopback interfaces",
+      "Interfaces with addresses inside 10.1.0.0/16",
+      "Only interfaces named Gi0/0",
+      "All interfaces regardless of IP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity cli 006: show ip protocols interpretation: The network statement with wildcard includes matching interface addresses."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-007",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip route output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show ip route",
+        "output": "O    10.10.0.0/16 [110/20] via 192.0.2.2, Gi0/0\nS    10.10.30.0/24 [1/0] via 192.0.2.6\nS*   0.0.0.0/0 [1/0] via 203.0.113.1"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 007: Which route forwards traffic to 10.10.30.44?",
+    "choices": [
+      "The OSPF 10.10.0.0/16 route",
+      "The default route",
+      "The static 10.10.30.0/24 route via 192.0.2.6",
+      "No route matches"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity cli 007: show ip route interpretation: The /24 is the longest match for 10.10.30.44."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-cli-008",
+    "domain": "IP Connectivity",
+    "type": "cli-output",
+    "prompt": "Review the show ip ospf neighbor output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show ip ospf neighbor",
+        "output": "Neighbor ID     Pri   State           Dead Time   Address       Interface\n2.2.2.2           1   EXSTART/DR       00:00:33    10.0.12.2     Gi0/0"
+      }
+    ],
+    "question": "Expansion scenario ip connectivity cli 008: What is a likely area to check when neighbors stick in EXSTART?",
+    "choices": [
+      "DNS recursion",
+      "Native VLAN pruning only",
+      "NTP stratum",
+      "MTU mismatch or adjacency negotiation parameters"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip connectivity cli 008: show ip ospf neighbor interpretation: OSPF EXSTART problems commonly involve MTU or negotiation mismatch."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-topology-001",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the IP Connectivity forwarding path topology and table.",
+    "topology": {
+      "label": "IP Connectivity forwarding path 1",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip connectivity topology 001: Based on the topology, where should the ip connectivity investigation focus first?",
+    "choices": [
+      "The failure should be isolated at the shown forwarding boundary",
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip connectivity topology 001: IP Connectivity forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-topology-002",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the IP Connectivity forwarding path topology and table.",
+    "topology": {
+      "label": "IP Connectivity forwarding path 2",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip connectivity topology 002: Based on the topology, where should the ip connectivity investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity topology 002: IP Connectivity forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-topology-003",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the IP Connectivity forwarding path topology and table.",
+    "topology": {
+      "label": "IP Connectivity forwarding path 3",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip connectivity topology 003: Based on the topology, where should the ip connectivity investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity topology 003: IP Connectivity forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-topology-004",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the IP Connectivity forwarding path topology and table.",
+    "topology": {
+      "label": "IP Connectivity forwarding path 4",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip connectivity topology 004: Based on the topology, where should the ip connectivity investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP",
+      "The failure should be isolated at the shown forwarding boundary"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip connectivity topology 004: IP Connectivity forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-topology-005",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the IP Connectivity forwarding path topology and table.",
+    "topology": {
+      "label": "IP Connectivity forwarding path 5",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip connectivity topology 005: Based on the topology, where should the ip connectivity investigation focus first?",
+    "choices": [
+      "The failure should be isolated at the shown forwarding boundary",
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip connectivity topology 005: IP Connectivity forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-topology-006",
+    "domain": "IP Connectivity",
+    "type": "topology-scenario",
+    "prompt": "Review the IP Connectivity forwarding path topology and table.",
+    "topology": {
+      "label": "IP Connectivity forwarding path 6",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "switch",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "R2",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "SW1",
+          "label": "access"
+        },
+        {
+          "from": "SW1",
+          "to": "R2",
+          "label": "uplink"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "Forwarding state changed",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip connectivity topology 006: Based on the topology, where should the ip connectivity investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The failure should be isolated at the shown forwarding boundary",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity topology 006: IP Connectivity forwarding path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-config-001",
+    "domain": "IP Connectivity",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip connectivity config 001: Which correction best repairs this ip connectivity scenario?",
+    "choices": [
+      "Change the console password",
+      "Add switchport mode access",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity config 001: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-config-002",
+    "domain": "IP Connectivity",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip connectivity config 002: Which correction best repairs this ip connectivity scenario?",
+    "choices": [
+      "Change the console password",
+      "Add switchport mode access",
+      "Disable CEF globally",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip connectivity config 002: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-config-003",
+    "domain": "IP Connectivity",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip connectivity config 003: Which correction best repairs this ip connectivity scenario?",
+    "choices": [
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Change the console password",
+      "Add switchport mode access",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip connectivity config 003: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-config-004",
+    "domain": "IP Connectivity",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip connectivity config 004: Which correction best repairs this ip connectivity scenario?",
+    "choices": [
+      "Change the console password",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Add switchport mode access",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip connectivity config 004: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-config-005",
+    "domain": "IP Connectivity",
+    "type": "config-repair",
+    "scenario": "A routed interface should participate in OSPF area 0 but is not included by the network statement.",
+    "device": "R2",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "router ospf 1",
+      " network 10.1.0.0 0.0.0.255 area 0",
+      "interface g0/0",
+      " ip address 10.1.20.1 255.255.255.0"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip connectivity config 005: Which correction best repairs this ip connectivity scenario?",
+    "choices": [
+      "Change the console password",
+      "Add switchport mode access",
+      "Use a network statement or interface OSPF command that includes 10.1.20.1 in area 0",
+      "Disable CEF globally"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip connectivity config 005: Config repair reasoning: OSPF advertises/activates interfaces matched by network statements or interface-level OSPF configuration."
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-subnet-001",
+    "domain": "IP Connectivity",
+    "type": "subnetting-drill",
+    "given": "192.168.40.0/26",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "192.168.40.0",
+      "broadcast": "192.168.40.63",
+      "firstUsable": "192.168.40.1",
+      "lastUsable": "192.168.40.62",
+      "hostCount": 62
+    },
+    "question": "Expansion scenario ip connectivity subnet 001: Calculate the requested subnet values for 192.168.40.0/26.",
+    "explanation": "Expansion review ip connectivity subnet 001: Subnet drill 192.168.40.0/26: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-ip-connectivity-subnet-002",
+    "domain": "IP Connectivity",
+    "type": "subnetting-drill",
+    "given": "192.168.40.64/26",
+    "asks": [
+      "network",
+      "broadcast",
+      "firstUsable",
+      "lastUsable",
+      "hostCount"
+    ],
+    "correct": {
+      "network": "192.168.40.64",
+      "broadcast": "192.168.40.127",
+      "firstUsable": "192.168.40.65",
+      "lastUsable": "192.168.40.126",
+      "hostCount": 62
+    },
+    "question": "Expansion scenario ip connectivity subnet 002: Calculate the requested subnet values for 192.168.40.64/26.",
+    "explanation": "Expansion review ip connectivity subnet 002: Subnet drill 192.168.40.64/26: determine the block size from the prefix, identify the containing network, then derive broadcast and usable range.",
+    "timeTarget": "90 sec"
+  },
+  {
+    "id": "ccna-exp-ip-services-single-001",
+    "domain": "IP Services",
+    "type": "single-choice",
+    "question": "Expansion scenario ip services single 001: DHCP relay: Clients on a VLAN cannot reach a centralized DHCP server on another subnet. Which feature is needed on the gateway interface?",
+    "choices": [
+      "PortFast",
+      "BPDU Guard",
+      "Static ARP only",
+      "DHCP relay / ip helper-address"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip services single 001: DHCP relay reasoning: DHCP broadcasts need relay to reach a server on another subnet."
+  },
+  {
+    "id": "ccna-exp-ip-services-single-002",
+    "domain": "IP Services",
+    "type": "single-choice",
+    "question": "Expansion scenario ip services single 002: NAT overload: Many inside hosts share one public IPv4 address for internet access. Which NAT behavior is this?",
+    "choices": [
+      "PAT / NAT overload",
+      "Static one-to-one NAT only",
+      "DHCP snooping",
+      "Route summarization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip services single 002: NAT overload reasoning: PAT uses transport ports to multiplex many inside hosts behind one address."
+  },
+  {
+    "id": "ccna-exp-ip-services-single-003",
+    "domain": "IP Services",
+    "type": "single-choice",
+    "question": "Expansion scenario ip services single 003: DHCP relay: Clients on a VLAN cannot reach a centralized DHCP server on another subnet. Which feature is needed on the gateway interface?",
+    "choices": [
+      "PortFast",
+      "DHCP relay / ip helper-address",
+      "BPDU Guard",
+      "Static ARP only"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip services single 003: DHCP relay reasoning: DHCP broadcasts need relay to reach a server on another subnet."
+  },
+  {
+    "id": "ccna-exp-ip-services-single-004",
+    "domain": "IP Services",
+    "type": "single-choice",
+    "question": "Expansion scenario ip services single 004: NAT overload: Many inside hosts share one public IPv4 address for internet access. Which NAT behavior is this?",
+    "choices": [
+      "Static one-to-one NAT only",
+      "DHCP snooping",
+      "PAT / NAT overload",
+      "Route summarization"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip services single 004: NAT overload reasoning: PAT uses transport ports to multiplex many inside hosts behind one address."
+  },
+  {
+    "id": "ccna-exp-ip-services-single-005",
+    "domain": "IP Services",
+    "type": "single-choice",
+    "question": "Expansion scenario ip services single 005: DHCP relay: Clients on a VLAN cannot reach a centralized DHCP server on another subnet. Which feature is needed on the gateway interface?",
+    "choices": [
+      "PortFast",
+      "BPDU Guard",
+      "Static ARP only",
+      "DHCP relay / ip helper-address"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip services single 005: DHCP relay reasoning: DHCP broadcasts need relay to reach a server on another subnet."
+  },
+  {
+    "id": "ccna-exp-ip-services-mr-001",
+    "domain": "IP Services",
+    "type": "multiple-response",
+    "question": "Expansion scenario ip services mr 001: IP Services applied review 1: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "ip helper-address relays selected broadcasts such as DHCP",
+      "Hostnames alone determine ip services forwarding behavior",
+      "PAT lets many inside hosts share one public address",
+      "Changing the console password repairs all ip services data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review ip services mr 001: IP Services multi-select reasoning: ip helper-address relays selected broadcasts such as DHCP Also, PAT lets many inside hosts share one public address The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-ip-services-cli-001",
+    "domain": "IP Services",
+    "type": "cli-output",
+    "prompt": "Review the show ip nat translations output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show ip nat translations",
+        "output": "Pro Inside global      Inside local       Outside local      Outside global\nicmp 203.0.113.5:7     10.10.10.25:7      8.8.8.8:7          8.8.8.8:7"
+      }
+    ],
+    "question": "Expansion scenario ip services cli 001: What does this translation show?",
+    "choices": [
+      "Inside local 10.10.10.25 is translated to inside global 203.0.113.5",
+      "The outside server is being translated to 10.10.10.25",
+      "NAT is not active",
+      "The default route is missing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip services cli 001: show ip nat translations interpretation: The table maps the private inside-local address to the public inside-global address."
+  },
+  {
+    "id": "ccna-exp-ip-services-cli-002",
+    "domain": "IP Services",
+    "type": "cli-output",
+    "prompt": "Review the show ip interface g0/0 output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show ip interface g0/0",
+        "output": "GigabitEthernet0/0 is up, line protocol is up\n  Internet address is 10.20.20.1/24\n  Helper address is 10.1.1.10"
+      }
+    ],
+    "question": "Expansion scenario ip services cli 002: What service is supported by the helper address?",
+    "choices": [
+      "Encrypting SSH sessions",
+      "Forwarding client broadcasts such as DHCP to 10.1.1.10",
+      "Electing an OSPF DR",
+      "Blocking rogue BPDUs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip services cli 002: show ip interface g0/0 interpretation: An IP helper forwards selected UDP broadcasts, most commonly DHCP."
+  },
+  {
+    "id": "ccna-exp-ip-services-cli-003",
+    "domain": "IP Services",
+    "type": "cli-output",
+    "prompt": "Review the show ip nat translations output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show ip nat translations",
+        "output": "Pro Inside global      Inside local       Outside local      Outside global\nicmp 203.0.113.5:7     10.10.10.25:7      8.8.8.8:7          8.8.8.8:7"
+      }
+    ],
+    "question": "Expansion scenario ip services cli 003: What does this translation show?",
+    "choices": [
+      "The outside server is being translated to 10.10.10.25",
+      "NAT is not active",
+      "Inside local 10.10.10.25 is translated to inside global 203.0.113.5",
+      "The default route is missing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip services cli 003: show ip nat translations interpretation: The table maps the private inside-local address to the public inside-global address."
+  },
+  {
+    "id": "ccna-exp-ip-services-topology-001",
+    "domain": "IP Services",
+    "type": "topology-scenario",
+    "prompt": "Review the Branch DHCP/NAT path topology and table.",
+    "topology": {
+      "label": "Branch DHCP/NAT path 1",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "R1",
+          "label": "R1",
+          "kind": "router",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "ISP",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "R1",
+          "label": "gateway"
+        },
+        {
+          "from": "R1",
+          "to": "R2",
+          "label": "service edge"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "NAT/DHCP counter unchanged",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip services topology 001: Based on the topology, where should the ip services investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP",
+      "The gateway service function, such as DHCP relay or NAT, is the likely failure point"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip services topology 001: Branch DHCP/NAT path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-services-topology-002",
+    "domain": "IP Services",
+    "type": "topology-scenario",
+    "prompt": "Review the Branch DHCP/NAT path topology and table.",
+    "topology": {
+      "label": "Branch DHCP/NAT path 2",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "R1",
+          "label": "R1",
+          "kind": "router",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "ISP",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "R1",
+          "label": "gateway"
+        },
+        {
+          "from": "R1",
+          "to": "R2",
+          "label": "service edge"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "NAT/DHCP counter unchanged",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario ip services topology 002: Based on the topology, where should the ip services investigation focus first?",
+    "choices": [
+      "The gateway service function, such as DHCP relay or NAT, is the likely failure point",
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review ip services topology 002: Branch DHCP/NAT path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-ip-services-config-001",
+    "domain": "IP Services",
+    "type": "config-repair",
+    "scenario": "Inside users cannot reach the internet through PAT even though routing is present.",
+    "device": "R1",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "interface g0/0",
+      " ip address 10.10.10.1 255.255.255.0",
+      " ip nat inside",
+      "interface g0/1",
+      " ip address 203.0.113.2 255.255.255.252",
+      "ip nat inside source list 10 interface g0/1 overload"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip services config 001: Which correction best repairs this ip services scenario?",
+    "choices": [
+      "Remove overload from the NAT statement",
+      "Add ip nat outside under interface g0/1",
+      "Apply bpduguard to g0/1",
+      "Change the native VLAN to 99"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review ip services config 001: Config repair reasoning: PAT needs inside and outside interfaces plus the overload rule. The outside interface marking is missing."
+  },
+  {
+    "id": "ccna-exp-ip-services-config-002",
+    "domain": "IP Services",
+    "type": "config-repair",
+    "scenario": "Inside users cannot reach the internet through PAT even though routing is present.",
+    "device": "R1",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "interface g0/0",
+      " ip address 10.10.10.1 255.255.255.0",
+      " ip nat inside",
+      "interface g0/1",
+      " ip address 203.0.113.2 255.255.255.252",
+      "ip nat inside source list 10 interface g0/1 overload"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip services config 002: Which correction best repairs this ip services scenario?",
+    "choices": [
+      "Remove overload from the NAT statement",
+      "Apply bpduguard to g0/1",
+      "Add ip nat outside under interface g0/1",
+      "Change the native VLAN to 99"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review ip services config 002: Config repair reasoning: PAT needs inside and outside interfaces plus the overload rule. The outside interface marking is missing."
+  },
+  {
+    "id": "ccna-exp-ip-services-config-003",
+    "domain": "IP Services",
+    "type": "config-repair",
+    "scenario": "Inside users cannot reach the internet through PAT even though routing is present.",
+    "device": "R1",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "interface g0/0",
+      " ip address 10.10.10.1 255.255.255.0",
+      " ip nat inside",
+      "interface g0/1",
+      " ip address 203.0.113.2 255.255.255.252",
+      "ip nat inside source list 10 interface g0/1 overload"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario ip services config 003: Which correction best repairs this ip services scenario?",
+    "choices": [
+      "Remove overload from the NAT statement",
+      "Apply bpduguard to g0/1",
+      "Change the native VLAN to 99",
+      "Add ip nat outside under interface g0/1"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review ip services config 003: Config repair reasoning: PAT needs inside and outside interfaces plus the overload rule. The outside interface marking is missing."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-001",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 001: Management access: A router should accept SSH only from the network operations subnet. What control should be applied?",
+    "choices": [
+      "An ACL applied to VTY access-class",
+      "A native VLAN change",
+      "A DHCP relay address",
+      "A trunk allowed list only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review security fundamentals single 001: Management access reasoning: VTY access-class can restrict management login sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-002",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 002: Port security: A kiosk switchport should allow only one learned MAC address and shut down on violation. Which feature fits?",
+    "choices": [
+      "OSPF authentication",
+      "Switchport port-security with maximum 1 and shutdown violation",
+      "NAT overload",
+      "Syslog severity filtering"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review security fundamentals single 002: Port security reasoning: Port security limits MAC addresses on access ports and can shut on violation."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-003",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 003: Management access: A router should accept SSH only from the network operations subnet. What control should be applied?",
+    "choices": [
+      "A native VLAN change",
+      "A DHCP relay address",
+      "An ACL applied to VTY access-class",
+      "A trunk allowed list only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review security fundamentals single 003: Management access reasoning: VTY access-class can restrict management login sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-004",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 004: Port security: A kiosk switchport should allow only one learned MAC address and shut down on violation. Which feature fits?",
+    "choices": [
+      "OSPF authentication",
+      "NAT overload",
+      "Syslog severity filtering",
+      "Switchport port-security with maximum 1 and shutdown violation"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review security fundamentals single 004: Port security reasoning: Port security limits MAC addresses on access ports and can shut on violation."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-005",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 005: Management access: A router should accept SSH only from the network operations subnet. What control should be applied?",
+    "choices": [
+      "An ACL applied to VTY access-class",
+      "A native VLAN change",
+      "A DHCP relay address",
+      "A trunk allowed list only"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review security fundamentals single 005: Management access reasoning: VTY access-class can restrict management login sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-006",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 006: Port security: A kiosk switchport should allow only one learned MAC address and shut down on violation. Which feature fits?",
+    "choices": [
+      "OSPF authentication",
+      "Switchport port-security with maximum 1 and shutdown violation",
+      "NAT overload",
+      "Syslog severity filtering"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review security fundamentals single 006: Port security reasoning: Port security limits MAC addresses on access ports and can shut on violation."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-007",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 007: Management access: A router should accept SSH only from the network operations subnet. What control should be applied?",
+    "choices": [
+      "A native VLAN change",
+      "A DHCP relay address",
+      "An ACL applied to VTY access-class",
+      "A trunk allowed list only"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review security fundamentals single 007: Management access reasoning: VTY access-class can restrict management login sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-single-008",
+    "domain": "Security Fundamentals",
+    "type": "single-choice",
+    "question": "Expansion scenario security fundamentals single 008: Port security: A kiosk switchport should allow only one learned MAC address and shut down on violation. Which feature fits?",
+    "choices": [
+      "OSPF authentication",
+      "NAT overload",
+      "Syslog severity filtering",
+      "Switchport port-security with maximum 1 and shutdown violation"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review security fundamentals single 008: Port security reasoning: Port security limits MAC addresses on access ports and can shut on violation."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-mr-001",
+    "domain": "Security Fundamentals",
+    "type": "multiple-response",
+    "question": "Expansion scenario security fundamentals mr 001: Security Fundamentals applied review 1: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "VTY access-class can restrict management sources",
+      "Hostnames alone determine security fundamentals forwarding behavior",
+      "SSH is preferred over Telnet for encrypted management",
+      "Changing the console password repairs all security fundamentals data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review security fundamentals mr 001: Security Fundamentals multi-select reasoning: VTY access-class can restrict management sources Also, SSH is preferred over Telnet for encrypted management The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-mr-002",
+    "domain": "Security Fundamentals",
+    "type": "multiple-response",
+    "question": "Expansion scenario security fundamentals mr 002: Security Fundamentals applied review 2: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "VTY access-class can restrict management sources",
+      "Hostnames alone determine security fundamentals forwarding behavior",
+      "SSH is preferred over Telnet for encrypted management",
+      "Changing the console password repairs all security fundamentals data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review security fundamentals mr 002: Security Fundamentals multi-select reasoning: VTY access-class can restrict management sources Also, SSH is preferred over Telnet for encrypted management The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-cli-001",
+    "domain": "Security Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show access-lists output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show access-lists",
+        "output": "Standard IP access list 10\n    10 permit 192.0.2.0, wildcard bits 0.0.0.255\n    20 deny any"
+      }
+    ],
+    "question": "Expansion scenario security fundamentals cli 001: What source range is permitted?",
+    "choices": [
+      "192.0.2.0/24",
+      "Only host 192.0.2.0",
+      "All private IPv4 space",
+      "No traffic because deny any appears"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review security fundamentals cli 001: show access-lists interpretation: Wildcard 0.0.0.255 permits the /24 before the final deny."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-cli-002",
+    "domain": "Security Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show running-config | section line vty output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show running-config | section line vty",
+        "output": "line vty 0 4\n login local\n transport input ssh\n access-class 10 in"
+      }
+    ],
+    "question": "Expansion scenario security fundamentals cli 002: What is the purpose of access-class 10 in?",
+    "choices": [
+      "Encrypt the startup configuration",
+      "Restrict SSH management sources using ACL 10",
+      "Assign VLAN 10 to the line",
+      "Enable DHCP snooping"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review security fundamentals cli 002: show running-config | section line vty interpretation: An access-class on VTY lines filters management access sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-cli-003",
+    "domain": "Security Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show access-lists output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show access-lists",
+        "output": "Standard IP access list 10\n    10 permit 192.0.2.0, wildcard bits 0.0.0.255\n    20 deny any"
+      }
+    ],
+    "question": "Expansion scenario security fundamentals cli 003: What source range is permitted?",
+    "choices": [
+      "Only host 192.0.2.0",
+      "All private IPv4 space",
+      "192.0.2.0/24",
+      "No traffic because deny any appears"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review security fundamentals cli 003: show access-lists interpretation: Wildcard 0.0.0.255 permits the /24 before the final deny."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-cli-004",
+    "domain": "Security Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show running-config | section line vty output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "show running-config | section line vty",
+        "output": "line vty 0 4\n login local\n transport input ssh\n access-class 10 in"
+      }
+    ],
+    "question": "Expansion scenario security fundamentals cli 004: What is the purpose of access-class 10 in?",
+    "choices": [
+      "Encrypt the startup configuration",
+      "Assign VLAN 10 to the line",
+      "Enable DHCP snooping",
+      "Restrict SSH management sources using ACL 10"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review security fundamentals cli 004: show running-config | section line vty interpretation: An access-class on VTY lines filters management access sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-cli-005",
+    "domain": "Security Fundamentals",
+    "type": "cli-output",
+    "prompt": "Review the show access-lists output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "show access-lists",
+        "output": "Standard IP access list 10\n    10 permit 192.0.2.0, wildcard bits 0.0.0.255\n    20 deny any"
+      }
+    ],
+    "question": "Expansion scenario security fundamentals cli 005: What source range is permitted?",
+    "choices": [
+      "192.0.2.0/24",
+      "Only host 192.0.2.0",
+      "All private IPv4 space",
+      "No traffic because deny any appears"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review security fundamentals cli 005: show access-lists interpretation: Wildcard 0.0.0.255 permits the /24 before the final deny."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-topology-001",
+    "domain": "Security Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the Management access path topology and table.",
+    "topology": {
+      "label": "Management access path 1",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "FW1",
+          "label": "FW1",
+          "kind": "firewall",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "Admin subnet",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "FW1",
+          "label": "SSH/ACL"
+        },
+        {
+          "from": "FW1",
+          "to": "R2",
+          "label": "permit/deny"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "ACL hit count rising",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario security fundamentals topology 001: Based on the topology, where should the security fundamentals investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The ACL or SSH management-control point is the likely enforcement location",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review security fundamentals topology 001: Management access path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-topology-002",
+    "domain": "Security Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the Management access path topology and table.",
+    "topology": {
+      "label": "Management access path 2",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "FW1",
+          "label": "FW1",
+          "kind": "firewall",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "Admin subnet",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "FW1",
+          "label": "SSH/ACL"
+        },
+        {
+          "from": "FW1",
+          "to": "R2",
+          "label": "permit/deny"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "ACL hit count rising",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario security fundamentals topology 002: Based on the topology, where should the security fundamentals investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The ACL or SSH management-control point is the likely enforcement location",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review security fundamentals topology 002: Management access path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-topology-003",
+    "domain": "Security Fundamentals",
+    "type": "topology-scenario",
+    "prompt": "Review the Management access path topology and table.",
+    "topology": {
+      "label": "Management access path 3",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "FW1",
+          "label": "FW1",
+          "kind": "firewall",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "Admin subnet",
+          "kind": "router",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "FW1",
+          "label": "SSH/ACL"
+        },
+        {
+          "from": "FW1",
+          "to": "R2",
+          "label": "permit/deny"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "ACL hit count rising",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario security fundamentals topology 003: Based on the topology, where should the security fundamentals investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP",
+      "The ACL or SSH management-control point is the likely enforcement location"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review security fundamentals topology 003: Management access path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-config-001",
+    "domain": "Security Fundamentals",
+    "type": "config-repair",
+    "scenario": "Only the network operations subnet should be allowed to SSH to the router.",
+    "device": "R1",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "access-list 10 permit 192.0.2.0 0.0.0.255",
+      "line vty 0 4",
+      " login local",
+      " transport input ssh"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario security fundamentals config 001: Which correction best repairs this security fundamentals scenario?",
+    "choices": [
+      "Apply access-class 10 in under the VTY lines",
+      "Apply switchport trunk allowed vlan 10",
+      "Remove login local",
+      "Configure ip helper-address 192.0.2.10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review security fundamentals config 001: Config repair reasoning: VTY access-class uses the ACL to restrict SSH management sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-config-002",
+    "domain": "Security Fundamentals",
+    "type": "config-repair",
+    "scenario": "Only the network operations subnet should be allowed to SSH to the router.",
+    "device": "R1",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "access-list 10 permit 192.0.2.0 0.0.0.255",
+      "line vty 0 4",
+      " login local",
+      " transport input ssh"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario security fundamentals config 002: Which correction best repairs this security fundamentals scenario?",
+    "choices": [
+      "Apply switchport trunk allowed vlan 10",
+      "Apply access-class 10 in under the VTY lines",
+      "Remove login local",
+      "Configure ip helper-address 192.0.2.10"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review security fundamentals config 002: Config repair reasoning: VTY access-class uses the ACL to restrict SSH management sources."
+  },
+  {
+    "id": "ccna-exp-security-fundamentals-config-003",
+    "domain": "Security Fundamentals",
+    "type": "config-repair",
+    "scenario": "Only the network operations subnet should be allowed to SSH to the router.",
+    "device": "R1",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "access-list 10 permit 192.0.2.0 0.0.0.255",
+      "line vty 0 4",
+      " login local",
+      " transport input ssh"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario security fundamentals config 003: Which correction best repairs this security fundamentals scenario?",
+    "choices": [
+      "Apply switchport trunk allowed vlan 10",
+      "Remove login local",
+      "Apply access-class 10 in under the VTY lines",
+      "Configure ip helper-address 192.0.2.10"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review security fundamentals config 003: Config repair reasoning: VTY access-class uses the ACL to restrict SSH management sources."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-single-001",
+    "domain": "Automation and Programmability",
+    "type": "single-choice",
+    "question": "Expansion scenario automation programmability single 001: REST method choice: An automation script needs to read interface state without changing the device. Which HTTP method fits?",
+    "choices": [
+      "POST",
+      "PATCH",
+      "DELETE",
+      "GET"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review automation programmability single 001: REST method choice reasoning: GET retrieves data without requesting a state change."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-single-002",
+    "domain": "Automation and Programmability",
+    "type": "single-choice",
+    "question": "Expansion scenario automation programmability single 002: JSON parsing: A controller API returns an array of interface objects. What does JSON provide?",
+    "choices": [
+      "A structured text format of key/value data and arrays",
+      "Encrypted transport by itself",
+      "A routing protocol adjacency",
+      "A replacement for IP addressing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review automation programmability single 002: JSON parsing reasoning: JSON is a structured data format commonly used by REST APIs."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-single-003",
+    "domain": "Automation and Programmability",
+    "type": "single-choice",
+    "question": "Expansion scenario automation programmability single 003: REST method choice: An automation script needs to read interface state without changing the device. Which HTTP method fits?",
+    "choices": [
+      "POST",
+      "GET",
+      "PATCH",
+      "DELETE"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review automation programmability single 003: REST method choice reasoning: GET retrieves data without requesting a state change."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-single-004",
+    "domain": "Automation and Programmability",
+    "type": "single-choice",
+    "question": "Expansion scenario automation programmability single 004: JSON parsing: A controller API returns an array of interface objects. What does JSON provide?",
+    "choices": [
+      "Encrypted transport by itself",
+      "A routing protocol adjacency",
+      "A structured text format of key/value data and arrays",
+      "A replacement for IP addressing"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review automation programmability single 004: JSON parsing reasoning: JSON is a structured data format commonly used by REST APIs."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-single-005",
+    "domain": "Automation and Programmability",
+    "type": "single-choice",
+    "question": "Expansion scenario automation programmability single 005: REST method choice: An automation script needs to read interface state without changing the device. Which HTTP method fits?",
+    "choices": [
+      "POST",
+      "PATCH",
+      "DELETE",
+      "GET"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review automation programmability single 005: REST method choice reasoning: GET retrieves data without requesting a state change."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-single-006",
+    "domain": "Automation and Programmability",
+    "type": "single-choice",
+    "question": "Expansion scenario automation programmability single 006: JSON parsing: A controller API returns an array of interface objects. What does JSON provide?",
+    "choices": [
+      "A structured text format of key/value data and arrays",
+      "Encrypted transport by itself",
+      "A routing protocol adjacency",
+      "A replacement for IP addressing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review automation programmability single 006: JSON parsing reasoning: JSON is a structured data format commonly used by REST APIs."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-mr-001",
+    "domain": "Automation and Programmability",
+    "type": "multiple-response",
+    "question": "Expansion scenario automation programmability mr 001: Automation and Programmability applied review 1: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "GET is used to retrieve REST resource data",
+      "Hostnames alone determine automation and programmability forwarding behavior",
+      "JSON represents structured objects and arrays",
+      "Changing the console password repairs all automation and programmability data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review automation programmability mr 001: Automation and Programmability multi-select reasoning: GET is used to retrieve REST resource data Also, JSON represents structured objects and arrays The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-mr-002",
+    "domain": "Automation and Programmability",
+    "type": "multiple-response",
+    "question": "Expansion scenario automation programmability mr 002: Automation and Programmability applied review 2: Which TWO statements are accurate for the scenario? (Select two.)",
+    "choices": [
+      "GET is used to retrieve REST resource data",
+      "Hostnames alone determine automation and programmability forwarding behavior",
+      "JSON represents structured objects and arrays",
+      "Changing the console password repairs all automation and programmability data-plane failures",
+      "DNS lookup order replaces routing or switching logic"
+    ],
+    "correctAnswers": [
+      0,
+      2
+    ],
+    "explanation": "Expansion review automation programmability mr 002: Automation and Programmability multi-select reasoning: GET is used to retrieve REST resource data Also, JSON represents structured objects and arrays The distractors confuse naming, console access, or DNS with the actual forwarding/control-plane behavior."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-cli-001",
+    "domain": "Automation and Programmability",
+    "type": "cli-output",
+    "prompt": "Review the curl RESTCONF output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "curl RESTCONF",
+        "output": "GET /restconf/data/ietf-interfaces:interfaces-state/interface=GigabitEthernet1\nAccept: application/yang-data+json\n\nHTTP/1.1 200 OK"
+      }
+    ],
+    "question": "Expansion scenario automation programmability cli 001: What does HTTP 200 indicate?",
+    "choices": [
+      "The device rejected authentication",
+      "The API request succeeded",
+      "The interface is administratively down",
+      "The JSON payload is encrypted"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review automation programmability cli 001: curl RESTCONF interpretation: HTTP 200 means the REST request completed successfully."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-cli-002",
+    "domain": "Automation and Programmability",
+    "type": "cli-output",
+    "prompt": "Review the controller inventory output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "R2",
+        "command": "controller inventory",
+        "output": "Device        Reachability   Config status\nSW1           Reachable      In sync\nR2            Unreachable    Unknown"
+      }
+    ],
+    "question": "Expansion scenario automation programmability cli 002: Which device needs connectivity investigation first?",
+    "choices": [
+      "SW1",
+      "The controller database",
+      "R2",
+      "Every in-sync device"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review automation programmability cli 002: controller inventory interpretation: Unreachable means the controller cannot communicate with R2."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-cli-003",
+    "domain": "Automation and Programmability",
+    "type": "cli-output",
+    "prompt": "Review the curl RESTCONF output and focus on the operational clue.",
+    "commands": [
+      {
+        "device": "SW1",
+        "command": "curl RESTCONF",
+        "output": "GET /restconf/data/ietf-interfaces:interfaces-state/interface=GigabitEthernet1\nAccept: application/yang-data+json\n\nHTTP/1.1 200 OK"
+      }
+    ],
+    "question": "Expansion scenario automation programmability cli 003: What does HTTP 200 indicate?",
+    "choices": [
+      "The device rejected authentication",
+      "The interface is administratively down",
+      "The JSON payload is encrypted",
+      "The API request succeeded"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Expansion review automation programmability cli 003: curl RESTCONF interpretation: HTTP 200 means the REST request completed successfully."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-topology-001",
+    "domain": "Automation and Programmability",
+    "type": "topology-scenario",
+    "prompt": "Review the Controller API path topology and table.",
+    "topology": {
+      "label": "Controller API path 1",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "CTRL",
+          "label": "Controller",
+          "kind": "server",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "SW-API",
+          "kind": "switch",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "CTRL",
+          "label": "REST JSON"
+        },
+        {
+          "from": "CTRL",
+          "to": "R2",
+          "label": "NETCONF/RESTCONF"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "API reports stale inventory",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario automation programmability topology 001: Based on the topology, where should the automation and programmability investigation focus first?",
+    "choices": [
+      "The controller/API path should be checked before assuming the device config changed",
+      "The issue is solved by changing every hostname",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Expansion review automation programmability topology 001: Controller API path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-topology-002",
+    "domain": "Automation and Programmability",
+    "type": "topology-scenario",
+    "prompt": "Review the Controller API path topology and table.",
+    "topology": {
+      "label": "Controller API path 2",
+      "width": 640,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "PC1",
+          "label": "PC1",
+          "kind": "host",
+          "x": 80,
+          "y": 160
+        },
+        {
+          "id": "CTRL",
+          "label": "Controller",
+          "kind": "server",
+          "x": 300,
+          "y": 160
+        },
+        {
+          "id": "R2",
+          "label": "SW-API",
+          "kind": "switch",
+          "x": 520,
+          "y": 160
+        }
+      ],
+      "links": [
+        {
+          "from": "PC1",
+          "to": "CTRL",
+          "label": "REST JSON"
+        },
+        {
+          "from": "CTRL",
+          "to": "R2",
+          "label": "NETCONF/RESTCONF"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed state",
+        "columns": [
+          "Component",
+          "State",
+          "Clue"
+        ],
+        "rows": [
+          [
+            "Left side",
+            "Reachable",
+            "Local link works"
+          ],
+          [
+            "Middle",
+            "API reports stale inventory",
+            "Domain control point requires verification"
+          ],
+          [
+            "Right side",
+            "Impacted",
+            "Remote reachability fails"
+          ]
+        ]
+      }
+    ],
+    "question": "Expansion scenario automation programmability topology 002: Based on the topology, where should the automation and programmability investigation focus first?",
+    "choices": [
+      "The issue is solved by changing every hostname",
+      "The controller/API path should be checked before assuming the device config changed",
+      "The diagram proves DNS is unavailable",
+      "The access layer must always run BGP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Expansion review automation programmability topology 002: Controller API path reasoning: the table shows local reachability but failure at the domain-specific control point, so the middle device/function is the best first isolation point."
+  },
+  {
+    "id": "ccna-exp-automation-programmability-config-001",
+    "domain": "Automation and Programmability",
+    "type": "config-repair",
+    "scenario": "A RESTCONF client receives JSON interface state from the controller but cannot update a description because the request targets the wrong resource.",
+    "device": "Controller client",
+    "configTitle": "Configuration excerpt",
+    "config": [
+      "PATCH /restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1",
+      "Content-Type: application/yang-data+json",
+      "{ \"ietf-interfaces:description\": \"WAN uplink\" }"
+    ],
+    "notes": [
+      "Select the command or correction that fixes the stated behavior."
+    ],
+    "question": "Expansion scenario automation programmability config 001: Which correction best repairs this automation and programmability scenario?",
+    "choices": [
+      "Add switchport access vlan 20",
+      "Disable SSH on the controller",
+      "Use the correct YANG resource path and JSON payload expected by the API",
+      "Replace JSON with an ARP table"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Expansion review automation programmability config 001: Config repair reasoning: RESTCONF/JSON repairs focus on API path, method, headers, and payload structure, not VLAN trunk commands."
   }
 ]
