@@ -2,37 +2,37 @@
 
 Audit date: 2026-05-24
 
-Status: `ccna-200-301` remains unpublished. The current 500-item pool is structurally valid, exactly aligned to the official CCNA v1.1 domain weights, and ready for manual mobile/scoring/editorial QA, but it should not be published yet.
+Status: `ccna-200-301` remains unpublished. The current 750-item pool is structurally valid, aligned to the closest whole-question CCNA v1.1 domain split, and ready for manual mobile/scoring/editorial QA, but it should not be published yet.
 
 ## Current Pool
 
 | Domain | Current |
 | --- | ---: |
-| Network Fundamentals | 100 |
-| Network Access | 100 |
-| IP Connectivity | 125 |
-| IP Services | 50 |
-| Security Fundamentals | 75 |
-| Automation and Programmability | 50 |
+| Network Fundamentals | 150 |
+| Network Access | 150 |
+| IP Connectivity | 188 |
+| IP Services | 75 |
+| Security Fundamentals | 112 |
+| Automation and Programmability | 75 |
 
 | Type | Current |
 | --- | ---: |
-| Single-choice | 180 |
-| Multiple-response | 40 |
-| CLI output | 110 |
-| Topology scenario | 80 |
-| Config repair | 60 |
-| Subnetting drill | 30 |
+| Single-choice | 250 |
+| Multiple-response | 60 |
+| CLI output | 170 |
+| Topology scenario | 120 |
+| Config repair | 100 |
+| Subnetting drill | 50 |
 
 ## Quality Findings
 
-- Domain allocation is exact for the 500-item milestone: 20/20/25/10/15/10.
+- Domain allocation uses the closest whole-question split for the 750-item milestone: 20/20/25/10/15/10.
 - Schema coverage is strong: all CCNA simulation types validate through the content sanity gate.
 - Explanation coverage is acceptable: no missing or very short explanations were found in the mechanical pass.
 - The pool has no exact duplicate question stems, but several written and CLI families are still too template-like. These should be rewritten or diversified before public placement.
 - CLI output items are the strongest differentiator from CCST/Network+. The expansion should keep growing command-output interpretation, especially around trunks, OSPF, routing tables, NAT, DHCP relay, ACLs, and wireless state.
-- Subnetting now has 30 drills, exceeding the first public-preview quantity bar.
-- Automation and Programmability has enough schema coverage for preview QA, but the next expansion needs more applied JSON/REST/controller reasoning instead of definition-only items.
+- Subnetting now has 50 drills, exceeding the first public-preview quantity bar.
+- Automation and Programmability has enough schema coverage for preview QA, with more applied JSON/REST/controller reasoning added in the final expansion.
 
 ## Rewrite Targets Before Public Preview
 
@@ -51,20 +51,20 @@ The following concept clusters need more variation before launch:
 
 These are not necessarily incorrect. The issue is editorial quality: repeated scenario frames make the pool feel generated if a learner sees several in the same study session.
 
-## 500-Item Expansion Result
+## 750-Item Expansion Result
 
-Added 340 items across the two expansion passes while preserving official domain weights:
+Added 590 items across the expansion passes while preserving official domain intent and reaching the production-depth target:
 
-Final type mix at 500:
+Final type mix at 750:
 
 | Type | Count |
 | --- | ---: |
-| Single-choice | 180 |
-| Multiple-response | 40 |
-| CLI output | 110 |
-| Topology scenario | 80 |
-| Config repair | 60 |
-| Subnetting drill | 30 |
+| Single-choice | 250 |
+| Multiple-response | 60 |
+| CLI output | 170 |
+| Topology scenario | 120 |
+| Config repair | 100 |
+| Subnetting drill | 50 |
 
 ## Content Rules For The Next Batch
 
