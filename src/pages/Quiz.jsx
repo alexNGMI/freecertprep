@@ -191,25 +191,42 @@ export default function Quiz() {
         </div>
 
         {activeMode !== 'domain' && (
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm text-zinc-500">
-              {activeMode === 'bookmarked' && poolQuestions.length === 0
-                ? 'No bookmarks yet. Star questions during practice to fill this list.'
-                : activeMode === 'smart'
-                  ? `${BLOCK_SIZE} questions selected from weighted weak areas.`
-                  : `${poolQuestions.length.toLocaleString()} available.`}
-            </p>
-            <Button
-              id="start-quiz-btn"
-              onClick={startQuiz}
-              disabled={poolQuestions.length === 0}
-              variant="accent"
-              size="lg"
-              accentColor={accentColor}
-            >
-              Start Practice Session
-              <ArrowRight className="h-5 w-5" />
-            </Button>
+          <div className="space-y-4">
+            {cert.practiceGuidance && activeMode === 'smart' && (
+              <Surface className="p-5">
+                <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">SAA review loop</p>
+                <div className="mt-4 grid gap-3 md:grid-cols-3">
+                  {cert.practiceGuidance.map((item, index) => (
+                    <div key={item} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
+                      <p className="text-[10px] font-black uppercase tracking-wider" style={{ color: index === 0 ? '#6366f1' : cert.color }}>
+                        Step {index + 1}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-zinc-300">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </Surface>
+            )}
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-zinc-500">
+                {activeMode === 'bookmarked' && poolQuestions.length === 0
+                  ? 'No bookmarks yet. Star questions during practice to fill this list.'
+                  : activeMode === 'smart'
+                    ? `${BLOCK_SIZE} questions selected from weighted weak areas.`
+                    : `${poolQuestions.length.toLocaleString()} available.`}
+              </p>
+              <Button
+                id="start-quiz-btn"
+                onClick={startQuiz}
+                disabled={poolQuestions.length === 0}
+                variant="accent"
+                size="lg"
+                accentColor={accentColor}
+              >
+                Start Practice Session
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </div>
           </div>
         )}
       </div>

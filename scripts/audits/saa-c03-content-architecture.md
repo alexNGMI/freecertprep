@@ -1,6 +1,6 @@
 # AWS Solutions Architect - Associate SAA-C03 Content Architecture
 
-Date: 2026-05-22
+Date: 2026-05-24
 
 ## Official And High-Quality Sources
 
@@ -23,7 +23,7 @@ Date: 2026-05-22
 - Local practice pass benchmark: 72%
 - First-batch pool target: 270 questions
 - Production pool target: 750 questions, now generated
-- Catalog status: registered as `published: false` for preview authoring, hidden from the main foundational catalog until the pool receives a deeper human review
+- Catalog status: live in the public catalog and Cloud path
 
 ## Domain Allocation
 
@@ -48,6 +48,15 @@ The content standard is higher than foundational cloud certs:
 - questions should emphasize secure access, resiliency patterns, data durability, performance design, and cost optimization
 - no topology/CLI simulator is required for SAA; those requirements remain more appropriate for CCNA
 
+## Premium Study Surface
+
+The SAA cert now carries optional `studyPlan` and `practiceGuidance` metadata in `src/data/certs.js`.
+
+- Dashboard: shows an architecture-first study plan that frames the pool as secure, resilient, high-performing, and cost-optimized design practice.
+- Smart Practice setup: shows a three-step SAA review loop so learners use adaptive sessions, domain drills, and explanation review intentionally.
+- Scope: these are registry-driven optional surfaces, so other certifications keep their existing dashboard and practice setup behavior unless they add the same metadata.
+- Content principle: no new questions are needed for this polish pass; the improvement is about making the existing 750-question pool feel organized around SAA decision-making.
+
 ## First Batch Quality Audit
 
 Generated pool: `src/data/aws-saa-c03-questions.json`
@@ -67,5 +76,5 @@ Generated pool: `src/data/aws-saa-c03-questions.json`
 1. Deepen each domain with more distinct service families and scenario styles.
 2. Add stronger negative distractors around commonly confused SAA choices, such as NAT gateway vs VPC endpoint, Aurora replicas vs Multi-AZ, CloudFront vs Global Accelerator, SQS vs EventBridge, and Savings Plans vs Spot.
 3. Add longer multi-constraint questions that combine two or more Well-Architected pillars.
-4. Run a human editorial pass before publishing to the homepage catalog.
-5. Keep SAA hidden from the public homepage catalog until the editorial review is complete.
+4. Continue the human editorial pass by sampling explanations for named tradeoffs and service behavior clarity.
+5. Consider lightweight architecture diagrams only if they can be authored consistently and validated in review mode without turning SAA into a topology simulator.
