@@ -32,7 +32,7 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
-> **CCNA simulation foundation is implemented:** `docs/ccna-simulation-architecture.md` maps the official 200-301 CCNA v1.1 domains to the simulation layer the app needs before CCNA can be exam-quality. CLI output interpretation, topology scenarios, config repair, and subnetting drills are now supported, with a 300-item unpublished preview pool registered for QA.
+> **CCNA simulation foundation is implemented:** `docs/ccna-simulation-architecture.md` maps the official 200-301 CCNA v1.1 domains to the simulation layer the app needs before CCNA can be exam-quality. CLI output interpretation, topology scenarios, config repair, and subnetting drills are now supported, with a 500-item unpublished preview pool registered for QA.
 
 ### Sister site — Real Estate
 
@@ -76,7 +76,7 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - **Ordering** — Place items in the correct sequence.
 - **Matching** — Match left-column items to right-column options.
 
-CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. A 300-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA. See `docs/ccna-simulation-architecture.md`.
+CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. A 500-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA. See `docs/ccna-simulation-architecture.md`.
 
 ## Tech stack
 

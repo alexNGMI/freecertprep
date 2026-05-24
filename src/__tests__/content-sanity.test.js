@@ -424,33 +424,33 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
 })
 
 describe('CCNA preview pool', () => {
-  it('stays unpublished while covering the 300-item simulation readiness mix', () => {
+  it('stays unpublished while covering the 500-item simulation readiness mix', () => {
     expect(certs['ccna-200-301'].published).toBe(false)
-    expect(ccna200301).toHaveLength(300)
+    expect(ccna200301).toHaveLength(500)
 
     const byDomain = ccna200301.reduce((acc, q) => {
       acc[q.domain] = (acc[q.domain] || 0) + 1
       return acc
     }, {})
     expect(byDomain).toEqual({
-      'Network Fundamentals': 60,
-      'Network Access': 60,
-      'IP Connectivity': 75,
-      'IP Services': 30,
-      'Security Fundamentals': 45,
-      'Automation and Programmability': 30,
+      'Network Fundamentals': 100,
+      'Network Access': 100,
+      'IP Connectivity': 125,
+      'IP Services': 50,
+      'Security Fundamentals': 75,
+      'Automation and Programmability': 50,
     })
 
     const byType = ccna200301.reduce((acc, q) => {
       acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
       return acc
     }, {})
-    expect(byType['single-choice']).toBe(113)
-    expect(byType['multiple-response']).toBe(21)
-    expect(byType['cli-output']).toBe(64)
-    expect(byType['topology-scenario']).toBe(50)
-    expect(byType['config-repair']).toBe(34)
-    expect(byType['subnetting-drill']).toBe(18)
+    expect(byType['single-choice']).toBe(180)
+    expect(byType['multiple-response']).toBe(40)
+    expect(byType['cli-output']).toBe(110)
+    expect(byType['topology-scenario']).toBe(80)
+    expect(byType['config-repair']).toBe(60)
+    expect(byType['subnetting-drill']).toBe(30)
   })
 
   it('keeps the preview pool varied enough for editorial QA', () => {
@@ -501,19 +501,21 @@ describe('CCNA preview pool', () => {
     }
   })
 
-  it('keeps the CCNA audit plan aligned with the hidden 300-item readiness target', () => {
+  it('keeps the CCNA audit plan aligned with the hidden 500-item readiness target', () => {
     const audit = readFileSync('scripts/audits/ccna-preview-audit.md', 'utf8')
 
     expect(audit).toContain('Status: `ccna-200-301` remains unpublished')
-    expect(audit).toContain('| Network Fundamentals | 60 |')
-    expect(audit).toContain('| Network Access | 60 |')
-    expect(audit).toContain('| IP Connectivity | 75 |')
-    expect(audit).toContain('| IP Services | 30 |')
-    expect(audit).toContain('| Security Fundamentals | 45 |')
-    expect(audit).toContain('| Automation and Programmability | 30 |')
-    expect(audit).toContain('| CLI output | 64 |')
-    expect(audit).toContain('| Subnetting drill | 18 |')
+    expect(audit).toContain('| Network Fundamentals | 100 |')
+    expect(audit).toContain('| Network Access | 100 |')
+    expect(audit).toContain('| IP Connectivity | 125 |')
+    expect(audit).toContain('| IP Services | 50 |')
+    expect(audit).toContain('| Security Fundamentals | 75 |')
+    expect(audit).toContain('| Automation and Programmability | 50 |')
+    expect(audit).toContain('| CLI output | 110 |')
+    expect(audit).toContain('| Subnetting drill | 30 |')
     expect(audit).toContain('Do not add CCST-level vocabulary checks')
+    expect(audit).toContain('## Manual QA Gate Before Publishing')
+    expect(audit).toContain('Complete an editorial cleanup pass')
   })
 
 })
