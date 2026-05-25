@@ -87,11 +87,11 @@ const paths = [
     eyebrow: 'NVIDIA',
     title: 'NVIDIA fluency',
     description:
-      'Prepare for NVIDIA AI infrastructure and generative AI exams with focused practice for the accelerated computing stack.',
+      'Start with Linux+ systems fluency, then move into NVIDIA AI infrastructure and generative AI exams for the accelerated computing stack.',
     icon: Cpu,
     color: '#34d399',
     to: '/paths/nvidia',
-    meta: 'NVIDIA AI credentials',
+    meta: 'Linux+ to NVIDIA AI credentials',
     certIds: ['nca-aiio', 'nca-genl'],
   },
 ]

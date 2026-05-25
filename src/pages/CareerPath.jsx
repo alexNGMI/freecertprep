@@ -117,11 +117,18 @@ const PATHS = {
     eyebrow: 'NVIDIA',
     title: 'Build NVIDIA fluency.',
     description:
-      'Focus on NVIDIA AI infrastructure and generative AI foundations for accelerated computing and modern AI workloads.',
+      'Start with Linux systems fluency, then move into NVIDIA AI infrastructure and generative AI foundations for accelerated computing and modern AI workloads.',
     icon: Cpu,
     color: '#34d399',
     steps: [
-      certStep('Infrastructure', 'nca-aiio', 'Practice GPU systems, deployment, operations, and infrastructure concepts.'),
+      futureStep(
+        'Systems foundation',
+        'CompTIA Linux+',
+        'XK0-006',
+        'Coming soon as the Linux administration layer for learners moving toward AI infrastructure, GPU operations, containers, scripting, and hybrid cloud systems.',
+        { provider: 'CompTIA', difficulty: 'Foundational', status: 'Coming Soon' },
+      ),
+      certStep('AI Infrastructure', 'nca-aiio', 'Practice GPU systems, deployment, operations, and infrastructure concepts.'),
       certStep('Generative AI', 'nca-genl', 'Practice LLM concepts, workflows, evaluation, and applied generative AI fundamentals.'),
     ],
   },
@@ -149,7 +156,7 @@ function futureStep(label, title, code, description, options = {}) {
     difficulty: options.difficulty || 'Associate',
     to: null,
     description,
-    status: 'Preview',
+    status: options.status || 'Preview',
   }
 }
 
