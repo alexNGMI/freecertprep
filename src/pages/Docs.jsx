@@ -664,6 +664,8 @@ key = random() ** (1 / weight)
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
                   'Shared result cards — privacy-respecting shareable score screenshots',
                   'Advanced cert pathway pages - keep CCNA separate from the foundational catalog until its simulation quality is high enough to avoid misleading learners.',
+                  'CDL sister site - future written-test prep lane for General Knowledge, Air Brakes, Combination Vehicles, and endorsements. Architecture fit is strong because FMCSA sets federal minimum standards while state manuals can be layered like real-estate state modules.',
+                  'NCLEX sister site - future nursing prep lane for RN/PN licensure. Defer content buildout until the app has a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.',
                   'More sister sites for adjacent non-IT career paths (e.g., fiber technician credentials)',
                 ],
               },
