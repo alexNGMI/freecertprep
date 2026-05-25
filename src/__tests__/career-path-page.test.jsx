@@ -41,15 +41,17 @@ describe('career path pages', () => {
     expect(screen.queryByText('Google Professional Cloud Architect')).toBeNull()
   })
 
-  it('offers CCST Networking as the Cisco-oriented Network+ alternative', () => {
+  it('frames Networking as the CCST into CCNA path while CCNA remains preview-only', () => {
     renderPath('/paths/networking')
 
-    expect(screen.getByRole('heading', { name: 'Build the network and systems layer.' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Choose your networking foundation' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Then add systems context' })).toBeTruthy()
-    expect(screen.getByRole('link', { name: /CompTIA Network\+/ }).getAttribute('href')).toBe('/comptia-net-plus')
+    expect(screen.getByRole('heading', { name: 'Follow the Cisco path from CCST into CCNA.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Start with Cisco foundation' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then move toward CCNA' })).toBeTruthy()
     expect(screen.getByRole('link', { name: /Cisco CCST Networking/ }).getAttribute('href')).toBe('/ccst-networking')
-    expect(screen.getByRole('link', { name: /CompTIA Server\+/ }).getAttribute('href')).toBe('/comptia-server-plus')
+    expect(screen.getByText('Cisco CCNA')).toBeTruthy()
+    expect(screen.getByText('Preview')).toBeTruthy()
+    expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
+    expect(screen.queryByRole('link', { name: /CompTIA Network\+/ })).toBeNull()
   })
 
   it('redirects unknown path ids home', () => {

@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Cloud,
   Cpu,
+  GraduationCap,
   LockKeyhole,
   Network,
   Server,
@@ -33,16 +34,29 @@ const certs = getAllCerts()
 
 const paths = [
   {
+    id: 'it-entry',
+    eyebrow: 'IT Entry',
+    title: 'Start with A+ if you are brand new',
+    description:
+      'A+ is the stepping stone for learners with no technical background before networking, security, cloud, or AI paths.',
+    icon: GraduationCap,
+    color: '#ef4444',
+    featured: true,
+    to: '/comptia/a-plus',
+    meta: 'A+ foundation',
+    certIds: [],
+  },
+  {
     id: 'networking',
     eyebrow: 'Networking',
-    title: 'Build the network layer',
+    title: 'CCST into CCNA',
     description:
-      'Move from network fundamentals into server operations, troubleshooting, and durable infrastructure support.',
+      'Use CCST for the Cisco-oriented foundation, then move toward CCNA once the advanced simulation track is ready.',
     icon: Network,
     color: '#f97316',
     to: '/paths/networking',
-    meta: 'Network+ or CCST to Server+',
-    certIds: ['comptia-net-plus', 'comptia-server-plus'],
+    meta: 'Cisco foundation to advanced networking',
+    certIds: ['ccst-networking'],
   },
   {
     id: 'cybersecurity',
@@ -182,7 +196,8 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-            {paths.map((path) => (
+            <PathCard path={paths[0]} variant="wide" className="md:col-span-2 xl:col-span-4" />
+            {paths.slice(1).map((path) => (
               <PathCard key={path.id} path={path} />
             ))}
           </div>
