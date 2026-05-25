@@ -60,6 +60,27 @@ describe('career path pages', () => {
     expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
   })
 
+  it('frames Data Center Technician as Server+ to Schneider DCCA to CCNA previews', () => {
+    renderPath('/paths/data-center-technician')
+
+    expect(screen.getByRole('heading', { name: 'Build toward data center operations.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Start with server operations' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then add data center physical infrastructure' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then move toward the network layer' })).toBeTruthy()
+    expect(screen.getByText('Server+ gives the IT hardware and systems support baseline.')).toBeTruthy()
+    expect(screen.getByText('Schneider DCCA adds power, cooling, racks, cabling, physical security, and facility awareness.')).toBeTruthy()
+    expect(screen.getByText('Step 01 / Level 1')).toBeTruthy()
+    expect(screen.getByText('Step 02 / Level 2 preview')).toBeTruthy()
+    expect(screen.getByText('Step 03 / Level 3 preview')).toBeTruthy()
+    expect(screen.getByRole('link', { name: /CompTIA Server\+/ }).getAttribute('href')).toBe('/comptia-server-plus')
+    expect(screen.getByText('Schneider Data Center Certified Associate')).toBeTruthy()
+    expect(screen.getByText('DCCA')).toBeTruthy()
+    expect(screen.getByText('Coming Soon')).toBeTruthy()
+    expect(screen.queryByRole('link', { name: /Schneider Data Center Certified Associate/ })).toBeNull()
+    expect(screen.getByText('Cisco CCNA')).toBeTruthy()
+    expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
+  })
+
   it('frames Cybersecurity as Network+ to Security+ to Splunk preview', () => {
     renderPath('/paths/cybersecurity')
 
