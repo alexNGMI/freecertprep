@@ -553,7 +553,7 @@ key = random() ** (1 / weight)
               },
               {
                 title: 'State licensing exams are composed, not duplicated',
-                body: 'Real estate state modules merge the shared national pool with one state-law bank, tag each side as national or state, then select each portion independently through selectLicensingExam(). Texas, Maine, Georgia, Arizona, North Carolina, and Indiana all use this pattern; each module changes only the state count and state-domain weights.',
+                body: 'Real estate state modules merge the shared national pool with one state-law bank, tag each side as national or state, then select each portion independently through selectLicensingExam(). Texas, Maine, Georgia, Arizona, North Carolina, and Indiana all use this pattern; each module changes only the state count and state-domain weights, and Texas now includes the 2026 case-study category.',
               },
               {
                 title: 'Content integrity is enforced, not assumed',
@@ -649,7 +649,7 @@ key = random() ** (1 / weight)
                 color: '#a1a1aa',
                 items: [
                   'CCNA preview QA - keep the unpublished 750-item pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
-                  'Content accuracy hardening - follow the full-bank blueprint audit: rebalance Network+ toward N10-009 Troubleshooting, refresh Google CDL to the current six-section guide, rebalance NVIDIA AIIO toward Essential AI Knowledge, tighten AZ-900 domain distribution, and recheck real-estate state handbooks before public placement.',
+                  'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, and Texas 2026 outline reconciliation; Georgia remains pending stable PSI/GREC bulletin verification.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
                   'Custom domain — freecertprep.org',

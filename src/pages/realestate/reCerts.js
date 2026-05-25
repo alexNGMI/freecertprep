@@ -16,8 +16,8 @@ export const RE_STUDY_CERTS = [
     certId: 'real-estate-tx',
     name: 'Texas Sales Agent — Full Licensing',
     badge: 'Texas',
-    tagline: 'National prep + the Texas state-law portion (TREC blueprint).',
-    examLine: 'Full Licensing Exam: 85 national + 40 state · 70% each section',
+    tagline: 'National prep + the Texas state-law portion (2026 TREC blueprint).',
+    examLine: 'Full Licensing Exam: 85 national + 50 state - 70% each section',
   },
   {
     slug: 'me',

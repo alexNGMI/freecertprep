@@ -455,6 +455,29 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     })
   })
 
+  it('Texas state-law pool follows the listed 2026 TREC/Pearson VUE outline', () => {
+    if (certId !== 'real-estate-tx') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byDomain).toEqual({
+      'Commission Duties & Powers': 24,
+      Licensing: 32,
+      'Standards of Conduct': 72,
+      'Agency & Brokerage': 80,
+      'Contracts (TREC Forms & Disclosures)': 64,
+      'Special Topics (TX)': 48,
+      'Case Studies (TX)': 81,
+    })
+
+    const caseStudies = questions.filter(q => q.domain === 'Case Studies (TX)')
+    expect(caseStudies).toHaveLength(81)
+    expect(caseStudies.filter(q => /^Case TX-\d{2}:/.test(q.question)).length).toBeGreaterThanOrEqual(75)
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {
