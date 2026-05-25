@@ -348,6 +348,13 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }
   })
 
+  it('SAA-C03 stems remain unique enough for realistic review sessions', () => {
+    if (certId !== 'aws-saa-c03') return
+
+    const stems = questions.map(q => q.question)
+    expect(new Set(stems).size, `${certId} should not contain exact duplicate stems`).toBe(stems.length)
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {

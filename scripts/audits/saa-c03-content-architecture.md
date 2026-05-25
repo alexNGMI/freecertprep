@@ -69,6 +69,14 @@ Every SAA explanation now uses three teaching anchors:
 
 The content sanity suite now enforces these anchors for every SAA item so future edits cannot silently regress review-mode learning value.
 
+## Scenario Variety Polish
+
+The second SAA review-quality pass rewrote the 750 visible stems while preserving domains, choices, correct answers, and explanations.
+
+- Exact duplicate SAA stems were reduced from 160 repeated-stem groups to zero.
+- Stems now vary organization type, workload, design pressure, architecture issue, and service hint so review sessions feel less template-driven.
+- The content sanity suite now enforces unique SAA stems to prevent repeated scenario frames from returning.
+
 ## First Batch Quality Audit
 
 Generated pool: `src/data/aws-saa-c03-questions.json`
