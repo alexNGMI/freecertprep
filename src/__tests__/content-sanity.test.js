@@ -425,6 +425,21 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     })
   })
 
+  it('NVIDIA AIIO source pool follows the official domain weights', () => {
+    if (certId !== 'nca-aiio') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byDomain).toEqual({
+      'AI Infrastructure': 134,
+      'Essential AI Knowledge': 128,
+      'AI Operations': 74,
+    })
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {
