@@ -43,9 +43,9 @@ const PATHS = {
   },
   cybersecurity: {
     eyebrow: 'Cybersecurity',
-    title: 'Move into security with the right base.',
+    title: 'Cybersecurity with a practical tool layer.',
     description:
-      'Network+ gives the technical footing; Security+ builds the security baseline; Splunk adds the hands-on SOC tool signal for entry analyst work.',
+      'Network+ and Security+ give the theory and baseline; Splunk adds the practical SOC tooling layer that helps entry-level candidates look closer to job-ready.',
     icon: LockKeyhole,
     color: '#fb7185',
     highlights: [
@@ -82,9 +82,9 @@ const PATHS = {
   },
   cloud: {
     eyebrow: 'Cloud',
-    title: 'Build around the AWS cloud lane.',
+    title: 'From cloud concepts to deployable skill.',
     description:
-      'Use AWS Cloud Practitioner for the foundation, SAA for architecture judgment, and Terraform as the infrastructure automation layer once AWS design patterns feel concrete. Azure and Google Cloud stay in the full catalog for vendor-specific goals.',
+      'Move from AWS fundamentals into architecture, then finish with Terraform so your path points toward real cloud support, junior cloud, and infrastructure roles.',
     highlights: [
       'AWS is the default role-focused lane.',
       'SAA comes before Terraform so architecture tradeoffs have context.',

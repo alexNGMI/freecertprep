@@ -24,7 +24,7 @@ describe('career path pages', () => {
   it('guides cloud learners through AWS foundation, SAA, and Terraform', () => {
     const { container } = renderPath('/paths/cloud')
 
-    expect(screen.getByRole('heading', { name: 'Build around the AWS cloud lane.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'From cloud concepts to deployable skill.' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Start with AWS foundation' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Then move into architecture' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Then add infrastructure as code' })).toBeTruthy()
@@ -63,7 +63,7 @@ describe('career path pages', () => {
   it('frames Cybersecurity as Network+ to Security+ to Splunk preview', () => {
     renderPath('/paths/cybersecurity')
 
-    expect(screen.getByRole('heading', { name: 'Move into security with the right base.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Cybersecurity with a practical tool layer.' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Start with network fluency' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Then build the security baseline' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Then add SOC tooling' })).toBeTruthy()
