@@ -27,6 +27,7 @@ const PATHS = {
     groups: [
       {
         label: 'Choose your level-one foundation',
+        type: 'choice',
         items: [
           certStep('Vendor-neutral foundation', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and support environments.'),
           certStep('Cisco foundation', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
@@ -140,13 +141,27 @@ export default function CareerPath() {
   const Icon = path.icon
   const groups = path.groups || [{ label: 'Recommended sequence', items: path.steps }]
   let stepCount = 0
-  const numberedGroups = groups.map((group) => ({
-    ...group,
-    items: group.items.map((item) => ({
-      ...item,
-      stepNumber: ++stepCount,
-    })),
-  }))
+  const numberedGroups = groups.map((group) => {
+    if (group.type === 'choice') {
+      stepCount += 1
+      return {
+        ...group,
+        items: group.items.map((item, index) => ({
+          ...item,
+          stepNumber: stepCount,
+          optionLabel: `Option ${String.fromCharCode(65 + index)}`,
+        })),
+      }
+    }
+
+    return {
+      ...group,
+      items: group.items.map((item) => ({
+        ...item,
+        stepNumber: ++stepCount,
+      })),
+    }
+  })
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
@@ -232,7 +247,7 @@ function StepCard({ item, color }) {
       <div className="flex items-start justify-between gap-4 mb-5">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">
-            Step {String(item.stepNumber).padStart(2, '0')} / {item.label}
+            Step {String(item.stepNumber).padStart(2, '0')} / {item.optionLabel ? `${item.optionLabel} / ` : ''}{item.label}
           </p>
           <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">{item.title}</h3>
         </div>
