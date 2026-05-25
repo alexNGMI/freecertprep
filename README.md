@@ -32,6 +32,8 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
 
+> **AI infrastructure path foundation:** The NVIDIA path now starts with CompTIA Linux+ (XK0-006) as a Coming Soon systems foundation before NVIDIA AI Infrastructure & Operations and NVIDIA Generative AI.
+
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
 > **CCNA simulation foundation is implemented:** `docs/ccna-simulation-architecture.md` maps the official 200-301 CCNA v1.1 domains to the simulation layer the app needs before CCNA can be exam-quality. CLI output interpretation, topology scenarios, config repair, and subnetting drills are now supported, with a 750-item unpublished preview pool registered for QA.
@@ -54,7 +56,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 ## Features
 
 - **Home** - Guided learning paths up top, direct certification catalog below.
-- **Path pages** - Dedicated lanes for A+ entry, Networking, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before CCNA while CCNA remains preview-only; Cybersecurity now runs Network+ to Security+ to Splunk Core Certified User preview. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
+- **Path pages** - Dedicated lanes for A+ entry, Networking, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before CCNA while CCNA remains preview-only; Cybersecurity now runs Network+ to Security+ to Splunk Core Certified User preview. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. NVIDIA now starts with Linux+ as a Coming Soon systems foundation before the AI credentials. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is in unpublished preview. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented; the CCNA pool stays hidden from the catalog while it goes through QA.
 - **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance, refreshed Google CDL to the current six-section guide, rebalanced NVIDIA AIIO to its official 40/38/22 split, moved AZ-900 inside Microsoft's current ranged weights, and reconciled Texas to the 2026 state-law outline. Georgia remains unpublished pending a stable current PSI/GREC salesperson bulletin.
