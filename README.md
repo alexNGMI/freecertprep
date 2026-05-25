@@ -18,9 +18,10 @@ Free, open-source certification exam prep for the IT certifications that open do
 | CompTIA Network+ | CompTIA | N10-009 | Foundational | 751 | 90 | 90 min | 80% |
 | CompTIA Security+ | CompTIA | SY0-701 | Foundational | 750 | 90 | 90 min | 83% |
 | CompTIA Server+ | CompTIA | SK0-005 | Foundational | 750 | 90 | 90 min | 83% |
+| Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
 
-**8,629 questions across 13 certifications.**
+**9,379 questions across 14 certifications.**
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
@@ -34,7 +35,7 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **AI infrastructure path foundation:** The NVIDIA path now starts with CompTIA Linux+ (XK0-006) as a Coming Soon systems foundation before NVIDIA AI Infrastructure & Operations and NVIDIA Generative AI.
 
-> **Data Center Technician path preview:** `/paths/data-center-technician` now frames Server+ -> Schneider Data Center Certified Associate (DCCA) -> CCNA. DCCA stays Coming Soon and will use Schneider Electric University's free vendor course/study-guide material as the source.
+> **DCCA is live:** Schneider Data Center Certified Associate now ships a 750-question pool built from Schneider Electric University's official DCCA Exam Development Path. `/paths/data-center-technician` now frames Server+ -> DCCA -> CCNA, with CCNA still preview-only.
 
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
@@ -58,7 +59,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 ## Features
 
 - **Home** - Guided learning paths up top, direct certification catalog below.
-- **Path pages** - Dedicated lanes for A+ entry, Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before CCNA while CCNA remains preview-only; Data Center Technician runs Server+ to Schneider DCCA preview to CCNA preview; Cybersecurity now runs Network+ to Security+ to Splunk Core Certified User preview. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. NVIDIA now starts with Linux+ as a Coming Soon systems foundation before the AI credentials. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
+- **Path pages** - Dedicated lanes for A+ entry, Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before CCNA while CCNA remains preview-only; Data Center Technician runs Server+ to live Schneider DCCA to CCNA preview; Cybersecurity now runs Network+ to Security+ to Splunk Core Certified User preview. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. NVIDIA now starts with Linux+ as a Coming Soon systems foundation before the AI credentials. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is in unpublished preview. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented; the CCNA pool stays hidden from the catalog while it goes through QA.
 - **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance, refreshed Google CDL to the current six-section guide, rebalanced NVIDIA AIIO to its official 40/38/22 split, moved AZ-900 inside Microsoft's current ranged weights, and reconciled Texas to the 2026 state-law outline. Georgia remains unpublished pending a stable current PSI/GREC salesperson bulletin.

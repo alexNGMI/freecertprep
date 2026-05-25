@@ -64,13 +64,7 @@ const PATHS = {
       {
         label: 'Then add data center physical infrastructure',
         items: [
-          futureStep(
-            'Level 2 preview',
-            'Schneider Data Center Certified Associate',
-            'DCCA',
-            'Coming soon using Schneider Electric University source material for cooling, power, racks, cabling, fire protection, management, and physical security.',
-            { provider: 'Schneider Electric', difficulty: 'Associate', status: 'Coming Soon' },
-          ),
+          certStep('Level 2', 'schneider-dcca', 'Practice Schneider DCCA physical infrastructure topics: cooling, power, racks, cabling, fire protection, management, and physical security.'),
         ],
       },
       {

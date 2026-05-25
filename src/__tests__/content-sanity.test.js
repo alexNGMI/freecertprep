@@ -12,6 +12,7 @@ import ccna200301 from '../data/ccna-200-301-questions.json'
 import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
+import schneiderDcca from '../data/schneider-dcca-questions.json'
 import comptiaAPlusCore1 from '../data/comptia-a-plus-core-1-questions.json'
 import comptiaAPlusCore2 from '../data/comptia-a-plus-core-2-questions.json'
 import terraformAssoc from '../data/terraform-associate-questions.json'
@@ -38,6 +39,7 @@ const CERT_QUESTIONS = {
   'comptia-net-plus': comptiaNetPlus,
   'comptia-sec-plus': comptiaSecPlus,
   'comptia-server-plus': comptiaServerPlus,
+  'schneider-dcca': schneiderDcca,
   'comptia-a-plus-core-1': comptiaAPlusCore1,
   'comptia-a-plus-core-2': comptiaAPlusCore2,
   'terraform-associate': terraformAssoc,
@@ -336,6 +338,33 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
         'The other options either add operational risk, weaken the design goal, or use a service for a purpose it does not provide.'
       )
     }
+  })
+
+  it('Schneider DCCA follows the official development-path course areas', () => {
+    if (certId !== 'schneider-dcca') return
+
+    const expectedCounts = {
+      'Fundamentals of Availability': 54,
+      'Fire Protection Methods': 54,
+      'Cabling Strategies for Data Centers': 54,
+      'Fundamentals of Cooling': 54,
+      'Humidity in the Data Center': 54,
+      'Physical Security': 54,
+      'Fundamentals of Power': 54,
+      'Generator Fundamentals': 54,
+      'Optimizing Cooling Layouts': 54,
+      'Power Redundancy': 54,
+      'Power Distribution': 54,
+      'Rack Fundamentals': 54,
+      'Room, Row, and Rack Cooling': 51,
+      'Physical Infrastructure Management': 51,
+    }
+
+    const counts = Object.fromEntries(Object.keys(expectedCounts).map(domain => [domain, 0]))
+    for (const q of questions) counts[q.domain] += 1
+
+    expect(counts).toEqual(expectedCounts)
+    expect(new Set(questions.map(q => q.question)).size).toBe(questions.length)
   })
 
   it('SAA-C03 explanations teach the review-mode decision path', () => {

@@ -224,6 +224,7 @@ export default function Docs() {
                 [<Badge color="#c8202f">N10-009</Badge>, 'CompTIA', '750', '90', '90 min', '80%'],
                 [<Badge color="#c8202f">SY0-701</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
                 [<Badge color="#c8202f">SK0-005</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
+                [<Badge color="#a78bfa">DCCA</Badge>, 'Schneider Electric', '750', '100', '120 min', '70% practice'],
                 [<Badge color="#7c3aed">TF 004</Badge>, 'HashiCorp', '632', '57', '60 min', '~70%'],
               ]}
             />
@@ -685,7 +686,8 @@ key = random() ** (1 / weight)
                   'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before the unpublished CCNA preview track.',
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
-                  'Homepage guided paths — the A+ entry card routes directly to /comptia/a-plus, while Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert. Data Center Technician now frames Server+ into Schneider DCCA preview into CCNA preview. Cybersecurity frames Network+ and Security+ as the baseline before the practical Splunk SOC tooling layer. NVIDIA starts with Linux+ as a Coming Soon systems foundation before the AI credentials.',
+                  'Schneider Data Center Certified Associate (DCCA) - live 750-question pool built from Schneider Electric University DCCA Exam Development Path modules: availability, fire protection, cabling, cooling, humidity, physical security, power, generators, cooling layouts, redundancy, power distribution, racks, room/row/rack cooling, and physical infrastructure management.',
+                  'Homepage guided paths - the A+ entry card routes directly to /comptia/a-plus, while Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert. Data Center Technician now frames Server+ into live Schneider DCCA into CCNA preview. Cybersecurity frames Network+ and Security+ as the baseline before the practical Splunk SOC tooling layer. NVIDIA starts with Linux+ as a Coming Soon systems foundation before the AI credentials.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
@@ -712,7 +714,6 @@ key = random() ** (1 / weight)
                 color: '#a1a1aa',
                 items: [
                   'Splunk Core Certified User (SPLK-1001) buildout - planned as Cybersecurity level 3 for SOC analyst readiness: 60-question / 60-minute exam, no prerequisite exams, focused on Splunk basics, searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts.',
-                  'Schneider Data Center Certified Associate (DCCA) buildout - planned as Data Center Technician level 2 using Schneider Electric University vendor material: availability, fire protection, cabling, cooling, humidity, physical security, power, generators, cooling layouts, redundancy, power distribution, racks, and physical infrastructure management.',
                   'CompTIA Linux+ (XK0-006) buildout - planned as NVIDIA / AI path step 1: current V8 exam, maximum 90 questions, 90 minutes, 720 passing score, focused on Linux administration, security, automation, troubleshooting, cloud, and hybrid systems.',
                   'CCNA preview QA - Networking can name Network+ or CCST Networking before CCNA, but keep the unpublished 750-item CCNA pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
                   'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, and Texas 2026 outline reconciliation; Georgia remains pending stable PSI/GREC bulletin verification.',

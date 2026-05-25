@@ -9,6 +9,7 @@ import ccna200301QuestionsUrl from './ccna-200-301-questions.json?url'
 import comptiaNetPlusQuestionsUrl from './comptia-net-plus-questions.json?url'
 import comptiaSecPlusQuestionsUrl from './comptia-sec-plus-questions.json?url'
 import comptiaServerPlusQuestionsUrl from './comptia-server-plus-questions.json?url'
+import schneiderDccaQuestionsUrl from './schneider-dcca-questions.json?url'
 import comptiaAPlusCore1QuestionsUrl from './comptia-a-plus-core-1-questions.json?url'
 import comptiaAPlusCore2QuestionsUrl from './comptia-a-plus-core-2-questions.json?url'
 import terraformAssociateQuestionsUrl from './terraform-associate-questions.json?url'
@@ -486,6 +487,52 @@ const certs = {
       'Server Administration': { dot: 'bg-[#e74c3c]', bar: 'bg-[#e74c3c]', text: 'text-[#e74c3c]', hex: '#e74c3c' },
       'Security and Disaster Recovery': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
       'Troubleshooting': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
+    },
+  },
+  'schneider-dcca': {
+    id: 'schneider-dcca',
+    title: 'Schneider Data Center Certified Associate',
+    code: 'DCCA',
+    provider: 'Schneider Electric',
+    description: 'Foundational data center physical infrastructure certification covering availability, fire protection, cabling, cooling, power, racks, management, and physical security.',
+    difficulty: 'Associate',
+    color: '#a78bfa',
+    questionCount: 750,
+    examQuestions: 100,
+    examTime: 120,
+    passingScore: 70,
+    loadQuestions: () => loadQuestionAsset(schneiderDccaQuestionsUrl),
+    domains: [
+      { name: 'Fundamentals of Availability', weight: 8 },
+      { name: 'Fire Protection Methods', weight: 8 },
+      { name: 'Cabling Strategies for Data Centers', weight: 7 },
+      { name: 'Fundamentals of Cooling', weight: 7 },
+      { name: 'Humidity in the Data Center', weight: 7 },
+      { name: 'Physical Security', weight: 7 },
+      { name: 'Fundamentals of Power', weight: 7 },
+      { name: 'Generator Fundamentals', weight: 7 },
+      { name: 'Optimizing Cooling Layouts', weight: 7 },
+      { name: 'Power Redundancy', weight: 7 },
+      { name: 'Power Distribution', weight: 7 },
+      { name: 'Rack Fundamentals', weight: 7 },
+      { name: 'Room, Row, and Rack Cooling', weight: 7 },
+      { name: 'Physical Infrastructure Management', weight: 7 },
+    ],
+    domainColors: {
+      'Fundamentals of Availability': { dot: 'bg-[#a78bfa]', bar: 'bg-[#a78bfa]', text: 'text-[#a78bfa]', hex: '#a78bfa' },
+      'Fire Protection Methods': { dot: 'bg-[#fb7185]', bar: 'bg-[#fb7185]', text: 'text-[#fb7185]', hex: '#fb7185' },
+      'Cabling Strategies for Data Centers': { dot: 'bg-[#60a5fa]', bar: 'bg-[#60a5fa]', text: 'text-[#60a5fa]', hex: '#60a5fa' },
+      'Fundamentals of Cooling': { dot: 'bg-[#22d3ee]', bar: 'bg-[#22d3ee]', text: 'text-[#22d3ee]', hex: '#22d3ee' },
+      'Humidity in the Data Center': { dot: 'bg-[#38bdf8]', bar: 'bg-[#38bdf8]', text: 'text-[#38bdf8]', hex: '#38bdf8' },
+      'Physical Security': { dot: 'bg-[#f97316]', bar: 'bg-[#f97316]', text: 'text-[#f97316]', hex: '#f97316' },
+      'Fundamentals of Power': { dot: 'bg-[#facc15]', bar: 'bg-[#facc15]', text: 'text-[#facc15]', hex: '#facc15' },
+      'Generator Fundamentals': { dot: 'bg-[#eab308]', bar: 'bg-[#eab308]', text: 'text-[#eab308]', hex: '#eab308' },
+      'Optimizing Cooling Layouts': { dot: 'bg-[#06b6d4]', bar: 'bg-[#06b6d4]', text: 'text-[#06b6d4]', hex: '#06b6d4' },
+      'Power Redundancy': { dot: 'bg-[#84cc16]', bar: 'bg-[#84cc16]', text: 'text-[#84cc16]', hex: '#84cc16' },
+      'Power Distribution': { dot: 'bg-[#10b981]', bar: 'bg-[#10b981]', text: 'text-[#10b981]', hex: '#10b981' },
+      'Rack Fundamentals': { dot: 'bg-[#8b5cf6]', bar: 'bg-[#8b5cf6]', text: 'text-[#8b5cf6]', hex: '#8b5cf6' },
+      'Room, Row, and Rack Cooling': { dot: 'bg-[#0ea5e9]', bar: 'bg-[#0ea5e9]', text: 'text-[#0ea5e9]', hex: '#0ea5e9' },
+      'Physical Infrastructure Management': { dot: 'bg-[#14b8a6]', bar: 'bg-[#14b8a6]', text: 'text-[#14b8a6]', hex: '#14b8a6' },
     },
   },
   'comptia-a-plus-core-1': {

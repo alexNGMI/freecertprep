@@ -104,7 +104,7 @@ const paths = [
     color: '#a78bfa',
     to: '/paths/data-center-technician',
     meta: 'Server+ to DCCA to CCNA',
-    certIds: ['comptia-server-plus'],
+    certIds: ['comptia-server-plus', 'schneider-dcca'],
   },
 ]
 
