@@ -312,11 +312,11 @@ function PathCard({ path, className = '', variant = 'default' }) {
 
   return (
     <div
-      className={`relative overflow-hidden border rounded-lg bg-zinc-950/75 ${wide ? 'p-5' : 'p-4'} ${className}`}
+      className={`relative overflow-hidden border rounded-lg bg-zinc-950/75 ${wide ? 'p-5' : 'p-4 flex flex-col'} ${className}`}
       style={{ borderColor: `${path.color}45` }}
     >
       <div className="absolute top-0 left-0 h-1 w-full" style={{ backgroundColor: path.color }} />
-      <div className={wide ? 'grid grid-cols-1 sm:grid-cols-[1.15fr_0.85fr] gap-4 sm:items-center' : ''}>
+      <div className={wide ? 'grid grid-cols-1 sm:grid-cols-[1.15fr_0.85fr] gap-4 sm:items-center' : 'flex flex-col flex-1'}>
         <div>
           <div className={`flex items-start justify-between gap-4 ${wide ? 'mb-3' : 'mb-6'}`}>
             <div className="w-11 h-11 rounded-lg border border-white/10 bg-zinc-900/80 flex items-center justify-center" style={{ color: path.color }}>
@@ -327,10 +327,10 @@ function PathCard({ path, className = '', variant = 'default' }) {
           <h3 className={`${featured ? 'text-2xl md:text-3xl' : 'text-lg'} font-bold text-zinc-100 tracking-tight mb-3`}>
             {path.title}
           </h3>
-          <p className={`text-sm text-zinc-400 leading-relaxed ${wide ? 'max-w-2xl' : 'mb-6'}`}>{path.description}</p>
+          <p className={`text-sm text-zinc-400 leading-relaxed ${wide ? 'max-w-2xl' : ''}`}>{path.description}</p>
         </div>
 
-        <div>
+        <div className={wide ? '' : 'mt-auto pt-6'}>
           <p className="text-xs font-semibold text-zinc-500 mb-4">{path.meta}</p>
           <PathCta to={path.to} label="Open path" accentColor={path.color} />
         </div>
