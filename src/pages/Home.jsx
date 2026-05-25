@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   Cloud,
   Cpu,
-  GraduationCap,
   LockKeyhole,
   Network,
   Server,
@@ -33,19 +32,6 @@ function useVisitorCount() {
 const certs = getAllCerts()
 
 const paths = [
-  {
-    id: 'it-entry',
-    eyebrow: 'IT Entry',
-    title: 'Start with A+ if you are brand new',
-    description:
-      'A+ is the clean first step for hardware, operating systems, troubleshooting, and everyday support skills.',
-    icon: GraduationCap,
-    color: '#ef4444',
-    featured: true,
-    to: '/comptia/a-plus',
-    meta: 'A+ foundation',
-    certIds: [],
-  },
   {
     id: 'networking',
     eyebrow: 'Networking',
@@ -196,8 +182,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-            <PathCard path={paths[0]} variant="wide" className="md:col-span-2 xl:col-span-4" />
-            {paths.slice(1).map((path) => (
+            {paths.map((path) => (
               <PathCard key={path.id} path={path} />
             ))}
           </div>
@@ -226,13 +211,6 @@ export default function Home() {
               <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Full catalog</p>
               <h2 className="text-3xl font-bold text-zinc-100">Every active certification.</h2>
             </div>
-            <Link
-              to="/comptia/a-plus"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-red-500/25 bg-red-500/10 text-red-200 text-sm font-semibold px-4 py-2.5 hover:bg-red-500/15 transition-colors"
-            >
-              A+ Core Selector
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
