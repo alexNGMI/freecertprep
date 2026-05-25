@@ -7734,31 +7734,31 @@
   },
   {
     "id": "netplus-511",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A data center builds virtual tenant networks on top of shared physical infrastructure, with each tenant's traffic logically separated but running over the same underlying switches and routers. What term describes this virtual network built on top of a physical network?",
+    "question": "At branch 01, users can reach an internal web app by IP address but not by hostname after a DNS server replacement. ipconfig shows the old DNS server address on affected clients, while the gateway and subnet mask are correct. What is the best next step?",
     "choices": [
-      "Underlay network",
-      "Overlay network",
-      "Transit network",
-      "Fabric network"
+      "Update the DHCP DNS server option and renew the client leases",
+      "Replace the default gateway with the web server IP address",
+      "Disable spanning tree on access switches",
+      "Add a static ARP entry for the web server"
     ],
-    "correctAnswer": 1,
-    "explanation": "A virtual network built logically on top of shared physical infrastructure is an overlay (e.g., VXLAN); the physical transport beneath it is the underlay."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to update the DHCP DNS server option and renew the client leases. The symptom isolates name resolution, and the client evidence shows stale DNS settings delivered by DHCP. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-512",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A remote worker's VPN client is configured so that only traffic destined for the corporate network goes through the VPN tunnel, while all other internet traffic flows directly through the local ISP connection. What is this configuration called?",
+    "question": "At branch 02, a group of laptops on one floor receive 169.254.x.x addresses and cannot reach any internal resources. The switch ports show link up, but DHCPDISCOVER messages never receive DHCPOFFER responses. What is the best next step?",
     "choices": [
-      "Full tunnel VPN",
-      "Site-to-site VPN",
-      "Always-on VPN",
-      "Split tunneling"
+      "Clear the DNS resolver cache on each laptop",
+      "Verify DHCP relay or VLAN access between that subnet and the DHCP server",
+      "Increase the wireless transmit power",
+      "Replace the internet firewall certificate"
     ],
-    "correctAnswer": 3,
-    "explanation": "Split tunneling sends only corporate-bound traffic through the VPN while other internet traffic uses the local ISP path directly, reducing VPN load at some security cost. Full tunnel sends everything through the VPN."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to verify DHCP relay or VLAN access between that subnet and the DHCP server. APIPA addressing means the clients could not complete DHCP. The next step is to check DHCP scope, relay, VLAN, and server reachability. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-513",
@@ -8070,45 +8070,45 @@
   },
   {
     "id": "netplus-535",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A security engineer is deploying an IDS to monitor traffic on a core switch. The IDS must not interrupt traffic flow under any circumstances. How should the IDS be connected?",
+    "question": "At branch 65, clients still resolve an application to an old IP address after a planned DNS cutover. Authoritative DNS has the new record, but affected clients return the old cached answer. What is the best next step?",
     "choices": [
-      "Inline between the internet router and core switch",
-      "Connected to a SPAN/mirror port to receive copies of traffic passively",
-      "As an out-of-band management device",
-      "In series with the firewall in bridge mode"
+      "Flush or wait out cached DNS records and verify TTL behavior",
+      "Replace the switch stacking cable",
+      "Change the wireless SSID name",
+      "Disable NAT on the internet edge"
     ],
-    "correctAnswer": 1,
-    "explanation": "An IDS must be passive, so it connects to a SPAN/mirror port receiving copies of traffic - it can alert without ever being in the forwarding path. Inline placement would risk interrupting traffic (that is IPS behavior)."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to flush or wait out cached DNS records and verify TTL behavior. Authoritative DNS is correct, so the remaining problem is stale resolver or client cache behavior. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-536",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An organization needs a security device that can automatically block malicious traffic in real time — dropping packets from a detected attack without waiting for an administrator. Which device must be deployed inline to provide this capability?",
+    "question": "At branch 66, new devices intermittently fail to join a subnet during a hiring event. The DHCP server shows the scope has only two free leases remaining. What is the best next step?",
     "choices": [
-      "SIEM",
-      "IDS",
-      "Honeypot",
-      "IPS"
+      "Change the SNMP community string",
+      "Expand the DHCP scope or reclaim unused leases",
+      "Force all switch ports to full duplex",
+      "Replace the site-to-site VPN pre-shared key"
     ],
-    "correctAnswer": 3,
-    "explanation": "An IPS sits inline and can drop or block malicious traffic automatically in real time. An IDS only alerts (out-of-band), a SIEM correlates logs, and a honeypot lures attackers."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to expand the DHCP scope or reclaim unused leases. A nearly exhausted DHCP scope explains why new clients cannot consistently obtain addresses. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-537",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A school district must prevent students from accessing social media, gaming, and adult content websites during school hours. Which security technology filters web traffic by category or URL?",
+    "question": "At branch 67, several ceiling-mounted access points shut down after additional cameras were connected to the same switch. The switch log reports PoE budget exceeded on multiple ports. What is the best next step?",
     "choices": [
-      "Content/URL filtering",
-      "Stateful firewall",
-      "IDS",
-      "NAC"
+      "Reduce the DHCP lease time to one hour",
+      "Change the corporate DNS domain",
+      "Increase available PoE capacity or move devices to a switch with sufficient power budget",
+      "Disable IPv6 router advertisements"
     ],
-    "correctAnswer": 0,
-    "explanation": "Content/URL filtering classifies and blocks web traffic by category or specific URL (social media, gaming, adult content), commonly enforced during defined hours. Firewalls/IDS/NAC do not categorize web content."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to increase available PoE capacity or move devices to a switch with sufficient power budget. The logged PoE budget condition directly explains why powered devices are shutting down. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-538",
@@ -8354,171 +8354,171 @@
   },
   {
     "id": "netplus-551",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network uses the 10.10.10.0/24 subnet. How many usable host IP addresses are available in this subnet?",
+    "question": "At branch 03, employees report intermittent video calls in a dense office area after a new neighboring tenant installed access points. Wireless scans show heavy channel overlap and high retry counts on the 2.4 GHz band. What is the best next step?",
     "choices": [
-      "256",
-      "252",
-      "254",
-      "255"
+      "Add a second DHCP scope using the same subnet",
+      "Disable WPA2/WPA3 encryption temporarily",
+      "Adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz",
+      "Change the wired switch native VLAN to 1"
     ],
     "correctAnswer": 2,
-    "explanation": "A /24 has 8 host bits: 2^8 - 2 = 254 usable addresses after removing the network and broadcast addresses."
+    "explanation": "The best answer is to adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz. High retries and channel overlap point to RF interference and contention, not an IP addressing or trunking issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-552",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An engineer needs to verify whether an IP address is publicly routable. Which statement correctly defines a public IP address?",
+    "question": "At branch 04, traffic to a SaaS application becomes slow after the third hop, but local LAN applications remain fast. traceroute shows latency jumping from 4 ms to 180 ms at the WAN provider handoff. What is the best next step?",
     "choices": [
-      "Any IP address not within the RFC 1918 private ranges (10.x.x.x, 172.16-31.x.x, 192.168.x.x)",
-      "Any IP address assigned by IANA",
-      "Any IP address in the 1.0.0.0/8 range",
-      "Any IP address assigned by a DHCP server"
+      "Replace every access switch on the LAN",
+      "Flush the ARP cache on the file server",
+      "Disable DHCP snooping globally",
+      "Escalate with traceroute evidence and verify the WAN path or provider circuit"
     ],
-    "correctAnswer": 0,
-    "explanation": "A public IP is any address not reserved as RFC 1918 private (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) - i.e., globally routable on the internet. IANA also reserves other special ranges, but the defining contrast here is non-private."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to escalate with traceroute evidence and verify the WAN path or provider circuit. The delay appears beyond the local network at the provider handoff, so path evidence should drive the escalation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-553",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A Class C IPv4 network uses a default subnet mask. What is the default CIDR prefix length for a Class C network?",
+    "question": "At branch 05, a legacy printer connected to a switch port transfers files very slowly and the port logs many late collisions. The printer is hard-set to 100 Mbps full duplex, while the switch port was manually set to half duplex. What is the best next step?",
     "choices": [
-      "/16",
-      "/24",
-      "/8",
-      "/32"
+      "Correct the duplex mismatch by matching both sides or returning both to autonegotiation",
+      "Create a new DNS A record for the printer",
+      "Move the printer to a different DHCP scope only",
+      "Enable port security sticky MAC learning"
     ],
-    "correctAnswer": 1,
-    "explanation": "A Class C network's default mask is 255.255.255.0, i.e., a /24 prefix. /8 is Class A and /16 is Class B by default."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to correct the duplex mismatch by matching both sides or returning both to autonegotiation. Late collisions and mismatched manual duplex settings are classic duplex mismatch indicators. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-554",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A branch office is assigned the network 192.168.1.0/28. How many usable host addresses are available in this subnet?",
+    "question": "At branch 06, a workstation can print and reach servers on its local subnet but cannot browse the internet or reach remote subnets. The IP address and mask are correct, but the default gateway points to an unused address. What is the best next step?",
     "choices": [
-      "30",
-      "16",
-      "32",
-      "14"
+      "Replace the DNS suffix search list",
+      "Correct the default gateway address on the workstation or DHCP scope",
+      "Disable the local firewall on every server",
+      "Change the switch port speed from auto to 10 Mbps"
     ],
-    "correctAnswer": 3,
-    "explanation": "A /28 subnet leaves 4 host bits, giving 2^4 = 16 total addresses. Two are reserved for the network and broadcast addresses, so 14 usable host addresses remain for devices."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to correct the default gateway address on the workstation or DHCP scope. Local subnet traffic does not need a gateway, but off-subnet traffic does. The bad gateway explains the symptom. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-555",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "In FTP active mode, the client sends a PORT command. How does the server initiate the data connection?",
+    "question": "At branch 07, users in VLAN 30 cannot access the data center after a switch replacement, but other VLANs work through the same uplink. The trunk configuration on the new switch allows VLANs 10 and 20 but omits VLAN 30. What is the best next step?",
     "choices": [
-      "The client opens a data channel from port 21 to the server",
-      "The server sends data to the client on port 21",
-      "The server initiates a connection from port 20 back to the client's specified port",
-      "The client opens two separate connections to port 20 and port 21"
+      "Change the DNS server for VLAN 30 clients",
+      "Disable the access point controller",
+      "Add VLAN 30 to the allowed VLAN list on the trunk",
+      "Replace the DHCP server certificate"
     ],
     "correctAnswer": 2,
-    "explanation": "In FTP active mode the client sends PORT with a listening port, and the server opens the data connection back from its port 20 to that client port - which often breaks through client-side NAT/firewalls."
+    "explanation": "The best answer is to add VLAN 30 to the allowed VLAN list on the trunk. Only one VLAN fails across a trunk that otherwise works, and the evidence shows that VLAN is not allowed. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-556",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "FTP passive mode is preferred when clients are behind NAT firewalls. Why does passive mode solve this problem?",
+    "question": "At branch 08, two users lose connectivity at random times and the help desk sees duplicate-address warnings. The ARP table alternates between two MAC addresses for the same IPv4 address. What is the best next step?",
     "choices": [
-      "In passive mode, the client makes both the control and data connections to the server, avoiding inbound connections through NAT",
-      "In passive mode, the server connects to the client without using port 20",
-      "In passive mode, FTP uses a single connection instead of separate control and data channels",
-      "In passive mode, FTP runs over UDP instead of TCP"
+      "Increase the DNS TTL for the host record",
+      "Disable LLDP on access ports",
+      "Change all ports to trunk mode",
+      "Find and remove or readdress the device causing the duplicate IP conflict"
     ],
-    "correctAnswer": 0,
-    "explanation": "In passive mode the server opens a high data port and the client initiates BOTH the control and data connections outbound to the server, so no inbound connection to the NAT'd client is needed."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to find and remove or readdress the device causing the duplicate IP conflict. ARP flapping for one IP and duplicate-address alerts indicate an IP conflict. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-557",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network device needs to download a firmware update using a simple, connectionless file transfer protocol that requires minimal resources. Which protocol and port does TFTP use?",
+    "question": "At branch 09, a new database server responds to ping from an application subnet, but TCP 5432 connections time out. A packet capture shows SYN packets entering the firewall and no permitted session being created. What is the best next step?",
     "choices": [
-      "TCP port 21",
-      "UDP port 69",
-      "TCP port 69",
-      "UDP port 21"
+      "Review and correct the firewall or ACL rule for the required database port",
+      "Replace the subnet mask with a /32",
+      "Clear the browser cache on client PCs",
+      "Disable STP on the access layer"
     ],
-    "correctAnswer": 1,
-    "explanation": "TFTP is a minimal, connectionless transfer protocol running over UDP port 69, commonly used for firmware/config loads. FTP uses TCP 20/21."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to review and correct the firewall or ACL rule for the required database port. ICMP reachability proves basic routing, while the blocked TCP port points to a policy or ACL problem. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-558",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A security team requires all file transfers to use encryption. Two options are SFTP and FTPS. Which statement correctly distinguishes these protocols?",
+    "question": "At branch 10, a VPN user can open simple pages but large file downloads and some HTTPS applications hang. Pings with the DF bit fail above a smaller-than-normal payload size across the tunnel. What is the best next step?",
     "choices": [
-      "SFTP runs FTP over TLS; FTPS uses SSH as its transport",
-      "SFTP and FTPS are identical protocols with different vendor names",
-      "SFTP uses port 990 and FTPS uses port 22",
-      "SFTP tunnels file transfer over SSH (port 22); FTPS adds TLS to FTP (ports 990/21/989)"
+      "Raise DHCP lease duration to eight days",
+      "Adjust MTU/MSS handling for the VPN path",
+      "Move the access point to channel 11",
+      "Disable all routing protocol authentication"
     ],
-    "correctAnswer": 3,
-    "explanation": "SFTP is file transfer tunneled over SSH (TCP 22); FTPS is traditional FTP secured with TLS (implicit 990, explicit on 21, data 989). They are unrelated protocols despite similar names."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to adjust MTU/MSS handling for the VPN path. Large packets failing across a tunnel while smaller packets work is a common MTU or MSS issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-559",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An email client is configured to download messages from a mail server and delete them from the server after download. Which protocol and port does this legacy email retrieval protocol use?",
+    "question": "At branch 11, clients still resolve an application to an old IP address after a planned DNS cutover. Authoritative DNS has the new record, but affected clients return the old cached answer. What is the best next step?",
     "choices": [
-      "IMAP on port 993",
-      "SMTP on port 25",
-      "POP3 on port 110",
-      "IMAP on port 143"
+      "Replace the switch stacking cable",
+      "Change the wireless SSID name",
+      "Flush or wait out cached DNS records and verify TTL behavior",
+      "Disable NAT on the internet edge"
     ],
     "correctAnswer": 2,
-    "explanation": "POP3 (TCP port 110) downloads mail and typically deletes it from the server, a single-device legacy model. IMAP (143/993) keeps mail server-side; SMTP (25) sends mail."
+    "explanation": "The best answer is to flush or wait out cached DNS records and verify TTL behavior. Authoritative DNS is correct, so the remaining problem is stale resolver or client cache behavior. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-560",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An email client is configured to synchronize messages with the server, keeping messages stored server-side and accessible from multiple devices. Which protocol provides this capability on port 143?",
+    "question": "At branch 12, new devices intermittently fail to join a subnet during a hiring event. The DHCP server shows the scope has only two free leases remaining. What is the best next step?",
     "choices": [
-      "IMAP",
-      "POP3",
-      "SMTP",
-      "MAPI"
+      "Change the SNMP community string",
+      "Force all switch ports to full duplex",
+      "Replace the site-to-site VPN pre-shared key",
+      "Expand the DHCP scope or reclaim unused leases"
     ],
-    "correctAnswer": 0,
-    "explanation": "IMAP (TCP port 143, or 993 with TLS) synchronizes and stores messages server-side so they are consistent across multiple devices. POP3 downloads/removes and SMTP sends."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to expand the DHCP scope or reclaim unused leases. A nearly exhausted DHCP scope explains why new clients cannot consistently obtain addresses. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-561",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A mail client needs to submit outgoing email to a mail server using an authenticated, encrypted connection. Which port is defined by RFC 6409 specifically for email message submission?",
+    "question": "At branch 13, several ceiling-mounted access points shut down after additional cameras were connected to the same switch. The switch log reports PoE budget exceeded on multiple ports. What is the best next step?",
     "choices": [
-      "25",
-      "587",
-      "465",
-      "993"
+      "Increase available PoE capacity or move devices to a switch with sufficient power budget",
+      "Reduce the DHCP lease time to one hour",
+      "Change the corporate DNS domain",
+      "Disable IPv6 router advertisements"
     ],
-    "correctAnswer": 1,
-    "explanation": "RFC 6409 defines TCP port 587 for authenticated message submission from clients to a mail server. Port 25 is server-to-server relay, 465 is implicit-TLS submission, and 993 is IMAPS."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to increase available PoE capacity or move devices to a switch with sufficient power budget. The logged PoE budget condition directly explains why powered devices are shutting down. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-562",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A web server must serve both HTTP and HTTPS. What is the primary security difference between HTTP and HTTPS?",
+    "question": "At branch 14, a fiber uplink remains down after new optics were installed on both ends. Both interfaces show no light received, and the transceivers match speed and fiber type. What is the best next step?",
     "choices": [
-      "HTTP uses TCP; HTTPS uses UDP for faster performance",
-      "HTTP is faster; HTTPS adds authentication but not encryption",
-      "HTTP only works on port 80; HTTPS only works on port 8443",
-      "HTTPS uses TLS to encrypt data in transit; HTTP transmits data in cleartext"
+      "Change the server default gateway",
+      "Check fiber polarity, patching, and receive/transmit strand orientation",
+      "Flush DNS on every workstation",
+      "Enable DHCP relay on the firewall"
     ],
-    "correctAnswer": 3,
-    "explanation": "HTTPS layers TLS over HTTP to encrypt data in transit and authenticate the server, while plain HTTP sends everything in cleartext. Both run over TCP; default ports are 80 and 443."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to check fiber polarity, patching, and receive/transmit strand orientation. Matched optics with no received light usually means cabling, polarity, or patching must be checked first. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-563",
@@ -8774,115 +8774,115 @@
   },
   {
     "id": "netplus-581",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A security team runs automated scans that identify open ports, missing patches, and misconfigured services on network hosts, producing a prioritized list of weaknesses without attempting to exploit them. What type of assessment is this?",
+    "question": "At branch 68, a fiber uplink remains down after new optics were installed on both ends. Both interfaces show no light received, and the transceivers match speed and fiber type. What is the best next step?",
     "choices": [
-      "Penetration test",
-      "Vulnerability scan",
-      "Red team exercise",
-      "Security audit"
+      "Change the server default gateway",
+      "Flush DNS on every workstation",
+      "Enable DHCP relay on the firewall",
+      "Check fiber polarity, patching, and receive/transmit strand orientation"
     ],
-    "correctAnswer": 1,
-    "explanation": "An automated scan that enumerates open ports, missing patches, and misconfigurations and prioritizes them WITHOUT exploiting is a vulnerability scan. A penetration test/red team actively exploits, and an audit checks policy compliance."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to check fiber polarity, patching, and receive/transmit strand orientation. Matched optics with no received light usually means cabling, polarity, or patching must be checked first. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-582",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A penetration tester is engaged to simulate an external attacker who has no inside knowledge of the target organization. The tester starts with only the company name and public IP ranges. Which testing approach is this?",
+    "question": "At branch 69, traffic to one remote office follows a slower backup WAN link even though the primary circuit is up. The router has a more specific route for that prefix pointing to the backup next hop. What is the best next step?",
     "choices": [
-      "White box",
-      "Gray box",
-      "Crystal box",
-      "Black box"
+      "Correct the routing table or route preference for the affected prefix",
+      "Replace the users wireless adapters",
+      "Increase the DNS zone serial number only",
+      "Disable port security on printer ports"
     ],
-    "correctAnswer": 3,
-    "explanation": "Black box testing simulates an external attacker with no inside knowledge - only public data like the company name and IP ranges. White box gives full information; gray box gives partial."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to correct the routing table or route preference for the affected prefix. Longest-prefix and route preference determine forwarding. The more specific route is steering traffic to the backup path. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-583",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A security team conducts an internal penetration test where the testers are given full network diagrams, credentials, and source code. Which testing approach provides this level of visibility?",
+    "question": "At branch 70, after a firewall change, VoIP phones register but one-way audio occurs for calls to external numbers. Signaling reaches the provider, but RTP media streams from the provider are dropped at the edge. What is the best next step?",
     "choices": [
-      "White box",
-      "Black box",
-      "Gray box",
-      "Passive reconnaissance"
+      "Disable NTP on the voice VLAN",
+      "Permit the required voice media port range and verify NAT/firewall handling for RTP",
+      "Change all phone switch ports to trunk mode",
+      "Shorten the DNS TTL for the SIP provider"
     ],
-    "correctAnswer": 0,
-    "explanation": "White box (clear box) testing provides full visibility - network diagrams, credentials, and source code - for the most thorough assessment. Black box gives nothing; gray box gives partial knowledge."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to permit the required voice media port range and verify NAT/firewall handling for RTP. Registration uses signaling, while audio uses media streams. One-way audio commonly follows blocked RTP or NAT handling issues. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-584",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A pen tester is given some information about the target environment — including subnet ranges and a standard user account — but not full architectural details. Which testing approach does this describe?",
+    "question": "At branch 71, a branch loses access to headquarters after a static route change. The next hop configured for the headquarters prefix is not reachable from the branch router. What is the best next step?",
     "choices": [
-      "Black box",
-      "White box",
-      "Gray box",
-      "Red team"
+      "Clear the browser cache on all clients",
+      "Replace the patch panels at headquarters",
+      "Change the static route to a reachable next hop or restore the previous route",
+      "Rotate the wireless pre-shared key"
     ],
     "correctAnswer": 2,
-    "explanation": "Gray box testing gives the tester partial information (e.g., subnets and a standard user account), simulating an insider or a compromised low-privilege user. Black/white box are the no-info and full-info extremes."
+    "explanation": "The best answer is to change the static route to a reachable next hop or restore the previous route. A static route must point to a reachable next hop. The route change directly explains the outage. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-585",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "In a firewall security zone model, the internet-facing zone containing untrusted traffic from external sources is typically called what?",
+    "question": "At branch 72, users connected to one switch cannot reach a server, but users on neighboring switches can. The affected switch learned the server MAC address on the wrong port after a loop event. What is the best next step?",
     "choices": [
-      "Trust zone",
-      "Untrust (outside) zone",
-      "DMZ",
-      "Management zone"
+      "Increase the DHCP scope size",
+      "Change the server host name",
+      "Replace the site VPN certificate",
+      "Investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it"
     ],
-    "correctAnswer": 1,
-    "explanation": "The internet-facing zone holding untrusted external traffic is the untrust/outside zone. The internal LAN is the trust zone, the DMZ is a screened middle zone, and the management zone is for admin access."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it. Incorrect MAC learning after a loop points to Layer 2 instability or mispatching, not server naming or DHCP capacity. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-586",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network administrator provides a contractor with access only to the specific VLANs and systems required for their project, nothing more. Which security principle is being applied?",
+    "question": "At branch 73, users can reach an internal web app by IP address but not by hostname after a DNS server replacement. ipconfig shows the old DNS server address on affected clients, while the gateway and subnet mask are correct. What is the best next step?",
     "choices": [
-      "Defense in depth",
-      "Separation of duties",
-      "Need to know",
-      "Principle of least privilege"
+      "Update the DHCP DNS server option and renew the client leases",
+      "Replace the default gateway with the web server IP address",
+      "Disable spanning tree on access switches",
+      "Add a static ARP entry for the web server"
     ],
-    "correctAnswer": 3,
-    "explanation": "Granting only the minimum access required for the task (and nothing more) is the principle of least privilege. Need-to-know is related but applies to information access; defense in depth and separation of duties are different controls."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to update the DHCP DNS server option and renew the client leases. The symptom isolates name resolution, and the client evidence shows stale DNS settings delivered by DHCP. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-587",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A security architect places the finance servers in a dedicated VLAN with strict ACLs, separate from the general office VLAN. If malware infects a general office workstation, the finance servers remain protected. Which security benefit does this describe?",
+    "question": "At branch 74, a group of laptops on one floor receive 169.254.x.x addresses and cannot reach any internal resources. The switch ports show link up, but DHCPDISCOVER messages never receive DHCPOFFER responses. What is the best next step?",
     "choices": [
-      "Limiting the blast radius of a security incident through network segmentation",
-      "Providing redundancy for critical servers",
-      "Enabling faster routing between segments",
-      "Simplifying firewall rule management"
+      "Clear the DNS resolver cache on each laptop",
+      "Verify DHCP relay or VLAN access between that subnet and the DHCP server",
+      "Increase the wireless transmit power",
+      "Replace the internet firewall certificate"
     ],
-    "correctAnswer": 0,
-    "explanation": "Isolating finance servers in their own ACL-protected VLAN means a compromise of the office VLAN cannot directly reach them - segmentation limits the blast radius/lateral movement of an incident. It is not about redundancy or routing speed."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to verify DHCP relay or VLAN access between that subnet and the DHCP server. APIPA addressing means the clients could not complete DHCP. The next step is to check DHCP scope, relay, VLAN, and server reachability. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-588",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A company requires employees to authenticate using both a password and a hardware token that generates a time-based code. What type of authentication is this?",
+    "question": "At branch 75, employees report intermittent video calls in a dense office area after a new neighboring tenant installed access points. Wireless scans show heavy channel overlap and high retry counts on the 2.4 GHz band. What is the best next step?",
     "choices": [
-      "Single-factor authentication",
-      "Certificate-based authentication",
-      "Multi-factor authentication (MFA)",
-      "Biometric authentication"
+      "Add a second DHCP scope using the same subnet",
+      "Disable WPA2/WPA3 encryption temporarily",
+      "Adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz",
+      "Change the wired switch native VLAN to 1"
     ],
     "correctAnswer": 2,
-    "explanation": "Combining a password (something you know) with a hardware OTP token (something you have) is multi-factor authentication - two different factor categories. Two passwords would not qualify."
+    "explanation": "The best answer is to adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz. High retries and channel overlap point to RF interference and contention, not an IP addressing or trunking issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-589",
@@ -9114,171 +9114,171 @@
   },
   {
     "id": "netplus-601",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A company hosts a public web server with a fixed public IP address that always maps to the same internal private IP. Which NAT type creates this permanent one-to-one mapping?",
+    "question": "At branch 15, traffic to one remote office follows a slower backup WAN link even though the primary circuit is up. The router has a more specific route for that prefix pointing to the backup next hop. What is the best next step?",
     "choices": [
-      "PAT (Port Address Translation)",
-      "Dynamic NAT",
-      "Static NAT",
-      "NAT overload"
+      "Replace the users wireless adapters",
+      "Increase the DNS zone serial number only",
+      "Correct the routing table or route preference for the affected prefix",
+      "Disable port security on printer ports"
     ],
     "correctAnswer": 2,
-    "explanation": "Static NAT creates a permanent fixed one-to-one mapping between a public IP and an internal private IP, suitable for a server that must always be reachable at the same address. PAT/dynamic NAT are many-to-one or pooled."
+    "explanation": "The best answer is to correct the routing table or route preference for the affected prefix. Longest-prefix and route preference determine forwarding. The more specific route is steering traffic to the backup path. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-602",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A company has a pool of 10 public IP addresses and 50 internal hosts. The firewall assigns a public IP from the pool to each internal host when they initiate a connection, releasing it when done. Which NAT type is this?",
+    "question": "At branch 16, after a firewall change, VoIP phones register but one-way audio occurs for calls to external numbers. Signaling reaches the provider, but RTP media streams from the provider are dropped at the edge. What is the best next step?",
     "choices": [
-      "Dynamic NAT",
-      "Static NAT",
-      "NAT overload",
-      "PAT"
+      "Disable NTP on the voice VLAN",
+      "Change all phone switch ports to trunk mode",
+      "Shorten the DNS TTL for the SIP provider",
+      "Permit the required voice media port range and verify NAT/firewall handling for RTP"
     ],
-    "correctAnswer": 0,
-    "explanation": "Dynamic NAT assigns a public IP from a pool to an internal host for the duration of a session, returning it to the pool afterward (no port multiplexing). It needs as many public IPs as concurrent hosts."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to permit the required voice media port range and verify NAT/firewall handling for RTP. Registration uses signaling, while audio uses media streams. One-way audio commonly follows blocked RTP or NAT handling issues. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-603",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An organization has only one public IP address but needs 500 internal hosts to access the internet simultaneously. Which NAT technique allows all hosts to share a single public IP by differentiating sessions using port numbers?",
+    "question": "At branch 17, a branch loses access to headquarters after a static route change. The next hop configured for the headquarters prefix is not reachable from the branch router. What is the best next step?",
     "choices": [
-      "Static NAT",
-      "PAT (Port Address Translation)",
-      "Dynamic NAT",
-      "1:1 NAT"
+      "Change the static route to a reachable next hop or restore the previous route",
+      "Clear the browser cache on all clients",
+      "Replace the patch panels at headquarters",
+      "Rotate the wireless pre-shared key"
     ],
-    "correctAnswer": 1,
-    "explanation": "PAT (Port Address Translation) lets many internal hosts share one public IP by tracking each flow with a unique source port, supporting hundreds of simultaneous sessions on a single address."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to change the static route to a reachable next hop or restore the previous route. A static route must point to a reachable next hop. The route change directly explains the outage. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-604",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A firewall is configured for NAT where many internal hosts share a single public IP address with unique source port numbers tracking each session. This configuration is also referred to as what?",
+    "question": "At branch 18, users connected to one switch cannot reach a server, but users on neighboring switches can. The affected switch learned the server MAC address on the wrong port after a loop event. What is the best next step?",
     "choices": [
-      "Static NAT",
-      "Dynamic NAT",
-      "Proxy NAT",
-      "NAT overload"
+      "Increase the DHCP scope size",
+      "Investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it",
+      "Change the server host name",
+      "Replace the site VPN certificate"
     ],
-    "correctAnswer": 3,
-    "explanation": "Many-to-one NAT using unique source ports is also called NAT overload (Cisco term for PAT). Static/dynamic NAT do not multiplex by port."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it. Incorrect MAC learning after a loop points to Layer 2 instability or mispatching, not server naming or DHCP capacity. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-605",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A startup needs to deploy servers quickly without purchasing physical hardware. They subscribe to a cloud service that provides raw virtualized compute, storage, and networking. The team installs and manages their own OS and applications. Which cloud service model does this represent?",
+    "question": "At branch 19, users can reach an internal web app by IP address but not by hostname after a DNS server replacement. ipconfig shows the old DNS server address on affected clients, while the gateway and subnet mask are correct. What is the best next step?",
     "choices": [
-      "SaaS",
-      "PaaS",
-      "IaaS",
-      "FaaS"
+      "Replace the default gateway with the web server IP address",
+      "Disable spanning tree on access switches",
+      "Update the DHCP DNS server option and renew the client leases",
+      "Add a static ARP entry for the web server"
     ],
     "correctAnswer": 2,
-    "explanation": "Renting raw virtualized compute, storage, and networking while you manage the OS and apps is Infrastructure as a Service (IaaS). PaaS abstracts the OS/runtime and SaaS delivers a finished application."
+    "explanation": "The best answer is to update the DHCP DNS server option and renew the client leases. The symptom isolates name resolution, and the client evidence shows stale DNS settings delivered by DHCP. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-606",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A development team needs a managed environment to build, deploy, and scale their application without managing the underlying servers or OS. The cloud provider handles infrastructure, OS, and runtime. Which cloud model is this?",
+    "question": "At branch 20, a group of laptops on one floor receive 169.254.x.x addresses and cannot reach any internal resources. The switch ports show link up, but DHCPDISCOVER messages never receive DHCPOFFER responses. What is the best next step?",
     "choices": [
-      "PaaS",
-      "IaaS",
-      "SaaS",
-      "CaaS"
+      "Clear the DNS resolver cache on each laptop",
+      "Increase the wireless transmit power",
+      "Replace the internet firewall certificate",
+      "Verify DHCP relay or VLAN access between that subnet and the DHCP server"
     ],
-    "correctAnswer": 0,
-    "explanation": "A managed build/deploy/scale environment where the provider handles infrastructure, OS, and runtime is Platform as a Service (PaaS). IaaS exposes the OS; SaaS delivers a complete app."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to verify DHCP relay or VLAN access between that subnet and the DHCP server. APIPA addressing means the clients could not complete DHCP. The next step is to check DHCP scope, relay, VLAN, and server reachability. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-607",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Employees access a company's CRM application through a web browser. The application, data, and infrastructure are all managed by the vendor. No software is installed on client machines. Which cloud delivery model is this?",
+    "question": "At branch 21, employees report intermittent video calls in a dense office area after a new neighboring tenant installed access points. Wireless scans show heavy channel overlap and high retry counts on the 2.4 GHz band. What is the best next step?",
     "choices": [
-      "IaaS",
-      "SaaS",
-      "PaaS",
-      "Hybrid cloud"
+      "Adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz",
+      "Add a second DHCP scope using the same subnet",
+      "Disable WPA2/WPA3 encryption temporarily",
+      "Change the wired switch native VLAN to 1"
     ],
-    "correctAnswer": 1,
-    "explanation": "A vendor-managed application accessed via browser with nothing installed and all data/infrastructure managed by the provider is Software as a Service (SaaS)."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz. High retries and channel overlap point to RF interference and contention, not an IP addressing or trunking issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-608",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An organization evaluates cloud deployment models. Which model describes a cloud infrastructure operated exclusively for a single organization, either on-premises or hosted by a provider?",
+    "question": "At branch 22, traffic to a SaaS application becomes slow after the third hop, but local LAN applications remain fast. traceroute shows latency jumping from 4 ms to 180 ms at the WAN provider handoff. What is the best next step?",
     "choices": [
-      "Public cloud",
-      "Community cloud",
-      "Hybrid cloud",
-      "Private cloud"
+      "Replace every access switch on the LAN",
+      "Escalate with traceroute evidence and verify the WAN path or provider circuit",
+      "Flush the ARP cache on the file server",
+      "Disable DHCP snooping globally"
     ],
-    "correctAnswer": 3,
-    "explanation": "A private cloud is provisioned for the exclusive use of one organization, whether on-premises or provider-hosted. Public cloud is shared/multi-tenant; community is shared by related organizations."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to escalate with traceroute evidence and verify the WAN path or provider circuit. The delay appears beyond the local network at the provider handoff, so path evidence should drive the escalation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-609",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A retailer keeps sensitive customer data on a private on-premises cloud but uses public cloud resources to handle seasonal traffic spikes. Which cloud deployment model describes this combination?",
+    "question": "At branch 23, a legacy printer connected to a switch port transfers files very slowly and the port logs many late collisions. The printer is hard-set to 100 Mbps full duplex, while the switch port was manually set to half duplex. What is the best next step?",
     "choices": [
-      "Community cloud",
-      "Private cloud",
-      "Hybrid cloud",
-      "Multi-cloud"
+      "Create a new DNS A record for the printer",
+      "Move the printer to a different DHCP scope only",
+      "Correct the duplex mismatch by matching both sides or returning both to autonegotiation",
+      "Enable port security sticky MAC learning"
     ],
     "correctAnswer": 2,
-    "explanation": "Combining a private on-prem cloud for sensitive data with public cloud for burst capacity (cloud bursting) is a hybrid cloud. Multi-cloud means multiple public providers without that private/public integration emphasis."
+    "explanation": "The best answer is to correct the duplex mismatch by matching both sides or returning both to autonegotiation. Late collisions and mismatched manual duplex settings are classic duplex mismatch indicators. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-610",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network administrator wants to migrate to IPv6 while maintaining IPv4 connectivity for legacy systems. Which IPv6 transition strategy runs both IPv4 and IPv6 simultaneously on all devices, allowing them to communicate using either protocol?",
+    "question": "At branch 24, a workstation can print and reach servers on its local subnet but cannot browse the internet or reach remote subnets. The IP address and mask are correct, but the default gateway points to an unused address. What is the best next step?",
     "choices": [
-      "Dual stack",
-      "6to4 tunneling",
-      "NAT64",
-      "Teredo"
+      "Replace the DNS suffix search list",
+      "Disable the local firewall on every server",
+      "Change the switch port speed from auto to 10 Mbps",
+      "Correct the default gateway address on the workstation or DHCP scope"
     ],
-    "correctAnswer": 0,
-    "explanation": "Dual stack runs IPv4 and IPv6 concurrently on the same devices, so each can use whichever protocol a peer supports - the preferred long-term transition method. 6to4/NAT64/Teredo are tunneling/translation mechanisms."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to correct the default gateway address on the workstation or DHCP scope. Local subnet traffic does not need a gateway, but off-subnet traffic does. The bad gateway explains the symptom. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-611",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An ISP offers only IPv4 connectivity, but an enterprise needs to transport IPv6 traffic across this IPv4 network between two IPv6-only sites. Which mechanism encapsulates IPv6 packets inside IPv4 packets for this purpose?",
+    "question": "At branch 25, users in VLAN 30 cannot access the data center after a switch replacement, but other VLANs work through the same uplink. The trunk configuration on the new switch allows VLANs 10 and 20 but omits VLAN 30. What is the best next step?",
     "choices": [
-      "Dual stack",
-      "6to4 tunneling",
-      "NAT64",
-      "ISATAP"
+      "Add VLAN 30 to the allowed VLAN list on the trunk",
+      "Change the DNS server for VLAN 30 clients",
+      "Disable the access point controller",
+      "Replace the DHCP server certificate"
     ],
-    "correctAnswer": 1,
-    "explanation": "6to4 tunneling encapsulates IPv6 packets inside IPv4 to carry them across an IPv4-only transport between IPv6 sites. Dual stack needs native IPv6, and NAT64 translates rather than tunnels."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to add VLAN 30 to the allowed VLAN list on the trunk. Only one VLAN fails across a trunk that otherwise works, and the evidence shows that VLAN is not allowed. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-612",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A host on an IPv4-only network behind a NAT firewall needs to communicate with IPv6 services. Which tunneling mechanism was specifically designed to traverse NAT devices by encapsulating IPv6 in UDP?",
+    "question": "At branch 26, two users lose connectivity at random times and the help desk sees duplicate-address warnings. The ARP table alternates between two MAC addresses for the same IPv4 address. What is the best next step?",
     "choices": [
-      "6to4",
-      "ISATAP",
-      "Dual stack",
-      "Teredo"
+      "Increase the DNS TTL for the host record",
+      "Find and remove or readdress the device causing the duplicate IP conflict",
+      "Disable LLDP on access ports",
+      "Change all ports to trunk mode"
     ],
-    "correctAnswer": 3,
-    "explanation": "Teredo encapsulates IPv6 in IPv4 UDP specifically so hosts behind IPv4 NAT can reach IPv6, since UDP traverses NAT. 6to4/ISATAP do not handle NAT traversal natively."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to find and remove or readdress the device causing the duplicate IP conflict. ARP flapping for one IP and duplicate-address alerts indicate an IP conflict. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-613",
@@ -9534,115 +9534,115 @@
   },
   {
     "id": "netplus-631",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An unauthorized person waits near a secured building entrance and slips in behind an employee as they use their access badge. Which physical security attack is this?",
+    "question": "At branch 76, traffic to a SaaS application becomes slow after the third hop, but local LAN applications remain fast. traceroute shows latency jumping from 4 ms to 180 ms at the WAN provider handoff. What is the best next step?",
     "choices": [
-      "Shoulder surfing",
-      "Tailgating (piggybacking)",
-      "Badge cloning",
-      "Dumpster diving"
+      "Replace every access switch on the LAN",
+      "Flush the ARP cache on the file server",
+      "Disable DHCP snooping globally",
+      "Escalate with traceroute evidence and verify the WAN path or provider circuit"
     ],
-    "correctAnswer": 1,
-    "explanation": "Slipping in behind an authorized employee through a controlled door is tailgating (piggybacking). Shoulder surfing observes credentials, badge cloning copies a card, and dumpster diving searches trash."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to escalate with traceroute evidence and verify the WAN path or provider circuit. The delay appears beyond the local network at the provider handoff, so path evidence should drive the escalation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-632",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A data center uses a physical security control where a person must pass through an outer door that locks before an inner door opens, ensuring only one person can enter at a time. What is this physical control called?",
+    "question": "At branch 77, a legacy printer connected to a switch port transfers files very slowly and the port logs many late collisions. The printer is hard-set to 100 Mbps full duplex, while the switch port was manually set to half duplex. What is the best next step?",
     "choices": [
-      "Badge reader",
-      "CCTV monitoring",
-      "Biometric scanner",
-      "Mantrap"
+      "Correct the duplex mismatch by matching both sides or returning both to autonegotiation",
+      "Create a new DNS A record for the printer",
+      "Move the printer to a different DHCP scope only",
+      "Enable port security sticky MAC learning"
     ],
-    "correctAnswer": 3,
-    "explanation": "A mantrap is a two-door interlock where the first door must close/lock before the second opens, allowing only one person through at a time and preventing tailgating. Badge readers/CCTV/biometrics are other controls."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to correct the duplex mismatch by matching both sides or returning both to autonegotiation. Late collisions and mismatched manual duplex settings are classic duplex mismatch indicators. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-633",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Employees must present an RFID badge to enter the server room. The access control system logs every entry with the employee's identity and timestamp. Which physical security control is this?",
+    "question": "At branch 78, a workstation can print and reach servers on its local subnet but cannot browse the internet or reach remote subnets. The IP address and mask are correct, but the default gateway points to an unused address. What is the best next step?",
     "choices": [
-      "Proximity card/badge reader access control",
-      "Mantrap",
-      "Biometric retinal scan",
-      "Security guard patrol"
+      "Replace the DNS suffix search list",
+      "Correct the default gateway address on the workstation or DHCP scope",
+      "Disable the local firewall on every server",
+      "Change the switch port speed from auto to 10 Mbps"
     ],
-    "correctAnswer": 0,
-    "explanation": "An RFID/proximity card reader that grants entry and logs identity and timestamp is proximity badge access control. A mantrap controls one-at-a-time entry and biometrics use physiological traits."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to correct the default gateway address on the workstation or DHCP scope. Local subnet traffic does not need a gateway, but off-subnet traffic does. The bad gateway explains the symptom. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-634",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An attacker stands behind a helpdesk employee and watches them type their password. Which social engineering or physical attack technique is this?",
+    "question": "At branch 79, users in VLAN 30 cannot access the data center after a switch replacement, but other VLANs work through the same uplink. The trunk configuration on the new switch allows VLANs 10 and 20 but omits VLAN 30. What is the best next step?",
     "choices": [
-      "Tailgating",
-      "Vishing",
-      "Shoulder surfing",
-      "Dumpster diving"
+      "Change the DNS server for VLAN 30 clients",
+      "Disable the access point controller",
+      "Add VLAN 30 to the allowed VLAN list on the trunk",
+      "Replace the DHCP server certificate"
     ],
     "correctAnswer": 2,
-    "explanation": "Watching someone enter their password over their shoulder is shoulder surfing. Tailgating is following through a door, vishing is a phone scam, and dumpster diving searches discarded materials."
+    "explanation": "The best answer is to add VLAN 30 to the allowed VLAN list on the trunk. Only one VLAN fails across a trunk that otherwise works, and the evidence shows that VLAN is not allowed. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-635",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An attacker retrieves discarded documents from a company's trash bins to find network diagrams, usernames, and server names that can be used in a later attack. Which technique is this?",
+    "question": "At branch 80, two users lose connectivity at random times and the help desk sees duplicate-address warnings. The ARP table alternates between two MAC addresses for the same IPv4 address. What is the best next step?",
     "choices": [
-      "Tailgating",
-      "Dumpster diving",
-      "Shoulder surfing",
-      "Baiting"
+      "Increase the DNS TTL for the host record",
+      "Disable LLDP on access ports",
+      "Change all ports to trunk mode",
+      "Find and remove or readdress the device causing the duplicate IP conflict"
     ],
-    "correctAnswer": 1,
-    "explanation": "Recovering sensitive information from discarded trash (diagrams, names, credentials) for use in a later attack is dumpster diving. The other options describe different physical/social techniques."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to find and remove or readdress the device causing the duplicate IP conflict. ARP flapping for one IP and duplicate-address alerts indicate an IP conflict. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-636",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A web server suddenly becomes unreachable. A traffic analysis shows millions of ICMP packets per second arriving from thousands of different source IP addresses around the world. What type of attack is this?",
+    "question": "At branch 81, a new database server responds to ping from an application subnet, but TCP 5432 connections time out. A packet capture shows SYN packets entering the firewall and no permitted session being created. What is the best next step?",
     "choices": [
-      "ARP poisoning",
-      "Man-in-the-middle attack",
-      "Denial of Service (DoS)",
-      "Distributed Denial of Service (DDoS)"
+      "Review and correct the firewall or ACL rule for the required database port",
+      "Replace the subnet mask with a /32",
+      "Clear the browser cache on client PCs",
+      "Disable STP on the access layer"
     ],
-    "correctAnswer": 3,
-    "explanation": "Massive traffic from thousands of distributed source IPs overwhelming a target is a Distributed Denial of Service (DDoS). A single-source flood would be a plain DoS; ARP poisoning/MITM are not volumetric floods."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to review and correct the firewall or ACL rule for the required database port. ICMP reachability proves basic routing, while the blocked TCP port points to a policy or ACL problem. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-637",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Thousands of internet-connected devices — including routers, security cameras, and smart TVs — have been compromised by malware and are now remotely controlled by an attacker to send spam and launch attacks. What is this collection of compromised devices called?",
+    "question": "At branch 82, a VPN user can open simple pages but large file downloads and some HTTPS applications hang. Pings with the DF bit fail above a smaller-than-normal payload size across the tunnel. What is the best next step?",
     "choices": [
-      "Botnet",
-      "Honeynet",
-      "Demilitarized Zone",
-      "Zombie farm"
+      "Raise DHCP lease duration to eight days",
+      "Adjust MTU/MSS handling for the VPN path",
+      "Move the access point to channel 11",
+      "Disable all routing protocol authentication"
     ],
-    "correctAnswer": 0,
-    "explanation": "A large set of malware-compromised, remotely controlled devices used to send spam and launch attacks is a botnet (each device is a bot/zombie). A honeynet is a decoy and a DMZ is a network segment."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to adjust MTU/MSS handling for the VPN path. Large packets failing across a tunnel while smaller packets work is a common MTU or MSS issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-638",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A hospital's files are encrypted by malware and become inaccessible. A ransom note demands cryptocurrency payment in exchange for the decryption key. Which type of malware is this?",
+    "question": "At branch 83, clients still resolve an application to an old IP address after a planned DNS cutover. Authoritative DNS has the new record, but affected clients return the old cached answer. What is the best next step?",
     "choices": [
-      "Spyware",
-      "Adware",
-      "Ransomware",
-      "Rootkit"
+      "Replace the switch stacking cable",
+      "Change the wireless SSID name",
+      "Flush or wait out cached DNS records and verify TTL behavior",
+      "Disable NAT on the internet edge"
     ],
     "correctAnswer": 2,
-    "explanation": "Malware that encrypts files and demands payment for the decryption key is ransomware. Spyware/adware harvest data or show ads, and a rootkit hides malicious presence."
+    "explanation": "The best answer is to flush or wait out cached DNS records and verify TTL behavior. Authoritative DNS is correct, so the remaining problem is stale resolver or client cache behavior. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-639",
@@ -9874,115 +9874,115 @@
   },
   {
     "id": "netplus-651",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A technician needs to find the broadcast address for the 192.168.5.0/25 network. What is the broadcast address?",
+    "question": "At branch 27, a new database server responds to ping from an application subnet, but TCP 5432 connections time out. A packet capture shows SYN packets entering the firewall and no permitted session being created. What is the best next step?",
     "choices": [
-      "192.168.5.255",
-      "192.168.5.128",
-      "192.168.5.127",
-      "192.168.5.126"
+      "Replace the subnet mask with a /32",
+      "Clear the browser cache on client PCs",
+      "Review and correct the firewall or ACL rule for the required database port",
+      "Disable STP on the access layer"
     ],
     "correctAnswer": 2,
-    "explanation": "For 192.168.5.0/25 the block size is 128, so the subnet is .0-.127 and the broadcast address is 192.168.5.127 (.128 begins the next /25)."
+    "explanation": "The best answer is to review and correct the firewall or ACL rule for the required database port. ICMP reachability proves basic routing, while the blocked TCP port points to a policy or ACL problem. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-652",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A host is assigned the IP address 10.10.20.145/28. What is the network address of this subnet?",
+    "question": "At branch 28, a VPN user can open simple pages but large file downloads and some HTTPS applications hang. Pings with the DF bit fail above a smaller-than-normal payload size across the tunnel. What is the best next step?",
     "choices": [
-      "10.10.20.144",
-      "10.10.20.128",
-      "10.10.20.160",
-      "10.10.20.136"
+      "Raise DHCP lease duration to eight days",
+      "Move the access point to channel 11",
+      "Disable all routing protocol authentication",
+      "Adjust MTU/MSS handling for the VPN path"
     ],
-    "correctAnswer": 0,
-    "explanation": "A /28 has a block size of 16. 145 falls in the 144-159 block, so the network address is 10.10.20.144 (usable .145-.158, broadcast .159)."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to adjust MTU/MSS handling for the VPN path. Large packets failing across a tunnel while smaller packets work is a common MTU or MSS issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-653",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A router receives multicast traffic but needs to know which hosts on attached segments want to receive the multicast stream. Which protocol do hosts use to join and leave multicast groups?",
+    "question": "At branch 29, clients still resolve an application to an old IP address after a planned DNS cutover. Authoritative DNS has the new record, but affected clients return the old cached answer. What is the best next step?",
     "choices": [
-      "OSPF",
-      "IGMP",
-      "PIM",
-      "MSDP"
+      "Flush or wait out cached DNS records and verify TTL behavior",
+      "Replace the switch stacking cable",
+      "Change the wireless SSID name",
+      "Disable NAT on the internet edge"
     ],
-    "correctAnswer": 1,
-    "explanation": "Hosts use IGMP to join and leave IPv4 multicast groups so routers know which segments need a given stream. PIM is the router-to-router multicast routing protocol; OSPF is unicast routing."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to flush or wait out cached DNS records and verify TTL behavior. Authoritative DNS is correct, so the remaining problem is stale resolver or client cache behavior. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-654",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network engineer is reviewing a packet capture and sees frames addressed to 224.0.0.5. What type of address is this?",
+    "question": "At branch 30, new devices intermittently fail to join a subnet during a hiring event. The DHCP server shows the scope has only two free leases remaining. What is the best next step?",
     "choices": [
-      "Public unicast",
-      "Private broadcast",
-      "APIPA",
-      "IPv4 multicast"
+      "Change the SNMP community string",
+      "Expand the DHCP scope or reclaim unused leases",
+      "Force all switch ports to full duplex",
+      "Replace the site-to-site VPN pre-shared key"
     ],
-    "correctAnswer": 3,
-    "explanation": "224.0.0.5 is an IPv4 multicast address (the 224.0.0.0/4 range; .5 is the OSPF all-routers group). It is not unicast, broadcast, or APIPA."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to expand the DHCP scope or reclaim unused leases. A nearly exhausted DHCP scope explains why new clients cannot consistently obtain addresses. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-655",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A firewall must permit DNS query traffic. Which port number must be opened for DNS queries using both UDP and TCP?",
+    "question": "At branch 31, several ceiling-mounted access points shut down after additional cameras were connected to the same switch. The switch log reports PoE budget exceeded on multiple ports. What is the best next step?",
     "choices": [
-      "161",
-      "389",
-      "53",
-      "443"
+      "Reduce the DHCP lease time to one hour",
+      "Change the corporate DNS domain",
+      "Increase available PoE capacity or move devices to a switch with sufficient power budget",
+      "Disable IPv6 router advertisements"
     ],
     "correctAnswer": 2,
-    "explanation": "DNS uses port 53 on both UDP (typical queries) and TCP (zone transfers and large/EDNS responses), so the firewall must permit 53. 161 is SNMP, 389 LDAP, 443 HTTPS."
+    "explanation": "The best answer is to increase available PoE capacity or move devices to a switch with sufficient power budget. The logged PoE budget condition directly explains why powered devices are shutting down. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-656",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network engineer is troubleshooting DHCP. DHCP servers listen on one port and clients send requests from another. Which UDP ports does DHCP use (server port / client port)?",
+    "question": "At branch 32, a fiber uplink remains down after new optics were installed on both ends. Both interfaces show no light received, and the transceivers match speed and fiber type. What is the best next step?",
     "choices": [
-      "67 / 68",
-      "68 / 67",
-      "69 / 68",
-      "67 / 69"
+      "Change the server default gateway",
+      "Flush DNS on every workstation",
+      "Enable DHCP relay on the firewall",
+      "Check fiber polarity, patching, and receive/transmit strand orientation"
     ],
-    "correctAnswer": 0,
-    "explanation": "DHCP uses UDP port 67 for the server and UDP port 68 for the client. The client sends from 68 to the server's 67, and the server replies from 67 to 68."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to check fiber polarity, patching, and receive/transmit strand orientation. Matched optics with no received light usually means cabling, polarity, or patching must be checked first. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-657",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network monitoring system polls managed devices using SNMP GET requests. Which UDP port do SNMP agents listen on for these requests?",
+    "question": "At branch 33, traffic to one remote office follows a slower backup WAN link even though the primary circuit is up. The router has a more specific route for that prefix pointing to the backup next hop. What is the best next step?",
     "choices": [
-      "162",
-      "161",
-      "514",
-      "123"
+      "Correct the routing table or route preference for the affected prefix",
+      "Replace the users wireless adapters",
+      "Increase the DNS zone serial number only",
+      "Disable port security on printer ports"
     ],
-    "correctAnswer": 1,
-    "explanation": "SNMP agents listen on UDP port 161 for GET/SET polling from the manager. UDP 162 is where the manager receives traps/informs."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to correct the routing table or route preference for the affected prefix. Longest-prefix and route preference determine forwarding. The more specific route is steering traffic to the backup path. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-658",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A managed switch is configured to send unsolicited SNMP notifications to the management station when an interface goes down. Which UDP port does the SNMP manager listen on to receive these messages?",
+    "question": "At branch 34, after a firewall change, VoIP phones register but one-way audio occurs for calls to external numbers. Signaling reaches the provider, but RTP media streams from the provider are dropped at the edge. What is the best next step?",
     "choices": [
-      "161",
-      "514",
-      "123",
-      "162"
+      "Disable NTP on the voice VLAN",
+      "Permit the required voice media port range and verify NAT/firewall handling for RTP",
+      "Change all phone switch ports to trunk mode",
+      "Shorten the DNS TTL for the SIP provider"
     ],
-    "correctAnswer": 3,
-    "explanation": "SNMP traps/informs are sent to the manager on UDP port 162. Agents receive polls on 161; 514 is syslog and 123 is NTP."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to permit the required voice media port range and verify NAT/firewall handling for RTP. Registration uses signaling, while audio uses media streams. One-way audio commonly follows blocked RTP or NAT handling issues. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-659",
@@ -10014,115 +10014,115 @@
   },
   {
     "id": "netplus-661",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A cable internet subscriber notices speeds vary significantly depending on time of day. What characteristic of cable internet causes this variation?",
+    "question": "At branch 47, clients still resolve an application to an old IP address after a planned DNS cutover. Authoritative DNS has the new record, but affected clients return the old cached answer. What is the best next step?",
     "choices": [
-      "DSL distance limitations",
-      "The coaxial infrastructure is shared among multiple subscribers in a neighborhood",
-      "Fiber attenuation over long distances",
-      "The CMTS applies QoS throttling during business hours"
+      "Replace the switch stacking cable",
+      "Change the wireless SSID name",
+      "Flush or wait out cached DNS records and verify TTL behavior",
+      "Disable NAT on the internet edge"
     ],
-    "correctAnswer": 1,
-    "explanation": "Cable internet uses a coaxial segment shared among many subscribers in a neighborhood, so throughput drops during peak usage as contention rises. DSL distance and fiber attenuation are unrelated to time-of-day variation."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to flush or wait out cached DNS records and verify TTL behavior. Authoritative DNS is correct, so the remaining problem is stale resolver or client cache behavior. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-662",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A telecom company delivers fiber optic internet directly to homes using a technology where a single fiber strand from the central office is split into multiple passive branches serving many customers. What is this technology called?",
+    "question": "At branch 48, new devices intermittently fail to join a subnet during a hiring event. The DHCP server shows the scope has only two free leases remaining. What is the best next step?",
     "choices": [
-      "SONET",
-      "Metro Ethernet",
-      "DSL",
-      "GPON (Gigabit Passive Optical Network)"
+      "Change the SNMP community string",
+      "Force all switch ports to full duplex",
+      "Replace the site-to-site VPN pre-shared key",
+      "Expand the DHCP scope or reclaim unused leases"
     ],
     "correctAnswer": 3,
-    "explanation": "GPON (Gigabit Passive Optical Network) uses a single fiber from the OLT split by passive optical splitters to serve many subscribers (FTTH), with no powered equipment in the outside plant. SONET is transport, Metro Ethernet is carrier Ethernet, DSL is copper."
+    "explanation": "The best answer is to expand the DHCP scope or reclaim unused leases. A nearly exhausted DHCP scope explains why new clients cannot consistently obtain addresses. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-663",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A company leases a T1 line from the phone company for WAN connectivity. What is the total bandwidth of a T1 circuit?",
+    "question": "At branch 49, several ceiling-mounted access points shut down after additional cameras were connected to the same switch. The switch log reports PoE budget exceeded on multiple ports. What is the best next step?",
     "choices": [
-      "768 Kbps",
-      "44.736 Mbps",
-      "1.544 Mbps",
-      "45 Mbps"
+      "Increase available PoE capacity or move devices to a switch with sufficient power budget",
+      "Reduce the DHCP lease time to one hour",
+      "Change the corporate DNS domain",
+      "Disable IPv6 router advertisements"
     ],
-    "correctAnswer": 2,
-    "explanation": "A T1 carries 1.544 Mbps (24 DS0 channels of 64 Kbps plus framing). 44.736 Mbps is a T3 and 768 Kbps is a fractional/DSL-class rate."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to increase available PoE capacity or move devices to a switch with sufficient power budget. The logged PoE budget condition directly explains why powered devices are shutting down. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-664",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A large enterprise leases a T3 circuit for high-bandwidth WAN connectivity. What is the approximate bandwidth of a T3 line?",
+    "question": "At branch 50, a fiber uplink remains down after new optics were installed on both ends. Both interfaces show no light received, and the transceivers match speed and fiber type. What is the best next step?",
     "choices": [
-      "44.736 Mbps",
-      "1.544 Mbps",
-      "100 Mbps",
-      "10 Mbps"
+      "Change the server default gateway",
+      "Check fiber polarity, patching, and receive/transmit strand orientation",
+      "Flush DNS on every workstation",
+      "Enable DHCP relay on the firewall"
     ],
-    "correctAnswer": 0,
-    "explanation": "A T3, also called DS3, provides approximately 44.736 Mbps and is equivalent to 28 aggregated T1 circuits. A T1 is 1.544 Mbps, while 10 Mbps and 100 Mbps refer to common Ethernet rates, not T3 service."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to check fiber polarity, patching, and receive/transmit strand orientation. Matched optics with no received light usually means cabling, polarity, or patching must be checked first. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-665",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An organization needs to connect two office buildings in the same city using a high-speed WAN service that delivers Ethernet handoff points and leverages the carrier's fiber network. Which WAN technology provides this carrier-grade Ethernet connectivity?",
+    "question": "At branch 51, traffic to one remote office follows a slower backup WAN link even though the primary circuit is up. The router has a more specific route for that prefix pointing to the backup next hop. What is the best next step?",
     "choices": [
-      "DSL bonding",
-      "Metro Ethernet",
-      "Frame Relay",
-      "ISDN"
+      "Replace the users wireless adapters",
+      "Increase the DNS zone serial number only",
+      "Correct the routing table or route preference for the affected prefix",
+      "Disable port security on printer ports"
     ],
-    "correctAnswer": 1,
-    "explanation": "Metro Ethernet delivers carrier-grade Ethernet hand-offs over the provider's metro fiber to link sites within a city at high speed. Frame Relay/ISDN are legacy and DSL bonding is a last-mile aggregation, not metro transport."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to correct the routing table or route preference for the affected prefix. Longest-prefix and route preference determine forwarding. The more specific route is steering traffic to the backup path. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-666",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A remote branch office needs WAN connectivity as a backup when the primary MPLS circuit fails. The organization wants to use existing cellular infrastructure. Which technology provides this cellular WAN failover?",
+    "question": "At branch 52, after a firewall change, VoIP phones register but one-way audio occurs for calls to external numbers. Signaling reaches the provider, but RTP media streams from the provider are dropped at the edge. What is the best next step?",
     "choices": [
-      "DSL failover",
-      "Dial-up modem",
-      "Satellite internet",
-      "LTE/5G cellular WAN"
+      "Disable NTP on the voice VLAN",
+      "Change all phone switch ports to trunk mode",
+      "Shorten the DNS TTL for the SIP provider",
+      "Permit the required voice media port range and verify NAT/firewall handling for RTP"
     ],
     "correctAnswer": 3,
-    "explanation": "An LTE/5G cellular WAN interface provides wireless failover over the carrier's mobile network when the primary MPLS link drops. Dial-up/satellite are slower/higher-latency fallbacks and DSL failover needs copper."
+    "explanation": "The best answer is to permit the required voice media port range and verify NAT/firewall handling for RTP. Registration uses signaling, while audio uses media streams. One-way audio commonly follows blocked RTP or NAT handling issues. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-667",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A carrier's long-haul fiber backbone uses a technology that carries multiple OC-level circuits in a synchronous frame structure with built-in redundancy and ring protection. What is this optical transport standard?",
+    "question": "At branch 53, a branch loses access to headquarters after a static route change. The next hop configured for the headquarters prefix is not reachable from the branch router. What is the best next step?",
     "choices": [
-      "GPON",
-      "DWDM",
-      "SONET/SDH",
-      "Metro Ethernet"
+      "Change the static route to a reachable next hop or restore the previous route",
+      "Clear the browser cache on all clients",
+      "Replace the patch panels at headquarters",
+      "Rotate the wireless pre-shared key"
     ],
-    "correctAnswer": 2,
-    "explanation": "SONET/SDH is the synchronous optical transport standard carrying OC-N circuits with ring protection (e.g., UPSR/BLSR) for sub-50 ms failover on long-haul backbones. DWDM multiplexes wavelengths; GPON is access."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to change the static route to a reachable next hop or restore the previous route. A static route must point to a reachable next hop. The route change directly explains the outage. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-668",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A remote site uses satellite internet as its only WAN connection. What is the most significant disadvantage of satellite internet compared to terrestrial broadband?",
+    "question": "At branch 54, users connected to one switch cannot reach a server, but users on neighboring switches can. The affected switch learned the server MAC address on the wrong port after a loop event. What is the best next step?",
     "choices": [
-      "Very high latency (500-700 ms round trip) due to the long signal path to geostationary orbit",
-      "Low maximum bandwidth (below 1 Mbps)",
-      "Requires a fiber optic cable to the rooftop dish",
-      "Weather immunity — satellite is not affected by weather conditions"
+      "Increase the DHCP scope size",
+      "Investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it",
+      "Change the server host name",
+      "Replace the site VPN certificate"
     ],
-    "correctAnswer": 0,
-    "explanation": "Geostationary satellite internet has very high latency (~500-700 ms round trip) because signals travel ~36,000 km up and back, hurting real-time apps. It is also weather-sensitive, contrary to the immunity claim."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it. Incorrect MAC learning after a loop points to Layer 2 instability or mispatching, not server naming or DHCP capacity. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-669",
@@ -10238,115 +10238,115 @@
   },
   {
     "id": "netplus-677",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Two branch offices are connected with an always-up encrypted tunnel. Traffic between the two sites traverses this tunnel transparently, as if the offices were on the same LAN. Which VPN type is this?",
+    "question": "At branch 84, new devices intermittently fail to join a subnet during a hiring event. The DHCP server shows the scope has only two free leases remaining. What is the best next step?",
     "choices": [
-      "Remote access VPN",
-      "Site-to-site VPN",
-      "Client VPN",
-      "SSL VPN portal"
+      "Change the SNMP community string",
+      "Force all switch ports to full duplex",
+      "Replace the site-to-site VPN pre-shared key",
+      "Expand the DHCP scope or reclaim unused leases"
     ],
-    "correctAnswer": 1,
-    "explanation": "An always-up encrypted tunnel joining two entire networks so the sites act as one LAN is a site-to-site VPN (gateway-to-gateway). Remote access/client VPNs serve individual users."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to expand the DHCP scope or reclaim unused leases. A nearly exhausted DHCP scope explains why new clients cannot consistently obtain addresses. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-678",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A field technician travels and needs to securely connect a laptop to corporate resources from hotels, coffee shops, and airports. Which VPN type is designed for this individual-user use case?",
+    "question": "At branch 85, several ceiling-mounted access points shut down after additional cameras were connected to the same switch. The switch log reports PoE budget exceeded on multiple ports. What is the best next step?",
     "choices": [
-      "Site-to-site VPN",
-      "IPSec tunnel mode between two routers",
-      "GRE tunnel",
-      "Remote access VPN"
+      "Increase available PoE capacity or move devices to a switch with sufficient power budget",
+      "Reduce the DHCP lease time to one hour",
+      "Change the corporate DNS domain",
+      "Disable IPv6 router advertisements"
     ],
-    "correctAnswer": 3,
-    "explanation": "A remote access VPN lets an individual traveling user securely tunnel a device into corporate resources from any untrusted network. Site-to-site/GRE tunnels join networks, not single users."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to increase available PoE capacity or move devices to a switch with sufficient power budget. The logged PoE budget condition directly explains why powered devices are shutting down. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-679",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An organization deploys a VPN solution where the client software automatically establishes a VPN tunnel whenever the laptop is connected to a non-corporate network, without requiring the user to manually connect. What is this VPN configuration called?",
+    "question": "At branch 86, a fiber uplink remains down after new optics were installed on both ends. Both interfaces show no light received, and the transceivers match speed and fiber type. What is the best next step?",
     "choices": [
-      "Site-to-site VPN",
-      "Split tunnel VPN",
-      "Always-on VPN",
-      "SSL portal VPN"
+      "Change the server default gateway",
+      "Check fiber polarity, patching, and receive/transmit strand orientation",
+      "Flush DNS on every workstation",
+      "Enable DHCP relay on the firewall"
     ],
-    "correctAnswer": 2,
-    "explanation": "Always-on VPN automatically establishes the tunnel whenever the device is on an untrusted network, with no manual user action, ensuring continuous protection. Split tunnel/SSL portal describe other behaviors."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to check fiber polarity, patching, and receive/transmit strand orientation. Matched optics with no received light usually means cabling, polarity, or patching must be checked first. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-680",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An organization wants to consolidate WAN connectivity, SD-WAN, firewall, CASB, and zero-trust network access into a single cloud-delivered service framework. Which security architecture model describes this convergence?",
+    "question": "At branch 87, traffic to one remote office follows a slower backup WAN link even though the primary circuit is up. The router has a more specific route for that prefix pointing to the backup next hop. What is the best next step?",
     "choices": [
-      "SASE (Secure Access Service Edge)",
-      "MPLS with integrated firewall",
-      "Traditional perimeter security",
-      "Zero-trust network segmentation"
+      "Replace the users wireless adapters",
+      "Increase the DNS zone serial number only",
+      "Correct the routing table or route preference for the affected prefix",
+      "Disable port security on printer ports"
     ],
-    "correctAnswer": 0,
-    "explanation": "Converging SD-WAN with cloud-delivered security (FWaaS, CASB, ZTNA, SWG) into one framework is SASE (Secure Access Service Edge). The other options are legacy or partial models."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to correct the routing table or route preference for the affected prefix. Longest-prefix and route preference determine forwarding. The more specific route is steering traffic to the backup path. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-681",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Attackers discover and exploit a vulnerability in a popular firewall OS before the vendor is aware of it and before any patch exists. What type of vulnerability is this?",
+    "question": "At branch 88, after a firewall change, VoIP phones register but one-way audio occurs for calls to external numbers. Signaling reaches the provider, but RTP media streams from the provider are dropped at the edge. What is the best next step?",
     "choices": [
-      "Known vulnerability",
-      "Zero-day vulnerability",
-      "CVE-patched exploit",
-      "Misconfiguration"
+      "Disable NTP on the voice VLAN",
+      "Change all phone switch ports to trunk mode",
+      "Shorten the DNS TTL for the SIP provider",
+      "Permit the required voice media port range and verify NAT/firewall handling for RTP"
     ],
-    "correctAnswer": 1,
-    "explanation": "A flaw exploited before the vendor knows of it and before a patch exists is a zero-day vulnerability. Once a CVE/patch exists it becomes a known vulnerability."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to permit the required voice media port range and verify NAT/firewall handling for RTP. Registration uses signaling, while audio uses media streams. One-way audio commonly follows blocked RTP or NAT handling issues. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-682",
-    "domain": "Network Security",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An organization requires all network devices and servers to receive security updates within 30 days of release. What security practice ensures known vulnerabilities are closed in a timely manner?",
+    "question": "At branch 89, a branch loses access to headquarters after a static route change. The next hop configured for the headquarters prefix is not reachable from the branch router. What is the best next step?",
     "choices": [
-      "Vulnerability scanning",
-      "Penetration testing",
-      "Change freeze",
-      "Patch management"
+      "Change the static route to a reachable next hop or restore the previous route",
+      "Clear the browser cache on all clients",
+      "Replace the patch panels at headquarters",
+      "Rotate the wireless pre-shared key"
     ],
-    "correctAnswer": 3,
-    "explanation": "A formal patch management process ensures security updates are tested and deployed within defined timeframes, closing known vulnerabilities. Scanning/pen testing find issues but do not remediate them."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to change the static route to a reachable next hop or restore the previous route. A static route must point to a reachable next hop. The route change directly explains the outage. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-683",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "A security architect designs a network with a perimeter firewall, internal IPS, network segmentation, endpoint detection and response (EDR), and SIEM monitoring. What security philosophy does this layered approach represent?",
+    "question": "During operations review 01, audit logs from switches show inconsistent timestamps across the same incident window. Some devices are using local clock only and do not have an NTP source configured. What is the best next step?",
     "choices": [
-      "Zero-day prevention",
-      "Least privilege",
-      "Defense in depth",
-      "Security by obscurity"
+      "Configure authenticated NTP sources and verify time synchronization on network devices",
+      "Change every access port to trunk mode",
+      "Disable DNS recursion on clients",
+      "Replace the DHCP lease database"
     ],
-    "correctAnswer": 2,
-    "explanation": "Layering independent controls (perimeter firewall, IPS, segmentation, EDR, SIEM) so no single failure is fatal is defense in depth. Least privilege and obscurity are narrower concepts."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to configure authenticated NTP sources and verify time synchronization on network devices. Operations teams need synchronized time for log correlation, incident response, and compliance evidence. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-684",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "A cloud security team divides workloads into small isolated segments with granular firewall policies between them, so that even if one workload is compromised, lateral movement to others is prevented. What technique is this?",
+    "question": "During operations review 02, the monitoring platform stopped receiving critical firewall messages after a policy cleanup. The firewall still logs locally, but syslog forwarding to the collector is disabled for warning and higher severities. What is the best next step?",
     "choices": [
-      "Micro-segmentation",
-      "VLAN segmentation",
-      "DMZ design",
-      "Network access control"
+      "Increase wireless beacon interval",
+      "Restore syslog forwarding with the required severity level and collector destination",
+      "Enable jumbo frames on every VLAN",
+      "Remove the default route from the firewall"
     ],
-    "correctAnswer": 0,
-    "explanation": "Micro-segmentation applies granular per-workload firewall policy so a compromised workload cannot move laterally to others, even within the same subnet. VLAN segmentation/DMZ are coarser, network-level controls."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to restore syslog forwarding with the required severity level and collector destination. The device is logging, but forwarding policy no longer sends the needed severities to the collector. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-685",
@@ -10634,311 +10634,311 @@
   },
   {
     "id": "netplus-701",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An engineer reviewing an IP address sees 247.10.5.1. What class and purpose does this address belong to?",
+    "question": "At branch 35, a branch loses access to headquarters after a static route change. The next hop configured for the headquarters prefix is not reachable from the branch router. What is the best next step?",
     "choices": [
-      "Class D — multicast",
-      "Class B — private use",
-      "Class E — reserved for experimental/research use",
-      "Class A — public internet"
+      "Clear the browser cache on all clients",
+      "Replace the patch panels at headquarters",
+      "Change the static route to a reachable next hop or restore the previous route",
+      "Rotate the wireless pre-shared key"
     ],
     "correctAnswer": 2,
-    "explanation": "247.10.5.1 falls in 240.0.0.0-255.255.255.255, which is Class E, reserved for experimental/research use and not assigned for normal host or multicast traffic."
+    "explanation": "The best answer is to change the static route to a reachable next hop or restore the previous route. A static route must point to a reachable next hop. The route change directly explains the outage. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-702",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Under classless inter-domain routing (CIDR), which statement about the all-zeros subnet (e.g., 192.168.1.0/24) is correct?",
+    "question": "At branch 36, users connected to one switch cannot reach a server, but users on neighboring switches can. The affected switch learned the server MAC address on the wrong port after a loop event. What is the best next step?",
     "choices": [
-      "CIDR permits its use; the all-zeros subnet is a valid network like any other",
-      "The all-zeros subnet is always reserved and cannot be used under any standard",
-      "The all-zeros subnet is only valid in IPv6",
-      "The all-zeros subnet is automatically assigned to the router's loopback interface"
+      "Increase the DHCP scope size",
+      "Change the server host name",
+      "Replace the site VPN certificate",
+      "Investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it"
     ],
-    "correctAnswer": 0,
-    "explanation": "CIDR removed the old classful restriction, so the all-zeros subnet (e.g., 192.168.1.0/24) is a perfectly valid, usable network like any other. It is not reserved, IPv6-only, or auto-assigned to a loopback."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to investigate the Layer 2 loop or incorrect patching and clear the stale MAC state after fixing it. Incorrect MAC learning after a loop points to Layer 2 instability or mispatching, not server naming or DHCP capacity. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-703",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A static route is configured on a router as 192.168.50.25/32. What does the /32 prefix length indicate?",
+    "question": "At branch 37, users can reach an internal web app by IP address but not by hostname after a DNS server replacement. ipconfig shows the old DNS server address on affected clients, while the gateway and subnet mask are correct. What is the best next step?",
     "choices": [
-      "The address is a summary of all 192.168.50.x hosts",
-      "A host route referencing exactly one specific IP address",
-      "A multicast group address",
-      "A network address for a /25 subnet"
+      "Update the DHCP DNS server option and renew the client leases",
+      "Replace the default gateway with the web server IP address",
+      "Disable spanning tree on access switches",
+      "Add a static ARP entry for the web server"
     ],
-    "correctAnswer": 1,
-    "explanation": "A /32 prefix is a host route - it matches exactly one IP address (255.255.255.255 mask). It is commonly used for loopbacks or specific next-hop/static host entries, not a summary or multicast."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to update the DHCP DNS server option and renew the client leases. The symptom isolates name resolution, and the client evidence shows stale DNS settings delivered by DHCP. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-704",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network engineer subnets point-to-point WAN links to conserve address space. Which subnet mask provides exactly 2 usable host addresses and is ideal for point-to-point links?",
+    "question": "At branch 38, a group of laptops on one floor receive 169.254.x.x addresses and cannot reach any internal resources. The switch ports show link up, but DHCPDISCOVER messages never receive DHCPOFFER responses. What is the best next step?",
     "choices": [
-      "/29 — 6 usable hosts",
-      "/28 — 14 usable hosts",
-      "/31 — 0 usable hosts (unnumbered)",
-      "/ 30 — 2 usable hosts"
+      "Clear the DNS resolver cache on each laptop",
+      "Verify DHCP relay or VLAN access between that subnet and the DHCP server",
+      "Increase the wireless transmit power",
+      "Replace the internet firewall certificate"
     ],
-    "correctAnswer": 3,
-    "explanation": "A /30 yields 4 addresses with 2 usable hosts, the classic choice for point-to-point links. /31 (RFC 3021) can also be used for P2P with 2 addresses, but the standard answer for '2 usable hosts' is /30."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to verify DHCP relay or VLAN access between that subnet and the DHCP server. APIPA addressing means the clients could not complete DHCP. The next step is to check DHCP scope, relay, VLAN, and server reachability. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-705",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "The RFC 1918 private address space includes three ranges. Which statement correctly identifies the 10.x.x.x private range?",
+    "question": "At branch 39, employees report intermittent video calls in a dense office area after a new neighboring tenant installed access points. Wireless scans show heavy channel overlap and high retry counts on the 2.4 GHz band. What is the best next step?",
     "choices": [
-      "10.0.0.0 through 10.0.0.255 (/24)",
-      "10.0.0.0 through 10.254.255.255 (/9)",
-      "10.0.0.0 through 10.255.255.255 (/8)",
-      "10.0.0.0 through 10.127.255.255 (/9)"
+      "Add a second DHCP scope using the same subnet",
+      "Disable WPA2/WPA3 encryption temporarily",
+      "Adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz",
+      "Change the wired switch native VLAN to 1"
     ],
     "correctAnswer": 2,
-    "explanation": "The 10.0.0.0/8 block (10.0.0.0 through 10.255.255.255) is the largest RFC 1918 private range. The others are 172.16.0.0/12 and 192.168.0.0/16."
+    "explanation": "The best answer is to adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz. High retries and channel overlap point to RF interference and contention, not an IP addressing or trunking issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-706",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Every IPv4 packet contains a TTL (Time to Live) field. What happens to this field as the packet travels through routers, and what is its purpose?",
+    "question": "At branch 40, traffic to a SaaS application becomes slow after the third hop, but local LAN applications remain fast. traceroute shows latency jumping from 4 ms to 180 ms at the WAN provider handoff. What is the best next step?",
     "choices": [
-      "Each router decrements TTL by 1; when it reaches 0, the packet is discarded — preventing packets from looping indefinitely",
-      "Each router increments TTL by 1 to track the number of hops",
-      "TTL sets the maximum packet size in bytes",
-      "TTL is only used by ICMP and has no effect on normal IP routing"
+      "Replace every access switch on the LAN",
+      "Flush the ARP cache on the file server",
+      "Disable DHCP snooping globally",
+      "Escalate with traceroute evidence and verify the WAN path or provider circuit"
     ],
-    "correctAnswer": 0,
-    "explanation": "Each router decrements the IPv4 TTL by 1; when it reaches 0 the packet is discarded and an ICMP Time Exceeded is returned, preventing packets from circulating forever in a routing loop. Routers decrement, never increment, and TTL is not a size field."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to escalate with traceroute evidence and verify the WAN path or provider circuit. The delay appears beyond the local network at the provider handoff, so path evidence should drive the escalation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-707",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network team is troubleshooting application performance. Packets larger than a certain size are being fragmented. What term describes the largest IP packet size (including header) that can be transmitted on a given network link without fragmentation?",
+    "question": "At branch 41, a legacy printer connected to a switch port transfers files very slowly and the port logs many late collisions. The printer is hard-set to 100 Mbps full duplex, while the switch port was manually set to half duplex. What is the best next step?",
     "choices": [
-      "Segment size",
-      "MTU (Maximum Transmission Unit)",
-      "Window size",
-      "Frame check sequence"
+      "Correct the duplex mismatch by matching both sides or returning both to autonegotiation",
+      "Create a new DNS A record for the printer",
+      "Move the printer to a different DHCP scope only",
+      "Enable port security sticky MAC learning"
     ],
-    "correctAnswer": 1,
-    "explanation": "The MTU (Maximum Transmission Unit) is the largest IP packet (including header) a link can carry without fragmentation - 1500 bytes on standard Ethernet. Larger packets are fragmented or dropped (with DF set)."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to correct the duplex mismatch by matching both sides or returning both to autonegotiation. Late collisions and mismatched manual duplex settings are classic duplex mismatch indicators. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-708",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A storage area network requires high-throughput iSCSI traffic. The network team enables a feature on switches and NICs that allows Ethernet frames much larger than the standard 1518-byte limit. What are these large frames called?",
+    "question": "At branch 42, a workstation can print and reach servers on its local subnet but cannot browse the internet or reach remote subnets. The IP address and mask are correct, but the default gateway points to an unused address. What is the best next step?",
     "choices": [
-      "Giants",
-      "Superframes",
-      "Concatenated frames",
-      "Jumbo frames"
+      "Replace the DNS suffix search list",
+      "Correct the default gateway address on the workstation or DHCP scope",
+      "Disable the local firewall on every server",
+      "Change the switch port speed from auto to 10 Mbps"
     ],
-    "correctAnswer": 3,
-    "explanation": "Jumbo frames are Ethernet frames with payloads up to ~9000 bytes, used to improve throughput/efficiency for iSCSI/SAN traffic when enabled end-to-end. 'Giants' are oversized error frames, not an intentional feature."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to correct the default gateway address on the workstation or DHCP scope. Local subnet traffic does not need a gateway, but off-subnet traffic does. The bad gateway explains the symptom. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-709",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "Before a TCP application can exchange data, the client and server perform a connection establishment process. What is the correct sequence of messages in the TCP three-way handshake?",
+    "question": "At branch 43, users in VLAN 30 cannot access the data center after a switch replacement, but other VLANs work through the same uplink. The trunk configuration on the new switch allows VLANs 10 and 20 but omits VLAN 30. What is the best next step?",
     "choices": [
-      "ACK → SYN → SYN-ACK",
-      "SYN-ACK → SYN → ACK",
-      "SYN → SYN-ACK → ACK",
-      "SYN → ACK → SYN-ACK"
+      "Change the DNS server for VLAN 30 clients",
+      "Disable the access point controller",
+      "Add VLAN 30 to the allowed VLAN list on the trunk",
+      "Replace the DHCP server certificate"
     ],
     "correctAnswer": 2,
-    "explanation": "TCP establishes a session with the three-way handshake: SYN, then SYN-ACK, then ACK. Only after this exchange does data transfer begin."
+    "explanation": "The best answer is to add VLAN 30 to the allowed VLAN list on the trunk. Only one VLAN fails across a trunk that otherwise works, and the evidence shows that VLAN is not allowed. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-710",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "How does TCP perform an orderly connection termination to ensure all data is received before the connection closes?",
+    "question": "At branch 44, two users lose connectivity at random times and the help desk sees duplicate-address warnings. The ARP table alternates between two MAC addresses for the same IPv4 address. What is the best next step?",
     "choices": [
-      "Four-way handshake: FIN → ACK → FIN → ACK (each side independently closes its half of the connection)",
-      "Two-way handshake: FIN → FIN-ACK",
-      "Three-way handshake: FIN → SYN → FIN-ACK",
-      "RST flag is set by both sides simultaneously"
+      "Increase the DNS TTL for the host record",
+      "Disable LLDP on access ports",
+      "Change all ports to trunk mode",
+      "Find and remove or readdress the device causing the duplicate IP conflict"
     ],
-    "correctAnswer": 0,
-    "explanation": "TCP closes gracefully with a four-way exchange: each side sends FIN and receives ACK independently (FIN, ACK, FIN, ACK), so each half-connection drains its data before closing. RST is an abrupt reset, not orderly close."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to find and remove or readdress the device causing the duplicate IP conflict. ARP flapping for one IP and duplicate-address alerts indicate an IP conflict. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-711",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A DNS query and DHCP discovery are both sent using which transport protocol, and why is this protocol preferred for these use cases?",
+    "question": "At branch 45, a new database server responds to ping from an application subnet, but TCP 5432 connections time out. A packet capture shows SYN packets entering the firewall and no permitted session being created. What is the best next step?",
     "choices": [
-      "TCP — because guaranteed delivery is required",
-      "UDP — because low overhead is prioritized and the applications handle retransmission if needed",
-      "TCP — because DNS and DHCP require ordered delivery",
-      "IP directly — DNS and DHCP bypass the transport layer"
+      "Review and correct the firewall or ACL rule for the required database port",
+      "Replace the subnet mask with a /32",
+      "Clear the browser cache on client PCs",
+      "Disable STP on the access layer"
     ],
-    "correctAnswer": 1,
-    "explanation": "DNS queries and DHCP use UDP for low overhead and speed; the applications themselves handle any needed retransmission/timeout. (DNS falls back to TCP for zone transfers/large responses.)"
+    "correctAnswer": 0,
+    "explanation": "The best answer is to review and correct the firewall or ACL rule for the required database port. ICMP reachability proves basic routing, while the blocked TCP port points to a policy or ACL problem. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-712",
-    "domain": "Networking Concepts",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A ping from Host A returns an ICMP 'Destination Host Unreachable' message. Which scenario does this message indicate?",
+    "question": "At branch 46, a VPN user can open simple pages but large file downloads and some HTTPS applications hang. Pings with the DF bit fail above a smaller-than-normal payload size across the tunnel. What is the best next step?",
     "choices": [
-      "The destination host rejected the connection on the target port",
-      "The TTL expired before reaching the destination",
-      "Host A's NIC is disconnected",
-      "A router on the path cannot forward the packet to the destination host"
+      "Raise DHCP lease duration to eight days",
+      "Adjust MTU/MSS handling for the VPN path",
+      "Move the access point to channel 11",
+      "Disable all routing protocol authentication"
     ],
-    "correctAnswer": 3,
-    "explanation": "'Destination Host Unreachable' is returned by a router that has a route to the destination network but cannot deliver to the specific host (e.g., ARP fails / host down). A closed port gives a different response and TTL expiry gives Time Exceeded."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to adjust MTU/MSS handling for the VPN path. Large packets failing across a tunnel while smaller packets work is a common MTU or MSS issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-713",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A wireless LAN controller is configured to support fast roaming so that VoIP calls are not dropped as users move between access points. Which 802.11 amendment enables Fast BSS Transition by caching keys at neighboring APs before roaming occurs?",
+    "question": "At branch 55, users can reach an internal web app by IP address but not by hostname after a DNS server replacement. ipconfig shows the old DNS server address on affected clients, while the gateway and subnet mask are correct. What is the best next step?",
     "choices": [
-      "802.11r",
-      "802.11k",
-      "802.11v",
-      "802.11w"
+      "Replace the default gateway with the web server IP address",
+      "Disable spanning tree on access switches",
+      "Update the DHCP DNS server option and renew the client leases",
+      "Add a static ARP entry for the web server"
     ],
-    "correctAnswer": 0,
-    "explanation": "802.11r (Fast BSS Transition) pre-establishes/caches security keys at neighboring APs so a roaming client re-associates in milliseconds, preserving VoIP calls. 802.11k/v assist roaming decisions; 802.11w protects management frames."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to update the DHCP DNS server option and renew the client leases. The symptom isolates name resolution, and the client evidence shows stale DNS settings delivered by DHCP. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-714",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A wireless client is connected to a distant AP with a weak signal while a closer AP with better signal is available. Which 802.11 amendment provides the AP with information about neighboring APs (signal strength, channel, load) that it can share with the client to facilitate better roaming decisions?",
+    "question": "At branch 56, a group of laptops on one floor receive 169.254.x.x addresses and cannot reach any internal resources. The switch ports show link up, but DHCPDISCOVER messages never receive DHCPOFFER responses. What is the best next step?",
     "choices": [
-      "802.11r",
-      "802.11v",
-      "802.11k",
-      "802.11ac"
+      "Clear the DNS resolver cache on each laptop",
+      "Increase the wireless transmit power",
+      "Replace the internet firewall certificate",
+      "Verify DHCP relay or VLAN access between that subnet and the DHCP server"
     ],
-    "correctAnswer": 2,
-    "explanation": "802.11k provides Radio Resource Measurement - the AP gives the client a neighbor report (nearby APs, channels, signal/load) so it can roam intelligently. 802.11r speeds the handoff; 802.11v steers the client."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to verify DHCP relay or VLAN access between that subnet and the DHCP server. APIPA addressing means the clients could not complete DHCP. The next step is to check DHCP scope, relay, VLAN, and server reachability. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-715",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "An access point detects that a connected client has a poor signal and would benefit from connecting to a neighboring AP. Which 802.11 amendment allows the AP to send a BSS Transition Management Request, suggesting the client roam to a better AP?",
+    "question": "At branch 57, employees report intermittent video calls in a dense office area after a new neighboring tenant installed access points. Wireless scans show heavy channel overlap and high retry counts on the 2.4 GHz band. What is the best next step?",
     "choices": [
-      "802.11r",
-      "802.11v",
-      "802.11k",
-      "802.11i"
+      "Adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz",
+      "Add a second DHCP scope using the same subnet",
+      "Disable WPA2/WPA3 encryption temporarily",
+      "Change the wired switch native VLAN to 1"
     ],
-    "correctAnswer": 1,
-    "explanation": "802.11v (BSS Transition Management) lets the AP send a request suggesting the client roam to a better AP. 802.11k supplies the neighbor data and 802.11r accelerates the actual transition."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to adjust the WLAN channel plan and steer capable clients to 5 GHz or 6 GHz. High retries and channel overlap point to RF interference and contention, not an IP addressing or trunking issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-716",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A wireless engineer notices that APs at the edge of the building are causing co-channel interference with neighboring APs because their transmit power is too high. What setting should be adjusted to reduce this interference?",
+    "question": "At branch 58, traffic to a SaaS application becomes slow after the third hop, but local LAN applications remain fast. traceroute shows latency jumping from 4 ms to 180 ms at the WAN provider handoff. What is the best next step?",
     "choices": [
-      "Channel width (from 40 MHz to 20 MHz)",
-      "SSID broadcast interval",
-      "QoS DSCP markings for wireless",
-      "Transmit power level (reduce AP power)"
+      "Replace every access switch on the LAN",
+      "Escalate with traceroute evidence and verify the WAN path or provider circuit",
+      "Flush the ARP cache on the file server",
+      "Disable DHCP snooping globally"
     ],
-    "correctAnswer": 3,
-    "explanation": "Edge APs causing co-channel interference should have their transmit power reduced so cells do not bleed into neighbors. Channel width and SSID/QoS settings do not address excessive coverage overlap from high power."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to escalate with traceroute evidence and verify the WAN path or provider circuit. The delay appears beyond the local network at the provider handoff, so path evidence should drive the escalation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-717",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A PoE switch has a total PoE budget of 740 W. An engineer connects 20 devices that each require 802.3at (PoE+) power of 30 W per port. How much PoE power budget remains available for additional devices?",
+    "question": "At branch 59, a legacy printer connected to a switch port transfers files very slowly and the port logs many late collisions. The printer is hard-set to 100 Mbps full duplex, while the switch port was manually set to half duplex. What is the best next step?",
     "choices": [
-      "140 W remaining (740 − 600 W)",
-      "0 W — budget fully exhausted",
-      "370 W remaining",
-      "740 W — PoE budget is per-port, not shared"
+      "Create a new DNS A record for the printer",
+      "Move the printer to a different DHCP scope only",
+      "Correct the duplex mismatch by matching both sides or returning both to autonegotiation",
+      "Enable port security sticky MAC learning"
     ],
-    "correctAnswer": 0,
-    "explanation": "20 PoE+ ports at 30 W each consume 600 W; with a 740 W budget, 740 - 600 = 140 W remains for additional devices. PoE budgets are shared across the switch, not per-port."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to correct the duplex mismatch by matching both sides or returning both to autonegotiation. Late collisions and mismatched manual duplex settings are classic duplex mismatch indicators. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-718",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A Cisco switch port is set to 'dynamic desirable' mode. What does this DTP (Dynamic Trunking Protocol) mode do?",
+    "question": "At branch 60, a workstation can print and reach servers on its local subnet but cannot browse the internet or reach remote subnets. The IP address and mask are correct, but the default gateway points to an unused address. What is the best next step?",
     "choices": [
-      "The port permanently operates as an access port",
-      "The port permanently operates as a trunk",
-      "The port actively sends DTP frames to negotiate trunking with the neighbor",
-      "The port never initiates DTP negotiation but will trunk if the neighbor requests it"
+      "Replace the DNS suffix search list",
+      "Disable the local firewall on every server",
+      "Change the switch port speed from auto to 10 Mbps",
+      "Correct the default gateway address on the workstation or DHCP scope"
     ],
-    "correctAnswer": 2,
-    "explanation": "DTP 'dynamic desirable' actively sends DTP frames to negotiate a trunk with the neighbor and forms a trunk if the neighbor is trunk/desirable/auto. 'Dynamic auto' only responds; 'access'/'trunk' are static modes."
+    "correctAnswer": 3,
+    "explanation": "The best answer is to correct the default gateway address on the workstation or DHCP scope. Local subnet traffic does not need a gateway, but off-subnet traffic does. The bad gateway explains the symptom. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-719",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network administrator adds a new VLAN to the core switch. VTP (VLAN Trunking Protocol) is configured in server mode on the core. What happens to this new VLAN?",
+    "question": "At branch 61, users in VLAN 30 cannot access the data center after a switch replacement, but other VLANs work through the same uplink. The trunk configuration on the new switch allows VLANs 10 and 20 but omits VLAN 30. What is the best next step?",
     "choices": [
-      "The VLAN must be manually configured on every switch in the campus",
-      "The VLAN is automatically propagated to all VTP client switches across trunk links",
-      "The VLAN is only visible on Layer 3 switches",
-      "The VLAN is pruned from all trunk ports until manually allowed"
+      "Add VLAN 30 to the allowed VLAN list on the trunk",
+      "Change the DNS server for VLAN 30 clients",
+      "Disable the access point controller",
+      "Replace the DHCP server certificate"
     ],
-    "correctAnswer": 1,
-    "explanation": "A VTP server can create/modify VLANs and propagates the VLAN database to VTP client switches over trunks, so the new VLAN appears campus-wide without per-switch configuration."
+    "correctAnswer": 0,
+    "explanation": "The best answer is to add VLAN 30 to the allowed VLAN list on the trunk. Only one VLAN fails across a trunk that otherwise works, and the evidence shows that VLAN is not allowed. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-720",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "PortFast is enabled on switch access ports connected to workstations. What does PortFast do to improve connectivity for end devices?",
+    "question": "At branch 62, two users lose connectivity at random times and the help desk sees duplicate-address warnings. The ARP table alternates between two MAC addresses for the same IPv4 address. What is the best next step?",
     "choices": [
-      "Permanently disables STP on access ports",
-      "Disables BPDU transmission on the port",
-      "Forces the port into half-duplex mode",
-      "Skips STP listening and learning states, bringing the port immediately to forwarding"
+      "Increase the DNS TTL for the host record",
+      "Find and remove or readdress the device causing the duplicate IP conflict",
+      "Disable LLDP on access ports",
+      "Change all ports to trunk mode"
     ],
-    "correctAnswer": 3,
-    "explanation": "PortFast lets an access port skip the STP listening and learning states and move straight to forwarding, so end devices get link/DHCP immediately. It does not disable STP/BPDUs or change duplex."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to find and remove or readdress the device causing the duplicate IP conflict. ARP flapping for one IP and duplicate-address alerts indicate an IP conflict. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-721",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A PortFast-enabled switch port accidentally receives a BPDU from a hub connected to a switch. What does BPDU Guard do in response to this BPDU?",
+    "question": "At branch 63, a new database server responds to ping from an application subnet, but TCP 5432 connections time out. A packet capture shows SYN packets entering the firewall and no permitted session being created. What is the best next step?",
     "choices": [
-      "Immediately places the port into err-disabled state to prevent a potential STP loop",
-      "Ignores the BPDU and continues forwarding",
-      "Promotes the port to a designated port",
-      "Sends a topology change notification to the root bridge"
+      "Replace the subnet mask with a /32",
+      "Clear the browser cache on client PCs",
+      "Review and correct the firewall or ACL rule for the required database port",
+      "Disable STP on the access layer"
     ],
-    "correctAnswer": 0,
-    "explanation": "BPDU Guard immediately err-disables a PortFast port if it ever receives a BPDU (signaling an unexpected switch/hub), preventing a potential loop. It does not ignore the BPDU or alter STP roles."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to review and correct the firewall or ACL rule for the required database port. ICMP reachability proves basic routing, while the blocked TCP port points to a policy or ACL problem. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-722",
-    "domain": "Network Implementation",
+    "domain": "Network Troubleshooting",
     "type": "single-choice",
-    "question": "A network engineer wants to prevent an unauthorized switch connected to a specific port from winning the STP root bridge election and disrupting the spanning tree. Which STP feature prevents this?",
+    "question": "At branch 64, a VPN user can open simple pages but large file downloads and some HTTPS applications hang. Pings with the DF bit fail above a smaller-than-normal payload size across the tunnel. What is the best next step?",
     "choices": [
-      "BPDU Guard",
-      "Loop Guard",
-      "PortFast",
-      "Root Guard"
+      "Raise DHCP lease duration to eight days",
+      "Move the access point to channel 11",
+      "Disable all routing protocol authentication",
+      "Adjust MTU/MSS handling for the VPN path"
     ],
     "correctAnswer": 3,
-    "explanation": "Root Guard prevents a designated port from accepting superior BPDUs, so an unauthorized switch on that port cannot win the root-bridge election and reshape the topology. PortFast/BPDU Guard/Loop Guard address other STP risks. [Answer key corrected: Root Guard.]"
+    "explanation": "The best answer is to adjust MTU/MSS handling for the VPN path. Large packets failing across a tunnel while smaller packets work is a common MTU or MSS issue. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-723",
@@ -11054,115 +11054,115 @@
   },
   {
     "id": "netplus-731",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "A browser connects to a web server and checks whether the server's SSL certificate has been revoked. It downloads a periodically updated list from the CA. Which certificate revocation mechanism is used?",
+    "question": "During operations review 03, a team needs encrypted monitoring credentials for routers and switches. Existing monitoring uses SNMPv2c community strings shared across sites. What is the best next step?",
     "choices": [
-      "OCSP stapling",
-      "CRL (Certificate Revocation List)",
-      "PKCS#12 validation",
-      "Certificate pinning"
+      "Use Telnet for polling because it is interactive",
+      "Publish the community string in documentation",
+      "Migrate monitoring to SNMPv3 with authentication and privacy settings",
+      "Disable management-plane access controls"
     ],
-    "correctAnswer": 1,
-    "explanation": "Downloading the CA's periodically published list of revoked serial numbers is the CRL (Certificate Revocation List) mechanism. OCSP queries status in real time and stapling/pinning are different techniques."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to migrate monitoring to SNMPv3 with authentication and privacy settings. SNMPv3 supports authentication and encryption, unlike shared cleartext community strings. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-732",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "A browser needs to check certificate revocation status in real time without downloading a potentially large list. It queries the CA's server directly during the TLS handshake. Which protocol provides this real-time revocation check?",
+    "question": "During operations review 04, a WAN link is saturated every afternoon and management wants to know which applications and hosts drive the usage. Interface counters show utilization, but they do not identify conversations or top talkers. What is the best next step?",
     "choices": [
-      "CRL",
-      "LDAPS",
-      "Certificate transparency",
-      "OCSP (Online Certificate Status Protocol)"
+      "Replace DNS with static host files",
+      "Disable all VLAN trunks",
+      "Increase the DHCP exclusion range",
+      "Use NetFlow or IPFIX data to identify top talkers and application flows"
     ],
     "correctAnswer": 3,
-    "explanation": "OCSP (Online Certificate Status Protocol) lets a client query the CA/responder for a single certificate's revocation status in real time, avoiding a large CRL download. OCSP stapling has the server supply the response."
+    "explanation": "The best answer is to use NetFlow or IPFIX data to identify top talkers and application flows. Flow telemetry shows who is talking to whom and which ports or applications consume bandwidth. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-733",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "An attacker captures a valid authentication token during a user's login session and later resends that same token to gain unauthorized access. Which type of attack is this?",
+    "question": "During operations review 05, a switch outage takes longer to recover because no one can find the last known-good configuration. Configuration backups were manually saved on one engineer laptop and are not versioned. What is the best next step?",
     "choices": [
-      "Replay attack",
-      "Brute-force attack",
-      "ARP spoofing",
-      "Password spraying"
+      "Implement centralized configuration backup and change tracking",
+      "Shorten the ARP timeout on all hosts",
+      "Move the switch to a guest VLAN",
+      "Disable log forwarding to reduce noise"
     ],
     "correctAnswer": 0,
-    "explanation": "Capturing a valid token/credential and re-sending it later to gain access is a replay attack; nonces, timestamps, and session tokens mitigate it. Brute-force/spraying guess credentials and ARP spoofing is a L2 MITM."
+    "explanation": "The best answer is to implement centralized configuration backup and change tracking. Reliable operations require recoverable, versioned device configurations stored outside a single workstation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-734",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "A web application uses cookies to maintain user sessions. An attacker injects malicious JavaScript that steals the session cookie from a victim's browser, allowing the attacker to impersonate the user. What type of attack enables this cookie theft?",
+    "question": "During operations review 06, a planned firewall update introduced an outage and the team had no agreed rollback trigger. The change ticket lists the implementation commands but no test plan or backout steps. What is the best next step?",
     "choices": [
-      "Replay attack",
-      "SQL injection",
-      "Session hijacking via XSS (Cross-Site Scripting)",
-      "Brute-force attack"
+      "Apply future firewall changes without review",
+      "Require a change plan with validation checks, rollback steps, and an approved window",
+      "Erase all historical monitoring baselines",
+      "Disable administrative logging during maintenance"
     ],
-    "correctAnswer": 2,
-    "explanation": "Stealing a session cookie via injected malicious JavaScript is cross-site scripting (XSS) leading to session hijacking - the attacker reuses the cookie to impersonate the user. SQLi targets the database, not the browser cookie."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to require a change plan with validation checks, rollback steps, and an approved window. Operational change control should define scope, validation, maintenance window, and rollback before implementation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-735",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "An attacker sets up a wireless access point with the same SSID as a legitimate corporate AP, placing it in a location where users connect to it instead of the real AP. What type of wireless attack is this?",
+    "question": "During operations review 07, the team cannot tell whether a current 70 percent WAN utilization level is normal. No historical baseline exists for the circuit by day, hour, or business cycle. What is the best next step?",
     "choices": [
-      "Deauthentication flood",
-      "Evil twin attack",
-      "WPS brute force",
-      "Bluejacking"
+      "Assume any link above 50 percent is failed",
+      "Disable monitoring until users complain",
+      "Create performance baselines and compare current metrics against normal patterns",
+      "Replace DHCP with static addressing"
     ],
-    "correctAnswer": 1,
-    "explanation": "A rogue AP broadcasting the legitimate SSID to lure clients is an evil twin attack, enabling credential capture/MITM. Deauth floods disrupt, WPS brute-force attacks the PIN, and bluejacking is Bluetooth."
+    "correctAnswer": 2,
+    "explanation": "The best answer is to create performance baselines and compare current metrics against normal patterns. Baselines turn raw metrics into context, helping operations distinguish normal load from anomalies. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-736",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "A hotel guest connects to the hotel Wi-Fi. Before gaining internet access, their browser is automatically redirected to a page requiring acceptance of terms of service and possibly payment. What security/network feature causes this redirect?",
+    "question": "During operations review 08, several network appliances are running unsupported firmware with known vulnerabilities. The vendor release notes include security fixes, but the site has no maintenance calendar. What is the best next step?",
     "choices": [
-      "Stateful firewall inspection",
-      "DNSSEC enforcement",
-      "802.1X port authentication",
-      "Captive portal"
+      "Upgrade production devices immediately with no backup",
+      "Disable vulnerability tracking",
+      "Use consumer firmware from a different device model",
+      "Schedule firmware updates through maintenance windows with backup and rollback planning"
     ],
     "correctAnswer": 3,
-    "explanation": "A captive portal intercepts initial web requests and redirects the client to an acceptance/payment page before allowing internet access - common on guest/hotel Wi-Fi. Firewalls/DNSSEC/802.1X do not perform this redirect."
+    "explanation": "The best answer is to schedule firmware updates through maintenance windows with backup and rollback planning. Patch operations should reduce security risk while controlling outage risk through staged maintenance. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-737",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "An organization requires that all devices accessing the internal network be checked for current antivirus definitions and OS patch level before being granted access. Noncompliant devices are quarantined. What technology enforces this?",
+    "question": "During operations review 09, a subnet conflict is discovered during a new branch rollout. The spreadsheet used for IP assignments is outdated and differs from the DHCP and routing configuration. What is the best next step?",
     "choices": [
-      "NAC (Network Admission Control)",
-      "SIEM",
-      "DLP",
-      "Content filtering"
+      "Update authoritative IPAM and network documentation before completing the rollout",
+      "Ignore documentation until the next outage",
+      "Disable routing between all branches",
+      "Change the wireless channel plan"
     ],
     "correctAnswer": 0,
-    "explanation": "Network Admission/Access Control (NAC) checks endpoint posture (AV definitions, patch level) before admission and quarantines noncompliant devices. SIEM/DLP/content filtering serve other functions."
+    "explanation": "The best answer is to update authoritative IPAM and network documentation before completing the rollout. Accurate IPAM and documentation prevent overlapping subnets, routing mistakes, and operational delays. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-738",
-    "domain": "Network Security",
+    "domain": "Network Operations",
     "type": "single-choice",
-    "question": "A switch port is configured with port security. The 'sticky' MAC address feature is enabled. What does sticky MAC learning do?",
+    "question": "During operations review 10, a provider SLA report says availability dropped below target for a circuit last month. Monitoring shows multiple outages during business hours and confirms the measured downtime. What is the best next step?",
     "choices": [
-      "Dynamically assigns VLANs based on connected device MAC address",
-      "Allows unlimited devices but logs all MAC addresses",
-      "Automatically converts dynamically learned MAC addresses into permanent entries saved to the running configuration",
-      "Broadcasts the MAC table to all neighboring switches"
+      "Delete the outage records after the month closes",
+      "Compare the measured availability against the SLA and open a provider case with evidence",
+      "Reset all user passwords",
+      "Change the DHCP option for DNS servers"
     ],
-    "correctAnswer": 2,
-    "explanation": "Sticky port security converts dynamically learned MAC addresses into permanent secure entries written to the running configuration, so only the learned device(s) are allowed on the port. It does not assign VLANs or broadcast the table."
+    "correctAnswer": 1,
+    "explanation": "The best answer is to compare the measured availability against the SLA and open a provider case with evidence. SLA management depends on measured service availability and documented evidence for provider escalation. The distractors do not fit the evidence: they address unrelated DNS, DHCP, wireless, switching, security, or documentation tasks instead of the failure shown in the scenario."
   },
   {
     "id": "netplus-739",

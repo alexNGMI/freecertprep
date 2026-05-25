@@ -15,12 +15,12 @@ Free, open-source certification exam prep for the IT certifications that open do
 | Cisco CCST Networking | Cisco | 100-150 | Foundational | 750 | 50 | 50 min | 70% practice |
 | CompTIA A+ Core 1 | CompTIA | 220-1201 | Foundational | 750 | 90 | 90 min | 75% |
 | CompTIA A+ Core 2 | CompTIA | 220-1202 | Foundational | 750 | 90 | 90 min | 78% |
-| CompTIA Network+ | CompTIA | N10-009 | Foundational | 750 | 90 | 90 min | 80% |
+| CompTIA Network+ | CompTIA | N10-009 | Foundational | 751 | 90 | 90 min | 80% |
 | CompTIA Security+ | CompTIA | SY0-701 | Foundational | 750 | 90 | 90 min | 83% |
 | CompTIA Server+ | CompTIA | SK0-005 | Foundational | 750 | 90 | 90 min | 83% |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
 
-**8,628 questions across 13 certifications.**
+**8,629 questions across 13 certifications.**
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
@@ -54,7 +54,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Home** - Guided learning paths up top, direct certification catalog below.
 - **Path pages** - Dedicated lanes for Networking, Cybersecurity, Cloud, and NVIDIA, plus a direct A+ selector for brand-new learners. Networking offers Network+ or Cisco CCST before Server+; Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is in unpublished preview. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented; the CCNA pool stays hidden from the catalog while it goes through QA.
-- **Content accuracy roadmap** - Latest full-bank blueprint audit found the next hardening sequence: rebalance Network+ toward N10-009 Troubleshooting, refresh Google CDL to the current six-section guide, rebalance NVIDIA AIIO, tighten AZ-900 domain distribution, and recheck real-estate state handbooks before public placement.
+- **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance. The next hardening sequence is Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, and a fresh real-estate state handbook recheck before public placement.
 - **Trust layer roadmap** - Public quality signals, per-question issue reporting, editorial review status, and source/blueprint audit trails are planned as a backend-backed milestone. The current app stays zero-account/local-first while advanced trust workflows are designed.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
