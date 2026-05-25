@@ -49,9 +49,9 @@ const paths = [
   {
     id: 'networking',
     eyebrow: 'Networking',
-    title: 'CCST into CCNA',
+    title: 'Networking Career Path',
     description:
-      'Use CCST for the Cisco-oriented foundation, then move toward CCNA once the advanced simulation track is ready.',
+      'Start with CCST if you are new to networking, then build toward CCNA for NOC, junior network admin, and infrastructure support careers.',
     icon: Network,
     color: '#f97316',
     to: '/paths/networking',
