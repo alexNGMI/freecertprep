@@ -215,9 +215,23 @@ placement.
 | Maine | Pearson VUE handbook `#092005`, 04/2025, law outline revalidated 2024 | Still matches the implemented 40-item state-law portion and five Maine law sections. | No architecture change needed. |
 | North Carolina | NCREC / Pearson VUE licensing booklet, April 2026 | Still matches the implemented 80 national + 60 state split, separately scored sections, and eight state categories. | No architecture change needed. |
 | Indiana | Pearson VUE handbook `#091500`, effective 2025-03-01 | Still matches the implemented 80 national + 50 state split and five Indiana state categories. | No architecture change needed. |
-| Texas | Pearson VUE handbook `#094400`, effective 2026-01-01 | Needs follow-up. The newly checked outline lists Licensing at 4 items, Agency/Brokerage at 10, Contracts at 8, Special Topics at 6, and a 10-item Case Studies category; the current module still reflects the earlier six-section 40-item state-law taxonomy. | Keep unpublished from broader placement until the TX state taxonomy and case-study handling are updated. |
+| Texas | Pearson VUE handbook `#094400`, effective 2026-01-01 | Reconciled on 2026-05-25. The state-law taxonomy now follows the listed 2026 categories, including Licensing at 4 items, Agency/Brokerage at 10, Contracts at 8, Special Topics at 6, and a 10-item Case Studies category. | Note the source inconsistency: the handbook sentence still says 40 scored state items, while the listed categories total 50. The app follows the listed content outline. |
 | Georgia | PSI/GREC public materials | Needs follow-up. Public sources confirm the 100 national + 52 Georgia state structure, but the current official PSI salesperson bulletin was not cleanly retrievable from the same stable source pattern during this pass. | Keep unpublished from broader placement until the current PSI/GREC salesperson bulletin is pinned and section weights are revalidated. |
 
-Verdict: the layered national + state architecture remains sound, but Texas
-and Georgia should not be treated as publication-ready until their current
-state-law outlines are reconciled in the registry and source pools.
+Verdict: the layered national + state architecture remains sound. Texas has
+been reconciled to the listed 2026 Pearson VUE / TREC state-law categories;
+Georgia should not be treated as publication-ready until its current
+state-law outline is pinned from a stable official source.
+
+## Texas 2026 Reconciliation
+
+Implemented on 2026-05-25 as `real-estate-tx`:
+
+- State-law bank: `src/data/real-estate-tx-state-questions.json`
+- Count: 401 state-law questions
+- Domain distribution: 24 / 32 / 72 / 80 / 64 / 48 / 81
+- Full Licensing Exam: 85 national + 50 state
+- Added domain: `Case Studies (TX)`, covering narrative transaction cases
+  and contract/addendum selection scenarios.
+- Preserved single-choice format so the current real-estate study engine can
+  deliver the case-study category without new UI mechanics.

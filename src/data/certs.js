@@ -57,16 +57,18 @@ const RE_NATIONAL_DOMAINS = [
   { name: 'Leasing and Property Management', weight: 3 },
 ]
 
-// Texas Sales Agent STATE-LAW portion — 40 scored items across 6 sections
-// per the official Pearson VUE/TREC content outline (effective 2026-01-01).
-// Weights are the exact per-section item proportions (n/40 * 100).
+// Texas Sales Agent STATE-LAW portion — Pearson VUE/TREC outline effective
+// 2026-01-01. The handbook sentence still says 40 scored state items, but
+// the listed 2026 state-law categories total 50 items because Case Studies
+// were added; the registry follows the listed content outline.
 const TX_STATE_DOMAINS = [
-  { name: 'Commission Duties & Powers', weight: 7.5 },   // 3 items
-  { name: 'Licensing', weight: 7.5 },                     // 3 items
-  { name: 'Standards of Conduct', weight: 22.5 },         // 9 items
-  { name: 'Agency & Brokerage', weight: 27.5 },           // 11 items
-  { name: 'Contracts (TREC Forms & Disclosures)', weight: 22.5 }, // 9 items
-  { name: 'Special Topics (TX)', weight: 12.5 },          // 5 items
+  { name: 'Commission Duties & Powers', weight: 6 },      // 3 items
+  { name: 'Licensing', weight: 8 },                       // 4 items
+  { name: 'Standards of Conduct', weight: 18 },           // 9 items
+  { name: 'Agency & Brokerage', weight: 20 },             // 10 items
+  { name: 'Contracts (TREC Forms & Disclosures)', weight: 16 }, // 8 items
+  { name: 'Special Topics (TX)', weight: 12 },            // 6 items
+  { name: 'Case Studies (TX)', weight: 20 },              // 10 items
 ]
 
 // Maine Sales Agent STATE-LAW portion — 40 scored items across 5 sections
@@ -594,19 +596,19 @@ const certs = {
     title: 'Texas Real Estate Sales Agent Exam',
     code: 'TX TREC',
     provider: 'Real Estate',
-    description: 'Texas Sales Agent licensing exam: the portable national portion plus the Texas state-law portion. State-law content is modeled to the official 6-section TREC / Pearson VUE outline; the Full Licensing Exam mirrors the real 85 national + 40 state split.',
+    description: 'Texas Sales Agent licensing exam: the portable national portion plus the Texas state-law portion. State-law content is modeled to the 2026 TREC / Pearson VUE outline, including the new case-study category.',
     difficulty: 'Foundational',
     color: '#dc2626',
     questionCount: 401,
-    examQuestions: 125,
+    examQuestions: 135,
     examTime: 240,
     passingScore: 70,
     published: false,
     loadQuestions: () => loadCompositeQuestions(realEstateTxStateQuestionsUrl),
-    // Real exam: 85 national + 40 state; each section passed independently.
+    // The listed 2026 state-law outline totals 50 state items.
     composite: {
       national: { count: 85, domains: RE_NATIONAL_DOMAINS },
-      state: { count: 40, domains: TX_STATE_DOMAINS },
+      state: { count: 50, domains: TX_STATE_DOMAINS },
     },
     // Dashboard / state-practice taxonomy is the TX state-law sections.
     domains: TX_STATE_DOMAINS,
@@ -617,6 +619,7 @@ const certs = {
       'Agency & Brokerage':                    { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
       'Contracts (TREC Forms & Disclosures)':  { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
       'Special Topics (TX)':                   { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
+      'Case Studies (TX)':                     { dot: 'bg-[#db2777]', bar: 'bg-[#db2777]', text: 'text-[#db2777]', hex: '#db2777' },
     },
   },
   // Maine Sales Agent module — same layered architecture as real-estate-tx.

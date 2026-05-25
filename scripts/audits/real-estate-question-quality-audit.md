@@ -20,6 +20,7 @@ Existing blueprint alignment for the real-estate modules is documented in the st
   - No exact duplicate stems.
   - No explanations under 100 characters.
   - Rebalanced answer positions to `{0: 101, 1: 100, 2: 100, 3: 100}`.
+  - Reconciled on 2026-05-25 to the listed 2026 Pearson VUE / TREC state-law outline: Commission Duties & Powers 24, Licensing 32, Standards of Conduct 72, Agency & Brokerage 80, Contracts 64, Special Topics 48, Case Studies 81.
 - Maine state-law pool:
   - 400 questions.
   - No exact duplicate stems.

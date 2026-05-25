@@ -454,7 +454,7 @@
     "domain": "Contracts (TREC Forms & Disclosures)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The Seller's Disclosure Notice required by Texas Property Code \u00a75.008 generally applies to:",
+    "question": "The Seller's Disclosure Notice required by Texas Property Code §5.008 generally applies to:",
     "choices": [
       "Only foreclosure sales",
       "All commercial sales",
@@ -1977,7 +1977,7 @@
       "Only foreclosures"
     ],
     "correctAnswer": 2,
-    "explanation": "There are two New Home Contract forms \u2014 one for completed construction and one for incomplete construction \u2014 used when buying from a builder."
+    "explanation": "There are two New Home Contract forms — one for completed construction and one for incomplete construction — used when buying from a builder."
   },
   {
     "id": "re-tx-133",
@@ -2277,7 +2277,7 @@
       "Host an open house alone and answer buyer questions about the property"
     ],
     "correctAnswer": 2,
-    "explanation": "Unlicensed assistants may do clerical/administrative support but may not perform acts requiring a license \u2014 negotiating, showing, hosting open houses unsupervised, or giving opinions about property or terms."
+    "explanation": "Unlicensed assistants may do clerical/administrative support but may not perform acts requiring a license — negotiating, showing, hosting open houses unsupervised, or giving opinions about property or terms."
   },
   {
     "id": "re-tx-153",
@@ -2637,7 +2637,7 @@
       "Required reconciliation"
     ],
     "correctAnswer": 1,
-    "explanation": "Trust funds belong to others; using them for the broker's expenses, even briefly, is conversion and commingling \u2014 serious violations."
+    "explanation": "Trust funds belong to others; using them for the broker's expenses, even briefly, is conversion and commingling — serious violations."
   },
   {
     "id": "re-tx-177",
@@ -2647,12 +2647,12 @@
     "question": "If a seller does not deliver the required Seller's Disclosure Notice before the contract, the buyer generally may:",
     "choices": [
       "Do nothing",
-      "Terminate within the statutory period (e.g., 7 days) under \u00a75.008",
+      "Terminate within the statutory period (e.g., 7 days) under §5.008",
       "Keep the earnest money plus damages automatically",
       "Sue TREC"
     ],
     "correctAnswer": 1,
-    "explanation": "Under Property Code \u00a75.008, if the notice is not delivered on or before the effective date, the buyer may terminate the contract for any reason within seven days after receiving it (subject to statutory details)."
+    "explanation": "Under Property Code §5.008, if the notice is not delivered on or before the effective date, the buyer may terminate the contract for any reason within seven days after receiving it (subject to statutory details)."
   },
   {
     "id": "re-tx-178",
@@ -2754,7 +2754,7 @@
       "At the option period start",
       "When the listing expires",
       "Only after recording in 30 days",
-      "According to the contract \u2014 upon closing and funding, or per a temporary lease"
+      "According to the contract — upon closing and funding, or per a temporary lease"
     ],
     "correctAnswer": 3,
     "explanation": "The possession paragraph states the buyer receives possession upon closing and funding unless a temporary residential lease provides otherwise."
@@ -3413,11 +3413,11 @@
     "choices": [
       "Only TREC form rules",
       "No special rules",
-      "Strong statutory consumer protections (Property Code \u00a75.061 et seq.), including disclosures and recording",
+      "Strong statutory consumer protections (Property Code §5.061 et seq.), including disclosures and recording",
       "The Statute of Frauds only"
     ],
     "correctAnswer": 2,
-    "explanation": "Executory contracts (contracts for deed/lease-options over 180 days) for residential property carry extensive Property Code consumer protections \u2014 disclosures, recording, conversion rights, and penalties for noncompliance."
+    "explanation": "Executory contracts (contracts for deed/lease-options over 180 days) for residential property carry extensive Property Code consumer protections — disclosures, recording, conversion rights, and penalties for noncompliance."
   },
   {
     "id": "re-tx-228",
@@ -3462,7 +3462,7 @@
       "The buyer's credit"
     ],
     "correctAnswer": 1,
-    "explanation": "The \u00a75.008 notice requires the seller to disclose known conditions and defects, prior repairs, flood/water history, and similar property information based on the seller's knowledge."
+    "explanation": "The §5.008 notice requires the seller to disclose known conditions and defects, prior repairs, flood/water history, and similar property information based on the seller's knowledge."
   },
   {
     "id": "re-tx-231",
@@ -3597,7 +3597,7 @@
       "Required by TREC"
     ],
     "correctAnswer": 0,
-    "explanation": "Texas Property Code \u00a75.017 generally prohibits and renders unenforceable most private transfer fee obligations created on or after the statute's date, subject to narrow exceptions and notice/recording rules."
+    "explanation": "Texas Property Code §5.017 generally prohibits and renders unenforceable most private transfer fee obligations created on or after the statute's date, subject to narrow exceptions and notice/recording rules."
   },
   {
     "id": "re-tx-240",
@@ -3931,63 +3931,63 @@
   },
   {
     "id": "re-tx-262",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A 'sold' sign or 'just sold' advertisement using a property the brokerage did not sell is:",
+    "question": "Case TX-23: A license holder wants to advertise a listing online using a team name and brokerage information. What is the safest compliance principle?",
     "choices": [
-      "Misleading advertising and prohibited",
-      "Required by TREC",
-      "A ministerial act",
-      "Acceptable"
+      "Use only the team name with no broker reference",
+      "Advertise a property without authority from the owner or broker",
+      "Ensure the ad is not misleading and includes the broker identification required by TREC rules",
+      "Use a false price to increase traffic"
     ],
-    "correctAnswer": 0,
-    "explanation": "Claiming credit for sales the brokerage did not make is false/misleading advertising and violates TREC advertising rules."
+    "correctAnswer": 2,
+    "explanation": "Advertising case studies test whether the ad identifies the broker and avoids false, misleading, or unauthorized claims. The correct answer is Ensure the ad is not misleading and includes the broker identification required by TREC rules. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-263",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "When a license holder both owns the property and represents a buyer for it, the license holder must:",
+    "question": "Case TX-24: A buyer asks a sales agent to draft language requiring the seller to repair a foundation in a legally specific way. What should the license holder do?",
     "choices": [
-      "Disclose the ownership/dual role and obtain informed written consent (intermediary if applicable)",
-      "Charge double",
-      "Avoid the IABS",
-      "Conceal ownership"
+      "Draft legal clauses beyond the license holder's competence",
+      "Tell the buyer oral repair promises are always enough",
+      "Delete contract provisions without the parties' written agreement",
+      "Use appropriate promulgated forms where available and recommend legal counsel for custom legal language"
     ],
-    "correctAnswer": 0,
-    "explanation": "The license holder's ownership interest and any dual role must be disclosed in writing; representing another party in the same deal requires intermediary consent."
+    "correctAnswer": 3,
+    "explanation": "Texas contract questions often test the line between filling in business facts and practicing law. Legal drafting should be referred to an attorney. The correct answer is Use appropriate promulgated forms where available and recommend legal counsel for custom legal language. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-264",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license holder's duty of loyalty means the agent must:",
+    "question": "Case TX-25: A seller is married and the property is the couple's Texas homestead, but only one spouse is listed on title. What should the license holder recognize?",
     "choices": [
-      "Favor the buyer always",
-      "Put the agent's interests first",
-      "Favor the cooperating broker",
-      "Place the principal's interests above the agent's own"
+      "Homestead rights may require both spouses to sign conveyance documents",
+      "The titled spouse can always convey alone",
+      "Homestead protections apply only to rental property",
+      "TREC automatically waives spouse signatures"
     ],
-    "correctAnswer": 3,
-    "explanation": "Loyalty requires the agent to act in the principal's best interest and not profit at the principal's expense or place personal interests ahead of the client's."
+    "correctAnswer": 0,
+    "explanation": "Special-topic case studies may combine marital, homestead, and conveyance facts. Texas homestead rules can require spouse joinder. The correct answer is Homestead rights may require both spouses to sign conveyance documents. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-265",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A power of attorney used to sign real estate documents for an owner should generally be:",
+    "question": "Case TX-26: A broker supervises several sponsored sales agents and one agent repeatedly uses outdated forms. Which broker responsibility is most directly implicated?",
     "choices": [
-      "Oral",
-      "In writing, properly executed/acknowledged, and recorded for the real property records",
-      "Issued by TREC",
-      "Unnecessary"
+      "The buyer's duty to train the agent",
+      "The broker's duty to properly supervise sponsored sales agents and brokerage activity",
+      "The title company's duty to select forms",
+      "The local MLS's duty to discipline all form errors"
     ],
     "correctAnswer": 1,
-    "explanation": "An attorney-in-fact acting in a real estate conveyance needs a valid written (often durable) power of attorney that is acknowledged and recorded so the title company can rely on it."
+    "explanation": "Agency/brokerage case studies often test supervision. A broker is responsible for sponsored sales agents and must maintain appropriate supervision systems. The correct answer is The broker's duty to properly supervise sponsored sales agents and brokerage activity. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-266",
@@ -4276,48 +4276,48 @@
   },
   {
     "id": "re-tx-285",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Personal property to be conveyed that is not realty is best documented with the:",
+    "question": "Case TX-53: A broker is asked to represent both buyer and seller in the same Texas residential transaction. Which arrangement is required if the broker proceeds?",
     "choices": [
-      "IABS",
-      "Non-Realty Items Addendum",
-      "Back-Up Addendum",
-      "Loan Assumption Addendum"
+      "Written intermediary consent from both parties before acting as intermediary",
+      "Oral consent from the first party who signs",
+      "Dual agency without written notice",
+      "Automatic representation of both parties because the same broker is involved"
     ],
-    "correctAnswer": 1,
-    "explanation": "The Non-Realty Items Addendum lists personal property included in the sale so there is no ambiguity about what conveys with the real property."
+    "correctAnswer": 0,
+    "explanation": "Texas does not use common-law dual agency by that name; intermediary brokerage requires written consent and statutory duties. The correct answer is Written intermediary consent from both parties before acting as intermediary. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-286",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Who pays for a newly required survey when an acceptable existing survey is not provided is:",
+    "question": "Case TX-54: A buyer wants to use conventional financing and needs the contract to address lender approval and property approval. Which form is most directly relevant?",
     "choices": [
-      "Always TREC",
-      "Determined by the contract's survey paragraph as completed",
-      "Always the buyer",
-      "Always the broker"
+      "Non-Realty Items Addendum only",
+      "Third Party Financing Addendum",
+      "Seller's Temporary Residential Lease only",
+      "Lead-Based Paint Addendum for every property regardless of age"
     ],
     "correctAnswer": 1,
-    "explanation": "The survey paragraph specifies whether the seller furnishes an existing survey with a T-47 or a new survey is obtained and which party pays; it is negotiated and filled in."
+    "explanation": "Contract-form case studies often ask which addendum fits the facts. The Third Party Financing Addendum handles financing approval terms. The correct answer is Third Party Financing Addendum. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-287",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The Broker Information section of the contract:",
+    "question": "Case TX-55: A license holder wants to advertise a listing online using a team name and brokerage information. What is the safest compliance principle?",
     "choices": [
-      "Identifies the brokers and their fee arrangements separate from the buyer/seller agreement",
-      "Waives disclosures",
-      "Sets the sales price",
-      "Replaces the IABS"
+      "Use only the team name with no broker reference",
+      "Advertise a property without authority from the owner or broker",
+      "Ensure the ad is not misleading and includes the broker identification required by TREC rules",
+      "Use a false price to increase traffic"
     ],
-    "correctAnswer": 0,
-    "explanation": "The broker information/ratification page documents the cooperating brokers and their compensation; the buyer/seller contract is generally not contingent on the broker-fee arrangement."
+    "correctAnswer": 2,
+    "explanation": "Advertising case studies test whether the ad identifies the broker and avoids false, misleading, or unauthorized claims. The correct answer is Ensure the ad is not misleading and includes the broker identification required by TREC rules. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-288",
@@ -4546,198 +4546,198 @@
   },
   {
     "id": "re-tx-302",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Agency relationships can be created by all of the following EXCEPT:",
+    "question": "Case TX-27: A buyer misses the deadline to deliver the option fee but still delivered earnest money on time. What is the likely contract consequence?",
     "choices": [
-      "Express agreement",
-      "A TREC rule",
-      "Implication/conduct",
-      "Ratification or estoppel"
+      "The entire contract is automatically void in every case",
+      "The seller must refund all money immediately",
+      "The buyer may lose the unrestricted termination option even though the sales contract may still continue",
+      "The broker decides whether the option exists"
     ],
-    "correctAnswer": 1,
-    "explanation": "Agency may arise by express agreement, implication (conduct), ratification (later approval), or estoppel; TREC rules regulate conduct but do not themselves create the agency relationship."
+    "correctAnswer": 2,
+    "explanation": "Contract case studies distinguish earnest money from option fees. The option right depends on satisfying the option-fee requirements. The correct answer is The buyer may lose the unrestricted termination option even though the sales contract may still continue. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-303",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A real estate broker representing a client in one transaction is typically classified as a:",
+    "question": "Case TX-28: A consumer files a complaint alleging a license holder committed dishonest conduct during a transaction. Which body generally investigates and disciplines Texas real estate license holders?",
     "choices": [
-      "Gratuitous agent only",
-      "General agent",
-      "Universal agent",
-      "Special agent"
+      "The county appraisal district only",
+      "The title company chosen for closing",
+      "The National Association of REALTORS only",
+      "Texas Real Estate Commission"
     ],
     "correctAnswer": 3,
-    "explanation": "A broker hired for a specific transaction is generally a special agent with limited authority for that purpose, unlike a general agent (e.g., a property manager) with ongoing broad authority."
+    "explanation": "Commission-powers case studies test TREC jurisdiction over license-holder conduct, complaints, hearings, sanctions, and recovery-fund issues. The correct answer is Texas Real Estate Commission. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-304",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A buyer's agent compensated by the listing side through the seller:",
+    "question": "Case TX-29: A buyer is purchasing property in a subdivision governed by a homeowners association. Which issue is most likely to require Texas-specific notice or addendum attention?",
     "choices": [
-      "Owes no duties to anyone",
-      "Must become an intermediary",
-      "Automatically represents the seller",
-      "Still represents the buyer; payment source alone does not determine agency"
+      "Property owners association information and related resale documents or addendum requirements",
+      "A mandatory commercial lease amendment",
+      "A farm-and-ranch mineral waiver in every subdivision sale",
+      "A verbal promise to ignore deed restrictions"
     ],
-    "correctAnswer": 3,
-    "explanation": "Who pays does not determine representation; a buyer's agent paid via the listing broker/seller still owes fiduciary duties to the buyer."
+    "correctAnswer": 0,
+    "explanation": "Texas special-topic and contract case studies can test HOA/POA disclosures, notices, and addenda tied to residential transactions. The correct answer is Property owners association information and related resale documents or addendum requirements. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-305",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The IABS notice itself:",
+    "question": "Case TX-30: A broker receives competing offers and the seller asks whether all offers must be presented. What should the broker do?",
     "choices": [
-      "Is an offer",
-      "Creates an agency relationship",
-      "Is informational and does not by itself create agency",
-      "Waives fiduciary duties"
+      "Discard lower offers without telling the seller",
+      "Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions",
+      "Present only offers from the broker's own clients",
+      "Let the buyer agent choose which offer the seller sees"
     ],
-    "correctAnswer": 2,
-    "explanation": "The IABS explains representation options; it is informational and does not create an agency relationship, which requires a separate representation agreement."
+    "correctAnswer": 1,
+    "explanation": "Case studies often test fiduciary duties and communication. A listing broker must keep the seller informed of material transaction information. The correct answer is Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-306",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "When a cooperating broker first contacts the listing broker, the cooperating broker should disclose:",
+    "question": "Case TX-31: A license holder owns an interest in a company that will provide services in the transaction. What is the safest required action?",
     "choices": [
-      "Nothing",
-      "The buyer's Social Security number",
-      "The buyer's confidential maximum price",
-      "Whom the cooperating broker represents"
+      "Hide the ownership because the service is optional",
+      "Disclose only after commission is paid",
+      "Disclose the conflict or business interest as required before the party relies on the recommendation",
+      "Tell the service provider to disclose instead of the license holder"
     ],
-    "correctAnswer": 3,
-    "explanation": "License holders should disclose their representation (e.g., 'I represent the buyer') early to the other broker; confidential client information must not be disclosed."
+    "correctAnswer": 2,
+    "explanation": "Conflict-of-interest case studies test timely disclosure when a license holder has a personal or financial interest related to the transaction. The correct answer is Disclose the conflict or business interest as required before the party relies on the recommendation. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-307",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A seller's agent asked by a buyer a direct question about a known roof leak must:",
+    "question": "Case TX-32: A sales agent wants to receive a referral fee directly from another brokerage for licensed activity. How should compensation generally be handled?",
     "choices": [
-      "Deny it",
-      "Ignore the question",
-      "Answer honestly and disclose the known material defect",
-      "Refer the buyer to TREC"
+      "Directly to the sales agent without broker involvement",
+      "Through the buyer personally",
+      "Through TREC as escrow agent",
+      "Through the agent's sponsoring broker"
     ],
-    "correctAnswer": 2,
-    "explanation": "Even to a customer, the license holder must be honest and disclose known material defects; misrepresenting or concealing the defect is a violation."
+    "correctAnswer": 3,
+    "explanation": "Texas compensation case studies test that sponsored sales agents act through and are compensated through their broker for brokerage services. The correct answer is Through the agent's sponsoring broker. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-308",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A principal's premature revocation of an exclusive listing:",
+    "question": "Case TX-33: A buyer, seller, and broker are reviewing a One to Four Family Residential Contract. The buyer wants the unrestricted right to terminate during inspection review. Which contract feature should the parties use?",
     "choices": [
-      "Requires TREC approval",
-      "May terminate the agency but expose the principal to breach-of-contract liability",
-      "Is impossible",
-      "Has no consequences"
+      "The termination option, with the option fee delivered as required by the contract",
+      "A verbal side agreement after execution",
+      "A broker-drafted special provision changing legal rights",
+      "A seller disclosure notice alone"
     ],
-    "correctAnswer": 1,
-    "explanation": "A principal generally can revoke an agency, but doing so in breach of an exclusive agreement can create liability for damages owed to the broker."
+    "correctAnswer": 0,
+    "explanation": "Texas contract case-study questions often test how a fact pattern maps to a promulgated form or addendum. The termination option is the contract mechanism for an unrestricted buyer termination right during the option period. The correct answer is The termination option, with the option fee delivered as required by the contract. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-309",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A broker who lists two competing similar properties for different sellers should:",
+    "question": "Case TX-34: A license holder represents the buyer in a transaction with an unrepresented FSBO seller. The seller starts asking whether the buyer will pay more. What should the license holder do?",
     "choices": [
-      "Become an intermediary between the sellers",
-      "Manage the potential conflict and deal fairly/honestly with each client",
-      "Drop one listing automatically",
-      "Hide that fact from both"
+      "Answer all seller questions as if representing both parties",
+      "Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information",
+      "Hide the agency relationship until closing",
+      "Tell the seller the highest price the buyer will pay"
     ],
     "correctAnswer": 1,
-    "explanation": "Listing competing properties is allowed but the broker must handle the inherent conflict fairly, maintain each client's confidentiality, and not favor one client to the other's detriment."
+    "explanation": "The license holder owes loyalty and confidentiality to the buyer-client while still owing honesty and required disclosures to other parties. The correct answer is Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-310",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "During repair negotiations, the buyer's agent should:",
+    "question": "Case TX-35: A seller asks the listing agent to ignore a known roof leak because the buyer can discover it during inspection. What is the best response under Texas license-holder duties?",
     "choices": [
-      "Decide the repairs for the buyer",
-      "Tell the seller the buyer's bottom line",
-      "Advise the client and negotiate per the client's instructions",
-      "Refuse to negotiate"
+      "Omit the fact if the buyer has an inspector",
+      "Disclose only after closing",
+      "Tell the seller that known material defects must be disclosed as required by law and the contract process",
+      "Tell the buyer only if the buyer asks in writing"
     ],
     "correctAnswer": 2,
-    "explanation": "The agent advises and advocates for the client and negotiates according to the client's lawful instructions, without disclosing the client's confidential negotiating limits."
+    "explanation": "Texas case items commonly combine disclosure duties with transaction facts. Known material facts cannot be hidden merely because the buyer might discover them independently. The correct answer is Tell the seller that known material defects must be disclosed as required by law and the contract process. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-311",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license holder should never:",
+    "question": "Case TX-36: A sales agent receives earnest money from a buyer on Friday and the contract names a title company as escrow agent. What should the agent do next?",
     "choices": [
-      "Discourage a buyer from obtaining independent inspections or legal advice",
-      "Recommend an inspection",
-      "Disclose known defects",
-      "Provide the IABS"
+      "Deposit it into the agent's personal account",
+      "Hold it until lender approval is complete",
+      "Send it to TREC for safekeeping",
+      "Deliver the earnest money to the named escrow agent within the contract deadline"
     ],
-    "correctAnswer": 0,
-    "explanation": "Discouraging due diligence (inspections) or legal advice can harm the client and breach the duty of care; agents should encourage appropriate professional review."
+    "correctAnswer": 3,
+    "explanation": "Case-study questions may test timing and handling of money. Earnest money must be delivered according to the contract and escrow instructions. The correct answer is Deliver the earnest money to the named escrow agent within the contract deadline. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-312",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A buyer representation agreement may provide for:",
+    "question": "Case TX-37: A broker is asked to represent both buyer and seller in the same Texas residential transaction. Which arrangement is required if the broker proceeds?",
     "choices": [
-      "A perpetual term",
-      "No compensation terms at all",
-      "TREC-set fees",
-      "Negotiated compensation (e.g., retainer and/or success fee) and a definite term"
+      "Written intermediary consent from both parties before acting as intermediary",
+      "Oral consent from the first party who signs",
+      "Dual agency without written notice",
+      "Automatic representation of both parties because the same broker is involved"
     ],
-    "correctAnswer": 3,
-    "explanation": "Buyer representation compensation is negotiable (retainer, hourly, or success fee) and the agreement must have a definite expiration; fees are not set by TREC."
+    "correctAnswer": 0,
+    "explanation": "Texas does not use common-law dual agency by that name; intermediary brokerage requires written consent and statutory duties. The correct answer is Written intermediary consent from both parties before acting as intermediary. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-313",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "An agent who voluntarily acts without expectation of pay (gratuitous agent) owes the principal:",
+    "question": "Case TX-38: A buyer wants to use conventional financing and needs the contract to address lender approval and property approval. Which form is most directly relevant?",
     "choices": [
-      "No duties",
-      "The same fiduciary duties as a paid agent",
-      "Confidentiality only",
-      "Only honesty"
+      "Non-Realty Items Addendum only",
+      "Third Party Financing Addendum",
+      "Seller's Temporary Residential Lease only",
+      "Lead-Based Paint Addendum for every property regardless of age"
     ],
     "correctAnswer": 1,
-    "explanation": "A gratuitous agent still owes full fiduciary duties; lack of compensation does not reduce the duties of loyalty, care, disclosure, obedience, accounting, and confidentiality."
+    "explanation": "Contract-form case studies often ask which addendum fits the facts. The Third Party Financing Addendum handles financing approval terms. The correct answer is Third Party Financing Addendum. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-314",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A property manager collecting rents and managing for an owner over time is generally a:",
+    "question": "Case TX-39: A license holder wants to advertise a listing online using a team name and brokerage information. What is the safest compliance principle?",
     "choices": [
-      "General agent",
-      "Customer",
-      "Special agent",
-      "Universal agent"
+      "Use only the team name with no broker reference",
+      "Advertise a property without authority from the owner or broker",
+      "Ensure the ad is not misleading and includes the broker identification required by TREC rules",
+      "Use a false price to increase traffic"
     ],
-    "correctAnswer": 0,
-    "explanation": "Ongoing authority to manage and act for the owner across many activities makes a property manager a general agent (broader than a special agent retained for one transaction)."
+    "correctAnswer": 2,
+    "explanation": "Advertising case studies test whether the ad identifies the broker and avoids false, misleading, or unauthorized claims. The correct answer is Ensure the ad is not misleading and includes the broker identification required by TREC rules. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-315",
@@ -4816,288 +4816,288 @@
   },
   {
     "id": "re-tx-320",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Accepting a listing the broker cannot competently service:",
+    "question": "Case TX-05: A broker is asked to represent both buyer and seller in the same Texas residential transaction. Which arrangement is required if the broker proceeds?",
     "choices": [
-      "May violate the duty to perform competently and serve the client",
-      "Is fine",
-      "Earns extra fees",
-      "Is required"
+      "Written intermediary consent from both parties before acting as intermediary",
+      "Oral consent from the first party who signs",
+      "Dual agency without written notice",
+      "Automatic representation of both parties because the same broker is involved"
     ],
     "correctAnswer": 0,
-    "explanation": "A broker should only take engagements it can competently handle; accepting business it cannot adequately service can breach duties of care and good faith."
+    "explanation": "Texas does not use common-law dual agency by that name; intermediary brokerage requires written consent and statutory duties. The correct answer is Written intermediary consent from both parties before acting as intermediary. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-321",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A rebate to the buyer that affects the transaction must be disclosed to:",
+    "question": "Case TX-06: A buyer wants to use conventional financing and needs the contract to address lender approval and property approval. Which form is most directly relevant?",
     "choices": [
-      "All parties and, where applicable, the lender",
-      "Only the seller",
-      "Only TREC",
-      "No one"
+      "Non-Realty Items Addendum only",
+      "Third Party Financing Addendum",
+      "Seller's Temporary Residential Lease only",
+      "Lead-Based Paint Addendum for every property regardless of age"
     ],
-    "correctAnswer": 0,
-    "explanation": "Permissible rebates to a party must be disclosed to the parties; if the buyer is financing, the lender generally must also be informed because it can affect the transaction figures."
+    "correctAnswer": 1,
+    "explanation": "Contract-form case studies often ask which addendum fits the facts. The Third Party Financing Addendum handles financing approval terms. The correct answer is Third Party Financing Addendum. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-322",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Disregarding a principal's lawful written instruction not to disclose certain information is:",
+    "question": "Case TX-07: A license holder wants to advertise a listing online using a team name and brokerage information. What is the safest compliance principle?",
     "choices": [
-      "Proper independence",
-      "An intermediary appointment",
-      "Required by TREC",
-      "A breach of the duties of obedience/confidentiality"
+      "Use only the team name with no broker reference",
+      "Advertise a property without authority from the owner or broker",
+      "Ensure the ad is not misleading and includes the broker identification required by TREC rules",
+      "Use a false price to increase traffic"
     ],
-    "correctAnswer": 3,
-    "explanation": "An agent must follow the principal's lawful instructions and protect confidential information; ignoring lawful instructions breaches obedience and may breach confidentiality."
+    "correctAnswer": 2,
+    "explanation": "Advertising case studies test whether the ad identifies the broker and avoids false, misleading, or unauthorized claims. The correct answer is Ensure the ad is not misleading and includes the broker identification required by TREC rules. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-323",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license holder must furnish a copy of any document to a party:",
+    "question": "Case TX-08: A buyer asks a sales agent to draft language requiring the seller to repair a foundation in a legally specific way. What should the license holder do?",
     "choices": [
-      "Never",
-      "Only if requested in writing",
-      "Only after closing",
-      "At the time the party signs it"
+      "Draft legal clauses beyond the license holder's competence",
+      "Tell the buyer oral repair promises are always enough",
+      "Delete contract provisions without the parties' written agreement",
+      "Use appropriate promulgated forms where available and recommend legal counsel for custom legal language"
     ],
     "correctAnswer": 3,
-    "explanation": "TREC rules require giving a party a copy of any document at the time the party signs it, and maintaining required records."
+    "explanation": "Texas contract questions often test the line between filling in business facts and practicing law. Legal drafting should be referred to an attorney. The correct answer is Use appropriate promulgated forms where available and recommend legal counsel for custom legal language. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-324",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Conditioning the deposit or release of earnest money on a personal benefit to the license holder is:",
+    "question": "Case TX-09: A seller is married and the property is the couple's Texas homestead, but only one spouse is listed on title. What should the license holder recognize?",
     "choices": [
-      "Required disclosure",
-      "Improper handling of trust money and a violation",
-      "An intermediary duty",
-      "Standard practice"
+      "Homestead rights may require both spouses to sign conveyance documents",
+      "The titled spouse can always convey alone",
+      "Homestead protections apply only to rental property",
+      "TREC automatically waives spouse signatures"
     ],
-    "correctAnswer": 1,
-    "explanation": "Trust money must be handled strictly per the contract/escrow instructions; leveraging it for the license holder's benefit is mishandling and grounds for discipline."
+    "correctAnswer": 0,
+    "explanation": "Special-topic case studies may combine marital, homestead, and conveyance facts. Texas homestead rules can require spouse joinder. The correct answer is Homestead rights may require both spouses to sign conveyance documents. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-325",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license holder is generally expected to recommend that parties:",
+    "question": "Case TX-10: A broker supervises several sponsored sales agents and one agent repeatedly uses outdated forms. Which broker responsibility is most directly implicated?",
     "choices": [
-      "Consult an attorney for legal questions about the contract",
-      "Skip inspections",
-      "Avoid title insurance",
-      "Never consult anyone"
+      "The buyer's duty to train the agent",
+      "The broker's duty to properly supervise sponsored sales agents and brokerage activity",
+      "The title company's duty to select forms",
+      "The local MLS's duty to discipline all form errors"
     ],
-    "correctAnswer": 0,
-    "explanation": "Because license holders cannot give legal advice (UPL), they should recommend the parties consult their own attorneys for legal questions; the TREC contract contains a 'consult an attorney' notice."
+    "correctAnswer": 1,
+    "explanation": "Agency/brokerage case studies often test supervision. A broker is responsible for sponsored sales agents and must maintain appropriate supervision systems. The correct answer is The broker's duty to properly supervise sponsored sales agents and brokerage activity. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-326",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Making a knowingly false statement on the Seller's Disclosure with the seller's encouragement:",
+    "question": "Case TX-11: A buyer misses the deadline to deliver the option fee but still delivered earnest money on time. What is the likely contract consequence?",
     "choices": [
-      "Is an intermediary act",
-      "Shifts all liability to the seller",
-      "Still exposes the license holder to discipline and liability for participating in misrepresentation",
-      "Is acceptable if the seller insists"
+      "The entire contract is automatically void in every case",
+      "The seller must refund all money immediately",
+      "The buyer may lose the unrestricted termination option even though the sales contract may still continue",
+      "The broker decides whether the option exists"
     ],
     "correctAnswer": 2,
-    "explanation": "A license holder who participates in or fails to correct a known misrepresentation shares liability and faces TREC discipline; following an unlawful instruction is no defense."
+    "explanation": "Contract case studies distinguish earnest money from option fees. The option right depends on satisfying the option-fee requirements. The correct answer is The buyer may lose the unrestricted termination option even though the sales contract may still continue. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-327",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "In the One to Four Family contract, the 'Property' generally includes the land, improvements, and:",
+    "question": "Case TX-56: A buyer asks a sales agent to draft language requiring the seller to repair a foundation in a legally specific way. What should the license holder do?",
     "choices": [
-      "Listed accessories/fixtures, with any exclusions specified",
-      "TREC fees",
-      "The broker's commission",
-      "The seller's vehicles"
+      "Draft legal clauses beyond the license holder's competence",
+      "Tell the buyer oral repair promises are always enough",
+      "Delete contract provisions without the parties' written agreement",
+      "Use appropriate promulgated forms where available and recommend legal counsel for custom legal language"
     ],
-    "correctAnswer": 0,
-    "explanation": "The Property paragraph defines what conveys: land, improvements, and the listed permanently installed accessories/fixtures, subject to any exclusions the parties write in."
+    "correctAnswer": 3,
+    "explanation": "Texas contract questions often test the line between filling in business facts and practicing law. Legal drafting should be referred to an attorney. The correct answer is Use appropriate promulgated forms where available and recommend legal counsel for custom legal language. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-328",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Items the seller wants to keep (e.g., a specific chandelier) should be handled by:",
+    "question": "Case TX-57: A seller is married and the property is the couple's Texas homestead, but only one spouse is listed on title. What should the license holder recognize?",
     "choices": [
-      "Ignoring them",
-      "An IABS",
-      "Listing them as exclusions in the contract",
-      "Verbal agreement"
+      "Homestead rights may require both spouses to sign conveyance documents",
+      "The titled spouse can always convey alone",
+      "Homestead protections apply only to rental property",
+      "TREC automatically waives spouse signatures"
     ],
-    "correctAnswer": 2,
-    "explanation": "To avoid disputes, items the seller will remove that might otherwise be fixtures must be written into the Exclusions; verbal understandings are not enforceable."
+    "correctAnswer": 0,
+    "explanation": "Special-topic case studies may combine marital, homestead, and conveyance facts. Texas homestead rules can require spouse joinder. The correct answer is Homestead rights may require both spouses to sign conveyance documents. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-329",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Property taxes and similar items are typically handled at closing by:",
+    "question": "Case TX-58: A broker supervises several sponsored sales agents and one agent repeatedly uses outdated forms. Which broker responsibility is most directly implicated?",
     "choices": [
-      "The broker paying them",
-      "Proration between buyer and seller as of the closing date",
-      "The buyer paying the entire year",
-      "Ignoring them"
+      "The buyer's duty to train the agent",
+      "The broker's duty to properly supervise sponsored sales agents and brokerage activity",
+      "The title company's duty to select forms",
+      "The local MLS's duty to discipline all form errors"
     ],
     "correctAnswer": 1,
-    "explanation": "The prorations paragraph allocates taxes, HOA dues, and similar items between buyer and seller as of the closing date so each pays their share of the period."
+    "explanation": "Agency/brokerage case studies often test supervision. A broker is responsible for sponsored sales agents and must maintain appropriate supervision systems. The correct answer is The broker's duty to properly supervise sponsored sales agents and brokerage activity. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-330",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "If the property is materially damaged by fire before closing, the casualty-loss paragraph generally:",
+    "question": "Case TX-59: A buyer misses the deadline to deliver the option fee but still delivered earnest money on time. What is the likely contract consequence?",
     "choices": [
-      "Forces the buyer to close at full price",
-      "Pays the broker",
-      "Voids the contract automatically with no options",
-      "Requires the seller to restore it or allows the buyer to terminate or accept with an assignment of insurance proceeds"
+      "The entire contract is automatically void in every case",
+      "The seller must refund all money immediately",
+      "The buyer may lose the unrestricted termination option even though the sales contract may still continue",
+      "The broker decides whether the option exists"
     ],
-    "correctAnswer": 3,
-    "explanation": "The casualty-loss provision places risk of pre-closing loss on the seller to restore the property; if not restored timely, the buyer may terminate or accept the property with insurance proceeds/credit as the contract provides."
+    "correctAnswer": 2,
+    "explanation": "Contract case studies distinguish earnest money from option fees. The option right depends on satisfying the option-fee requirements. The correct answer is The buyer may lose the unrestricted termination option even though the sales contract may still continue. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-331",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The contract's attorney's-fees paragraph generally provides that:",
+    "question": "Case TX-60: A consumer files a complaint alleging a license holder committed dishonest conduct during a transaction. Which body generally investigates and disciplines Texas real estate license holders?",
     "choices": [
-      "Fees are prohibited",
-      "A prevailing party in a dispute may recover reasonable attorney's fees",
-      "Each side always pays its own fees",
-      "TREC pays the fees"
+      "The county appraisal district only",
+      "The title company chosen for closing",
+      "The National Association of REALTORS only",
+      "Texas Real Estate Commission"
     ],
-    "correctAnswer": 1,
-    "explanation": "The attorney's-fees provision typically allows the prevailing party in litigation arising from the contract to recover reasonable attorney's fees and costs."
+    "correctAnswer": 3,
+    "explanation": "Commission-powers case studies test TREC jurisdiction over license-holder conduct, complaints, hearings, sanctions, and recovery-fund issues. The correct answer is Texas Real Estate Commission. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-332",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "If the seller is a foreign person, the contract's federal tax paragraph addresses:",
+    "question": "Case TX-61: A buyer is purchasing property in a subdivision governed by a homeowners association. Which issue is most likely to require Texas-specific notice or addendum attention?",
     "choices": [
-      "The option fee",
-      "Homestead exemption",
-      "FIRPTA withholding requirements at closing",
-      "TREC fees"
+      "Property owners association information and related resale documents or addendum requirements",
+      "A mandatory commercial lease amendment",
+      "A farm-and-ranch mineral waiver in every subdivision sale",
+      "A verbal promise to ignore deed restrictions"
     ],
-    "correctAnswer": 2,
-    "explanation": "The federal tax requirements paragraph addresses FIRPTA: when the seller is a foreign person, the buyer/closing agent may be required to withhold and remit tax unless an exception applies."
+    "correctAnswer": 0,
+    "explanation": "Texas special-topic and contract case studies can test HOA/POA disclosures, notices, and addenda tied to residential transactions. The correct answer is Property owners association information and related resale documents or addendum requirements. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-333",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The 'Agreement of Parties' paragraph indicates the contract:",
+    "question": "Case TX-62: A broker receives competing offers and the seller asks whether all offers must be presented. What should the broker do?",
     "choices": [
-      "Contains the entire agreement and can be changed only in writing, with addenda checked",
-      "Can be changed verbally",
-      "Excludes addenda",
-      "Is not binding"
+      "Discard lower offers without telling the seller",
+      "Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions",
+      "Present only offers from the broker's own clients",
+      "Let the buyer agent choose which offer the seller sees"
     ],
-    "correctAnswer": 0,
-    "explanation": "This integration provision states the written contract (with the checked addenda) is the entire agreement and may be changed only by a written amendment signed by the parties."
+    "correctAnswer": 1,
+    "explanation": "Case studies often test fiduciary duties and communication. A listing broker must keep the seller informed of material transaction information. The correct answer is Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-334",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The TREC contract's mediation paragraph:",
+    "question": "Case TX-63: A license holder owns an interest in a company that will provide services in the transaction. What is the safest required action?",
     "choices": [
-      "Requires arbitration always",
-      "Is not part of the form",
-      "Forbids mediation",
-      "Provides that disputes may be submitted to mediation before litigation as stated"
+      "Hide the ownership because the service is optional",
+      "Disclose only after commission is paid",
+      "Disclose the conflict or business interest as required before the party relies on the recommendation",
+      "Tell the service provider to disclose instead of the license holder"
     ],
-    "correctAnswer": 3,
-    "explanation": "The contract includes a mediation provision under which the parties may agree to mediate disputes; it sets how mediation is requested and shared, short of mandatory binding arbitration."
+    "correctAnswer": 2,
+    "explanation": "Conflict-of-interest case studies test timely disclosure when a license holder has a personal or financial interest related to the transaction. The correct answer is Disclose the conflict or business interest as required before the party relies on the recommendation. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-335",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The seller's representations paragraph commonly has the seller represent that:",
+    "question": "Case TX-64: A sales agent wants to receive a referral fee directly from another brokerage for licensed activity. How should compensation generally be handled?",
     "choices": [
-      "TREC approved the sale",
-      "The broker earned a fee",
-      "There are no undisclosed liens/notices/violations as stated, to the seller's knowledge",
-      "The buyer is qualified"
+      "Directly to the sales agent without broker involvement",
+      "Through the buyer personally",
+      "Through TREC as escrow agent",
+      "Through the agent's sponsoring broker"
     ],
-    "correctAnswer": 2,
-    "explanation": "The representations paragraph has the seller affirm certain facts (e.g., no undisclosed assessments, governmental notices, or violations) to the seller's knowledge as of the effective date."
+    "correctAnswer": 3,
+    "explanation": "Texas compensation case studies test that sponsored sales agents act through and are compensated through their broker for brokerage services. The correct answer is Through the agent's sponsoring broker. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-336",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Earnest money in the escrow paragraph is:",
+    "question": "Case TX-65: A buyer, seller, and broker are reviewing a One to Four Family Residential Contract. The buyer wants the unrestricted right to terminate during inspection review. Which contract feature should the parties use?",
     "choices": [
-      "The broker's fee",
-      "Given to the seller at signing",
-      "Held by the named escrow agent and disbursed only per the contract or written agreement/court order",
-      "Returned to the buyer always"
+      "The termination option, with the option fee delivered as required by the contract",
+      "A verbal side agreement after execution",
+      "A broker-drafted special provision changing legal rights",
+      "A seller disclosure notice alone"
     ],
-    "correctAnswer": 2,
-    "explanation": "The escrow paragraph governs how the escrow agent holds and disburses earnest money, including dispute handling and the agent's protections."
+    "correctAnswer": 0,
+    "explanation": "Texas contract case-study questions often test how a fact pattern maps to a promulgated form or addendum. The termination option is the contract mechanism for an unrestricted buyer termination right during the option period. The correct answer is The termination option, with the option fee delivered as required by the contract. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-337",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A buyer's lender requires a new survey because the existing one cannot be relied upon. This is addressed by:",
+    "question": "Case TX-66: A license holder represents the buyer in a transaction with an unrepresented FSBO seller. The seller starts asking whether the buyer will pay more. What should the license holder do?",
     "choices": [
-      "The survey paragraph determining who provides/pays for the new survey",
-      "The IABS",
-      "The Back-Up Addendum",
-      "The option fee"
+      "Answer all seller questions as if representing both parties",
+      "Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information",
+      "Hide the agency relationship until closing",
+      "Tell the seller the highest price the buyer will pay"
     ],
-    "correctAnswer": 0,
-    "explanation": "The contract's survey paragraph governs delivery of an acceptable existing survey (with T-47) or obtaining a new survey and which party pays \u2014 important when the lender/title company won't accept the old survey."
+    "correctAnswer": 1,
+    "explanation": "The license holder owes loyalty and confidentiality to the buyer-client while still owing honesty and required disclosures to other parties. The correct answer is Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-338",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Possession 'subject to a residential lease' means the buyer:",
+    "question": "Case TX-67: A seller asks the listing agent to ignore a known roof leak because the buyer can discover it during inspection. What is the best response under Texas license-holder duties?",
     "choices": [
-      "Can evict immediately without notice",
-      "Takes the property subject to an existing tenant's rights, disclosed via the appropriate addendum",
-      "Gets vacant possession",
-      "Owes the tenant nothing"
+      "Omit the fact if the buyer has an inspector",
+      "Disclose only after closing",
+      "Tell the seller that known material defects must be disclosed as required by law and the contract process",
+      "Tell the buyer only if the buyer asks in writing"
     ],
-    "correctAnswer": 1,
-    "explanation": "If a tenant occupies the property at closing, the buyer takes subject to the lease; the Addendum Regarding Residential Leases discloses the lease terms and tenant rights."
+    "correctAnswer": 2,
+    "explanation": "Texas case items commonly combine disclosure duties with transaction facts. Known material facts cannot be hidden merely because the buyer might discover them independently. The correct answer is Tell the seller that known material defects must be disclosed as required by law and the contract process. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-339",
@@ -5221,48 +5221,48 @@
   },
   {
     "id": "re-tx-347",
-    "domain": "Commission Duties & Powers",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "TREC may, in an investigation, compel records and testimony through:",
+    "question": "Case TX-01: A buyer, seller, and broker are reviewing a One to Four Family Residential Contract. The buyer wants the unrestricted right to terminate during inspection review. Which contract feature should the parties use?",
     "choices": [
-      "No legal tools",
-      "The buyer",
-      "The MLS",
-      "Subpoena power as authorized by statute"
+      "The termination option, with the option fee delivered as required by the contract",
+      "A verbal side agreement after execution",
+      "A broker-drafted special provision changing legal rights",
+      "A seller disclosure notice alone"
     ],
-    "correctAnswer": 3,
-    "explanation": "TREC has statutory authority to investigate and may issue subpoenas for documents and testimony as part of enforcing TRELA."
+    "correctAnswer": 0,
+    "explanation": "Texas contract case-study questions often test how a fact pattern maps to a promulgated form or addendum. The termination option is the contract mechanism for an unrestricted buyer termination right during the option period. The correct answer is The termination option, with the option fee delivered as required by the contract. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-348",
-    "domain": "Commission Duties & Powers",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A complaint that does not allege a violation within TREC's jurisdiction will generally be:",
+    "question": "Case TX-02: A license holder represents the buyer in a transaction with an unrepresented FSBO seller. The seller starts asking whether the buyer will pay more. What should the license holder do?",
     "choices": [
-      "Closed or referred, as TREC only acts within its statutory authority",
-      "Sent to the Governor",
-      "Decided by the MLS",
-      "Automatically prosecuted"
+      "Answer all seller questions as if representing both parties",
+      "Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information",
+      "Hide the agency relationship until closing",
+      "Tell the seller the highest price the buyer will pay"
     ],
-    "correctAnswer": 0,
-    "explanation": "TREC acts only within its statutory jurisdiction; matters outside it (e.g., purely civil contract disputes) are typically closed or referred elsewhere."
+    "correctAnswer": 1,
+    "explanation": "The license holder owes loyalty and confidentiality to the buyer-client while still owing honesty and required disclosures to other parties. The correct answer is Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-349",
-    "domain": "Commission Duties & Powers",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license holder must, upon request, be able to provide evidence of:",
+    "question": "Case TX-03: A seller asks the listing agent to ignore a known roof leak because the buyer can discover it during inspection. What is the best response under Texas license-holder duties?",
     "choices": [
-      "The client's finances",
-      "The buyer's offer",
-      "TREC's budget",
-      "Current license status/authority to act"
+      "Omit the fact if the buyer has an inspector",
+      "Disclose only after closing",
+      "Tell the seller that known material defects must be disclosed as required by law and the contract process",
+      "Tell the buyer only if the buyer asks in writing"
     ],
-    "correctAnswer": 3,
-    "explanation": "License holders must be able to demonstrate they hold an active, sponsored (if a sales agent) license authorizing the activity; consumers can verify status on TREC's website."
+    "correctAnswer": 2,
+    "explanation": "Texas case items commonly combine disclosure duties with transaction facts. Known material facts cannot be hidden merely because the buyer might discover them independently. The correct answer is Tell the seller that known material defects must be disclosed as required by law and the contract process. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-350",
@@ -5296,528 +5296,528 @@
   },
   {
     "id": "re-tx-352",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Authority a principal expressly grants the agent in the listing agreement is:",
+    "question": "Case TX-40: A buyer asks a sales agent to draft language requiring the seller to repair a foundation in a legally specific way. What should the license holder do?",
     "choices": [
-      "Apparent authority",
-      "Ostensible authority",
-      "No authority",
-      "Actual (express) authority"
+      "Draft legal clauses beyond the license holder's competence",
+      "Tell the buyer oral repair promises are always enough",
+      "Delete contract provisions without the parties' written agreement",
+      "Use appropriate promulgated forms where available and recommend legal counsel for custom legal language"
     ],
     "correctAnswer": 3,
-    "explanation": "Express authority is actual authority specifically granted (e.g., in the listing); implied authority is what is reasonably necessary to carry it out; apparent/ostensible authority arises from the principal's conduct toward third parties."
+    "explanation": "Texas contract questions often test the line between filling in business facts and practicing law. Legal drafting should be referred to an attorney. The correct answer is Use appropriate promulgated forms where available and recommend legal counsel for custom legal language. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-353",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A sponsoring broker can be held responsible for a sponsored sales agent's wrongful act in a transaction under the concept of:",
+    "question": "Case TX-41: A seller is married and the property is the couple's Texas homestead, but only one spouse is listed on title. What should the license holder recognize?",
     "choices": [
-      "Vicarious liability/respondeat superior",
-      "Subrogation",
-      "Escheat",
-      "Adverse possession"
+      "Homestead rights may require both spouses to sign conveyance documents",
+      "The titled spouse can always convey alone",
+      "Homestead protections apply only to rental property",
+      "TREC automatically waives spouse signatures"
     ],
     "correctAnswer": 0,
-    "explanation": "A broker may be vicariously liable for sponsored license holders' acts within the scope of the brokerage relationship, which is why supervision and compliance are critical."
+    "explanation": "Special-topic case studies may combine marital, homestead, and conveyance facts. Texas homestead rules can require spouse joinder. The correct answer is Homestead rights may require both spouses to sign conveyance documents. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-354",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Essential terms of a valid listing agreement include:",
+    "question": "Case TX-42: A broker supervises several sponsored sales agents and one agent repeatedly uses outdated forms. Which broker responsibility is most directly implicated?",
     "choices": [
-      "Property identification, price/terms, compensation, authority granted, and a definite expiration",
-      "The lender's name",
-      "TREC's case number",
-      "The buyer's name"
+      "The buyer's duty to train the agent",
+      "The broker's duty to properly supervise sponsored sales agents and brokerage activity",
+      "The title company's duty to select forms",
+      "The local MLS's duty to discipline all form errors"
     ],
-    "correctAnswer": 0,
-    "explanation": "A listing should identify the property, state price/terms, define the broker's authority and compensation, and include a definite termination date (no auto-renewal)."
+    "correctAnswer": 1,
+    "explanation": "Agency/brokerage case studies often test supervision. A broker is responsible for sponsored sales agents and must maintain appropriate supervision systems. The correct answer is The broker's duty to properly supervise sponsored sales agents and brokerage activity. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-355",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A 'license holder' under TRELA includes:",
+    "question": "Case TX-43: A buyer misses the deadline to deliver the option fee but still delivered earnest money on time. What is the likely contract consequence?",
     "choices": [
-      "Only brokers",
-      "Only attorneys",
-      "Both brokers and sales agents",
-      "Title agents"
+      "The entire contract is automatically void in every case",
+      "The seller must refund all money immediately",
+      "The buyer may lose the unrestricted termination option even though the sales contract may still continue",
+      "The broker decides whether the option exists"
     ],
     "correctAnswer": 2,
-    "explanation": "'License holder' encompasses both brokers and sales agents; many TRELA duties apply to both, though brokers carry supervisory responsibility."
+    "explanation": "Contract case studies distinguish earnest money from option fees. The option right depends on satisfying the option-fee requirements. The correct answer is The buyer may lose the unrestricted termination option even though the sales contract may still continue. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-356",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "When working with a FSBO seller as the buyer's agent, the license holder should:",
+    "question": "Case TX-44: A consumer files a complaint alleging a license holder committed dishonest conduct during a transaction. Which body generally investigates and disciplines Texas real estate license holders?",
     "choices": [
-      "Refuse to communicate",
-      "Represent both without consent",
-      "Conceal whom they represent",
-      "Disclose that they represent the buyer and provide the IABS as required"
+      "The county appraisal district only",
+      "The title company chosen for closing",
+      "The National Association of REALTORS only",
+      "Texas Real Estate Commission"
     ],
     "correctAnswer": 3,
-    "explanation": "The buyer's agent must be clear about representation, provide the IABS (subject to exceptions), and deal honestly with the unrepresented seller (a customer)."
+    "explanation": "Commission-powers case studies test TREC jurisdiction over license-holder conduct, complaints, hearings, sanctions, and recovery-fund issues. The correct answer is Texas Real Estate Commission. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-357",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Agency disclosure of who a license holder represents should be made:",
+    "question": "Case TX-45: A buyer is purchasing property in a subdivision governed by a homeowners association. Which issue is most likely to require Texas-specific notice or addendum attention?",
     "choices": [
-      "Never",
-      "Only verbally",
-      "In a timely manner and confirmed in writing before the parties are bound",
-      "After closing"
+      "Property owners association information and related resale documents or addendum requirements",
+      "A mandatory commercial lease amendment",
+      "A farm-and-ranch mineral waiver in every subdivision sale",
+      "A verbal promise to ignore deed restrictions"
     ],
-    "correctAnswer": 2,
-    "explanation": "Representation should be disclosed early and confirmed in writing (e.g., via the representation agreement and the contract's broker information), so all parties understand the relationships before contracting."
+    "correctAnswer": 0,
+    "explanation": "Texas special-topic and contract case studies can test HOA/POA disclosures, notices, and addenda tied to residential transactions. The correct answer is Property owners association information and related resale documents or addendum requirements. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-358",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A broker preparing a Broker Price Opinion for a lender for a fee must:",
+    "question": "Case TX-46: A broker receives competing offers and the seller asks whether all offers must be presented. What should the broker do?",
     "choices": [
-      "Refuse all BPOs",
-      "Call it an appraisal",
-      "Be an appraiser",
-      "Clearly identify it as a BPO/not an appraisal and comply with applicable rules"
+      "Discard lower offers without telling the seller",
+      "Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions",
+      "Present only offers from the broker's own clients",
+      "Let the buyer agent choose which offer the seller sees"
     ],
-    "correctAnswer": 3,
-    "explanation": "License holders may perform BPOs/CMAs for compensation but must not represent them as appraisals and must comply with statutory content/disclosure requirements; only appraisers perform appraisals."
+    "correctAnswer": 1,
+    "explanation": "Case studies often test fiduciary duties and communication. A listing broker must keep the seller informed of material transaction information. The correct answer is Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-359",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The agent's duty to disclose to the principal covers:",
+    "question": "Case TX-47: A license holder owns an interest in a company that will provide services in the transaction. What is the safest required action?",
     "choices": [
-      "Nothing after the offer",
-      "All material information that could affect the principal's decisions",
-      "Only price",
-      "Confidential buyer data to the seller"
+      "Hide the ownership because the service is optional",
+      "Disclose only after commission is paid",
+      "Disclose the conflict or business interest as required before the party relies on the recommendation",
+      "Tell the service provider to disclose instead of the license holder"
     ],
-    "correctAnswer": 1,
-    "explanation": "The agent must communicate all material facts relevant to the transaction to the principal so the principal can make informed decisions."
+    "correctAnswer": 2,
+    "explanation": "Conflict-of-interest case studies test timely disclosure when a license holder has a personal or financial interest related to the transaction. The correct answer is Disclose the conflict or business interest as required before the party relies on the recommendation. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-360",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Leasing or managing real property for others for compensation:",
+    "question": "Case TX-48: A sales agent wants to receive a referral fee directly from another brokerage for licensed activity. How should compensation generally be handled?",
     "choices": [
-      "Requires an appraiser license",
-      "Requires no license",
-      "Requires a real estate license (it is brokerage activity)",
-      "Is exempt always"
+      "Directly to the sales agent without broker involvement",
+      "Through the buyer personally",
+      "Through TREC as escrow agent",
+      "Through the agent's sponsoring broker"
     ],
-    "correctAnswer": 2,
-    "explanation": "Property management/leasing for others for a fee is a licensed real estate activity in Texas; owners managing their own property are exempt."
+    "correctAnswer": 3,
+    "explanation": "Texas compensation case studies test that sponsored sales agents act through and are compensated through their broker for brokerage services. The correct answer is Through the agent's sponsoring broker. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-361",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "If a buyer-client backs out without legal cause after the seller accepted, the listing broker's commission entitlement is generally governed by:",
+    "question": "Case TX-49: A buyer, seller, and broker are reviewing a One to Four Family Residential Contract. The buyer wants the unrestricted right to terminate during inspection review. Which contract feature should the parties use?",
     "choices": [
-      "The MLS",
-      "The buyer's lender",
-      "TREC rule",
-      "The listing agreement's terms (often the broker still earned it by procuring a ready/willing/able buyer)"
+      "The termination option, with the option fee delivered as required by the contract",
+      "A verbal side agreement after execution",
+      "A broker-drafted special provision changing legal rights",
+      "A seller disclosure notice alone"
     ],
-    "correctAnswer": 3,
-    "explanation": "Whether the broker is owed a commission when a buyer defaults depends on the listing agreement; many provide the broker earned the fee by producing a ready, willing, and able buyer or upon the seller's acceptance."
+    "correctAnswer": 0,
+    "explanation": "Texas contract case-study questions often test how a fact pattern maps to a promulgated form or addendum. The termination option is the contract mechanism for an unrestricted buyer termination right during the option period. The correct answer is The termination option, with the option fee delivered as required by the contract. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-362",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Apparent authority is created by:",
+    "question": "Case TX-50: A license holder represents the buyer in a transaction with an unrepresented FSBO seller. The seller starts asking whether the buyer will pay more. What should the license holder do?",
     "choices": [
-      "The agent's own statements alone",
-      "The principal's conduct leading a third party to reasonably believe the agent is authorized",
-      "TREC rule",
-      "The buyer's belief alone"
+      "Answer all seller questions as if representing both parties",
+      "Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information",
+      "Hide the agency relationship until closing",
+      "Tell the seller the highest price the buyer will pay"
     ],
     "correctAnswer": 1,
-    "explanation": "Apparent (ostensible) authority arises from the principal's words or conduct that cause a third party to reasonably believe the agent has authority, even if not actually granted."
+    "explanation": "The license holder owes loyalty and confidentiality to the buyer-client while still owing honesty and required disclosures to other parties. The correct answer is Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-363",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A buyer representation agreement should include:",
+    "question": "Case TX-51: A seller asks the listing agent to ignore a known roof leak because the buyer can discover it during inspection. What is the best response under Texas license-holder duties?",
     "choices": [
-      "No compensation or term",
-      "A perpetual term",
-      "The scope, compensation, and a definite expiration date",
-      "TREC-set fees"
+      "Omit the fact if the buyer has an inspector",
+      "Disclose only after closing",
+      "Tell the seller that known material defects must be disclosed as required by law and the contract process",
+      "Tell the buyer only if the buyer asks in writing"
     ],
     "correctAnswer": 2,
-    "explanation": "Like listings, buyer representation agreements need defined scope, negotiated compensation, and a definite termination date; indefinite/auto-renewing terms are improper."
+    "explanation": "Texas case items commonly combine disclosure duties with transaction facts. Known material facts cannot be hidden merely because the buyer might discover them independently. The correct answer is Tell the seller that known material defects must be disclosed as required by law and the contract process. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-364",
-    "domain": "Agency & Brokerage",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license holder representing a relative as the buyer should:",
+    "question": "Case TX-52: A sales agent receives earnest money from a buyer on Friday and the contract names a title company as escrow agent. What should the agent do next?",
     "choices": [
-      "Disclose the relationship to the seller-client (if representing the seller) as a conflict",
-      "Charge less",
-      "Avoid the IABS",
-      "Hide the relationship"
+      "Deposit it into the agent's personal account",
+      "Hold it until lender approval is complete",
+      "Send it to TREC for safekeeping",
+      "Deliver the earnest money to the named escrow agent within the contract deadline"
     ],
-    "correctAnswer": 0,
-    "explanation": "A personal relationship that could affect loyalty or the principal's decision is a conflict that must be disclosed; nondisclosure breaches fiduciary and honesty duties."
+    "correctAnswer": 3,
+    "explanation": "Case-study questions may test timing and handling of money. Earnest money must be delivered according to the contract and escrow instructions. The correct answer is Deliver the earnest money to the named escrow agent within the contract deadline. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-365",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "An advertisement stating 'adults only, no children' for a non-exempt dwelling is:",
+    "question": "Case TX-12: A consumer files a complaint alleging a license holder committed dishonest conduct during a transaction. Which body generally investigates and disciplines Texas real estate license holders?",
     "choices": [
-      "Required disclosure",
-      "Discriminatory advertising violating fair housing (familial status)",
-      "Acceptable",
-      "An intermediary act"
+      "The county appraisal district only",
+      "The title company chosen for closing",
+      "The National Association of REALTORS only",
+      "Texas Real Estate Commission"
     ],
-    "correctAnswer": 1,
-    "explanation": "Advertising that expresses a preference or limitation based on familial status (or other protected classes) violates fair housing law unless a recognized exemption applies."
+    "correctAnswer": 3,
+    "explanation": "Commission-powers case studies test TREC jurisdiction over license-holder conduct, complaints, hearings, sanctions, and recovery-fund issues. The correct answer is Texas Real Estate Commission. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-366",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Refusing to show or provide services to a person because of national origin is:",
+    "question": "Case TX-13: A buyer is purchasing property in a subdivision governed by a homeowners association. Which issue is most likely to require Texas-specific notice or addendum attention?",
     "choices": [
-      "Permitted screening",
-      "Required by TRELA",
-      "A ministerial act",
-      "An illegal discriminatory practice and a TREC violation"
+      "Property owners association information and related resale documents or addendum requirements",
+      "A mandatory commercial lease amendment",
+      "A farm-and-ranch mineral waiver in every subdivision sale",
+      "A verbal promise to ignore deed restrictions"
     ],
-    "correctAnswer": 3,
-    "explanation": "Denying services or differential treatment based on a protected class is unlawful discrimination under fair housing law and grounds for TREC discipline."
+    "correctAnswer": 0,
+    "explanation": "Texas special-topic and contract case studies can test HOA/POA disclosures, notices, and addenda tied to residential transactions. The correct answer is Property owners association information and related resale documents or addendum requirements. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-367",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Failing to present a written offer because the agent personally dislikes the buyer is:",
+    "question": "Case TX-14: A broker receives competing offers and the seller asks whether all offers must be presented. What should the broker do?",
     "choices": [
-      "An intermediary act",
-      "A breach of duty (offers must be presented) and possible discrimination",
-      "Acceptable judgment",
-      "Required disclosure"
+      "Discard lower offers without telling the seller",
+      "Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions",
+      "Present only offers from the broker's own clients",
+      "Let the buyer agent choose which offer the seller sees"
     ],
     "correctAnswer": 1,
-    "explanation": "All offers must be promptly presented to the seller (absent written instructions otherwise); withholding based on personal bias breaches duty and may be discriminatory."
+    "explanation": "Case studies often test fiduciary duties and communication. A listing broker must keep the seller informed of material transaction information. The correct answer is Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-368",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Falsifying continuing education completion is:",
+    "question": "Case TX-15: A license holder owns an interest in a company that will provide services in the transaction. What is the safest required action?",
     "choices": [
-      "Required by TREC",
-      "Fraud and grounds for disciplinary action",
-      "A minor paperwork issue",
-      "An intermediary act"
+      "Hide the ownership because the service is optional",
+      "Disclose only after commission is paid",
+      "Disclose the conflict or business interest as required before the party relies on the recommendation",
+      "Tell the service provider to disclose instead of the license holder"
     ],
-    "correctAnswer": 1,
-    "explanation": "Misrepresenting CE completion is fraud against the licensing process and a serious violation that can lead to suspension or revocation."
+    "correctAnswer": 2,
+    "explanation": "Conflict-of-interest case studies test timely disclosure when a license holder has a personal or financial interest related to the transaction. The correct answer is Disclose the conflict or business interest as required before the party relies on the recommendation. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-369",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Practicing outside one's area of competence without involving a qualified professional:",
+    "question": "Case TX-16: A sales agent wants to receive a referral fee directly from another brokerage for licensed activity. How should compensation generally be handled?",
     "choices": [
-      "Is an intermediary act",
-      "Shows initiative",
-      "Is required",
-      "Can breach the duty of competent service and harm the client"
+      "Directly to the sales agent without broker involvement",
+      "Through the buyer personally",
+      "Through TREC as escrow agent",
+      "Through the agent's sponsoring broker"
     ],
     "correctAnswer": 3,
-    "explanation": "License holders should practice within their expertise and refer or associate competent help when needed; doing otherwise can violate the duty of care."
+    "explanation": "Texas compensation case studies test that sponsored sales agents act through and are compensated through their broker for brokerage services. The correct answer is Through the agent's sponsoring broker. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-370",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Accepting an undisclosed payment from a home inspector for steering clients is:",
+    "question": "Case TX-17: A buyer, seller, and broker are reviewing a One to Four Family Residential Contract. The buyer wants the unrestricted right to terminate during inspection review. Which contract feature should the parties use?",
     "choices": [
-      "A ministerial act",
-      "Required disclosure",
-      "An undisclosed conflict/kickback and a violation",
-      "A normal courtesy"
+      "The termination option, with the option fee delivered as required by the contract",
+      "A verbal side agreement after execution",
+      "A broker-drafted special provision changing legal rights",
+      "A seller disclosure notice alone"
     ],
-    "correctAnswer": 2,
-    "explanation": "Undisclosed compensation for referrals is a conflict of interest and may violate RESPA/TREC rules; any such arrangement must be disclosed and lawful."
+    "correctAnswer": 0,
+    "explanation": "Texas contract case-study questions often test how a fact pattern maps to a promulgated form or addendum. The termination option is the contract mechanism for an unrestricted buyer termination right during the option period. The correct answer is The termination option, with the option fee delivered as required by the contract. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-371",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Mishandling lockbox access or keys, allowing unauthorized entry, is:",
+    "question": "Case TX-18: A license holder represents the buyer in a transaction with an unrepresented FSBO seller. The seller starts asking whether the buyer will pay more. What should the license holder do?",
     "choices": [
-      "A breach of the duty of care and potential liability",
-      "Acceptable",
-      "Required by TREC",
-      "An intermediary act"
+      "Answer all seller questions as if representing both parties",
+      "Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information",
+      "Hide the agency relationship until closing",
+      "Tell the seller the highest price the buyer will pay"
     ],
-    "correctAnswer": 0,
-    "explanation": "License holders must safeguard property access; negligent handling of keys/lockboxes can cause loss and breach the duty of care owed to the client."
+    "correctAnswer": 1,
+    "explanation": "The license holder owes loyalty and confidentiality to the buyer-client while still owing honesty and required disclosures to other parties. The correct answer is Disclose representation, treat the seller honestly, and protect the buyer-client's confidential information. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-372",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Overstating one's transaction experience or sales volume in marketing is:",
+    "question": "Case TX-19: A seller asks the listing agent to ignore a known roof leak because the buyer can discover it during inspection. What is the best response under Texas license-holder duties?",
     "choices": [
-      "Misrepresentation and a TREC advertising violation",
-      "Required disclosure",
-      "An escrow duty",
-      "Acceptable puffery"
+      "Omit the fact if the buyer has an inspector",
+      "Disclose only after closing",
+      "Tell the seller that known material defects must be disclosed as required by law and the contract process",
+      "Tell the buyer only if the buyer asks in writing"
     ],
-    "correctAnswer": 0,
-    "explanation": "Material false claims about experience or production are deceptive advertising; advertising must be truthful and not misleading."
+    "correctAnswer": 2,
+    "explanation": "Texas case items commonly combine disclosure duties with transaction facts. Known material facts cannot be hidden merely because the buyer might discover them independently. The correct answer is Tell the seller that known material defects must be disclosed as required by law and the contract process. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-373",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "An unlicensed entity may NOT:",
+    "question": "Case TX-20: A sales agent receives earnest money from a buyer on Friday and the contract names a title company as escrow agent. What should the agent do next?",
     "choices": [
-      "Receive a referral fee for brokerage services",
-      "Refer a friend casually with no fee",
-      "Own real estate",
-      "Hire a licensed broker"
+      "Deposit it into the agent's personal account",
+      "Hold it until lender approval is complete",
+      "Send it to TREC for safekeeping",
+      "Deliver the earnest money to the named escrow agent within the contract deadline"
     ],
-    "correctAnswer": 0,
-    "explanation": "Compensation for brokerage services (including referral fees) may not be paid to an unlicensed person or entity; only license holders may be paid for such services."
+    "correctAnswer": 3,
+    "explanation": "Case-study questions may test timing and handling of money. Earnest money must be delivered according to the contract and escrow instructions. The correct answer is Deliver the earnest money to the named escrow agent within the contract deadline. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-374",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license holder must disclose the source of data (e.g., square footage) and:",
+    "question": "Case TX-21: A broker is asked to represent both buyer and seller in the same Texas residential transaction. Which arrangement is required if the broker proceeds?",
     "choices": [
-      "Hide the source",
-      "Recommend independent verification rather than guaranteeing it",
-      "Inflate it",
-      "Guarantee its accuracy"
+      "Written intermediary consent from both parties before acting as intermediary",
+      "Oral consent from the first party who signs",
+      "Dual agency without written notice",
+      "Automatic representation of both parties because the same broker is involved"
     ],
-    "correctAnswer": 1,
-    "explanation": "To avoid misrepresentation, license holders should cite the source of measurements/data and advise the parties to independently verify rather than warranting accuracy."
+    "correctAnswer": 0,
+    "explanation": "Texas does not use common-law dual agency by that name; intermediary brokerage requires written consent and statutory duties. The correct answer is Written intermediary consent from both parties before acting as intermediary. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-375",
-    "domain": "Standards of Conduct",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A discriminatory instruction from a seller (e.g., 'don't sell to a certain group') must be:",
+    "question": "Case TX-22: A buyer wants to use conventional financing and needs the contract to address lender approval and property approval. Which form is most directly relevant?",
     "choices": [
-      "Refused \u2014 it is unlawful and the license holder must not comply",
-      "Reported to the MLS only",
-      "Documented and obeyed",
-      "Followed under obedience"
+      "Non-Realty Items Addendum only",
+      "Third Party Financing Addendum",
+      "Seller's Temporary Residential Lease only",
+      "Lead-Based Paint Addendum for every property regardless of age"
     ],
-    "correctAnswer": 0,
-    "explanation": "The duty of obedience never requires unlawful acts; a license holder must refuse discriminatory instructions and should withdraw rather than violate fair housing law."
+    "correctAnswer": 1,
+    "explanation": "Contract-form case studies often ask which addendum fits the facts. The Third Party Financing Addendum handles financing approval terms. The correct answer is Third Party Financing Addendum. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-376",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A buyer's counteroffer to the seller's offer generally:",
+    "question": "Case TX-68: A sales agent receives earnest money from a buyer on Friday and the contract names a title company as escrow agent. What should the agent do next?",
     "choices": [
-      "Accepts the original",
-      "Must be approved by TREC",
-      "Has no effect",
-      "Rejects/terminates the original offer and creates a new offer"
+      "Deposit it into the agent's personal account",
+      "Hold it until lender approval is complete",
+      "Send it to TREC for safekeeping",
+      "Deliver the earnest money to the named escrow agent within the contract deadline"
     ],
     "correctAnswer": 3,
-    "explanation": "A counteroffer is a rejection of the original offer plus a new offer; the original can no longer be accepted unless re-extended."
+    "explanation": "Case-study questions may test timing and handling of money. Earnest money must be delivered according to the contract and escrow instructions. The correct answer is Deliver the earnest money to the named escrow agent within the contract deadline. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-377",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A binding real estate sales contract is formed when:",
+    "question": "Case TX-69: A broker is asked to represent both buyer and seller in the same Texas residential transaction. Which arrangement is required if the broker proceeds?",
     "choices": [
-      "The option period ends",
-      "Acceptance is communicated to the offeror (final acceptance)",
-      "The offer is written",
-      "The sign goes up"
+      "Written intermediary consent from both parties before acting as intermediary",
+      "Oral consent from the first party who signs",
+      "Dual agency without written notice",
+      "Automatic representation of both parties because the same broker is involved"
     ],
-    "correctAnswer": 1,
-    "explanation": "Mutual assent requires acceptance of the exact offer terms communicated back to the offeror; this final acceptance establishes the effective date."
+    "correctAnswer": 0,
+    "explanation": "Texas does not use common-law dual agency by that name; intermediary brokerage requires written consent and statutory duties. The correct answer is Written intermediary consent from both parties before acting as intermediary. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-378",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Under the Statute of Frauds, a contract for the sale of Texas real property must:",
+    "question": "Case TX-70: A buyer wants to use conventional financing and needs the contract to address lender approval and property approval. Which form is most directly relevant?",
     "choices": [
-      "Be in writing, signed, with a sufficient description of the property",
-      "Be filed with TREC",
-      "Use no addenda",
-      "Be oral if witnessed"
+      "Non-Realty Items Addendum only",
+      "Third Party Financing Addendum",
+      "Seller's Temporary Residential Lease only",
+      "Lead-Based Paint Addendum for every property regardless of age"
     ],
-    "correctAnswer": 0,
-    "explanation": "Real estate sales contracts must be in writing, signed by the party to be charged, and contain a legally sufficient description of the property to be enforceable."
+    "correctAnswer": 1,
+    "explanation": "Contract-form case studies often ask which addendum fits the facts. The Third Party Financing Addendum handles financing approval terms. The correct answer is Third Party Financing Addendum. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-379",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Earnest money is best described as:",
+    "question": "Case TX-71: A license holder wants to advertise a listing online using a team name and brokerage information. What is the safest compliance principle?",
     "choices": [
-      "A good-faith deposit that is customary but not strictly required for contract validity (mutual promises are consideration)",
-      "The option fee",
-      "The broker's fee",
-      "Required for a contract to be valid"
+      "Use only the team name with no broker reference",
+      "Advertise a property without authority from the owner or broker",
+      "Ensure the ad is not misleading and includes the broker identification required by TREC rules",
+      "Use a false price to increase traffic"
     ],
-    "correctAnswer": 0,
-    "explanation": "Consideration for the contract is the parties' mutual promises; earnest money is a customary good-faith deposit and a remedy source on default, not a validity requirement."
+    "correctAnswer": 2,
+    "explanation": "Advertising case studies test whether the ad identifies the broker and avoids false, misleading, or unauthorized claims. The correct answer is Ensure the ad is not misleading and includes the broker identification required by TREC rules. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-380",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "If the buyer fails to deliver the option fee by the contract's deadline:",
+    "question": "Case TX-72: A buyer asks a sales agent to draft language requiring the seller to repair a foundation in a legally specific way. What should the license holder do?",
     "choices": [
-      "The seller pays the buyer",
-      "TREC cancels it",
-      "The buyer generally does not have the unrestricted termination right, though the sale contract can still stand",
-      "The whole contract is automatically void"
+      "Draft legal clauses beyond the license holder's competence",
+      "Tell the buyer oral repair promises are always enough",
+      "Delete contract provisions without the parties' written agreement",
+      "Use appropriate promulgated forms where available and recommend legal counsel for custom legal language"
     ],
-    "correctAnswer": 2,
-    "explanation": "Timely delivery of the option fee is required to obtain the termination option; failing to deliver it typically forfeits that unrestricted right, but the contract itself remains per its terms."
+    "correctAnswer": 3,
+    "explanation": "Texas contract questions often test the line between filling in business facts and practicing law. Legal drafting should be referred to an attorney. The correct answer is Use appropriate promulgated forms where available and recommend legal counsel for custom legal language. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-381",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "An addendum differs from an amendment in that an addendum is generally:",
+    "question": "Case TX-73: A seller is married and the property is the couple's Texas homestead, but only one spouse is listed on title. What should the license holder recognize?",
     "choices": [
-      "Always about price",
-      "A post-execution change",
-      "Filed with TREC",
-      "Added at the time of contract formation to address a specific situation"
+      "Homestead rights may require both spouses to sign conveyance documents",
+      "The titled spouse can always convey alone",
+      "Homestead protections apply only to rental property",
+      "TREC automatically waives spouse signatures"
     ],
-    "correctAnswer": 3,
-    "explanation": "Addenda are attached when the contract is formed to cover specific circumstances (financing, HOA, etc.); amendments modify a contract's terms after it is executed."
+    "correctAnswer": 0,
+    "explanation": "Special-topic case studies may combine marital, homestead, and conveyance facts. Texas homestead rules can require spouse joinder. The correct answer is Homestead rights may require both spouses to sign conveyance documents. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-382",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The parol evidence rule generally means a fully integrated written contract:",
+    "question": "Case TX-74: A broker supervises several sponsored sales agents and one agent repeatedly uses outdated forms. Which broker responsibility is most directly implicated?",
     "choices": [
-      "May not be contradicted by prior or contemporaneous oral agreements",
-      "Is unenforceable",
-      "Requires no signatures",
-      "Can be contradicted by prior oral statements"
+      "The buyer's duty to train the agent",
+      "The broker's duty to properly supervise sponsored sales agents and brokerage activity",
+      "The title company's duty to select forms",
+      "The local MLS's duty to discipline all form errors"
     ],
-    "correctAnswer": 0,
-    "explanation": "When a written contract is intended as the complete agreement, the parol evidence rule bars using prior/contemporaneous oral statements to contradict its terms (subject to limited exceptions)."
+    "correctAnswer": 1,
+    "explanation": "Agency/brokerage case studies often test supervision. A broker is responsible for sponsored sales agents and must maintain appropriate supervision systems. The correct answer is The broker's duty to properly supervise sponsored sales agents and brokerage activity. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-383",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A legally sufficient property description in a Texas contract/deed:",
+    "question": "Case TX-75: A buyer misses the deadline to deliver the option fee but still delivered earnest money on time. What is the likely contract consequence?",
     "choices": [
-      "Is just a street address in every case",
-      "Is set by TREC",
-      "Must identify the land with reasonable certainty (e.g., lot/block/subdivision or metes and bounds)",
-      "Is unnecessary"
+      "The entire contract is automatically void in every case",
+      "The seller must refund all money immediately",
+      "The buyer may lose the unrestricted termination option even though the sales contract may still continue",
+      "The broker decides whether the option exists"
     ],
     "correctAnswer": 2,
-    "explanation": "The description must allow the property to be identified with reasonable certainty; a bare mailing address may be insufficient where a legal description (subdivision lot/block or metes and bounds) is required."
+    "explanation": "Contract case studies distinguish earnest money from option fees. The option right depends on satisfying the option-fee requirements. The correct answer is The buyer may lose the unrestricted termination option even though the sales contract may still continue. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-384",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The Third Party Financing Addendum's 'property approval' concept refers to:",
+    "question": "Case TX-76: A consumer files a complaint alleging a license holder committed dishonest conduct during a transaction. Which body generally investigates and disciplines Texas real estate license holders?",
     "choices": [
-      "TREC approving the home",
-      "The broker approving the price",
-      "The lender's requirement that the property satisfy appraisal/condition standards for the loan",
-      "The HOA approving the buyer"
+      "The county appraisal district only",
+      "The title company chosen for closing",
+      "The National Association of REALTORS only",
+      "Texas Real Estate Commission"
     ],
-    "correctAnswer": 2,
-    "explanation": "Lender 'property approval' means the property must meet the lender's appraisal value and condition requirements; the addendum sets the buyer's rights if it does not."
+    "correctAnswer": 3,
+    "explanation": "Commission-powers case studies test TREC jurisdiction over license-holder conduct, complaints, hearings, sanctions, and recovery-fund issues. The correct answer is Texas Real Estate Commission. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-385",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Notices and terminations under the contract are effective only if:",
+    "question": "Case TX-77: A buyer is purchasing property in a subdivision governed by a homeowners association. Which issue is most likely to require Texas-specific notice or addendum attention?",
     "choices": [
-      "Told to TREC",
-      "Posted publicly",
-      "Thought about by a party",
-      "Given by the method and within the deadlines the contract specifies"
+      "Property owners association information and related resale documents or addendum requirements",
+      "A mandatory commercial lease amendment",
+      "A farm-and-ranch mineral waiver in every subdivision sale",
+      "A verbal promise to ignore deed restrictions"
     ],
-    "correctAnswer": 3,
-    "explanation": "Strict compliance with the notice paragraph (method, recipients) and deadlines is required; an untimely or improperly delivered notice may be ineffective."
+    "correctAnswer": 0,
+    "explanation": "Texas special-topic and contract case studies can test HOA/POA disclosures, notices, and addenda tied to residential transactions. The correct answer is Property owners association information and related resale documents or addendum requirements. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-386",
-    "domain": "Contracts (TREC Forms & Disclosures)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "The contract's 'Consult Your Attorney' notice exists because:",
+    "question": "Case TX-78: A broker receives competing offers and the seller asks whether all offers must be presented. What should the broker do?",
     "choices": [
-      "TREC requires arbitration",
-      "License holders cannot give legal advice; legal questions are for the parties' attorneys",
-      "License holders give legal advice",
-      "Attorneys must draft every contract"
+      "Discard lower offers without telling the seller",
+      "Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions",
+      "Present only offers from the broker's own clients",
+      "Let the buyer agent choose which offer the seller sees"
     ],
     "correctAnswer": 1,
-    "explanation": "Because advising on legal effect is the practice of law, the contract directs parties with legal questions to consult their own attorneys."
+    "explanation": "Case studies often test fiduciary duties and communication. A listing broker must keep the seller informed of material transaction information. The correct answer is Present offers according to the broker's duty to the client unless the client has given lawful contrary instructions. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-387",
@@ -5866,93 +5866,93 @@
   },
   {
     "id": "re-tx-390",
-    "domain": "Special Topics (TX)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "Permission to deviate from a zoning requirement due to hardship is a:",
+    "question": "Case TX-79: A license holder owns an interest in a company that will provide services in the transaction. What is the safest required action?",
     "choices": [
-      "Spot zoning",
-      "Variance",
-      "Dedication",
-      "Nonconforming use"
+      "Hide the ownership because the service is optional",
+      "Disclose only after commission is paid",
+      "Disclose the conflict or business interest as required before the party relies on the recommendation",
+      "Tell the service provider to disclose instead of the license holder"
     ],
-    "correctAnswer": 1,
-    "explanation": "A variance is administrative permission to deviate from a zoning standard because strict application causes an unnecessary hardship unique to the property."
+    "correctAnswer": 2,
+    "explanation": "Conflict-of-interest case studies test timely disclosure when a license holder has a personal or financial interest related to the transaction. The correct answer is Disclose the conflict or business interest as required before the party relies on the recommendation. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-391",
-    "domain": "Special Topics (TX)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "When a developer formally records a subdivision plat and conveys streets to public use, this is a:",
+    "question": "Case TX-80: A sales agent wants to receive a referral fee directly from another brokerage for licensed activity. How should compensation generally be handled?",
     "choices": [
-      "Escheat",
-      "Dedication",
-      "Net listing",
-      "Reliction"
+      "Directly to the sales agent without broker involvement",
+      "Through the buyer personally",
+      "Through TREC as escrow agent",
+      "Through the agent's sponsoring broker"
     ],
-    "correctAnswer": 1,
-    "explanation": "Dedication is the voluntary transfer/grant of private land (e.g., streets, parks) to public use, commonly accomplished through the recorded subdivision plat."
+    "correctAnswer": 3,
+    "explanation": "Texas compensation case studies test that sponsored sales agents act through and are compensated through their broker for brokerage services. The correct answer is Through the agent's sponsoring broker. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-392",
-    "domain": "Special Topics (TX)",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "A planned unit development (PUD) typically combines:",
+    "question": "Case TX-81: A buyer, seller, and broker are reviewing a One to Four Family Residential Contract. The buyer wants the unrestricted right to terminate during inspection review. Which contract feature should the parties use?",
     "choices": [
-      "Only commercial uses",
-      "Mixed uses/clustered development governed by a master declaration and association",
-      "State-owned land",
-      "A single home only"
+      "The termination option, with the option fee delivered as required by the contract",
+      "A verbal side agreement after execution",
+      "A broker-drafted special provision changing legal rights",
+      "A seller disclosure notice alone"
     ],
-    "correctAnswer": 1,
-    "explanation": "A PUD allows mixed or clustered development under a comprehensive plan and a master declaration with an owners' association; Texas requires statutory PUD notices in certain sales."
+    "correctAnswer": 0,
+    "explanation": "Texas contract case-study questions often test how a fact pattern maps to a promulgated form or addendum. The termination option is the contract mechanism for an unrestricted buyer termination right during the option period. The correct answer is The termination option, with the option fee delivered as required by the contract. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-393",
-    "domain": "Commission Duties & Powers",
+    "domain": "Case Studies (TX)",
     "type": "single-choice",
     "portion": "state",
-    "question": "If a TREC rule conflicts with TRELA (the statute), which controls?",
+    "question": "Case TX-04: A sales agent receives earnest money from a buyer on Friday and the contract names a title company as escrow agent. What should the agent do next?",
     "choices": [
-      "The statute (TRELA) controls; rules must be consistent with it",
-      "The rule",
-      "Federal regulation",
-      "The MLS bylaws"
+      "Deposit it into the agent's personal account",
+      "Hold it until lender approval is complete",
+      "Send it to TREC for safekeeping",
+      "Deliver the earnest money to the named escrow agent within the contract deadline"
     ],
-    "correctAnswer": 0,
-    "explanation": "Agency rules must be consistent with and authorized by the enabling statute; where a rule conflicts with TRELA, the statute prevails."
+    "correctAnswer": 3,
+    "explanation": "Case-study questions may test timing and handling of money. Earnest money must be delivered according to the contract and escrow instructions. The correct answer is Deliver the earnest money to the named escrow agent within the contract deadline. The distractors either ignore Texas brokerage duties, misuse a promulgated form, skip required disclosure/consent, or assign the decision to the wrong party."
   },
   {
     "id": "re-tx-394",
-    "domain": "Commission Duties & Powers",
+    "domain": "Licensing",
     "type": "single-choice",
     "portion": "state",
-    "question": "TREC's authority to discipline a license holder is generally subject to a statutory:",
+    "question": "Under the 2026 Texas Sales Agent state-law outline, which licensing topic is specifically included under Licensing Process?",
     "choices": [
-      "No time limit ever",
-      "MLS approval",
-      "Limitations period for bringing certain enforcement actions",
-      "One-day deadline"
+      "Background check and grounds to deny an application",
+      "Contract case-study narrative drafting",
+      "Homestead tax exemption calculation only",
+      "Broker price opinion formatting only"
     ],
-    "correctAnswer": 2,
-    "explanation": "Enforcement actions are subject to statutory limitations periods; TREC must generally act within the time the law allows after the violation or its discovery."
+    "correctAnswer": 0,
+    "explanation": "The 2026 outline expands Licensing to four scored items and includes general requirements, education, examination, grounds to deny an application, appeals, and background check topics. The other choices belong to different Texas state-law outline areas and do not answer the licensing issue."
   },
   {
     "id": "re-tx-395",
-    "domain": "Commission Duties & Powers",
+    "domain": "Licensing",
     "type": "single-choice",
     "portion": "state",
-    "question": "A license that is 'expired' differs from one that is 'suspended' in that an expired license:",
+    "question": "A Texas sales agent changes sponsoring brokers. Which license-maintenance topic does this most directly test?",
     "choices": [
-      "Was disciplined",
-      "Lapsed for non-renewal and may be renewed within the allowed period, while a suspended license was sanctioned",
-      "Allows full practice",
-      "Is permanently void"
+      "Veterans Land Board financing",
+      "Change of sales agent sponsorship",
+      "Promulgated contract addenda",
+      "Intermediary appointments only"
     ],
     "correctAnswer": 1,
-    "explanation": "Expiration results from failing to renew (renewable within the late window); suspension/revocation is a disciplinary sanction. In all of these states the holder may not practice until properly active."
+    "explanation": "The 2026 Licensing section includes license maintenance and renewal topics such as place of business, sponsorship change, inactive status, and assumed names. The other choices belong to different Texas state-law outline areas and do not answer the licensing issue."
   },
   {
     "id": "re-tx-396",
