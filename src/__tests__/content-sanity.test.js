@@ -440,6 +440,21 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     })
   })
 
+  it('AZ-900 source pool stays inside Microsoft ranged domain weights', () => {
+    if (certId !== 'az-900') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byDomain).toEqual({
+      'Describe cloud concepts': 162,
+      'Describe Azure architecture and services': 228,
+      'Describe Azure management and governance': 210,
+    })
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {
