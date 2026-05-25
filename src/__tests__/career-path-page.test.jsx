@@ -96,15 +96,14 @@ describe('career path pages', () => {
     expect(screen.getByRole('link', { name: /Splunk Core Certified User/ }).getAttribute('href')).toBe('/splunk-core-certified-user')
   })
 
-  it('starts the NVIDIA path with Linux+ as a coming soon systems foundation', () => {
+  it('starts the NVIDIA path with live Linux+ as a systems foundation', () => {
     renderPath('/paths/nvidia')
 
     expect(screen.getByRole('heading', { name: 'Build NVIDIA fluency.' })).toBeTruthy()
     expect(screen.getByText('Step 01 / Systems foundation')).toBeTruthy()
     expect(screen.getByText('CompTIA Linux+')).toBeTruthy()
     expect(screen.getByText('XK0-006')).toBeTruthy()
-    expect(screen.getByText('Coming Soon')).toBeTruthy()
-    expect(screen.queryByRole('link', { name: /CompTIA Linux\+/ })).toBeNull()
+    expect(screen.getByRole('link', { name: /CompTIA Linux\+/ }).getAttribute('href')).toBe('/comptia-linux-plus')
     expect(screen.getByText('Step 02 / AI Infrastructure')).toBeTruthy()
     expect(screen.getByText('Step 03 / Generative AI')).toBeTruthy()
     expect(screen.getByRole('link', { name: /NVIDIA AI Infrastructure & Operations/ }).getAttribute('href')).toBe('/nca-aiio')

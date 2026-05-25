@@ -149,13 +149,7 @@ const PATHS = {
     icon: Cpu,
     color: '#34d399',
     steps: [
-      futureStep(
-        'Systems foundation',
-        'CompTIA Linux+',
-        'XK0-006',
-        'Coming soon as the Linux administration layer for learners moving toward AI infrastructure, GPU operations, containers, scripting, and hybrid cloud systems.',
-        { provider: 'CompTIA', difficulty: 'Foundational', status: 'Coming Soon' },
-      ),
+      certStep('Systems foundation', 'comptia-linux-plus', 'Practice Linux administration, security, automation, containers, scripting, and troubleshooting before moving into AI infrastructure.'),
       certStep('AI Infrastructure', 'nca-aiio', 'Practice GPU systems, deployment, operations, and infrastructure concepts.'),
       certStep('Generative AI', 'nca-genl', 'Practice LLM concepts, workflows, evaluation, and applied generative AI fundamentals.'),
     ],

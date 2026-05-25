@@ -12,6 +12,7 @@ import ccna200301 from '../data/ccna-200-301-questions.json'
 import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
+import comptiaLinuxPlus from '../data/comptia-linux-plus-questions.json'
 import schneiderDcca from '../data/schneider-dcca-questions.json'
 import splunkCoreCertifiedUser from '../data/splunk-core-certified-user-questions.json'
 import comptiaAPlusCore1 from '../data/comptia-a-plus-core-1-questions.json'
@@ -40,6 +41,7 @@ const CERT_QUESTIONS = {
   'comptia-net-plus': comptiaNetPlus,
   'comptia-sec-plus': comptiaSecPlus,
   'comptia-server-plus': comptiaServerPlus,
+  'comptia-linux-plus': comptiaLinuxPlus,
   'schneider-dcca': schneiderDcca,
   'splunk-core-certified-user': splunkCoreCertifiedUser,
   'comptia-a-plus-core-1': comptiaAPlusCore1,
@@ -397,6 +399,33 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(byType['multiple-response']).toBeGreaterThanOrEqual(90)
     expect(byType['matching']).toBeGreaterThanOrEqual(35)
     expect(byType['ordering']).toBeGreaterThanOrEqual(15)
+    expect(new Set(questions.map(q => q.question)).size).toBe(questions.length)
+  })
+
+  it('CompTIA Linux+ follows the XK0-006 domain-weight target and PBQ-style mix', () => {
+    if (certId !== 'comptia-linux-plus') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byDomain).toEqual({
+      'System Management': 173,
+      'Services and User Management': 150,
+      Security: 135,
+      'Automation, Orchestration, and Scripting': 127,
+      Troubleshooting: 165,
+    })
+
+    const byType = questions.reduce((acc, q) => {
+      acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byType['cli-output']).toBeGreaterThanOrEqual(50)
+    expect(byType['config-repair']).toBeGreaterThanOrEqual(40)
+    expect(byType['multiple-response']).toBeGreaterThanOrEqual(80)
     expect(new Set(questions.map(q => q.question)).size).toBe(questions.length)
   })
 

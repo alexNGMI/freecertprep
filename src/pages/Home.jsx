@@ -92,7 +92,7 @@ const paths = [
     color: '#34d399',
     to: '/paths/nvidia',
     meta: 'Linux+ to NVIDIA AI credentials',
-    certIds: ['nca-aiio', 'nca-genl'],
+    certIds: ['comptia-linux-plus', 'nca-aiio', 'nca-genl'],
   },
   {
     id: 'data-center-technician',

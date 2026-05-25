@@ -9,6 +9,7 @@ import ccna200301QuestionsUrl from './ccna-200-301-questions.json?url'
 import comptiaNetPlusQuestionsUrl from './comptia-net-plus-questions.json?url'
 import comptiaSecPlusQuestionsUrl from './comptia-sec-plus-questions.json?url'
 import comptiaServerPlusQuestionsUrl from './comptia-server-plus-questions.json?url'
+import comptiaLinuxPlusQuestionsUrl from './comptia-linux-plus-questions.json?url'
 import schneiderDccaQuestionsUrl from './schneider-dcca-questions.json?url'
 import splunkCoreCertifiedUserQuestionsUrl from './splunk-core-certified-user-questions.json?url'
 import comptiaAPlusCore1QuestionsUrl from './comptia-a-plus-core-1-questions.json?url'
@@ -202,6 +203,22 @@ const SPLUNK_CORE_USER_COLORS = {
   'Creating Reports and Dashboards': { dot: 'bg-[#8b5cf6]', bar: 'bg-[#8b5cf6]', text: 'text-[#8b5cf6]', hex: '#8b5cf6' },
   'Creating and Using Lookups': { dot: 'bg-[#f97316]', bar: 'bg-[#f97316]', text: 'text-[#f97316]', hex: '#f97316' },
   'Creating Scheduled Reports and Alerts': { dot: 'bg-[#fb7185]', bar: 'bg-[#fb7185]', text: 'text-[#fb7185]', hex: '#fb7185' },
+}
+
+const LINUX_PLUS_DOMAINS = [
+  { name: 'System Management', weight: 23 },
+  { name: 'Services and User Management', weight: 20 },
+  { name: 'Security', weight: 18 },
+  { name: 'Automation, Orchestration, and Scripting', weight: 17 },
+  { name: 'Troubleshooting', weight: 22 },
+]
+
+const LINUX_PLUS_COLORS = {
+  'System Management': { dot: 'bg-[#c8202f]', bar: 'bg-[#c8202f]', text: 'text-[#c8202f]', hex: '#c8202f' },
+  'Services and User Management': { dot: 'bg-[#f97316]', bar: 'bg-[#f97316]', text: 'text-[#f97316]', hex: '#f97316' },
+  Security: { dot: 'bg-[#8b5cf6]', bar: 'bg-[#8b5cf6]', text: 'text-[#8b5cf6]', hex: '#8b5cf6' },
+  'Automation, Orchestration, and Scripting': { dot: 'bg-[#22c55e]', bar: 'bg-[#22c55e]', text: 'text-[#22c55e]', hex: '#22c55e' },
+  Troubleshooting: { dot: 'bg-[#3b82f6]', bar: 'bg-[#3b82f6]', text: 'text-[#3b82f6]', hex: '#3b82f6' },
 }
 
 const APLUS_CORE_2_DOMAINS = [
@@ -527,6 +544,22 @@ const certs = {
       'Security and Disaster Recovery': { dot: 'bg-[#9b59b6]', bar: 'bg-[#9b59b6]', text: 'text-[#9b59b6]', hex: '#9b59b6' },
       'Troubleshooting': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
     },
+  },
+  'comptia-linux-plus': {
+    id: 'comptia-linux-plus',
+    title: 'CompTIA Linux+',
+    code: 'XK0-006',
+    provider: 'CompTIA',
+    description: 'Validates Linux server administration across system management, services, users, security, automation, scripting, containers, and troubleshooting.',
+    difficulty: 'Foundational',
+    color: '#c8202f',
+    questionCount: 750,
+    examQuestions: 90,
+    examTime: 90,
+    passingScore: 80,
+    loadQuestions: () => loadQuestionAsset(comptiaLinuxPlusQuestionsUrl),
+    domains: LINUX_PLUS_DOMAINS,
+    domainColors: LINUX_PLUS_COLORS,
   },
   'schneider-dcca': {
     id: 'schneider-dcca',

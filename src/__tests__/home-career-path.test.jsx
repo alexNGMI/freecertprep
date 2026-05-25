@@ -49,6 +49,7 @@ describe('homepage career-path layout', () => {
     expect(screen.getAllByRole('link', { name: /AWS Cloud Practitioner/ })[0].getAttribute('href')).toBe('/clf-c02')
     expect(screen.getAllByRole('link', { name: /AWS Solutions Architect - Associate/ })[0].getAttribute('href')).toBe('/aws-saa-c03')
     expect(screen.getAllByRole('link', { name: /HashiCorp Terraform Associate/ })[0].getAttribute('href')).toBe('/terraform-associate')
+    expect(screen.getAllByRole('link', { name: /CompTIA Linux\+/ })[0].getAttribute('href')).toBe('/comptia-linux-plus')
     expect(screen.getAllByRole('link', { name: /CompTIA A\+ Core 1/ })[0].getAttribute('href')).toBe('/comptia-a-plus-core-1')
     expect(screen.getAllByRole('link', { name: /CompTIA A\+ Core 2/ })[0].getAttribute('href')).toBe('/comptia-a-plus-core-2')
     expect(screen.getByRole('link', { name: /Looking for something completely different/ }).getAttribute('href')).toBe('/real-estate')
