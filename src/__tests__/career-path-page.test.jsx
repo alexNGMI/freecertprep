@@ -60,6 +60,25 @@ describe('career path pages', () => {
     expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
   })
 
+  it('frames Cybersecurity as Network+ to Security+ to Splunk preview', () => {
+    renderPath('/paths/cybersecurity')
+
+    expect(screen.getByRole('heading', { name: 'Move into security with the right base.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Start with network fluency' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then build the security baseline' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Then add SOC tooling' })).toBeTruthy()
+    expect(screen.getByText('Splunk Core Certified User is the planned level-three SOC tooling layer.')).toBeTruthy()
+    expect(screen.getByText('Step 01 / Level 1')).toBeTruthy()
+    expect(screen.getByText('Step 02 / Level 2')).toBeTruthy()
+    expect(screen.getByText('Step 03 / Level 3 preview')).toBeTruthy()
+    expect(screen.getByRole('link', { name: /CompTIA Network\+/ }).getAttribute('href')).toBe('/comptia-net-plus')
+    expect(screen.getByRole('link', { name: /CompTIA Security\+/ }).getAttribute('href')).toBe('/comptia-sec-plus')
+    expect(screen.getByText('Splunk Core Certified User')).toBeTruthy()
+    expect(screen.getByText('SPLK-1001')).toBeTruthy()
+    expect(screen.getByText('Preview')).toBeTruthy()
+    expect(screen.queryByRole('link', { name: /Splunk Core Certified User/ })).toBeNull()
+  })
+
   it('redirects unknown path ids home', () => {
     renderPath('/paths/missing')
 

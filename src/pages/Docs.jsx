@@ -685,7 +685,7 @@ key = random() ** (1 / weight)
                   'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before the unpublished CCNA preview track.',
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
-                  'Homepage guided paths — the A+ entry card routes directly to /comptia/a-plus, while Networking, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert.',
+                  'Homepage guided paths — the A+ entry card routes directly to /comptia/a-plus, while Networking, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert. Cybersecurity now frames Network+ to Security+ to a Splunk Core Certified User preview layer.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the automation tier. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
@@ -711,6 +711,7 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
+                  'Splunk Core Certified User (SPLK-1001) buildout - planned as Cybersecurity level 3 for SOC analyst readiness: 60-question / 60-minute exam, no prerequisite exams, focused on Splunk basics, searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts.',
                   'CCNA preview QA - Networking can name Network+ or CCST Networking before CCNA, but keep the unpublished 750-item CCNA pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
                   'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, and Texas 2026 outline reconciliation; Georgia remains pending stable PSI/GREC bulletin verification.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',

@@ -45,12 +45,39 @@ const PATHS = {
     eyebrow: 'Cybersecurity',
     title: 'Move into security with the right base.',
     description:
-      'Network+ gives the technical footing; Security+ builds the controls, incident response, threats, and governance layer.',
+      'Network+ gives the technical footing; Security+ builds the security baseline; Splunk adds the hands-on SOC tool signal for entry analyst work.',
     icon: LockKeyhole,
     color: '#fb7185',
-    steps: [
-      certStep('Prerequisite Skill', 'comptia-net-plus', 'Build the network fluency that makes security scenarios easier to reason through.'),
-      certStep('Security Core', 'comptia-sec-plus', 'Practice the core security exam domains once the network layer feels steady.'),
+    highlights: [
+      'Network+ builds the traffic and troubleshooting foundation.',
+      'Security+ proves the security baseline most entry roles recognize.',
+      'Splunk Core Certified User is the planned level-three SOC tooling layer.',
+    ],
+    groups: [
+      {
+        label: 'Start with network fluency',
+        items: [
+          certStep('Level 1', 'comptia-net-plus', 'Build the network fluency that makes security scenarios easier to reason through.'),
+        ],
+      },
+      {
+        label: 'Then build the security baseline',
+        items: [
+          certStep('Level 2', 'comptia-sec-plus', 'Practice the core security exam domains once the network layer feels steady.'),
+        ],
+      },
+      {
+        label: 'Then add SOC tooling',
+        items: [
+          futureStep(
+            'Level 3 preview',
+            'Splunk Core Certified User',
+            'SPLK-1001',
+            'Planned as the practical SIEM/search layer for learners aiming at SOC analyst, security monitoring, and alert triage roles.',
+            { provider: 'Splunk', difficulty: 'Entry-Level' },
+          ),
+        ],
+      },
     ],
   },
   cloud: {
@@ -113,13 +140,13 @@ function certStep(label, certId, description) {
   }
 }
 
-function futureStep(label, title, code, description) {
+function futureStep(label, title, code, description, options = {}) {
   return {
     label,
     title,
     code,
-    provider: 'Cisco',
-    difficulty: 'Associate',
+    provider: options.provider || 'Cisco',
+    difficulty: options.difficulty || 'Associate',
     to: null,
     description,
     status: 'Preview',
