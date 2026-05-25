@@ -70,7 +70,7 @@ Priority hardening sequence:
 
 1. CompTIA Network+ N10-009: completed 2026-05-25. The 751-question pool now matches the rounded N10-009 target counts: Networking Concepts 173, Network Implementation 150, Network Operations 143, Network Security 105, Network Troubleshooting 180. The rebalance converted overrepresented concept / implementation / security items into scenario-forward troubleshooting and operations questions with evidence-based stems.
 2. Google Cloud Digital Leader: completed 2026-05-25. The registry and 749-question pool now use the current six-section guide: Digital Transformation 128, Data Transformation 120, Artificial Intelligence 120, Infrastructure and Application Modernization 127, Trust and Security 127, Operations 127.
-3. NVIDIA AI Infrastructure & Operations: rebalance toward Essential AI Knowledge and reduce the current AI Operations overweight.
+3. NVIDIA AI Infrastructure & Operations: completed 2026-05-25. The 336-question source pool now follows the official 40 / 38 / 22 split as AI Infrastructure 134, Essential AI Knowledge 128, and AI Operations 74. Software-stack fundamentals moved out of Operations, while production monitoring, scheduling, lifecycle, and management topics remain there.
 4. AZ-900: tighten the pool into Microsoft's current ranged weights; architecture/services is currently too heavy and cloud concepts is light.
 5. Real-estate state modules: recheck each state against the current Pearson VUE / PSI / commission handbook before public placement because state exam structures are actively changing.
 

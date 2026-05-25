@@ -23,15 +23,15 @@ Local registry:
 - Title/code, exam length, and official domain weights are aligned.
 - Source pool contains 336 questions.
 - Source pool domain counts:
-  - AI Infrastructure: 129
-  - AI Operations: 104
-  - Essential AI Knowledge: 103
+  - AI Infrastructure: 134
+  - Essential AI Knowledge: 128
+  - AI Operations: 74
 
 Audit notes:
 
-- The exam generator uses the official registry weights, so simulated exams are weighted correctly.
+- The source pool now follows the official 40 / 38 / 22 blueprint closely enough for the current 336-question size.
 - Added 30 Essential AI Knowledge questions covering model lifecycle, training vs. inference, metrics, data quality, model monitoring, drift, embeddings, prompt engineering, RAG, CUDA/framework context, batch vs. online inference, and model registries.
-- The source pool is still somewhat heavier on AI Operations than the official 22% blueprint, but Essential AI Knowledge now has enough depth to support the 38% exam weight with less repeat pressure.
+- Reclassified software-stack fundamentals from AI Operations into Essential AI Knowledge, and moved hardware/data-center fundamentals into AI Infrastructure. AI Operations is now reserved for production monitoring, scheduling, lifecycle, troubleshooting, and management topics.
 - Replaced three duplicate stems with new questions covering scheduler preemption, lossless/congestion-controlled fabrics, and high-throughput shared storage.
 - Single-choice `correctAnswer` positions were rebalanced from a heavily clustered source distribution to `{0: 63, 1: 63, 2: 63, 3: 62}` while preserving correctness.
 
@@ -70,6 +70,6 @@ Audit notes:
 
 ## Recommended Next Batch
 
-1. Perform a second-pass editorial read of the NCA-AIIO Operations questions and reclassify any software-stack fundamentals that clearly belong in Essential AI Knowledge.
-2. Perform a second-pass editorial read of the new NCA-GENL official-domain pool for duplicate stems and overly broad infrastructure questions.
-3. Add more NCA-GENL Python/data-science workflow questions if the pool feels too LLM-infrastructure heavy after the editorial read.
+1. Perform a second-pass editorial read of the new NCA-GENL official-domain pool for duplicate stems and overly broad infrastructure questions.
+2. Add more NCA-GENL Python/data-science workflow questions if the pool feels too LLM-infrastructure heavy after the editorial read.
+3. Revisit NCA-AIIO only if NVIDIA changes the associate blueprint or publishes more granular subobjective weights.
