@@ -63,11 +63,11 @@ const paths = [
     eyebrow: 'Cybersecurity',
     title: 'Move into security',
     description:
-      'Use Network+ as the technical base, then move into Security+ for controls, threats, and incident response.',
+      'Use Network+ as the technical base, Security+ as the security baseline, then add Splunk for SOC tooling.',
     icon: LockKeyhole,
     color: '#fb7185',
     to: '/paths/cybersecurity',
-    meta: 'Network+ to Security+',
+    meta: 'Network+ to Security+ to Splunk',
     certIds: ['comptia-net-plus', 'comptia-sec-plus'],
   },
   {
