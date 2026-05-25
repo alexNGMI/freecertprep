@@ -6,6 +6,7 @@ import {
   Cpu,
   LockKeyhole,
   Network,
+  Server,
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { getCert } from '../data/certs'
@@ -37,6 +38,45 @@ const PATHS = {
         label: 'Then move toward CCNA',
         items: [
           futureStep('Advanced networking preview', 'Cisco CCNA', '200-301', 'CCNA remains hidden while topology, CLI-output, config-repair, subnetting, scoring, mobile layout, and editorial quality are hardened.'),
+        ],
+      },
+    ],
+  },
+  'data-center-technician': {
+    eyebrow: 'Data Center Technician',
+    title: 'Build toward data center operations.',
+    description:
+      'Start with Server+ for hardware, troubleshooting, and administration; add Schneider DCCA for data center physical infrastructure; then build toward CCNA for the network layer technicians work around every day.',
+    icon: Server,
+    color: '#a78bfa',
+    highlights: [
+      'Server+ gives the IT hardware and systems support baseline.',
+      'Schneider DCCA adds power, cooling, racks, cabling, physical security, and facility awareness.',
+      'CCNA remains the higher networking target for technicians moving toward infrastructure roles.',
+    ],
+    groups: [
+      {
+        label: 'Start with server operations',
+        items: [
+          certStep('Level 1', 'comptia-server-plus', 'Build the hardware, storage, troubleshooting, virtualization, and server administration base for data center technician work.'),
+        ],
+      },
+      {
+        label: 'Then add data center physical infrastructure',
+        items: [
+          futureStep(
+            'Level 2 preview',
+            'Schneider Data Center Certified Associate',
+            'DCCA',
+            'Coming soon using Schneider Electric University source material for cooling, power, racks, cabling, fire protection, management, and physical security.',
+            { provider: 'Schneider Electric', difficulty: 'Associate', status: 'Coming Soon' },
+          ),
+        ],
+      },
+      {
+        label: 'Then move toward the network layer',
+        items: [
+          futureStep('Level 3 preview', 'Cisco CCNA', '200-301', 'CCNA remains hidden while topology, CLI-output, config-repair, subnetting, scoring, mobile layout, and editorial quality are hardened.'),
         ],
       },
     ],

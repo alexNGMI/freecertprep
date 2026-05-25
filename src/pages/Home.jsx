@@ -59,6 +59,18 @@ const paths = [
     certIds: ['comptia-net-plus', 'ccst-networking'],
   },
   {
+    id: 'data-center-technician',
+    eyebrow: 'Data Center Technician',
+    title: 'Data center operations',
+    description:
+      'Use Server+ as the systems baseline, Schneider DCCA for facility infrastructure, then CCNA for the network layer.',
+    icon: Server,
+    color: '#a78bfa',
+    to: '/paths/data-center-technician',
+    meta: 'Server+ to DCCA to CCNA',
+    certIds: ['comptia-server-plus'],
+  },
+  {
     id: 'cybersecurity',
     eyebrow: 'Cybersecurity',
     title: 'Cybersecurity with tooling',
