@@ -79,7 +79,7 @@ const paths = [
     icon: Cloud,
     color: '#38bdf8',
     to: '/paths/cloud',
-    meta: 'AWS foundation to Terraform',
+    meta: 'AWS foundation to Terraform automation',
     certIds: ['clf-c02', 'az-900', 'cdl', 'terraform-associate'],
   },
   {
