@@ -12,6 +12,7 @@ const TOTAL_QUESTIONS = PUBLISHED_CERTS.reduce((s, c) => s + c.questionCount, 0)
 const NAV = [
   { id: 'overview',       label: 'Overview' },
   { id: 'certifications', label: 'Certifications' },
+  { id: 'video-playlists', label: 'Video Playlists' },
   { id: 'study-modes',    label: 'Study Modes' },
   { id: 'smart-practice', label: 'Smart Practice' },
   { id: 'question-types', label: 'Question Types' },
@@ -240,6 +241,68 @@ export default function Docs() {
               the AZ-900 exam assigns 40% of questions to "Azure architecture and services" — our simulator mirrors that exactly using
               a largest-remainder allocation algorithm so no rounding errors distort domain representation.
             </P>
+          </Section>
+
+          {/* ── Recommended Video Playlists ───────────────────────────────── */}
+          <Section id="video-playlists" title="Recommended Video Playlists">
+            <P>
+              These playlists are optional study companions for learners who want a structured video course beside the practice
+              bank. Use the videos to build the concepts, then use freecertprep to pressure-test recall, troubleshooting, and
+              exam-style reasoning.
+            </P>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                {
+                  cert: 'CompTIA A+ Core 1',
+                  code: '220-1201',
+                  label: 'Professor Messer A+ Core 1 playlist',
+                  href: 'https://www.youtube.com/playlist?list=PLG49S3nxzAnnes8ZGI-OBlKEukHCX46N8',
+                },
+                {
+                  cert: 'CompTIA A+ Core 2',
+                  code: '220-1202',
+                  label: 'Professor Messer A+ Core 2 playlist',
+                  href: 'https://www.youtube.com/playlist?list=PLG49S3nxzAnn7PDGQ17m5AYbDRhnW7vOb',
+                },
+                {
+                  cert: 'CompTIA Network+',
+                  code: 'N10-009',
+                  label: 'Professor Messer Network+ playlist',
+                  href: 'https://www.youtube.com/playlist?list=PLG49S3nxzAnl_tQe3kvnmeMid0mjF8Le8',
+                },
+                {
+                  cert: 'CompTIA Security+',
+                  code: 'SY0-701',
+                  label: 'Professor Messer Security+ playlist',
+                  href: 'https://www.youtube.com/playlist?list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv',
+                },
+              ].map(({ cert, code, label, href }) => (
+                <a
+                  key={code}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group glass-panel rounded-xl p-5 block hover:border-zinc-600 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-600 mb-2">{code}</p>
+                      <h3 className="font-bold text-zinc-100 group-hover:text-white transition-colors">{cert}</h3>
+                    </div>
+                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded bg-zinc-800 border border-white/5 text-zinc-400">
+                      YouTube
+                    </span>
+                  </div>
+                  <p className="text-sm text-zinc-500 leading-relaxed">{label}</p>
+                </a>
+              ))}
+            </div>
+
+            <Callout icon="Video" title="How to use these">
+              Watch the relevant objective area, then run Smart Practice or a domain-specific quiz for that same exam section.
+              The goal is closing the loop with exam-style practice.
+            </Callout>
           </Section>
 
           {/* ── Study Modes ────────────────────────────────────────────────── */}
