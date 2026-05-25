@@ -443,12 +443,58 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
             <p className="font-bold mb-2">
               {isCorrect ? 'Correct!' : 'Incorrect'}
             </p>
-            <RichText text={question.explanation} className="text-zinc-300/90 pr-4" />
+            <ExplanationReview text={question.explanation} />
           </div>
         </div>
       )}
     </div>
   )
+}
+
+function ExplanationReview({ text }) {
+  const sections = parseExplanationSections(text)
+
+  if (!sections) {
+    return <RichText text={text} className="text-zinc-300/90 pr-4" />
+  }
+
+  return (
+    <div className="space-y-3 pr-4">
+      {sections.map(({ label, body }) => (
+        <div key={label} className="rounded-lg border border-white/10 bg-zinc-950/35 p-3">
+          <p className="mb-1 text-[0.68rem] font-bold uppercase tracking-widest text-zinc-400">
+            {label}
+          </p>
+          <RichText text={body} className="text-zinc-300/90" />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function parseExplanationSections(text) {
+  const labels = ['Why this is right:', 'Why distractors fail:', 'Architecture takeaway:']
+  if (!labels.every(label => text.includes(label))) return null
+
+  const firstStart = text.indexOf(labels[0])
+  const secondStart = text.indexOf(labels[1])
+  const thirdStart = text.indexOf(labels[2])
+  if (!(firstStart < secondStart && secondStart < thirdStart)) return null
+
+  return [
+    {
+      label: 'Why this is right',
+      body: text.slice(firstStart + labels[0].length, secondStart).trim(),
+    },
+    {
+      label: 'Why distractors fail',
+      body: text.slice(secondStart + labels[1].length, thirdStart).trim(),
+    },
+    {
+      label: 'Architecture takeaway',
+      body: text.slice(thirdStart + labels[2].length).trim(),
+    },
+  ].filter(section => section.body.length > 0)
 }
 
 function PbqMatchingPanel({ question }) {

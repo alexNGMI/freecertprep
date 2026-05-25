@@ -57,6 +57,31 @@ The SAA cert now carries optional `studyPlan` and `practiceGuidance` metadata in
 - Scope: these are registry-driven optional surfaces, so other certifications keep their existing dashboard and practice setup behavior unless they add the same metadata.
 - Content principle: no new questions are needed for this polish pass; the improvement is about making the existing 750-question pool feel organized around SAA decision-making.
 
+## Review-Mode Polish
+
+The first SAA review-quality pass keeps the existing 750 questions and answer keys intact while improving the explanation shape shown after practice and exam review.
+
+Every SAA explanation now uses three teaching anchors:
+
+- `Why this is right:` names the selected service pattern and restates why it satisfies the scenario.
+- `Why distractors fail:` explains how the non-selected options miss an architecture constraint, add risk, add operational burden, or solve a different problem.
+- `Architecture takeaway:` gives the learner a domain-specific rule of thumb tied to secure, resilient, high-performing, or cost-optimized AWS architecture.
+
+The content sanity suite now enforces these anchors for every SAA item so future edits cannot silently regress review-mode learning value.
+
+The review UI now recognizes these anchors and renders them as separate labeled feedback sections in `QuestionCard`, so learners can scan the decision path instead of reading one long paragraph. A focused component test verifies the three labels remain visible in answered review state.
+
+## Scenario Variety Polish
+
+The second SAA review-quality pass rewrote the 750 visible stems while preserving domains, choices, correct answers, and explanations.
+
+- Exact duplicate SAA stems were reduced from 160 repeated-stem groups to zero.
+- Stems now vary organization type, workload, design pressure, architecture issue, and service hint so review sessions feel less template-driven.
+- The content sanity suite now enforces unique SAA stems to prevent repeated scenario frames from returning.
+- A follow-up semantic fit pass replaced generic rotating design goals with service-aware context, so stems now frame Secrets Manager around credential handling, CloudFront around edge performance or origin cost, SQS/EventBridge around decoupling, Savings Plans around steady-state usage, and Spot around interruptible batch work.
+- The content sanity suite also blocks generic fallback wording and the specific Savings Plans-versus-Spot framing mismatch found during the manual sample.
+- Browser smoke test on `/aws-saa-c03/quiz` confirmed a live answered SAA item renders `Why this is right`, `Why distractors fail`, and `Architecture takeaway` as separate feedback sections.
+
 ## First Batch Quality Audit
 
 Generated pool: `src/data/aws-saa-c03-questions.json`
