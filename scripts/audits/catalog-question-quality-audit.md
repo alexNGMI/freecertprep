@@ -68,7 +68,7 @@ Highest-confidence aligned banks:
 
 Priority hardening sequence:
 
-1. CompTIA Network+ N10-009: current pool is too light on Network Troubleshooting (about 12% vs. 24% target) and too heavy on Networking Concepts / Network Security. Rebalance before calling the bank blueprint-complete.
+1. CompTIA Network+ N10-009: completed 2026-05-25. The 751-question pool now matches the rounded N10-009 target counts: Networking Concepts 173, Network Implementation 150, Network Operations 143, Network Security 105, Network Troubleshooting 180. The rebalance converted overrepresented concept / implementation / security items into scenario-forward troubleshooting and operations questions with evidence-based stems.
 2. Google Cloud Digital Leader: refresh the app taxonomy from the older four-domain model to the current six-section Google guide that separates data, AI, trust/security, and operations.
 3. NVIDIA AI Infrastructure & Operations: rebalance toward Essential AI Knowledge and reduce the current AI Operations overweight.
 4. AZ-900: tighten the pool into Microsoft's current ranged weights; architecture/services is currently too heavy and cloud concepts is light.

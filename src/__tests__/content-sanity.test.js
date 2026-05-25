@@ -375,6 +375,38 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }
   })
 
+  it('CompTIA Network+ follows the N10-009 domain-weight target for the current pool', () => {
+    if (certId !== 'comptia-net-plus') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byDomain).toEqual({
+      'Networking Concepts': 173,
+      'Network Implementation': 150,
+      'Network Operations': 143,
+      'Network Security': 105,
+      'Network Troubleshooting': 180,
+    })
+  })
+
+  it('CompTIA Network+ troubleshooting coverage stays scenario-forward', () => {
+    if (certId !== 'comptia-net-plus') return
+
+    const troubleshootingQuestions = questions.filter(q => q.domain === 'Network Troubleshooting')
+    expect(troubleshootingQuestions).toHaveLength(180)
+
+    const evidenceBasedCount = troubleshootingQuestions.filter(q =>
+      /^At branch \d{2},/.test(q.question)
+      && /best next step/i.test(q.question)
+      && /address|ARP|DHCP|DNS|duplex|firewall|latency|light|logs|MTU|RTP|route|traceroute|trunk|VLAN|wireless/i.test(q.question)
+    ).length
+
+    expect(evidenceBasedCount).toBeGreaterThanOrEqual(75)
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {
