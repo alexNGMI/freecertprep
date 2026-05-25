@@ -16,18 +16,19 @@ const PATHS = {
     eyebrow: 'Networking',
     title: 'Networking Career Path',
     description:
-      'Start with CCST if you are new to networking, then build toward CCNA, the high-value credential for Cisco networking, NOC, junior network admin, and infrastructure support careers.',
+      'Start with Network+ or CCST Networking for the foundation, then build toward CCNA, the high-value credential for Cisco networking, NOC, junior network admin, and infrastructure support careers.',
     icon: Network,
     color: '#f97316',
     highlights: [
-      'CCST gives you the starting foundation.',
+      'Network+ and CCST both work as level-one networking foundations.',
       'CCNA is the career-defining milestone.',
       'Each step builds toward real network troubleshooting and operations skill.',
     ],
     groups: [
       {
-        label: 'Start with Cisco foundation',
+        label: 'Choose your level-one foundation',
         items: [
+          certStep('Vendor-neutral foundation', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and support environments.'),
           certStep('Cisco foundation', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
         ],
       },

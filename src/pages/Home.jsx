@@ -51,12 +51,12 @@ const paths = [
     eyebrow: 'Networking',
     title: 'Networking Career Path',
     description:
-      'Start with CCST if you are new to networking, then build toward CCNA for NOC, junior network admin, and infrastructure support careers.',
+      'Start with Network+ or CCST Networking, then build toward CCNA for NOC, junior network admin, and infrastructure support careers.',
     icon: Network,
     color: '#f97316',
     to: '/paths/networking',
-    meta: 'Cisco foundation to advanced networking',
-    certIds: ['ccst-networking'],
+    meta: 'Network+ or CCST to CCNA',
+    certIds: ['comptia-net-plus', 'ccst-networking'],
   },
   {
     id: 'cybersecurity',
