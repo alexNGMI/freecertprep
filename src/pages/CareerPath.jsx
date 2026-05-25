@@ -14,23 +14,27 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 const PATHS = {
   networking: {
     eyebrow: 'Networking',
-    title: 'Build the network and systems layer.',
+    title: 'Follow the Cisco path from CCST into CCNA.',
     description:
-      'Choose a vendor-neutral or Cisco-oriented networking foundation, then add server operations so the infrastructure underneath every modern stack feels concrete.',
+      'Use CCST Networking as the Cisco-oriented foundation. CCNA stays in preview until the simulation, scoring, and editorial gates are strong enough for public practice.',
     icon: Network,
     color: '#f97316',
+    highlights: [
+      'CCST is live as the entry Cisco networking step.',
+      'CCNA has a hidden 750-item preview pool, but it is not catalog-ready yet.',
+      'Use the Cybersecurity path for the vendor-neutral Network+ to Security+ route.',
+    ],
     groups: [
       {
-        label: 'Choose your networking foundation',
+        label: 'Start with Cisco foundation',
         items: [
-          certStep('Vendor-neutral', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and environments.'),
-          certStep('Cisco-oriented', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
+          certStep('Cisco foundation', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
         ],
       },
       {
-        label: 'Then add systems context',
+        label: 'Then move toward CCNA',
         items: [
-          certStep('Server Layer', 'comptia-server-plus', 'Move into server hardware, administration, disaster recovery, and systems troubleshooting.'),
+          futureStep('Advanced networking preview', 'Cisco CCNA', '200-301', 'CCNA remains hidden while topology, CLI-output, config-repair, subnetting, scoring, mobile layout, and editorial quality are hardened.'),
         ],
       },
     ],
@@ -104,6 +108,19 @@ function certStep(label, certId, description) {
     difficulty: cert.difficulty,
     to: `/${cert.id}`,
     description,
+  }
+}
+
+function futureStep(label, title, code, description) {
+  return {
+    label,
+    title,
+    code,
+    provider: 'Cisco',
+    difficulty: 'Associate',
+    to: null,
+    description,
+    status: 'Preview',
   }
 }
 
@@ -209,11 +226,8 @@ export default function CareerPath() {
 }
 
 function StepCard({ item, color }) {
-  return (
-    <Link
-      to={item.to}
-      className="group border border-white/10 bg-zinc-950/75 hover:bg-zinc-900/70 rounded-lg p-5 transition-colors"
-    >
+  const content = (
+    <>
       <div className="flex items-start justify-between gap-4 mb-5">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">
@@ -221,7 +235,13 @@ function StepCard({ item, color }) {
           </p>
           <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">{item.title}</h3>
         </div>
-        <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+        {item.to ? (
+          <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+        ) : (
+          <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 border border-white/10 rounded-md px-2 py-1">
+            {item.status}
+          </span>
+        )}
       </div>
       {item.code && (
         <div className="flex flex-wrap gap-2 mb-4">
@@ -236,6 +256,23 @@ function StepCard({ item, color }) {
       <p className="text-sm text-zinc-400 leading-relaxed border-t border-white/5 pt-4" style={{ borderTopColor: `${color}30` }}>
         {item.description}
       </p>
+    </>
+  )
+
+  if (!item.to) {
+    return (
+      <div className="border border-white/10 bg-zinc-950/60 rounded-lg p-5 opacity-90">
+        {content}
+      </div>
+    )
+  }
+
+  return (
+    <Link
+      to={item.to}
+      className="group border border-white/10 bg-zinc-950/75 hover:bg-zinc-900/70 rounded-lg p-5 transition-colors"
+    >
+      {content}
     </Link>
   )
 }

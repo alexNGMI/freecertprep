@@ -619,7 +619,7 @@ key = random() ** (1 / weight)
                 items: [
                   'Vercel deployment — public URL, auto-deploy on push to main',
                   'CompTIA Network+ (N10-009) — 750-question pool, all five question types',
-                  'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path offers CCST as the Cisco / CCNA-oriented alternative to Network+.',
+                  'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames CCST as the public first step into the unpublished CCNA preview track.',
                   'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
                   'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
                   'Homepage guided paths — the A+ entry card routes directly to /comptia/a-plus, while Networking, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert.',
@@ -648,7 +648,7 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'CCNA preview QA - keep the unpublished 750-item pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
+                  'CCNA preview QA - Networking can name CCST into CCNA, but keep the unpublished 750-item CCNA pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
                   'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, and Texas 2026 outline reconciliation; Georgia remains pending stable PSI/GREC bulletin verification.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
