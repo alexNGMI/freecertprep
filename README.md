@@ -17,11 +17,12 @@ Free, open-source certification exam prep for the IT certifications that open do
 | CompTIA A+ Core 2 | CompTIA | 220-1202 | Foundational | 750 | 90 | 90 min | 78% |
 | CompTIA Network+ | CompTIA | N10-009 | Foundational | 751 | 90 | 90 min | 80% |
 | CompTIA Security+ | CompTIA | SY0-701 | Foundational | 750 | 90 | 90 min | 83% |
+| Splunk Core Certified User | Splunk | SPLK-1001 | Entry-Level | 750 | 60 | 60 min | 70% practice |
 | CompTIA Server+ | CompTIA | SK0-005 | Foundational | 750 | 90 | 90 min | 83% |
 | Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
 
-**9,379 questions across 14 certifications.**
+**10,129 questions across 15 certifications.**
 
 > **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
 
@@ -29,9 +30,11 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 750-question production pool and a 90-question / 90-minute simulator aligned to the official domain weights.
 
-> **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. A+ appears as the wide entry card for brand-new learners, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence. The Networking Career Path starts with Network+ or CCST Networking and builds toward CCNA; the Cybersecurity path runs Network+ to Security+ to a planned Splunk Core Certified User level; and the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform.
+> **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. A+ appears as the wide entry card for brand-new learners, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence. The Networking Career Path starts with Network+ or CCST Networking and builds toward CCNA; the Cybersecurity path runs Network+ to Security+ to live Splunk Core Certified User practice; and the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform.
 
 > **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
+
+> **Splunk is live:** Splunk Core Certified User (SPLK-1001) ships a 750-question production pool aligned to the official 5/22/20/15/15/12/6/5 blueprint weights. It is now the Cybersecurity path's live level-three SOC tooling layer.
 
 > **AI infrastructure path foundation:** The NVIDIA path now starts with CompTIA Linux+ (XK0-006) as a Coming Soon systems foundation before NVIDIA AI Infrastructure & Operations and NVIDIA Generative AI.
 
@@ -59,7 +62,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 ## Features
 
 - **Home** - Guided learning paths up top, direct certification catalog below.
-- **Path pages** - Dedicated lanes for A+ entry, Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before CCNA while CCNA remains preview-only; Data Center Technician runs Server+ to live Schneider DCCA to CCNA preview; Cybersecurity now runs Network+ to Security+ to Splunk Core Certified User preview. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. NVIDIA now starts with Linux+ as a Coming Soon systems foundation before the AI credentials. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
+- **Path pages** - Dedicated lanes for A+ entry, Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before CCNA while CCNA remains preview-only; Data Center Technician runs Server+ to live Schneider DCCA to CCNA preview; Cybersecurity now runs Network+ to Security+ to live Splunk Core Certified User practice. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. NVIDIA now starts with Linux+ as a Coming Soon systems foundation before the AI credentials. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is in unpublished preview. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented; the CCNA pool stays hidden from the catalog while it goes through QA.
 - **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance, refreshed Google CDL to the current six-section guide, rebalanced NVIDIA AIIO to its official 40/38/22 split, moved AZ-900 inside Microsoft's current ranged weights, and reconciled Texas to the 2026 state-law outline. Georgia remains unpublished pending a stable current PSI/GREC salesperson bulletin.

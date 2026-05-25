@@ -10,6 +10,7 @@ import comptiaNetPlusQuestionsUrl from './comptia-net-plus-questions.json?url'
 import comptiaSecPlusQuestionsUrl from './comptia-sec-plus-questions.json?url'
 import comptiaServerPlusQuestionsUrl from './comptia-server-plus-questions.json?url'
 import schneiderDccaQuestionsUrl from './schneider-dcca-questions.json?url'
+import splunkCoreCertifiedUserQuestionsUrl from './splunk-core-certified-user-questions.json?url'
 import comptiaAPlusCore1QuestionsUrl from './comptia-a-plus-core-1-questions.json?url'
 import comptiaAPlusCore2QuestionsUrl from './comptia-a-plus-core-2-questions.json?url'
 import terraformAssociateQuestionsUrl from './terraform-associate-questions.json?url'
@@ -179,6 +180,28 @@ const CCNA_200_301_COLORS = {
   'IP Services': { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
   'Security Fundamentals': { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
   'Automation and Programmability': { dot: 'bg-[#9333ea]', bar: 'bg-[#9333ea]', text: 'text-[#9333ea]', hex: '#9333ea' },
+}
+
+const SPLUNK_CORE_USER_DOMAINS = [
+  { name: 'Splunk Basics', weight: 5 },
+  { name: 'Basic Searching', weight: 22 },
+  { name: 'Using Fields in Searches', weight: 20 },
+  { name: 'Search Language Fundamentals', weight: 15 },
+  { name: 'Using Basic Transforming Commands', weight: 15 },
+  { name: 'Creating Reports and Dashboards', weight: 12 },
+  { name: 'Creating and Using Lookups', weight: 6 },
+  { name: 'Creating Scheduled Reports and Alerts', weight: 5 },
+]
+
+const SPLUNK_CORE_USER_COLORS = {
+  'Splunk Basics': { dot: 'bg-[#22c55e]', bar: 'bg-[#22c55e]', text: 'text-[#22c55e]', hex: '#22c55e' },
+  'Basic Searching': { dot: 'bg-[#84cc16]', bar: 'bg-[#84cc16]', text: 'text-[#84cc16]', hex: '#84cc16' },
+  'Using Fields in Searches': { dot: 'bg-[#14b8a6]', bar: 'bg-[#14b8a6]', text: 'text-[#14b8a6]', hex: '#14b8a6' },
+  'Search Language Fundamentals': { dot: 'bg-[#06b6d4]', bar: 'bg-[#06b6d4]', text: 'text-[#06b6d4]', hex: '#06b6d4' },
+  'Using Basic Transforming Commands': { dot: 'bg-[#3b82f6]', bar: 'bg-[#3b82f6]', text: 'text-[#3b82f6]', hex: '#3b82f6' },
+  'Creating Reports and Dashboards': { dot: 'bg-[#8b5cf6]', bar: 'bg-[#8b5cf6]', text: 'text-[#8b5cf6]', hex: '#8b5cf6' },
+  'Creating and Using Lookups': { dot: 'bg-[#f97316]', bar: 'bg-[#f97316]', text: 'text-[#f97316]', hex: '#f97316' },
+  'Creating Scheduled Reports and Alerts': { dot: 'bg-[#fb7185]', bar: 'bg-[#fb7185]', text: 'text-[#fb7185]', hex: '#fb7185' },
 }
 
 const APLUS_CORE_2_DOMAINS = [
@@ -462,6 +485,22 @@ const certs = {
       'Security Operations': { dot: 'bg-[#3498db]', bar: 'bg-[#3498db]', text: 'text-[#3498db]', hex: '#3498db' },
       'Security Program Management and Oversight': { dot: 'bg-[#f39c12]', bar: 'bg-[#f39c12]', text: 'text-[#f39c12]', hex: '#f39c12' },
     },
+  },
+  'splunk-core-certified-user': {
+    id: 'splunk-core-certified-user',
+    title: 'Splunk Core Certified User',
+    code: 'SPLK-1001',
+    provider: 'Splunk',
+    description: 'Entry-level Splunk certification for searching, using fields, SPL fundamentals, transforming commands, reports, dashboards, lookups, scheduled reports, and alerts.',
+    difficulty: 'Entry-Level',
+    color: '#22c55e',
+    questionCount: 750,
+    examQuestions: 60,
+    examTime: 60,
+    passingScore: 70,
+    loadQuestions: () => loadQuestionAsset(splunkCoreCertifiedUserQuestionsUrl),
+    domains: SPLUNK_CORE_USER_DOMAINS,
+    domainColors: SPLUNK_CORE_USER_COLORS,
   },
   'comptia-server-plus': {
     id: 'comptia-server-plus',

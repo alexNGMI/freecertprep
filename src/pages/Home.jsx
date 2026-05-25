@@ -68,7 +68,7 @@ const paths = [
     color: '#fb7185',
     to: '/paths/cybersecurity',
     meta: 'Network+ to Security+ to Splunk',
-    certIds: ['comptia-net-plus', 'comptia-sec-plus'],
+    certIds: ['comptia-net-plus', 'comptia-sec-plus', 'splunk-core-certified-user'],
   },
   {
     id: 'cloud',
@@ -134,6 +134,7 @@ const providerStyles = {
   Cisco: { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-300' },
   CompTIA: { bg: 'bg-red-500/10 border-red-500/20', text: 'text-red-300' },
   HashiCorp: { bg: 'bg-violet-500/10 border-violet-500/20', text: 'text-violet-300' },
+  Splunk: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-300' },
 }
 
 export default function Home() {

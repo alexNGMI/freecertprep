@@ -13,6 +13,7 @@ import comptiaNetPlus from '../data/comptia-net-plus-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 import comptiaServerPlus from '../data/comptia-server-plus-questions.json'
 import schneiderDcca from '../data/schneider-dcca-questions.json'
+import splunkCoreCertifiedUser from '../data/splunk-core-certified-user-questions.json'
 import comptiaAPlusCore1 from '../data/comptia-a-plus-core-1-questions.json'
 import comptiaAPlusCore2 from '../data/comptia-a-plus-core-2-questions.json'
 import terraformAssoc from '../data/terraform-associate-questions.json'
@@ -40,6 +41,7 @@ const CERT_QUESTIONS = {
   'comptia-sec-plus': comptiaSecPlus,
   'comptia-server-plus': comptiaServerPlus,
   'schneider-dcca': schneiderDcca,
+  'splunk-core-certified-user': splunkCoreCertifiedUser,
   'comptia-a-plus-core-1': comptiaAPlusCore1,
   'comptia-a-plus-core-2': comptiaAPlusCore2,
   'terraform-associate': terraformAssoc,
@@ -364,6 +366,37 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     for (const q of questions) counts[q.domain] += 1
 
     expect(counts).toEqual(expectedCounts)
+    expect(new Set(questions.map(q => q.question)).size).toBe(questions.length)
+  })
+
+  it('Splunk Core Certified User follows the official blueprint weights', () => {
+    if (certId !== 'splunk-core-certified-user') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byDomain).toEqual({
+      'Splunk Basics': 38,
+      'Basic Searching': 165,
+      'Using Fields in Searches': 150,
+      'Search Language Fundamentals': 113,
+      'Using Basic Transforming Commands': 112,
+      'Creating Reports and Dashboards': 90,
+      'Creating and Using Lookups': 45,
+      'Creating Scheduled Reports and Alerts': 37,
+    })
+
+    const byType = questions.reduce((acc, q) => {
+      acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byType['single-choice']).toBeGreaterThan(500)
+    expect(byType['multiple-response']).toBeGreaterThanOrEqual(90)
+    expect(byType['matching']).toBeGreaterThanOrEqual(35)
+    expect(byType['ordering']).toBeGreaterThanOrEqual(15)
     expect(new Set(questions.map(q => q.question)).size).toBe(questions.length)
   })
 

@@ -45,6 +45,7 @@ describe('homepage career-path layout', () => {
     expect(screen.getByRole('heading', { name: 'Every active certification.' })).toBeTruthy()
     expect(screen.getAllByRole('link', { name: /Network\+/ })[0].getAttribute('href')).toBe('/comptia-net-plus')
     expect(screen.getAllByRole('link', { name: /Security\+/ })[0].getAttribute('href')).toBe('/comptia-sec-plus')
+    expect(screen.getAllByRole('link', { name: /Splunk Core Certified User/ })[0].getAttribute('href')).toBe('/splunk-core-certified-user')
     expect(screen.getAllByRole('link', { name: /AWS Cloud Practitioner/ })[0].getAttribute('href')).toBe('/clf-c02')
     expect(screen.getAllByRole('link', { name: /AWS Solutions Architect - Associate/ })[0].getAttribute('href')).toBe('/aws-saa-c03')
     expect(screen.getAllByRole('link', { name: /HashiCorp Terraform Associate/ })[0].getAttribute('href')).toBe('/terraform-associate')

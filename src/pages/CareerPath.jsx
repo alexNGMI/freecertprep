@@ -85,7 +85,7 @@ const PATHS = {
     highlights: [
       'Network+ builds the traffic and troubleshooting foundation.',
       'Security+ proves the security baseline most entry roles recognize.',
-      'Splunk Core Certified User is the planned level-three SOC tooling layer.',
+      'Splunk Core Certified User adds the practical SIEM search and alerting layer.',
     ],
     groups: [
       {
@@ -103,13 +103,7 @@ const PATHS = {
       {
         label: 'Then add SOC tooling',
         items: [
-          futureStep(
-            'Level 3 preview',
-            'Splunk Core Certified User',
-            'SPLK-1001',
-            'Planned as the practical SIEM/search layer for learners aiming at SOC analyst, security monitoring, and alert triage roles.',
-            { provider: 'Splunk', difficulty: 'Entry-Level' },
-          ),
+          certStep('Level 3', 'splunk-core-certified-user', 'Practice Splunk searching, fields, SPL fundamentals, transforming commands, dashboards, lookups, scheduled reports, and alerts for SOC analyst readiness.'),
         ],
       },
     ],
