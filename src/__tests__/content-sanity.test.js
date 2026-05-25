@@ -355,6 +355,26 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(new Set(stems).size, `${certId} should not contain exact duplicate stems`).toBe(stems.length)
   })
 
+  it('SAA-C03 stems avoid generic or mismatched architecture framing', () => {
+    if (certId !== 'aws-saa-c03') return
+
+    for (const q of questions) {
+      expect(q.question, `${certId} q${q.id} should not use fallback service-selection wording`).not.toMatch(
+        /best-fit managed service|service selection tradeoff|recommended AWS managed service pattern/i
+      )
+
+      const correctText = Array.isArray(q.correctAnswers)
+        ? q.correctAnswers.map(i => q.choices[i]).join(' ')
+        : q.choices[q.correctAnswer]
+
+      if (/Savings Plans|Reserved Instances/.test(correctText)) {
+        expect(q.question, `${certId} q${q.id} should frame commitments as steady-state usage, not Spot batch work`).not.toMatch(
+          /batch processing fleet|batch compute spend/i
+        )
+      }
+    }
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {

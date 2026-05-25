@@ -76,6 +76,8 @@ The second SAA review-quality pass rewrote the 750 visible stems while preservin
 - Exact duplicate SAA stems were reduced from 160 repeated-stem groups to zero.
 - Stems now vary organization type, workload, design pressure, architecture issue, and service hint so review sessions feel less template-driven.
 - The content sanity suite now enforces unique SAA stems to prevent repeated scenario frames from returning.
+- A follow-up semantic fit pass replaced generic rotating design goals with service-aware context, so stems now frame Secrets Manager around credential handling, CloudFront around edge performance or origin cost, SQS/EventBridge around decoupling, Savings Plans around steady-state usage, and Spot around interruptible batch work.
+- The content sanity suite also blocks generic fallback wording and the specific Savings Plans-versus-Spot framing mismatch found during the manual sample.
 
 ## First Batch Quality Audit
 
