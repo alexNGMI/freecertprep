@@ -17,7 +17,7 @@ The cloud and CompTIA registry domain names and weights are aligned with the off
 
 - AZ-900: Microsoft now publishes ranged weights. The registry uses 25/40/35, which sits inside the official 25-30 / 35-40 / 30-35 ranges.
 - CLF-C02: 24 / 30 / 34 / 12.
-- CDL: 17 / 23 / 23 / 37.
+- CDL: 17 / 16 / 16 / 17 / 17 / 17.
 - N10-009: 23 / 20 / 19 / 14 / 24.
 - SY0-701: 12 / 22 / 18 / 28 / 20.
 - SK0-005: 18 / 30 / 24 / 28.
@@ -69,7 +69,7 @@ Highest-confidence aligned banks:
 Priority hardening sequence:
 
 1. CompTIA Network+ N10-009: completed 2026-05-25. The 751-question pool now matches the rounded N10-009 target counts: Networking Concepts 173, Network Implementation 150, Network Operations 143, Network Security 105, Network Troubleshooting 180. The rebalance converted overrepresented concept / implementation / security items into scenario-forward troubleshooting and operations questions with evidence-based stems.
-2. Google Cloud Digital Leader: refresh the app taxonomy from the older four-domain model to the current six-section Google guide that separates data, AI, trust/security, and operations.
+2. Google Cloud Digital Leader: completed 2026-05-25. The registry and 749-question pool now use the current six-section guide: Digital Transformation 128, Data Transformation 120, Artificial Intelligence 120, Infrastructure and Application Modernization 127, Trust and Security 127, Operations 127.
 3. NVIDIA AI Infrastructure & Operations: rebalance toward Essential AI Knowledge and reduce the current AI Operations overweight.
 4. AZ-900: tighten the pool into Microsoft's current ranged weights; architecture/services is currently too heavy and cloud concepts is light.
 5. Real-estate state modules: recheck each state against the current Pearson VUE / PSI / commission handbook before public placement because state exam structures are actively changing.
