@@ -69,6 +69,8 @@ Every SAA explanation now uses three teaching anchors:
 
 The content sanity suite now enforces these anchors for every SAA item so future edits cannot silently regress review-mode learning value.
 
+The review UI now recognizes these anchors and renders them as separate labeled feedback sections in `QuestionCard`, so learners can scan the decision path instead of reading one long paragraph. A focused component test verifies the three labels remain visible in answered review state.
+
 ## Scenario Variety Polish
 
 The second SAA review-quality pass rewrote the 750 visible stems while preserving domains, choices, correct answers, and explanations.
@@ -78,6 +80,7 @@ The second SAA review-quality pass rewrote the 750 visible stems while preservin
 - The content sanity suite now enforces unique SAA stems to prevent repeated scenario frames from returning.
 - A follow-up semantic fit pass replaced generic rotating design goals with service-aware context, so stems now frame Secrets Manager around credential handling, CloudFront around edge performance or origin cost, SQS/EventBridge around decoupling, Savings Plans around steady-state usage, and Spot around interruptible batch work.
 - The content sanity suite also blocks generic fallback wording and the specific Savings Plans-versus-Spot framing mismatch found during the manual sample.
+- Browser smoke test on `/aws-saa-c03/quiz` confirmed a live answered SAA item renders `Why this is right`, `Why distractors fail`, and `Architecture takeaway` as separate feedback sections.
 
 ## First Batch Quality Audit
 
