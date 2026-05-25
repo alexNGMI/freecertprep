@@ -30,6 +30,8 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. A+ appears as the wide entry card for brand-new learners, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence. The Networking Career Path starts with Network+ or CCST Networking and builds toward CCNA; the Cybersecurity path runs Network+ to Security+ to a planned Splunk Core Certified User level; and the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform.
 
+> **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
+
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 
 > **CCNA simulation foundation is implemented:** `docs/ccna-simulation-architecture.md` maps the official 200-301 CCNA v1.1 domains to the simulation layer the app needs before CCNA can be exam-quality. CLI output interpretation, topology scenarios, config repair, and subnetting drills are now supported, with a 750-item unpublished preview pool registered for QA.

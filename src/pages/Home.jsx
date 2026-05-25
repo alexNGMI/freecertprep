@@ -61,9 +61,9 @@ const paths = [
   {
     id: 'cybersecurity',
     eyebrow: 'Cybersecurity',
-    title: 'Move into security',
+    title: 'Cybersecurity with tooling',
     description:
-      'Use Network+ as the technical base, Security+ as the security baseline, then add Splunk for SOC tooling.',
+      'Network+ and Security+ give the theory and baseline; Splunk adds the practical SOC tooling layer that helps entry-level candidates look closer to job-ready.',
     icon: LockKeyhole,
     color: '#fb7185',
     to: '/paths/cybersecurity',
@@ -73,13 +73,13 @@ const paths = [
   {
     id: 'cloud',
     eyebrow: 'Cloud',
-    title: 'Cloud fluency',
+    title: 'Deployable cloud skill',
     description:
-      'Compare the major cloud entry exams, then add Terraform when infrastructure automation becomes the next step.',
+      'Move from AWS fundamentals into architecture, then finish with Terraform so your path points toward real cloud support, junior cloud, and infrastructure roles.',
     icon: Cloud,
     color: '#38bdf8',
     to: '/paths/cloud',
-    meta: 'Vendor foundation to Terraform',
+    meta: 'AWS foundation to Terraform',
     certIds: ['clf-c02', 'az-900', 'cdl', 'terraform-associate'],
   },
   {
