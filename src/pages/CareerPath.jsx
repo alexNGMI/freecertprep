@@ -14,15 +14,15 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 const PATHS = {
   networking: {
     eyebrow: 'Networking',
-    title: 'Follow the Cisco path from CCST into CCNA.',
+    title: 'Networking Career Path',
     description:
-      'Use CCST Networking as the Cisco-oriented foundation. CCNA stays in preview until the simulation, scoring, and editorial gates are strong enough for public practice.',
+      'Start with CCST if you are new to networking, then build toward CCNA, the high-value credential for Cisco networking, NOC, junior network admin, and infrastructure support careers.',
     icon: Network,
     color: '#f97316',
     highlights: [
-      'CCST is live as the entry Cisco networking step.',
-      'CCNA has a hidden 750-item preview pool, but it is not catalog-ready yet.',
-      'Use the Cybersecurity path for the vendor-neutral Network+ to Security+ route.',
+      'CCST gives you the starting foundation.',
+      'CCNA is the career-defining milestone.',
+      'Each step builds toward real network troubleshooting and operations skill.',
     ],
     groups: [
       {

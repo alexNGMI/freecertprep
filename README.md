@@ -28,7 +28,7 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 750-question production pool and a 90-question / 90-minute simulator aligned to the official domain weights.
 
-> **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. A+ appears as the wide entry card for brand-new learners, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence. The Networking path is CCST into CCNA-preview, the Cybersecurity path keeps Network+ into Security+, and the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform.
+> **Guided paths are live:** The homepage now separates recommended learning lanes from the direct catalog. A+ appears as the wide entry card for brand-new learners, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence. The Networking Career Path starts with CCST and builds toward CCNA; the Cybersecurity path keeps Network+ into Security+; and the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform.
 
 > **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
 

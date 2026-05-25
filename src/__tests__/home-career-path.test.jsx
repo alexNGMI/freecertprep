@@ -30,7 +30,7 @@ describe('homepage career-path layout', () => {
     expect(screen.getByRole('heading', { name: 'Choose a direction. Build confidence.' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Find the lane that fits next.' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Start with A+ if you are brand new' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'CCST into CCNA' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Networking Career Path' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Move into security' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Cloud fluency' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'NVIDIA fluency' })).toBeTruthy()
