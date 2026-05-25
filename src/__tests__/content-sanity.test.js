@@ -407,6 +407,24 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(evidenceBasedCount).toBeGreaterThanOrEqual(75)
   })
 
+  it('Google Cloud Digital Leader follows the current six-section guide', () => {
+    if (certId !== 'cdl') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byDomain).toEqual({
+      'Digital Transformation with Google Cloud': 128,
+      'Exploring Data Transformation with Google Cloud': 120,
+      'Innovating with Google Cloud Artificial Intelligence': 120,
+      'Modernizing Infrastructure and Applications with Google Cloud': 127,
+      'Trust and Security with Google Cloud': 127,
+      'Scaling with Google Cloud Operations': 127,
+    })
+  })
+
   it('ordering questions have items and a correctOrder that is a permutation', () => {
     const ords = questions.filter(q => typeOf(q) === 'ordering')
     for (const q of ords) {
