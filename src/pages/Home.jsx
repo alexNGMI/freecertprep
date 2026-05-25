@@ -207,8 +207,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
-            <PathCard path={paths[0]} variant="wide" className="md:col-span-2 xl:col-span-4" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            <PathCard path={paths[0]} variant="wide" className="md:col-span-2 lg:col-span-3 xl:col-span-5" />
             {paths.slice(1).map((path) => (
               <PathCard key={path.id} path={path} />
             ))}
@@ -312,7 +312,7 @@ function PathCard({ path, className = '', variant = 'default' }) {
 
   return (
     <div
-      className={`relative overflow-hidden border rounded-lg bg-zinc-950/75 ${wide ? 'p-5' : 'p-6'} ${className}`}
+      className={`relative overflow-hidden border rounded-lg bg-zinc-950/75 ${wide ? 'p-5' : 'p-4'} ${className}`}
       style={{ borderColor: `${path.color}45` }}
     >
       <div className="absolute top-0 left-0 h-1 w-full" style={{ backgroundColor: path.color }} />
@@ -324,7 +324,7 @@ function PathCard({ path, className = '', variant = 'default' }) {
             </div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500">{path.eyebrow}</span>
           </div>
-          <h3 className={`${featured ? 'text-2xl md:text-3xl' : 'text-xl'} font-bold text-zinc-100 tracking-tight mb-3`}>
+          <h3 className={`${featured ? 'text-2xl md:text-3xl' : 'text-lg'} font-bold text-zinc-100 tracking-tight mb-3`}>
             {path.title}
           </h3>
           <p className={`text-sm text-zinc-400 leading-relaxed ${wide ? 'max-w-2xl' : 'mb-6'}`}>{path.description}</p>
