@@ -72,7 +72,7 @@ Priority hardening sequence:
 2. Google Cloud Digital Leader: completed 2026-05-25. The registry and 749-question pool now use the current six-section guide: Digital Transformation 128, Data Transformation 120, Artificial Intelligence 120, Infrastructure and Application Modernization 127, Trust and Security 127, Operations 127.
 3. NVIDIA AI Infrastructure & Operations: completed 2026-05-25. The 336-question source pool now follows the official 40 / 38 / 22 split as AI Infrastructure 134, Essential AI Knowledge 128, and AI Operations 74. Software-stack fundamentals moved out of Operations, while production monitoring, scheduling, lifecycle, and management topics remain there.
 4. AZ-900: completed 2026-05-25. The 600-question pool now sits inside Microsoft's current ranged weights with Cloud Concepts 162, Azure Architecture and Services 228, and Azure Management and Governance 210. The cleanup converted overrepresented architecture/service items into cloud-concept and governance scenarios.
-5. Real-estate state modules: recheck each state against the current Pearson VUE / PSI / commission handbook before public placement because state exam structures are actively changing.
+5. Real-estate state modules: completed 2026-05-25 as a publication-readiness recheck. Arizona, Maine, North Carolina, and Indiana still match current handbook structures. Texas now needs a follow-up taxonomy update for the 2026 Pearson VUE outline, including case-study handling. Georgia needs the current PSI/GREC salesperson bulletin pinned from a stable official source before publication readiness.
 
 ## Next recommended quality pass
 

@@ -202,3 +202,22 @@ Implemented on 2026-05-20 as `real-estate-in`:
 - Answer-position distribution: 100 each for A, B, C, D
 - Exact duplicate stems: 0
 - Minimum explanation length in the generated bank: 155 characters
+
+## 2026-05-25 Handbook Recheck
+
+Rechecked the state-module architecture against the currently reachable
+official handbook / testing-provider sources before considering wider public
+placement.
+
+| State | Current source checked | Result | Follow-up |
+|-------|------------------------|--------|-----------|
+| Arizona | Pearson VUE content outline, effective 2026-01-01 | Still matches the implemented 80 national + 60 state split and 11 state-law sections. | No architecture change needed. |
+| Maine | Pearson VUE handbook `#092005`, 04/2025, law outline revalidated 2024 | Still matches the implemented 40-item state-law portion and five Maine law sections. | No architecture change needed. |
+| North Carolina | NCREC / Pearson VUE licensing booklet, April 2026 | Still matches the implemented 80 national + 60 state split, separately scored sections, and eight state categories. | No architecture change needed. |
+| Indiana | Pearson VUE handbook `#091500`, effective 2025-03-01 | Still matches the implemented 80 national + 50 state split and five Indiana state categories. | No architecture change needed. |
+| Texas | Pearson VUE handbook `#094400`, effective 2026-01-01 | Needs follow-up. The newly checked outline lists Licensing at 4 items, Agency/Brokerage at 10, Contracts at 8, Special Topics at 6, and a 10-item Case Studies category; the current module still reflects the earlier six-section 40-item state-law taxonomy. | Keep unpublished from broader placement until the TX state taxonomy and case-study handling are updated. |
+| Georgia | PSI/GREC public materials | Needs follow-up. Public sources confirm the 100 national + 52 Georgia state structure, but the current official PSI salesperson bulletin was not cleanly retrievable from the same stable source pattern during this pass. | Keep unpublished from broader placement until the current PSI/GREC salesperson bulletin is pinned and section weights are revalidated. |
+
+Verdict: the layered national + state architecture remains sound, but Texas
+and Georgia should not be treated as publication-ready until their current
+state-law outlines are reconciled in the registry and source pools.
