@@ -66,7 +66,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Path pages** - Dedicated lanes for A+ entry, Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before CCNA while CCNA remains preview-only; Data Center Technician runs Server+ to live Schneider DCCA to CCNA preview; Cybersecurity now runs Network+ to Security+ to live Splunk Core Certified User practice. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. NVIDIA now starts with live Linux+ as the systems foundation before the AI credentials. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is in unpublished preview. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented; the CCNA pool stays hidden from the catalog while it goes through QA.
-- **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance, refreshed Google CDL to the current six-section guide, rebalanced NVIDIA AIIO to its official 40/38/22 split, moved AZ-900 inside Microsoft's current ranged weights, and reconciled Texas to the 2026 state-law outline. Georgia remains unpublished pending a stable current PSI/GREC salesperson bulletin.
+- **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance, refreshed Google CDL to the current six-section guide, rebalanced NVIDIA AIIO to its official 40/38/22 split, moved AZ-900 inside Microsoft's current ranged weights, reconciled Texas to the 2026 state-law outline, and shipped the Georgia, Arizona, North Carolina, and Indiana state-law modules.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Trust layer roadmap** - Public quality signals, per-question issue reporting, editorial review status, and source/blueprint audit trails are planned as a backend-backed milestone. The current app stays zero-account/local-first while advanced trust workflows are designed.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
@@ -90,14 +90,22 @@ All stats are written to `localStorage` at session end. No data ever leaves your
 - **Ordering** — Place items in the correct sequence.
 - **Matching** — Match left-column items to right-column options.
 
-CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. A 750-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA. See `docs/ccna-simulation-architecture.md`.
+Additional advanced formats are also supported where the exam surface needs them:
+
+- **PBQ matching** - Match items from a scenario evidence block.
+- **CLI output** - Interpret command output before selecting the answer.
+- **Topology scenario** - Use a network diagram, links, and tables to answer.
+- **Config repair** - Review a broken configuration and choose the safest fix.
+- **Subnetting drill** - Calculate requested network values from a subnet prompt.
+
+CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. Linux+ also uses CLI output and config-repair items for PBQ-style practice. A 750-item unpublished CCNA preview pool is registered at `ccna-200-301` for QA. See `docs/ccna-simulation-architecture.md`.
 
 ## Tech stack
 
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (536 tests across 23 files), GitHub Actions CI
+- Vitest (907 tests across 26 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 
@@ -144,7 +152,7 @@ Single-integrated-exam states such as Florida, California, and New York stay out
 
 ## Adding questions
 
-Questions live in plain JSON. One of five shapes per question:
+Questions live in plain JSON. Common shapes include:
 
 ```jsonc
 // Single-choice (default if type is omitted)
@@ -175,9 +183,22 @@ Questions live in plain JSON. One of five shapes per question:
   "itemsLeft": ["X", "Y"],
   "itemsRight": ["Cat A", "Cat B"],
   "correctMatches": [1, 0], "explanation": "..." }
+
+// CLI output
+{ "id": "cert-6", "domain": "...", "type": "cli-output",
+  "question": "What is the best next step?",
+  "commands": [{ "command": "systemctl status nginx", "output": "..." }],
+  "choices": ["A", "B", "C", "D"], "correctAnswer": 0, "explanation": "..." }
+
+// Config repair
+{ "id": "cert-7", "domain": "...", "type": "config-repair",
+  "question": "Which repair is best?",
+  "configTitle": "/etc/fstab",
+  "config": ["UUID=... /data ext4 defaults 0 2"],
+  "choices": ["A", "B", "C", "D"], "correctAnswer": 0, "explanation": "..." }
 ```
 
-The content-sanity tests enforce id uniqueness, domain validity, type recognition, range-checked answer indices, sorted MR arrays, non-identity ordering/matching permutations, and proper boolean arrays for statement-blocks. Add a question that violates the schema and CI will catch it.
+The content-sanity tests enforce id uniqueness, domain validity, type recognition, range-checked answer indices, sorted MR arrays, valid ordering/matching permutations, PBQ evidence, CLI command blocks, config blocks, subnet fields, and proper boolean arrays for statement-blocks. Add a question that violates the schema and CI will catch it.
 
 ## License
 

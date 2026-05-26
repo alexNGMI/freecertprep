@@ -195,7 +195,7 @@ export default function Docs() {
                 { n: TOTAL_QUESTIONS.toLocaleString(), label: 'Total questions across all certs' },
                 { n: String(PUBLISHED_CERTS.length), label: 'Certifications available today' },
                 { n: '3', label: 'Study modes: Quiz, Drill, Exam' },
-                { n: '5', label: 'Question types including ordering & matching' },
+                { n: '10', label: 'Question formats including PBQ-style scenarios' },
               ].map(({ n, label }) => (
                 <div key={label} className="glass-panel rounded-xl p-5">
                   <p className="text-3xl font-black text-zinc-100 mb-1">{n}</p>
@@ -434,9 +434,9 @@ key = random() ** (1 / weight)
           {/* ── Question Types ──────────────────────────────────────────────── */}
           <Section id="question-types" title="Question Types">
             <P>
-              freecertprep supports five question types, matching the full range found on real certification exams. All types
-              support bookmarking and appear in the Exam Simulator. The quiz and drill use single-choice and multiple-response
-              questions by default, while ordering and matching are reserved for the full exam experience.
+              freecertprep supports selected-response, ordering, matching, and PBQ-style scenario formats. All types support
+              bookmarking and appear in the Exam Simulator when a cert uses them. The advanced simulation formats are used where
+              they fit the real exam surface, such as CCNA command/topology/subnetting practice and Linux+ command/config repair.
             </P>
 
             {[
@@ -469,6 +469,36 @@ key = random() ** (1 / weight)
                 tag: 'Match pairs',
                 desc: 'Left-column items must be matched to right-column options via dropdown selects. Each left item is scored independently, so partial credit is visible in review.',
                 example: 'Match: S3 → Object storage  EC2 → Virtual compute  RDS → Managed database',
+              },
+              {
+                type: 'PBQ Matching',
+                tag: 'Scenario evidence',
+                desc: 'A scenario block provides evidence, then learners match the correct item, action, or category. Used when the practice item needs more context than a plain matching prompt.',
+                example: 'Match each observed symptom to the most likely network or service cause.',
+              },
+              {
+                type: 'CLI Output',
+                tag: 'Command evidence',
+                desc: 'Learners interpret command output before choosing the answer. This supports practical Linux+, CCNA, and infrastructure troubleshooting review.',
+                example: 'systemctl status nginx -> identify failed pre-start validation and choose the safest next step',
+              },
+              {
+                type: 'Topology Scenario',
+                tag: 'Diagram',
+                desc: 'A network diagram, links, and optional tables provide the evidence for the question. This keeps CCNA-style practice closer to operational troubleshooting.',
+                example: 'Use VLAN, gateway, and link-state details to identify the broken path.',
+              },
+              {
+                type: 'Config Repair',
+                tag: 'Fix safely',
+                desc: 'A broken config block is shown and the learner chooses the least risky correction. Used for Linux+ and CCNA-style repair decisions.',
+                example: '/etc/fstab uses ext4 for an XFS volume -> change the filesystem type to match evidence',
+              },
+              {
+                type: 'Subnetting Drill',
+                tag: 'Calculation',
+                desc: 'The prompt asks for specific subnet values such as usable range, broadcast, mask, or network address, then scores each requested field.',
+                example: 'Given 192.168.10.64/27, calculate network, broadcast, and usable host range.',
               },
             ].map(({ type, tag, desc, example }) => (
               <div key={type} className="glass-panel rounded-xl p-6 space-y-3">
@@ -567,7 +597,7 @@ key = random() ** (1 / weight)
 │       ├── RELayout.jsx  — Pins the cert engine to real-estate-national
 │       ├── REDashboard / REQuiz / REDrill / REExam / REResults
 ├── components/
-│   ├── QuestionCard.jsx  — Renders all 5 question types (dark IT theme)
+│   ├── QuestionCard.jsx  - Renders selected-response and PBQ-style IT formats
 │   ├── REQuestionCard.jsx — Light single-choice card for the sister site
 │   ├── CertLayout.jsx    — Nav, header, footer for cert pages
 │   ├── ErrorBoundary.jsx — Root crash fallback (no blank page)
@@ -584,7 +614,7 @@ key = random() ** (1 / weight)
 │   ├── smart-practice.js — Per-question weight formula
 │   ├── progress-stats.js — Domain / overall rollups
 │   ├── markdown.js       — Minimal explanation tokenizer
-│   └── scoring.js        — isAnswerCorrect for all 5 question types
+│   └── scoring.js        - isAnswerCorrect for all supported question formats
 └── data/
     ├── certs.js          — Cert config: domains, weights, colors, exam specs
     └── *.json            — Question banks (lazy-loaded per cert)`}
@@ -638,7 +668,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              536 Vitest tests across 23 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              907 Vitest tests across 26 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -649,7 +679,7 @@ key = random() ** (1 / weight)
             </P>
             <CodeBlock>{`src/__tests__/
 ├── shuffle.test.js         — Fisher-Yates distribution, weightedSample bias
-├── scoring.test.js         — All 5 question types, edge cases
+├── scoring.test.js         — Core scoring formats and edge cases
 ├── exam-selection.test.js  — Domain allocation, largest-remainder correctness
 ├── smart-practice.test.js  — Weight formula, mastered-question clamping
 ├── progress-stats.test.js  — Domain and overall rollups, percentage rounding
@@ -684,10 +714,10 @@ key = random() ** (1 / weight)
                 color: '#34d399',
                 items: [
                   'Vercel deployment — public URL, auto-deploy on push to main',
-                  'CompTIA Network+ (N10-009) — 750-question pool, all five question types',
+                  'CompTIA Network+ (N10-009) — 750-question pool with scenario-forward troubleshooting coverage',
                   'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before the unpublished CCNA preview track.',
-                  'CompTIA Security+ (SY0-701) — 750-question pool, all five question types',
-                  'CompTIA Server+ (SK0-005) — 750-question pool, all five question types',
+                  'CompTIA Security+ (SY0-701) — 750-question pool with full explanation coverage',
+                  'CompTIA Server+ (SK0-005) — 750-question pool with full explanation coverage',
                   'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is now the Cybersecurity path level-three SOC tooling layer.',
                   'CompTIA Linux+ (XK0-006) - live 750-question pool aligned to the current V8 domain weights: system management, services and user management, security, automation/orchestration/scripting, and troubleshooting. It is now the NVIDIA path systems foundation.',
                   'Schneider Data Center Certified Associate (DCCA) - live 750-question pool built from Schneider Electric University DCCA Exam Development Path modules: availability, fire protection, cabling, cooling, humidity, physical security, power, generators, cooling layouts, redundancy, power distribution, racks, room/row/rack cooling, and physical infrastructure management.',
@@ -710,7 +740,7 @@ key = random() ** (1 / weight)
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
                   'CCNA simulation foundation - docs/ccna-simulation-architecture.md maps the official 200-301 CCNA v1.1 domains to the simulation layer needed before catalog placement; CLI output interpretation, topology scenarios, config repair, subnetting drills, and a hidden 750-item preview pool are now implemented.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 536-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 907-test regression suite.',
                 ],
               },
               {
@@ -718,7 +748,7 @@ key = random() ** (1 / weight)
                 color: '#a1a1aa',
                 items: [
                   'CCNA preview QA - Networking can name Network+ or CCST Networking before CCNA, but keep the unpublished 750-item CCNA pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
-                  'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, and Texas 2026 outline reconciliation; Georgia remains pending stable PSI/GREC bulletin verification.',
+                  'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, Texas 2026 outline reconciliation, and live GA/AZ/NC/IN state-module validation.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
                   'Custom domain — freecertprep.org',
