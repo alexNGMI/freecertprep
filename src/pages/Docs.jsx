@@ -180,8 +180,8 @@ export default function Docs() {
               The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, NVIDIA, HashiCorp,
               and CompTIA - including Network+, Security+, Server+, and Terraform Associate. Every cert is chosen deliberately:
               these are exams where the test-taker is typically paying out of pocket, studying independently, with no employer
-              tuition pipeline to lean on. The homepage now separates guided career paths from the direct catalog so beginners can
-              follow a sequence while experienced learners can jump straight to the cert they need.
+              tuition pipeline to lean on. The homepage now focuses on guided career paths so beginners can follow a sequence,
+              while experienced learners can use the dedicated catalog page to jump straight to the cert they need.
             </P>
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
@@ -588,7 +588,8 @@ key = random() ** (1 / weight)
             <H3>Project structure</H3>
             <CodeBlock>{`src/
 ├── pages/
-│   ├── Home.jsx          — Landing page, guided paths, cert catalog, visitor counter
+│   ├── Home.jsx          — Landing page, guided paths, visitor counter
+│   ├── Catalog.jsx       — Full cert catalog and Real Estate sister-site entry
 │   ├── CareerPath.jsx    - Guided Networking / Cyber / Cloud / NVIDIA path pages
 │   ├── Dashboard.jsx     — Per-cert stats, domain readiness, resets
 │   ├── Quiz.jsx          — Smart Practice / Bookmarked / Domain mode
@@ -725,7 +726,7 @@ key = random() ** (1 / weight)
                   'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is now the Cybersecurity path level-three SOC tooling layer.',
                   'CompTIA Linux+ (XK0-006) - live 750-question pool aligned to the current V8 domain weights: system management, services and user management, security, automation/orchestration/scripting, and troubleshooting. It is now the NVIDIA path systems foundation.',
                   'Schneider Data Center Certified Associate (DCCA) - live 750-question pool built from Schneider Electric University DCCA Exam Development Path modules: availability, fire protection, cabling, cooling, humidity, physical security, power, generators, cooling layouts, redundancy, power distribution, racks, room/row/rack cooling, and physical infrastructure management.',
-                  'Homepage guided paths - the A+ entry card routes directly to /comptia/a-plus, while Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert. Networking now routes Network+ or CCST Networking into live CCNA. Data Center Technician now frames Server+ into live Schneider DCCA into live CCNA. Cybersecurity frames Network+ and Security+ as the baseline before live Splunk SOC tooling practice. NVIDIA starts with live Linux+ as the systems foundation before the AI credentials.',
+                  'Homepage guided paths - the A+ entry card routes directly to /comptia/a-plus, while Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages. The full certification grid and Real Estate sister-site entry now live on /catalog so the homepage stays cleaner. Networking now routes Network+ or CCST Networking into live CCNA. Data Center Technician now frames Server+ into live Schneider DCCA into live CCNA. Cybersecurity frames Network+ and Security+ as the baseline before live Splunk SOC tooling practice. NVIDIA starts with live Linux+ as the systems foundation before the AI credentials.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',

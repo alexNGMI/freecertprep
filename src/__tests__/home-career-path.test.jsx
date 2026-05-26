@@ -3,6 +3,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import Catalog from '../pages/Catalog.jsx'
 import Home from '../pages/Home.jsx'
 
 describe('homepage career-path layout', () => {
@@ -20,7 +21,7 @@ describe('homepage career-path layout', () => {
     vi.unstubAllGlobals()
   })
 
-  it('presents the IT career paths while keeping the full catalog visible', () => {
+  it('presents the IT career paths while routing the full catalog to its own page', () => {
     render(
       <MemoryRouter>
         <Home />
@@ -42,6 +43,19 @@ describe('homepage career-path layout', () => {
     expect(screen.getAllByRole('link', { name: /Open path/ })[3].getAttribute('href')).toBe('/paths/nvidia')
     expect(screen.getAllByRole('link', { name: /Open path/ })[4].getAttribute('href')).toBe('/paths/data-center-technician')
     expect(screen.queryByRole('link', { name: /A\+ Core Selector/ })).toBeNull()
+    expect(screen.getByRole('link', { name: 'Catalog' }).getAttribute('href')).toBe('/catalog')
+    expect(screen.getByRole('link', { name: 'Browse All Certs' }).getAttribute('href')).toBe('/catalog')
+    expect(screen.queryByRole('heading', { name: 'Every active certification.' })).toBeNull()
+    expect(screen.queryByRole('link', { name: /Looking for something completely different/ })).toBeNull()
+  })
+
+  it('moves the full certification catalog and real estate sister link to /catalog', () => {
+    render(
+      <MemoryRouter>
+        <Catalog />
+      </MemoryRouter>,
+    )
+
     expect(screen.getByRole('heading', { name: 'Every active certification.' })).toBeTruthy()
     expect(screen.getAllByRole('link', { name: /Network\+/ })[0].getAttribute('href')).toBe('/comptia-net-plus')
     expect(screen.getAllByRole('link', { name: /Security\+/ })[0].getAttribute('href')).toBe('/comptia-sec-plus')

@@ -255,7 +255,7 @@ export default function CareerPath() {
                 </ul>
               ) : (
                 <p className="text-sm text-zinc-400 leading-relaxed">
-                  This page is a guided sequence, not a lock-in. Use it when you want a recommendation. Use the homepage catalog when you already know the exact cert you want.
+                  This page is a guided sequence, not a lock-in. Use it when you want a recommendation. Use the catalog when you already know the exact cert you want.
                 </p>
               )}
             </div>

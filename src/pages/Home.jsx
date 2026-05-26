@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   Sparkles,
 } from 'lucide-react'
-import { getAllCerts } from '../data/certs'
 import BrandedName from '../components/BrandedName'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
@@ -29,8 +28,6 @@ function useVisitorCount() {
 
   return count
 }
-
-const certs = getAllCerts()
 
 const paths = [
   {
@@ -126,17 +123,6 @@ const featureItems = [
   },
 ]
 
-const providerStyles = {
-  AWS: { bg: 'bg-orange-500/10 border-orange-500/20', text: 'text-orange-300' },
-  'Google Cloud': { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-300' },
-  NVIDIA: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-300' },
-  'Microsoft Azure': { bg: 'bg-cyan-500/10 border-cyan-500/20', text: 'text-cyan-300' },
-  Cisco: { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-300' },
-  CompTIA: { bg: 'bg-red-500/10 border-red-500/20', text: 'text-red-300' },
-  HashiCorp: { bg: 'bg-violet-500/10 border-violet-500/20', text: 'text-violet-300' },
-  Splunk: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-300' },
-}
-
 export default function Home() {
   const visitorCount = useVisitorCount()
 
@@ -155,7 +141,7 @@ export default function Home() {
           </Link>
           <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
             <a href="#paths" className="hover:text-zinc-100 transition-colors">Paths</a>
-            <a href="#catalog" className="hover:text-zinc-100 transition-colors">Catalog</a>
+            <Link to="/catalog" className="hover:text-zinc-100 transition-colors">Catalog</Link>
             <Link to="/docs" className="hover:text-zinc-100 transition-colors">Docs</Link>
             <a href="https://github.com/alexNGMI/freecertprep" target="_blank" rel="noreferrer" className="hover:text-zinc-100 transition-colors">GitHub</a>
           </div>
@@ -184,12 +170,12 @@ export default function Home() {
                   Find Your Path
                   <ArrowRight className="w-4 h-4" />
                 </a>
-                <a
-                  href="#catalog"
+                <Link
+                  to="/catalog"
                   className="inline-flex items-center justify-center gap-2 bg-zinc-900 text-zinc-100 border border-white/10 font-semibold text-base px-6 py-3 rounded-lg hover:bg-zinc-800 transition-colors"
                 >
                   Browse All Certs
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -233,35 +219,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="catalog" className="max-w-7xl mx-auto px-6 py-16 border-t border-white/5">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
-            <div>
-              <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Full catalog</p>
-              <h2 className="text-3xl font-bold text-zinc-100">Every active certification.</h2>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {certs.map((cert) => (
-              <CertRow key={cert.id} cert={cert} />
-            ))}
-          </div>
-        </section>
-
-        <section className="max-w-7xl mx-auto px-6 pb-12">
-          <div className="border border-white/10 bg-zinc-950/75 rounded-lg px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <p className="text-sm text-zinc-400">
-              Real estate exam prep lives in its own sister experience.
-            </p>
-            <Link
-              to="/real-estate"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-zinc-900 text-zinc-100 text-sm font-semibold px-4 py-2.5 hover:bg-zinc-800 transition-colors"
-            >
-              Looking for something completely different?
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </section>
       </main>
 
       <footer className="border-t border-white/5 bg-zinc-950/50 py-10 mt-12 text-zinc-500">
@@ -353,54 +310,3 @@ function PathCta({ to, label, accentColor, compact = false }) {
   )
 }
 
-function CertRow({ cert }) {
-  const ps = providerStyles[cert.provider] || { bg: 'bg-zinc-800 border-zinc-700', text: 'text-zinc-400' }
-  const Icon = cert.provider === 'CompTIA' || cert.provider === 'Cisco'
-    ? Network
-    : cert.provider === 'HashiCorp'
-      ? Server
-      : cert.provider === 'NVIDIA'
-        ? Cpu
-        : Cloud
-
-  return (
-    <Link
-      to={`/${cert.id}`}
-      className="group border border-white/10 bg-zinc-950/75 hover:bg-zinc-900/70 rounded-lg p-5 transition-colors"
-    >
-      <div className="flex items-start justify-between gap-4 mb-4">
-        <div className="flex items-center gap-3 min-w-0">
-          <div className="w-10 h-10 rounded-lg border border-white/10 bg-zinc-900/80 flex items-center justify-center shrink-0" style={{ color: cert.color }}>
-            <Icon className="w-5 h-5" />
-          </div>
-          <div className="min-w-0">
-            <h3 className="text-base font-bold text-zinc-100 truncate group-hover:text-white transition-colors">{cert.title}</h3>
-            <p className="text-xs text-zinc-500 mt-1">{cert.code}</p>
-          </div>
-        </div>
-        <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
-      </div>
-      <div className="flex flex-wrap gap-2 mb-4">
-        <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-md border ${ps.bg} ${ps.text}`}>
-          {cert.provider}
-        </span>
-        <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/10 bg-zinc-900/60 text-zinc-400">
-          {cert.difficulty}
-        </span>
-      </div>
-      <div className="grid grid-cols-2 gap-2 border-t border-white/5 pt-4">
-        <MiniStat value={cert.examQuestions} label="Exam" />
-        <MiniStat value={`${cert.examTime}m`} label="Time" />
-      </div>
-    </Link>
-  )
-}
-
-function MiniStat({ value, label }) {
-  return (
-    <div>
-      <p className="text-sm font-bold text-zinc-200">{value}</p>
-      <p className="text-[10px] text-zinc-600 uppercase tracking-widest font-bold mt-1">{label}</p>
-    </div>
-  )
-}
