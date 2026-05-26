@@ -31,7 +31,7 @@
     "id": "dcca-fundamentals-of-availability-003",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-003.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-003.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -147,7 +147,7 @@
     "id": "dcca-fundamentals-of-availability-011",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-011.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-011.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -275,7 +275,7 @@
     "id": "dcca-fundamentals-of-availability-019",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-019.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-019.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -335,7 +335,7 @@
     "id": "dcca-fundamentals-of-availability-023",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-023.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-023.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -391,7 +391,7 @@
     "id": "dcca-fundamentals-of-availability-027",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-027.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-027.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -467,7 +467,7 @@
     "id": "dcca-fundamentals-of-availability-031",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-031.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-031.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -583,7 +583,7 @@
     "id": "dcca-fundamentals-of-availability-039",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-039.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-039.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -643,7 +643,7 @@
     "id": "dcca-fundamentals-of-availability-043",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-043.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-043.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -715,7 +715,7 @@
     "id": "dcca-fundamentals-of-availability-047",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-047.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-047.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",
@@ -775,7 +775,7 @@
     "id": "dcca-fundamentals-of-availability-051",
     "domain": "Fundamentals of Availability",
     "type": "single-choice",
-    "question": "a mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-051.",
+    "question": "A mixed-density production room must remain online during scheduled power equipment service. What design concern should be raised? Ticket DCCA-051.",
     "choices": [
       "Maintenance downtime is unrelated to infrastructure topology",
       "A design with no bypass path can force downtime during maintenance",

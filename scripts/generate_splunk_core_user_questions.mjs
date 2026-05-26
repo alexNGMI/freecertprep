@@ -498,7 +498,7 @@ function makeMatching(domain, id, set) {
     id,
     domain,
     type: 'matching',
-    question: `${set.question} Use the set that appears during ${CONTEXTS[id % CONTEXTS.length]} with ${DETAILS[id % DETAILS.length]} under ticket SPL-${String(id).padStart(3, '0')}.`,
+    question: `${set.question} Use the set from ${CONTEXTS[id % CONTEXTS.length]} with ${DETAILS[id % DETAILS.length]} under ticket SPL-${String(id).padStart(3, '0')}.`,
     itemsLeft: set.left,
     itemsRight: set.right,
     correctMatches: set.matches,

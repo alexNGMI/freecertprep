@@ -91,7 +91,7 @@
     "id": 7,
     "domain": "Splunk Basics",
     "type": "matching",
-    "question": "Match each Splunk concept to its primary user-level meaning. Use the set that appears during during a morning health check with a weekly operations review under ticket SPL-007.",
+    "question": "Match each Splunk concept to its primary user-level meaning. Use the set that appears during a morning health check with a weekly operations review under ticket SPL-007.",
     "itemsLeft": [
       "Indexer",
       "Search head",
@@ -665,7 +665,7 @@
     "id": 45,
     "domain": "Basic Searching",
     "type": "matching",
-    "question": "Match each search interface element to what it helps a user do. Use the set that appears during during an incident review with a scheduled search readiness check under ticket SPL-045.",
+    "question": "Match each search interface element to what it helps a user do. Use the set that appears during an incident review with a scheduled search readiness check under ticket SPL-045.",
     "itemsLeft": [
       "Time picker",
       "Timeline",
@@ -1197,7 +1197,7 @@
     "id": 79,
     "domain": "Basic Searching",
     "type": "matching",
-    "question": "Match each search interface element to what it helps a user do. Use the set that appears during during a report design session with a firewall deny spike in the timeline under ticket SPL-079.",
+    "question": "Match each search interface element to what it helps a user do. Use the set that appears during a report design session with a firewall deny spike in the timeline under ticket SPL-079.",
     "itemsLeft": [
       "Time picker",
       "Timeline",
@@ -1725,7 +1725,7 @@
     "id": 113,
     "domain": "Basic Searching",
     "type": "matching",
-    "question": "Match each search interface element to what it helps a user do. Use the set that appears during during an operations dashboard review with a report shared with another team under ticket SPL-113.",
+    "question": "Match each search interface element to what it helps a user do. Use the set that appears during an operations dashboard review with a report shared with another team under ticket SPL-113.",
     "itemsLeft": [
       "Time picker",
       "Timeline",
@@ -2253,7 +2253,7 @@
     "id": 147,
     "domain": "Basic Searching",
     "type": "matching",
-    "question": "Match each search interface element to what it helps a user do. Use the set that appears during during a morning health check with a web error trend that must be summarized under ticket SPL-147.",
+    "question": "Match each search interface element to what it helps a user do. Use the set that appears during a morning health check with a web error trend that must be summarized under ticket SPL-147.",
     "itemsLeft": [
       "Time picker",
       "Timeline",
@@ -2774,7 +2774,7 @@
     "id": 181,
     "domain": "Basic Searching",
     "type": "matching",
-    "question": "Match each search interface element to what it helps a user do. Use the set that appears during during a SOC shift handoff with an app-specific search workspace under ticket SPL-181.",
+    "question": "Match each search interface element to what it helps a user do. Use the set that appears during a SOC shift handoff with an app-specific search workspace under ticket SPL-181.",
     "itemsLeft": [
       "Time picker",
       "Timeline",
@@ -3464,7 +3464,7 @@
     "id": 227,
     "domain": "Using Fields in Searches",
     "type": "matching",
-    "question": "Match each field-related concept to its best description. Use the set that appears during during a morning health check with an app-specific search workspace under ticket SPL-227.",
+    "question": "Match each field-related concept to its best description. Use the set that appears during a morning health check with an app-specific search workspace under ticket SPL-227.",
     "itemsLeft": [
       "Field",
       "Selected fields",
@@ -3982,7 +3982,7 @@
     "id": 261,
     "domain": "Using Fields in Searches",
     "type": "matching",
-    "question": "Match each field-related concept to its best description. Use the set that appears during during a SOC shift handoff with a failed-login investigation under ticket SPL-261.",
+    "question": "Match each field-related concept to its best description. Use the set that appears during a SOC shift handoff with a failed-login investigation under ticket SPL-261.",
     "itemsLeft": [
       "Field",
       "Selected fields",
@@ -4500,7 +4500,7 @@
     "id": 295,
     "domain": "Using Fields in Searches",
     "type": "matching",
-    "question": "Match each field-related concept to its best description. Use the set that appears during during an incident review with a recurring compliance report under ticket SPL-295.",
+    "question": "Match each field-related concept to its best description. Use the set that appears during an incident review with a recurring compliance report under ticket SPL-295.",
     "itemsLeft": [
       "Field",
       "Selected fields",
@@ -5014,7 +5014,7 @@
     "id": 329,
     "domain": "Using Fields in Searches",
     "type": "matching",
-    "question": "Match each field-related concept to its best description. Use the set that appears during during a report design session with a weekly operations review under ticket SPL-329.",
+    "question": "Match each field-related concept to its best description. Use the set that appears during a report design session with a weekly operations review under ticket SPL-329.",
     "itemsLeft": [
       "Field",
       "Selected fields",
@@ -5751,7 +5751,7 @@
     "id": 377,
     "domain": "Search Language Fundamentals",
     "type": "matching",
-    "question": "Match each SPL command to its basic purpose. Use the set that appears during during a morning health check with a web error trend that must be summarized under ticket SPL-377.",
+    "question": "Match each SPL command to its basic purpose. Use the set that appears during a morning health check with a web error trend that must be summarized under ticket SPL-377.",
     "itemsLeft": [
       "table",
       "rename",
@@ -6285,7 +6285,7 @@
     "id": 411,
     "domain": "Search Language Fundamentals",
     "type": "matching",
-    "question": "Match each SPL command to its basic purpose. Use the set that appears during during a SOC shift handoff with an app-specific search workspace under ticket SPL-411.",
+    "question": "Match each SPL command to its basic purpose. Use the set that appears during a SOC shift handoff with an app-specific search workspace under ticket SPL-411.",
     "itemsLeft": [
       "table",
       "rename",
@@ -6815,7 +6815,7 @@
     "id": 445,
     "domain": "Search Language Fundamentals",
     "type": "matching",
-    "question": "Match each SPL command to its basic purpose. Use the set that appears during during an incident review with a failed-login investigation under ticket SPL-445.",
+    "question": "Match each SPL command to its basic purpose. Use the set that appears during an incident review with a failed-login investigation under ticket SPL-445.",
     "itemsLeft": [
       "table",
       "rename",
@@ -7242,7 +7242,7 @@
     "id": 473,
     "domain": "Using Basic Transforming Commands",
     "type": "matching",
-    "question": "Match each transforming command to the result it is designed to produce. Use the set that appears during during an operations dashboard review with a CSV-based reporting workflow under ticket SPL-473.",
+    "question": "Match each transforming command to the result it is designed to produce. Use the set that appears during an operations dashboard review with a CSV-based reporting workflow under ticket SPL-473.",
     "itemsLeft": [
       "stats",
       "top",
@@ -7754,7 +7754,7 @@
     "id": 507,
     "domain": "Using Basic Transforming Commands",
     "type": "matching",
-    "question": "Match each transforming command to the result it is designed to produce. Use the set that appears during during a morning health check with a dashboard panel that needs cleaner source data under ticket SPL-507.",
+    "question": "Match each transforming command to the result it is designed to produce. Use the set that appears during a morning health check with a dashboard panel that needs cleaner source data under ticket SPL-507.",
     "itemsLeft": [
       "stats",
       "top",
@@ -8266,7 +8266,7 @@
     "id": 541,
     "domain": "Using Basic Transforming Commands",
     "type": "matching",
-    "question": "Match each transforming command to the result it is designed to produce. Use the set that appears during during a SOC shift handoff with an alert threshold that fires too often under ticket SPL-541.",
+    "question": "Match each transforming command to the result it is designed to produce. Use the set that appears during a SOC shift handoff with an alert threshold that fires too often under ticket SPL-541.",
     "itemsLeft": [
       "stats",
       "top",
@@ -8918,7 +8918,7 @@
     "id": 585,
     "domain": "Creating Reports and Dashboards",
     "type": "matching",
-    "question": "Match each reporting object to its common use. Use the set that appears during during an incident review with a firewall deny spike in the timeline under ticket SPL-585.",
+    "question": "Match each reporting object to its common use. Use the set that appears during an incident review with a firewall deny spike in the timeline under ticket SPL-585.",
     "itemsLeft": [
       "Report",
       "Dashboard",
@@ -9450,7 +9450,7 @@
     "id": 619,
     "domain": "Creating Reports and Dashboards",
     "type": "matching",
-    "question": "Match each reporting object to its common use. Use the set that appears during during a report design session with a report shared with another team under ticket SPL-619.",
+    "question": "Match each reporting object to its common use. Use the set that appears during a report design session with a report shared with another team under ticket SPL-619.",
     "itemsLeft": [
       "Report",
       "Dashboard",
@@ -9978,7 +9978,7 @@
     "id": 653,
     "domain": "Creating Reports and Dashboards",
     "type": "matching",
-    "question": "Match each reporting object to its common use. Use the set that appears during during an operations dashboard review with a web error trend that must be summarized under ticket SPL-653.",
+    "question": "Match each reporting object to its common use. Use the set that appears during an operations dashboard review with a web error trend that must be summarized under ticket SPL-653.",
     "itemsLeft": [
       "Report",
       "Dashboard",
@@ -10305,7 +10305,7 @@
     "id": 675,
     "domain": "Creating and Using Lookups",
     "type": "matching",
-    "question": "Match each lookup term to its purpose. Use the set that appears during during an incident review with a failed-login investigation under ticket SPL-675.",
+    "question": "Match each lookup term to its purpose. Use the set that appears during an incident review with a failed-login investigation under ticket SPL-675.",
     "itemsLeft": [
       "Lookup file",
       "Lookup definition",
@@ -11245,7 +11245,7 @@
     "id": 737,
     "domain": "Creating Scheduled Reports and Alerts",
     "type": "matching",
-    "question": "Match each scheduled-search concept to its meaning. Use the set that appears during during a morning health check with a dashboard panel that needs cleaner source data under ticket SPL-737.",
+    "question": "Match each scheduled-search concept to its meaning. Use the set that appears during a morning health check with a dashboard panel that needs cleaner source data under ticket SPL-737.",
     "itemsLeft": [
       "Scheduled report",
       "Alert",
