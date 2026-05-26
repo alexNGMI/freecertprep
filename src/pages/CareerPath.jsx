@@ -37,7 +37,7 @@ const PATHS = {
       {
         label: 'Then move toward CCNA',
         items: [
-          futureStep('Advanced networking preview', 'Cisco CCNA', '200-301', 'CCNA remains hidden while topology, CLI-output, config-repair, subnetting, scoring, mobile layout, and editorial quality are hardened.'),
+          certStep('Advanced networking', 'ccna-200-301', 'Practice Cisco associate-level routing, switching, services, security, CLI-output, topology, config-repair, and subnetting scenarios.'),
         ],
       },
     ],
@@ -52,7 +52,7 @@ const PATHS = {
     highlights: [
       'Server+ gives the IT hardware and systems support baseline.',
       'Schneider DCCA adds power, cooling, racks, cabling, physical security, and facility awareness.',
-      'CCNA remains the higher networking target for technicians moving toward infrastructure roles.',
+      'CCNA adds the network layer technicians troubleshoot around every day.',
     ],
     groups: [
       {
@@ -70,7 +70,7 @@ const PATHS = {
       {
         label: 'Then move toward the network layer',
         items: [
-          futureStep('Level 3 preview', 'Cisco CCNA', '200-301', 'CCNA remains hidden while topology, CLI-output, config-repair, subnetting, scoring, mobile layout, and editorial quality are hardened.'),
+          certStep('Level 3', 'ccna-200-301', 'Build the routing, switching, subnetting, and Cisco troubleshooting layer for infrastructure technician roles.'),
         ],
       },
     ],
@@ -166,19 +166,6 @@ function certStep(label, certId, description) {
     difficulty: cert.difficulty,
     to: `/${cert.id}`,
     description,
-  }
-}
-
-function futureStep(label, title, code, description, options = {}) {
-  return {
-    label,
-    title,
-    code,
-    provider: options.provider || 'Cisco',
-    difficulty: options.difficulty || 'Associate',
-    to: null,
-    description,
-    status: options.status || 'Preview',
   }
 }
 

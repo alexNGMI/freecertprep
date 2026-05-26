@@ -6,7 +6,7 @@ import QuestionCard from '../components/QuestionCard.jsx'
 
 const subnetQuestion = {
   id: 'ccna-subnetting-001',
-  domain: 'Network Fundamentals',
+  domain: 'Network Infrastructure and Connectivity',
   type: 'subnetting-drill',
   given: '192.168.10.64/27',
   asks: ['network', 'broadcast', 'firstUsable', 'lastUsable', 'hostCount'],

@@ -11,10 +11,10 @@ vi.mock('../hooks/useCert', () => ({
     title: 'Cisco CCNA',
     passingScore: 70,
     domainColors: {
-      'Network Fundamentals': { hex: '#1d4ed8' },
-      'Network Access': { hex: '#0284c7' },
-      'IP Connectivity': { hex: '#0f766e' },
-      'IP Services': { hex: '#16a34a' },
+      'Network Infrastructure and Connectivity': { hex: '#1d4ed8' },
+      'Switching and Network Access': { hex: '#0284c7' },
+      'IP Routing': { hex: '#0f766e' },
+      'Network Services and Security': { hex: '#7c3aed' },
     },
   }),
 }))
@@ -22,7 +22,7 @@ vi.mock('../hooks/useCert', () => ({
 const questions = [
   {
     id: 'ccna-review-cli',
-    domain: 'Network Access',
+    domain: 'Switching and Network Access',
     type: 'cli-output',
     prompt: 'Review the switch output.',
     commands: [{ device: 'SW1', command: 'show interfaces trunk', output: 'Gi0/1 trunking native vlan 99' }],
@@ -33,7 +33,7 @@ const questions = [
   },
   {
     id: 'ccna-review-topology',
-    domain: 'IP Connectivity',
+    domain: 'IP Routing',
     type: 'topology-scenario',
     prompt: 'Review the topology.',
     topology: {
@@ -56,7 +56,7 @@ const questions = [
   },
   {
     id: 'ccna-review-config',
-    domain: 'IP Services',
+    domain: 'Network Services and Security',
     type: 'config-repair',
     scenario: 'PAT is configured but the WAN interface lacks its NAT role.',
     device: 'R1',
@@ -69,7 +69,7 @@ const questions = [
   },
   {
     id: 'ccna-review-subnet',
-    domain: 'Network Fundamentals',
+    domain: 'Network Infrastructure and Connectivity',
     type: 'subnetting-drill',
     question: 'Calculate the requested subnet values for 192.168.10.64/27.',
     given: '192.168.10.64/27',
@@ -84,12 +84,12 @@ const questions = [
 ]
 
 const answers = [
-  { questionId: 'ccna-review-cli', domain: 'Network Access', selected: 1, correct: true },
-  { questionId: 'ccna-review-topology', domain: 'IP Connectivity', selected: 0, correct: true },
-  { questionId: 'ccna-review-config', domain: 'IP Services', selected: 2, correct: false },
+  { questionId: 'ccna-review-cli', domain: 'Switching and Network Access', selected: 1, correct: true },
+  { questionId: 'ccna-review-topology', domain: 'IP Routing', selected: 0, correct: true },
+  { questionId: 'ccna-review-config', domain: 'Network Services and Security', selected: 2, correct: false },
   {
     questionId: 'ccna-review-subnet',
-    domain: 'Network Fundamentals',
+    domain: 'Network Infrastructure and Connectivity',
     selected: { network: '192.168.10.64', broadcast: '192.168.10.94', hostCount: '30' },
     correct: false,
   },

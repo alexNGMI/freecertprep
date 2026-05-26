@@ -216,12 +216,16 @@ export default function Docs() {
               headers={['Cert', 'Provider', 'Questions', 'Exam Q\'s', 'Time', 'Pass']}
               rows={[
                 [<Badge color="#f1be32">CLF-C02</Badge>, 'AWS', '731', '65', '90 min', '70%'],
+                [<Badge color="#ff9900">SAA-C03</Badge>, 'AWS', '750', '65', '130 min', '72%'],
                 [<Badge color="#0078d4">AZ-900</Badge>, 'Microsoft Azure', '600', '40', '45 min', '70%'],
                 [<Badge color="#4285f4">CDL</Badge>, 'Google Cloud', '749', '50', '90 min', '70%'],
                 [<Badge color="#76b900">NCA-AIIO</Badge>, 'NVIDIA', '336', '50', '60 min', '70%'],
                 [<Badge color="#76b900">NCA-GENL</Badge>, 'NVIDIA', '330', '50', '60 min', '70%'],
-                [<Badge color="#1d4ed8">100-150</Badge>, 'Cisco', '270', '50', '50 min', '70% practice'],
-                [<Badge color="#c8202f">N10-009</Badge>, 'CompTIA', '750', '90', '90 min', '80%'],
+                [<Badge color="#1d4ed8">100-150</Badge>, 'Cisco', '750', '50', '50 min', '70% practice'],
+                [<Badge color="#1d4ed8">200-301</Badge>, 'Cisco', '750', '60', '120 min', '70% practice'],
+                [<Badge color="#c8202f">220-1201</Badge>, 'CompTIA', '750', '90', '90 min', '75%'],
+                [<Badge color="#c8202f">220-1202</Badge>, 'CompTIA', '750', '90', '90 min', '78%'],
+                [<Badge color="#c8202f">N10-009</Badge>, 'CompTIA', '751', '90', '90 min', '80%'],
                 [<Badge color="#c8202f">SY0-701</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
                 [<Badge color="#22c55e">SPLK-1001</Badge>, 'Splunk', '750', '60', '60 min', '70% practice'],
                 [<Badge color="#c8202f">SK0-005</Badge>, 'CompTIA', '750', '90', '90 min', '83%'],
@@ -700,7 +704,7 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today, with sixteen IT certifications plus the real-estate sister site. The latest
+              The product is live and usable today, with seventeen IT certifications plus the real-estate sister site. The latest
               refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
               loading, and focused UI regression tests. The roadmap now splits into four tracks: making the guided IT paths richer,
               adding platform features such as synced accounts, a custom domain, and PWA support, hardening advanced certification
@@ -715,13 +719,13 @@ key = random() ** (1 / weight)
                 items: [
                   'Vercel deployment — public URL, auto-deploy on push to main',
                   'CompTIA Network+ (N10-009) — 750-question pool with scenario-forward troubleshooting coverage',
-                  'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before the unpublished CCNA preview track.',
+                  'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before live CCNA practice.',
                   'CompTIA Security+ (SY0-701) — 750-question pool with full explanation coverage',
                   'CompTIA Server+ (SK0-005) — 750-question pool with full explanation coverage',
                   'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is now the Cybersecurity path level-three SOC tooling layer.',
                   'CompTIA Linux+ (XK0-006) - live 750-question pool aligned to the current V8 domain weights: system management, services and user management, security, automation/orchestration/scripting, and troubleshooting. It is now the NVIDIA path systems foundation.',
                   'Schneider Data Center Certified Associate (DCCA) - live 750-question pool built from Schneider Electric University DCCA Exam Development Path modules: availability, fire protection, cabling, cooling, humidity, physical security, power, generators, cooling layouts, redundancy, power distribution, racks, room/row/rack cooling, and physical infrastructure management.',
-                  'Homepage guided paths - the A+ entry card routes directly to /comptia/a-plus, while Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert. Data Center Technician now frames Server+ into live Schneider DCCA into CCNA preview. Cybersecurity frames Network+ and Security+ as the baseline before live Splunk SOC tooling practice. NVIDIA starts with live Linux+ as the systems foundation before the AI credentials.',
+                  'Homepage guided paths - the A+ entry card routes directly to /comptia/a-plus, while Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages and the bottom catalog remains direct-to-cert. Networking now routes Network+ or CCST Networking into live CCNA. Data Center Technician now frames Server+ into live Schneider DCCA into live CCNA. Cybersecurity frames Network+ and Security+ as the baseline before live Splunk SOC tooling practice. NVIDIA starts with live Linux+ as the systems foundation before the AI credentials.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
@@ -738,7 +742,7 @@ key = random() ** (1 / weight)
                   'AWS Solutions Architect - Associate (SAA-C03) - live 750-question production pool aligned to the official 30/26/24/20 domain weights, now listed in the full catalog and Cloud path.',
                   'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
-                  'CCNA simulation foundation - docs/ccna-simulation-architecture.md maps the official 200-301 CCNA v1.1 domains to the simulation layer needed before catalog placement; CLI output interpretation, topology scenarios, config repair, subnetting drills, and a hidden 750-item preview pool are now implemented.',
+                  'Cisco CCNA (200-301) - live 750-question production pool aligned to Cisco 200-301 v2.0, with CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style practice connected to Networking and Data Center Technician paths.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 907-test regression suite.',
                 ],
@@ -747,8 +751,8 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'CCNA preview QA - Networking can name Network+ or CCST Networking before CCNA, but keep the unpublished 750-item CCNA pool out of the catalog until manual mobile/layout review, simulation scoring review, and editorial cleanup of template-like clusters are complete.',
                   'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, Texas 2026 outline reconciliation, and live GA/AZ/NC/IN state-module validation.',
+                  'Advanced simulation polish - continue adding richer multi-command CCNA troubleshooting, more varied topology diagrams, and deeper config-repair review around OSPF, VLANs, NAT/PAT, ACLs, wireless, and management operations.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
                   'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
                   'Custom domain — freecertprep.org',
@@ -762,7 +766,7 @@ key = random() ** (1 / weight)
                   'Streak tracking and study reminders',
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
                   'Shared result cards — privacy-respecting shareable score screenshots',
-                  'Advanced cert pathway pages - keep CCNA separate from the foundational catalog until its simulation quality is high enough to avoid misleading learners.',
+                  'Advanced cert pathway pages - use CCNA as the first simulation-backed associate cert pattern before deciding whether SAA/CCNA-level sister tracks need richer specialized review engines.',
                   'CDL sister site - future written-test prep lane for General Knowledge, Air Brakes, Combination Vehicles, and endorsements. Architecture fit is strong because FMCSA sets federal minimum standards while state manuals can be layered like real-estate state modules.',
                   'NCLEX sister site - future nursing prep lane for RN/PN licensure. Defer content buildout until the app has a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.',
                   'More sister sites for adjacent non-IT career paths (e.g., fiber technician credentials)',

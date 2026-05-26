@@ -56,7 +56,7 @@ const paths = [
     color: '#f97316',
     to: '/paths/networking',
     meta: 'Network+ or CCST to CCNA',
-    certIds: ['comptia-net-plus', 'ccst-networking'],
+    certIds: ['comptia-net-plus', 'ccst-networking', 'ccna-200-301'],
   },
   {
     id: 'cybersecurity',
@@ -104,7 +104,7 @@ const paths = [
     color: '#a78bfa',
     to: '/paths/data-center-technician',
     meta: 'Server+ to DCCA to CCNA',
-    certIds: ['comptia-server-plus', 'schneider-dcca'],
+    certIds: ['comptia-server-plus', 'schneider-dcca', 'ccna-200-301'],
   },
 ]
 

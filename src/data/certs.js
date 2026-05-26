@@ -166,21 +166,19 @@ const CCST_NETWORKING_COLORS = {
 }
 
 const CCNA_200_301_DOMAINS = [
-  { name: 'Network Fundamentals', weight: 20 },
-  { name: 'Network Access', weight: 20 },
-  { name: 'IP Connectivity', weight: 25 },
-  { name: 'IP Services', weight: 10 },
-  { name: 'Security Fundamentals', weight: 15 },
-  { name: 'Automation and Programmability', weight: 10 },
+  { name: 'Network Infrastructure and Connectivity', weight: 25 },
+  { name: 'Switching and Network Access', weight: 25 },
+  { name: 'IP Routing', weight: 20 },
+  { name: 'Network Services and Security', weight: 20 },
+  { name: 'AI, Network Operations, and Management', weight: 10 },
 ]
 
 const CCNA_200_301_COLORS = {
-  'Network Fundamentals': { dot: 'bg-[#1d4ed8]', bar: 'bg-[#1d4ed8]', text: 'text-[#1d4ed8]', hex: '#1d4ed8' },
-  'Network Access': { dot: 'bg-[#0284c7]', bar: 'bg-[#0284c7]', text: 'text-[#0284c7]', hex: '#0284c7' },
-  'IP Connectivity': { dot: 'bg-[#0f766e]', bar: 'bg-[#0f766e]', text: 'text-[#0f766e]', hex: '#0f766e' },
-  'IP Services': { dot: 'bg-[#16a34a]', bar: 'bg-[#16a34a]', text: 'text-[#16a34a]', hex: '#16a34a' },
-  'Security Fundamentals': { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
-  'Automation and Programmability': { dot: 'bg-[#9333ea]', bar: 'bg-[#9333ea]', text: 'text-[#9333ea]', hex: '#9333ea' },
+  'Network Infrastructure and Connectivity': { dot: 'bg-[#1d4ed8]', bar: 'bg-[#1d4ed8]', text: 'text-[#1d4ed8]', hex: '#1d4ed8' },
+  'Switching and Network Access': { dot: 'bg-[#0284c7]', bar: 'bg-[#0284c7]', text: 'text-[#0284c7]', hex: '#0284c7' },
+  'IP Routing': { dot: 'bg-[#0f766e]', bar: 'bg-[#0f766e]', text: 'text-[#0f766e]', hex: '#0f766e' },
+  'Network Services and Security': { dot: 'bg-[#7c3aed]', bar: 'bg-[#7c3aed]', text: 'text-[#7c3aed]', hex: '#7c3aed' },
+  'AI, Network Operations, and Management': { dot: 'bg-[#9333ea]', bar: 'bg-[#9333ea]', text: 'text-[#9333ea]', hex: '#9333ea' },
 }
 
 const SPLUNK_CORE_USER_DOMAINS = [
@@ -463,14 +461,13 @@ const certs = {
     title: 'Cisco CCNA',
     code: '200-301',
     provider: 'Cisco',
-    description: 'Unpublished CCNA preview pool for topology, CLI-output, config-repair, subnetting, and written networking practice aligned to the official 200-301 v1.1 domains.',
+    description: 'Cisco associate networking practice aligned to the current 200-301 v2.0 blueprint, including CLI-output, topology, config-repair, subnetting, routing, switching, services, security, and network operations scenarios.',
     difficulty: 'Associate',
     color: '#1d4ed8',
     questionCount: 750,
     examQuestions: 60,
     examTime: 120,
     passingScore: 70,
-    published: false,
     loadQuestions: () => loadQuestionAsset(ccna200301QuestionsUrl),
     domains: CCNA_200_301_DOMAINS,
     domainColors: CCNA_200_301_COLORS,

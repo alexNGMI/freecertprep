@@ -120,8 +120,8 @@ describe('cert registry', () => {
   it('keeps unpublished authoring pools out of the public catalog list', () => {
     const publicIds = getAllCerts().map(c => c.id)
     const allIds = getAllCertsIncludingUnpublished().map(c => c.id)
-    expect(publicIds).not.toContain('ccna-200-301')
-    expect(allIds).toContain('ccna-200-301')
+    expect(publicIds).not.toContain('real-estate-tx')
+    expect(allIds).toContain('real-estate-tx')
   })
 
 })
@@ -654,9 +654,9 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
   })
 })
 
-describe('CCNA preview pool', () => {
-  it('stays unpublished while covering the 750-item simulation readiness mix', () => {
-    expect(certs['ccna-200-301'].published).toBe(false)
+describe('CCNA 200-301 production pool', () => {
+  it('is published while covering the 750-item v2.0 simulation mix', () => {
+    expect(certs['ccna-200-301'].published).not.toBe(false)
     expect(ccna200301).toHaveLength(750)
 
     const byDomain = ccna200301.reduce((acc, q) => {
@@ -664,12 +664,11 @@ describe('CCNA preview pool', () => {
       return acc
     }, {})
     expect(byDomain).toEqual({
-      'Network Fundamentals': 150,
-      'Network Access': 150,
-      'IP Connectivity': 188,
-      'IP Services': 75,
-      'Security Fundamentals': 112,
-      'Automation and Programmability': 75,
+      'Network Infrastructure and Connectivity': 188,
+      'Switching and Network Access': 187,
+      'IP Routing': 150,
+      'Network Services and Security': 150,
+      'AI, Network Operations, and Management': 75,
     })
 
     const byType = ccna200301.reduce((acc, q) => {
@@ -703,50 +702,39 @@ describe('CCNA preview pool', () => {
   })
 
   it('keeps simulation scenarios aligned to their CCNA domain', () => {
-    const automationSims = ccna200301.filter(q =>
-      q.domain === 'Automation and Programmability'
+    const operationsSims = ccna200301.filter(q =>
+      q.domain === 'AI, Network Operations, and Management'
       && ['topology-scenario', 'config-repair'].includes(typeOf(q))
     )
-    for (const q of automationSims) {
+    for (const q of operationsSims) {
       const text = JSON.stringify(q).toLowerCase()
-      expect(text, `${q.id} should be API/controller focused`).toMatch(/api|rest|json|controller|yang|restconf|netconf/)
+      expect(text, `${q.id} should be operations, AI, or controller focused`).toMatch(/ai|prompt|syslog|snmp|ansible|controller|api|rest|json|management/)
       expect(text, `${q.id} should not reuse VLAN trunk repair content`).not.toMatch(/trunk allowed vlan|vlan 20 users cannot cross/)
     }
 
     const serviceSims = ccna200301.filter(q =>
-      q.domain === 'IP Services'
+      q.domain === 'Network Services and Security'
       && ['topology-scenario', 'config-repair'].includes(typeOf(q))
     )
     for (const q of serviceSims) {
       const text = JSON.stringify(q).toLowerCase()
-      expect(text, `${q.id} should stay focused on infrastructure services`).toMatch(/nat|pat|dhcp|helper|ntp|dns|snmp|syslog/)
-    }
-
-    const securitySims = ccna200301.filter(q =>
-      q.domain === 'Security Fundamentals'
-      && ['topology-scenario', 'config-repair'].includes(typeOf(q))
-    )
-    for (const q of securitySims) {
-      const text = JSON.stringify(q).toLowerCase()
-      expect(text, `${q.id} should stay focused on security controls`).toMatch(/acl|ssh|vty|bpdu|guard|least|access|deny|permit/)
+      expect(text, `${q.id} should stay focused on services or security controls`).toMatch(/nat|pat|dhcp|helper|dns|acl|ssh|sftp|scp|snooping|arp|permit|deny/)
     }
   })
 
-  it('keeps the CCNA audit plan aligned with the hidden 750-item readiness target', () => {
-    const audit = readFileSync('scripts/audits/ccna-preview-audit.md', 'utf8')
+  it('keeps the CCNA audit plan aligned with the live 750-item v2.0 target', () => {
+    const audit = readFileSync('scripts/audits/ccna-prod-readiness-audit.md', 'utf8')
 
-    expect(audit).toContain('Status: `ccna-200-301` remains unpublished')
-    expect(audit).toContain('| Network Fundamentals | 150 |')
-    expect(audit).toContain('| Network Access | 150 |')
-    expect(audit).toContain('| IP Connectivity | 188 |')
-    expect(audit).toContain('| IP Services | 75 |')
-    expect(audit).toContain('| Security Fundamentals | 112 |')
-    expect(audit).toContain('| Automation and Programmability | 75 |')
+    expect(audit).toContain('Status: `ccna-200-301` is published')
+    expect(audit).toContain('| Network Infrastructure and Connectivity | 188 |')
+    expect(audit).toContain('| Switching and Network Access | 187 |')
+    expect(audit).toContain('| IP Routing | 150 |')
+    expect(audit).toContain('| Network Services and Security | 150 |')
+    expect(audit).toContain('| AI, Network Operations, and Management | 75 |')
     expect(audit).toContain('| CLI output | 170 |')
     expect(audit).toContain('| Subnetting drill | 50 |')
-    expect(audit).toContain('Do not add CCST-level vocabulary checks')
-    expect(audit).toContain('## Manual QA Gate Before Publishing')
-    expect(audit).toContain('Complete an editorial cleanup pass')
+    expect(audit).toContain('Cisco 200-301 v2.0')
+    expect(audit).toContain('## Production Gate')
   })
 
 })

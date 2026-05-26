@@ -49,4 +49,4 @@ DCCA questions should test field judgment, not trivia alone:
 
 ## Publication Status
 
-The DCCA bank is live as the Data Center Technician path's level-two certification between CompTIA Server+ and the unpublished CCNA preview.
+The DCCA bank is live as the Data Center Technician path's level-two certification between CompTIA Server+ and live CCNA practice.
