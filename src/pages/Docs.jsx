@@ -2,11 +2,13 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import BrandedName from '../components/BrandedName'
 import { getAllCerts } from '../data/certs'
+import { isCertLive } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 // Single source of truth for catalog-wide stats shown in the docs.
 // Re-reads at import time so these stay in sync with certs.js without manual edits.
 const PUBLISHED_CERTS = getAllCerts()
+const LIVE_CERTS = PUBLISHED_CERTS.filter((cert) => isCertLive(cert.id))
 const TOTAL_QUESTIONS = PUBLISHED_CERTS.reduce((s, c) => s + c.questionCount, 0)
 
 const NAV = [
@@ -164,7 +166,7 @@ export default function Docs() {
             </div>
             <h1 className="text-4xl font-bold text-zinc-100 mb-3">freecertprep</h1>
             <p className="text-lg text-zinc-400 max-w-2xl">
-              Open-source exam prep built for the career changer. Deep practice for the IT certifications that open new doors — AWS, Google Cloud, Azure, NVIDIA, and CompTIA — completely free.
+              Open-source exam prep built for the career changer. The public catalog now leads with the modules that meet the current simulation-readiness bar, while the rest remain visible as Coming Soon during revision.
             </p>
           </div>
 
@@ -177,11 +179,18 @@ export default function Docs() {
               afford them.
             </P>
             <P>
-              The platform covers foundational-tier certifications across AWS, Microsoft Azure, Google Cloud, NVIDIA, HashiCorp,
-              and CompTIA - including Network+, Security+, Server+, and Terraform Associate. Every cert is chosen deliberately:
+              The live platform currently centers AWS, Google Cloud, CompTIA, Cisco CCNA, Splunk, and Terraform. Azure, CCST,
+              NVIDIA, Linux+, Server+, and DCCA remain authored but are marked Coming Soon until their simulations meet the current bar. Every cert is chosen deliberately:
               these are exams where the test-taker is typically paying out of pocket, studying independently, with no employer
               tuition pipeline to lean on. The homepage now focuses on guided career paths so beginners can follow a sequence,
               while experienced learners can use the dedicated catalog page to jump straight to the cert they need.
+            </P>
+            <P>
+              Real Estate is temporarily hidden from public navigation while its source and simulation quality are reworked. The
+              existing build remains available for internal review through this documentation only:{' '}
+              <Link to="/real-estate" className="text-amber-300 underline underline-offset-4 hover:text-amber-200">
+                open the Real Estate review build
+              </Link>.
             </P>
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
@@ -192,8 +201,8 @@ export default function Docs() {
             <H3>What's included</H3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { n: TOTAL_QUESTIONS.toLocaleString(), label: 'Total questions across all certs' },
-                { n: String(PUBLISHED_CERTS.length), label: 'Certifications available today' },
+                { n: TOTAL_QUESTIONS.toLocaleString(), label: 'Authored questions across the IT inventory' },
+                { n: String(LIVE_CERTS.length), label: 'Certification modules available today' },
                 { n: '3', label: 'Study modes: Quiz, Drill, Exam' },
                 { n: '10', label: 'Question formats including PBQ-style scenarios' },
               ].map(({ n, label }) => (
@@ -208,12 +217,17 @@ export default function Docs() {
           {/* ── Certifications ─────────────────────────────────────────────── */}
           <Section id="certifications" title="Certifications">
             <P>
-              Each certification has its own question bank, domain structure, exam configuration, and passing threshold — all sourced
+              Each certification has its own question bank, domain structure, exam configuration, and readiness target — all sourced
               from the official exam guides published by the certification providers.
+            </P>
+            <P>
+              The catalog currently exposes 9 live modules. Eight additional IT modules remain in the repository and appear as
+              Coming Soon without links. A+ Core 1/Core 2 and Terraform remain live as explicit strategic exceptions, while CCNA
+              remains live because its simulation grade meets the current bar.
             </P>
 
             <Table
-              headers={['Cert', 'Provider', 'Questions', 'Exam Q\'s', 'Time', 'Pass']}
+              headers={['Cert', 'Provider', 'Questions', 'Exam Q\'s', 'Time', 'Target']}
               rows={[
                 [<Badge color="#f1be32">CLF-C02</Badge>, 'AWS', '731', '65', '90 min', '70%'],
                 [<Badge color="#ff9900">SAA-C03</Badge>, 'AWS', '750', '65', '130 min', '72%'],
@@ -705,7 +719,8 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today, with seventeen IT certifications plus the real-estate sister site. The latest
+              The product is live and usable today with 9 public IT certification modules, 8 Coming Soon IT modules, and a
+              Real Estate build hidden from public navigation for rework. The latest
               refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
               loading, and focused UI regression tests. The roadmap now splits into four tracks: making the guided IT paths richer,
               adding platform features such as synced accounts, a custom domain, and PWA support, hardening advanced certification
@@ -719,6 +734,7 @@ key = random() ** (1 / weight)
                 color: '#34d399',
                 items: [
                   'Vercel deployment — public URL, auto-deploy on push to main',
+                  'Trust layer phase 0 - every cert now has source metadata, official source links, source-check dates, exam-format notes, score-model notes, editorial status, dashboard source cards, report-an-issue links, and readiness-language cleanup for exam starts/results.',
                   'CompTIA PBQ-lite expansion - A+ Core 1, A+ Core 2, Network+, Security+, and Server+ now each include 10 scenario-based pbq-matching troubleshooting items.',
                   'CompTIA Network+ (N10-009) — 760-question pool with scenario-forward PBQ-lite troubleshooting coverage',
                   'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before live CCNA practice.',
@@ -727,9 +743,9 @@ key = random() ** (1 / weight)
                   'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is now the Cybersecurity path level-three SOC tooling layer.',
                   'CompTIA Linux+ (XK0-006) - live 750-question pool aligned to the current V8 domain weights: system management, services and user management, security, automation/orchestration/scripting, and troubleshooting. It is now the NVIDIA path systems foundation.',
                   'Schneider Data Center Certified Associate (DCCA) - live 750-question pool built from Schneider Electric University DCCA Exam Development Path modules: availability, fire protection, cabling, cooling, humidity, physical security, power, generators, cooling layouts, redundancy, power distribution, racks, room/row/rack cooling, and physical infrastructure management.',
-                  'Homepage guided paths - the A+ entry card routes directly to /comptia/a-plus, while Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA cards route to dedicated /paths/* pages. The full certification grid and Real Estate sister-site entry now live on /catalog so the homepage stays cleaner. Networking now routes Network+ or CCST Networking into live CCNA. Data Center Technician now frames Server+ into live Schneider DCCA into live CCNA. Cybersecurity frames Network+ and Security+ as the baseline before live Splunk SOC tooling practice. NVIDIA starts with live Linux+ as the systems foundation before the AI credentials.',
+                  'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 9 live modules from 8 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
-                  'Real Estate sister site — live, free national salesperson exam prep (750 questions, PSI blueprint) on a separate light-themed surface that reuses the same Smart Practice, scoring, and exam-selection engine',
+                  'Real Estate sister-site prototype — retained as a hidden review build that reuses the same Smart Practice, scoring, and exam-selection engine; removed from public navigation until its source and simulation quality are ready.',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
                   'Per-route SEO — dynamic page titles, Open Graph, and canonical URLs; root error boundary and graceful question-load failure handling',
                   'Complete explanation coverage — every question in every cert now ships a worked explanation, enforced by an automated content gate (included a 1,198-question Network+/Server+ backfill)',
@@ -746,7 +762,7 @@ key = random() ** (1 / weight)
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
                   'Cisco CCNA (200-301) - live 750-question production pool aligned to Cisco 200-301 v2.0, with CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style practice connected to Networking and Data Center Technician paths.',
                   'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 907-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 910-test regression suite.',
                 ],
               },
               {
@@ -756,7 +772,7 @@ key = random() ** (1 / weight)
                   'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, Texas 2026 outline reconciliation, and live GA/AZ/NC/IN state-module validation.',
                   'Advanced simulation polish - continue adding richer multi-command CCNA troubleshooting, more varied topology diagrams, and deeper config-repair review around OSPF, VLANs, NAT/PAT, ACLs, wireless, and management operations.',
                   'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
-                  'Trust layer design — public content quality status, per-question issue reporting, editorial review queues, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
+                  'Trust layer phase 1 — durable report persistence, moderation queue, editorial review workflow, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
                   'Custom domain — freecertprep.org',
                   'Mobile PWA — offline support, installable home-screen experience',
                 ],

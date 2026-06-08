@@ -81,6 +81,9 @@ function RELayoutInner({ meta }) {
           </Link>
           .
         </p>
+        <p className="mt-2 text-xs text-slate-400">
+          Independent practice platform. Not affiliated with or endorsed by Pearson VUE, PSI, or state licensing agencies.
+        </p>
       </footer>
     </div>
   )

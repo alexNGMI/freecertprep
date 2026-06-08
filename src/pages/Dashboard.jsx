@@ -39,8 +39,10 @@ import { useQuestionStats } from '../hooks/useQuestionStats'
 import { exportProgress, importProgressRaw } from '../utils/storage'
 import { Button } from '../components/ui/button'
 import { DomainBadge, Kicker, Surface } from '../components/ui/surface'
+import TrustPanel from '../components/TrustPanel'
 import { Tooltip as UiTooltip } from '../components/ui/tooltip'
 import { cn } from '../utils/cn'
+import { readinessTarget } from '../utils/readiness'
 
 export default function Dashboard() {
   const cert = useCert()
@@ -142,7 +144,7 @@ export default function Dashboard() {
               <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Exam signal</p>
               <h2 className="mt-2 text-2xl font-black text-zinc-50">Readiness ring</h2>
             </div>
-            <DomainBadge color={cert.color}>{cert.passingScore}% pass</DomainBadge>
+            <DomainBadge color={cert.color}>{readinessTarget(cert)} target</DomainBadge>
           </div>
           <div className="mt-5 h-56">
             <ResponsiveContainer width="100%" height="100%">
@@ -166,7 +168,7 @@ export default function Dashboard() {
                   {overall.totalQuestions ? readiness : 0}%
                 </text>
                 <text x="50%" y="62%" textAnchor="middle" dominantBaseline="middle" className="fill-zinc-500 text-xs font-bold uppercase tracking-wider">
-                  current score
+                  current signal
                 </text>
               </PieChart>
             </ResponsiveContainer>
@@ -276,6 +278,8 @@ export default function Dashboard() {
           color={cert.color}
         />
       </section>
+
+      <TrustPanel cert={cert} />
 
       <Surface className="p-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">

@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { describe, it, expect } from 'vitest'
 import certs, { getAllCerts, getAllCertsIncludingUnpublished } from '../data/certs.js'
+import { COMING_SOON_CERT_IDS, LIVE_CERT_IDS } from '../data/catalogVisibility.js'
 import az900 from '../data/az-900-questions.json'
 import clfc02 from '../data/questions.json'
 import awsSaaC03 from '../data/aws-saa-c03-questions.json'
@@ -103,6 +104,18 @@ describe('cert registry', () => {
     }
   })
 
+  it('every cert has current source and simulation metadata', () => {
+    for (const [id, cert] of Object.entries(certs)) {
+      expect(cert.source, `${id} missing source metadata`).toBeTruthy()
+      expect(cert.source.officialUrl, `${id} missing official source URL`).toMatch(/^https:\/\//)
+      expect(cert.source.sourceLabel, `${id} missing source label`).toBeTruthy()
+      expect(cert.source.checkedAt, `${id} missing source check date`).toMatch(/^\d{4}-\d{2}-\d{2}$/)
+      expect(cert.source.examFormat, `${id} missing exam format note`).toBeTruthy()
+      expect(cert.source.scoreModel, `${id} missing score model note`).toBeTruthy()
+      expect(cert.source.editorialStatus, `${id} missing editorial status`).toBeTruthy()
+    }
+  })
+
   it('every cert reports the same questionCount in the registry as its JSON (published or not)', () => {
     for (const [id, questions] of Object.entries(CERT_QUESTIONS)) {
       const declared = certs[id].questionCount
@@ -122,6 +135,19 @@ describe('cert registry', () => {
     const allIds = getAllCertsIncludingUnpublished().map(c => c.id)
     expect(publicIds).not.toContain('real-estate-tx')
     expect(allIds).toContain('real-estate-tx')
+  })
+
+  it('assigns every public IT cert to exactly one frontend visibility bucket', () => {
+    const publicIds = getAllCerts().map((cert) => cert.id).sort()
+    const visibleIds = [...LIVE_CERT_IDS, ...COMING_SOON_CERT_IDS].sort()
+    const overlap = [...LIVE_CERT_IDS].filter((id) => COMING_SOON_CERT_IDS.has(id))
+
+    expect(overlap).toEqual([])
+    expect(visibleIds).toEqual(publicIds)
+    expect(LIVE_CERT_IDS.has('comptia-a-plus-core-1')).toBe(true)
+    expect(LIVE_CERT_IDS.has('comptia-a-plus-core-2')).toBe(true)
+    expect(LIVE_CERT_IDS.has('ccna-200-301')).toBe(true)
+    expect(LIVE_CERT_IDS.has('terraform-associate')).toBe(true)
   })
 
 })

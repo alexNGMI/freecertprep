@@ -9,7 +9,7 @@ export const RE_STUDY_CERTS = [
     name: 'National Salesperson Exam',
     badge: 'National',
     tagline: 'The portable national/uniform portion tested in ~48 states — the right start if your state module isn\'t available yet.',
-    examLine: '750 questions · 80-question PSI-style simulator · 75% to pass',
+    examLine: '750 questions · 80-question PSI-style simulator · 75% readiness target',
   },
   {
     slug: 'tx',
@@ -41,7 +41,7 @@ export const RE_STUDY_CERTS = [
     name: 'Arizona Salesperson — Full Licensing',
     badge: 'Arizona',
     tagline: 'National prep + the Arizona state-law portion (ADRE blueprint).',
-    examLine: 'Full Licensing Exam: 80 national + 60 state · 75% pass target',
+    examLine: 'Full Licensing Exam: 80 national + 60 state · 75% readiness target',
   },
   {
     slug: 'nc',
@@ -57,7 +57,7 @@ export const RE_STUDY_CERTS = [
     name: 'Indiana Broker — Full Licensing',
     badge: 'Indiana',
     tagline: 'National prep + the Indiana state-law portion (Pearson VUE blueprint).',
-    examLine: 'Full Licensing Exam: 80 national + 50 state · scaled 75 pass score',
+    examLine: 'Full Licensing Exam: 80 national + 50 state · 75% practice target',
   },
 ]
 

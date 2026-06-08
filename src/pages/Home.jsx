@@ -5,11 +5,9 @@ import {
   BrainCircuit,
   CheckCircle2,
   Cloud,
-  Cpu,
   GraduationCap,
   LockKeyhole,
   Network,
-  Server,
   ShieldCheck,
   Sparkles,
 } from 'lucide-react'
@@ -77,31 +75,7 @@ const paths = [
     color: '#38bdf8',
     to: '/paths/cloud',
     meta: 'AWS foundation to Terraform automation',
-    certIds: ['clf-c02', 'az-900', 'cdl', 'terraform-associate'],
-  },
-  {
-    id: 'nvidia',
-    eyebrow: 'NVIDIA',
-    title: 'NVIDIA fluency',
-    description:
-      'Start with Linux+ systems fluency, then move into NVIDIA AI infrastructure and generative AI exams for the accelerated computing stack.',
-    icon: Cpu,
-    color: '#34d399',
-    to: '/paths/nvidia',
-    meta: 'Linux+ to NVIDIA AI credentials',
-    certIds: ['comptia-linux-plus', 'nca-aiio', 'nca-genl'],
-  },
-  {
-    id: 'data-center-technician',
-    eyebrow: 'Data Center Technician',
-    title: 'Data center operations',
-    description:
-      'Use Server+ as the systems baseline, Schneider DCCA for facility infrastructure, then CCNA for the network layer.',
-    icon: Server,
-    color: '#a78bfa',
-    to: '/paths/data-center-technician',
-    meta: 'Server+ to DCCA to CCNA',
-    certIds: ['comptia-server-plus', 'schneider-dcca', 'ccna-200-301'],
+    certIds: ['clf-c02', 'aws-saa-c03', 'terraform-associate'],
   },
 ]
 
@@ -112,8 +86,8 @@ const featureItems = [
     icon: BrainCircuit,
   },
   {
-    title: 'Real exam flow',
-    desc: 'Timed simulators match question count, time limit, and domain weighting for each exam.',
+    title: 'Exam-shaped flow',
+    desc: 'Timed readiness forms use official domain weighting and the closest supported exam structure.',
     icon: ShieldCheck,
   },
   {
@@ -128,7 +102,7 @@ export default function Home() {
 
   useDocumentMeta({
     description:
-      'Free, open-source certification exam prep organized by career path: A+, CompTIA, cloud, NVIDIA, and infrastructure. Timed simulators, Smart Practice, and no signup.',
+      'Free, open-source certification exam prep organized by career path: A+, networking, cybersecurity, and cloud. Timed simulators, Smart Practice, and no signup.',
     path: '/',
   })
 
@@ -194,8 +168,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            <PathCard path={paths[0]} variant="wide" className="md:col-span-2 lg:col-span-3 xl:col-span-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <PathCard path={paths[0]} variant="wide" className="md:col-span-2 xl:col-span-3" />
             {paths.slice(1).map((path) => (
               <PathCard key={path.id} path={path} />
             ))}

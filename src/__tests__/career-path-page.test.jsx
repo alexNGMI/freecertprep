@@ -41,7 +41,7 @@ describe('career path pages', () => {
     expect(screen.queryByText('Google Professional Cloud Architect')).toBeNull()
   })
 
-  it('frames Networking as Network+ or CCST into live CCNA practice', () => {
+  it('keeps Network+ and CCNA live while holding CCST as coming soon', () => {
     renderPath('/paths/networking')
 
     expect(screen.getByRole('heading', { name: 'Networking Career Path' })).toBeTruthy()
@@ -54,11 +54,13 @@ describe('career path pages', () => {
     expect(screen.getByText('Step 01 / Option B / Cisco foundation')).toBeTruthy()
     expect(screen.getByText('Step 02 / Advanced networking')).toBeTruthy()
     expect(screen.getByRole('link', { name: /CompTIA Network\+/ }).getAttribute('href')).toBe('/comptia-net-plus')
-    expect(screen.getByRole('link', { name: /Cisco CCST Networking/ }).getAttribute('href')).toBe('/ccst-networking')
+    expect(screen.getByText('Cisco CCST Networking')).toBeTruthy()
+    expect(screen.queryByRole('link', { name: /Cisco CCST Networking/ })).toBeNull()
+    expect(screen.getByText('Coming soon')).toBeTruthy()
     expect(screen.getByRole('link', { name: /Cisco CCNA/ }).getAttribute('href')).toBe('/ccna-200-301')
   })
 
-  it('frames Data Center Technician as Server+ to Schneider DCCA to live CCNA practice', () => {
+  it('keeps the hidden Data Center route intact while pausing Server+ and DCCA', () => {
     renderPath('/paths/data-center-technician')
 
     expect(screen.getByRole('heading', { name: 'Build toward data center operations.' })).toBeTruthy()
@@ -71,8 +73,8 @@ describe('career path pages', () => {
     expect(screen.getByText('Step 02 / Level 2')).toBeTruthy()
     expect(screen.getByText('CCNA adds the network layer technicians troubleshoot around every day.')).toBeTruthy()
     expect(screen.getByText('Step 03 / Level 3')).toBeTruthy()
-    expect(screen.getByRole('link', { name: /CompTIA Server\+/ }).getAttribute('href')).toBe('/comptia-server-plus')
-    expect(screen.getByRole('link', { name: /Schneider Data Center Certified Associate/ }).getAttribute('href')).toBe('/schneider-dcca')
+    expect(screen.queryByRole('link', { name: /CompTIA Server\+/ })).toBeNull()
+    expect(screen.queryByRole('link', { name: /Schneider Data Center Certified Associate/ })).toBeNull()
     expect(screen.getByRole('link', { name: /Cisco CCNA/ }).getAttribute('href')).toBe('/ccna-200-301')
   })
 
@@ -94,18 +96,18 @@ describe('career path pages', () => {
     expect(screen.getByRole('link', { name: /Splunk Core Certified User/ }).getAttribute('href')).toBe('/splunk-core-certified-user')
   })
 
-  it('starts the NVIDIA path with live Linux+ as a systems foundation', () => {
+  it('keeps the hidden NVIDIA route intact with all modules paused', () => {
     renderPath('/paths/nvidia')
 
     expect(screen.getByRole('heading', { name: 'Build NVIDIA fluency.' })).toBeTruthy()
     expect(screen.getByText('Step 01 / Systems foundation')).toBeTruthy()
     expect(screen.getByText('CompTIA Linux+')).toBeTruthy()
     expect(screen.getByText('XK0-006')).toBeTruthy()
-    expect(screen.getByRole('link', { name: /CompTIA Linux\+/ }).getAttribute('href')).toBe('/comptia-linux-plus')
+    expect(screen.queryByRole('link', { name: /CompTIA Linux\+/ })).toBeNull()
     expect(screen.getByText('Step 02 / AI Infrastructure')).toBeTruthy()
     expect(screen.getByText('Step 03 / Generative AI')).toBeTruthy()
-    expect(screen.getByRole('link', { name: /NVIDIA AI Infrastructure & Operations/ }).getAttribute('href')).toBe('/nca-aiio')
-    expect(screen.getByRole('link', { name: /NVIDIA Generative AI LLMs/ }).getAttribute('href')).toBe('/nca-genl')
+    expect(screen.queryByRole('link', { name: /NVIDIA AI Infrastructure & Operations/ })).toBeNull()
+    expect(screen.queryByRole('link', { name: /NVIDIA Generative AI LLMs/ })).toBeNull()
   })
 
   it('redirects unknown path ids home', () => {

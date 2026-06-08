@@ -4,6 +4,7 @@ import { useCert } from '../../hooks/useCert'
 import { useProgress } from '../../hooks/useProgress'
 import { useQuestionStats } from '../../hooks/useQuestionStats'
 import { exportProgress, importProgressRaw } from '../../utils/storage'
+import TrustPanel from '../../components/TrustPanel'
 
 export default function REDashboard() {
   const cert = useCert()
@@ -96,6 +97,8 @@ export default function REDashboard() {
           })}
         </div>
       </div>
+
+      <TrustPanel cert={cert} light />
 
       {/* Data & Resets */}
       <div className="bg-white border border-slate-200 rounded-2xl p-6 space-y-4 shadow-sm">

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useCert } from '../../hooks/useCert'
 import { useExamSession } from '../../hooks/useExamSession'
 import REQuestionCard from '../../components/REQuestionCard'
+import { readinessTarget } from '../../utils/readiness'
 import { formatTime } from '../../utils/time'
 
 export default function REExam() {
@@ -31,7 +32,7 @@ export default function REExam() {
         <div className="text-center space-y-3">
           <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Exam Simulator</h1>
           <p className="text-lg text-slate-500">
-            Simulate the real <span className="text-slate-900 font-semibold">PSI National</span> salesperson exam.
+            Run an exam-shaped <span className="text-slate-900 font-semibold">{cert.title}</span> readiness form.
           </p>
         </div>
 
@@ -40,7 +41,7 @@ export default function REExam() {
             {[
               { label: 'Questions', value: EXAM_QUESTIONS },
               { label: 'Time Limit', value: `${cert.examTime} min` },
-              { label: 'Passing Score', value: `${cert.passingScore}%` },
+              { label: 'Readiness Target', value: readinessTarget(cert) },
             ].map(({ label, value }) => (
               <div key={label} className="bg-slate-50 border border-slate-200 rounded-2xl p-6 text-center">
                 <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">{label}</p>
@@ -57,6 +58,9 @@ export default function REExam() {
               Begin Exam
             </button>
           </div>
+          <p className="text-center text-xs leading-relaxed text-slate-500">
+            Vendor exams may use pretest questions, separate portion scoring, or scaled scores. This simulator is a practice-readiness form.
+          </p>
         </div>
       </div>
     )

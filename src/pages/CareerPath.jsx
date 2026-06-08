@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { getCert } from '../data/certs'
+import { isCertLive } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const PATHS = {
@@ -164,7 +165,8 @@ function certStep(label, certId, description) {
     code: cert.code,
     provider: cert.provider,
     difficulty: cert.difficulty,
-    to: `/${cert.id}`,
+    to: isCertLive(cert.id) ? `/${cert.id}` : null,
+    status: isCertLive(cert.id) ? 'Live' : 'Coming soon',
     description,
   }
 }
@@ -297,7 +299,7 @@ function StepCard({ item, color }) {
         {item.to ? (
           <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
         ) : (
-          <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 border border-white/10 rounded-md px-2 py-1">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1">
             {item.status}
           </span>
         )}

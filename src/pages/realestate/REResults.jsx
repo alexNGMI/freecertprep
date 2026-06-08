@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLocation, useParams, Link } from 'react-router-dom'
 import { useCert } from '../../hooks/useCert'
 import REQuestionCard from '../../components/REQuestionCard'
+import { readinessResult, readinessTarget } from '../../utils/readiness'
 
 export default function REResults() {
   const cert = useCert()
@@ -48,7 +49,7 @@ export default function REResults() {
 
   return (
     <div className="space-y-10 animate-fade-up pt-2 max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-5xl font-black text-slate-900 text-center tracking-tight">Exam Results</h1>
+      <h1 className="text-4xl md:text-5xl font-black text-slate-900 text-center tracking-tight">Readiness Results</h1>
 
       <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center max-w-lg mx-auto shadow-sm relative overflow-hidden">
         <div
@@ -65,12 +66,15 @@ export default function REResults() {
           }`}
         >
           <p className={`text-lg font-bold uppercase tracking-wider ${passed ? 'text-emerald-700' : 'text-rose-700'}`}>
-            {passed ? 'Passed' : 'Did not pass'}
+            {readinessResult(passed)}
           </p>
         </div>
         <p className="text-slate-500 font-medium">
-          <span className="text-slate-900 font-bold">{correct}</span> / {total} correct — passing bar is{' '}
-          <span className="text-slate-900">{cert.passingScore}%</span>
+          <span className="text-slate-900 font-bold">{correct}</span> / {total} correct &mdash; readiness target is{' '}
+          <span className="text-slate-900">{readinessTarget(cert)}</span>
+        </p>
+        <p className="mx-auto mt-4 max-w-md text-xs leading-relaxed text-slate-400">
+          This result is a practice-readiness signal, not an official licensing score report.
         </p>
       </div>
 

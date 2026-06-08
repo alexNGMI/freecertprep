@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useCert } from '../hooks/useCert'
 import QuestionCard from '../components/QuestionCard'
+import { readinessResult, readinessTarget } from '../utils/readiness'
 
 export default function Results() {
   const cert = useCert()
@@ -46,7 +47,7 @@ export default function Results() {
 
   return (
     <div className="space-y-12 animate-fade-up pt-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-5xl font-bold text-zinc-100 text-center tracking-tight">Official Exam Results</h1>
+      <h1 className="text-4xl md:text-5xl font-bold text-zinc-100 text-center tracking-tight">Readiness Results</h1>
 
       <div className="glass-panel rounded-2xl p-10 text-center max-w-lg mx-auto relative overflow-hidden shadow-2xl">
         <div 
@@ -68,11 +69,14 @@ export default function Results() {
         </p>
         <div className="inline-block px-6 py-2 rounded-full border mb-8 bg-zinc-950/50 backdrop-blur-sm" style={{ borderColor: passed ? 'rgba(52,211,153,0.3)' : 'rgba(244,63,94,0.3)' }}>
           <p className="text-lg font-bold uppercase tracking-wider" style={{ color: passed ? '#34d399' : '#fb7185' }}>
-            {passed ? 'Passed successfully' : 'Did not pass'}
+            {readinessResult(passed)}
           </p>
         </div>
         <p className="text-zinc-400 font-medium">
-          <span className="text-zinc-100 font-bold">{correct}</span> / {total} correct answers &mdash; passing bar is <span className="text-zinc-200">{cert.passingScore}%</span>
+          <span className="text-zinc-100 font-bold">{correct}</span> / {total} correct answers &mdash; readiness target is <span className="text-zinc-200">{readinessTarget(cert)}</span>
+        </p>
+        <p className="mx-auto mt-4 max-w-md text-xs leading-relaxed text-zinc-500">
+          This result is a freecertprep readiness signal, not an official vendor score report or scaled-score conversion.
         </p>
       </div>
 

@@ -4,7 +4,7 @@ Free, open-source certification exam prep for the IT certifications that open do
 
 ## Supported certifications
 
-| Cert | Provider | Code | Difficulty | Questions | Exam Q's | Time | Pass |
+| Cert | Provider | Code | Difficulty | Questions | Exam Q's | Time | Target |
 |------|----------|------|------------|----------:|---------:|-----:|-----:|
 | AWS Cloud Practitioner | AWS | CLF-C02 | Foundational | 731 | 65 | 90 min | 70% |
 | AWS Solutions Architect - Associate | AWS | SAA-C03 | Associate | 750 | 65 | 130 min | 72% |
@@ -24,40 +24,46 @@ Free, open-source certification exam prep for the IT certifications that open do
 | Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
 
-**11,678 questions across 17 certifications.**
+**11,678 authored questions across 17 IT certifications.** The public catalog currently exposes 9 live modules and holds 8 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
 
-> **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers. (HashiCorp does not publish an exact cut score; ~70% is the widely-cited working value.)
+Live now: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, CCNA, and Terraform Associate.
+
+Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA. No question banks or routes were deleted.
+
+> **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers.
+
+> **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.
 
-> **Guided paths are live:** The homepage focuses on recommended learning lanes, while `/catalog` holds the direct certification grid and Real Estate sister-site link. A+ appears as the wide entry card for brand-new learners, while `/paths/networking`, `/paths/cybersecurity`, `/paths/cloud`, and `/paths/nvidia` help learners choose a sensible sequence. The Networking Career Path starts with Network+ or CCST Networking and builds toward CCNA; the Cybersecurity path runs Network+ to Security+ to live Splunk Core Certified User practice; and the Cloud path is AWS-centric: AWS Cloud Practitioner, SAA, then Terraform.
+> **Guided paths are live:** The homepage focuses on A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician paths remain implemented but are hidden from homepage discovery while their component certifications are revised. The Networking path keeps Network+ and CCNA live while showing CCST as Coming Soon; Cybersecurity runs Network+ to Security+ to Splunk; Cloud runs AWS Cloud Practitioner to SAA to Terraform.
 
 > **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
 
 > **Splunk is live:** Splunk Core Certified User (SPLK-1001) ships a 750-question production pool aligned to the official 5/22/20/15/15/12/6/5 blueprint weights. It is now the Cybersecurity path's live level-three SOC tooling layer.
 
-> **AI infrastructure path foundation:** CompTIA Linux+ (XK0-006) is live as the NVIDIA path systems foundation before NVIDIA AI Infrastructure & Operations and NVIDIA Generative AI.
+> **AI infrastructure revision:** Linux+, NVIDIA AI Infrastructure & Operations, and NVIDIA Generative AI remain authored but are Coming Soon while their simulation realism is improved.
 
-> **DCCA is live:** Schneider Data Center Certified Associate now ships a 750-question pool built from Schneider Electric University's official DCCA Exam Development Path. `/paths/data-center-technician` now frames Server+ -> DCCA -> live CCNA.
+> **Data center revision:** Server+ and Schneider DCCA remain authored but are Coming Soon. CCNA remains live. The Data Center Technician route is retained for future iteration but removed from homepage discovery.
 
-> **Cisco path preview is live:** Cisco CCST Networking (100-150) now has a 750-question production pool as a Cisco / CCNA-oriented alternative to Network+. It uses Cisco-style single-answer, multi-answer, matching, and ordering items to model the written-exam and drag/drop practice surface without adding CCNA-level labs.
+> **Cisco foundation revision:** Cisco CCST Networking (100-150) retains its 750-question pool but is marked Coming Soon until repeated content patterns and simulation fidelity are improved.
 
 > **CCNA is live:** Cisco CCNA (200-301) now ships a 750-question production pool aligned to the current Cisco 200-301 v2.0 blueprint. CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style items are published in the catalog and connected to the Networking and Data Center Technician paths.
 
 ### Sister site — Real Estate
 
-A separate, light-themed surface (Redfin/Zillow visual language) lives at `/real-estate`, with a full study app under `/real-estate/study`. It covers the **National Real Estate Salesperson Exam** — the portable national/uniform portion tested in ~48 states — with a **750-question pool** built to the post-October-2023 PSI blueprint (11 weighted domains, 100% single-choice, 80-question / 120-minute / 75%-pass simulator). It is intentionally not in the IT catalog above; it reuses the exact same Smart Practice, scoring, and exam-selection engine, keyed to its own cert id.
+A separate Real Estate prototype remains in the codebase with its national and state-law pools intact. It is hidden from public homepage/catalog navigation and linked only from `/docs` while its source and simulation quality are reworked.
 
 State-specific **state-law modules** layer on top of this national pool, modeled to each state's official exam blueprint, with a combined "Full Licensing Exam" mode that mirrors the real national + state split. A sister-site study picker (`/real-estate/study`) lets users choose which exam to prep:
 
 - **Texas ? live.** A 401-question Texas Sales Agent state-law pool modeled to the 2026 Pearson VUE / TREC state-law outline, including the Case Studies category, layered on the national pool; the Full Licensing Exam composes 85 national + 50 state, 70% each section. (`/real-estate/study/tx`)
 - **Maine — live.** A 400-question Maine Sales Agent state-law pool modeled to the 5 official Pearson VUE sections, layered on the national pool; the Full Licensing Exam composes the real 80 national + 40 state, 75% each section. (`/real-estate/study/me`)
 - **Georgia — live.** A 400-question Georgia Sales Agent state-law pool modeled to the 3 official PSI/AMP sections, layered on the national pool; the Full Licensing Exam composes the real 100 national + 52 state, 75% each section. (`/real-estate/study/ga`)
-- **Arizona — live.** A 400-question Arizona Salesperson state-law pool modeled to the 11 official ADRE / Pearson VUE sections effective 2026-01-01; the Full Licensing Exam composes the real 80 national + 60 state, 75% pass target. (`/real-estate/study/az`)
+- **Arizona — live.** A 400-question Arizona Salesperson state-law pool modeled to the 11 official ADRE / Pearson VUE sections effective 2026-01-01; the Full Licensing Exam composes 80 national + 60 state with a readiness target. (`/real-estate/study/az`)
 - **North Carolina — live.** A 400-question North Carolina Broker state-law pool modeled to the 8 official NCREC / Pearson VUE April 2026 sections; the Full Licensing Exam composes the current 80 national + 60 state, 75 each section. (`/real-estate/study/nc`)
-- **Indiana — live.** A 400-question Indiana Broker state-law pool modeled to the 5 official Pearson VUE sections effective 2025-03-01; the Full Licensing Exam composes the real 80 national + 50 state, scaled 75 pass score. (`/real-estate/study/in`)
+- **Indiana — live.** A 400-question Indiana Broker state-law pool modeled to the 5 official Pearson VUE sections effective 2025-03-01; the Full Licensing Exam composes 80 national + 50 state with a practice readiness target. (`/real-estate/study/in`)
 
 Single-integrated-exam states (Florida, California, New York) are explicitly **out of scope** — their exams are not a national + state split, so the layered-module architecture does not apply. Real Estate always lives on the sister site and is intentionally kept out of the IT catalog (it fills a different need).
 
@@ -65,16 +71,16 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 - **Home** - Guided learning paths and study workflow highlights.
 - **Catalog** - Dedicated `/catalog` page for the full certification grid plus the Real Estate sister-site entry.
-- **Path pages** - Dedicated lanes for A+ entry, Networking, Data Center Technician, Cybersecurity, Cloud, and NVIDIA. Networking now frames Network+ or CCST Networking as level-one options before live CCNA; Data Center Technician runs Server+ to live Schneider DCCA to live CCNA; Cybersecurity now runs Network+ to Security+ to live Splunk Core Certified User practice. Cloud guides learners through AWS Cloud Practitioner, SAA, then Terraform. NVIDIA now starts with live Linux+ as the systems foundation before the AI credentials. A+ Core 1 and Core 2, Azure Fundamentals, and Google CDL remain in the full catalog for direct entry.
+- **Path pages** - Public homepage lanes cover A+ entry, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
 - **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is live as the first advanced simulation-backed networking cert. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented for ongoing advanced-cert polish.
 - **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance, refreshed Google CDL to the current six-section guide, rebalanced NVIDIA AIIO to its official 40/38/22 split, moved AZ-900 inside Microsoft's current ranged weights, reconciled Texas to the 2026 state-law outline, and shipped the Georgia, Arizona, North Carolina, and Indiana state-law modules.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
-- **Trust layer roadmap** - Public quality signals, per-question issue reporting, editorial review status, and source/blueprint audit trails are planned as a backend-backed milestone. The current app stays zero-account/local-first while advanced trust workflows are designed.
+- **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
 - **Timed Drill** — 10 questions in 10 minutes, color-shifting countdown timer.
-- **Exam Simulator** — Full-length timed simulation matching the official exam's question count, domain weights, and time limit.
+- **Exam Simulator** — Full-length timed readiness simulation using official domain weights and the closest supported question count/time model.
 - **Results** — Filterable review with explanations for every question.
 - **Bookmarks** — Star any question and recall the set in any mode.
 
@@ -107,7 +113,7 @@ CCNA simulation types implemented: CLI output interpretation, topology scenarios
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (907 tests across 26 files), GitHub Actions CI
+- Vitest (910 tests across 27 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

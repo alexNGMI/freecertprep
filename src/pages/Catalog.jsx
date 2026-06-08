@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import {
   ArrowLeft,
   ArrowRight,
-  Building2,
   Cloud,
   Cpu,
   Home as HomeIcon,
@@ -11,9 +10,12 @@ import {
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { getAllCerts } from '../data/certs'
+import { isCertComingSoon, isCertLive } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
 const certs = getAllCerts()
+const liveCerts = certs.filter((cert) => isCertLive(cert.id))
+const comingSoonCerts = certs.filter((cert) => isCertComingSoon(cert.id))
 
 const providerStyles = {
   AWS: { bg: 'bg-orange-500/10 border-orange-500/20', text: 'text-orange-300' },
@@ -30,7 +32,7 @@ export default function Catalog() {
   useDocumentMeta({
     title: 'Catalog | freecertprep',
     description:
-      'Browse every active freecertprep certification and jump to the Real Estate sister site from one dedicated catalog page.',
+      'Browse live freecertprep certification practice and preview coming-soon modules being held until they meet the simulation readiness bar.',
     path: '/catalog',
   })
 
@@ -60,42 +62,41 @@ export default function Catalog() {
             <div>
               <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Full catalog</p>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-100 mb-5">
-                Every active certification.
+                Live certs first.
               </h1>
               <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-                Use this page when you already know the exam you want. The homepage stays focused on guided career paths; the full catalog lives here.
+                Use this page when you already know the exam you want. Anything below the current simulation-readiness bar is tucked into Coming Soon until it earns its way back.
               </p>
             </div>
+          </div>
+        </section>
 
-            <Link
-              to="/real-estate"
-              className="group border border-white/10 bg-zinc-950/75 hover:bg-zinc-900/70 rounded-lg p-5 transition-colors"
-            >
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-lg border border-white/10 bg-zinc-900/80 flex items-center justify-center shrink-0 text-emerald-300">
-                    <Building2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mb-1">Sister site</p>
-                    <h2 className="text-base font-bold text-zinc-100 group-hover:text-white transition-colors">
-                      Looking for something completely different?
-                    </h2>
-                  </div>
-                </div>
-                <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
-              </div>
-              <p className="text-sm text-zinc-400 leading-relaxed">
-                Real estate exam prep lives in its own light-themed experience with national and state-law modules.
-              </p>
-            </Link>
+        <section className="max-w-7xl mx-auto px-6 pb-10">
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">Ready now</p>
+              <h2 className="text-2xl font-bold text-zinc-100">Production practice</h2>
+            </div>
+            <p className="text-sm text-zinc-500">{liveCerts.length} live modules</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {liveCerts.map((cert) => (
+              <CertRow key={cert.id} cert={cert} live />
+            ))}
           </div>
         </section>
 
         <section className="max-w-7xl mx-auto px-6 pb-16">
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[10px] font-bold text-amber-300 uppercase tracking-widest mb-2">Coming soon</p>
+              <h2 className="text-2xl font-bold text-zinc-100">Held for simulation polish</h2>
+            </div>
+            <p className="text-sm text-zinc-500">{comingSoonCerts.length} modules</p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {certs.map((cert) => (
-              <CertRow key={cert.id} cert={cert} />
+            {comingSoonCerts.map((cert) => (
+              <CertRow key={cert.id} cert={cert} live={false} />
             ))}
           </div>
         </section>
@@ -104,7 +105,7 @@ export default function Catalog() {
   )
 }
 
-function CertRow({ cert }) {
+function CertRow({ cert, live }) {
   const ps = providerStyles[cert.provider] || { bg: 'bg-zinc-800 border-zinc-700', text: 'text-zinc-400' }
   const Icon = cert.provider === 'CompTIA' || cert.provider === 'Cisco'
     ? Network
@@ -116,11 +117,9 @@ function CertRow({ cert }) {
           ? HomeIcon
           : Cloud
 
-  return (
-    <Link
-      to={`/${cert.id}`}
-      className="group border border-white/10 bg-zinc-950/75 hover:bg-zinc-900/70 rounded-lg p-5 transition-colors"
-    >
+  const cardClass = `group border border-white/10 bg-zinc-950/75 rounded-lg p-5 transition-colors ${live ? 'hover:bg-zinc-900/70' : 'opacity-75'}`
+  const content = (
+    <>
       <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex items-center gap-3 min-w-0">
           <div className="w-10 h-10 rounded-lg border border-white/10 bg-zinc-900/80 flex items-center justify-center shrink-0" style={{ color: cert.color }}>
@@ -131,7 +130,13 @@ function CertRow({ cert }) {
             <p className="text-xs text-zinc-500 mt-1">{cert.code}</p>
           </div>
         </div>
-        <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+        {live ? (
+          <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+        ) : (
+          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1 shrink-0">
+            Coming soon
+          </span>
+        )}
       </div>
       <div className="flex flex-wrap gap-2 mb-4">
         <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-md border ${ps.bg} ${ps.text}`}>
@@ -145,6 +150,23 @@ function CertRow({ cert }) {
         <MiniStat value={cert.examQuestions} label="Exam" />
         <MiniStat value={`${cert.examTime}m`} label="Time" />
       </div>
+    </>
+  )
+
+  if (!live) {
+    return (
+      <div className={cardClass} aria-label={`${cert.title} coming soon`}>
+        {content}
+      </div>
+    )
+  }
+
+  return (
+    <Link
+      to={`/${cert.id}`}
+      className={cardClass}
+    >
+      {content}
     </Link>
   )
 }

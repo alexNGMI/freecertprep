@@ -7,6 +7,7 @@ import { QuestionNavigator, StudyWorkspace } from '../components/StudyWorkspace'
 import { StudyHeader } from '../components/StudyHeader'
 import { Button } from '../components/ui/button'
 import { Surface } from '../components/ui/surface'
+import { readinessTarget } from '../utils/readiness'
 import { formatTime } from '../utils/time'
 
 export default function Exam() {
@@ -34,13 +35,13 @@ export default function Exam() {
       <div className="mx-auto max-w-5xl space-y-8 animate-fade-up">
         <StudyHeader
           eyebrow="Exam simulator"
-          title="Sit the real thing"
-          subtitle={`A full ${cert.title} simulation with official domain weighting, a strict timer, and no answer feedback until the results screen.`}
+          title="Run a readiness simulation"
+          subtitle={`An exam-shaped ${cert.title} practice form with official domain weighting, a strict timer, and no answer feedback until the results screen.`}
           cert={cert}
           stats={[
             { label: 'Questions', value: EXAM_QUESTIONS, icon: ClipboardList },
             { label: 'Minutes', value: cert.examTime, icon: Timer },
-            { label: 'Pass', value: `${cert.passingScore}%`, icon: ShieldCheck },
+            { label: 'Target', value: readinessTarget(cert), icon: ShieldCheck },
           ]}
         />
 
@@ -50,7 +51,7 @@ export default function Exam() {
               <div className="grid gap-4 sm:grid-cols-3">
                 <ExamMetric icon={ClipboardList} label="Exam size" value={EXAM_QUESTIONS} />
                 <ExamMetric icon={Timer} label="Time limit" value={`${cert.examTime}m`} />
-                <ExamMetric icon={Gauge} label="Passing" value={`${cert.passingScore}%`} />
+                <ExamMetric icon={Gauge} label="Target" value={readinessTarget(cert)} />
               </div>
               <div className="rounded-3xl border border-white/10 bg-zinc-900/60 p-5">
                 <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Rules</p>
@@ -58,6 +59,7 @@ export default function Exam() {
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Navigate freely between questions.</li>
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Answers are scored only when you submit or time expires.</li>
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Your final report updates dashboard history.</li>
+                  <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Vendor exams may include unscored items, scaled scoring, or richer interaction types.</li>
                 </ul>
               </div>
             </div>
@@ -77,7 +79,7 @@ export default function Exam() {
                 accentColor={cert.color}
                 className="mt-8 w-full"
               >
-                Begin Certification Exam
+                Begin Readiness Simulation
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </div>

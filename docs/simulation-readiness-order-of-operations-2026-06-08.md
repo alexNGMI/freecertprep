@@ -1,0 +1,404 @@
+# Simulation Readiness Order of Operations
+
+Date: June 8, 2026  
+Purpose: Convert the board report into a practical remediation plan and grade each current offering by how realistic and useful it is as an exam simulation.  
+Basis: `docs/board-report-2026-06-08.md`, current cert registry, current question banks, automated content tests, existing audit files, and a June 8, 2026 source check against official/vendor exam information.
+
+## Executive Takeaway
+
+freecertprep has enough catalog breadth. The next competitive advantage is not "more exams"; it is credible exam simulation.
+
+The current product is strongest when the real exam is selected-response only or mostly selected-response: AWS CLF-C02, AWS SAA-C03, Google CDL, Splunk Core User, Real Estate national/state modules, and many foundational cloud exams. It is weaker when the real exam depends on rich interactive performance tasks: CompTIA PBQs, Cisco CCNA simulations, Microsoft interactive item types, and Linux+ command/task simulations.
+
+## Public Catalog Decision
+
+Implemented June 8, 2026:
+
+- Live: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, CCNA, and Terraform Associate.
+- Coming Soon: AZ-900, Google CDL, CCST Networking, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA.
+- Homepage lanes: A+, Networking, Cybersecurity, and Cloud only.
+- NVIDIA and Data Center Technician lanes remain implemented but are removed from homepage discovery.
+- Real Estate remains in the codebase and is reachable only from Docs for internal review.
+
+The default rule is B+ simulation readiness or better. A+ and Terraform are explicit strategic exceptions; CCNA remains live.
+
+The remediation program should therefore follow this order:
+
+1. Fix product claims, scoring language, source metadata, and release safety.
+2. Add a trust/source layer before rewriting large volumes of content.
+3. Upgrade the simulator engine where real exams use richer interaction types.
+4. Rewrite the weakest live banks.
+5. Re-audit real estate source/version confidence.
+6. Only then expand into new sister sites or additional advanced certifications.
+
+## Grading Rubric
+
+Grades are not a judgment of whether the questions are "valid." They answer a narrower board question: how well does the current offering simulate the real exam experience and produce useful readiness practice?
+
+| Grade | Meaning | Product Interpretation |
+| --- | --- | --- |
+| A | Strong simulation | Blueprint, timing, item types, difficulty, explanations, and review value are close enough for public confidence. |
+| B | Useful practice with known gaps | Good learner value, but one meaningful simulation gap remains. |
+| C | Study bank more than simulator | Content is useful, but the exam experience is materially simplified or editorially inconsistent. |
+| D | Not yet credible as a simulator | Significant interaction, source, or content-quality gap. Should be labeled preview or remediated quickly. |
+| F | Should not be live | Major accuracy or architecture problems. No current offering is graded F. |
+
+Scoring dimensions:
+
+- Blueprint fidelity: domain weights, current exam version, and source confidence.
+- Format fidelity: question count, time, selected-response vs interactive tasks, and scoring model.
+- Content realism: plausible stems, distractors, difficulty, scenario authenticity, and repetition.
+- Explanation value: whether review mode teaches why the answer is right and why alternatives are wrong.
+- Operational trust: source ledger, review dates, issue reporting, and correction workflow.
+
+## Current Offering Grades
+
+### IT Certification Catalog
+
+| Certification | Current Grade | Why | Main Gap | Immediate Action |
+| --- | --- | --- | --- | --- |
+| AWS Cloud Practitioner, CLF-C02 | A- | Strong fit for AWS selected-response format; 731 questions; exam count/time align to 65 / 90; no duplicate-stem issues in prior audit. | App does not distinguish scored vs unscored AWS items, and passing target is simplified. | Rename score to readiness target; add source/version card. |
+| AWS Solutions Architect - Associate, SAA-C03 | A- | 750 questions, exact official domain weighting, strong scenario orientation, very strong explanations. | AWS uses scored + unscored items and scaled scoring; some normalized stems repeat structurally because scenarios share patterns. | Keep live; add architecture-case review polish and source ledger. |
+| Microsoft Azure Fundamentals, AZ-900 | B | Blueprint ranges are current; 600 questions; supports statement, ordering, matching, and multiple-response practice. | Microsoft does not publish exact format per candidate and uses a score of 700/1000; app uses fixed 40-question simulation and limited hotspot/build-list style interaction. | Adjust simulator to 40-60 optional mode or label fixed 40 as practice form; add Microsoft-style yes/no and build-list polish. |
+| Google Cloud Digital Leader | A- | Official exam is 50-60 multiple-choice questions over 90 minutes; current 749-question six-section pool aligns well. | App fixes 50 questions instead of 50-60; explanations can be more business-outcome oriented. | Keep live; add 50-60 variable form option later. |
+| NVIDIA AI Infrastructure & Operations | B | Official page says 50 questions / 60 minutes; domain split is aligned after rebalance. | Only 336 questions, lower scenario realism, and some NVIDIA operational topics need more applied data-center context. | Expand to 500-750 after higher-priority rewrites; add GPU cluster/logistics scenarios. |
+| NVIDIA Generative AI LLMs | B- | Good foundational selected-response fit; 330 questions; covers NVIDIA LLM associate topics. | Low scenario rate; needs stronger applied RAG, inference, evaluation, safety, and deployment tradeoff items. | Expand and scenario-ize only after Linux+/DCCA/Splunk polish. |
+| CCST Networking, 100-150 | B | 750 questions and close blueprint alignment; good entry networking practice. | Real Cisco exam interface and item set are simplified; high normalized repetition means some items feel templated. | Rewrite repeated normalized clusters; add more packet/output evidence. |
+| CCNA, 200-301 | B+ | Best advanced simulation fit in the app: CLI output, topology scenarios, config repair, subnetting drills, 750 questions, current v2.0 blueprint. | Still not a true Cisco lab/simlet environment; topology diagrams are text/SVG-style approximations; explanations are thinner than SAA. | Make this the model for advanced simulation polish; add richer multi-command troubleshooting and visual topology variety. |
+| A+ Core 1, 220-1201 | B | 760 questions, strong blueprint fit, and PBQ-lite matching now included. | CompTIA real PBQs can be drag/drop, simulations, terminal/tool approximations, or virtual environments; current PBQ-lite is useful but not equivalent. | Add richer A+ device, cable, hardware, network, and troubleshooting PBQ widgets. |
+| A+ Core 2, 220-1202 | B | 760 questions, strong blueprint fit, and useful OS/security/troubleshooting scenarios. | Needs OS UI/command/config PBQ simulations and stronger operational-procedure distractors. | Build Core 2 PBQ widgets for Windows settings, permissions, malware response, ticket triage. |
+| Network+, N10-009 | B+ | 760 questions; recent rebalance improved troubleshooting and operations; PBQ-lite included. | Needs more network-diagram, cable-map, routing table, wireless survey, and port/service simulations to approach CompTIA PBQs. | Use Network+ as next CompTIA PBQ engine pilot after scoring/trust fixes. |
+| Security+, SY0-701 | B+ | 760 questions, strong domain fit, zero normalized duplicate groups in scan, varied item types. | Real Security+ PBQs often require log triage, policy/config matching, attack-chain interpretation, and control placement; current app approximates. | Add log-analysis and incident-response PBQ widgets; expand why-wrong explanations. |
+| Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |
+| Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
+| Splunk Core Certified User | B+ | Exact blueprint fit, 750 questions, official exam is 60 multiple-choice questions / 60 minutes. Low duplicate count. | Natural language has synthetic ticket phrasing; explanations need stronger why-right/why-wrong detail. | Polish wording and explanations; keep live. |
+| Schneider Data Center Certified Associate | C | Vendor-source topic architecture is useful; 750 questions across data-center physical infrastructure. | Heavy normalized duplication and obvious distractors; official exam-source details are less pinned than major vendors. | Rewrite repeated facility scenarios; pin current official exam guide/source package. |
+| Terraform Associate 004 | B- | HashiCorp official prep states true/false, multiple choice, and multiple answer; 632 questions cover 1.12 objectives. | Current bank is all single-choice, so true/false and multiple-answer format fidelity is low. | Add true/false and multiple-answer items; align simulator language to HashiCorp's simple non-trick style. |
+
+### Real Estate Sister Product
+
+| Module | Current Grade | Why | Main Gap | Immediate Action |
+| --- | --- | --- | --- | --- |
+| Real Estate National | A- | 750 single-choice questions; real estate national exams are selected-response and vocabulary/scenario heavy; strong explanations. | Needs pinned current national outline/version record. | Add source ledger and review date. |
+| Texas Sales Agent | B | National + state composition is useful and matches combined-exam practice structure in the app. | Texas 2026 state scoring/pretest language needs source reconciliation because handbook outline and scored/pretest counts can be confusing. | Reconcile TX source note and label scored/pretest assumptions clearly. |
+| Maine Sales Agent | B+ | Clean state module and good national-plus-state architecture. | Needs pinned official handbook version and review date in public trust layer. | Source-ledger pass. |
+| Georgia Salesperson | C+ | Useful state practice, but board report already flags source-confidence inconsistency. | Current stable PSI/GREC bulletin must be pinned before production-confidence claims. | Treat as highest-priority real-estate source audit. |
+| Arizona Salesperson | B | The current official Pearson VUE handbook describes a 60-item state-specific salesperson section effective January 1, 2026, and the local state-domain map follows that outline. | Public web summaries conflict about the broader delivery structure, so the exact national/state scheduling model should be re-verified directly against Pearson VUE/ADRE before stronger claims. | Pin the current official handbook and document the simulator assumption; do not rely on third-party restructuring claims. |
+| North Carolina Broker | B | Current registry models 80 national + 60 state, matching the intended state/national structure in local source notes. | Needs official source ledger and separately scored pass/readiness language. | Add source record and score-label cleanup. |
+| Indiana Broker | B | 50-item state outline source is pinned in local notes; state bank exists and composition is useful. | Some normalized repetition appears in the state bank; source metadata is not exposed publicly. | Rewrite repeated state-law clusters; add source ledger. |
+
+## Detailed Order of Operations
+
+### Phase 0: Stop Trust Leakage
+
+Status: completed in the app shell on June 8, 2026. The remaining item under this phase is continuing metadata/social-description refresh work rather than blocking setup.
+
+Goal: remove avoidable credibility risk before content rewrites.
+
+1. Completed: changed the main exam/results flow from pass/fail language to readiness-target language where appropriate.
+2. Completed: added a short simulator disclaimer that vendor exams may include unscored items, scaled scoring, or richer interaction types.
+3. Completed: added provider non-affiliation language to IT and Real Estate study footers.
+4. Completed: added source/version fields in a companion source file:
+   - exam code/version
+   - official source URL
+   - source checked date
+   - item-count model
+   - scoring model
+   - question-type model
+   - editorial status
+5. Completed: added visible source-check, official-source, editorial-status, and report-an-issue affordances on IT and Real Estate dashboards.
+6. Still useful: continue refreshing static metadata and social descriptions from the registry so homepage/docs/social descriptions do not drift.
+
+Acceptance criteria:
+
+- No cert page implies exact scaled-score equivalence.
+- Every live cert has a source record, even if status is "needs review."
+- Automated tests fail if a published cert lacks source metadata.
+
+### Phase 1: Build the Trust Layer Skeleton
+
+Goal: create the backend-ready quality system before more large edits.
+
+1. Implement issue reporting locally first:
+   - question ID
+   - cert ID
+   - issue type
+   - user note
+   - selected answer/result context if available
+2. Add a simple backend endpoint or serverless form handler.
+3. Create an internal moderation queue model:
+   - open
+   - investigating
+   - corrected
+   - rejected
+   - source update needed
+4. Store source metadata separately from question JSON so it can be updated without rewriting the whole pool.
+5. Add correction history fields for future use.
+
+Acceptance criteria:
+
+- A learner can report a questionable item from review mode.
+- Reports are persisted somewhere reliable.
+- Internal review can identify cert, question, source, and current answer key.
+
+### Phase 2: Fix Simulation Language and Scoring
+
+Goal: make every simulator honest about what it is approximating.
+
+1. Replace percentage "passingScore" display with certification-specific copy:
+   - AWS: readiness target aligned to scaled 700/1000 or 720/1000, not a raw score guarantee.
+   - CompTIA: readiness target aligned to scaled 675/700/720/750 out of 900 depending exam.
+   - Microsoft: readiness target aligned to 700/1000.
+   - Cisco CCNA: readiness target because Cisco does not publish a simple universal raw pass percentage.
+   - Splunk/Real Estate/DCCA/Terraform: keep percentage only where vendor/exam materials support it.
+2. Add "unscored item" notes for AWS and real estate where applicable.
+3. Add variable-count simulator support for exams with official ranges:
+   - Google CDL: 50-60.
+   - Microsoft AZ-900: if exact current count remains unpublished, label current fixed form as a practice form.
+   - NVIDIA GENL if current vendor wording remains 50-60.
+4. Keep full-length practice stable by default, but let docs explain approximation boundaries.
+
+Acceptance criteria:
+
+- User-facing language is accurate without weakening confidence.
+- The app no longer treats all passing thresholds as raw percentages.
+
+### Phase 3: Add Missing Interaction Engines
+
+Goal: close the biggest realism gaps before rewriting thousands of stems.
+
+Priority widgets:
+
+1. CompTIA PBQ engine v1:
+   - drag/drop category placement
+   - topology/cabling map
+   - command-output evidence
+   - troubleshooting ticket with multiple artifacts
+   - simple simulated settings panel
+2. Security+ log triage widget:
+   - firewall/auth/log snippets
+   - choose incident type
+   - choose immediate containment action
+   - map control to finding
+3. Network+ topology and subnet widget:
+   - diagram with links/devices/VLANs
+   - routing table or ARP evidence
+   - choose failing segment or config repair
+4. Linux+ terminal task widget:
+   - read command output
+   - choose next command
+   - repair config snippet
+5. Azure build-list / yes-no-set / hotspot-style approximation:
+   - no need to clone Microsoft UI, but practice should map closer to common Microsoft item behavior.
+
+Acceptance criteria:
+
+- Question schema supports each widget cleanly.
+- Existing single-choice/matching/ordering behavior remains stable.
+- Results review can explain widget scoring.
+- Tests cover correct and incorrect submissions for each widget.
+
+### Phase 4: Rewrite Weakest Live Banks
+
+Goal: improve live quality where learner trust is most vulnerable.
+
+#### 4.1 Linux+
+
+Why first: it has useful advanced item types, but prior audit and the latest scan show heavy normalized repetition.
+
+Actions:
+
+1. Rewrite generic single-choice items into concrete scenarios.
+2. Increase CLI-output and config-repair coverage.
+3. Replace repeated distractors with plausible Linux administrator mistakes.
+4. Add service, storage, permissions, SELinux/AppArmor, container, network, and scripting tasks.
+5. Expand explanations with command reasoning and why dangerous alternatives are wrong.
+
+Acceptance criteria:
+
+- Normalized duplicate item count drops materially.
+- No repeated generic distractor appears across large clusters.
+- At least 30% of Linux+ pool uses command/output/config/task evidence.
+
+#### 4.2 Schneider DCCA
+
+Why second: high value for the new Data Center Technician path, but repeated facility stems undermine realism.
+
+Actions:
+
+1. Pin official Schneider source package and exam details.
+2. Rewrite repeated "candidate is evaluating" frames into facility-specific constraints.
+3. Add data-center operations scenarios:
+   - power path
+   - cooling failure
+   - humidity
+   - fire suppression
+   - rack/cabling
+   - access control
+   - monitoring alarms
+4. Replace obvious distractors with realistic but flawed data-center decisions.
+
+Acceptance criteria:
+
+- Normalized duplicate clusters drop sharply.
+- Every domain has facility-context scenarios.
+- DCCA path copy can honestly claim role-relevant physical-infrastructure practice.
+
+#### 4.3 Splunk
+
+Why third: the blueprint fit is strong, so this is a polish pass with high ROI.
+
+Actions:
+
+1. Remove synthetic "ticket SPL-###" and "scenario includes" phrasing.
+2. Add more real SPL snippets and search-result context.
+3. Expand explanations with why-right and why-wrong guidance.
+4. Keep the official 60-question / 60-minute selected-response simulator.
+
+Acceptance criteria:
+
+- No synthetic ticket markers.
+- Review mode teaches field/search/report/dashboard concepts clearly.
+- Normalized duplicate count remains low.
+
+#### 4.4 CCST and CCNA
+
+Why fourth: these anchor the Networking path and job-value positioning.
+
+Actions:
+
+1. CCST: rewrite repeated normalized clusters and add more practical evidence.
+2. CCNA: improve advanced scenarios rather than increasing count:
+   - more OSPF evidence
+   - more VLAN/trunk symptoms
+   - more NAT/PAT and ACL repair
+   - more wireless and management operations
+   - richer topologies
+3. Add scoring notes that CCNA practice is simulation-backed but not Cisco's actual exam engine.
+
+Acceptance criteria:
+
+- CCNA remains production-live.
+- CCST feels less templated.
+- Network path copy can say: "Network+ or CCST for foundation, CCNA for Cisco associate readiness."
+
+### Phase 5: Reconcile Real Estate
+
+Goal: keep the sister site credible before adding more states.
+
+Actions:
+
+1. Create a real estate source ledger by jurisdiction.
+2. Georgia: pin current official PSI/GREC source before strong publication-readiness language.
+3. Arizona: pin and re-verify the current official Pearson VUE/ADRE delivery model. The official handbook currently supports the 60-item state outline used by the bank, while some third-party summaries conflict about how the broader exam is scheduled.
+4. Texas: clarify scored/pretest and state-outline count assumptions.
+5. Indiana and Texas: reduce state-bank duplicate clusters.
+6. Add state-specific review date badges.
+
+Acceptance criteria:
+
+- Every real estate module has source version, checked date, and simulator assumption.
+- Arizona simulator assumptions are tied to the current official handbook rather than third-party summaries.
+- Georgia source status is no longer ambiguous.
+
+### Phase 6: Content Gates and CI
+
+Goal: prevent the same quality problems from returning.
+
+Add automated checks for:
+
+1. Missing source metadata.
+2. Synthetic phrases:
+   - "scenario includes"
+   - "ticket XYZ-###"
+   - "candidate is evaluating" overuse
+   - repeated generic prompts
+3. Normalized duplicate clusters above threshold.
+4. Repeated distractor phrases above threshold.
+5. Explanation depth thresholds by cert tier:
+   - foundational: concise but specific
+   - associate/simulation-backed: why-right and why-wrong required
+6. Question-type minimums for exams with PBQs or advanced interactions.
+
+Acceptance criteria:
+
+- New 600-750 question banks cannot ship with hidden repetition.
+- Advanced certs cannot publish without interaction-type coverage.
+
+### Phase 7: Expansion Gate
+
+Only resume major catalog expansion when:
+
+1. No known high-severity dependency issue remains.
+2. Every live cert has source metadata.
+3. Issue reporting is live.
+4. Linux+ and DCCA rewrites are complete.
+5. Splunk polish is complete.
+6. Real Estate source ledger is reconciled.
+7. At least one CompTIA PBQ widget and one Cisco/Linux advanced widget are production-tested.
+
+After that, the most rational expansion options are:
+
+1. SAA polish and premium architecture review depth, not more SAA count.
+2. CCNA simulation polish.
+3. CDL sister site planning.
+4. More real estate states only after source-ledger workflow is proven.
+5. NCLEX only after a separate clinical-judgment engine and expert-review model exist.
+
+## Priority Backlog
+
+### P0
+
+- Correct scoring/readiness language.
+- Add source metadata skeleton.
+- Add report-an-issue affordance.
+- Fix source/status ambiguity in docs.
+- Recheck dependency audit and release safety.
+
+### P1
+
+- Linux+ rewrite.
+- DCCA rewrite.
+- Splunk wording and explanation polish.
+- Arizona real estate source/delivery verification.
+- Georgia real estate source verification.
+
+### P2
+
+- CompTIA PBQ engine v1.
+- Security+ log triage widgets.
+- Network+ topology/cabling widgets.
+- CCNA topology and multi-command troubleshooting polish.
+- Terraform true/false and multiple-answer support.
+
+### P3
+
+- NVIDIA pool expansion and scenario rewrite.
+- CCST normalized cluster cleanup.
+- Real estate duplicate reduction for Texas and Indiana.
+- Variable-count simulator support for CDL/AZ-900/NVIDIA where applicable.
+
+## Strategic Interpretation
+
+The product should not claim to be an exact replica of vendor exam engines. That is unnecessary and risky. The stronger promise is:
+
+> freecertprep provides exam-shaped practice: current blueprint weighting, realistic timing, scenario-based review, transparent source status, and specialized interaction practice where the real exam demands it.
+
+That promise is achievable with the current architecture. The backend/trust layer is the missing operational system, and the PBQ/simulation widget work is the missing product fidelity layer.
+
+## Source Notes
+
+Official/vendor sources checked for this plan include:
+
+- Microsoft AZ-900 study guide and Microsoft exam sandbox / exam-experience guidance: https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900 and https://learn.microsoft.com/en-us/credentials/support/exam-duration-exam-experience
+- AWS CLF-C02 and SAA-C03 exam guides: https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.html and https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.html
+- Google Cloud Digital Leader certification guide and exam page: https://cloud.google.com/learn/certification/guides/cloud-digital-leader and https://cloud.google.com/learn/certification/cloud-digital-leader
+- NVIDIA AI Infrastructure & Operations certification page: https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate/
+- NVIDIA Generative AI LLMs certification page: https://www.nvidia.com/ja-jp/learn/certification/generative-ai-llm-associate/
+- Cisco CCNA 200-301 page and exam topics PDF: https://www.cisco.com/c/en/us/training-events/training-certifications/exams/current-list/ccna-200-301.html and https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf
+- Cisco CCST FAQ and CCST Networking material: https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/faq.html
+- CompTIA A+, Network+, Security+, Linux+, Server+, and PBQ guidance: https://www.comptia.org/certifications/a/ , https://www.comptia.org/en-us/certifications/network/ , https://www.comptia.org/en-eu/certifications/security/ , https://www.comptia.org/certifications/linux , https://www.comptia.org/en-us/certifications/server/ , and https://www.comptia.org/en/resources/test-policies/exam-development/performance-based-questions-explained/
+- Splunk Core Certified User certification page and blueprint: https://www.splunk.com/en_us/training/certification-track/splunk-core-certified-user.html and https://www.splunk.com/content/dam/splunk2/en_us/pdfs/training/splunk-test-blueprint-user.pdf
+- HashiCorp Terraform Associate 004 prep and sample-question guidance: https://developer.hashicorp.com/certifications/infrastructure-automation and https://developer.hashicorp.com/terraform/tutorials/certification-004/associate-questions-004
+- Schneider Electric University DCCA overview: https://www.se.com/us/en/about-us/university/
+- Pearson VUE real estate handbooks and pages for Texas, Arizona, and Indiana, plus local registry/audit notes for Maine, Georgia, North Carolina, and state composition assumptions.

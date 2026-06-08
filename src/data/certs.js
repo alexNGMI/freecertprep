@@ -22,6 +22,7 @@ import realEstateGaStateQuestionsUrl from './real-estate-ga-state-questions.json
 import realEstateAzStateQuestionsUrl from './real-estate-az-state-questions.json?url'
 import realEstateNcStateQuestionsUrl from './real-estate-nc-state-questions.json?url'
 import realEstateInStateQuestionsUrl from './real-estate-in-state-questions.json?url'
+import certSources from './certSources'
 
 async function loadQuestionAsset(url) {
   const response = await fetch(url)
@@ -917,6 +918,10 @@ const certs = {
       'Real Estate Office Procedures':            { dot: 'bg-[#0891b2]', bar: 'bg-[#0891b2]', text: 'text-[#0891b2]', hex: '#0891b2' },
     },
   },
+}
+
+for (const cert of Object.values(certs)) {
+  cert.source = certSources[cert.id] || null
 }
 
 export function getCert(certId) {
