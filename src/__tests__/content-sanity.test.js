@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { describe, it, expect } from 'vitest'
 import certs, { getAllCerts, getAllCertsIncludingUnpublished } from '../data/certs.js'
 import { COMING_SOON_CERT_IDS, LIVE_CERT_IDS } from '../data/catalogVisibility.js'
+import { PRACTICAL_QUESTION_TYPES, weightedSelect } from '../utils/exam-selection.js'
 import az900 from '../data/az-900-questions.json'
 import clfc02 from '../data/questions.json'
 import awsSaaC03 from '../data/aws-saa-c03-questions.json'
@@ -524,6 +525,46 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(evidenceBasedCount).toBeGreaterThanOrEqual(75)
   })
 
+  it('CompTIA Network+ retains practical PBQ-style evidence coverage', () => {
+    if (certId !== 'comptia-net-plus') return
+
+    const byType = questions.reduce((acc, q) => {
+      acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byType['cli-output']).toBeGreaterThanOrEqual(5)
+    expect(byType['topology-scenario']).toBeGreaterThanOrEqual(5)
+    expect(byType['config-repair']).toBeGreaterThanOrEqual(2)
+    expect(byType['pbq-matching']).toBeGreaterThanOrEqual(20)
+    expect(
+      (byType['pbq-matching'] || 0)
+      + (byType['cli-output'] || 0)
+      + (byType['topology-scenario'] || 0)
+      + (byType['config-repair'] || 0)
+    ).toBeGreaterThanOrEqual(32)
+  })
+
+  it('CompTIA Security+ retains practical log, segmentation, and control-repair coverage', () => {
+    if (certId !== 'comptia-sec-plus') return
+
+    const byType = questions.reduce((acc, q) => {
+      acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byType['cli-output']).toBeGreaterThanOrEqual(6)
+    expect(byType['topology-scenario']).toBeGreaterThanOrEqual(3)
+    expect(byType['config-repair']).toBeGreaterThanOrEqual(3)
+    expect(byType['pbq-matching']).toBeGreaterThanOrEqual(20)
+    expect(
+      (byType['pbq-matching'] || 0)
+      + (byType['cli-output'] || 0)
+      + (byType['topology-scenario'] || 0)
+      + (byType['config-repair'] || 0)
+    ).toBeGreaterThanOrEqual(33)
+  })
+
   it('Google Cloud Digital Leader follows the current six-section guide', () => {
     if (certId !== 'cdl') return
 
@@ -763,4 +804,50 @@ describe('CCNA 200-301 production pool', () => {
     expect(audit).toContain('## Production Gate')
   })
 
+})
+
+describe('CompTIA practical exam forms', () => {
+  it.each([
+    [
+      'comptia-net-plus',
+      comptiaNetPlus,
+      {
+        'Networking Concepts': 21,
+        'Network Implementation': 18,
+        'Network Operations': 17,
+        'Network Security': 13,
+        'Network Troubleshooting': 21,
+      },
+    ],
+    [
+      'comptia-sec-plus',
+      comptiaSecPlus,
+      {
+        'General Security Concepts': 11,
+        'Threats, Vulnerabilities, and Mitigations': 20,
+        'Security Architecture': 16,
+        'Security Operations': 25,
+        'Security Program Management and Oversight': 18,
+      },
+    ],
+  ])('%s forms preserve blueprint allocation and practical coverage', (certId, questions, expectedDomains) => {
+    const cert = certs[certId]
+
+    for (let run = 0; run < 50; run++) {
+      const form = weightedSelect(questions, cert.examQuestions, cert.domains, {
+        practicalQuestionTarget: cert.practicalQuestionTarget,
+      })
+      const byDomain = form.reduce((acc, question) => {
+        acc[question.domain] = (acc[question.domain] || 0) + 1
+        return acc
+      }, {})
+      const practicalCount = form.filter((question) =>
+        PRACTICAL_QUESTION_TYPES.has(typeOf(question))
+      ).length
+
+      expect(form).toHaveLength(90)
+      expect(byDomain).toEqual(expectedDomains)
+      expect(practicalCount).toBeGreaterThanOrEqual(6)
+    }
+  })
 })

@@ -184,44 +184,277 @@
   {
     "id": "netplus-14",
     "domain": "Network Implementation",
-    "question": "A network engineer uses VLANs to logically separate HR, Finance, and Engineering traffic on the same physical switch infrastructure. What is the PRIMARY security and operational benefit of VLANs?",
-    "type": "single-choice",
-    "choices": [
-      "VLANs increase total physical bandwidth by bonding switch ports together",
-      "VLANs create logical broadcast domain separation, improving security by isolating traffic between groups",
-      "VLANs eliminate the need for a router when different departments must communicate",
-      "VLANs automatically encrypt traffic between ports for confidentiality"
+    "type": "topology-scenario",
+    "prompt": "Review the VLAN and trunk topology.",
+    "topology": {
+      "label": "Branch access-switch VLAN topology",
+      "width": 720,
+      "height": 280,
+      "nodes": [
+        {
+          "id": "PC-HR",
+          "label": "HR-PC",
+          "kind": "VLAN 10",
+          "x": 90,
+          "y": 80
+        },
+        {
+          "id": "PC-FIN",
+          "label": "FIN-PC",
+          "kind": "VLAN 20",
+          "x": 90,
+          "y": 210
+        },
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "access",
+          "x": 310,
+          "y": 145
+        },
+        {
+          "id": "SW2",
+          "label": "SW2",
+          "kind": "distribution",
+          "x": 540,
+          "y": 145
+        },
+        {
+          "id": "GW",
+          "label": "RTR1",
+          "kind": "gateway",
+          "x": 680,
+          "y": 145
+        }
+      ],
+      "links": [
+        {
+          "from": "PC-HR",
+          "to": "SW1",
+          "label": "access VLAN 10"
+        },
+        {
+          "from": "PC-FIN",
+          "to": "SW1",
+          "label": "access VLAN 20"
+        },
+        {
+          "from": "SW1",
+          "to": "SW2",
+          "label": "802.1Q trunk"
+        },
+        {
+          "from": "SW2",
+          "to": "GW",
+          "label": "802.1Q trunk"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Observed behavior",
+        "columns": [
+          "Test",
+          "Result"
+        ],
+        "rows": [
+          [
+            "HR-PC to HR gateway",
+            "Success"
+          ],
+          [
+            "FIN-PC to FIN gateway",
+            "Success"
+          ],
+          [
+            "HR-PC broadcast capture on FIN-PC",
+            "No frames observed"
+          ]
+        ]
+      }
     ],
-    "correctAnswer": 1,
-    "explanation": "VLANs segment a physical switch into multiple logical networks, each with its own broadcast domain. Traffic from one VLAN cannot reach another without passing through a router (or Layer 3 switch), providing security isolation. This reduces broadcast traffic and limits the blast radius of attacks like ARP flooding. VLANs do not add bandwidth, replace routing, or encrypt traffic."
+    "question": "Which result BEST demonstrates the primary segmentation benefit provided by the VLAN design?",
+    "choices": [
+      "Broadcast traffic from VLAN 10 is not forwarded into VLAN 20",
+      "Every endpoint receives a globally routable IP address",
+      "The trunk encrypts frames between SW1 and SW2",
+      "The router eliminates the need for access controls between departments"
+    ],
+    "correctAnswer": 0,
+    "explanation": "VLANs create separate Layer 2 broadcast domains, so a broadcast in VLAN 10 is not flooded into VLAN 20. A trunk carries tagged traffic but does not encrypt it, VLANs do not assign public addresses, and inter-VLAN routing still requires appropriate security policy."
   },
   {
     "id": "netplus-15",
     "domain": "Network Implementation",
-    "question": "A network has redundant physical links between switches to prevent single points of failure. Without a specific protocol, these redundant paths would create broadcast storms and cause MAC table instability. Which protocol prevents switching loops?",
-    "type": "single-choice",
-    "choices": [
-      "LACP (Link Aggregation Control Protocol) â€” bundles multiple links into one logical interface",
-      "VTP (VLAN Trunking Protocol) â€” propagates VLAN configuration between switches",
-      "Spanning Tree Protocol (STP / 802.1D) â€” blocks redundant paths to prevent loops",
-      "RSTP (Rapid Spanning Tree Protocol) cannot be combined with redundant physical links"
+    "type": "topology-scenario",
+    "prompt": "Inspect the redundant switching design.",
+    "topology": {
+      "label": "Three-switch redundant triangle",
+      "width": 660,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "SW1",
+          "label": "SW1",
+          "kind": "root bridge",
+          "x": 330,
+          "y": 60
+        },
+        {
+          "id": "SW2",
+          "label": "SW2",
+          "kind": "access",
+          "x": 120,
+          "y": 230
+        },
+        {
+          "id": "SW3",
+          "label": "SW3",
+          "kind": "access",
+          "x": 540,
+          "y": 230
+        }
+      ],
+      "links": [
+        {
+          "from": "SW1",
+          "to": "SW2",
+          "label": "forwarding"
+        },
+        {
+          "from": "SW1",
+          "to": "SW3",
+          "label": "forwarding"
+        },
+        {
+          "from": "SW2",
+          "to": "SW3",
+          "label": "alternate path"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Switch symptoms before remediation",
+        "columns": [
+          "Indicator",
+          "Observation"
+        ],
+        "rows": [
+          [
+            "Broadcast rate",
+            "Continuously increasing"
+          ],
+          [
+            "MAC address table",
+            "Same MAC moves between ports"
+          ],
+          [
+            "User connectivity",
+            "Intermittent"
+          ]
+        ]
+      }
     ],
-    "correctAnswer": 2,
-    "explanation": "STP (802.1D) and its faster successor RSTP (802.1w) prevent Layer 2 loops by logically blocking redundant switch ports while keeping them available for failover. Without STP, a broadcast frame would loop endlessly between switches, saturating bandwidth (broadcast storm). LACP aggregates links for bandwidth but does not prevent loops. VTP synchronizes VLAN databases."
+    "question": "Which control should be enabled to preserve redundancy while preventing the observed Layer 2 loop?",
+    "choices": [
+      "Spanning Tree Protocol",
+      "Link aggregation on all three links",
+      "Static ARP entries",
+      "Port address translation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "STP detects redundant Layer 2 paths and places an alternate path into a blocking state until it is needed. Link aggregation only combines links that form one logical peer connection; it does not solve an arbitrary switching loop. ARP and PAT operate at different layers."
   },
   {
     "id": "netplus-16",
     "domain": "Network Implementation",
-    "question": "A company is deploying wireless infrastructure in a stadium with thousands of concurrent users. Which Wi-Fi standard is specifically optimized for high-density environments through OFDMA, BSS Coloring, and Target Wake Time?",
-    "type": "single-choice",
-    "choices": [
-      "802.11a â€” 5 GHz, up to 54 Mbps, released 1999",
-      "802.11n (Wi-Fi 4) â€” introduced MIMO and dual-band operation",
-      "802.11ac (Wi-Fi 5) â€” 5 GHz only, MU-MIMO downlink",
-      "802.11ax (Wi-Fi 6/6E) â€” OFDMA and BSS Coloring for high-density performance"
+    "type": "topology-scenario",
+    "prompt": "Review the high-density wireless deployment.",
+    "topology": {
+      "label": "Stadium wireless coverage cells",
+      "width": 720,
+      "height": 260,
+      "nodes": [
+        {
+          "id": "AP1",
+          "label": "AP-1",
+          "kind": "section A",
+          "x": 120,
+          "y": 130
+        },
+        {
+          "id": "AP2",
+          "label": "AP-2",
+          "kind": "section B",
+          "x": 300,
+          "y": 70
+        },
+        {
+          "id": "AP3",
+          "label": "AP-3",
+          "kind": "section C",
+          "x": 480,
+          "y": 190
+        },
+        {
+          "id": "WLC",
+          "label": "WLC",
+          "kind": "controller",
+          "x": 650,
+          "y": 130
+        }
+      ],
+      "links": [
+        {
+          "from": "AP1",
+          "to": "WLC",
+          "label": "PoE+"
+        },
+        {
+          "from": "AP2",
+          "to": "WLC",
+          "label": "PoE+"
+        },
+        {
+          "from": "AP3",
+          "to": "WLC",
+          "label": "PoE+"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Design requirements",
+        "columns": [
+          "Requirement",
+          "Target"
+        ],
+        "rows": [
+          [
+            "Concurrent clients",
+            "Thousands"
+          ],
+          [
+            "Channel reuse",
+            "Dense neighboring cells"
+          ],
+          [
+            "Client power use",
+            "Reduced where possible"
+          ]
+        ]
+      }
     ],
-    "correctAnswer": 3,
-    "explanation": "802.11ax (Wi-Fi 6) introduced OFDMA (subdivides channels for simultaneous multi-user transmission), BSS Coloring (reduces interference from neighboring networks), and Target Wake Time (improves IoT battery life). These features specifically address high-density environments. 802.11ac (Wi-Fi 5) improved speeds but lacked these density-optimization mechanisms."
+    "question": "Which wireless generation most directly provides OFDMA, BSS coloring, and Target Wake Time for this environment?",
+    "choices": [
+      "Wi-Fi 4 (802.11n)",
+      "Wi-Fi 5 (802.11ac)",
+      "Wi-Fi 6 (802.11ax)",
+      "802.11a"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Wi-Fi 6 (802.11ax) was designed for efficiency in dense client environments. OFDMA divides channels into smaller resource units, BSS coloring reduces unnecessary contention between neighboring cells, and Target Wake Time can reduce client power consumption."
   },
   {
     "id": "netplus-17",
@@ -268,86 +501,158 @@
   {
     "id": "netplus-20",
     "domain": "Network Troubleshooting",
-    "question": "A technician suspects a host is unreachable across the network. Which command sends ICMP Echo Request packets to the target and reports round-trip time and packet loss?",
-    "type": "single-choice",
-    "choices": [
-      "traceroute â€” maps the hop-by-hop path to the destination",
-      "nslookup â€” queries DNS servers for name resolution",
-      "netstat â€” displays active network connections and listening ports",
-      "ping â€” tests host reachability using ICMP Echo Request/Reply"
+    "type": "cli-output",
+    "prompt": "Interpret the reachability test.",
+    "commands": [
+      {
+        "device": "WS-23",
+        "command": "ping 10.24.8.1",
+        "output": "Pinging 10.24.8.1 with 32 bytes of data:\nReply from 10.24.8.1: bytes=32 time<1ms TTL=64\nReply from 10.24.8.1: bytes=32 time<1ms TTL=64\nReply from 10.24.8.1: bytes=32 time=1ms TTL=64\nReply from 10.24.8.1: bytes=32 time<1ms TTL=64\n\nPackets: Sent = 4, Received = 4, Lost = 0 (0% loss)"
+      }
     ],
-    "correctAnswer": 3,
-    "explanation": "ping sends ICMP Echo Requests to a target host and reports round-trip time and packet loss â€” the most basic reachability test. traceroute (tracert on Windows) maps each hop along the path. nslookup tests DNS resolution. netstat shows local socket state. ping is typically the first step in a troubleshooting workflow."
+    "question": "What can the technician conclude from this output?",
+    "choices": [
+      "The workstation has IP reachability to 10.24.8.1 with no observed packet loss",
+      "DNS name resolution is functioning correctly",
+      "TCP port 443 is open on 10.24.8.1",
+      "Every router between the workstation and the internet is healthy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The ICMP echo replies establish IP reachability to the tested address and show no loss during this sample. A ping does not test DNS when an IP address is used, does not verify an application port, and does not prove the health of unrelated paths."
   },
   {
     "id": "netplus-21",
     "domain": "Network Troubleshooting",
-    "question": "A technician needs to identify at which network hop packets are being lost between a source host and a remote server. Which tool provides a hop-by-hop view of the path with latency at each hop?",
-    "type": "single-choice",
+    "type": "cli-output",
+    "prompt": "Use the path evidence to isolate the failure boundary.",
+    "commands": [
+      {
+        "device": "CLIENT-7",
+        "command": "tracert 198.51.100.40",
+        "output": "  1    <1 ms    <1 ms    <1 ms  10.20.30.1\n  2     3 ms     2 ms     3 ms  172.16.0.1\n  3    11 ms    10 ms    11 ms  203.0.113.9\n  4     *        *        *     Request timed out.\n  5     *        *        *     Request timed out."
+      },
+      {
+        "device": "EDGE-RTR",
+        "command": "show interface wan0",
+        "output": "wan0 is up, line protocol is up\n  Internet address is 203.0.113.10/30\n  5 minute input rate 21000 bits/sec\n  5 minute output rate 18000 bits/sec"
+      }
+    ],
+    "question": "Which next action BEST follows the evidence?",
     "choices": [
-      "traceroute / tracert â€” displays each hop and its round-trip latency",
-      "ping â€” tests reachability to the end destination only",
-      "nslookup â€” queries DNS, does not trace network paths",
-      "ipconfig â€” displays local interface configuration"
+      "Investigate the upstream path beginning after 203.0.113.9",
+      "Replace the client network adapter because hop 1 responded",
+      "Change the client DNS server because an IP address was traced",
+      "Disable the edge WAN interface because it reports up/up"
     ],
     "correctAnswer": 0,
-    "explanation": "traceroute (Linux/macOS) and tracert (Windows) send probe packets with incrementing TTL values, causing each router to return an ICMP Time Exceeded message, revealing its identity and latency. This maps the entire path to the destination and pinpoints where drops or high latency occur. ping only confirms end-to-end reachability without path detail."
+    "explanation": "The trace reaches the local gateway, an internal transit hop, and 203.0.113.9 before responses stop. The WAN interface is up/up, so the best next step is to investigate routing, filtering, or reachability beyond the last responding hop."
   },
   {
     "id": "netplus-22",
     "domain": "Network Operations",
-    "question": "Security logs from multiple devices show timestamps that are several minutes apart for what should be simultaneous events, making correlation in the SIEM impossible. Which protocol should the administrator deploy to fix this?",
-    "type": "single-choice",
-    "choices": [
-      "SNMP â€” polls and monitors device health metrics",
-      "NTP â€” synchronizes clocks across all network devices to a common time source",
-      "Syslog â€” centralizes log collection from multiple sources",
-      "DNS â€” resolves hostnames to IP addresses"
+    "type": "cli-output",
+    "prompt": "Compare timestamps from the same authentication event.",
+    "commands": [
+      {
+        "device": "VPN-GW",
+        "command": "show clock && show log last 1",
+        "output": "14:07:12 UTC\n14:07:10 AUTH success user=jmills source=198.51.100.28"
+      },
+      {
+        "device": "RADIUS-1",
+        "command": "date -u && tail -n 1 /var/log/radius/auth.log",
+        "output": "14:11:46 UTC\n14:11:44 Access-Accept user=jmills nas=VPN-GW"
+      },
+      {
+        "device": "SIEM",
+        "command": "correlation status --rule impossible-travel",
+        "output": "Event pair rejected: timestamp delta exceeds 240 seconds"
+      }
     ],
-    "correctAnswer": 1,
-    "explanation": "NTP (Network Time Protocol) synchronizes clocks across routers, switches, servers, and other devices to a common time source (stratum hierarchy). Without NTP, log timestamps drift, making security event correlation and forensic timelines unreliable. Syslog handles log transport; SNMP handles monitoring; DNS handles name resolution."
+    "question": "Which service should be corrected FIRST so the SIEM can reliably correlate these records?",
+    "choices": [
+      "NTP time synchronization",
+      "DNS recursion",
+      "DHCP relay",
+      "SNMP polling"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The devices disagree by more than four minutes for the same event. Correct NTP configuration and source reachability so all systems share an authoritative time base. DNS, DHCP, and SNMP do not align event timestamps."
   },
   {
     "id": "netplus-23",
     "domain": "Network Operations",
-    "question": "A network operations center uses a platform that polls routers and switches at regular intervals to retrieve CPU utilization, interface byte counters, and error statistics, then graphs the data over time. Which protocol enables this?",
-    "type": "single-choice",
-    "choices": [
-      "Syslog â€” devices push log messages to a central collector",
-      "NTP â€” synchronizes time across devices",
-      "SNMP â€” polls devices using OIDs to retrieve management information",
-      "SMTP â€” transfers email between mail servers"
+    "type": "cli-output",
+    "prompt": "Identify the monitoring method shown in the capture.",
+    "commands": [
+      {
+        "device": "NMS-1",
+        "command": "poll --target 10.10.40.2 --oid ifInOctets.12",
+        "output": "10.10.40.2 ifInOctets.12 = 284829104\n10.10.40.2 ifOutOctets.12 = 103884992\n10.10.40.2 ifInErrors.12 = 18"
+      }
     ],
-    "correctAnswer": 2,
-    "explanation": "SNMP (Simple Network Management Protocol) enables management stations to poll (GET) device metrics via Object Identifiers (OIDs) from the device's MIB (Management Information Base). Devices can also push alerts (SNMP traps) for threshold violations. Syslog is event-driven log forwarding. NTP synchronizes time. SMTP delivers email."
+    "question": "Which protocol is the monitoring platform most likely using to retrieve these OID values?",
+    "choices": [
+      "SNMP",
+      "SFTP",
+      "SIP",
+      "NTP"
+    ],
+    "correctAnswer": 0,
+    "explanation": "SNMP managers query object identifiers in device MIBs to retrieve counters such as interface octets and errors. SFTP transfers files, SIP controls multimedia sessions, and NTP synchronizes time."
   },
   {
     "id": "netplus-24",
     "domain": "Network Security",
-    "question": "A stateful firewall is preferred over a stateless packet filter for which key reason?",
-    "type": "single-choice",
-    "choices": [
-      "Stateful firewalls are faster because they skip deep packet inspection entirely",
-      "Stateful firewalls operate at Layer 2 and do not require IP addressing",
-      "Stateful firewalls can only be deployed at the network perimeter, not internally",
-      "Stateful firewalls track connection state, automatically permitting return traffic for established sessions without needing explicit inbound rules"
+    "type": "config-repair",
+    "scenario": "A public web server must accept HTTPS from the internet and send return traffic. The firewall currently treats every packet independently, and return packets are being blocked.",
+    "configTitle": "Current edge policy",
+    "device": "FW-EDGE",
+    "config": [
+      "policy 10 allow tcp any 203.0.113.20 eq 443 inbound",
+      "policy 20 deny ip any any inbound",
+      "policy 30 deny ip any any outbound",
+      "inspection state-table disabled"
     ],
-    "correctAnswer": 3,
-    "explanation": "A stateful firewall maintains a connection table tracking each active TCP/UDP session. Return traffic for an established outbound connection is automatically permitted without an explicit inbound rule â€” reducing rule complexity and preventing spoofed inbound packets from being accepted. Stateless filters evaluate every packet independently, requiring symmetric rules for both directions and offering no session context."
+    "notes": [
+      "The web server listens on TCP 443.",
+      "No broad outbound allow rule is permitted."
+    ],
+    "question": "Which change BEST restores valid HTTPS sessions without broadly opening outbound traffic?",
+    "choices": [
+      "Enable stateful inspection so established return traffic is permitted",
+      "Allow every outbound TCP and UDP packet",
+      "Replace HTTPS with unencrypted HTTP",
+      "Disable the inbound deny rule"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A stateful firewall tracks established sessions and can permit return traffic associated with an allowed inbound connection. A broad outbound allow or removal of the default deny weakens policy unnecessarily, and changing to HTTP reduces confidentiality."
   },
   {
     "id": "netplus-25",
     "domain": "Network Security",
-    "question": "A company has 300 internal hosts using 10.0.0.0/24 private addresses. All 300 hosts share a single public IP address when accessing the internet. Which technology enables this?",
-    "type": "single-choice",
+    "type": "config-repair",
+    "scenario": "Three hundred private-addressed clients must share one public IPv4 address for outbound internet access. The current rule creates a fixed one-to-one translation and only one client can use it.",
+    "configTitle": "Current NAT policy",
+    "device": "EDGE-RTR",
+    "config": [
+      "inside subnet 10.0.0.0/24",
+      "outside address 198.51.100.18/29",
+      "nat static 10.0.0.10 198.51.100.19"
+    ],
+    "notes": [
+      "All connections are initiated from the inside.",
+      "The design has one public address available for client sharing."
+    ],
+    "question": "Which replacement rule meets the requirement?",
     "choices": [
-      "PAT (Port Address Translation) â€” maps multiple private IPs to one public IP using unique port numbers",
-      "VLAN â€” segments the internal network into logical broadcast domains",
-      "VPN â€” creates encrypted tunnels between endpoints",
-      "DHCP â€” assigns IP addresses dynamically from a pool"
+      "Configure PAT using unique source ports on the shared public address",
+      "Create 300 static one-to-one mappings to the same public address",
+      "Bridge the private subnet directly to the ISP",
+      "Assign APIPA addresses to all clients"
     ],
     "correctAnswer": 0,
-    "explanation": "PAT (Port Address Translation), a form of NAT overload, allows many private IP addresses to share a single public IP by tracking connections via unique source port numbers. Each outbound session gets a unique port mapping in the translation table, enabling stateful return traffic matching. VLANs segment networks; VPNs tunnel traffic; DHCP assigns addresses."
+    "explanation": "Port address translation distinguishes many simultaneous private sessions by translating source addresses and ports onto one public address. Static one-to-one NAT cannot map hundreds of active clients to the same address without port translation."
   },
   {
     "id": "netplus-26",
@@ -617,7 +922,7 @@
     "id": "netplus-44",
     "domain": "Networking Concepts",
     "question": "Match each network device to the OSI layer at which it primarily operates.",
-    "type": "matching",
+    "type": "pbq-matching",
     "itemsLeft": [
       "Hub",
       "Layer 2 switch",
@@ -636,13 +941,32 @@
       0,
       1
     ],
-    "explanation": "Hub (â†’ Layer 1): dumb repeater, no addressing. Layer 2 switch (â†’ Layer 2): MAC-based forwarding. Router (â†’ Layer 3): IP-based routing. Layer 3 switch (â†’ Layers 2 and 3): hardware-accelerated routing combined with switching â€” common in enterprise distribution/core layers."
+    "explanation": "Hub (â†’ Layer 1): dumb repeater, no addressing. Layer 2 switch (â†’ Layer 2): MAC-based forwarding. Router (â†’ Layer 3): IP-based routing. Layer 3 switch (â†’ Layers 2 and 3): hardware-accelerated routing combined with switching â€” common in enterprise distribution/core layers.",
+    "pbq": {
+      "title": "Layer 2/3 device placement",
+      "scenario": "A technician is documenting which device should make each forwarding decision in a mixed campus network.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Use the primary forwarding behavior, not optional features a device might also support."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-45",
     "domain": "Network Implementation",
     "question": "Match each protocol or service to its default port number.",
-    "type": "matching",
+    "type": "pbq-matching",
     "itemsLeft": [
       "HTTPS",
       "SSH",
@@ -661,7 +985,26 @@
       1,
       0
     ],
-    "explanation": "HTTPS (â†’ TCP 443): encrypted web traffic. SSH (â†’ TCP 22): encrypted remote terminal. DNS (â†’ UDP/TCP 53): name resolution â€” UDP for queries, TCP for zone transfers and large responses. RDP (â†’ TCP 3389): Windows Remote Desktop Protocol. Memorizing well-known ports is essential for firewall rule analysis and troubleshooting."
+    "explanation": "HTTPS (â†’ TCP 443): encrypted web traffic. SSH (â†’ TCP 22): encrypted remote terminal. DNS (â†’ UDP/TCP 53): name resolution â€” UDP for queries, TCP for zone transfers and large responses. RDP (â†’ TCP 3389): Windows Remote Desktop Protocol. Memorizing well-known ports is essential for firewall rule analysis and troubleshooting.",
+    "pbq": {
+      "title": "Service exposure review",
+      "scenario": "A firewall migration requires the operations team to verify the expected destination port for each approved service.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Match the standard default port before reviewing any organization-specific overrides."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-46",
@@ -1177,16 +1520,96 @@
   {
     "id": "netplus-81",
     "domain": "Network Troubleshooting",
-    "type": "single-choice",
-    "question": "A user can successfully ping their default gateway but cannot reach any internet sites by IP address. What is the most probable cause?",
-    "choices": [
-      "The user's NIC has a hardware fault",
-      "The default gateway IP address is misconfigured on the workstation",
-      "A routing or firewall issue beyond the gateway is blocking outbound traffic",
-      "The workstation has an incorrect subnet mask"
+    "type": "topology-scenario",
+    "prompt": "Follow the successful and failed tests.",
+    "topology": {
+      "label": "Client to internet path",
+      "width": 700,
+      "height": 240,
+      "nodes": [
+        {
+          "id": "PC",
+          "label": "PC-12",
+          "kind": "10.10.8.44",
+          "x": 90,
+          "y": 120
+        },
+        {
+          "id": "SW",
+          "label": "SW-1",
+          "kind": "access",
+          "x": 270,
+          "y": 120
+        },
+        {
+          "id": "GW",
+          "label": "RTR-1",
+          "kind": "10.10.8.1",
+          "x": 450,
+          "y": 120
+        },
+        {
+          "id": "ISP",
+          "label": "ISP",
+          "kind": "upstream",
+          "x": 630,
+          "y": 120
+        }
+      ],
+      "links": [
+        {
+          "from": "PC",
+          "to": "SW",
+          "label": "up"
+        },
+        {
+          "from": "SW",
+          "to": "GW",
+          "label": "up"
+        },
+        {
+          "from": "GW",
+          "to": "ISP",
+          "label": "unknown"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Test results",
+        "columns": [
+          "Source",
+          "Destination",
+          "Result"
+        ],
+        "rows": [
+          [
+            "PC-12",
+            "10.10.8.1",
+            "Success"
+          ],
+          [
+            "PC-12",
+            "1.1.1.1",
+            "Failure"
+          ],
+          [
+            "RTR-1",
+            "ISP next hop",
+            "Failure"
+          ]
+        ]
+      }
     ],
-    "correctAnswer": 2,
-    "explanation": "Reaching the default gateway proves the NIC, local cabling, switch port, and gateway are functional, and the subnet mask is correct. Failure beyond the gateway points to a WAN-side issue: a missing or incorrect upstream route, an ISP problem, or a firewall policy blocking outbound traffic."
+    "question": "Where should the technician investigate FIRST?",
+    "choices": [
+      "The router WAN link or upstream route",
+      "The PC-to-switch access cable",
+      "The PC local TCP/IP stack",
+      "The switch access VLAN assignment"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The PC reaches its gateway, proving the local access path and VLAN are working. The router itself cannot reach the ISP next hop, so investigation should begin at the WAN interface, provider circuit, or upstream routing boundary."
   },
   {
     "id": "netplus-82",
@@ -1205,30 +1628,111 @@
   {
     "id": "netplus-83",
     "domain": "Network Troubleshooting",
-    "type": "single-choice",
-    "question": "A workstation communicates successfully with all hosts on its local subnet but cannot reach hosts on any other subnet. What is the most likely cause?",
+    "type": "topology-scenario",
+    "prompt": "Compare the workstation configuration with its subnet.",
+    "topology": {
+      "label": "Workstation and local gateway",
+      "width": 560,
+      "height": 220,
+      "nodes": [
+        {
+          "id": "PC",
+          "label": "PC-44",
+          "kind": "192.168.40.22/24",
+          "x": 110,
+          "y": 110
+        },
+        {
+          "id": "SW",
+          "label": "SW-4",
+          "kind": "access",
+          "x": 280,
+          "y": 110
+        },
+        {
+          "id": "GW",
+          "label": "RTR-4",
+          "kind": "192.168.40.1",
+          "x": 450,
+          "y": 110
+        }
+      ],
+      "links": [
+        {
+          "from": "PC",
+          "to": "SW",
+          "label": "up"
+        },
+        {
+          "from": "SW",
+          "to": "GW",
+          "label": "up"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "PC-44 IPv4 configuration",
+        "columns": [
+          "Setting",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Address",
+            "192.168.40.22"
+          ],
+          [
+            "Mask",
+            "255.255.255.0"
+          ],
+          [
+            "Default gateway",
+            "192.168.4.1"
+          ],
+          [
+            "DNS server",
+            "192.168.40.10"
+          ]
+        ]
+      }
+    ],
+    "question": "Which change will restore access to remote subnets?",
     "choices": [
-      "Incorrect or missing default gateway configuration on the workstation",
-      "A duplex mismatch on the connecting switch port",
-      "A faulty physical switch port",
-      "A DNS resolution failure on the workstation"
+      "Change the default gateway to 192.168.40.1",
+      "Change the subnet mask to 255.255.0.0",
+      "Change DNS to 127.0.0.1",
+      "Change the address to an APIPA address"
     ],
     "correctAnswer": 0,
-    "explanation": "The default gateway is the router interface on the local subnet that forwards packets to remote networks. Without a correct default gateway, the host has no path off its local segment. DNS failure prevents name resolution but does not block IP-level communication to known addresses."
+    "explanation": "The configured gateway, 192.168.4.1, is outside the workstation /24 subnet and does not match the router interface. Setting the gateway to 192.168.40.1 provides the correct next hop for remote networks."
   },
   {
     "id": "netplus-84",
     "domain": "Network Troubleshooting",
-    "type": "single-choice",
-    "question": "Two directly connected switch ports show excessive CRC errors and poor throughput. One port is hard-coded to full-duplex 100 Mbps; the other is set to auto-negotiate. What is the most likely cause?",
-    "choices": [
-      "A VLAN mismatch between the two ports",
-      "STP has placed one port in the blocking state",
-      "A duplex mismatch — the auto-negotiating port settled at half-duplex",
-      "The cable connecting the ports has a damaged pair"
+    "type": "cli-output",
+    "prompt": "Compare both ends of the Ethernet link.",
+    "commands": [
+      {
+        "device": "SW-A",
+        "command": "show interface ethernet 1/12",
+        "output": "Ethernet1/12 is up\n  Speed: 100 Mb/s\n  Duplex: full\n  CRC errors: 1842\n  Late collisions: 391"
+      },
+      {
+        "device": "SW-B",
+        "command": "show interface ethernet 1/24",
+        "output": "Ethernet1/24 is up\n  Auto-negotiation: enabled\n  Speed: 100 Mb/s\n  Duplex: half\n  CRC errors: 1779\n  Late collisions: 408"
+      }
     ],
-    "correctAnswer": 2,
-    "explanation": "When one side is hard-coded full-duplex and the other auto-negotiates, the auto side detects no duplex signal and falls back to half-duplex. The full-duplex side does not implement CSMA/CD; when it transmits during the half-duplex side's transmission, collisions and CRC errors result."
+    "question": "Which remediation is MOST appropriate?",
+    "choices": [
+      "Configure both ends to auto-negotiate or explicitly match speed and duplex",
+      "Increase the VLAN ID on both ports",
+      "Replace the switches with routers",
+      "Disable full-duplex Ethernet throughout the network"
+    ],
+    "correctAnswer": 0,
+    "explanation": "One side is full-duplex while the other has negotiated half-duplex, producing late collisions, errors, and poor throughput. Both sides should use compatible auto-negotiation or identical manual speed and duplex settings."
   },
   {
     "id": "netplus-85",
@@ -1393,7 +1897,7 @@
   {
     "id": "netplus-95",
     "domain": "Network Operations",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each network management protocol or tool to its primary function.",
     "itemsLeft": [
       "SNMP",
@@ -1413,7 +1917,26 @@
       3,
       0
     ],
-    "explanation": "SNMP monitors device health via polling and traps (index 1). Syslog collects device-generated event messages at a central server (index 2). NetFlow exports per-flow traffic statistics for capacity planning and security analysis (index 3). TFTP transfers config files and OS images (index 0)."
+    "explanation": "SNMP monitors device health via polling and traps (index 1). Syslog collects device-generated event messages at a central server (index 2). NetFlow exports per-flow traffic statistics for capacity planning and security analysis (index 3). TFTP transfers config files and OS images (index 0).",
+    "pbq": {
+      "title": "Monitoring-tool selection",
+      "scenario": "A network operations center is assigning the correct protocol or tool to each monitoring requirement.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Choose the tool that directly produces the requested telemetry or management action."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-96",
@@ -2153,7 +2676,7 @@
   {
     "id": "netplus-145",
     "domain": "Network Security",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each Layer 2 security feature to the specific attack it is designed to prevent.",
     "itemsLeft": [
       "DHCP Snooping",
@@ -2173,7 +2696,26 @@
       3,
       1
     ],
-    "explanation": "DHCP Snooping blocks rogue DHCP servers (correctMatches[0]=2). DAI validates ARP packets against the DHCP binding table to stop ARP spoofing (correctMatches[1]=0). Port Security limits the MACs allowed per port, mitigating flooding and unauthorized devices (correctMatches[2]=3). IP Source Guard drops packets whose source IP does not match the DHCP binding, stopping IP spoofing (correctMatches[3]=1)."
+    "explanation": "DHCP Snooping blocks rogue DHCP servers (correctMatches[0]=2). DAI validates ARP packets against the DHCP binding table to stop ARP spoofing (correctMatches[1]=0). Port Security limits the MACs allowed per port, mitigating flooding and unauthorized devices (correctMatches[2]=3). IP Source Guard drops packets whose source IP does not match the DHCP binding, stopping IP spoofing (correctMatches[3]=1).",
+    "pbq": {
+      "title": "Switch hardening plan",
+      "scenario": "A campus switch block has several Layer 2 attack findings that require targeted mitigations.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Each feature should be paired with the attack it is specifically designed to reduce."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-146",
@@ -2913,7 +3455,7 @@
   {
     "id": "netplus-195",
     "domain": "Network Troubleshooting",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each network symptom to its most likely root cause.",
     "itemsLeft": [
       "APIPA address (169.254.x.x)",
@@ -2933,7 +3475,26 @@
       2,
       0
     ],
-    "explanation": "APIPA → DHCP unreachable (index 1). Duplicate IP → ARP conflicts (index 3). One-way VoIP audio → asymmetric routing/firewall blocking return RTP (index 2). Strong Wi-Fi signal with slow throughput → co-channel interference (index 0)."
+    "explanation": "APIPA → DHCP unreachable (index 1). Duplicate IP → ARP conflicts (index 3). One-way VoIP audio → asymmetric routing/firewall blocking return RTP (index 2). Strong Wi-Fi signal with slow throughput → co-channel interference (index 0).",
+    "pbq": {
+      "title": "Branch incident triage",
+      "scenario": "The service desk has grouped several user reports and needs the most likely root cause for each symptom.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Use the symptom pattern to isolate the failing layer before replacing hardware."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-196",
@@ -3648,7 +4209,7 @@
   {
     "id": "netplus-244",
     "domain": "Network Implementation",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each fiber optic connector to its distinguishing physical characteristic.",
     "itemsLeft": [
       "LC",
@@ -3668,7 +4229,26 @@
       1,
       0
     ],
-    "explanation": "LC (Lucent Connector): compact push-pull, 1.25mm ferrule, SFP standard (index 2). SC (Subscriber Connector): push-pull, 2.5mm ferrule, large square body (index 3). ST (Straight Tip): bayonet quarter-turn, square body, older campus LANs (index 1). FC (Ferrule Connector): threaded coupling for vibration resistance in industrial/telecom (index 0)."
+    "explanation": "LC (Lucent Connector): compact push-pull, 1.25mm ferrule, SFP standard (index 2). SC (Subscriber Connector): push-pull, 2.5mm ferrule, large square body (index 3). ST (Straight Tip): bayonet quarter-turn, square body, older campus LANs (index 1). FC (Ferrule Connector): threaded coupling for vibration resistance in industrial/telecom (index 0).",
+    "pbq": {
+      "title": "Fiber installation staging",
+      "scenario": "An installer must identify connector types before patching new distribution links.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Use the connector form factor rather than the fiber mode or wavelength."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-245",
@@ -4433,7 +5013,7 @@
   {
     "id": "netplus-295",
     "domain": "Network Troubleshooting",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each cable tester result to its correct meaning.",
     "itemsLeft": [
       "Open",
@@ -4453,7 +5033,26 @@
       3,
       0
     ],
-    "explanation": "Open (index 1): broken wire, no continuity. Short (index 2): unintended contact between conductors. Crossed pair (index 3): TX pins map to RX pins — may indicate an intentional crossover cable or a miswire. Split pair (index 0): wires from different pairs are mixed (e.g., pin 1 and pin 2 use one wire from pair 2 and one from pair 3), passing continuity tests but causing severe NEXT crosstalk."
+    "explanation": "Open (index 1): broken wire, no continuity. Short (index 2): unintended contact between conductors. Crossed pair (index 3): TX pins map to RX pins — may indicate an intentional crossover cable or a miswire. Split pair (index 0): wires from different pairs are mixed (e.g., pin 1 and pin 2 use one wire from pair 2 and one from pair 3), passing continuity tests but causing severe NEXT crosstalk.",
+    "pbq": {
+      "title": "Copper certification results",
+      "scenario": "A cable certifier produced several fault results during an office acceptance test.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Interpret each result before deciding whether to reterminate or replace the run."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-296",
@@ -5168,7 +5767,7 @@
   {
     "id": "netplus-344",
     "domain": "Networking Concepts",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each DNS record type with its primary function.",
     "itemsLeft": [
       "A record",
@@ -5188,7 +5787,26 @@
       0,
       1
     ],
-    "explanation": "A maps a hostname to an IPv4 address, MX directs email to the correct mail server(s), PTR provides reverse (IP-to-name) resolution, and CNAME aliases a name to its canonical name."
+    "explanation": "A maps a hostname to an IPv4 address, MX directs email to the correct mail server(s), PTR provides reverse (IP-to-name) resolution, and CNAME aliases a name to its canonical name.",
+    "pbq": {
+      "title": "Wireless design review",
+      "scenario": "A wireless engineer is mapping design terms to the behavior observed during a site survey.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Choose the definition that best explains the RF or roaming behavior."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-345",
@@ -6713,7 +7331,7 @@
   {
     "id": "netplus-445",
     "domain": "Network Operations",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each network monitoring technology to its primary function.",
     "itemsLeft": [
       "NetFlow",
@@ -6733,7 +7351,26 @@
       0,
       3
     ],
-    "explanation": "NetFlow exports IP flow records for traffic analysis, SNMP polls device metrics via OIDs/MIBs, Syslog collects device-generated event/error messages, and RMON gathers remote traffic statistics via embedded agents."
+    "explanation": "NetFlow exports IP flow records for traffic analysis, SNMP polls device metrics via OIDs/MIBs, Syslog collects device-generated event/error messages, and RMON gathers remote traffic statistics via embedded agents.",
+    "pbq": {
+      "title": "Troubleshooting-tool checkout",
+      "scenario": "A field technician must select the correct tool for each physical or logical diagnostic task.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Match the tool to the evidence it can actually collect."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-446",
@@ -8991,7 +9628,7 @@
   {
     "id": "netplus-595",
     "domain": "Network Implementation",
-    "type": "matching",
+    "type": "pbq-matching",
     "question": "Match each network physical topology to its defining characteristic.",
     "itemsLeft": [
       "Bus",
@@ -9011,7 +9648,26 @@
       3,
       0
     ],
-    "explanation": "Bus shares one cable (a break disrupts all), star connects every device to a central switch/hub, ring links each node to exactly two neighbors in a loop, and full mesh gives every node a dedicated link to every other node."
+    "explanation": "Bus shares one cable (a break disrupts all), star connects every device to a central switch/hub, ring links each node to exactly two neighbors in a loop, and full mesh gives every node a dedicated link to every other node.",
+    "pbq": {
+      "title": "Network evidence triage",
+      "scenario": "A support team is sorting common diagnostic results before assigning each ticket.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Identify the most direct interpretation of each observation."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "netplus-596",

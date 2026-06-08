@@ -1,11 +1,19 @@
 import { fisherYates } from './shuffle.js'
 
+export const PRACTICAL_QUESTION_TYPES = new Set([
+  'pbq-matching',
+  'cli-output',
+  'topology-scenario',
+  'config-repair',
+  'subnetting-drill',
+])
+
 /**
  * Select questions proportional to domain weights (largest-remainder rounding).
  * Falls back to uniform random if cert has no domain config.
  * Guarantees at least 1 question per type that exists in the pool.
  */
-export function weightedSelect(questions, count, domains) {
+export function weightedSelect(questions, count, domains, options = {}) {
   if (!domains?.length) {
     return fisherYates(questions).slice(0, count)
   }
@@ -62,16 +70,75 @@ export function weightedSelect(questions, count, domains) {
         .filter(([, count]) => count > 1)
         .sort((a, b) => b[1] - a[1])[0]?.[0]
       if (!swapSourceType) continue  // every type has exactly 1 representative — cannot swap safely
-      const swapIdx = picked.findIndex(q => (q.type || 'single-choice') === swapSourceType)
+      const sameDomainCandidate = candidates.find((candidate) =>
+        picked.some((question) =>
+          question.domain === candidate.domain
+          && (question.type || 'single-choice') === swapSourceType
+        )
+      )
+      const candidate = sameDomainCandidate || candidates[0]
+      const swapIdx = picked.findIndex(q =>
+        (q.type || 'single-choice') === swapSourceType
+        && (!sameDomainCandidate || q.domain === candidate.domain)
+      )
       if (swapIdx === -1) continue
       pickedIds.delete(picked[swapIdx].id)
-      picked[swapIdx] = candidates[0]
-      pickedIds.add(candidates[0].id)
+      picked[swapIdx] = candidate
+      pickedIds.add(candidate.id)
     }
   }
 
+  guaranteePracticalQuestions(picked, questions, options.practicalQuestionTarget)
+
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)
+}
+
+function guaranteePracticalQuestions(picked, questions, requestedTarget = 0) {
+  const target = Math.min(
+    Math.max(0, requestedTarget || 0),
+    questions.filter(isPracticalQuestion).length,
+    picked.length,
+  )
+  let practicalCount = picked.filter(isPracticalQuestion).length
+  if (practicalCount >= target) return
+
+  const pickedIds = new Set(picked.map((question) => question.id))
+  const candidates = fisherYates(
+    questions.filter((question) => isPracticalQuestion(question) && !pickedIds.has(question.id)),
+  )
+
+  for (const candidate of candidates) {
+    if (practicalCount >= target) break
+
+    // Prefer an in-domain replacement so official blueprint allocation remains exact.
+    let swapIndex = picked.findIndex((question) =>
+      question.domain === candidate.domain
+      && !isPracticalQuestion(question)
+      && countType(picked, question.type || 'single-choice') > 1
+    )
+
+    if (swapIndex === -1) {
+      swapIndex = picked.findIndex((question) =>
+        !isPracticalQuestion(question)
+        && countType(picked, question.type || 'single-choice') > 1
+      )
+    }
+    if (swapIndex === -1) break
+
+    pickedIds.delete(picked[swapIndex].id)
+    picked[swapIndex] = candidate
+    pickedIds.add(candidate.id)
+    practicalCount += 1
+  }
+}
+
+function isPracticalQuestion(question) {
+  return PRACTICAL_QUESTION_TYPES.has(question.type || 'single-choice')
+}
+
+function countType(questions, type) {
+  return questions.filter((question) => (question.type || 'single-choice') === type).length
 }
 
 /**

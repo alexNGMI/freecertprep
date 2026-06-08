@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { isAnswerComplete, isAnswerCorrect } from '../utils/scoring.js'
+import { getAnswerProgress, isAnswerComplete, isAnswerCorrect } from '../utils/scoring.js'
 
 describe('isAnswerCorrect', () => {
   describe('single-choice', () => {
@@ -148,5 +148,39 @@ describe('isAnswerCorrect', () => {
       expect(isAnswerComplete([0, null], { type: 'matching', itemsLeft: ['a', 'b'] })).toBe(false)
       expect(isAnswerComplete([0, 1], { type: 'matching', itemsLeft: ['a', 'b'] })).toBe(true)
     })
+  })
+})
+
+describe('getAnswerProgress', () => {
+  it('reports component-level matching progress without changing binary scoring', () => {
+    const question = {
+      type: 'pbq-matching',
+      correctMatches: [2, 0, 1],
+    }
+
+    expect(getAnswerProgress([2, 1, 1], question)).toEqual({ correct: 2, total: 3 })
+    expect(isAnswerCorrect([2, 1, 1], question)).toBe(false)
+  })
+
+  it('reports subnet field progress after normalizing input', () => {
+    const question = {
+      type: 'subnetting-drill',
+      asks: ['network', 'hostCount'],
+      correct: { network: '192.168.10.0', hostCount: 30 },
+    }
+
+    expect(getAnswerProgress(
+      { network: ' 192.168.10.0 ', hostCount: '28' },
+      question,
+    )).toEqual({ correct: 1, total: 2 })
+  })
+
+  it('penalizes incorrect selections in multiple-response progress', () => {
+    const question = {
+      type: 'multiple-response',
+      correctAnswers: [0, 2],
+    }
+
+    expect(getAnswerProgress([0, 1, 2], question)).toEqual({ correct: 1, total: 2 })
   })
 })

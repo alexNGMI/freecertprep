@@ -110,7 +110,7 @@
   },
   {
     "id": "secplus-9",
-    "type": "matching",
+    "type": "pbq-matching",
     "domain": "General Security Concepts",
     "question": "Match each security control example with its primary control TYPE:",
     "itemsLeft": [
@@ -131,7 +131,26 @@
       2,
       3
     ],
-    "explanation": "A pen test report DETECTS weaknesses. Activating DR CORRECTS the impact of a disaster after it occurs. A password policy DIRECTS user behavior. A badge reader PREVENTS unauthorized entry. Each control example aligns with one primary control type."
+    "explanation": "A pen test report DETECTS weaknesses. Activating DR CORRECTS the impact of a disaster after it occurs. A password policy DIRECTS user behavior. A badge reader PREVENTS unauthorized entry. Each control example aligns with one primary control type.",
+    "pbq": {
+      "title": "Control classification review",
+      "scenario": "An assessor is classifying safeguards by the outcome each control is intended to produce.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Classify the primary control function even when a safeguard has secondary effects."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-10",
@@ -621,7 +640,7 @@
   },
   {
     "id": "secplus-45",
-    "type": "matching",
+    "type": "pbq-matching",
     "domain": "General Security Concepts",
     "question": "Match each cryptographic concept with its primary purpose:",
     "itemsLeft": [
@@ -642,7 +661,26 @@
       1,
       3
     ],
-    "explanation": "Salting prevents rainbow-table attacks. Key stretching (PBKDF2, bcrypt, Argon2) slows brute force by requiring many iterations per guess. Steganography hides data inside other data. Tokenization replaces real data (like credit card numbers) with non-sensitive tokens, commonly used in PCI environments."
+    "explanation": "Salting prevents rainbow-table attacks. Key stretching (PBKDF2, bcrypt, Argon2) slows brute force by requiring many iterations per guess. Steganography hides data inside other data. Tokenization replaces real data (like credit card numbers) with non-sensitive tokens, commonly used in PCI environments.",
+    "pbq": {
+      "title": "Cryptographic solution selection",
+      "scenario": "An architect must map each security requirement to the cryptographic mechanism that directly satisfies it.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Distinguish confidentiality, integrity, authentication, and non-repudiation outcomes."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-46",
@@ -1291,15 +1329,29 @@
   {
     "id": "secplus-91",
     "domain": "Threats, Vulnerabilities, and Mitigations",
-    "question": "Which characteristic BEST distinguishes a nation-state threat actor from other threat actor types?",
+    "type": "cli-output",
+    "prompt": "Correlate the threat-intelligence and endpoint evidence.",
+    "commands": [
+      {
+        "device": "THREAT-INTEL",
+        "command": "ioc lookup 203.0.113.77",
+        "output": "Actor: ORCHID JACKAL\nAssessment: state-sponsored\nTypical objective: long-term intelligence collection\nKnown technique: signed-driver abuse"
+      },
+      {
+        "device": "EDR-WS18",
+        "command": "timeline --last 10m",
+        "output": "02:14:07 driver installed: netflt64.sys (valid signature)\n02:14:11 credential process memory read\n02:14:18 outbound TLS session -> 203.0.113.77\n02:15:02 persistence created: SystemUpdateCheck"
+      }
+    ],
+    "question": "Which characteristic most strongly supports classifying this activity as a nation-state operation?",
     "choices": [
-      "Significant resources, sophisticated custom tooling, and the patience to maintain access for months or years",
-      "Public claims of responsibility tied to political ideology",
-      "Reliance entirely on publicly available scripts and exploit kits",
-      "Targeting only consumer-level financial accounts for direct theft"
+      "The campaign combines advanced tradecraft with a strategic intelligence objective",
+      "The attacker used an IP address rather than a hostname",
+      "The malware created a scheduled persistence mechanism",
+      "The endpoint established an encrypted connection"
     ],
     "correctAnswer": 0,
-    "explanation": "Nation-state actors are characterized by scale and sophistication: zero-day exploits, custom malware, long-term persistence (often called APT \u2014 Advanced Persistent Threat), and substantial operational budgets. They're patient and focused on strategic objectives like espionage, not quick financial gain."
+    "explanation": "Nation-state activity is distinguished by strategic objectives, sustained resources, and advanced capabilities. Persistence and TLS are common across many attacker types and do not independently establish attribution."
   },
   {
     "id": "secplus-92",
@@ -1330,19 +1382,33 @@
   {
     "id": "secplus-94",
     "domain": "Threats, Vulnerabilities, and Mitigations",
-    "question": "Which is the BEST example of a malicious insider threat indicator?",
+    "type": "cli-output",
+    "prompt": "Review the data-access pattern for the employee account.",
+    "commands": [
+      {
+        "device": "DLP",
+        "command": "events --user adawson --window 7d",
+        "output": "Mon 09:14  18 MB copied to approved share\nTue 10:02  12 MB copied to approved share\nFri 23:47  4.8 GB copied to USB\\VID_0781\nFri 23:55  2.1 GB uploaded to personal-storage.example"
+      },
+      {
+        "device": "HRIS",
+        "command": "employee status adawson",
+        "output": "Department: Product Engineering\nNotice submitted: Friday 15:30\nLast day: 14 days"
+      }
+    ],
+    "question": "Which finding is the strongest malicious-insider indicator?",
     "choices": [
-      "A departing employee accessing and downloading files clearly outside their job scope shortly before their announced resignation date",
-      "A new employee enrolling their account in multi-factor authentication",
-      "A scheduled vulnerability scan running automatically overnight",
-      "A user accessing their corporate email from a corporate-issued laptop"
+      "A departing employee moved unusually large amounts of data to personal destinations after hours",
+      "The employee accessed an approved file share during business hours",
+      "The employee works in Product Engineering",
+      "The employee submitted two weeks notice"
     ],
     "correctAnswer": 0,
-    "explanation": "Departing employees stealing intellectual property is one of the most common insider threat patterns. The combination of (1) leaving soon, (2) accessing files outside normal scope, and (3) high-volume downloads is a classic indicator. The other three options are all benign activities."
+    "explanation": "The combination of impending departure, abnormal volume, after-hours activity, removable media, and a personal storage destination creates a strong exfiltration indicator. None of the other facts alone demonstrates malicious behavior."
   },
   {
     "id": "secplus-95",
-    "type": "matching",
+    "type": "pbq-matching",
     "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "Match each threat actor type with its MOST common primary motivation:",
     "itemsLeft": [
@@ -1363,20 +1429,48 @@
       0,
       2
     ],
-    "explanation": "Nation-state \u2192 strategic intelligence/espionage. Hacktivist \u2192 political/ideological cause. Organized cybercrime \u2192 financial gain. Unintentional insider \u2192 accidental harm. The four most common threat actor categories each have characteristic motivations that drive their tactics."
+    "explanation": "Nation-state → strategic intelligence/espionage. Hacktivist → political/ideological cause. Organized cybercrime → financial gain. Unintentional insider → accidental harm. The four most common threat actor categories each have characteristic motivations that drive their tactics.",
+    "pbq": {
+      "title": "Threat-actor briefing",
+      "scenario": "An analyst is preparing an intelligence summary that pairs actor types with their most common motivations.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Use the dominant motivation; individual campaigns can still vary."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-96",
     "domain": "Threats, Vulnerabilities, and Mitigations",
-    "question": "'Shadow IT' represents which type of risk to an organization?",
-    "choices": [
-      "Backup systems that activate only after a primary system failure",
-      "Anonymous proxy servers deliberately deployed by IT for compliance",
-      "IT staff being required to work in dimly lit data center spaces",
-      "IT systems and services adopted and used by employees or business units without IT department approval or oversight"
+    "type": "cli-output",
+    "prompt": "Identify the unmanaged technology risk.",
+    "commands": [
+      {
+        "device": "CASB",
+        "command": "discover unsanctioned-apps --department finance",
+        "output": "App: QuickShare Cloud\nUsers: 38\nManaged SSO: no\nDLP policy: none\nData uploaded (30d): 91 GB\nVendor security review: not found"
+      }
     ],
-    "correctAnswer": 3,
-    "explanation": "Shadow IT is unsanctioned technology adoption \u2014 a team buying a SaaS tool with a credit card without involving IT/security, employees using personal cloud storage for work data, or unofficial scripts running in production. The risk comes from lack of visibility, no security review, and missing patch management."
+    "question": "Which risk does this evidence most directly demonstrate?",
+    "choices": [
+      "Shadow IT bypassing approved identity, data-protection, and vendor-review controls",
+      "A zero-day vulnerability in the corporate identity provider",
+      "A denial-of-service attack against the finance department",
+      "A hardware supply-chain compromise"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Employees are using an unsanctioned cloud application outside managed SSO, DLP, and vendor review. That is shadow IT and creates governance, data-loss, and compliance risk even if the service itself is not known to be malicious."
   },
   {
     "id": "secplus-97",
@@ -1628,7 +1722,7 @@
   },
   {
     "id": "secplus-115",
-    "type": "matching",
+    "type": "pbq-matching",
     "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "Match each vulnerability CATEGORY with its description:",
     "itemsLeft": [
@@ -1641,7 +1735,7 @@
       "Use of weak or broken algorithms (e.g., `MD5`, `SHA-1`, `DES`) for security-critical functions",
       "A previously unknown flaw being actively exploited before a vendor patch exists",
       "A flaw introduced through a trusted third party (library, hardware component, or service)",
-      "A security setting that is incorrectly applied \u2014 such as a publicly-accessible cloud storage bucket"
+      "A security setting that is incorrectly applied — such as a publicly-accessible cloud storage bucket"
     ],
     "correctMatches": [
       3,
@@ -1649,7 +1743,26 @@
       2,
       0
     ],
-    "explanation": "Misconfiguration \u2192 incorrectly applied setting. Zero-day \u2192 unknown actively-exploited flaw. Supply chain \u2192 introduced via a trusted third party. Cryptographic \u2192 weak or broken algorithms. These four categories cover the bulk of vulnerabilities encountered in modern environments."
+    "explanation": "Misconfiguration → incorrectly applied setting. Zero-day → unknown actively-exploited flaw. Supply chain → introduced via a trusted third party. Cryptographic → weak or broken algorithms. These four categories cover the bulk of vulnerabilities encountered in modern environments.",
+    "pbq": {
+      "title": "Vulnerability intake queue",
+      "scenario": "A security team is routing findings to the correct specialist based on the affected technology category.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Classify the underlying weakness rather than the eventual business impact."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-116",
@@ -2604,7 +2717,7 @@
   },
   {
     "id": "secplus-182",
-    "type": "matching",
+    "type": "pbq-matching",
     "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "Match each common attack with its BEST PRIMARY mitigation:",
     "itemsLeft": [
@@ -2625,7 +2738,26 @@
       0,
       2
     ],
-    "explanation": "SQL injection \u2192 parameterized queries (the only real fix). Phishing \u2192 user training + email filtering (defense in depth). DDoS \u2192 CDN/scrubbing (capacity beats capacity). Password-spraying \u2192 MFA + lockout. Knowing the right mitigation per attack is core security practitioner knowledge."
+    "explanation": "SQL injection → parameterized queries (the only real fix). Phishing → user training + email filtering (defense in depth). DDoS → CDN/scrubbing (capacity beats capacity). Password-spraying → MFA + lockout. Knowing the right mitigation per attack is core security practitioner knowledge.",
+    "pbq": {
+      "title": "Attack mitigation plan",
+      "scenario": "An incident-prevention review requires the most direct primary mitigation for each common attack.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Choose the control that interrupts the attack mechanism most directly."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-183",
@@ -2921,7 +3053,7 @@
     "id": "secplus-253",
     "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "Match each MITRE ATT&CK tactic to the activity that best represents it.",
-    "type": "matching",
+    "type": "pbq-matching",
     "itemsLeft": [
       "Reconnaissance",
       "Lateral movement",
@@ -2940,7 +3072,26 @@
       3,
       1
     ],
-    "explanation": "Reconnaissance covers pre-attack information gathering such as OSINT and scanning (item 2). Lateral movement describes techniques for moving through a network after initial access, such as pass-the-hash (item 0). Exfiltration covers stealing and transmitting data out of the victim environment (item 3). Defense evasion encompasses actions taken to avoid detection, such as disabling security tools and clearing logs (item 1)."
+    "explanation": "Reconnaissance covers pre-attack information gathering such as OSINT and scanning (item 2). Lateral movement describes techniques for moving through a network after initial access, such as pass-the-hash (item 0). Exfiltration covers stealing and transmitting data out of the victim environment (item 3). Defense evasion encompasses actions taken to avoid detection, such as disabling security tools and clearing logs (item 1).",
+    "pbq": {
+      "title": "ATT&CK timeline reconstruction",
+      "scenario": "Responders are mapping observed adversary behavior to the correct MITRE ATT&CK tactic.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Classify the objective represented by the activity, not a specific tool name."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-254",
@@ -3015,44 +3166,308 @@
   {
     "id": "secplus-259",
     "domain": "Security Architecture",
-    "question": "A network architect places public-facing web servers in a dedicated network segment that is separated from the internal corporate network by firewalls on both sides \u2014 one between the internet and the segment, and one between the segment and the internal network. What is this segment called?",
-    "type": "single-choice",
-    "choices": [
-      "VLAN trunk",
-      "Demilitarized zone (DMZ)",
-      "Extranet",
-      "Overlay network"
+    "type": "topology-scenario",
+    "prompt": "Review the placement of the public application tier.",
+    "topology": {
+      "label": "Public web application security zones",
+      "width": 760,
+      "height": 260,
+      "nodes": [
+        {
+          "id": "INET",
+          "label": "Internet",
+          "kind": "untrusted",
+          "x": 80,
+          "y": 130
+        },
+        {
+          "id": "FW1",
+          "label": "FW-EDGE",
+          "kind": "firewall",
+          "x": 240,
+          "y": 130
+        },
+        {
+          "id": "WEB",
+          "label": "WEB-1",
+          "kind": "public tier",
+          "x": 400,
+          "y": 130
+        },
+        {
+          "id": "FW2",
+          "label": "FW-INNER",
+          "kind": "firewall",
+          "x": 560,
+          "y": 130
+        },
+        {
+          "id": "APP",
+          "label": "APP-1",
+          "kind": "internal",
+          "x": 710,
+          "y": 130
+        }
+      ],
+      "links": [
+        {
+          "from": "INET",
+          "to": "FW1",
+          "label": "HTTPS"
+        },
+        {
+          "from": "FW1",
+          "to": "WEB",
+          "label": "TCP 443"
+        },
+        {
+          "from": "WEB",
+          "to": "FW2",
+          "label": "TCP 8443"
+        },
+        {
+          "from": "FW2",
+          "to": "APP",
+          "label": "restricted"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Zone policy",
+        "columns": [
+          "Source",
+          "Destination",
+          "Allowed"
+        ],
+        "rows": [
+          [
+            "Internet",
+            "WEB-1",
+            "TCP 443"
+          ],
+          [
+            "Internet",
+            "APP-1",
+            "None"
+          ],
+          [
+            "WEB-1",
+            "APP-1",
+            "TCP 8443"
+          ]
+        ]
+      }
     ],
-    "correctAnswer": 1,
-    "explanation": "A demilitarized zone (DMZ) is a network segment that sits between an untrusted external network (internet) and a trusted internal network, protected by firewalls on both sides. It hosts services that must be reachable from the internet \u2014 web servers, mail relays, DNS \u2014 while limiting the blast radius if those servers are compromised. An extranet connects trusted external partners; an overlay network is a virtual network built on top of existing infrastructure; a VLAN trunk carries multiple VLAN tags on a single physical link."
+    "question": "What is the dedicated segment containing WEB-1 commonly called?",
+    "choices": [
+      "DMZ",
+      "Air gap",
+      "Management plane",
+      "Data diode"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A DMZ is a controlled network segment for public-facing systems, separated from both the internet and the internal network. The two-firewall policy limits direct exposure and restricts traffic from the public tier to internal services."
   },
   {
     "id": "secplus-260",
     "domain": "Security Architecture",
-    "question": "An organization's new security architecture treats every access request as potentially hostile regardless of whether the request originates from inside or outside the corporate network perimeter, requiring continuous verification of identity, device health, and least-privilege access at each resource. Which security model does this implement?",
-    "type": "single-choice",
-    "choices": [
-      "Role-based access control",
-      "Defense-in-depth",
-      "Zero trust architecture",
-      "Network segmentation"
+    "type": "topology-scenario",
+    "prompt": "Trace how access is evaluated.",
+    "topology": {
+      "label": "Identity-aware application access",
+      "width": 760,
+      "height": 300,
+      "nodes": [
+        {
+          "id": "USER",
+          "label": "User",
+          "kind": "remote",
+          "x": 80,
+          "y": 80
+        },
+        {
+          "id": "DEVICE",
+          "label": "Laptop",
+          "kind": "managed",
+          "x": 80,
+          "y": 220
+        },
+        {
+          "id": "POLICY",
+          "label": "Policy",
+          "kind": "decision point",
+          "x": 350,
+          "y": 150
+        },
+        {
+          "id": "APP1",
+          "label": "Payroll",
+          "kind": "resource",
+          "x": 650,
+          "y": 80
+        },
+        {
+          "id": "APP2",
+          "label": "Git",
+          "kind": "resource",
+          "x": 650,
+          "y": 220
+        }
+      ],
+      "links": [
+        {
+          "from": "USER",
+          "to": "POLICY",
+          "label": "identity + MFA"
+        },
+        {
+          "from": "DEVICE",
+          "to": "POLICY",
+          "label": "health signal"
+        },
+        {
+          "from": "POLICY",
+          "to": "APP1",
+          "label": "least privilege"
+        },
+        {
+          "from": "POLICY",
+          "to": "APP2",
+          "label": "separate decision"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Access observations",
+        "columns": [
+          "Request",
+          "Decision"
+        ],
+        "rows": [
+          [
+            "Managed laptop to Payroll",
+            "Allow after MFA"
+          ],
+          [
+            "Same user from unmanaged tablet",
+            "Deny"
+          ],
+          [
+            "Managed laptop to Git admin",
+            "Deny: role missing"
+          ]
+        ]
+      }
     ],
-    "correctAnswer": 2,
-    "explanation": "Zero trust architecture (ZTA) operates on the principle of 'never trust, always verify' \u2014 eliminating implicit trust based on network location. Every access request requires identity verification, device posture assessment, and least-privilege enforcement regardless of source network. Defense-in-depth layers multiple controls; RBAC assigns permissions by role; network segmentation divides networks into zones. These may be components within a zero trust implementation but are not the model itself."
+    "question": "Which architecture is represented?",
+    "choices": [
+      "Zero trust",
+      "Implicit trust based on internal location",
+      "Flat network architecture",
+      "Open federation without authorization"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Zero trust evaluates identity, device posture, context, and least privilege for each resource request. Being the same user or inside a familiar environment does not create automatic access."
   },
   {
     "id": "secplus-261",
     "domain": "Security Architecture",
-    "question": "A cloud-native organization divides its application environment into fine-grained network zones where each workload communicates only with explicitly permitted peers, limiting lateral movement if any single workload is compromised. Which network security technique does this describe?",
-    "type": "single-choice",
-    "choices": [
-      "Split tunneling",
-      "Network Address Translation (NAT)",
-      "Port security",
-      "Microsegmentation"
+    "type": "topology-scenario",
+    "prompt": "Inspect the workload communication policy.",
+    "topology": {
+      "label": "Microsegmented application workloads",
+      "width": 760,
+      "height": 280,
+      "nodes": [
+        {
+          "id": "WEB",
+          "label": "Web",
+          "kind": "workload",
+          "x": 100,
+          "y": 140
+        },
+        {
+          "id": "API",
+          "label": "API",
+          "kind": "workload",
+          "x": 320,
+          "y": 140
+        },
+        {
+          "id": "DB",
+          "label": "DB",
+          "kind": "workload",
+          "x": 540,
+          "y": 80
+        },
+        {
+          "id": "ADMIN",
+          "label": "Admin",
+          "kind": "workload",
+          "x": 540,
+          "y": 210
+        },
+        {
+          "id": "POLICY",
+          "label": "Policy",
+          "kind": "enforcement",
+          "x": 700,
+          "y": 140
+        }
+      ],
+      "links": [
+        {
+          "from": "WEB",
+          "to": "API",
+          "label": "TCP 443"
+        },
+        {
+          "from": "API",
+          "to": "DB",
+          "label": "TCP 5432"
+        },
+        {
+          "from": "ADMIN",
+          "to": "DB",
+          "label": "blocked"
+        },
+        {
+          "from": "POLICY",
+          "to": "API",
+          "label": "identity rules"
+        }
+      ]
+    },
+    "tables": [
+      {
+        "title": "Default workload policy",
+        "columns": [
+          "Rule",
+          "Action"
+        ],
+        "rows": [
+          [
+            "Explicit application flow",
+            "Allow"
+          ],
+          [
+            "All other east-west traffic",
+            "Deny"
+          ]
+        ]
+      }
     ],
-    "correctAnswer": 3,
-    "explanation": "Microsegmentation applies granular, software-defined access policies between individual workloads, services, or containers \u2014 going far beyond traditional VLAN-based segmentation. Because east-west traffic is controlled at the workload level, a compromised service cannot freely communicate with adjacent systems. NAT translates IP addresses; port security limits MAC addresses on switch ports; split tunneling allows VPN users to route some traffic outside the tunnel."
+    "question": "Which technique most directly limits lateral movement in this design?",
+    "choices": [
+      "Microsegmentation",
+      "Load balancing",
+      "Tokenization",
+      "RAID mirroring"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Microsegmentation applies fine-grained communication policy between individual workloads or small groups. Explicit allow rules and default-deny east-west policy reduce the paths available to a compromised workload."
   },
   {
     "id": "secplus-262",
@@ -3484,7 +3899,7 @@
     "id": "secplus-290",
     "domain": "Security Architecture",
     "question": "Match each network security tool to its primary security function.",
-    "type": "matching",
+    "type": "pbq-matching",
     "itemsLeft": [
       "Web Application Firewall (WAF)",
       "Intrusion Prevention System (IPS)",
@@ -3493,7 +3908,7 @@
     ],
     "itemsRight": [
       "Correlates log and event data from multiple sources across the environment to detect threats and support investigation",
-      "Enforces admission policies by checking device compliance \u2014 patch level, AV status, certificates \u2014 before granting network access",
+      "Enforces admission policies by checking device compliance — patch level, AV status, certificates — before granting network access",
       "Inspects and filters HTTP/S traffic to protect web applications from injection attacks, XSS, and OWASP Top 10 threats",
       "Monitors network traffic inline and actively drops or resets connections that match known attack signatures or anomalous behavior"
     ],
@@ -3503,7 +3918,26 @@
       1,
       0
     ],
-    "explanation": "A WAF inspects web application layer (HTTP/S) traffic and blocks web-specific attacks (item 2). An IPS operates inline on network traffic and actively blocks detected threats in real time (item 3). NAC enforces device compliance as a condition of network admission (item 1). A SIEM aggregates logs and events from across the environment for threat detection and incident response support (item 0)."
+    "explanation": "A WAF inspects web application layer (HTTP/S) traffic and blocks web-specific attacks (item 2). An IPS operates inline on network traffic and actively blocks detected threats in real time (item 3). NAC enforces device compliance as a condition of network admission (item 1). A SIEM aggregates logs and events from across the environment for threat detection and incident response support (item 0).",
+    "pbq": {
+      "title": "Security-tool placement",
+      "scenario": "A network redesign requires each security tool to be assigned to its primary function.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Select the control that directly provides the requested visibility or enforcement."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-191",
@@ -5777,16 +6211,24 @@
   {
     "id": "secplus-391",
     "domain": "Security Operations",
-    "question": "An endpoint security tool monitors running processes, detects anomalous behavior in real time, and can isolate a compromised host from the network. This capability goes beyond traditional antivirus. What is this tool called?",
-    "type": "single-choice",
-    "choices": [
-      "Next-generation firewall (NGFW)",
-      "Security Information and Event Management (SIEM)",
-      "Endpoint Detection and Response (EDR)",
-      "Host-based Intrusion Detection System (HIDS)"
+    "type": "cli-output",
+    "prompt": "Use the endpoint telemetry to select the containment action.",
+    "commands": [
+      {
+        "device": "EDR-ACCT-17",
+        "command": "process tree --alert 8821",
+        "output": "WINWORD.EXE\n  powershell.exe -enc SQBFAFgA...\n    rundll32.exe C:\\Users\\Public\\stage.dll,Start\n      outbound 198.51.100.51:443\nAlert: credential-access behavior detected"
+      }
     ],
-    "correctAnswer": 2,
-    "explanation": "EDR continuously monitors endpoint activity, correlates behavioral patterns, and provides active response capabilities including host isolation \u2014 beyond the signature matching of traditional AV. HIDS (B) detects intrusions but typically lacks active response. A NGFW (C) operates at the network level. A SIEM (D) aggregates and correlates logs from many sources but does not directly monitor or isolate endpoints."
+    "question": "What should the analyst do FIRST after validating this as malicious?",
+    "choices": [
+      "Isolate ACCT-17 from the network through the EDR console",
+      "Delete all organization-wide email archives",
+      "Reimage every endpoint before scoping the incident",
+      "Disable logging to prevent additional alerts"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Network isolation contains the compromised endpoint while preserving telemetry for investigation. Broad destructive actions before scoping are disproportionate, and disabling logging removes evidence."
   },
   {
     "id": "secplus-392",
@@ -5805,72 +6247,129 @@
   {
     "id": "secplus-393",
     "domain": "Security Operations",
-    "question": "A HIDS alert fires on a server when a critical system binary is modified. A network-based IDS on the same segment sees no anomalous traffic. Which statement best explains why HIDS detected the event but NIDS did not?",
-    "type": "single-choice",
-    "choices": [
-      "NIDS only monitors inbound traffic, missing internal events",
-      "NIDS operates at a higher privilege level than HIDS",
-      "File modification occurs on the host \u2014 it generates no network traffic for NIDS to inspect",
-      "HIDS uses signatures while NIDS uses anomaly detection"
+    "type": "cli-output",
+    "prompt": "Compare host and network visibility.",
+    "commands": [
+      {
+        "device": "HIDS-DB01",
+        "command": "integrity events --last 5m",
+        "output": "CRITICAL /usr/bin/ssh hash changed\nold: 41a22f...\nnew: a99b17...\nactor: root pid=1844"
+      },
+      {
+        "device": "NIDS-SENSOR-4",
+        "command": "flows --host 10.30.4.18 --last 5m",
+        "output": "No matching network flows"
+      }
     ],
-    "correctAnswer": 2,
-    "explanation": "HIDS monitors local system events \u2014 file integrity, process activity, log entries \u2014 which produce no network packets. NIDS inspects network traffic and cannot observe on-host file changes. The two tools are complementary: NIDS covers network attacks; HIDS covers host-level tampering."
+    "question": "Why did the HIDS detect this event while the NIDS did not?",
+    "choices": [
+      "The modification occurred on the host without producing observable network traffic",
+      "A NIDS can only inspect encrypted disk sectors",
+      "The HIDS automatically blocks all network traffic",
+      "The NIDS is designed only to verify file hashes on endpoints"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Host-based monitoring can observe file integrity and local process activity even when no packet crosses a network sensor. A NIDS analyzes network traffic and may have no evidence for a purely local modification."
   },
   {
     "id": "secplus-394",
     "domain": "Security Operations",
-    "question": "A vulnerability scanner identifies 400 findings across production systems. Resources allow remediating 30 findings per week. Which factor should MOST influence remediation ordering?",
-    "type": "single-choice",
-    "choices": [
-      "Alphabetical order of the affected system hostname",
-      "CVSS score combined with criticality of the affected asset",
-      "Vendor advisory release date",
-      "Date the vulnerability was first published in the NVD"
+    "type": "config-repair",
+    "scenario": "The scanner exports hundreds of findings. The current remediation queue sorts only by CVSS score, causing an internet-facing exploited issue to appear below internal laboratory findings with slightly higher scores.",
+    "configTitle": "Current prioritization policy",
+    "device": "VM-PLATFORM",
+    "config": [
+      "sort = cvss_score DESC",
+      "consider_asset_criticality = false",
+      "consider_external_exposure = false",
+      "consider_known_exploitation = false",
+      "sla_days = 30"
     ],
-    "correctAnswer": 1,
-    "explanation": "Risk-based prioritization combines exploit severity (CVSS) with business impact (asset criticality). A critical vulnerability on a low-value test system may rank below a medium vulnerability on a payment server. Date-based ordering (B, C) ignores severity and business context. Alphabetical ordering (A) has no security basis."
+    "notes": [
+      "The organization has limited weekly remediation capacity.",
+      "Threat intelligence confirms active exploitation of one exposed finding."
+    ],
+    "question": "Which policy change BEST produces risk-based remediation ordering?",
+    "choices": [
+      "Include asset criticality, exposure, exploitability, and known exploitation with severity",
+      "Sort alphabetically by vulnerability name",
+      "Treat every finding as equal regardless of context",
+      "Suppress all findings with a CVSS score below 10"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Risk-based prioritization combines technical severity with business impact, exposure, exploitability, and threat evidence. CVSS alone cannot show which finding is most likely to cause meaningful harm in the organization."
   },
   {
     "id": "secplus-395",
     "domain": "Security Operations",
-    "question": "A security team centralizes log collection from firewalls, servers, endpoints, and cloud services. The platform correlates events across sources and generates alerts when predefined rule conditions match. What is this platform?",
-    "type": "single-choice",
-    "choices": [
-      "Security Orchestration, Automation, and Response (SOAR)",
-      "Security Information and Event Management (SIEM)",
-      "Intrusion Prevention System (IPS)",
-      "Data Loss Prevention (DLP)"
+    "type": "cli-output",
+    "prompt": "Follow the correlated events across sources.",
+    "commands": [
+      {
+        "device": "SIEM",
+        "command": "search rule=\"suspicious account takeover\" user=rpatel",
+        "output": "09:14:02 VPN login country=US result=success\n09:16:18 IdP MFA reset actor=helpdesk-temp\n09:18:41 CloudAdmin role assigned user=rpatel\n09:20:03 Storage export started size=48GB\nCorrelation: HIGH severity (4 sources)"
+      }
     ],
-    "correctAnswer": 1,
-    "explanation": "A SIEM aggregates, normalizes, and correlates log data from diverse sources, enabling alert generation and forensic investigation across the environment. An IPS (B) actively blocks traffic inline. A SOAR (C) automates response workflows, often consuming SIEM alerts as inputs. DLP (D) monitors and restricts data movement."
+    "question": "Which platform capability is demonstrated?",
+    "choices": [
+      "Centralized event correlation and alerting across multiple security sources",
+      "Full-disk encryption of the user workstation",
+      "Static code analysis during application compilation",
+      "Physical access control at the data center"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A SIEM centralizes events and applies correlation logic across VPN, identity, cloud administration, and storage telemetry. The output demonstrates cross-source detection rather than an endpoint, development, or physical control."
   },
   {
     "id": "secplus-396",
     "domain": "Security Operations",
-    "question": "During a breach investigation, analysts discover that logs covering the attacker's initial access were deleted 90 days ago per an automated retention policy. Which operational control would have preserved the evidence?",
-    "type": "single-choice",
-    "choices": [
-      "Encrypting logs at rest to prevent deletion",
-      "Extending the log retention period beyond 90 days",
-      "Enabling real-time alerting on the SIEM",
-      "Forwarding logs to a SOAR platform"
+    "type": "config-repair",
+    "scenario": "Investigators cannot reconstruct initial access because the relevant identity and proxy logs were deleted before the incident was discovered.",
+    "configTitle": "Current logging policy",
+    "device": "LOG-PLATFORM",
+    "config": [
+      "identity_logs.hot_retention_days = 30",
+      "proxy_logs.hot_retention_days = 30",
+      "archive_enabled = false",
+      "archive_immutability = false",
+      "incident_detection_window_days = 120"
     ],
-    "correctAnswer": 1,
-    "explanation": "Retention period directly determines how far back investigators can look. If the dwell time exceeds the retention window, early-stage evidence is lost. Alerting (A) notifies on events in real time but does not preserve old logs. Encryption (C) protects confidentiality, not retention. SOAR (D) automates response but doesn't change storage duration."
+    "notes": [
+      "The organization commonly discovers account abuse after 60 to 90 days.",
+      "Archived logs may use lower-cost storage."
+    ],
+    "question": "Which change BEST preserves useful evidence while controlling storage cost?",
+    "choices": [
+      "Archive required logs for longer than the detection window using protected immutable storage",
+      "Reduce hot retention to seven days",
+      "Disable identity logging because it contains sensitive data",
+      "Store logs only on the systems that generate them"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Retention must exceed the likely detection and investigation window. Moving older logs to lower-cost immutable archive storage preserves evidence while limiting expensive hot-storage use and reducing tampering risk."
   },
   {
     "id": "secplus-397",
     "domain": "Security Operations",
-    "question": "A network analyst reviews flow records showing a single internal host sending 2 GB of data to an external IP at 2 AM over port 443. No packet payloads are captured. Which type of data is the analyst examining?",
-    "type": "single-choice",
-    "choices": [
-      "Full packet capture (PCAP)",
-      "SIEM correlation alert",
-      "Proxy access log",
-      "NetFlow / IPFIX flow data"
+    "type": "cli-output",
+    "prompt": "Interpret the available network telemetry.",
+    "commands": [
+      {
+        "device": "FLOW-COLLECTOR",
+        "command": "query src=10.20.8.44 start=02:00 end=03:00",
+        "output": "SRC           DST             PROTO  SPORT  DPORT  BYTES       PACKETS\n10.20.8.44    198.51.100.90   TCP    51544  443    2147483648  1519023"
+      }
     ],
-    "correctAnswer": 3,
-    "explanation": "NetFlow/IPFIX records metadata \u2014 source/destination IP, port, protocol, byte counts, timestamps \u2014 without capturing payload content. This is exactly what describes the scenario. Full PCAP (A) includes payload data. A SIEM alert (B) is a derived notification. A proxy log (D) would show URLs and HTTP headers, not raw flow statistics."
+    "question": "What type of telemetry is shown?",
+    "choices": [
+      "Flow metadata describing endpoints, ports, protocol, volume, and packet count",
+      "A full packet capture containing application payloads",
+      "A file integrity baseline",
+      "A vulnerability scan result"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Flow records summarize communication metadata such as source, destination, ports, protocol, byte count, and packet count. They help identify unusual transfer patterns but do not contain the full application payload."
   },
   {
     "id": "secplus-398",
@@ -5893,16 +6392,30 @@
   {
     "id": "secplus-399",
     "domain": "Security Operations",
-    "question": "A network security device detects a port scan and automatically drops packets from the scanning IP for 60 minutes. Which device type is performing this action?",
-    "type": "single-choice",
+    "type": "config-repair",
+    "scenario": "A sensor detects a port scan, but the current rule only records the event. The security requirement is to block the scanning source for 60 minutes while retaining an alert for investigation.",
+    "configTitle": "Current network detection rule",
+    "device": "IPS-EDGE",
+    "config": [
+      "rule = horizontal_port_scan",
+      "threshold = 30 destinations / 60 seconds",
+      "action = alert",
+      "block_duration = 0",
+      "log = enabled"
+    ],
+    "notes": [
+      "The sensor is deployed inline.",
+      "The block must expire automatically."
+    ],
+    "question": "Which change meets the requirement?",
     "choices": [
-      "Intrusion Prevention System (IPS)",
-      "Intrusion Detection System (IDS)",
-      "Packet analyzer (Wireshark)",
-      "Vulnerability scanner"
+      "Set the action to block, preserve logging, and set block_duration to 60 minutes",
+      "Disable the rule to reduce alert volume",
+      "Move the sensor to an offline packet archive",
+      "Set the threshold to unlimited destinations"
     ],
     "correctAnswer": 0,
-    "explanation": "An IPS sits inline and can actively block or drop traffic based on detected threats \u2014 including dynamically blocking scanning IPs. An IDS (A) is passive: it detects and alerts but cannot drop packets. A packet analyzer (B) captures traffic for analysis. A vulnerability scanner (C) probes systems for weaknesses, not traffic."
+    "explanation": "An inline IPS can actively block matching traffic. Configuring a timed block while retaining the alert provides containment and an investigation record without creating a permanent deny entry."
   },
   {
     "id": "secplus-400",
@@ -5978,7 +6491,7 @@
     "id": "secplus-405",
     "domain": "Security Operations",
     "question": "Match each incident response phase to its primary activity.",
-    "type": "matching",
+    "type": "pbq-matching",
     "itemsLeft": [
       "Preparation",
       "Identification",
@@ -5997,7 +6510,26 @@
       3,
       0
     ],
-    "explanation": "Preparation (index 1): IR planning, tooling, and training before incidents happen. Identification (index 2): detecting and scoping the incident. Containment (index 3): isolating affected systems. Eradication (index 0): removing the threat actor's foothold and closing exploited vulnerabilities."
+    "explanation": "Preparation (index 1): IR planning, tooling, and training before incidents happen. Identification (index 2): detecting and scoping the incident. Containment (index 3): isolating affected systems. Eradication (index 0): removing the threat actor's foothold and closing exploited vulnerabilities.",
+    "pbq": {
+      "title": "Incident-response assignment",
+      "scenario": "An incident commander is mapping response activities to the correct phase of the process.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Choose the phase where the activity is primarily performed."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-406",
@@ -6353,7 +6885,7 @@
     "id": "secplus-430",
     "domain": "Security Operations",
     "question": "Match each log source to the type of security event it is best suited to detect.",
-    "type": "matching",
+    "type": "pbq-matching",
     "itemsLeft": [
       "Windows Security Event Log",
       "Web server access log",
@@ -6372,7 +6904,26 @@
       3,
       0
     ],
-    "explanation": "Windows Security Event Log (index 1): records authentication events, privilege use, and account changes \u2014 ideal for failed logins and lockouts. Web server access log (index 2): records HTTP requests including URLs and parameters \u2014 SQL injection patterns appear here. Firewall log (index 3): records permitted/blocked connections by IP and port. DNS query log (index 0): DGA malware generates high volumes of queries to random-looking domains \u2014 detectable through DNS log analysis."
+    "explanation": "Windows Security Event Log (index 1): records authentication events, privilege use, and account changes — ideal for failed logins and lockouts. Web server access log (index 2): records HTTP requests including URLs and parameters — SQL injection patterns appear here. Firewall log (index 3): records permitted/blocked connections by IP and port. DNS query log (index 0): DGA malware generates high volumes of queries to random-looking domains — detectable through DNS log analysis.",
+    "pbq": {
+      "title": "Security log triage",
+      "scenario": "A SOC lead is assigning the correct log source to each detection requirement.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Choose the source most likely to contain direct evidence of the activity."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-431",
@@ -7506,7 +8057,7 @@
     "id": "secplus-506",
     "domain": "Security Program Management and Oversight",
     "question": "Match each security agreement type to its primary purpose.",
-    "type": "matching",
+    "type": "pbq-matching",
     "itemsLeft": [
       "NDA",
       "SLA",
@@ -7525,7 +8076,26 @@
       0,
       2
     ],
-    "explanation": "NDA (index 1): binding confidentiality obligation. SLA (index 3): measurable service commitments with remedies (credits, penalties). MOU (index 0): non-binding documentation of intent and cooperation. BPA (index 2): formal partnership agreement covering business terms, responsibilities, and often profit/cost sharing."
+    "explanation": "NDA (index 1): binding confidentiality obligation. SLA (index 3): measurable service commitments with remedies (credits, penalties). MOU (index 0): non-binding documentation of intent and cooperation. BPA (index 2): formal partnership agreement covering business terms, responsibilities, and often profit/cost sharing.",
+    "pbq": {
+      "title": "Governance evidence review",
+      "scenario": "An auditor is matching security agreements to the purpose each one serves.",
+      "evidence": [
+        {
+          "title": "Task guidance",
+          "items": [
+            {
+              "label": "Items",
+              "value": "4 observations require a match."
+            },
+            {
+              "label": "Constraint",
+              "value": "Use the agreement that establishes the requested responsibility or assurance."
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "secplus-507",

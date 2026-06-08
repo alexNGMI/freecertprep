@@ -425,6 +425,7 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 80,
+    practicalQuestionTarget: 6,
     loadQuestions: () => loadQuestionAsset(comptiaNetPlusQuestionsUrl),
     domains: [
       { name: 'Networking Concepts', weight: 23 },
@@ -485,6 +486,7 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 83,
+    practicalQuestionTarget: 6,
     loadQuestions: () => loadQuestionAsset(comptiaSecPlusQuestionsUrl),
     domains: [
       { name: 'General Security Concepts', weight: 12 },

@@ -108,6 +108,26 @@ describe('weightedSelect', () => {
     // All should come from D1 since D2 has nothing
     expect(result.every(q => q.domain === 'D1')).toBe(true)
   })
+
+  it('guarantees the requested practical-question count while preserving domain allocation', () => {
+    const domains = [
+      { name: 'D1', weight: 60 },
+      { name: 'D2', weight: 40 },
+    ]
+    const pool = makePool(['D1', 'D2'], 100).map((question, index) => ({
+      ...question,
+      type: index % 8 === 0 ? 'cli-output' : 'single-choice',
+    }))
+
+    for (let i = 0; i < 20; i++) {
+      const result = weightedSelect(pool, 20, domains, { practicalQuestionTarget: 6 })
+      const practical = result.filter((question) => question.type === 'cli-output')
+
+      expect(practical).toHaveLength(6)
+      expect(result.filter((question) => question.domain === 'D1')).toHaveLength(12)
+      expect(result.filter((question) => question.domain === 'D2')).toHaveLength(8)
+    }
+  })
 })
 
 describe('selectLicensingExam', () => {

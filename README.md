@@ -34,6 +34,8 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
+> **CompTIA practical simulation v1 is live:** every 90-question Network+ and Security+ form now guarantees at least six practical scenarios while preserving exact blueprint allocation. Network+ has 32 practical items across PBQ matching, topology, command output, and config repair; Security+ has 33 across PBQ matching, log triage, segmented architecture, and control repair. Multi-part review shows component-level correctness without claiming CompTIA's confidential partial-credit model.
+
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.

@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { fisherYates } from '../utils/shuffle'
-import { isAnswerCorrect } from '../utils/scoring'
+import { getAnswerProgress, isAnswerCorrect } from '../utils/scoring'
 import { RichText, InlineRichText } from './RichText'
 import { stripMarkdown } from '../utils/markdown'
 
@@ -121,6 +121,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   }
 
   const isCorrect = isAnswerCorrect(selectedChoice, question)
+  const answerProgress = answered ? getAnswerProgress(selectedChoice, question) : null
 
   // Derived display state for ordering
   const activeOrder = isOrdering ? ((examMode || answered) ? (selectedChoice || []) : localOrder) : []
@@ -443,6 +444,11 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
             <p className="font-bold mb-2">
               {isCorrect ? 'Correct!' : 'Incorrect'}
             </p>
+            {answerProgress && answerProgress.total > 1 && (
+              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                Component check: {answerProgress.correct}/{answerProgress.total} correct
+              </p>
+            )}
             <ExplanationReview text={question.explanation} />
           </div>
         </div>

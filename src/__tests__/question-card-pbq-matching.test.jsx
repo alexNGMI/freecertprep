@@ -82,4 +82,19 @@ describe('QuestionCard pbq-matching questions', () => {
     expect(screen.getByText(/RF interference explains/)).toBeTruthy()
     expect(screen.getByText('RADIUS rejects for contractor SSID')).toBeTruthy()
   })
+
+  it('shows component-level progress for a partially correct PBQ review', () => {
+    render(
+      <QuestionCard
+        question={pbqQuestion}
+        onAnswer={() => {}}
+        answered
+        selectedChoice={[1, 1]}
+        reviewMode
+      />,
+    )
+
+    expect(screen.getByText('Incorrect')).toBeTruthy()
+    expect(screen.getByText('Component check: 1/2 correct')).toBeTruthy()
+  })
 })

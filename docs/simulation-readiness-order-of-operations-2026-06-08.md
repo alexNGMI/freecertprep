@@ -167,6 +167,16 @@ Acceptance criteria:
 
 Goal: close the biggest realism gaps before rewriting thousands of stems.
 
+Status update, June 8, 2026:
+
+- PBQ simulation v1 is production-ready for Network+ and Security+ using the tested interaction engine.
+- Network+ has 32 practical items across PBQ matching, topology, command output, and configuration repair.
+- Security+ has 33 practical items across PBQ matching, log triage, segmentation topology, and security-control repair.
+- The 760-question pool size and official domain allocation for both certifications remain unchanged because weaker single-choice items were upgraded in place.
+- Every generated 90-question form is tested to preserve exact domain allocation and include at least six practical items.
+- Review mode displays component-level correctness for multi-part items while retaining honest binary readiness scoring.
+- The next interaction milestone is richer cable-map, firewall-builder, and multi-artifact tasks rather than another large selected-response expansion.
+
 Priority widgets:
 
 1. CompTIA PBQ engine v1:
@@ -370,6 +380,8 @@ After that, the most rational expansion options are:
 - Network+ topology/cabling widgets.
 - CCNA topology and multi-command troubleshooting polish.
 - Terraform true/false and multiple-answer support.
+
+PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. Richer cable-map, firewall-builder, and multi-artifact interaction remain open.
 
 ### P3
 

@@ -59,6 +59,9 @@ export default function Exam() {
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Navigate freely between questions.</li>
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Answers are scored only when you submit or time expires.</li>
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Your final report updates dashboard history.</li>
+                  {cert.practicalQuestionTarget > 0 && (
+                    <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Includes at least {cert.practicalQuestionTarget} practical scenario questions.</li>
+                  )}
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Vendor exams may include unscored items, scaled scoring, or richer interaction types.</li>
                 </ul>
               </div>

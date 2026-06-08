@@ -54,6 +54,46 @@ export function isAnswerComplete(selectedChoice, question) {
   return true
 }
 
+export function getAnswerProgress(selectedChoice, question) {
+  if (question?.type === 'subnetting-drill') {
+    const fields = question.asks || []
+    return {
+      correct: fields.filter((field) =>
+        normalizeSubnetAnswer(selectedChoice?.[field]) === normalizeSubnetAnswer(question.correct?.[field])
+      ).length,
+      total: fields.length,
+    }
+  }
+
+  if (
+    question?.type === 'matching'
+    || question?.type === 'pbq-matching'
+    || question?.type === 'statement-block'
+    || question?.type === 'ordering'
+  ) {
+    const expected = question.correctMatches ?? question.correctAnswers ?? question.correctOrder ?? []
+    const submitted = Array.isArray(selectedChoice) ? selectedChoice : []
+    return {
+      correct: expected.filter((answer, index) => submitted[index] === answer).length,
+      total: expected.length,
+    }
+  }
+
+  if (question?.type === 'multiple-response') {
+    const expected = question.correctAnswers || []
+    const submitted = Array.isArray(selectedChoice) ? selectedChoice : []
+    const expectedSet = new Set(expected)
+    const correctSelections = submitted.filter((answer) => expectedSet.has(answer)).length
+    const incorrectSelections = submitted.filter((answer) => !expectedSet.has(answer)).length
+    return {
+      correct: Math.max(0, correctSelections - incorrectSelections),
+      total: expected.length,
+    }
+  }
+
+  return null
+}
+
 function normalizeSubnetAnswer(value) {
   return String(value ?? '').trim().toLowerCase()
 }
