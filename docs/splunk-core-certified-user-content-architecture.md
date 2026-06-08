@@ -25,16 +25,19 @@ The first shipped pool is 750 questions so a 60-question simulator and Smart Pra
 
 ## Question-Type Strategy
 
-The real exam is primarily conventional selected-response knowledge and scenario testing, so the bank is mostly single-choice. Multiple-response, matching, and ordering items are used as review aids where they improve learning value without pretending the real exam is a lab exam.
+The official certification page describes a 60-question multiple-choice exam. Simulated exam forms therefore draw only single-choice and multiple-response items. Matching and ordering items remain available as learning drills outside the formal exam selection.
 
 - Single-choice: normal exam-like scenario and command-selection items.
 - Multiple-response: two-correct review checks for paired concepts.
-- Matching: concept-to-purpose drills for commands, UI elements, and knowledge objects.
-- Ordering: workflow drills for search, reporting, dashboards, and alerts.
+- Matching: concept-to-purpose learning drills for commands, UI elements, and knowledge objects; excluded from simulated exams.
+- Ordering: workflow learning drills for search, reporting, dashboards, and alerts; excluded from simulated exams.
 
 ## Quality Gates
 
 - `src/__tests__/content-sanity.test.js` locks exact blueprint-weighted counts.
 - The generator rejects duplicate stems and short explanations.
+- Structural diversity tests normalize numbers and code literals and require at least 500 distinct stem structures.
+- Current measured diversity is 750 exact-unique stems and 529 normalized structures, up from the June 8 pre-rewrite baseline of 297.
+- Exam selection permits only `single-choice` and `multiple-response` items for this certification.
 - Every item uses a domain registered in `src/data/certs.js`.
 - The Cybersecurity path points to the live Splunk route rather than a preview card.

@@ -515,6 +515,7 @@ const certs = {
     examQuestions: 60,
     examTime: 60,
     passingScore: 70,
+    examAllowedTypes: ['single-choice', 'multiple-response'],
     loadQuestions: () => loadQuestionAsset(splunkCoreCertifiedUserQuestionsUrl),
     domains: SPLUNK_CORE_USER_DOMAINS,
     domainColors: SPLUNK_CORE_USER_COLORS,

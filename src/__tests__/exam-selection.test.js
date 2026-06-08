@@ -150,6 +150,28 @@ describe('weightedSelect', () => {
       expect(byType['multiple-response']).toBeGreaterThanOrEqual(4)
     }
   })
+
+  it('limits an exam form to certification-approved question types', () => {
+    const types = ['single-choice', 'multiple-response', 'matching', 'ordering']
+    const pool = makePool(['D1', 'D2'], 100, types)
+    const domains = [
+      { name: 'D1', weight: 60 },
+      { name: 'D2', weight: 40 },
+    ]
+
+    for (let i = 0; i < 20; i++) {
+      const result = weightedSelect(pool, 60, domains, {
+        allowedQuestionTypes: ['single-choice', 'multiple-response'],
+      })
+
+      expect(result).toHaveLength(60)
+      expect(result.every(question =>
+        ['single-choice', 'multiple-response'].includes(question.type)
+      )).toBe(true)
+      expect(result.filter(question => question.domain === 'D1')).toHaveLength(36)
+      expect(result.filter(question => question.domain === 'D2')).toHaveLength(24)
+    }
+  })
 })
 
 describe('selectLicensingExam', () => {

@@ -14,16 +14,16 @@ const DOMAINS = [
 ]
 
 const CONTEXTS = [
-  'while triaging a service-desk escalation',
-  'during a SOC shift handoff',
-  'while reviewing web access logs',
-  'during an operations dashboard review',
-  'while validating a saved search',
-  'during an incident review',
-  'while onboarding a junior analyst',
-  'during a morning health check',
-  'while refining noisy search results',
-  'during a report design session',
+  'during a focused investigation',
+  'while validating search behavior',
+  'while reviewing operational data',
+  'during an analyst handoff',
+  'while preparing a reusable search',
+  'during a result-quality review',
+  'while coaching a junior analyst',
+  'during a scheduled health check',
+  'while narrowing an event set',
+  'during a reporting workflow',
 ]
 
 const DATASETS = [
@@ -36,30 +36,156 @@ const DATASETS = [
 ]
 
 const DETAILS = [
-  'a narrow time window selected by the analyst',
-  'a dashboard panel that needs cleaner source data',
-  'a handoff note from the previous shift',
-  'a saved search being converted into a report',
-  'a noisy result set that needs refinement',
-  'a manager asking for a reusable view',
-  'a junior analyst validating field filters',
-  'a weekly operations review',
-  'a failed-login investigation',
-  'a web error trend that must be summarized',
-  'a firewall deny spike in the timeline',
-  'a lookup enrichment task',
-  'an alert threshold that fires too often',
-  'a CSV-based reporting workflow',
-  'a result table prepared for a dashboard',
-  'a search job that ran longer than expected',
-  'an event list with too many unrelated matches',
-  'a field sidebar review',
-  'a chart request from a team lead',
-  'a recurring compliance report',
+  'a 15-minute investigation window',
+  'a panel backed by a saved search',
+  'results handed off by the previous analyst',
+  'a search being prepared for reuse',
+  'an event set with unrelated matches',
+  'a reusable operational view',
+  'field filters being checked for accuracy',
+  'a weekly operations summary',
+  'a failed-authentication review',
+  'an HTTP error trend',
+  'a firewall deny spike',
+  'external business context',
+  'an alert threshold under review',
+  'a CSV enrichment workflow',
+  'a result table intended for a dashboard',
+  'a long-running search job',
+  'an event list that needs refinement',
+  'the fields sidebar and event details',
+  'a chart requested by an operations lead',
+  'a recurring compliance summary',
   'an app-specific search workspace',
   'a report shared with another team',
-  'a scheduled search readiness check',
+  'a scheduled-search readiness check',
 ]
+
+const HOSTS = ['web01', 'web02', 'auth01', 'fw-edge-01', 'app01', 'db02', 'vpn-gw-01', 'api03']
+const WINDOWS = ['Last 15 minutes', 'Last 60 minutes', 'Today', 'Previous week', '-30m@m to now', '-24h@h to @h']
+function scenarioFor(domain, id, d, concept = '') {
+  const host = HOSTS[id % HOSTS.length]
+  const window = WINDOWS[id % WINDOWS.length]
+  const count = 5 + ((id * 17) % 991)
+  const alternate = DATASETS[(id + 2) % DATASETS.length]
+  const key = concept.toLowerCase()
+
+  const fallbacks = {
+    'Splunk Basics': [
+      `A forwarder on ${host} sends ${d.sourcetype} data to index=${d.index}; users search it from Splunk Web.`,
+      `A user can open Search & Reporting and run SPL, but cannot change deployment-wide indexing settings.`,
+      `The ${d.event} workflow needs a reusable package containing searches, reports, and dashboards.`,
+      `An analyst changes the preferred time zone and default app without altering indexed events.`,
+    ],
+    'Basic Searching': [
+      `The search \`index=${d.index} sourcetype=${d.sourcetype}\` returns ${count} events in ${window}.`,
+      `The timeline shows a spike from ${host}, while an all-time search returns unrelated older events.`,
+      `A running search for ${d.event} is still scanning data after the useful results have appeared.`,
+      `The current result set mixes index=${d.index} with index=${alternate.index} and needs a narrower scope.`,
+    ],
+    'Using Fields in Searches': [
+      `One event contains \`${d.field}=${d.value}\`, \`host=${host}\`, and \`sourcetype=${d.sourcetype}\`.`,
+      `The fields sidebar lists ${d.field} in ${count} events and shows ${d.value} as a common value.`,
+      `The analyst must keep events where ${d.field} equals ${d.value} before building statistics.`,
+      `A field value appears as \`${d.value} access denied\` and must be treated as one phrase.`,
+    ],
+    'Search Language Fundamentals': [
+      `The current pipeline is \`index=${d.index} sourcetype=${d.sourcetype} | table _time host ${d.field}\`.`,
+      `The result table contains repeated values for host=${host} and must be shaped without changing raw data.`,
+      `A report needs readable columns for \`host\`, \`${d.field}\`, and \`_time\`.`,
+      `The base search selects ${count} ${d.event} events before later commands format the results.`,
+    ],
+    'Using Basic Transforming Commands': [
+      `The analyst needs a result table that summarizes ${count} events by ${d.field}.`,
+      `Values of ${d.field} must be ranked to reveal the most or least common values.`,
+      `The search \`index=${d.index} sourcetype=${d.sourcetype}\` must produce counts grouped by ${d.field}.`,
+      `Raw ${d.event} events need to become chart-ready statistics for ${window}.`,
+    ],
+    'Creating Reports and Dashboards': [
+      `A validated search for ${d.event} produces a table of \`${d.field}\` and \`count\` for ${window}.`,
+      `An operations page needs separate panels for ${d.event}, host health, and event volume.`,
+      `A saved search is useful to several analysts and should retain its title, permissions, and visualization.`,
+      `A panel backed by \`stats count by ${d.field}\` needs a clearer chart without re-indexing data.`,
+    ],
+    'Creating and Using Lookups': [
+      `Events contain \`${d.field}=${d.value}\`; a CSV contains \`${d.field},owner,priority\`.`,
+      `The lookup has ${count} rows, but no enrichment appears for ${d.field}=${d.value}.`,
+      `A lookup definition named \`${d.index}_asset_context\` points to a CSV keyed by ${d.field}.`,
+      `Search results need owner and priority added without changing the original ${d.event} events.`,
+    ],
+    'Creating Scheduled Reports and Alerts': [
+      `A saved search returns ${count} ${d.event} events in ${window}; the team only needs action above 40 results.`,
+      `A compliance search must run every Monday and preserve its results for review.`,
+      `An alert for ${d.field}=${d.value} fires every five minutes even when only one event is present.`,
+      `The search is validated; the remaining decisions are schedule, trigger condition, and notification action.`,
+    ],
+  }
+
+  let evidence
+
+  if (key === 'indexer') evidence = `A forwarder on ${host} sends ${d.sourcetype} data to index=${d.index}, where the events are stored and made searchable.`
+  else if (key === 'search head') evidence = `A user opens Splunk Web on the search tier, enters SPL, and receives results from index=${d.index}.`
+  else if (key.includes('app packages')) evidence = `A security workspace must distribute related searches, reports, dashboards, and navigation as one unit.`
+  else if (key.includes('user preferences')) evidence = `An analyst needs a different time zone and default app without changing roles, source types, or indexed data.`
+  else if (key.includes('search, analyze, monitor')) evidence = `The team wants to investigate ${d.event}, summarize trends, and present the findings in a dashboard.`
+  else if (key.includes('search & reporting')) evidence = `A new user has access to Splunk Web and needs the standard workspace for an ad hoc SPL search.`
+  else if (key.startsWith('index=')) evidence = `The current all-index search mixes ${d.event} with data from index=${alternate.index}; the required events use sourcetype=${d.sourcetype} and ${d.field}=${d.value}.`
+  else if (key.includes('time picker') || key.includes('earliest/latest')) evidence = `An all-time search returns older events, but the investigation only covers ${window}.`
+  else if (key.includes('events list')) evidence = `The Search view shows raw matching records with _time, host=${host}, and extracted field ${d.field}.`
+  else if (key.includes('more specific search terms')) evidence = `A broad search returns ${count} events from both index=${d.index} and index=${alternate.index}, including unrelated source types.`
+  else if (key.includes('timeline helps')) evidence = `The event histogram contains a sharp spike from host=${host} within ${window}.`
+  else if (key.includes('pause, resume, finalize')) evidence = `A long-running search is still scanning events after the analyst has enough evidence to stop or inspect the job.`
+  else if (key.includes('save the search as a report')) evidence = `A validated search for ${d.event} must be reused by the same team next week.`
+  else if (key.includes('search mode affects')) evidence = `The analyst compares Fast, Smart, and Verbose modes while deciding how much field discovery is needed.`
+  else if (key.includes('name-value pairs')) evidence = `One event contains host=${host}, sourcetype=${d.sourcetype}, and ${d.field}=${d.value}.`
+  else if (key === `${d.field.toLowerCase()}=${d.value.toLowerCase()}`) evidence = `The analyst must keep only events whose ${d.field} value is ${d.value}.`
+  else if (key.includes('fields sidebar')) evidence = `The Search view lists ${d.field} as an interesting field and displays its common values.`
+  else if (key.includes('selected fields are shown')) evidence = `The event view displays _time, host, and ${d.field} above the remaining discovered fields.`
+  else if (key.includes('quotation marks')) evidence = `The required ${d.field} value contains multiple words that must be matched as one phrase.`
+  else if (key.includes('fields can be used to filter')) evidence = `Only ${d.field}=${d.value} events should reach the later stats command.`
+  else if (key.includes('pipe character')) evidence = `The SPL starts with \`index=${d.index}\` and then sends those events to \`table _time host ${d.field}\`.`
+  else if (key.includes('specify index early')) evidence = `The relevant data is known to reside in index=${d.index}, while other indexes contain unrelated events.`
+  else if (key.startsWith('table keeps')) evidence = `The final output needs columns for _time, host, and ${d.field}.`
+  else if (key.startsWith('rename changes')) evidence = `A report should display a readable label instead of the field name ${d.field}.`
+  else if (key.startsWith('fields can include')) evidence = `The current results contain dozens of fields, but the next command only needs host and ${d.field}.`
+  else if (key.startsWith('dedup keeps')) evidence = `The result set contains repeated events for host=${host}, and only one representative event per host is needed.`
+  else if (key.startsWith('sort orders')) evidence = `A table of ${d.field} and count must place the largest count first.`
+  else if (key === 'stats') evidence = `The analyst needs count and average calculations grouped by ${d.field}.`
+  else if (key === 'top') evidence = `The analyst needs the most frequent ${d.field} values with counts and percentages.`
+  else if (key === 'rare') evidence = `The analyst needs the least frequent ${d.field} values to identify unusual activity.`
+  else if (key.includes('| stats count by')) evidence = `The search for ${d.event} must become a result table of event counts grouped by ${d.field}.`
+  else if (key.includes('transforming commands create')) evidence = `Raw ${d.event} events must become a chart-ready aggregate table.`
+  else if (key === 'save the search as a report') evidence = `A tested search needs a reusable title, permissions, schedule, and visualization settings.`
+  else if (key.includes('reports can display')) evidence = `The search returns a statistical table with ${d.field} and count columns.`
+  else if (key.includes('dashboard organizes')) evidence = `An operations page must present related panels for ${d.event}, host health, and volume.`
+  else if (key.includes('add a saved report')) evidence = `A validated saved report must appear alongside other monitoring panels.`
+  else if (key.includes('edit the report definition')) evidence = `A chart needs a clearer title and visualization type, but its indexed source data is already correct.`
+  else if (key.includes('lookups enrich')) evidence = `Events contain ${d.field}=${d.value}; a CSV maps that key to owner, department, and priority.`
+  else if (key.includes('lookup definition tells')) evidence = `A CSV has been uploaded, but searches still need a named configuration that describes how to use it.`
+  else if (key.includes('use a lookup keyed')) evidence = `The event field ${d.field} matches a CSV key that can return owner and severity.`
+  else if (key.includes('usable key field')) evidence = `A lookup returns no enrichment for ${d.field}=${d.value}, even though both the events and CSV should share that key.`
+  else if (key.includes('scheduled report runs')) evidence = `A compliance search must execute automatically every Monday without a user opening Splunk Web.`
+  else if (key.startsWith('an alert is used')) evidence = `The team needs a notification only when a search for ${d.event} crosses an operational threshold.`
+  else if (key.includes('scheduled alerts evaluate')) evidence = `A saved search should run every five minutes and test its result count even when no dashboard is open.`
+  else if (key.includes('choose an alert condition')) evidence = `The current alert fires for every result, but action is only warranted when more than 40 events occur in ${window}.`
+  else evidence = fallbacks[domain][id % fallbacks[domain].length]
+
+  return `${evidence} The search window is ${window}, and the current result set contains ${count} events.`
+}
+
+function reviewGuidance(domain, d) {
+  const guidance = {
+    'Splunk Basics': 'Choose the component or user feature that owns the described responsibility; interface objects do not perform indexing.',
+    'Basic Searching': `Start with time, index=${d.index}, and sourcetype=${d.sourcetype} constraints before adding presentation commands.`,
+    'Using Fields in Searches': `Treat ${d.field} as a searchable name-value pair and verify that its value exists in the current result set.`,
+    'Search Language Fundamentals': 'Base terms select events; commands after a pipe shape, filter, order, or display the resulting data.',
+    'Using Basic Transforming Commands': 'Use transforming commands when the required output is an aggregate or ranked table rather than raw events.',
+    'Creating Reports and Dashboards': 'Validate the underlying search first, then save and present it without implying that the raw indexed data changes.',
+    'Creating and Using Lookups': `Successful enrichment requires a matching key such as ${d.field} and explicitly returned lookup fields.`,
+    'Creating Scheduled Reports and Alerts': 'A reliable scheduled object combines a tested search, an appropriate time window, and a meaningful schedule or trigger.',
+  }
+  return guidance[domain]
+}
 
 const BANK = {
   'Splunk Basics': [
@@ -462,10 +588,10 @@ function makeSingle(domain, id, pattern) {
     id,
     domain,
     type: 'single-choice',
-    question: `${valueOf(pattern.stem, ctx)} The scenario includes ${detail} under ticket SPL-${String(id).padStart(3, '0')}.`,
+    question: `${scenarioFor(domain, id, d, correct)} ${valueOf(pattern.stem, ctx)}`,
     choices,
     correctAnswer,
-    explanation: valueOf(pattern.explanation, ctx),
+    explanation: `${valueOf(pattern.explanation, ctx)} ${reviewGuidance(domain, d)}`,
   }
 }
 
@@ -486,35 +612,37 @@ function makeMultiple(domain, id, a, b) {
     id,
     domain,
     type: 'multiple-response',
-    question: `Which TWO statements are accurate for Splunk Core User work ${context} when the scenario includes ${detail} under ticket SPL-${String(id).padStart(3, '0')}?`,
+    question: `${scenarioFor(domain, id, d, correctA)} ${scenarioFor(domain, id + 1, d, correctB)} Which TWO choices correctly identify the relevant Splunk components, behaviors, or actions?`,
     choices,
     correctAnswers,
-    explanation: `${valueOf(a.explanation, ctx)} Also, ${valueOf(b.explanation, ctx)}`,
+    explanation: `${valueOf(a.explanation, ctx)} Also, ${valueOf(b.explanation, ctx)} ${reviewGuidance(domain, d)}`,
   }
 }
 
 function makeMatching(domain, id, set) {
+  const d = DATASETS[id % DATASETS.length]
   return {
     id,
     domain,
     type: 'matching',
-    question: `${set.question} Use the set from ${CONTEXTS[id % CONTEXTS.length]} with ${DETAILS[id % DETAILS.length]} under ticket SPL-${String(id).padStart(3, '0')}.`,
+    question: `${scenarioFor(domain, id, d)} ${set.question}`,
     itemsLeft: set.left,
     itemsRight: set.right,
     correctMatches: set.matches,
-    explanation: set.explanation,
+    explanation: `${set.explanation} ${reviewGuidance(domain, d)}`,
   }
 }
 
 function makeOrdering(domain, id, set) {
+  const d = DATASETS[id % DATASETS.length]
   return {
     id,
     domain,
     type: 'ordering',
-    question: `${set.question} Apply it to ${DETAILS[id % DETAILS.length]} under ticket SPL-${String(id).padStart(3, '0')}.`,
+    question: `${scenarioFor(domain, id, d)} ${set.question}`,
     items: set.items,
     correctOrder: set.items.map((_, index) => index),
-    explanation: set.explanation,
+    explanation: `${set.explanation} ${reviewGuidance(domain, d)}`,
   }
 }
 

@@ -14,13 +14,20 @@ export const PRACTICAL_QUESTION_TYPES = new Set([
  * Guarantees at least 1 question per type that exists in the pool.
  */
 export function weightedSelect(questions, count, domains, options = {}) {
+  const allowedTypes = options.allowedQuestionTypes?.length
+    ? new Set(options.allowedQuestionTypes)
+    : null
+  const eligibleQuestions = allowedTypes
+    ? questions.filter((question) => allowedTypes.has(question.type || 'single-choice'))
+    : questions
+
   if (!domains?.length) {
-    return fisherYates(questions).slice(0, count)
+    return fisherYates(eligibleQuestions).slice(0, count)
   }
 
   // Group questions by domain name
   const byDomain = {}
-  for (const q of questions) {
+  for (const q of eligibleQuestions) {
     if (!byDomain[q.domain]) byDomain[q.domain] = []
     byDomain[q.domain].push(q)
   }
@@ -45,19 +52,19 @@ export function weightedSelect(questions, count, domains, options = {}) {
   // Fill any shortfall with random questions not already picked
   if (leftover > 0) {
     const pickedIds = new Set(picked.map(q => q.id))
-    const extra = fisherYates(questions.filter(q => !pickedIds.has(q.id)))
+    const extra = fisherYates(eligibleQuestions.filter(q => !pickedIds.has(q.id)))
     picked.push(...extra.slice(0, leftover))
   }
 
   // Guarantee at least 1 question per type that exists in the pool.
-  const poolTypes = [...new Set(questions.map(q => q.type || 'single-choice'))]
+  const poolTypes = [...new Set(eligibleQuestions.map(q => q.type || 'single-choice'))]
   const pickedTypes = new Set(picked.map(q => q.type || 'single-choice'))
   const missingTypes = poolTypes.filter(t => !pickedTypes.has(t))
 
   if (missingTypes.length > 0) {
     const pickedIds = new Set(picked.map(q => q.id))
     for (const missing of missingTypes) {
-      const candidates = fisherYates(questions.filter(q => !pickedIds.has(q.id) && (q.type || 'single-choice') === missing))
+      const candidates = fisherYates(eligibleQuestions.filter(q => !pickedIds.has(q.id) && (q.type || 'single-choice') === missing))
       if (candidates.length === 0) continue
       // Build current type counts so we swap from the most over-represented type
       // (never reducing any type below 1 occurrence).
@@ -88,8 +95,8 @@ export function weightedSelect(questions, count, domains, options = {}) {
     }
   }
 
-  guaranteePracticalQuestions(picked, questions, options.practicalQuestionTarget)
-  guaranteeQuestionTypes(picked, questions, options.requiredTypeCounts)
+  guaranteePracticalQuestions(picked, eligibleQuestions, options.practicalQuestionTarget)
+  guaranteeQuestionTypes(picked, eligibleQuestions, options.requiredTypeCounts)
 
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)

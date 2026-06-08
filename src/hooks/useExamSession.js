@@ -24,6 +24,7 @@ export function useExamSession({ cert, questions, resultsPath }) {
       : weightedSelect(questions, examQuestionCount, cert.domains, {
         practicalQuestionTarget: cert.practicalQuestionTarget,
         requiredTypeCounts: cert.requiredTypeCounts,
+        allowedQuestionTypes: cert.examAllowedTypes,
       })
   )
 

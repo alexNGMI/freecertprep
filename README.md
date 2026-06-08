@@ -36,6 +36,8 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **Live-bank language cleanup is active:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, and Splunk Core User. Automated gates prevent that phrasing from returning. The cleanup exposed repeated stem clusters that are now measured directly and queued for evidence-based rewrites rather than hidden behind artificial IDs.
 
+> **Splunk evidence rewrite is live:** all 750 Core Certified User stems are exact-unique and now use concrete SPL, event, field, result-set, lookup, report, dashboard, or alert evidence. Structural stem diversity increased from 297 to 529 after normalizing numbers and code literals. Official-style 60-question simulations exclude the matching and ordering learning drills.
+
 > **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
 > **CompTIA practical simulation v1 is live:** every 90-question Network+ and Security+ form now guarantees at least six practical scenarios while preserving exact blueprint allocation. Network+ has 32 practical items across PBQ matching, topology, command output, and config repair; Security+ has 33 across PBQ matching, log triage, segmented architecture, and control repair. Multi-part review shows component-level correctness without claiming CompTIA's confidential partial-credit model.

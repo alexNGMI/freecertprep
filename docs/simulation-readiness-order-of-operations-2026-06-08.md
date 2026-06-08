@@ -71,7 +71,7 @@ Scoring dimensions:
 | Security+, SY0-701 | B+ | 760 questions, strong domain fit, zero normalized duplicate groups in scan, varied item types. | Real Security+ PBQs often require log triage, policy/config matching, attack-chain interpretation, and control placement; current app approximates. | Add log-analysis and incident-response PBQ widgets; expand why-wrong explanations. |
 | Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
-| Splunk Core Certified User | B+ | Exact blueprint fit, 750 questions, official exam is 60 multiple-choice questions / 60 minutes. Low duplicate count. | Natural language has synthetic ticket phrasing; explanations need stronger why-right/why-wrong detail. | Polish wording and explanations; keep live. |
+| Splunk Core Certified User | B+ | Exact blueprint fit, 750 exact-unique questions, concrete SPL/result evidence, and official-style selected-response exam forms. Structural stem diversity increased from 297 to 529. | The bank still uses reusable concept templates, and selected explanations can gain more command-specific distractor analysis. | Keep live; continue targeted editorial review while monitoring structural diversity. |
 | Schneider Data Center Certified Associate | C | Vendor-source topic architecture is useful; 750 questions across data-center physical infrastructure. | Heavy normalized duplication and obvious distractors; official exam-source details are less pinned than major vendors. | Rewrite repeated facility scenarios; pin current official exam guide/source package. |
 | Terraform Associate 004 | B+ | The 632-question Terraform 1.12 pool now includes official-style true/false, multiple-choice, and multiple-answer formats across every objective. Generated forms preserve objective allocation and guarantee mixed-format coverage. | The simulator approximates HashiCorp's exam delivery and uses a readiness target rather than claiming official score equivalence. | Keep live; continue replacing older verbose stems during normal editorial review. |
 
@@ -261,17 +261,17 @@ Why third: the blueprint fit is strong, so this is a polish pass with high ROI.
 Actions:
 
 1. Completed June 8, 2026: removed synthetic "ticket SPL-###" and "scenario includes" phrasing.
-2. Add more real SPL snippets and search-result context.
-3. Expand explanations with why-right and why-wrong guidance.
-4. Keep the official 60-question / 60-minute selected-response simulator.
+2. Completed June 8, 2026: rebuilt repeated clusters with concrete SPL, event, field, result-set, lookup, report, dashboard, and alert evidence.
+3. Completed June 8, 2026: expanded explanations with applied guidance and distractor distinctions.
+4. Completed June 8, 2026: limited the official-style 60-question / 60-minute simulator to selected-response items.
 
-The language cleanup exposed 156 normalized duplicate stem groups containing 609 questions. Those clusters must be rewritten with actual SPL, event, field, result-table, report, alert, lookup, and dashboard evidence rather than restored decorative identifiers.
+The language cleanup exposed 156 normalized duplicate stem groups containing 609 questions. The evidence rewrite raised exact uniqueness to 750 of 750 and structural uniqueness to 529 after normalizing numbers and code literals, compared with the exposed 297-stem baseline.
 
 Acceptance criteria:
 
 - No synthetic ticket markers.
 - Review mode teaches field/search/report/dashboard concepts clearly.
-- Normalized duplicate clusters fall materially from the June 8 baseline.
+- Normalized structural uniqueness remains at or above 500 and does not regress toward the June 8 baseline.
 
 #### 4.5 A+ Core 1 and Core 2
 
@@ -386,7 +386,7 @@ After that, the most rational expansion options are:
 
 - Linux+ rewrite.
 - DCCA rewrite.
-- Splunk duplicate-stem, SPL-evidence, and explanation rewrite.
+- Completed June 8, 2026: Splunk duplicate-stem, SPL-evidence, explanation, and exam-format rewrite.
 - A+ Core 1 and Core 2 duplicate-stem and evidence rewrite.
 - Arizona real estate source/delivery verification.
 - Georgia real estate source verification.

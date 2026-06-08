@@ -427,7 +427,17 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(byType['multiple-response']).toBeGreaterThanOrEqual(90)
     expect(byType['matching']).toBeGreaterThanOrEqual(35)
     expect(byType['ordering']).toBeGreaterThanOrEqual(15)
-    expect(new Set(questions.map(q => q.question)).size).toBeGreaterThanOrEqual(297)
+    expect(new Set(questions.map(q => q.question)).size).toBe(750)
+
+    const structuralStems = new Set(questions.map(q =>
+      q.question
+        .toLowerCase()
+        .replace(/`[^`]+`/g, '<code>')
+        .replace(/\d+/g, '#')
+        .replace(/[^a-z#<>]+/g, ' ')
+        .trim()
+    ))
+    expect(structuralStems.size).toBeGreaterThanOrEqual(500)
   })
 
   it('live A+ and Splunk banks avoid synthetic ticket framing', () => {
@@ -451,7 +461,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     const minimumUniqueStems = {
       'comptia-a-plus-core-1': 399,
       'comptia-a-plus-core-2': 464,
-      'splunk-core-certified-user': 297,
+      'splunk-core-certified-user': 750,
     }
     if (!minimumUniqueStems[certId]) return
 
