@@ -278,15 +278,17 @@ Acceptance criteria:
 Status update, June 8, 2026:
 
 - Removed synthetic ticket identifiers from both 760-question live banks.
-- Retained one legitimate Core 2 support-ticket matching PBQ where ticket triage is the skill being practiced.
+- Retained legitimate support-ticket wording inside handcrafted PBQ-lite scenarios where triage itself is being practiced.
 - The cleanup exposed 114 duplicate stem groups covering 475 Core 1 questions and 108 groups covering 404 Core 2 questions.
+- Completed the first evidence rewrite: both banks now contain 760 exact and normalized-unique stems, no generated ticket framing, and at least 120 characters of applied explanation for every generated item.
+- Formal 90-question forms now guarantee at least six of the ten handcrafted PBQ-lite scenarios and exclude statement-block learning drills.
 
 Next actions:
 
-1. Replace repeated frames with device symptoms, screenshots/settings descriptions, command output, hardware observations, user-impact details, and troubleshooting constraints.
-2. Prioritize PBQ-capable domains and the largest duplicate clusters.
-3. Preserve the current blueprint allocation and 760-question pool size.
-4. Require explanations to identify why the chosen action is safer or more diagnostic than the alternatives.
+1. Completed June 8, 2026: replace repeated frames with device scope, observed behavior, prior checks, and operational constraints.
+2. Completed June 8, 2026: preserve the current blueprint allocation, 760-question pool size, and ten handcrafted PBQ-lite items per core.
+3. Completed June 8, 2026: require explanations to identify why the chosen action is safer or more diagnostic than alternatives.
+4. Next audit: map the underlying 44 Core 1 and 36 Core 2 concept templates against every official Version 2.0 subobjective. Stem uniqueness does not by itself prove complete objective breadth.
 
 #### 4.4 CCST and CCNA
 
@@ -387,7 +389,7 @@ After that, the most rational expansion options are:
 - Linux+ rewrite.
 - DCCA rewrite.
 - Completed June 8, 2026: Splunk duplicate-stem, SPL-evidence, explanation, and exam-format rewrite.
-- A+ Core 1 and Core 2 duplicate-stem and evidence rewrite.
+- Completed June 8, 2026: A+ Core 1 and Core 2 duplicate-stem and first evidence rewrite.
 - Arizona real estate source/delivery verification.
 - Georgia real estate source verification.
 

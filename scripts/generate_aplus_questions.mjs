@@ -155,7 +155,7 @@ const contexts = [
   'after a department move',
   'for a small office rollout',
   'during a field-service visit',
-  'while resolving a recurring ticket',
+  'while investigating a recurring issue',
   'during a new-hire setup',
   'after a recent configuration change',
   'while supporting a hybrid worker',
@@ -181,6 +181,63 @@ const contexts = [
   'for a technician training scenario',
 ]
 
+const supportEvidence = {
+  'Mobile Devices': {
+    assets: ['a managed Windows laptop', 'an Android tablet', 'an iOS phone', 'a USB-C ultrabook', 'a field-service tablet', 'a shared conference-room laptop'],
+    scope: ['only the replacement device is affected', 'the same accessory works on another device', 'the issue follows the user to a loaner device', 'the behavior began after a mobile-device refresh', 'the device passes its built-in hardware check', 'the problem appears only when the user is away from the office'],
+    constraints: ['corporate data must remain protected', 'the repair must use an approved compatible part', 'the user needs a supported configuration rather than a workaround', 'the device is enrolled in company management', 'the technician must avoid damaging a sealed component', 'the solution must preserve the user profile'],
+    impact: ['the user cannot complete remote work', 'battery runtime is below the required shift length', 'the external accessory is unavailable during meetings', 'corporate messaging cannot synchronize', 'the device is unsafe to keep in service', 'the user is blocked from a customer appointment'],
+  },
+  Networking: {
+    assets: ['a wired office workstation', 'a SOHO router', 'a ceiling-mounted access point', 'a VoIP phone', 'a conference-room laptop', 'a newly patched switchport'],
+    scope: ['nearby users remain connected', 'the failure occurs on both wired and wireless tests', 'the link light changes when a known-good cable is used', 'IP connectivity works while name resolution fails', 'the client receives different settings on a known-good port', 'only the guest network is affected'],
+    constraints: ['internal systems must remain isolated from visitors', 'the fix must preserve secure wireless encryption', 'the technician may change client settings but not the upstream provider', 'the device must receive both data and power over one cable', 'the change must avoid disrupting working users', 'the solution must use the existing Ethernet run'],
+    impact: ['the user cannot reach a business application', 'voice calls drop when the device loses network access', 'visitors must have internet access without reaching internal hosts', 'the access point cannot be mounted near an outlet', 'the workstation cannot obtain valid network settings', 'the team cannot identify where traffic stops'],
+  },
+  Hardware: {
+    assets: ['a small-form-factor desktop', 'a graphics workstation', 'a laser printer', 'a virtualization lab host', 'a front-desk workstation', 'a desktop being upgraded'],
+    scope: ['the symptom began immediately after component work', 'a known-good external device produces the same result', 'firmware detects the old component but not the replacement', 'the system passes POST before the workload starts', 'the problem appears only under sustained load', 'the replacement must fit the existing chassis and motherboard'],
+    constraints: ['the technician must follow ESD precautions', 'the replacement must meet motherboard compatibility limits', 'the system cannot be taken out of service for a full rebuild', 'the upgrade must support the requested workload', 'the fix must not risk socket or connector damage', 'the component must meet the required bandwidth'],
+    impact: ['the system cannot boot reliably', 'the workstation misses its performance target', 'printed output cannot be used by customers', 'the computer shuts down during production work', 'the upgrade is not detected by firmware', 'data must remain available during short power interruptions'],
+  },
+  'Virtualization and Cloud Computing': {
+    assets: ['a developer workstation', 'a classroom virtualization host', 'a browser-based business application', 'a test VM', 'a remote training environment', 'a small private-cloud lab'],
+    scope: ['the physical host has sufficient CPU and memory', 'the guest must be isolated from production traffic', 'students need to restore a known-good state repeatedly', 'users should not install the application locally', 'the VM needs controlled access to the host network', 'the workload must run independently from the host operating system'],
+    constraints: ['snapshots cannot replace the backup policy', 'the virtual network must not expose test services', 'the selected service model must match who manages the application', 'the host must support hardware-assisted virtualization', 'the design must allow quick rollback after risky changes', 'the configuration must preserve network separation'],
+    impact: ['a failed exercise must be reset quickly', 'the application must be available from unmanaged endpoints', 'test traffic could disrupt production systems', 'several operating systems must share one physical computer', 'the guest currently has no external connectivity', 'the team needs infrastructure without purchasing physical servers'],
+  },
+  'Hardware and Network Troubleshooting': {
+    assets: ['a recently moved workstation', 'a laptop under load', 'a laser printer', 'a newly upgraded desktop', 'a wired office endpoint', 'a user workstation with intermittent faults'],
+    scope: ['the symptom can be reproduced consistently', 'a known-good cable or peripheral has already been tested', 'the issue began after a recent hardware change', 'other devices on the same network work normally', 'the failure appears only when temperature or load increases', 'the firmware and operating system report different device states'],
+    constraints: ['the technician should test the least invasive cause first', 'user data must be preserved', 'working infrastructure should not be changed without evidence', 'the repair window is limited', 'the next step must isolate one layer of the problem', 'the technician has one known-good replacement part'],
+    impact: ['the endpoint cannot complete startup', 'the user loses connectivity intermittently', 'output quality makes the printer unusable', 'the computer shuts down during demanding work', 'the user can reach IP addresses but not named services', 'the newly installed component is unavailable'],
+  },
+  'Operating Systems': {
+    assets: ['a Windows 11 Pro workstation', 'a Linux support terminal', 'a managed macOS laptop', 'a domain-joined Windows laptop', 'a newly imaged workstation', 'a shared administrative computer'],
+    scope: ['the user data is backed up', 'the same account works on another managed device', 'the problem began after an operating-system or driver change', 'the technician has approved administrative credentials', 'the required edition and network connectivity are available', 'the command must change the local system rather than a network service'],
+    constraints: ['the technician must use a native supported tool', 'the action must preserve the existing user profile where possible', 'the user should receive only the required privilege', 'the system must remain compatible with organizational policy', 'the change must be repeatable and documented', 'the repair should occur before considering reinstallation'],
+    impact: ['the user cannot access required applications', 'the system cannot start normally', 'a routine administrative task takes too long manually', 'the workstation cannot join centralized management', 'protected system files may be damaged', 'the current disk layout does not meet deployment requirements'],
+  },
+  Security: {
+    assets: ['a managed laptop', 'a shared workstation', 'a SOHO wireless router', 'a company phone', 'a remote-access account', 'an endpoint showing suspicious behavior'],
+    scope: ['the device contains business data', 'the user reports a suspicious message before opening its attachment', 'the account has access beyond the user’s daily needs', 'the system is still connected to the corporate network', 'the device is enrolled in MDM', 'the current control relies on a password alone'],
+    constraints: ['evidence and business data must be protected', 'the response must limit spread before remediation', 'the control must support individual accountability', 'the solution must follow least privilege', 'the device may be permanently lost', 'the technician must not trust unknown removable media'],
+    impact: ['an attacker could access cached company information', 'malware could spread to shared resources', 'stolen credentials could permit remote access', 'unauthorized users could reach internal systems', 'the organization cannot attribute activity to one person', 'the user may disclose credentials to an impersonator'],
+  },
+  'Software Troubleshooting': {
+    assets: ['a Windows 11 workstation', 'a managed mobile phone', 'a desktop mail client', 'a browser profile', 'a mapped network drive', 'a line-of-business application'],
+    scope: ['the problem affects one application while others work', 'the same account works through a web interface', 'the issue began immediately after an update', 'a newly created user profile does not show the symptom', 'network connectivity to other services is normal', 'the behavior persists after a normal restart'],
+    constraints: ['user data and settings should be preserved', 'the technician should capture the error before making broad changes', 'security controls must not be disabled as a permanent fix', 'the repair should isolate profile, application, and system causes', 'the user needs the least disruptive recovery option', 'the fix must be verified under the original user account'],
+    impact: ['the application closes before work can be saved', 'the user is redirected away from expected sites', 'the system repeatedly enters recovery', 'a required share is unavailable after sign-in', 'mail works in the browser but not locally', 'startup performance prevents the user from beginning work'],
+  },
+  'Operational Procedures': {
+    assets: ['a production workstation', 'a device containing customer records', 'a warranty replacement laptop', 'a shared workstation image', 'a failed storage device', 'a support case being escalated'],
+    scope: ['the technical repair has been verified', 'the action could interrupt other users', 'another technician may need to continue the work', 'the device contains confidential information', 'the change affects a standard configuration', 'the equipment is leaving organizational control'],
+    constraints: ['the work must follow change approval', 'documentation must not expose credentials', 'the technician must follow ESD and electrical safety', 'privacy rules limit who may view the data', 'a rollback path must exist before implementation', 'disposal must follow media-sanitization policy'],
+    impact: ['future technicians need an accurate repair history', 'an unapproved change could cause an outage', 'improper handling could expose customer data', 'the next support tier could repeat completed work', 'a failed restore would make the backup useless', 'unsafe handling could damage equipment or injure staff'],
+  },
+}
+
 const prompts = [
   'Which action is BEST?',
   'What should the technician do FIRST?',
@@ -189,11 +246,104 @@ const prompts = [
   'What is the most likely correct next step?',
 ]
 
+const neutralObservations = [
+  'The technician has documented when the behavior or requirement began',
+  'A known-good comparison device or configuration is available',
+  'The current configuration and recent changes have been recorded',
+  'The symptom or requirement has been confirmed with the user',
+  'The technician has the vendor documentation and approved tools',
+  'Unrelated systems are working normally and should not be changed',
+  'The technician must verify the result under the original conditions',
+  'The existing user data and approved configuration must be preserved',
+  'The team needs the smallest supported change that satisfies the requirement',
+  'The technician has ruled out a simple user-interface misunderstanding',
+]
+
+const neutralConstraints = [
+  'The action must use a supported, documented method',
+  'Working systems and unrelated settings should remain unchanged',
+  'The technician should choose the option that directly satisfies the requirement',
+  'The result must be verified under the original conditions',
+  'The change must preserve user data and approved security controls',
+  'The least disruptive effective action is preferred',
+  'The technician should avoid replacing unrelated components',
+  'The final configuration must remain supportable',
+  'The next action should narrow the cause or complete the stated task',
+  'The technician must follow vendor guidance and organizational policy',
+]
+
+function sentenceCase(value) {
+  return value.charAt(0).toUpperCase() + value.slice(1)
+}
+
+function inferAsset(task, domain) {
+  const text = task.toLowerCase()
+  const rules = [
+    [/printer|fuser|toner|print/, 'the affected printer'],
+    [/phone|smartphone|mobile|tap-to-pay|nfc|hotspot|headset/, 'the managed mobile device'],
+    [/laptop|sodimm|battery|trackpad/, 'the affected laptop'],
+    [/wi-fi|wireless|access point|soho|guest/, 'the office wireless network'],
+    [/patch panel|ethernet|switch port|link light|cable/, 'the affected Ethernet connection'],
+    [/dhcp|dns|host names|remote host|traffic takes|network segment/, 'the affected network client'],
+    [/cpu|processor|heat sink|thermal paste|memory|motherboard|desktop|workstation|pc /, 'the affected desktop workstation'],
+    [/storage|nvme|drive|ssd|file system|partition/, 'the affected computer'],
+    [/virtual|hypervisor|saas|iaas|snapshot|vm /, 'the virtualization environment'],
+    [/windows|task manager|domain|powershell|system files|blue screen|profile/, 'the Windows workstation'],
+    [/linux|sudo|package manager/, 'the Linux workstation'],
+    [/macos/, 'the managed Mac'],
+    [/browser/, 'the affected browser profile'],
+    [/email|mapped drive|application|app /, 'the affected user endpoint'],
+    [/malware|phishing|least privilege|mfa|encryption|social engineering|usb/, 'the managed endpoint'],
+    [/make a production configuration change/, 'the production environment'],
+    [/document a completed repair|escalate an issue/, 'the support record'],
+    [/dispose of an old drive/, 'the retired storage device'],
+    [/communicate|confidential|backup/, 'the support workflow'],
+  ]
+  return rules.find(([pattern]) => pattern.test(text))?.[1]
+    || supportEvidence[domain].assets[0]
+}
+
+function targetPhrase(asset) {
+  return /environment|network|workflow|record/.test(asset)
+    ? `within ${asset}`
+    : `on ${asset}`
+}
+
+const domainGuidance = {
+  'Mobile Devices': 'Prefer an approved, compatible mobile component or managed setting; unrelated desktop and network changes do not correct the stated mobile requirement.',
+  Networking: 'Work from the relevant network layer and preserve segmentation and security; operating-system disk tools do not diagnose network reachability.',
+  Hardware: 'Verify compatibility, power, seating, cooling, and interface requirements before replacing unrelated components.',
+  'Virtualization and Cloud Computing': 'Match the hypervisor, virtual network, snapshot, or service model to the stated ownership and isolation requirement.',
+  'Hardware and Network Troubleshooting': 'Use the symptom and prior checks to isolate the smallest likely fault before replacing unrelated hardware or changing working infrastructure.',
+  'Operating Systems': 'Choose the supported native operating-system tool and least disruptive recovery path before reinstalling or changing unrelated network hardware.',
+  Security: 'Contain active risk and apply least privilege, encryption, strong authentication, and approved policy instead of weakening controls for convenience.',
+  'Software Troubleshooting': 'Use the scope and recent change to distinguish application, profile, operating-system, and network causes before making broad changes.',
+  'Operational Procedures': 'Protect people, data, and service continuity through approval, documentation, privacy, safety, rollback, and verified completion.',
+}
+
 function rotateChoices(correct, distractors, offset) {
   const choices = [...distractors]
   const index = offset % 4
   choices.splice(index, 0, correct)
   return { choices, correctAnswer: index }
+}
+
+function greatestCommonDivisor(a, b) {
+  let x = a
+  let y = b
+  while (y !== 0) {
+    const remainder = x % y
+    x = y
+    y = remainder
+  }
+  return x
+}
+
+function contextStepFor(topicCount) {
+  for (let step = 1; step < contexts.length; step += 1) {
+    if (greatestCommonDivisor(step + topicCount, contexts.length) === 1) return step
+  }
+  return 1
 }
 
 function isSymptom(task) {
@@ -202,9 +352,9 @@ function isSymptom(task) {
 
 function scenarioStem(task, variant, prompt) {
   if (isSymptom(task)) {
-    return `A technician is troubleshooting this issue ${variant}: ${task}. ${prompt}`
+    return `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${variant.observation}. ${variant.constraint}. ${prompt}`
   }
-  return `A technician needs to ${task} ${variant}. ${prompt}`
+  return `${sentenceCase(variant.context)}, a technician needs to ${task} ${targetPhrase(variant.asset)}. ${variant.observation}. ${variant.constraint}. ${prompt}`
 }
 
 function shuffleWithMatches(itemsRight, offset) {
@@ -226,7 +376,7 @@ function singleQuestion(prefix, idNum, domain, topic, variant) {
     question: scenarioStem(task, variant, prompts[idNum % prompts.length]),
     choices,
     correctAnswer,
-    explanation: why,
+    explanation: `${why} ${domainGuidance[domain]}`,
   }
 }
 
@@ -237,11 +387,11 @@ function multipleResponse(prefix, idNum, domain, topic, variant) {
     domain,
     type: 'multiple-response',
     question: isSymptom(task)
-      ? `A technician is troubleshooting this issue ${variant}: ${task}. Which TWO choices best support the response?`
-      : `A technician is asked to ${task} ${variant}. Which TWO choices best support the requirement?`,
+      ? `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${variant.observation}. Which TWO choices best support the response?`
+      : `${sentenceCase(variant.context)}, a technician is asked to ${task} ${targetPhrase(variant.asset)}. ${variant.observation}. Which TWO choices best support the requirement?`,
     choices: [correct, `Verify the change after implementation and document the result`, ...distractors.slice(0, 2)],
     correctAnswers: [0, 1],
-    explanation: `${why} Verification and documentation confirm the fix and preserve support history.`,
+    explanation: `${why} Verification and documentation confirm the fix and preserve support history. ${domainGuidance[domain]}`,
   }
 }
 
@@ -252,15 +402,15 @@ function statementBlock(prefix, idNum, domain, topic, variant) {
     domain,
     type: 'statement-block',
     question: isSymptom(task)
-      ? `Review these statements about this troubleshooting issue ${variant}: ${task}.`
-      : `Review these statements about how to ${task} ${variant}.`,
+      ? `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${variant.observation}. Review the statements against the observed evidence.`
+      : `${sentenceCase(variant.context)}, a technician must ${task} ${targetPhrase(variant.asset)}. ${variant.constraint}. Review the statements against the requirement.`,
     statements: [
       correct,
       distractors[0],
       'Documenting the final outcome helps future support work',
     ],
     correctAnswers: [true, false, true],
-    explanation: `${why} The incorrect statement describes an unsafe, unrelated, or ineffective action.`,
+    explanation: `${why} The incorrect statement describes an unsafe, unrelated, or ineffective action. ${domainGuidance[domain]}`,
   }
 }
 
@@ -273,11 +423,11 @@ function matchingQuestion(prefix, idNum, domain, variant) {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
     type: 'matching',
-    question: `${question} Use the situation ${variant}.`,
+    question: `${question} The work involves ${variant.asset} ${variant.context}; ${variant.constraint.toLowerCase()}.`,
     itemsLeft,
     itemsRight: shuffled.itemsRight,
     correctMatches: correctMatches.map(match => shuffled.correctMatches[match]),
-    explanation: 'Each item maps to the function or tool most commonly associated with that support task.',
+    explanation: `Each item maps to the function or tool most commonly associated with that support task. ${domainGuidance[domain]}`,
   }
 }
 
@@ -289,10 +439,10 @@ function orderingQuestion(prefix, idNum, domain, variant) {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
     type: 'ordering',
-    question: `${question} Use the situation ${variant}.`,
+    question: `${question} The technician is working on ${variant.asset} ${variant.context}; ${variant.constraint.toLowerCase()}.`,
     items,
     correctOrder,
-    explanation: 'The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation.',
+    explanation: `The safest support workflow starts with scoping, proceeds through controlled action, and ends with verification and documentation. ${domainGuidance[domain]}`,
   }
 }
 
@@ -301,10 +451,19 @@ function generate(prefix, domains) {
   let idNum = 1
   for (const [domain, count] of domains) {
     const topics = banks[domain]
+    const topicOccurrences = new Map()
+    const contextStep = contextStepFor(topics.length)
     for (let i = 0; i < count; i += 1) {
       const topic = topics[i % topics.length]
-      const ticket = domain.replace(/[^A-Z]/gi, '').slice(0, 3).toUpperCase()
-      const variant = `${contexts[i % contexts.length]} on ticket ${ticket}-${String(i + 1).padStart(3, '0')}`
+      const task = topic[0]
+      const occurrence = topicOccurrences.get(task) || 0
+      topicOccurrences.set(task, occurrence + 1)
+      const variant = {
+        asset: inferAsset(task, domain),
+        observation: neutralObservations[(occurrence * 3 + i) % neutralObservations.length],
+        constraint: neutralConstraints[(occurrence * 5 + i) % neutralConstraints.length],
+        context: contexts[(occurrence * contextStep + i) % contexts.length],
+      }
       const absolute = questions.length + 1
       let q = null
       if (absolute % 17 === 0) q = matchingQuestion(prefix, idNum, domain, variant)
@@ -325,6 +484,26 @@ const outputs = [
 ]
 
 for (const [target, questions] of outputs) {
-  fs.writeFileSync(path.join(root, target), `${JSON.stringify(questions, null, 2)}\n`)
-  console.log(`${target}: ${questions.length}`)
+  const targetPath = path.join(root, target)
+  const existing = JSON.parse(fs.readFileSync(targetPath, 'utf8'))
+  const practicalQuestions = existing.filter(question => question.type === 'pbq-matching')
+  const completeBank = [...questions, ...practicalQuestions]
+  const normalizedStems = new Set(completeBank.map(question =>
+    question.question
+      .toLowerCase()
+      .replace(/`[^`]+`/g, '<code>')
+      .replace(/\d+/g, '#')
+      .replace(/[^a-z#<>]+/g, ' ')
+      .trim()
+  ))
+  if (completeBank.length !== 760) throw new Error(`${target} expected 760 questions`)
+  if (practicalQuestions.length !== 10) throw new Error(`${target} expected 10 preserved PBQs`)
+  if (normalizedStems.size !== completeBank.length) {
+    throw new Error(`${target} contains normalized duplicate stems`)
+  }
+  if (questions.some(question => /\bticket\b/i.test(question.question))) {
+    throw new Error(`${target} generated questions contain ticket framing`)
+  }
+  fs.writeFileSync(targetPath, `${JSON.stringify(completeBank, null, 2)}\n`)
+  console.log(`${target}: ${completeBank.length} (${practicalQuestions.length} preserved PBQs)`)
 }

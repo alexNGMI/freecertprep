@@ -459,8 +459,8 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
 
   it('tracks the exposed live-bank stem diversity baseline', () => {
     const minimumUniqueStems = {
-      'comptia-a-plus-core-1': 399,
-      'comptia-a-plus-core-2': 464,
+      'comptia-a-plus-core-1': 760,
+      'comptia-a-plus-core-2': 760,
       'splunk-core-certified-user': 750,
     }
     if (!minimumUniqueStems[certId]) return
@@ -470,6 +470,28 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     )).size
 
     expect(uniqueStems).toBeGreaterThanOrEqual(minimumUniqueStems[certId])
+  })
+
+  it('A+ banks keep the evidence rewrite and practical-item baseline', () => {
+    if (!['comptia-a-plus-core-1', 'comptia-a-plus-core-2'].includes(certId)) return
+
+    expect(questions).toHaveLength(760)
+    expect(questions.filter(q => typeOf(q) === 'pbq-matching')).toHaveLength(10)
+
+    const normalizedStems = new Set(questions.map(q =>
+      q.question
+        .toLowerCase()
+        .replace(/`[^`]+`/g, '<code>')
+        .replace(/\d+/g, '#')
+        .replace(/[^a-z#<>]+/g, ' ')
+        .trim()
+    ))
+    expect(normalizedStems.size).toBe(760)
+
+    for (const q of questions.filter(q => typeOf(q) !== 'pbq-matching')) {
+      expect(q.question, `${certId} q${q.id} uses generated ticket framing`).not.toMatch(/\bticket\b/i)
+      expect(q.explanation.length, `${certId} q${q.id} explanation is too short`).toBeGreaterThanOrEqual(120)
+    }
   })
 
   it('CompTIA Linux+ follows the XK0-006 domain-weight target and PBQ-style mix', () => {
