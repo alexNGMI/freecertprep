@@ -6,6 +6,7 @@ import { stripMarkdown } from '../utils/markdown'
 
 export default function QuestionCard({ question, onAnswer, answered, selectedChoice, examMode = false, reviewMode = false, isBookmarked = false, onToggleBookmark = null }) {
   const isMultiple = question.type === 'multiple-response'
+  const isTrueFalse = question.type === 'true-false'
   const isStatement = question.type === 'statement-block'
   const isOrdering = question.type === 'ordering'
   const isPbqMatching = question.type === 'pbq-matching'
@@ -158,6 +159,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
         </div>
         <div className="flex items-center gap-2">
           {isMultiple && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Select {question.correctAnswers.length}</span>}
+          {isTrueFalse && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">True or false</span>}
           {isStatement && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Yes / No required</span>}
           {isOrdering && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Click to order ({activeOrder.length}/{question.items?.length})</span>}
           {isPbqMatching && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">PBQ-lite matching</span>}

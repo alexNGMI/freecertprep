@@ -2,93 +2,110 @@
   {
     "id": "tf-1",
     "domain": "Infrastructure as Code (IaC) with Terraform",
-    "question": "What is the primary benefit of describing infrastructure as code rather than provisioning it manually through a web console?",
+    "type": "true-false",
+    "question": "Terraform uses a declarative model: configuration describes the desired end state rather than every procedural step.",
     "choices": [
-      "It guarantees infrastructure is always free of cost",
-      "It makes provisioning repeatable, versionable, and reviewable",
-      "It eliminates the need for any cloud provider credentials",
-      "It removes the need to ever run an apply"
+      "True",
+      "False"
     ],
-    "correctAnswer": 1,
-    "explanation": "Infrastructure as Code lets you codify infrastructure in configuration files that can be versioned in source control, peer-reviewed, and applied repeatedly to produce the same result, replacing error-prone manual clicking."
+    "correctAnswer": 0,
+    "explanation": "Terraform compares configuration, state, and provider data to determine the actions needed to reach the declared result."
   },
   {
     "id": "tf-2",
     "domain": "Infrastructure as Code (IaC) with Terraform",
-    "question": "Which term describes infrastructure that is never modified in place after deployment and is instead replaced with a new version?",
+    "type": "true-false",
+    "question": "Terraform can manage resources from only one provider in a configuration.",
     "choices": [
-      "Mutable infrastructure",
-      "Idempotent infrastructure",
-      "Immutable infrastructure",
-      "Configuration drift"
+      "True",
+      "False"
     ],
-    "correctAnswer": 2,
-    "explanation": "Immutable infrastructure means resources are replaced rather than changed in place; a new resource is provisioned from the updated definition and the old one is destroyed, avoiding drift and snowflake servers."
+    "correctAnswer": 1,
+    "explanation": "A configuration can use multiple providers and aliases to manage multi-cloud, hybrid-cloud, and service-agnostic workflows."
   },
   {
     "id": "tf-3",
     "domain": "Infrastructure as Code (IaC) with Terraform",
-    "question": "What is 'configuration drift'?",
+    "type": "true-false",
+    "question": "Version-controlled infrastructure configuration supports review, repeatability, and an auditable change history.",
     "choices": [
-      "A networking latency issue between regions",
-      "The time it takes for terraform plan to complete",
-      "The difference between the real infrastructure and what the code declares",
-      "The deliberate versioning of configuration files"
+      "True",
+      "False"
     ],
-    "correctAnswer": 2,
-    "explanation": "Configuration drift occurs when the real-world state of infrastructure diverges from the definition in code, usually due to manual out-of-band changes. IaC tools detect and can reconcile drift."
+    "correctAnswer": 0,
+    "explanation": "These are core advantages of infrastructure as code compared with undocumented manual changes."
   },
   {
     "id": "tf-4",
     "domain": "Infrastructure as Code (IaC) with Terraform",
-    "question": "An operation that produces the same result whether it is run once or many times is described as:",
+    "type": "multiple-response",
+    "question": "Which TWO are advantages of infrastructure as code? (Select TWO.)",
     "choices": [
-      "Stateful",
-      "Ephemeral",
-      "Imperative",
-      "Idempotent"
+      "Repeatable provisioning",
+      "Peer review through version control",
+      "No need for provider credentials",
+      "Guaranteed zero-cost infrastructure",
+      "Automatic removal of every operational risk"
     ],
-    "correctAnswer": 3,
-    "explanation": "Idempotency means applying the same configuration repeatedly converges to the same end state without unintended additional changes \u2014 a core property of declarative IaC like Terraform."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "IaC makes provisioning repeatable and reviewable. It does not eliminate credentials, costs, or operational risk."
   },
   {
     "id": "tf-5",
     "domain": "Infrastructure as Code (IaC) with Terraform",
-    "question": "Which statement best contrasts a declarative tool with an imperative one?",
+    "type": "multiple-response",
+    "question": "Which TWO capabilities support Terraform multi-platform workflows? (Select TWO.)",
     "choices": [
-      "Declarative tools describe the desired end state; imperative tools specify the exact steps",
-      "Declarative tools require a programming language; imperative tools do not",
-      "There is no practical difference between the two",
-      "Declarative tools cannot manage cloud resources"
+      "Provider plugins expose platform APIs",
+      "One HCL-based workflow can compose multiple providers",
+      "Every provider must use a separate Terraform binary",
+      "Terraform supports public cloud only",
+      "State is never required"
     ],
-    "correctAnswer": 0,
-    "explanation": "Declarative IaC (like Terraform) describes the desired end state and lets the tool determine how to reach it, whereas imperative approaches require you to spell out each step explicitly."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Terraform uses provider plugins behind a consistent language and workflow across many services and platforms."
   },
   {
     "id": "tf-6",
     "domain": "Infrastructure as Code (IaC) with Terraform",
-    "question": "What is the main purpose of Terraform's provider plugins?",
+    "type": "multiple-response",
+    "question": "Which TWO statements describe declarative infrastructure management? (Select TWO.)",
     "choices": [
-      "To translate Terraform configuration into API calls for a specific platform",
-      "To lint HCL syntax",
-      "To encrypt secrets in the configuration",
-      "To store the state file remotely"
+      "The configuration states the desired outcome",
+      "Terraform calculates actions from the dependency graph",
+      "The configuration must list every API call in order",
+      "Resources are always recreated on every apply",
+      "Manual console changes become the source of truth"
     ],
-    "correctAnswer": 0,
-    "explanation": "Providers are plugins that understand a target API (AWS, Azure, GCP, Kubernetes, etc.) and expose its resources and data sources, translating Terraform's declarative config into the platform's API calls."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Declarative configuration specifies the result, while Terraform determines ordering and actions from dependencies and current state."
   },
   {
     "id": "tf-7",
     "domain": "Infrastructure as Code (IaC) with Terraform",
-    "question": "Which capability makes Terraform especially suited to multi-cloud and provider-agnostic provisioning?",
+    "type": "multiple-response",
+    "question": "Which TWO practices help reduce configuration drift? (Select TWO.)",
     "choices": [
-      "It only works with HashiCorp Cloud Platform",
-      "It requires a separate binary for each cloud",
-      "It cannot manage on-premises infrastructure",
-      "It uses a single configuration language and workflow across many providers"
+      "Apply reviewed changes through Terraform",
+      "Compare planned changes with real infrastructure",
+      "Encourage undocumented console changes",
+      "Delete state after every run",
+      "Avoid version control"
     ],
-    "correctAnswer": 3,
-    "explanation": "Terraform exposes one consistent workflow and language (HCL) while delegating to many providers, so you can compose resources across multiple clouds and services in a single configuration."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Using the Terraform workflow and reviewing plans exposes and reconciles differences between declared and real infrastructure."
   },
   {
     "id": "tf-8",
@@ -132,171 +149,200 @@
   {
     "id": "tf-11",
     "domain": "Terraform fundamentals",
-    "question": "Which command downloads provider plugins and prepares a working directory for other commands?",
+    "type": "true-false",
+    "question": "The dependency lock file records selected provider versions and checksums for consistent future initialization.",
     "choices": [
-      "terraform apply",
-      "terraform init",
-      "terraform validate",
-      "terraform plan"
+      "True",
+      "False"
     ],
-    "correctAnswer": 1,
-    "explanation": "terraform init initializes the working directory: it downloads required providers and modules and configures the backend. It must be run before plan or apply."
+    "correctAnswer": 0,
+    "explanation": "The lock file helps subsequent runs select the same provider releases and verify downloaded packages."
   },
   {
     "id": "tf-12",
     "domain": "Terraform fundamentals",
-    "question": "In a required_providers block, what does the 'source' argument specify?",
+    "type": "true-false",
+    "question": "Provider aliases are inherited automatically by every child module without explicit mapping.",
     "choices": [
-      "The cloud region to deploy into",
-      "The local file path of the state",
-      "The version of Terraform itself",
-      "The registry address from which to download the provider"
+      "True",
+      "False"
     ],
-    "correctAnswer": 3,
-    "explanation": "The source argument gives the provider's registry address (for example, hashicorp/aws), telling Terraform where to obtain the plugin."
+    "correctAnswer": 1,
+    "explanation": "Aliased provider configurations must be passed to child modules through the module providers map."
   },
   {
     "id": "tf-13",
     "domain": "Terraform fundamentals",
-    "question": "Where does Terraform record the version constraints and exact provider versions selected during init for reproducible runs?",
+    "type": "true-false",
+    "question": "Terraform state maps resource instances in configuration to remote objects managed through providers.",
     "choices": [
-      "terraform.tfstate",
-      "main.tf",
-      "the .terraform.lock.hcl dependency lock file",
-      "the provider's documentation"
+      "True",
+      "False"
     ],
-    "correctAnswer": 2,
-    "explanation": "The dependency lock file .terraform.lock.hcl records the exact provider versions selected so subsequent runs and other team members get consistent provider versions. It should be committed to version control."
+    "correctAnswer": 0,
+    "explanation": "Terraform relies on state to track identity, metadata, and the relationship between configuration and real resources."
   },
   {
     "id": "tf-14",
     "domain": "Terraform fundamentals",
-    "question": "What is the default name of the local state file Terraform creates?",
+    "type": "multiple-response",
+    "question": "Which TWO belong in a required_providers declaration? (Select TWO.)",
     "choices": [
-      "terraform.lock",
-      "terraform.tfstate",
-      "state.json",
-      "default.tfstate"
+      "Provider source address",
+      "Provider version constraint",
+      "Cloud access key value",
+      "Resource instance ID",
+      "Backend state contents"
     ],
-    "correctAnswer": 1,
-    "explanation": "By default Terraform stores state in a local file named terraform.tfstate in the working directory unless a remote backend is configured."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Provider requirements identify where a provider comes from and which versions are acceptable."
   },
   {
     "id": "tf-15",
     "domain": "Terraform fundamentals",
-    "question": "Which file extension is used for Terraform configuration written in HCL?",
+    "type": "multiple-response",
+    "question": "Which TWO can terraform init perform? (Select TWO.)",
     "choices": [
-      ".tf",
-      ".tfvars",
-      ".hcl only",
-      ".tfconfig"
+      "Install required providers",
+      "Initialize or migrate a backend",
+      "Apply resource changes",
+      "Destroy managed infrastructure",
+      "Correct every semantic error"
     ],
-    "correctAnswer": 0,
-    "explanation": "Terraform configuration files use the .tf extension. Variable value files use .tfvars, but the configuration itself is written in .tf files (HCL or JSON syntax)."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Initialization prepares providers, modules, and backend access; it does not apply or destroy resources."
   },
   {
     "id": "tf-16",
     "domain": "Terraform fundamentals",
-    "question": "What does a 'data source' allow a Terraform configuration to do?",
+    "type": "multiple-response",
+    "question": "Which TWO are valid ways to configure multiple instances of one provider? (Select TWO.)",
     "choices": [
-      "Read information defined outside Terraform or by another configuration",
-      "Store the state file",
-      "Create new managed resources",
-      "Define output values"
+      "Use alias in additional provider blocks",
+      "Select an alias with the provider meta-argument",
+      "Duplicate the provider binary manually",
+      "Store each alias in a separate state file by requirement",
+      "Use output blocks as providers"
     ],
-    "correctAnswer": 0,
-    "explanation": "Data sources let Terraform fetch and reference read-only information from a provider (for example, an existing AMI or VPC) without managing that object's lifecycle."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Aliases define additional provider configurations, and resources or modules can select them explicitly."
   },
   {
     "id": "tf-17",
     "domain": "Core Terraform workflow",
-    "question": "What are the three steps of the core Terraform workflow?",
+    "type": "true-false",
+    "question": "Applying a saved plan file executes the exact actions recorded in that plan rather than creating a new plan first.",
     "choices": [
-      "import, refresh, output",
-      "write, plan, apply",
-      "validate, fmt, apply",
-      "init, plan, destroy"
+      "True",
+      "False"
     ],
-    "correctAnswer": 1,
-    "explanation": "The core Terraform workflow is Write (author configuration), Plan (preview changes), and Apply (execute the proposed changes)."
+    "correctAnswer": 0,
+    "explanation": "A saved plan supports review and approval before Terraform executes that specific change set."
   },
   {
     "id": "tf-18",
     "domain": "Core Terraform workflow",
-    "question": "What does terraform plan do?",
+    "type": "true-false",
+    "question": "terraform validate contacts every provider API to verify that remote resources exist.",
     "choices": [
-      "Deletes the state file",
-      "Creates an execution plan showing what actions Terraform will take",
-      "Formats configuration files",
-      "Permanently applies changes to infrastructure"
+      "True",
+      "False"
     ],
     "correctAnswer": 1,
-    "explanation": "terraform plan compares desired configuration with current state and produces a preview of the create, update, and destroy actions it would take, without changing any real infrastructure."
+    "explanation": "Validate checks syntax and internal configuration consistency; it does not verify remote resource existence."
   },
   {
     "id": "tf-19",
     "domain": "Core Terraform workflow",
-    "question": "Which flag lets you save a plan to a file so it can be applied exactly later?",
+    "type": "true-false",
+    "question": "terraform fmt rewrites supported configuration files into Terraform canonical style.",
     "choices": [
-      "terraform plan -out=tfplan",
-      "terraform plan -lock",
-      "terraform plan -save",
-      "terraform plan -export"
+      "True",
+      "False"
     ],
     "correctAnswer": 0,
-    "explanation": "terraform plan -out=tfplan writes the plan to a file; terraform apply tfplan then applies exactly those saved actions with no re-planning."
+    "explanation": "Formatting standardizes layout without provisioning infrastructure."
   },
   {
     "id": "tf-20",
     "domain": "Core Terraform workflow",
-    "question": "By default, what does terraform apply do before making changes?",
+    "type": "multiple-response",
+    "question": "Which TWO commands normally refresh remote object data while producing or executing changes? (Select TWO.)",
     "choices": [
-      "It generates a plan and prompts for interactive approval",
-      "It destroys all resources first",
-      "It runs terraform fmt",
-      "Nothing; it applies immediately and silently"
+      "terraform plan",
+      "terraform apply",
+      "terraform fmt",
+      "terraform validate",
+      "terraform version"
     ],
-    "correctAnswer": 0,
-    "explanation": "When run without a saved plan file, terraform apply creates a plan, displays it, and prompts for 'yes' confirmation before performing the changes (unless -auto-approve is given)."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Plan and apply normally refresh state before evaluating changes unless options alter that behavior."
   },
   {
     "id": "tf-21",
     "domain": "Core Terraform workflow",
-    "question": "Which command destroys all resources tracked in the Terraform state?",
+    "type": "multiple-response",
+    "question": "Which TWO statements describe terraform plan? (Select TWO.)",
     "choices": [
-      "terraform destroy",
-      "terraform clean",
-      "terraform delete",
-      "terraform remove"
+      "It previews proposed actions",
+      "It can save a plan with -out",
+      "It always changes infrastructure",
+      "It installs the Terraform CLI",
+      "It formats configuration"
     ],
-    "correctAnswer": 0,
-    "explanation": "terraform destroy removes all remote objects managed by the configuration/state. It also shows a plan and prompts for confirmation unless -auto-approve is used."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Plan calculates a proposed change set and can save it; it does not normally modify managed resources."
   },
   {
     "id": "tf-22",
     "domain": "Core Terraform workflow",
-    "question": "What is the purpose of the -auto-approve flag on terraform apply?",
+    "type": "multiple-response",
+    "question": "Which TWO actions are part of the normal workflow before applying changes? (Select TWO.)",
     "choices": [
-      "It encrypts the state",
-      "It locks the workspace",
-      "It skips the interactive approval prompt",
-      "It validates the configuration"
+      "Initialize the working directory",
+      "Review an execution plan",
+      "Edit state JSON by hand",
+      "Delete the lock file every run",
+      "Disable provider authentication"
     ],
-    "correctAnswer": 2,
-    "explanation": "-auto-approve bypasses the interactive 'yes' confirmation, which is common in automation/CI pipelines where a human cannot respond to the prompt."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Initialization and plan review prepare and validate the intended changes before apply."
   },
   {
     "id": "tf-23",
     "domain": "Core Terraform workflow",
-    "question": "After editing configuration that adds a new provider, why might you need to run terraform init again?",
+    "type": "multiple-response",
+    "question": "Which TWO statements about a partial apply failure are correct? (Select TWO.)",
     "choices": [
-      "To format the configuration",
-      "To destroy old resources",
-      "To apply the changes to infrastructure",
-      "To download and install the newly required provider plugin"
+      "Successfully completed changes can remain",
+      "Terraform records completed operations in state",
+      "Terraform always rolls back every resource",
+      "State is automatically deleted",
+      "The next apply must start in a new directory"
     ],
-    "correctAnswer": 3,
-    "explanation": "terraform init must be re-run when you add new providers or modules so Terraform can download and install the newly required plugins or module sources."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Terraform does not provide universal rollback; successful operations remain and state is updated as operations complete."
   },
   {
     "id": "tf-24",
@@ -314,340 +360,380 @@
   {
     "id": "tf-25",
     "domain": "Terraform state management",
-    "question": "Why does Terraform maintain a state file?",
+    "type": "true-false",
+    "question": "State locking helps prevent concurrent operations from writing the same state at the same time.",
     "choices": [
-      "To store the user's cloud password",
-      "To store provider plugin binaries",
-      "To replace the need for a provider",
-      "To map configuration resources to real-world objects and track metadata"
+      "True",
+      "False"
     ],
-    "correctAnswer": 3,
-    "explanation": "State maps resources in your configuration to real infrastructure objects, stores resource metadata and dependencies, and improves performance, enabling Terraform to plan accurate changes."
+    "correctAnswer": 0,
+    "explanation": "Backends that support locking protect state from conflicting writers."
   },
   {
     "id": "tf-26",
     "domain": "Terraform state management",
-    "question": "What is a key advantage of using a remote backend for state instead of local state?",
+    "type": "true-false",
+    "question": "The recommended way to rename a managed resource is to edit its address directly inside the state JSON file.",
     "choices": [
-      "It makes the configuration imperative",
-      "It enables shared state and state locking for team collaboration",
-      "It removes the need for providers",
-      "It eliminates the need to run terraform apply"
+      "True",
+      "False"
     ],
     "correctAnswer": 1,
-    "explanation": "Remote backends store state centrally so a team shares one source of truth, and many support state locking to prevent concurrent operations from corrupting state."
+    "explanation": "Use a moved block or supported state command rather than manually editing state."
   },
   {
     "id": "tf-27",
     "domain": "Terraform state management",
-    "question": "What does state locking prevent?",
+    "type": "true-false",
+    "question": "A refresh-only plan can update state to match remote objects without changing those remote objects.",
     "choices": [
-      "Two simultaneous operations from writing state at the same time and corrupting it",
-      "Reading outputs",
-      "Provider plugin downloads",
-      "Use of variables"
+      "True",
+      "False"
     ],
     "correctAnswer": 0,
-    "explanation": "State locking ensures only one Terraform operation can modify state at a time, preventing concurrent writes that could corrupt the state file."
+    "explanation": "Refresh-only mode proposes state reconciliation rather than infrastructure modification."
   },
   {
     "id": "tf-28",
     "domain": "Terraform state management",
-    "question": "Which command shows the attributes of a single resource in state?",
+    "type": "multiple-response",
+    "question": "Which TWO are advantages of a suitable remote backend? (Select TWO.)",
     "choices": [
-      "terraform output",
-      "terraform state show <address>",
-      "terraform state list",
-      "terraform graph"
+      "Shared state storage",
+      "State locking when supported",
+      "Automatic encryption of every configuration secret",
+      "Removal of provider requirements",
+      "No need for access controls"
     ],
-    "correctAnswer": 1,
-    "explanation": "terraform state show <resource address> prints the attributes of that resource instance as recorded in state. terraform state list only lists addresses."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Remote backends enable collaboration and can provide locking; security still requires appropriate backend controls."
   },
   {
     "id": "tf-29",
     "domain": "Terraform state management",
-    "question": "What is the recommended modern way to manually mark a resource for recreation on the next apply?",
+    "type": "multiple-response",
+    "question": "Which TWO approaches safely refactor resource addresses? (Select TWO.)",
     "choices": [
-      "terraform apply -replace=<address>",
-      "editing terraform.tfstate by hand",
-      "terraform taint",
-      "deleting the .tf file"
+      "Use a moved block",
+      "Use terraform state mv when appropriate",
+      "Edit JSON with a text editor",
+      "Delete state and reapply blindly",
+      "Rename only the cloud object"
     ],
-    "correctAnswer": 0,
-    "explanation": "The -replace option on plan/apply is the current recommended approach to force replacement of a specific resource. The older terraform taint command is deprecated in favor of -replace."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Moved blocks and state mv communicate address changes without recreating the remote object."
   },
   {
     "id": "tf-30",
     "domain": "Terraform state management",
-    "question": "Why should the state file generally be treated as sensitive?",
+    "type": "multiple-response",
+    "question": "Which TWO statements about state security are correct? (Select TWO.)",
     "choices": [
-      "It is required to be public",
-      "It can contain secrets and sensitive resource attributes in plaintext",
-      "It contains provider source code",
-      "It stores Terraform's license key"
+      "State can contain sensitive values",
+      "State access should be tightly controlled",
+      "Sensitive marking removes values from state",
+      "State is safe to commit publicly",
+      "State never includes resource attributes"
     ],
-    "correctAnswer": 1,
-    "explanation": "State can store sensitive values (passwords, keys, certificates) in plaintext, so it must be protected with access controls and, ideally, encryption at rest in a remote backend."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "State commonly contains resource data and may contain secrets, so storage and access require protection."
   },
   {
     "id": "tf-31",
     "domain": "Terraform configuration",
-    "question": "Which block type defines an input variable for a module or root configuration?",
+    "type": "true-false",
+    "question": "A data block reads information from an existing object but does not declare that object for Terraform to create.",
     "choices": [
-      "provider",
-      "locals",
-      "output",
-      "variable"
+      "True",
+      "False"
     ],
-    "correctAnswer": 3,
-    "explanation": "A variable block declares an input variable, optionally with a type, default, description, and validation, allowing configuration to be parameterized."
+    "correctAnswer": 0,
+    "explanation": "Data sources query provider data, while resource blocks declare managed objects."
   },
   {
     "id": "tf-32",
     "domain": "Terraform configuration",
-    "question": "What does a locals block provide?",
+    "type": "true-false",
+    "question": "Marking a value sensitive prevents Terraform from storing that value in state.",
     "choices": [
-      "Provider authentication",
-      "Named local values to avoid repeating expressions within a module",
-      "A way to export values to other configurations",
-      "Remote state storage"
+      "True",
+      "False"
     ],
     "correctAnswer": 1,
-    "explanation": "locals defines named expressions used within a module to reduce repetition and improve readability. They are not inputs and cannot be set from outside."
+    "explanation": "Sensitive marking redacts normal display but does not by itself keep the value out of state."
   },
   {
     "id": "tf-33",
     "domain": "Terraform configuration",
-    "question": "Which expression correctly references the 'id' attribute of an aws_instance resource named 'web'?",
+    "type": "true-false",
+    "question": "An explicit depends_on is useful when a dependency exists but cannot be inferred from expression references.",
     "choices": [
-      "id.aws_instance.web",
-      "var.aws_instance.web.id",
-      "resource.aws_instance.web[id]",
-      "aws_instance.web.id"
+      "True",
+      "False"
     ],
-    "correctAnswer": 3,
-    "explanation": "Managed resource attributes are referenced as <resource_type>.<name>.<attribute>, so aws_instance.web.id refers to the id of that instance."
+    "correctAnswer": 0,
+    "explanation": "Terraform normally infers dependencies from references; depends_on handles hidden behavioral dependencies."
   },
   {
     "id": "tf-34",
     "domain": "Terraform configuration",
-    "question": "What does the count meta-argument let you do?",
+    "type": "multiple-response",
+    "question": "Which TWO constructs can validate assumptions in Terraform configuration? (Select TWO.)",
     "choices": [
-      "Set a timeout",
-      "Create multiple instances of a resource based on an integer",
-      "Count the lines in a configuration",
-      "Limit the number of providers"
+      "Variable validation conditions",
+      "Resource preconditions or postconditions",
+      "Provider aliases",
+      "Output descriptions",
+      "File comments"
     ],
-    "correctAnswer": 1,
-    "explanation": "count creates a specified number of instances of a resource or module; instances are addressed by index, e.g., aws_instance.web[0]."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Validation rules and lifecycle conditions can reject invalid inputs or infrastructure assumptions."
   },
   {
     "id": "tf-35",
     "domain": "Terraform configuration",
-    "question": "When iterating over a map or set of strings to create resources with stable addresses, which meta-argument is preferred over count?",
+    "type": "multiple-response",
+    "question": "Which TWO expressions create multiple instances from a collection or count? (Select TWO.)",
     "choices": [
-      "provider",
-      "lifecycle",
       "for_each",
-      "depends_on"
+      "count",
+      "depends_on",
+      "provider",
+      "lifecycle.ignore_changes"
     ],
-    "correctAnswer": 2,
-    "explanation": "for_each creates one instance per key in a map or set, addressed by key rather than index, which keeps resource addresses stable when collection members change."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "The count and for_each meta-arguments create repeated resource or module instances."
   },
   {
     "id": "tf-36",
     "domain": "Terraform configuration",
-    "question": "What does the output block do?",
+    "type": "multiple-response",
+    "question": "Which TWO practices reduce secret exposure? (Select TWO.)",
     "choices": [
-      "Exposes a value from a module or root for display or consumption by other configurations",
-      "Defines an input value",
-      "Configures a backend",
-      "Stores remote state"
+      "Use ephemeral or write-only values where supported",
+      "Retrieve secrets from a secrets manager such as Vault",
+      "Commit secrets in terraform.tfvars",
+      "Print sensitive outputs in CI logs",
+      "Store credentials in module source URLs"
     ],
-    "correctAnswer": 0,
-    "explanation": "output blocks expose values after apply (shown in CLI and accessible to a parent module or via remote state), useful for surfacing IDs, IPs, and other computed data."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Ephemeral/write-only features and external secret management reduce persistence and disclosure of sensitive values."
   },
   {
     "id": "tf-37",
     "domain": "Terraform modules",
-    "question": "What is a Terraform module?",
+    "type": "true-false",
+    "question": "A child module can access a parent module local value without that value being passed as an input.",
     "choices": [
-      "A container for multiple resources used together",
-      "A CLI subcommand",
-      "A type of backend",
-      "A provider plugin"
+      "True",
+      "False"
     ],
-    "correctAnswer": 0,
-    "explanation": "A module is a reusable container of Terraform configuration (resources, variables, outputs). Every configuration has at least a root module; child modules are called with module blocks."
+    "correctAnswer": 1,
+    "explanation": "Module scope is isolated; values cross module boundaries through input arguments and output values."
   },
   {
     "id": "tf-38",
     "domain": "Terraform modules",
-    "question": "Which argument in a module block specifies where the module code comes from?",
+    "type": "true-false",
+    "question": "Registry module sources can use a version argument to constrain the selected module release.",
     "choices": [
-      "from",
-      "source",
-      "origin",
-      "path"
+      "True",
+      "False"
     ],
-    "correctAnswer": 1,
-    "explanation": "The source argument in a module block tells Terraform where to find the module \u2014 a local path, the Terraform Registry, a Git URL, etc."
+    "correctAnswer": 0,
+    "explanation": "Version constraints are supported for registry modules and enable deliberate upgrades."
   },
   {
     "id": "tf-39",
     "domain": "Terraform modules",
-    "question": "How do you pass data into a child module?",
+    "type": "true-false",
+    "question": "The root module is the configuration in the directory where Terraform is run.",
     "choices": [
-      "Through environment variables only",
-      "By editing the module's state file",
-      "Through the module's input variables set as arguments in the module block",
-      "Modules cannot accept inputs"
+      "True",
+      "False"
     ],
-    "correctAnswer": 2,
-    "explanation": "Values are passed to a child module by setting its declared input variables as arguments inside the module block that calls it."
+    "correctAnswer": 0,
+    "explanation": "Called configurations are child modules; the current working configuration is the root module."
   },
   {
     "id": "tf-40",
     "domain": "Terraform modules",
-    "question": "How do you reference an output named 'vpc_id' from a child module call labeled 'network'?",
+    "type": "multiple-response",
+    "question": "Which TWO are characteristics of a well-designed reusable module? (Select TWO.)",
     "choices": [
-      "module.network.vpc_id",
-      "output.network.vpc_id",
-      "network.module.vpc_id",
-      "var.network.vpc_id"
+      "Clear input and output contracts",
+      "A focused responsibility",
+      "Embedded production credentials",
+      "No versioning strategy",
+      "Dependence on undocumented parent locals"
     ],
-    "correctAnswer": 0,
-    "explanation": "Child module outputs are accessed as module.<module_name>.<output_name>, so module.network.vpc_id retrieves that output."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Focused modules with explicit interfaces are easier to reuse, test, and version."
   },
   {
     "id": "tf-41",
     "domain": "Terraform modules",
-    "question": "What is the public, HashiCorp-hosted source of community and verified modules called?",
+    "type": "multiple-response",
+    "question": "Which TWO module sources support a version argument? (Select TWO.)",
     "choices": [
-      "Module Hub",
-      "Terraform Marketplace",
-      "the Terraform Registry",
-      "the Provider Store"
+      "Terraform Registry",
+      "A private registry compatible with Terraform",
+      "An arbitrary local path",
+      "A raw Git URL without a registry",
+      "A filesystem symlink only"
     ],
-    "correctAnswer": 2,
-    "explanation": "The Terraform Registry (registry.terraform.io) hosts publicly available providers and modules, including HashiCorp-verified and partner modules."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "The version argument applies to registry modules; other source types use their own revision mechanisms."
   },
   {
     "id": "tf-42",
     "domain": "Terraform modules",
-    "question": "Why is pinning a module version (for example with version = \"~> 3.0\") considered a best practice?",
+    "type": "multiple-response",
+    "question": "Which TWO actions are required after changing a module source or selected version? (Select TWO.)",
     "choices": [
-      "It disables state locking",
-      "It is required for local modules",
-      "It speeds up terraform apply",
-      "It prevents unexpected breaking changes from new module releases"
+      "Run terraform init",
+      "Review the resulting plan",
+      "Delete all managed resources",
+      "Edit state manually",
+      "Remove every output"
     ],
-    "correctAnswer": 3,
-    "explanation": "Version constraints protect you from automatically picking up breaking changes when a module is updated, making runs predictable. Version constraints apply to registry/remote modules, not local path modules."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Init retrieves the updated module, and plan review shows the infrastructure consequences."
   },
   {
     "id": "tf-43",
     "domain": "Maintain infrastructure with Terraform",
-    "question": "Which command brings an existing, unmanaged real resource under Terraform management by recording it in state?",
+    "type": "true-false",
+    "question": "An import block can be reviewed in a plan before Terraform associates an existing object with a resource address.",
     "choices": [
-      "terraform attach",
-      "terraform refresh",
-      "terraform adopt",
-      "terraform import"
+      "True",
+      "False"
     ],
-    "correctAnswer": 3,
-    "explanation": "terraform import associates an existing infrastructure object with a resource address in state so Terraform can manage it going forward. You still must write matching configuration for it."
+    "correctAnswer": 0,
+    "explanation": "Configuration-driven import supports plan review and can work with generated configuration."
   },
   {
     "id": "tf-44",
     "domain": "Maintain infrastructure with Terraform",
-    "question": "What does terraform fmt do?",
+    "type": "true-false",
+    "question": "terraform state list modifies remote infrastructure to match configuration.",
     "choices": [
-      "Applies the configuration",
-      "Validates provider credentials",
-      "Formats configuration files to the canonical HCL style",
-      "Generates documentation"
+      "True",
+      "False"
     ],
-    "correctAnswer": 2,
-    "explanation": "terraform fmt rewrites .tf files to the canonical formatting and style conventions, improving consistency and readability."
+    "correctAnswer": 1,
+    "explanation": "State inspection commands read Terraform state and do not provision remote changes."
   },
   {
     "id": "tf-45",
     "domain": "Maintain infrastructure with Terraform",
-    "question": "Which command outputs a visual representation of the dependency graph in DOT format?",
+    "type": "true-false",
+    "question": "TF_LOG can enable detailed Terraform diagnostic logging for troubleshooting.",
     "choices": [
-      "terraform plan -graph",
-      "terraform graph",
-      "terraform show",
-      "terraform tree"
+      "True",
+      "False"
     ],
-    "correctAnswer": 1,
-    "explanation": "terraform graph produces a DOT-format description of the resource dependency graph, which can be rendered with Graphviz for visualization."
+    "correctAnswer": 0,
+    "explanation": "Terraform logging environment variables control verbosity and can write diagnostic output for investigation."
   },
   {
     "id": "tf-46",
     "domain": "Maintain infrastructure with Terraform",
-    "question": "What does terraform output do?",
+    "type": "multiple-response",
+    "question": "Which TWO are valid ways to bring an existing object under Terraform management? (Select TWO.)",
     "choices": [
-      "Lists providers",
-      "Initializes the backend",
-      "Applies the configuration",
-      "Displays the values of root module output values from state"
+      "Use an import block",
+      "Use terraform import",
+      "Add only a data block",
+      "Copy the object ID into an output",
+      "Run terraform fmt"
     ],
-    "correctAnswer": 3,
-    "explanation": "terraform output reads the current state and prints the root module's output values; it can return a single named output or machine-readable JSON with -json."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Import blocks and the import command associate existing remote objects with resource addresses."
   },
   {
     "id": "tf-47",
     "domain": "Maintain infrastructure with Terraform",
-    "question": "Which command can be used to inspect a saved plan file or current state in human-readable form?",
+    "type": "multiple-response",
+    "question": "Which TWO commands inspect state without directly changing infrastructure? (Select TWO.)",
     "choices": [
-      "terraform reveal",
-      "terraform print",
-      "terraform cat",
-      "terraform show"
+      "terraform state list",
+      "terraform state show",
+      "terraform apply",
+      "terraform destroy",
+      "terraform import"
     ],
-    "correctAnswer": 3,
-    "explanation": "terraform show renders a saved plan file or the current state in human-readable form (or JSON with -json), useful for review and automation."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "State list and state show inspect tracked addresses and attributes."
   },
   {
     "id": "tf-48",
     "domain": "HCP Terraform",
-    "question": "What is a primary benefit of running Terraform in HCP Terraform (Terraform Cloud) rather than purely locally?",
+    "type": "true-false",
+    "question": "HCP Terraform projects can group related workspaces and provide an access-control boundary.",
     "choices": [
-      "It disables the plan step",
-      "It provides remote state management, remote runs, and team collaboration features",
-      "It removes the need for any configuration",
-      "It makes Terraform imperative"
+      "True",
+      "False"
     ],
-    "correctAnswer": 1,
-    "explanation": "HCP Terraform (formerly Terraform Cloud) offers managed remote state, remote plan/apply execution, access controls, policy enforcement, and a private module registry for teams."
+    "correctAnswer": 0,
+    "explanation": "Projects organize workspaces and help teams apply permissions at a useful scope."
   },
   {
     "id": "tf-49",
     "domain": "HCP Terraform",
-    "question": "Which HCP Terraform feature enforces policy-as-code rules against plans before they are applied?",
+    "type": "true-false",
+    "question": "A speculative plan in HCP Terraform can be applied directly without creating a normal run.",
     "choices": [
-      "workspaces",
-      "terraform fmt",
-      "Sentinel (or OPA) policy checks",
-      "the dependency lock file"
+      "True",
+      "False"
     ],
-    "correctAnswer": 2,
-    "explanation": "HCP Terraform integrates policy-as-code with Sentinel or Open Policy Agent, evaluating plans against organizational policies and blocking non-compliant applies."
+    "correctAnswer": 1,
+    "explanation": "Speculative plans are for review and do not produce an applyable run."
   },
   {
     "id": "tf-50",
     "domain": "HCP Terraform",
-    "question": "What does the HCP Terraform private module registry provide?",
+    "type": "true-false",
+    "question": "Dynamic provider credentials reduce the need to store long-lived cloud credentials in workspaces.",
     "choices": [
-      "Remote state encryption keys",
-      "A private catalog of an organization's reusable modules",
-      "A place to store provider plugin binaries for the public",
-      "A replacement for terraform init"
+      "True",
+      "False"
     ],
-    "correctAnswer": 1,
-    "explanation": "The private module registry lets an organization publish and share its own versioned modules internally, promoting reuse with controlled access."
+    "correctAnswer": 0,
+    "explanation": "HCP Terraform can obtain short-lived credentials through workload identity integrations."
   },
   {
     "id": "tf-51",
@@ -756,15 +842,20 @@
   {
     "id": "tf-59",
     "domain": "Terraform fundamentals",
-    "question": "Which block configures where and how Terraform stores its state?",
+    "type": "multiple-response",
+    "question": "Which TWO statements about provider authentication are best practices? (Select TWO.)",
     "choices": [
-      "provider",
-      "variable",
-      "backend (within terraform block)",
-      "output"
+      "Prefer environment or workload credentials over hard-coded secrets",
+      "Keep credentials outside committed configuration",
+      "Store credentials in the dependency lock file",
+      "Publish credentials as outputs",
+      "Commit plaintext secrets for reproducibility"
     ],
-    "correctAnswer": 2,
-    "explanation": "The backend block, nested inside the terraform block, configures the state storage mechanism (local, s3, remote, etc.)."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Credentials should be supplied through secure external mechanisms rather than committed Terraform code or outputs."
   },
   {
     "id": "tf-60",
@@ -925,15 +1016,20 @@
   {
     "id": "tf-72",
     "domain": "Terraform state management",
-    "question": "Which backend stores state in an S3 bucket?",
+    "type": "multiple-response",
+    "question": "Which TWO can indicate resource drift? (Select TWO.)",
     "choices": [
-      "local",
-      "http",
-      "consul",
-      "s3"
+      "A plan shows changes after an out-of-band edit",
+      "A health assessment reports remote changes",
+      "terraform fmt changes indentation",
+      "The lock file records a checksum",
+      "A module README changes"
     ],
-    "correctAnswer": 3,
-    "explanation": "The s3 backend stores Terraform state in an Amazon S3 bucket and commonly uses DynamoDB for state locking."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Plans and HCP Terraform health assessments can surface differences between state/configuration and real infrastructure."
   },
   {
     "id": "tf-73",
@@ -1016,15 +1112,20 @@
   {
     "id": "tf-79",
     "domain": "Terraform configuration",
-    "question": "Which input variable type would best represent a list of subnet CIDR strings?",
+    "type": "multiple-response",
+    "question": "Which TWO statements about resource references are correct? (Select TWO.)",
     "choices": [
-      "list(string)",
-      "number",
-      "bool",
-      "string"
+      "References create implicit dependencies",
+      "Attributes use addresses such as aws_instance.web.id",
+      "References require resources to appear in file order",
+      "All dependencies need depends_on",
+      "References bypass state"
     ],
-    "correctAnswer": 0,
-    "explanation": "list(string) is the appropriate complex type for an ordered collection of string values like CIDR blocks."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Attribute references connect values and let Terraform infer graph dependencies independent of file order."
   },
   {
     "id": "tf-80",
@@ -1107,15 +1208,20 @@
   {
     "id": "tf-86",
     "domain": "Terraform modules",
-    "question": "Which module source refers to the public Terraform Registry?",
+    "type": "multiple-response",
+    "question": "Which TWO mechanisms pass information across module boundaries? (Select TWO.)",
     "choices": [
-      "git::https://example.com/vpc.git",
-      "terraform-aws-modules/vpc/aws",
-      "registry-local/vpc",
-      "./modules/vpc"
+      "Input variables",
+      "Output values",
+      "Parent locals accessed directly",
+      "Shared file ordering",
+      "Provider state internals"
     ],
-    "correctAnswer": 1,
-    "explanation": "Registry modules use the NAMESPACE/NAME/PROVIDER format, e.g., terraform-aws-modules/vpc/aws. Local paths start with ./ or ../, and Git sources use git:: or a Git URL."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Inputs pass values into modules and outputs expose selected values to callers."
   },
   {
     "id": "tf-87",
@@ -1172,28 +1278,38 @@
   {
     "id": "tf-91",
     "domain": "Maintain infrastructure with Terraform",
-    "question": "Before terraform import works, what must also exist?",
+    "type": "multiple-response",
+    "question": "Which TWO practices are appropriate when troubleshooting Terraform? (Select TWO.)",
     "choices": [
-      "Nothing \u2014 import generates configuration automatically",
-      "A resource block in configuration matching the address you import into",
-      "A saved plan file",
-      "A remote backend only"
+      "Enable verbose logging only as needed",
+      "Protect logs because they may expose sensitive data",
+      "Commit debug logs publicly",
+      "Leave maximum logging enabled permanently",
+      "Delete state before collecting evidence"
     ],
-    "correctAnswer": 1,
-    "explanation": "Classic terraform import only writes the object into state; you must author a matching resource block yourself so subsequent plans don't try to destroy it."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Diagnostic logs should be temporary and protected because they can contain sensitive operational details."
   },
   {
     "id": "tf-92",
     "domain": "Maintain infrastructure with Terraform",
-    "question": "Which command would you use to see provider requirements and versions for a configuration?",
+    "type": "multiple-response",
+    "question": "Which TWO statements about imported resources are correct? (Select TWO.)",
     "choices": [
-      "terraform fmt",
-      "terraform state list",
-      "terraform providers",
-      "terraform output"
+      "Configuration should describe the imported object",
+      "A subsequent plan should be reviewed for differences",
+      "Import makes every attribute immutable",
+      "Import automatically writes perfect configuration in all workflows",
+      "Import removes the provider requirement"
     ],
-    "correctAnswer": 2,
-    "explanation": "terraform providers prints the providers required by the configuration and the modules that require them."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Import establishes state identity; maintained configuration and plan review are still necessary."
   },
   {
     "id": "tf-93",
@@ -1237,54 +1353,74 @@
   {
     "id": "tf-96",
     "domain": "HCP Terraform",
-    "question": "In HCP Terraform, what is a 'workspace'?",
+    "type": "multiple-response",
+    "question": "Which TWO are HCP Terraform collaboration or governance capabilities? (Select TWO.)",
     "choices": [
-      "An isolated environment with its own state and variables",
-      "A provider plugin",
-      "A backend configuration file",
-      "A type of module"
+      "Team-based permissions",
+      "Policy enforcement",
+      "Automatic removal of all cloud costs",
+      "Provider-free operation",
+      "Bypassing plan review"
     ],
-    "correctAnswer": 0,
-    "explanation": "An HCP Terraform workspace represents a distinct environment with its own state, variables, and run history \u2014 analogous to a separate state for a deployment."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "HCP Terraform provides access controls and policy checks for collaborative infrastructure workflows."
   },
   {
     "id": "tf-97",
     "domain": "HCP Terraform",
-    "question": "Which HCP Terraform run mode executes plans and applies on HashiCorp-managed infrastructure?",
+    "type": "multiple-response",
+    "question": "Which TWO can trigger or connect HCP Terraform workflows? (Select TWO.)",
     "choices": [
-      "Remote execution",
-      "Local execution",
-      "Offline mode",
-      "Manual mode"
+      "VCS changes",
+      "Run triggers between workspaces",
+      "Editing remote state JSON manually",
+      "A provider checksum mismatch by itself",
+      "Deleting the organization"
     ],
-    "correctAnswer": 0,
-    "explanation": "With remote execution, HCP Terraform runs plan/apply on its own managed workers, centralizing logs, state, and approvals; local execution runs on your machine but still uses remote state."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "VCS integrations initiate runs from code changes, while run triggers connect dependent workspace workflows."
   },
   {
     "id": "tf-98",
     "domain": "HCP Terraform",
-    "question": "What is a benefit of HCP Terraform's VCS integration?",
+    "type": "multiple-response",
+    "question": "Which TWO benefits come from HCP Terraform managed state? (Select TWO.)",
     "choices": [
-      "It disables policy checks",
-      "It removes the need for state",
-      "Runs can be triggered automatically from commits/PRs in a connected repo",
-      "It makes Terraform imperative"
+      "Encrypted remote storage",
+      "State version history",
+      "Public anonymous access",
+      "No need for authorization",
+      "Secrets are guaranteed absent"
     ],
-    "correctAnswer": 2,
-    "explanation": "Connecting a VCS repository lets HCP Terraform automatically trigger speculative plans on pull requests and runs on merges, integrating IaC into the development workflow."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Managed state provides protected remote storage and versioning, but still requires access control and may contain sensitive data."
   },
   {
     "id": "tf-99",
     "domain": "HCP Terraform",
-    "question": "Which HCP Terraform feature centrally stores variables and sensitive values for reuse across workspaces?",
+    "type": "multiple-response",
+    "question": "Which TWO features help monitor or govern many HCP Terraform workspaces? (Select TWO.)",
     "choices": [
-      "The dependency lock file",
-      "Variable sets",
-      "Provider blocks",
-      "terraform.tfvars committed to git"
+      "Explorer",
+      "Health assessments",
+      "terraform fmt",
+      "Local shell history",
+      "Provider aliases"
     ],
-    "correctAnswer": 1,
-    "explanation": "Variable sets let you define variables (including sensitive ones) once and apply them to multiple workspaces, avoiding duplication."
+    "correctAnswers": [
+      0,
+      1
+    ],
+    "explanation": "Explorer provides cross-workspace visibility, while health assessments identify drift and continuous-validation failures."
   },
   {
     "id": "tf-100",

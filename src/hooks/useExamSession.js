@@ -22,8 +22,9 @@ export function useExamSession({ cert, questions, resultsPath }) {
     cert.composite
       ? selectLicensingExam(questions, cert.composite)
       : weightedSelect(questions, examQuestionCount, cert.domains, {
-          practicalQuestionTarget: cert.practicalQuestionTarget,
-        })
+        practicalQuestionTarget: cert.practicalQuestionTarget,
+        requiredTypeCounts: cert.requiredTypeCounts,
+      })
   )
 
   useEffect(() => {

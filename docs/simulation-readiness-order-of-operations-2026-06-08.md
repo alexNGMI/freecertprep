@@ -73,7 +73,7 @@ Scoring dimensions:
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
 | Splunk Core Certified User | B+ | Exact blueprint fit, 750 questions, official exam is 60 multiple-choice questions / 60 minutes. Low duplicate count. | Natural language has synthetic ticket phrasing; explanations need stronger why-right/why-wrong detail. | Polish wording and explanations; keep live. |
 | Schneider Data Center Certified Associate | C | Vendor-source topic architecture is useful; 750 questions across data-center physical infrastructure. | Heavy normalized duplication and obvious distractors; official exam-source details are less pinned than major vendors. | Rewrite repeated facility scenarios; pin current official exam guide/source package. |
-| Terraform Associate 004 | B- | HashiCorp official prep states true/false, multiple choice, and multiple answer; 632 questions cover 1.12 objectives. | Current bank is all single-choice, so true/false and multiple-answer format fidelity is low. | Add true/false and multiple-answer items; align simulator language to HashiCorp's simple non-trick style. |
+| Terraform Associate 004 | B+ | The 632-question Terraform 1.12 pool now includes official-style true/false, multiple-choice, and multiple-answer formats across every objective. Generated forms preserve objective allocation and guarantee mixed-format coverage. | The simulator approximates HashiCorp's exam delivery and uses a readiness target rather than claiming official score equivalence. | Keep live; continue replacing older verbose stems during normal editorial review. |
 
 ### Real Estate Sister Product
 
@@ -260,16 +260,33 @@ Why third: the blueprint fit is strong, so this is a polish pass with high ROI.
 
 Actions:
 
-1. Remove synthetic "ticket SPL-###" and "scenario includes" phrasing.
+1. Completed June 8, 2026: removed synthetic "ticket SPL-###" and "scenario includes" phrasing.
 2. Add more real SPL snippets and search-result context.
 3. Expand explanations with why-right and why-wrong guidance.
 4. Keep the official 60-question / 60-minute selected-response simulator.
+
+The language cleanup exposed 156 normalized duplicate stem groups containing 609 questions. Those clusters must be rewritten with actual SPL, event, field, result-table, report, alert, lookup, and dashboard evidence rather than restored decorative identifiers.
 
 Acceptance criteria:
 
 - No synthetic ticket markers.
 - Review mode teaches field/search/report/dashboard concepts clearly.
-- Normalized duplicate count remains low.
+- Normalized duplicate clusters fall materially from the June 8 baseline.
+
+#### 4.5 A+ Core 1 and Core 2
+
+Status update, June 8, 2026:
+
+- Removed synthetic ticket identifiers from both 760-question live banks.
+- Retained one legitimate Core 2 support-ticket matching PBQ where ticket triage is the skill being practiced.
+- The cleanup exposed 114 duplicate stem groups covering 475 Core 1 questions and 108 groups covering 404 Core 2 questions.
+
+Next actions:
+
+1. Replace repeated frames with device symptoms, screenshots/settings descriptions, command output, hardware observations, user-impact details, and troubleshooting constraints.
+2. Prioritize PBQ-capable domains and the largest duplicate clusters.
+3. Preserve the current blueprint allocation and 760-question pool size.
+4. Require explanations to identify why the chosen action is safer or more diagnostic than the alternatives.
 
 #### 4.4 CCST and CCNA
 
@@ -369,7 +386,8 @@ After that, the most rational expansion options are:
 
 - Linux+ rewrite.
 - DCCA rewrite.
-- Splunk wording and explanation polish.
+- Splunk duplicate-stem, SPL-evidence, and explanation rewrite.
+- A+ Core 1 and Core 2 duplicate-stem and evidence rewrite.
 - Arizona real estate source/delivery verification.
 - Georgia real estate source verification.
 
@@ -379,14 +397,16 @@ After that, the most rational expansion options are:
 - Security+ log triage widgets.
 - Network+ topology/cabling widgets.
 - CCNA topology and multi-command troubleshooting polish.
-- Terraform true/false and multiple-answer support.
+- Completed June 8, 2026: Terraform true/false and multiple-answer support with guaranteed mixed-format exam forms.
 
 PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. Richer cable-map, firewall-builder, and multi-artifact interaction remain open.
 
 ### P3
 
 - NVIDIA pool expansion and scenario rewrite.
-- CCST normalized cluster cleanup.
+- CCST synthetic-ticket and normalized-cluster cleanup before publication.
+- Linux+ remaining change-ticket framing cleanup as part of its rewrite.
+- DCCA synthetic ticket identifiers must be removed before publication.
 - Real estate duplicate reduction for Texas and Indiana.
 - Variable-count simulator support for CDL/AZ-900/NVIDIA where applicable.
 

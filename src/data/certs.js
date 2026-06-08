@@ -651,6 +651,10 @@ const certs = {
     examQuestions: 57,
     examTime: 60,
     passingScore: 70,
+    requiredTypeCounts: {
+      'true-false': 3,
+      'multiple-response': 4,
+    },
     loadQuestions: () => loadQuestionAsset(terraformAssociateQuestionsUrl),
     domains: [
       { name: 'Infrastructure as Code (IaC) with Terraform', weight: 16 },

@@ -135,7 +135,7 @@ const certSources = {
     checkedAt,
     examFormat: 'One-hour exam using true/false, multiple-choice, and multiple-answer questions.',
     scoreModel: 'HashiCorp does not publish a fixed raw passing percentage.',
-    editorialStatus: 'Current 004 objectives verified; format expansion scheduled',
+    editorialStatus: 'Current 004 objectives and official question formats verified',
   },
   'real-estate-national': {
     officialUrl: 'https://www.pearsonvue.com/us/en/realestate.html',

@@ -62,6 +62,12 @@ export default function Exam() {
                   {cert.practicalQuestionTarget > 0 && (
                     <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Includes at least {cert.practicalQuestionTarget} practical scenario questions.</li>
                   )}
+                  {cert.requiredTypeCounts && (
+                    <li className="flex gap-3">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
+                      Includes the certification&apos;s official mixed question formats.
+                    </li>
+                  )}
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Vendor exams may include unscored items, scaled scoring, or richer interaction types.</li>
                 </ul>
               </div>

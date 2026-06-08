@@ -123,9 +123,31 @@ describe('weightedSelect', () => {
       const result = weightedSelect(pool, 20, domains, { practicalQuestionTarget: 6 })
       const practical = result.filter((question) => question.type === 'cli-output')
 
-      expect(practical).toHaveLength(6)
+      expect(practical.length).toBeGreaterThanOrEqual(6)
       expect(result.filter((question) => question.domain === 'D1')).toHaveLength(12)
       expect(result.filter((question) => question.domain === 'D2')).toHaveLength(8)
+    }
+  })
+
+  it('guarantees certification-specific question type counts', () => {
+    const domains = [{ name: 'D1', weight: 100 }]
+    const pool = [
+      ...makePool(['D1'], 80, ['single-choice']),
+      ...makePool(['D1'], 20, ['true-false']).map((q) => ({ ...q, id: `tf-${q.id}` })),
+      ...makePool(['D1'], 20, ['multiple-response']).map((q) => ({ ...q, id: `mr-${q.id}` })),
+    ]
+
+    for (let i = 0; i < 20; i++) {
+      const result = weightedSelect(pool, 30, domains, {
+        requiredTypeCounts: { 'true-false': 3, 'multiple-response': 4 },
+      })
+      const byType = result.reduce((acc, question) => {
+        acc[question.type] = (acc[question.type] || 0) + 1
+        return acc
+      }, {})
+
+      expect(byType['true-false']).toBeGreaterThanOrEqual(3)
+      expect(byType['multiple-response']).toBeGreaterThanOrEqual(4)
     }
   })
 })

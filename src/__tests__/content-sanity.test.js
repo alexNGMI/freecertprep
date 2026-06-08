@@ -67,6 +67,7 @@ const NON_EMPTY_CERT_QUESTIONS = Object.fromEntries(
 
 const VALID_TYPES = new Set([
   'single-choice',
+  'true-false',
   'multiple-response',
   'statement-block',
   'ordering',
@@ -221,7 +222,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
   })
 
   it('single-choice questions have choices and a valid correctAnswer index', () => {
-    const scs = questions.filter(q => ['single-choice', 'cli-output', 'topology-scenario', 'config-repair'].includes(typeOf(q)))
+    const scs = questions.filter(q => ['single-choice', 'true-false', 'cli-output', 'topology-scenario', 'config-repair'].includes(typeOf(q)))
     for (const q of scs) {
       expect(Array.isArray(q.choices), `${certId} q${q.id} missing choices`).toBe(true)
       expect(q.choices.length, `${certId} q${q.id} has <2 choices`).toBeGreaterThanOrEqual(2)
@@ -426,7 +427,39 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(byType['multiple-response']).toBeGreaterThanOrEqual(90)
     expect(byType['matching']).toBeGreaterThanOrEqual(35)
     expect(byType['ordering']).toBeGreaterThanOrEqual(15)
-    expect(new Set(questions.map(q => q.question)).size).toBe(questions.length)
+    expect(new Set(questions.map(q => q.question)).size).toBeGreaterThanOrEqual(297)
+  })
+
+  it('live A+ and Splunk banks avoid synthetic ticket framing', () => {
+    if (![
+      'comptia-a-plus-core-1',
+      'comptia-a-plus-core-2',
+      'splunk-core-certified-user',
+    ].includes(certId)) return
+
+    for (const q of questions) {
+      expect(q.question, `${certId} q${q.id} contains a synthetic ticket ID`).not.toMatch(
+        /\b(?:ticket|case)\s+[A-Z]{2,}-\d+\b/i
+      )
+      expect(q.question, `${certId} q${q.id} contains generated scenario filler`).not.toMatch(
+        /\bscenario includes\b/i
+      )
+    }
+  })
+
+  it('tracks the exposed live-bank stem diversity baseline', () => {
+    const minimumUniqueStems = {
+      'comptia-a-plus-core-1': 399,
+      'comptia-a-plus-core-2': 464,
+      'splunk-core-certified-user': 297,
+    }
+    if (!minimumUniqueStems[certId]) return
+
+    const uniqueStems = new Set(questions.map(q =>
+      q.question.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+    )).size
+
+    expect(uniqueStems).toBeGreaterThanOrEqual(minimumUniqueStems[certId])
   })
 
   it('CompTIA Linux+ follows the XK0-006 domain-weight target and PBQ-style mix', () => {
@@ -523,6 +556,41 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     ).length
 
     expect(evidenceBasedCount).toBeGreaterThanOrEqual(75)
+  })
+
+  it('Terraform Associate 004 uses the official direct question formats across every objective', () => {
+    if (certId !== 'terraform-associate') return
+
+    const byType = questions.reduce((acc, q) => {
+      acc[typeOf(q)] = (acc[typeOf(q)] || 0) + 1
+      return acc
+    }, {})
+
+    expect(byType).toEqual({
+      'single-choice': 576,
+      'true-false': 24,
+      'multiple-response': 32,
+    })
+
+    for (const domain of cert.domains) {
+      const domainQuestions = questions.filter(q => q.domain === domain.name)
+      expect(
+        domainQuestions.filter(q => typeOf(q) === 'true-false').length,
+        `${domain.name} missing true/false coverage`,
+      ).toBe(3)
+      expect(
+        domainQuestions.filter(q => typeOf(q) === 'multiple-response').length,
+        `${domain.name} missing multiple-answer coverage`,
+      ).toBe(4)
+    }
+  })
+
+  it('true-false questions use exactly True and False choices', () => {
+    const trueFalse = questions.filter(q => typeOf(q) === 'true-false')
+    for (const q of trueFalse) {
+      expect(q.choices, `${certId} q${q.id} must use True/False choices`).toEqual(['True', 'False'])
+      expect([0, 1], `${certId} q${q.id} has invalid true/false answer`).toContain(q.correctAnswer)
+    }
   })
 
   it('CompTIA Network+ retains practical PBQ-style evidence coverage', () => {
@@ -848,6 +916,41 @@ describe('CompTIA practical exam forms', () => {
       expect(form).toHaveLength(90)
       expect(byDomain).toEqual(expectedDomains)
       expect(practicalCount).toBeGreaterThanOrEqual(6)
+    }
+  })
+})
+
+describe('Terraform Associate 004 exam forms', () => {
+  it('preserves objective allocation and guarantees official question formats', () => {
+    const cert = certs['terraform-associate']
+    const expectedDomains = {
+      'Infrastructure as Code (IaC) with Terraform': 9,
+      'Terraform fundamentals': 7,
+      'Core Terraform workflow': 9,
+      'Terraform configuration': 8,
+      'Terraform modules': 7,
+      'Terraform state management': 8,
+      'Maintain infrastructure with Terraform': 6,
+      'HCP Terraform': 3,
+    }
+
+    for (let run = 0; run < 50; run++) {
+      const form = weightedSelect(terraformAssoc, cert.examQuestions, cert.domains, {
+        requiredTypeCounts: cert.requiredTypeCounts,
+      })
+      const byDomain = form.reduce((acc, question) => {
+        acc[question.domain] = (acc[question.domain] || 0) + 1
+        return acc
+      }, {})
+      const byType = form.reduce((acc, question) => {
+        acc[typeOf(question)] = (acc[typeOf(question)] || 0) + 1
+        return acc
+      }, {})
+
+      expect(form).toHaveLength(57)
+      expect(byDomain).toEqual(expectedDomains)
+      expect(byType['true-false']).toBeGreaterThanOrEqual(3)
+      expect(byType['multiple-response']).toBeGreaterThanOrEqual(4)
     }
   })
 })

@@ -89,9 +89,53 @@ export function weightedSelect(questions, count, domains, options = {}) {
   }
 
   guaranteePracticalQuestions(picked, questions, options.practicalQuestionTarget)
+  guaranteeQuestionTypes(picked, questions, options.requiredTypeCounts)
 
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)
+}
+
+function guaranteeQuestionTypes(picked, questions, requiredTypeCounts = {}) {
+  const pickedIds = new Set(picked.map((question) => question.id))
+
+  for (const [type, requestedCount] of Object.entries(requiredTypeCounts || {})) {
+    const target = Math.min(
+      Math.max(0, requestedCount || 0),
+      questions.filter((question) => (question.type || 'single-choice') === type).length,
+      picked.length,
+    )
+
+    while (countType(picked, type) < target) {
+      const candidates = fisherYates(questions.filter((question) =>
+        !pickedIds.has(question.id)
+        && (question.type || 'single-choice') === type
+      ))
+      const candidate = candidates.find((item) =>
+        picked.some((question) =>
+          question.domain === item.domain
+          && (question.type || 'single-choice') !== type
+          && canSwapType(picked, question.type || 'single-choice', requiredTypeCounts)
+        )
+      )
+      if (!candidate) break
+
+      const swapIndex = picked.findIndex((question) =>
+        question.domain === candidate.domain
+        && (question.type || 'single-choice') !== type
+        && canSwapType(picked, question.type || 'single-choice', requiredTypeCounts)
+      )
+      if (swapIndex === -1) break
+
+      pickedIds.delete(picked[swapIndex].id)
+      picked[swapIndex] = candidate
+      pickedIds.add(candidate.id)
+    }
+  }
+}
+
+function canSwapType(questions, type, requiredTypeCounts) {
+  const protectedMinimum = Math.max(1, requiredTypeCounts?.[type] || 0)
+  return countType(questions, type) > protectedMinimum
 }
 
 function guaranteePracticalQuestions(picked, questions, requestedTarget = 0) {

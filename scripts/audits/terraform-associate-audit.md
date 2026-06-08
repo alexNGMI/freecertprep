@@ -9,7 +9,8 @@ Registry entry: `src/data/certs.js` (`terraform-associate`)
 
 The local bank is structurally valid and currently passes content sanity.
 
-- Pool size: 632 single-choice questions after the 004 delta batch
+- Pool size: 632 questions after the 004 delta and format-fidelity passes
+- Format mix: 576 single-choice, 24 true/false, and 32 multiple-answer
 - Domains: 8 Terraform Associate 004 objective groups
 - Answer index distribution: 0=141, 1=140, 2=150, 3=169
 - Short explanations: 0 questions under 80 characters after explanation expansion
@@ -59,6 +60,22 @@ The 004 content list reorganizes the exam into 8 objective groups:
 6. Terraform state management
 7. Maintain infrastructure with Terraform
 8. HCP Terraform
+
+## Question format fidelity
+
+HashiCorp's official Associate 004 sample-question page states that the exam
+uses true/false, multiple-choice, and multiple-answer questions and that the
+questions are intended to test Terraform knowledge without trick wording.
+
+The production pool now mirrors those formats:
+
+- 24 true/false questions, three in every objective group
+- 32 multiple-answer questions, four in every objective group
+- 576 single-choice questions
+
+Every 57-question simulated form guarantees at least three true/false and four
+multiple-answer questions while preserving the configured objective allocation.
+The selection behavior is covered by randomized automated tests.
 
 Mapping from current local domains:
 
