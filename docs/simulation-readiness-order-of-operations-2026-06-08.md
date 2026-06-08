@@ -4,6 +4,14 @@ Date: June 8, 2026
 Purpose: Convert the board report into a practical remediation plan and grade each current offering by how realistic and useful it is as an exam simulation.  
 Basis: `docs/board-report-2026-06-08.md`, current cert registry, current question banks, automated content tests, existing audit files, and a June 8, 2026 source check against official/vendor exam information.
 
+Step-four audit completed June 8, 2026:
+
+- `scripts/audits/live-bank-simulation-readiness-audit-2026-06-08.md`
+- Scope: A+ Core 1, A+ Core 2, and Splunk Core Certified User.
+- The audit confirms stable form allocation and strong surface uniqueness.
+- It also finds that A+ remains materially thin at the official subobjective level: Core 1 uses 44 concept templates and Core 2 uses 36 across 750 generated questions each.
+- Step five must update readiness grades using blueprint breadth and distractor quality, not question count or stem uniqueness alone.
+
 ## Executive Takeaway
 
 freecertprep has enough catalog breadth. The next competitive advantage is not "more exams"; it is credible exam simulation.
@@ -289,6 +297,7 @@ Next actions:
 2. Completed June 8, 2026: preserve the current blueprint allocation, 760-question pool size, and ten handcrafted PBQ-lite items per core.
 3. Completed June 8, 2026: require explanations to identify why the chosen action is safer or more diagnostic than alternatives.
 4. Next audit: map the underlying 44 Core 1 and 36 Core 2 concept templates against every official Version 2.0 subobjective. Stem uniqueness does not by itself prove complete objective breadth.
+5. Completed June 8, 2026: the readiness audit confirmed material objective-breadth gaps, generic multiple-response answers, and weak cross-domain distractors. See the step-four audit for the ordered remediation plan.
 
 #### 4.4 CCST and CCNA
 
