@@ -222,8 +222,8 @@ export default function Docs() {
             </P>
             <P>
               The catalog currently exposes 9 live modules. Eight additional IT modules remain in the repository and appear as
-              Coming Soon without links. A+ Core 1/Core 2 and Terraform remain live as explicit strategic exceptions, while CCNA
-              remains live because its simulation grade meets the current bar.
+              Coming Soon without links. A+ Core 1/Core 2, Terraform, and CCNA remain live because their simulation grades meet
+              the current bar.
             </P>
 
             <Table
@@ -245,7 +245,7 @@ export default function Docs() {
                 [<Badge color="#c8202f">SK0-005</Badge>, 'CompTIA', '760', '90', '90 min', '83%'],
                 [<Badge color="#c8202f">XK0-006</Badge>, 'CompTIA', '750', '90', '90 min', '80%'],
                 [<Badge color="#a78bfa">DCCA</Badge>, 'Schneider Electric', '750', '100', '120 min', '70% practice'],
-                [<Badge color="#7c3aed">TF 004</Badge>, 'HashiCorp', '632', '57', '60 min', '~70%'],
+                [<Badge color="#7c3aed">TF 004</Badge>, 'HashiCorp', '647', '57', '60 min', '70% readiness'],
               ]}
             />
 
@@ -761,7 +761,7 @@ key = random() ** (1 / weight)
                   'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
                   'Cisco CCNA (200-301) - live 750-question production pool aligned to Cisco 200-301 v2.0, with CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style practice connected to Networking and Data Center Technician paths.',
-                  'HashiCorp Terraform Associate (004) — live: 632 questions across the 8 official Terraform 1.12 objective groups, full exam simulator (57 Q / 60 min). Launches the new "Multi-Cloud" catalog group.',
+                  'HashiCorp Terraform Associate (004) — live: 647 questions covering all 35 published Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 910-test regression suite.',
                 ],
               },

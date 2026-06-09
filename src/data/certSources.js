@@ -135,10 +135,11 @@ const certSources = {
   'terraform-associate': {
     officialUrl: 'https://developer.hashicorp.com/certifications/infrastructure-automation',
     sourceLabel: 'HashiCorp Terraform Associate 004 certification page',
-    checkedAt,
+    checkedAt: '2026-06-09',
     examFormat: 'One-hour exam using true/false, multiple-choice, and multiple-answer questions.',
-    scoreModel: 'HashiCorp does not publish a fixed raw passing percentage.',
-    editorialStatus: 'Current 004 objectives and official question formats verified',
+    scoreModel: 'HashiCorp does not publish a fixed raw passing percentage or objective-group weights; the app uses a readiness target and editorial practice allocation.',
+    readinessGrade: 'B+',
+    editorialStatus: 'Live at readiness bar; all 35 Associate 004 objectives covered',
   },
   'real-estate-national': {
     officialUrl: 'https://www.pearsonvue.com/us/en/realestate.html',

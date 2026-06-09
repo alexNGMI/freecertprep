@@ -28,7 +28,7 @@ Implemented June 8, 2026:
 - NVIDIA and Data Center Technician lanes remain implemented but are removed from homepage discovery.
 - Real Estate remains in the codebase and is reachable only from Docs for internal review.
 
-The default rule is B+ simulation readiness or better. A+ Core 1 and Core 2 now meet that bar after objective tagging, breadth expansion, distractor repair, and multiple-response remediation. Terraform remains a documented strategic exception under continued polish; CCNA remains live.
+The default rule is B+ simulation readiness or better. A+ Core 1, A+ Core 2, and Terraform now meet that bar with objective-level coverage gates. CCNA remains live.
 
 The remediation program should therefore follow this order:
 
@@ -81,7 +81,7 @@ Scoring dimensions:
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
 | Splunk Core Certified User | B+ | Exact blueprint allocation, substantive coverage of the compact published blueprint, 750 exact-unique questions, and official-style selected-response forms. | Stems are verbose, some paired multiple-response items feel like learning drills, and distractors/result evidence can be more discriminating. | Keep live at the readiness bar; shorten stems, split weak paired items, and add compact result-table evidence. |
 | Schneider Data Center Certified Associate | C | Vendor-source topic architecture is useful; 750 questions across data-center physical infrastructure. | Heavy normalized duplication and obvious distractors; official exam-source details are less pinned than major vendors. | Rewrite repeated facility scenarios; pin current official exam guide/source package. |
-| Terraform Associate 004 | B+ | The 632-question Terraform 1.12 pool now includes official-style true/false, multiple-choice, and multiple-answer formats across every objective. Generated forms preserve objective allocation and guarantee mixed-format coverage. | The simulator approximates HashiCorp's exam delivery and uses a readiness target rather than claiming official score equivalence. | Keep live; continue replacing older verbose stems during normal editorial review. |
+| Terraform Associate 004 | B+ | The 647-question Terraform 1.12 pool covers all 35 published subobjectives with at least two concepts each and uses the official true/false, multiple-choice, and multiple-answer formats. | HashiCorp does not publish objective weights, live items, or a fixed raw passing percentage. The simulator therefore uses a disclosed editorial practice allocation and readiness target. | Keep live; maintain objective gates and continue normal command/config editorial review. |
 
 ### Real Estate Sister Product
 

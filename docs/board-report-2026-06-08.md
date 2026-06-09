@@ -69,7 +69,7 @@ The recommended next phase is therefore:
 | Linux+, XK0-006 | CompTIA | 750 | 90 / 90 |
 | Splunk Core Certified User | Splunk | 750 | 60 / 60 |
 | Data Center Certified Associate | Schneider Electric | 750 | 100 / 120 |
-| Terraform Associate 004 | HashiCorp | 632 | 57 / 60 |
+| Terraform Associate 004 | HashiCorp | 647 | 57 / 60 |
 
 ### Guided Career Paths
 

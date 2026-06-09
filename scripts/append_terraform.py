@@ -8,8 +8,10 @@ Rules enforced (lightweight per-batch gate; content-sanity.test.js does the
 exhaustive per-type validation):
   - id matches ^tf-<N>$
   - id is unique across the entire pool (after append) and within the batch
-  - type is one of the five recognized types (default 'single-choice')
+  - type is one of the official direct-response formats
   - domain in ALLOWED_DOMAINS (the 8 official 004 objective groups)
+  - objectiveId is one of the 35 official Associate 004 objectives
+  - conceptId is a non-empty editorial coverage identifier
   - question and explanation are non-empty strings
   - single-choice only: exactly 4 choices (non-empty strings), correctAnswer in {0,1,2,3}
 """
@@ -31,10 +33,19 @@ ALLOWED_DOMAINS = {
 
 VALID_TYPES = {
     'single-choice',
+    'true-false',
     'multiple-response',
-    'statement-block',
-    'ordering',
-    'matching',
+}
+
+VALID_OBJECTIVES = {
+    '1a', '1b', '1c',
+    '2a', '2b', '2c', '2d',
+    '3a', '3b', '3c', '3d', '3e', '3f', '3g',
+    '4a', '4b', '4c', '4d', '4e', '4f', '4g', '4h',
+    '5a', '5b', '5c', '5d',
+    '6a', '6b', '6c', '6d',
+    '7a', '7b', '7c',
+    '8a', '8b', '8c', '8d',
 }
 
 
@@ -56,6 +67,10 @@ def validate(batch: list, existing_ids: set) -> list[str]:
             errors.append(f"{loc}: type '{qtype}' not recognized")
         if q.get('domain') not in ALLOWED_DOMAINS:
             errors.append(f"{loc}: domain '{q.get('domain')}' not in ALLOWED_DOMAINS")
+        if q.get('objectiveId') not in VALID_OBJECTIVES:
+            errors.append(f"{loc}: objectiveId '{q.get('objectiveId')}' not in Associate 004 objectives")
+        if not (isinstance(q.get('conceptId'), str) and q['conceptId'].strip()):
+            errors.append(f"{loc}: conceptId must be a non-empty string")
         if not (isinstance(q.get('question'), str) and q['question'].strip()):
             errors.append(f"{loc}: question must be a non-empty string")
         if not (isinstance(q.get('explanation'), str) and q['explanation'].strip()):

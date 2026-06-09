@@ -13,6 +13,9 @@ import { formatTime } from '../utils/time'
 export default function Exam() {
   const cert = useCert()
   const questions = cert.questions
+  const allocationCopy = cert.domainWeightSource === 'editorial-practice'
+    ? 'a stable objective-group practice allocation'
+    : 'official domain weighting'
   const {
     answeredCount,
     currentIndex,
@@ -36,7 +39,7 @@ export default function Exam() {
         <StudyHeader
           eyebrow="Exam simulator"
           title="Run a readiness simulation"
-          subtitle={`An exam-shaped ${cert.title} practice form with official domain weighting, a strict timer, and no answer feedback until the results screen.`}
+          subtitle={`An exam-shaped ${cert.title} practice form with ${allocationCopy}, a strict timer, and no answer feedback until the results screen.`}
           cert={cert}
           stats={[
             { label: 'Questions', value: EXAM_QUESTIONS, icon: ClipboardList },

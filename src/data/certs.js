@@ -652,10 +652,11 @@ const certs = {
     description: 'Infrastructure-as-Code fundamentals for Terraform 1.12: providers, workflow, configuration, modules, state, CLI maintenance, and HCP Terraform.',
     difficulty: 'Associate',
     color: '#7c3aed',
-    questionCount: 632,
+    questionCount: 647,
     examQuestions: 57,
     examTime: 60,
     passingScore: 70,
+    domainWeightSource: 'editorial-practice',
     requiredTypeCounts: {
       'true-false': 3,
       'multiple-response': 4,

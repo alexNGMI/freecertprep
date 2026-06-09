@@ -22,17 +22,17 @@ Free, open-source certification exam prep for the IT certifications that open do
 | CompTIA Server+ | CompTIA | SK0-005 | Foundational | 760 | 90 | 90 min | 83% |
 | CompTIA Linux+ | CompTIA | XK0-006 | Foundational | 750 | 90 | 90 min | 80% |
 | Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
-| HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 632 | 57 | 60 min | ~70% |
+| HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 647 | 57 | 60 min | 70% readiness |
 
-**11,678 authored questions across 17 IT certifications.** The public catalog currently exposes 9 live modules and holds 8 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
+**11,693 authored questions across 17 IT certifications.** The public catalog currently exposes 9 live modules and holds 8 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
 
 Live now: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, CCNA, and Terraform Associate.
 
 Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA. No question banks or routes were deleted.
 
-> **Multi-Cloud is live:** HashiCorp Terraform Associate (004) ships a 632-question pool across the 8 official exam objective groups for Terraform 1.12, launching the new "Multi-Cloud" provider group alongside the cloud providers.
+> **Terraform objective remediation is live:** HashiCorp Terraform Associate (004) now ships a 647-question pool covering all 35 published subobjectives across the eight Terraform 1.12 objective groups. Every item carries objective and concept metadata, and automated gates reject missing coverage, objective-group mismatches, blueprint-trivia prompts, deprecated-command guidance, and legacy product naming.
 
-> **Terraform format fidelity is live:** the Associate 004 bank now includes 24 true/false and 32 multiple-answer questions across all eight objectives. Every 57-question simulation guarantees at least three true/false and four multiple-answer items while preserving the objective allocation.
+> **Terraform format fidelity is live:** the Associate 004 bank includes 24 true/false and 32 multiple-answer questions across all eight groups. Every 57-question simulation guarantees at least three true/false and four multiple-answer items. HashiCorp does not publish objective weights, so the simulator clearly uses a stable editorial practice allocation rather than claiming official weighting.
 
 > **Live-bank language cleanup is active:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, and Splunk Core User. Automated gates prevent that phrasing from returning. The cleanup exposed repeated stem clusters that are now measured directly and queued for evidence-based rewrites rather than hidden behind artificial IDs.
 

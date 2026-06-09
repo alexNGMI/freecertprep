@@ -272,7 +272,9 @@ export default function Dashboard() {
         <ActionCard
           icon={ShieldCheck}
           title="Exam Simulator"
-          body={`${cert.examQuestions} questions across weighted official domains.`}
+          body={cert.domainWeightSource === 'editorial-practice'
+            ? `${cert.examQuestions} questions across a stable objective-group practice allocation.`
+            : `${cert.examQuestions} questions across weighted official domains.`}
           to="exam"
           cta="Begin Exam"
           color={cert.color}

@@ -122,6 +122,7 @@ describe('cert registry', () => {
     expect(certs['comptia-a-plus-core-1'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('B+')
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
+    expect(certs['terraform-associate'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/coverage verified/i)
     expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/coverage verified/i)
   })
@@ -658,10 +659,33 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }, {})
 
     expect(byType).toEqual({
-      'single-choice': 576,
+      'single-choice': 591,
       'true-false': 24,
       'multiple-response': 32,
     })
+
+    const expectedObjectives = [
+      '1a', '1b', '1c',
+      '2a', '2b', '2c', '2d',
+      '3a', '3b', '3c', '3d', '3e', '3f', '3g',
+      '4a', '4b', '4c', '4d', '4e', '4f', '4g', '4h',
+      '5a', '5b', '5c', '5d',
+      '6a', '6b', '6c', '6d',
+      '7a', '7b', '7c',
+      '8a', '8b', '8c', '8d',
+    ]
+    expect(new Set(questions.map(q => q.objectiveId))).toEqual(new Set(expectedObjectives))
+
+    for (const objectiveId of expectedObjectives) {
+      const objectiveQuestions = questions.filter(q => q.objectiveId === objectiveId)
+      expect(objectiveQuestions.length, `Terraform objective ${objectiveId} is thin`).toBeGreaterThanOrEqual(3)
+      expect(
+        new Set(objectiveQuestions.map(q => q.conceptId)).size,
+        `Terraform objective ${objectiveId} needs at least two concepts`,
+      ).toBeGreaterThanOrEqual(2)
+    }
+
+    expect(cert.domainWeightSource).toBe('editorial-practice')
 
     for (const domain of cert.domains) {
       const domainQuestions = questions.filter(q => q.domain === domain.name)
@@ -1012,7 +1036,7 @@ describe('CompTIA practical exam forms', () => {
 })
 
 describe('Terraform Associate 004 exam forms', () => {
-  it('preserves objective allocation and guarantees official question formats', () => {
+  it('preserves the editorial practice allocation and guarantees official question formats', () => {
     const cert = certs['terraform-associate']
     const expectedDomains = {
       'Infrastructure as Code (IaC) with Terraform': 9,
