@@ -411,6 +411,7 @@ After that, the most rational expansion options are:
 - Network+ topology/cabling widgets.
 - CCNA topology and multi-command troubleshooting polish.
 - Completed June 9, 2026: Network+ and Security+ objective metadata, accuracy/coverage dashboard, objective practice, recent-miss queue, and spaced due-review queue.
+- Completed June 9, 2026: A+ Core 1 and Core 2 joined the Objective Learning Loop with all 63 learner-facing objective labels, targeted practice, recent-miss and due-review queues, objective dashboard signals, support-oriented review cues, and post-session recommendations.
 - Completed June 8, 2026: Terraform true/false and multiple-answer support with guaranteed mixed-format exam forms.
 
 PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. Richer cable-map, firewall-builder, and multi-artifact interaction remain open.

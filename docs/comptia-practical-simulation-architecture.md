@@ -74,7 +74,7 @@ Tests fail if:
 
 ## Objective Learning Loop
 
-Every Network+ and Security+ question now carries:
+Every A+, Network+, and Security+ question now carries:
 
 - `objectiveId` for the current numbered CompTIA objective;
 - `objectiveTitle` for learner-facing review;
@@ -89,6 +89,8 @@ The learner experience uses that metadata to provide:
 - up to three objective recommendations after each practice block.
 
 Accuracy and coverage are intentionally separate. A learner who answers one question correctly has high accuracy but low coverage and should not be shown as having mastered the full objective.
+
+A+ adds a support-oriented review cue to each explanation. Core 1 asks the learner to connect the symptom to the least invasive likely fix and confirming evidence. Core 2 emphasizes the safest next action, protection of user data and security, and verification through the relevant setting, command, log, or policy.
 
 ## Next Iteration
 

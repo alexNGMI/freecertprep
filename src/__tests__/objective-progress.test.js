@@ -5,6 +5,10 @@ import {
   rankWeakObjectives,
   summarizeObjectiveProgress,
 } from '../utils/objective-progress'
+import {
+  APLUS_CORE_1_OBJECTIVES,
+  APLUS_CORE_2_OBJECTIVES,
+} from '../data/objectiveCatalog'
 
 const questions = [
   { id: 'q1', objectiveId: '1.1' },
@@ -17,6 +21,19 @@ const objectives = [
 ]
 
 describe('objective progress', () => {
+  it('registers every A+ objective with a learner-facing label', () => {
+    expect(APLUS_CORE_1_OBJECTIVES).toHaveLength(27)
+    expect(APLUS_CORE_2_OBJECTIVES).toHaveLength(36)
+
+    for (const catalog of [APLUS_CORE_1_OBJECTIVES, APLUS_CORE_2_OBJECTIVES]) {
+      expect(new Set(catalog.map(objective => objective.id)).size).toBe(catalog.length)
+      for (const objective of catalog) {
+        expect(objective.domain).not.toBe('')
+        expect(objective.title.length).toBeGreaterThan(8)
+      }
+    }
+  })
+
   it('separates accuracy from question coverage', () => {
     const summaries = summarizeObjectiveProgress(questions, {
       q1: { attempts: 2, correct: 1, lastSeen: 100 },

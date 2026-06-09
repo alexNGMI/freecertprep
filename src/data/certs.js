@@ -23,7 +23,12 @@ import realEstateAzStateQuestionsUrl from './real-estate-az-state-questions.json
 import realEstateNcStateQuestionsUrl from './real-estate-nc-state-questions.json?url'
 import realEstateInStateQuestionsUrl from './real-estate-in-state-questions.json?url'
 import certSources from './certSources'
-import { NETWORK_PLUS_OBJECTIVES, SECURITY_PLUS_OBJECTIVES } from './objectiveCatalog'
+import {
+  APLUS_CORE_1_OBJECTIVES,
+  APLUS_CORE_2_OBJECTIVES,
+  NETWORK_PLUS_OBJECTIVES,
+  SECURITY_PLUS_OBJECTIVES,
+} from './objectiveCatalog'
 
 async function loadQuestionAsset(url) {
   const response = await fetch(url)
@@ -31,6 +36,17 @@ async function loadQuestionAsset(url) {
     throw new Error(`Failed to load question bank ${url}: ${response.status}`)
   }
   return response.json()
+}
+
+async function loadObjectiveQuestionAsset(url, objectives, reviewPrompt) {
+  const questions = await loadQuestionAsset(url)
+  const objectiveTitles = new Map(objectives.map(objective => [objective.id, objective.title]))
+
+  return questions.map(question => ({
+    ...question,
+    objectiveTitle: objectiveTitles.get(question.objectiveId),
+    objectiveReviewPrompt: reviewPrompt,
+  }))
 }
 
 async function loadCompositeQuestions(stateUrl) {
@@ -625,9 +641,14 @@ const certs = {
     passingScore: 75,
     practicalQuestionTarget: 6,
     examAllowedTypes: ['single-choice', 'multiple-response', 'matching', 'ordering', 'pbq-matching'],
-    loadQuestions: () => loadQuestionAsset(comptiaAPlusCore1QuestionsUrl),
+    loadQuestions: () => loadObjectiveQuestionAsset(
+      comptiaAPlusCore1QuestionsUrl,
+      APLUS_CORE_1_OBJECTIVES,
+      'Identify the symptom, choose the least invasive likely fix, and name the evidence that would confirm it before replacing unrelated hardware.',
+    ),
     domains: APLUS_CORE_1_DOMAINS,
     domainColors: APLUS_CORE_COLORS,
+    objectives: APLUS_CORE_1_OBJECTIVES,
   },
   'comptia-a-plus-core-2': {
     id: 'comptia-a-plus-core-2',
@@ -643,9 +664,14 @@ const certs = {
     passingScore: 78,
     practicalQuestionTarget: 6,
     examAllowedTypes: ['single-choice', 'multiple-response', 'matching', 'ordering', 'pbq-matching'],
-    loadQuestions: () => loadQuestionAsset(comptiaAPlusCore2QuestionsUrl),
+    loadQuestions: () => loadObjectiveQuestionAsset(
+      comptiaAPlusCore2QuestionsUrl,
+      APLUS_CORE_2_OBJECTIVES,
+      'Identify the safest next support action, preserve user data and security, and name the setting, command, log, or policy evidence that verifies the result.',
+    ),
     domains: APLUS_CORE_2_DOMAINS,
     domainColors: APLUS_CORE_COLORS,
+    objectives: APLUS_CORE_2_OBJECTIVES,
   },
   'terraform-associate': {
     id: 'terraform-associate',

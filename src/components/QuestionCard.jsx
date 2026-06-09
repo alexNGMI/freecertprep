@@ -486,7 +486,7 @@ function ExplanationReview({ question }) {
               Review target · Objective {question.objectiveId}
             </p>
             <p className="text-sm leading-relaxed text-zinc-300">
-              {question.objectiveTitle}. Recheck the evidence in the stem and identify which competing choice addresses a different layer, control, or troubleshooting step.
+              {question.objectiveTitle}. {question.objectiveReviewPrompt || 'Recheck the evidence in the stem and identify which competing choice addresses a different layer, control, or troubleshooting step.'}
             </p>
           </div>
         )}

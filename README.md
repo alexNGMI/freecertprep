@@ -42,11 +42,13 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **A+ readiness remediation is live:** Core 1 and Core 2 now earn B+ simulation-readiness grades. All 63 current official objectives are covered by at least two distinct concepts, Core 1 expanded from 44 to 84 concepts, Core 2 expanded from 36 to 94, all 187 generated multiple-response items use objective-specific second answers, and the PBQ-lite set is explicitly mapped to the objective hierarchy.
 
+> **A+ Objective Learning Loop is live:** both cores now expose objective-level accuracy and coverage, ten-question objective drills, recent misses, spaced due review, objective badges, A+-specific troubleshooting review cues, and post-session recommendations tied to the learner's misses.
+
 > **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
 > **CompTIA practical simulation v1 is live:** every 90-question Network+ and Security+ form now guarantees at least six practical scenarios while preserving exact blueprint allocation. Network+ has 32 practical items across PBQ matching, topology, command output, and config repair; Security+ has 33 across PBQ matching, log triage, segmented architecture, and control repair. Multi-part review shows component-level correctness without claiming CompTIA's confidential partial-credit model.
 
-> **Objective Learning Loop v2 is live for Network+ and Security+:** all 27 N10-009 and 28 SY0-701 objectives now carry question-level objective and concept metadata. Dashboards distinguish accuracy from coverage, objective-focused ten-question sessions are available, recent misses and spaced due-review queues are built into practice, and session results recommend the exact objectives behind the learner's misses.
+> **Objective Learning Loop v2 is live for A+, Network+, and Security+:** all 63 A+, 27 N10-009, and 28 SY0-701 objectives support learner-facing objective labels and targeted review. Dashboards distinguish accuracy from coverage, objective-focused ten-question sessions are available, recent misses and spaced due-review queues are built into practice, and session results recommend the exact objectives behind the learner's misses.
 
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
 
@@ -127,7 +129,7 @@ CCNA simulation types implemented: CLI output interpretation, topology scenarios
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,142 tests across 29 files), GitHub Actions CI
+- Vitest (1,143 tests across 29 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 
