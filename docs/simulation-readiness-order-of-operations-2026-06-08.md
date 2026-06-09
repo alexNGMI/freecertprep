@@ -9,8 +9,8 @@ Step-four audit completed June 8, 2026:
 - `scripts/audits/live-bank-simulation-readiness-audit-2026-06-08.md`
 - Scope: A+ Core 1, A+ Core 2, and Splunk Core Certified User.
 - The audit confirms stable form allocation and strong surface uniqueness.
-- It also finds that A+ remains materially thin at the official subobjective level: Core 1 uses 44 concept templates and Core 2 uses 36 across 750 generated questions each.
-- Step five completed June 8, 2026: A+ Core 1 and Core 2 moved from B to C+; Splunk remains B+.
+- The initial audit found that A+ was materially thin at the official objective level: Core 1 used 44 concept templates and Core 2 used 36 across 750 generated questions each.
+- A+ remediation completed June 8, 2026: Core 1 now uses 84 concepts across all 27 official objectives; Core 2 uses 94 across all 36. Both now grade B+.
 
 ## Executive Takeaway
 
@@ -28,7 +28,7 @@ Implemented June 8, 2026:
 - NVIDIA and Data Center Technician lanes remain implemented but are removed from homepage discovery.
 - Real Estate remains in the codebase and is reachable only from Docs for internal review.
 
-The default rule is B+ simulation readiness or better. A+ Core 1 and Core 2 are explicit C+ strategic exceptions because the product uses A+ as the optional entry ramp for learners with no technical background. Terraform remains a documented strategic exception under continued polish; CCNA remains live.
+The default rule is B+ simulation readiness or better. A+ Core 1 and Core 2 now meet that bar after objective tagging, breadth expansion, distractor repair, and multiple-response remediation. Terraform remains a documented strategic exception under continued polish; CCNA remains live.
 
 The remediation program should therefore follow this order:
 
@@ -73,8 +73,8 @@ Scoring dimensions:
 | NVIDIA Generative AI LLMs | B- | Good foundational selected-response fit; 330 questions; covers NVIDIA LLM associate topics. | Low scenario rate; needs stronger applied RAG, inference, evaluation, safety, and deployment tradeoff items. | Expand and scenario-ize only after Linux+/DCCA/Splunk polish. |
 | CCST Networking, 100-150 | B | 750 questions and close blueprint alignment; good entry networking practice. | Real Cisco exam interface and item set are simplified; high normalized repetition means some items feel templated. | Rewrite repeated normalized clusters; add more packet/output evidence. |
 | CCNA, 200-301 | B+ | Best advanced simulation fit in the app: CLI output, topology scenarios, config repair, subnetting drills, 750 questions, current v2.0 blueprint. | Still not a true Cisco lab/simlet environment; topology diagrams are text/SVG-style approximations; explanations are thinner than SAA. | Make this the model for advanced simulation polish; add richer multi-command troubleshooting and visual topology variety. |
-| A+ Core 1, 220-1201 | C+ | 760 unique stems, correct domain allocation, useful foundational facts, and ten PBQ-lite scenarios. | Only 44 underlying concept templates cover a much broader official objective set; many distractors are cross-domain and all generated multiple-response items reuse a generic verification answer. | Keep live only as the disclosed entry-path exception; add objective IDs, fill missing objective families, and rebuild distractors before claiming comprehensive simulation. |
-| A+ Core 2, 220-1202 | C+ | 760 unique stems, correct domain allocation, useful support fundamentals, and ten PBQ-lite scenarios. | Only 36 underlying concept templates; major OS, security, troubleshooting, and operational-procedure objective families remain thin, including the full malware-removal process. | Keep live only as the disclosed entry-path exception; expand objective breadth and replace generic multiple-response/distractor patterns. |
+| A+ Core 1, 220-1201 | B+ | 760 unique stems, 84 concepts, all 27 official objectives covered, objective/domain gates, plausible domain-level distractors, repaired multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery remains an approximation of CompTIA's proprietary interactive environment; some objectives remain intentionally broader than individual bullet-level skills. | Maintain the automated objective matrix and expand practical artifacts during future PBQ-engine work. |
+| A+ Core 2, 220-1202 | B+ | 760 unique stems, 94 concepts, all 36 official objectives covered, complete malware-response coverage, repaired distractors and multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery and confidential vendor scoring cannot be reproduced exactly. | Maintain objective coverage and add richer settings, command, and policy artifacts over time. |
 | Network+, N10-009 | B+ | 760 questions; recent rebalance improved troubleshooting and operations; PBQ-lite included. | Needs more network-diagram, cable-map, routing table, wireless survey, and port/service simulations to approach CompTIA PBQs. | Use Network+ as next CompTIA PBQ engine pilot after scoring/trust fixes. |
 | Security+, SY0-701 | B+ | 760 questions, strong domain fit, zero normalized duplicate groups in scan, varied item types. | Real Security+ PBQs often require log triage, policy/config matching, attack-chain interpretation, and control placement; current app approximates. | Add log-analysis and incident-response PBQ widgets; expand why-wrong explanations. |
 | Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |

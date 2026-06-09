@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate:content": "vitest run src/__tests__/content-sanity.test.js"
+    "validate:content": "vitest run src/__tests__/content-sanity.test.js",
+    "audit:aplus": "node scripts/audit_aplus_objective_coverage.mjs"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.2.8",

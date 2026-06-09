@@ -1,6 +1,13 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import {
+  APLUS_OBJECTIVES,
+  EXISTING_OBJECTIVE_ASSIGNMENTS,
+  OBJECTIVE_CHECKS,
+  PRACTICAL_OBJECTIVE_MAP,
+  SUPPLEMENTAL_CONCEPTS,
+} from './data/aplus-objectives.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -238,6 +245,35 @@ const supportEvidence = {
   },
 }
 
+function buildObjectiveBanks(coreKey) {
+  return Object.fromEntries(Object.entries(EXISTING_OBJECTIVE_ASSIGNMENTS[coreKey]).map(([domain, assignments]) => {
+    const topics = banks[domain]
+    if (!assignments || assignments.length !== topics.length) {
+      throw new Error(`${coreKey} ${domain} objective assignments do not match the existing concept count`)
+    }
+    const tagged = topics.map((topic, index) => [...topic, assignments[index]])
+    const supplemental = SUPPLEMENTAL_CONCEPTS[coreKey][domain]
+    const allTopics = [...tagged, ...supplemental]
+    const objectiveCorrectAnswers = new Map()
+    for (const topic of allTopics) {
+      const objectiveId = topic[4]
+      if (!objectiveCorrectAnswers.has(objectiveId)) objectiveCorrectAnswers.set(objectiveId, [])
+      objectiveCorrectAnswers.get(objectiveId).push(topic[1])
+    }
+    const strengthenedExisting = tagged.map((topic) => {
+      const [task, correct, , why, objectiveId] = topic
+      const candidates = [
+        ...allTopics.filter(candidate => candidate[4] !== objectiveId).map(candidate => candidate[1]),
+        ...objectiveCorrectAnswers.get(objectiveId),
+      ].filter((answer, candidateIndex, answers) =>
+        answer !== correct && answers.indexOf(answer) === candidateIndex
+      )
+      return [task, correct, candidates.slice(0, 3), why, objectiveId]
+    })
+    return [domain, [...strengthenedExisting, ...supplemental]]
+  }))
+}
+
 const prompts = [
   'Which action is BEST?',
   'What should the technician do FIRST?',
@@ -352,9 +388,9 @@ function isSymptom(task) {
 
 function scenarioStem(task, variant, prompt) {
   if (isSymptom(task)) {
-    return `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${variant.observation}. ${variant.constraint}. ${prompt}`
+    return `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${prompt}`
   }
-  return `${sentenceCase(variant.context)}, a technician needs to ${task} ${targetPhrase(variant.asset)}. ${variant.observation}. ${variant.constraint}. ${prompt}`
+  return `${sentenceCase(variant.context)}, a technician needs to ${task} ${targetPhrase(variant.asset)}. ${prompt}`
 }
 
 function shuffleWithMatches(itemsRight, offset) {
@@ -368,11 +404,13 @@ function shuffleWithMatches(itemsRight, offset) {
 }
 
 function singleQuestion(prefix, idNum, domain, topic, variant) {
-  const [task, correct, distractors, why] = topic
+  const [task, correct, distractors, why, objectiveId] = topic
   const { choices, correctAnswer } = rotateChoices(correct, distractors, idNum)
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
+    objectiveId,
+    conceptId: `${prefix}-${objectiveId}-${String(variant.conceptIndex + 1).padStart(2, '0')}`,
     question: scenarioStem(task, variant, prompts[idNum % prompts.length]),
     choices,
     correctAnswer,
@@ -381,25 +419,35 @@ function singleQuestion(prefix, idNum, domain, topic, variant) {
 }
 
 function multipleResponse(prefix, idNum, domain, topic, variant) {
-  const [task, correct, distractors, why] = topic
+  const [task, correct, distractors, why, objectiveId] = topic
+  const checks = OBJECTIVE_CHECKS[objectiveId]
+  const companion = sentenceCase(checks[idNum % checks.length])
+  const answerChoices = [correct, companion, ...distractors.slice(0, 2)]
+  const rotation = idNum % answerChoices.length
+  const choices = [...answerChoices.slice(rotation), ...answerChoices.slice(0, rotation)]
+  const correctAnswers = [correct, companion].map(answer => choices.indexOf(answer)).sort((a, b) => a - b)
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
+    objectiveId,
+    conceptId: `${prefix}-${objectiveId}-${String(variant.conceptIndex + 1).padStart(2, '0')}`,
     type: 'multiple-response',
     question: isSymptom(task)
-      ? `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${variant.observation}. Which TWO choices best support the response?`
-      : `${sentenceCase(variant.context)}, a technician is asked to ${task} ${targetPhrase(variant.asset)}. ${variant.observation}. Which TWO choices best support the requirement?`,
-    choices: [correct, `Verify the change after implementation and document the result`, ...distractors.slice(0, 2)],
-    correctAnswers: [0, 1],
-    explanation: `${why} Verification and documentation confirm the fix and preserve support history. ${domainGuidance[domain]}`,
+      ? `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. Which TWO choices best support the response?`
+      : `${sentenceCase(variant.context)}, a technician is asked to ${task} ${targetPhrase(variant.asset)}. Which TWO choices best support the requirement?`,
+    choices,
+    correctAnswers,
+    explanation: `${why} A complete response also confirms that ${checks[idNum % checks.length]}. ${domainGuidance[domain]}`,
   }
 }
 
 function statementBlock(prefix, idNum, domain, topic, variant) {
-  const [task, correct, distractors, why] = topic
+  const [task, correct, distractors, why, objectiveId] = topic
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
+    objectiveId,
+    conceptId: `${prefix}-${objectiveId}-${String(variant.conceptIndex + 1).padStart(2, '0')}`,
     type: 'statement-block',
     question: isSymptom(task)
       ? `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${variant.observation}. Review the statements against the observed evidence.`
@@ -414,14 +462,17 @@ function statementBlock(prefix, idNum, domain, topic, variant) {
   }
 }
 
-function matchingQuestion(prefix, idNum, domain, variant) {
+function matchingQuestion(prefix, idNum, domain, topic, variant) {
   const sets = matchSets[domain]
   if (!sets) return null
+  const objectiveId = topic[4]
   const [question, itemsLeft, itemsRight, correctMatches] = sets[idNum % sets.length]
   const shuffled = shuffleWithMatches(itemsRight, idNum)
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
+    objectiveId,
+    conceptId: `${prefix}-${objectiveId}-${String(variant.conceptIndex + 1).padStart(2, '0')}`,
     type: 'matching',
     question: `${question} The work involves ${variant.asset} ${variant.context}; ${variant.constraint.toLowerCase()}.`,
     itemsLeft,
@@ -431,13 +482,16 @@ function matchingQuestion(prefix, idNum, domain, variant) {
   }
 }
 
-function orderingQuestion(prefix, idNum, domain, variant) {
+function orderingQuestion(prefix, idNum, domain, topic, variant) {
   const sets = orderSets[domain]
   if (!sets) return null
+  const objectiveId = topic[4]
   const [question, items, correctOrder] = sets[idNum % sets.length]
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
+    objectiveId,
+    conceptId: `${prefix}-${objectiveId}-${String(variant.conceptIndex + 1).padStart(2, '0')}`,
     type: 'ordering',
     question: `${question} The technician is working on ${variant.asset} ${variant.context}; ${variant.constraint.toLowerCase()}.`,
     items,
@@ -446,11 +500,12 @@ function orderingQuestion(prefix, idNum, domain, variant) {
   }
 }
 
-function generate(prefix, domains) {
+function generate(prefix, domains, coreKey) {
   const questions = []
+  const objectiveBanks = buildObjectiveBanks(coreKey)
   let idNum = 1
   for (const [domain, count] of domains) {
-    const topics = banks[domain]
+    const topics = objectiveBanks[domain]
     const topicOccurrences = new Map()
     const contextStep = contextStepFor(topics.length)
     for (let i = 0; i < count; i += 1) {
@@ -460,14 +515,15 @@ function generate(prefix, domains) {
       topicOccurrences.set(task, occurrence + 1)
       const variant = {
         asset: inferAsset(task, domain),
+        conceptIndex: i % topics.length,
         observation: neutralObservations[(occurrence * 3 + i) % neutralObservations.length],
         constraint: neutralConstraints[(occurrence * 5 + i) % neutralConstraints.length],
         context: contexts[(occurrence * contextStep + i) % contexts.length],
       }
       const absolute = questions.length + 1
       let q = null
-      if (absolute % 17 === 0) q = matchingQuestion(prefix, idNum, domain, variant)
-      if (!q && absolute % 19 === 0) q = orderingQuestion(prefix, idNum, domain, variant)
+      if (absolute % 17 === 0) q = matchingQuestion(prefix, idNum, domain, topic, variant)
+      if (!q && absolute % 19 === 0) q = orderingQuestion(prefix, idNum, domain, topic, variant)
       if (!q && absolute % 11 === 0) q = statementBlock(prefix, idNum, domain, topic, variant)
       if (!q && absolute % 7 === 0) q = multipleResponse(prefix, idNum, domain, topic, variant)
       if (!q) q = singleQuestion(prefix, idNum, domain, topic, variant)
@@ -479,14 +535,23 @@ function generate(prefix, domains) {
 }
 
 const outputs = [
-  ['src/data/comptia-a-plus-core-1-questions.json', generate('aplus-core1', core1Domains)],
-  ['src/data/comptia-a-plus-core-2-questions.json', generate('aplus-core2', core2Domains)],
+  ['core1', 'src/data/comptia-a-plus-core-1-questions.json', generate('aplus-core1', core1Domains, 'core1')],
+  ['core2', 'src/data/comptia-a-plus-core-2-questions.json', generate('aplus-core2', core2Domains, 'core2')],
 ]
 
-for (const [target, questions] of outputs) {
+for (const [coreKey, target, questions] of outputs) {
   const targetPath = path.join(root, target)
   const existing = JSON.parse(fs.readFileSync(targetPath, 'utf8'))
-  const practicalQuestions = existing.filter(question => question.type === 'pbq-matching')
+  const practicalQuestions = existing.filter(question => question.type === 'pbq-matching').map((question, index) => {
+    const [domain, objectiveId] = PRACTICAL_OBJECTIVE_MAP[question.id] || []
+    if (!domain || !objectiveId) throw new Error(`${target} missing practical objective mapping for ${question.id}`)
+    return {
+      ...question,
+      domain,
+      objectiveId,
+      conceptId: `${question.id}-practical-${String(index + 1).padStart(2, '0')}`,
+    }
+  })
   const completeBank = [...questions, ...practicalQuestions]
   const normalizedStems = new Set(completeBank.map(question =>
     question.question
@@ -503,6 +568,24 @@ for (const [target, questions] of outputs) {
   }
   if (questions.some(question => /\bticket\b/i.test(question.question))) {
     throw new Error(`${target} generated questions contain ticket framing`)
+  }
+  const requiredObjectives = Object.values(APLUS_OBJECTIVES[coreKey]).flat()
+  const objectiveCounts = new Map(requiredObjectives.map(objectiveId => [objectiveId, 0]))
+  const conceptCounts = new Map(requiredObjectives.map(objectiveId => [objectiveId, new Set()]))
+  for (const question of completeBank) {
+    if (!objectiveCounts.has(question.objectiveId)) {
+      throw new Error(`${target} has invalid objective ${question.objectiveId} on ${question.id}`)
+    }
+    objectiveCounts.set(question.objectiveId, objectiveCounts.get(question.objectiveId) + 1)
+    conceptCounts.get(question.objectiveId).add(question.conceptId)
+  }
+  const uncovered = requiredObjectives.filter(objectiveId => objectiveCounts.get(objectiveId) === 0)
+  const thin = requiredObjectives.filter(objectiveId => conceptCounts.get(objectiveId).size < 2)
+  if (uncovered.length) throw new Error(`${target} uncovered objectives: ${uncovered.join(', ')}`)
+  if (thin.length) throw new Error(`${target} objectives with fewer than two concepts: ${thin.join(', ')}`)
+  if (completeBank.some(question => question.type === 'multiple-response'
+    && question.choices.some(choice => choice === 'Verify the change after implementation and document the result'))) {
+    throw new Error(`${target} contains the retired generic multiple-response answer`)
   }
   fs.writeFileSync(targetPath, `${JSON.stringify(completeBank, null, 2)}\n`)
   console.log(`${target}: ${completeBank.length} (${practicalQuestions.length} preserved PBQs)`)

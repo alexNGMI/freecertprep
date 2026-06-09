@@ -118,12 +118,12 @@ describe('cert registry', () => {
     }
   })
 
-  it('keeps audited live-bank readiness grades and exception status explicit', () => {
-    expect(certs['comptia-a-plus-core-1'].source.readinessGrade).toBe('C+')
-    expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('C+')
+  it('keeps audited live-bank readiness grades explicit', () => {
+    expect(certs['comptia-a-plus-core-1'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('B+')
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
-    expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/strategic exception/i)
-    expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/strategic exception/i)
+    expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/coverage verified/i)
+    expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/coverage verified/i)
   })
 
   it('every cert reports the same questionCount in the registry as its JSON (published or not)', () => {
@@ -483,8 +483,38 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
   it('A+ banks keep the evidence rewrite and practical-item baseline', () => {
     if (!['comptia-a-plus-core-1', 'comptia-a-plus-core-2'].includes(certId)) return
 
+    const expectedObjectiveIds = certId === 'comptia-a-plus-core-1'
+      ? [
+          '1.1', '1.2', '1.3',
+          '2.1', '2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8',
+          '3.1', '3.2', '3.3', '3.4', '3.5', '3.6', '3.7', '3.8',
+          '4.1', '4.2',
+          '5.1', '5.2', '5.3', '5.4', '5.5', '5.6',
+        ]
+      : [
+          '1.1', '1.2', '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9', '1.10', '1.11',
+          '2.1', '2.2', '2.3', '2.4', '2.5', '2.6', '2.7', '2.8', '2.9', '2.10', '2.11',
+          '3.1', '3.2', '3.3', '3.4',
+          '4.1', '4.2', '4.3', '4.4', '4.5', '4.6', '4.7', '4.8', '4.9', '4.10',
+        ]
+    const expectedDomains = certId === 'comptia-a-plus-core-1'
+      ? {
+          1: 'Mobile Devices',
+          2: 'Networking',
+          3: 'Hardware',
+          4: 'Virtualization and Cloud Computing',
+          5: 'Hardware and Network Troubleshooting',
+        }
+      : {
+          1: 'Operating Systems',
+          2: 'Security',
+          3: 'Software Troubleshooting',
+          4: 'Operational Procedures',
+        }
+
     expect(questions).toHaveLength(760)
     expect(questions.filter(q => typeOf(q) === 'pbq-matching')).toHaveLength(10)
+    expect(new Set(questions.map(q => q.objectiveId))).toEqual(new Set(expectedObjectiveIds))
 
     const normalizedStems = new Set(questions.map(q =>
       q.question
@@ -496,9 +526,30 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     ))
     expect(normalizedStems.size).toBe(760)
 
+    for (const objectiveId of expectedObjectiveIds) {
+      const objectiveQuestions = questions.filter(q => q.objectiveId === objectiveId)
+      expect(objectiveQuestions.length, `${certId} objective ${objectiveId} has no questions`).toBeGreaterThan(0)
+      expect(
+        new Set(objectiveQuestions.map(q => q.conceptId)).size,
+        `${certId} objective ${objectiveId} needs at least two concepts`
+      ).toBeGreaterThanOrEqual(2)
+    }
+
+    for (const q of questions) {
+      expect(q.domain, `${certId} q${q.id} objective/domain mismatch`).toBe(
+        expectedDomains[Number(q.objectiveId.split('.')[0])]
+      )
+    }
+
     for (const q of questions.filter(q => typeOf(q) !== 'pbq-matching')) {
       expect(q.question, `${certId} q${q.id} uses generated ticket framing`).not.toMatch(/\bticket\b/i)
       expect(q.explanation.length, `${certId} q${q.id} explanation is too short`).toBeGreaterThanOrEqual(120)
+    }
+
+    for (const q of questions.filter(q => typeOf(q) === 'multiple-response')) {
+      expect(q.choices, `${certId} q${q.id} still uses the retired generic answer`).not.toContain(
+        'Verify the change after implementation and document the result'
+      )
     }
   })
 

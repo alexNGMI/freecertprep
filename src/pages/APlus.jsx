@@ -11,7 +11,7 @@ const CORE_BLUEPRINTS = {
     title: 'Hardware, networking, mobile, cloud',
     passingScore: '675 / 900',
     liveQuestions: 760,
-    status: 'Live foundational practice · C+ · breadth expansion queued',
+    status: 'Live foundational practice · B+ · objective coverage verified',
     focus: 'Best first stop for device support, network basics, printers, virtualization, and hardware troubleshooting.',
     domains: [
       ['Mobile Devices', 13],
@@ -28,7 +28,7 @@ const CORE_BLUEPRINTS = {
     title: 'Operating systems, security, procedures',
     passingScore: '700 / 900',
     liveQuestions: 760,
-    status: 'Live foundational practice · C+ · breadth expansion queued',
+    status: 'Live foundational practice · B+ · objective coverage verified',
     focus: 'Best second stop for Windows, macOS, Linux, malware response, software troubleshooting, and support process.',
     domains: [
       ['Operating Systems', 28],
@@ -137,7 +137,7 @@ export default function APlus() {
                 {core.label} {core.code}
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed mb-6">
-                {core.label} currently has {core.liveQuestions.toLocaleString()} questions and ten PBQ-lite scenarios. The 90-question simulator draws by official domain weights, while objective breadth and distractor quality continue to expand.
+                {core.label} currently has {core.liveQuestions.toLocaleString()} questions and ten evidence-based PBQ-lite scenarios. Every question is tagged to the current official objective hierarchy, and automated coverage gates protect the full blueprint.
               </p>
               <div className="glass-panel rounded-2xl p-5">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">

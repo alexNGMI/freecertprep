@@ -250,3 +250,14 @@ Rationale:
 - A+ remains useful and generally factually sound, but its limited underlying concept breadth, weak distractor discrimination, generic multiple-response construction, and simplified PBQ delivery make it a study bank more than a comprehensive simulator under the grading rubric.
 - A+ remains strategically valuable as the optional starting point for learners without technical experience. Removing it would weaken the intended learning path, so the product must disclose its exception status and prioritize remediation.
 - Splunk maps well to its compact selected-response blueprint and has no foundational architecture gap. Its remaining issues fit B+ targeted polish rather than a downgrade.
+
+## A+ remediation regrade
+
+Completed June 8, 2026 after the step-five decision:
+
+| Certification | Step-five grade | Regraded | Evidence |
+| --- | ---: | ---: | --- |
+| A+ Core 1 | C+ | B+ | 84 concepts cover all 27 official objectives; objective/domain gates pass; 94 generated multiple-response items repaired; ten PBQ-lite scenarios explicitly mapped. |
+| A+ Core 2 | C+ | B+ | 94 concepts cover all 36 official objectives; objective/domain gates pass; 93 generated multiple-response items repaired; ten PBQ-lite scenarios explicitly mapped. |
+
+The regrade does not claim exact reproduction of CompTIA's proprietary PBQ interface or scaled scoring. It recognizes that the identified C+ deficiencies have been materially remediated: every question now carries an objective and concept ID, every objective has at least two concepts, cross-domain distractors were replaced with competing actions from the same exam domain, filler was removed from generated stems, and objective-specific second answers replaced the repeated generic verification choice.
