@@ -56,7 +56,8 @@ describe('homepage career-path layout', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'Live certs first.' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Production practice' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Live practice' })).toBeTruthy()
+    expect(screen.getByText(/strategic foundational exceptions are disclosed/i)).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Held for simulation polish' })).toBeTruthy()
     expect(screen.getAllByRole('link', { name: /Network\+/ })[0].getAttribute('href')).toBe('/comptia-net-plus')
     expect(screen.getAllByRole('link', { name: /Security\+/ })[0].getAttribute('href')).toBe('/comptia-sec-plus')

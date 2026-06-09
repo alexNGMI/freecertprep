@@ -10,8 +10,8 @@ const CORE_BLUEPRINTS = {
     route: '/comptia-a-plus-core-1',
     title: 'Hardware, networking, mobile, cloud',
     passingScore: '675 / 900',
-    liveQuestions: 750,
-    status: 'Production pool live',
+    liveQuestions: 760,
+    status: 'Live foundational practice · C+ · breadth expansion queued',
     focus: 'Best first stop for device support, network basics, printers, virtualization, and hardware troubleshooting.',
     domains: [
       ['Mobile Devices', 13],
@@ -27,8 +27,8 @@ const CORE_BLUEPRINTS = {
     route: '/comptia-a-plus-core-2',
     title: 'Operating systems, security, procedures',
     passingScore: '700 / 900',
-    liveQuestions: 750,
-    status: 'Production pool live',
+    liveQuestions: 760,
+    status: 'Live foundational practice · C+ · breadth expansion queued',
     focus: 'Best second stop for Windows, macOS, Linux, malware response, software troubleshooting, and support process.',
     domains: [
       ['Operating Systems', 28],
@@ -44,7 +44,7 @@ export default function APlus() {
   const core = CORE_BLUEPRINTS[selectedCore]
   const contentTargets = [
     [String(core.liveQuestions), `${core.label} live questions`],
-    ['750', `${core.label} target`],
+    ['10', 'PBQ-lite scenarios'],
     ['90', 'exam questions'],
     ['90', 'minutes per exam'],
   ]
@@ -81,7 +81,7 @@ export default function APlus() {
                 Pick your A+ core.
               </h1>
               <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-                A+ is a two-exam credential. This track keeps Core 1 and Core 2 separate so each practice test can match the real blueprint, passing score, and 90-minute exam format.
+                A+ is a two-exam credential. This track keeps Core 1 and Core 2 separate, uses the official domain weights, and clearly distinguishes practice readiness from CompTIA&apos;s scaled scoring and richer PBQ delivery.
               </p>
             </div>
 
@@ -137,7 +137,7 @@ export default function APlus() {
                 {core.label} {core.code}
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed mb-6">
-                {core.label} currently has {core.liveQuestions.toLocaleString()} reviewed questions, with a production target of 750. The 90-question simulator draws by official domain weights.
+                {core.label} currently has {core.liveQuestions.toLocaleString()} questions and ten PBQ-lite scenarios. The 90-question simulator draws by official domain weights, while objective breadth and distractor quality continue to expand.
               </p>
               <div className="glass-panel rounded-2xl p-5">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">

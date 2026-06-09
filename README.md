@@ -40,6 +40,8 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **A+ evidence rewrite is live:** both 760-question Core banks now have 760 exact and normalized-unique stems, retain ten handcrafted PBQ-lite scenarios, and avoid generated ticket framing. Formal simulations guarantee at least six PBQ-lite items and exclude statement-block learning drills.
 
+> **Readiness grades updated:** Splunk Core User remains B+ and meets the live-catalog bar. A+ Core 1 and Core 2 are C+ foundational strategic exceptions: useful entry practice that remains live while official-objective breadth, distractors, and PBQ realism are expanded.
+
 > **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
 > **CompTIA practical simulation v1 is live:** every 90-question Network+ and Security+ form now guarantees at least six practical scenarios while preserving exact blueprint allocation. Network+ has 32 practical items across PBQ matching, topology, command output, and config repair; Security+ has 33 across PBQ matching, log triage, segmented architecture, and control repair. Multi-part review shows component-level correctness without claiming CompTIA's confidential partial-credit model.

@@ -87,7 +87,8 @@ const certSources = {
     checkedAt,
     examFormat: '60 multiple-choice questions in 60 minutes, including agreement review time.',
     scoreModel: 'The app uses a practice-readiness target, not a vendor score conversion.',
-    editorialStatus: 'Blueprint verified; language polish scheduled',
+    readinessGrade: 'B+',
+    editorialStatus: 'Live at readiness bar; targeted editorial polish scheduled',
   },
   'comptia-server-plus': {
     officialUrl: 'https://www.comptia.org/en-us/certifications/server/',
@@ -119,7 +120,8 @@ const certSources = {
     checkedAt,
     examFormat: 'Maximum of 90 multiple-choice, drag-and-drop, and performance-based questions in 90 minutes.',
     scoreModel: 'CompTIA reports a scaled score; Core 1 requires 675 on a 100-900 scale.',
-    editorialStatus: 'Current blueprint verified',
+    readinessGrade: 'C+',
+    editorialStatus: 'Live foundational strategic exception; objective-breadth expansion required',
   },
   'comptia-a-plus-core-2': {
     officialUrl: 'https://www.comptia.org/certifications/a/',
@@ -127,7 +129,8 @@ const certSources = {
     checkedAt,
     examFormat: 'Maximum of 90 multiple-choice, drag-and-drop, and performance-based questions in 90 minutes.',
     scoreModel: 'CompTIA reports a scaled score; Core 2 requires 700 on a 100-900 scale.',
-    editorialStatus: 'Current blueprint verified',
+    readinessGrade: 'C+',
+    editorialStatus: 'Live foundational strategic exception; objective-breadth expansion required',
   },
   'terraform-associate': {
     officialUrl: 'https://developer.hashicorp.com/certifications/infrastructure-automation',

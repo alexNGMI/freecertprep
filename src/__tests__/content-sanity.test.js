@@ -118,6 +118,14 @@ describe('cert registry', () => {
     }
   })
 
+  it('keeps audited live-bank readiness grades and exception status explicit', () => {
+    expect(certs['comptia-a-plus-core-1'].source.readinessGrade).toBe('C+')
+    expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('C+')
+    expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/strategic exception/i)
+    expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/strategic exception/i)
+  })
+
   it('every cert reports the same questionCount in the registry as its JSON (published or not)', () => {
     for (const [id, questions] of Object.entries(CERT_QUESTIONS)) {
       const declared = certs[id].questionCount

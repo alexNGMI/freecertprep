@@ -65,7 +65,7 @@ export default function Catalog() {
                 Live certs first.
               </h1>
               <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-                Use this page when you already know the exam you want. Anything below the current simulation-readiness bar is tucked into Coming Soon until it earns its way back.
+                Use this page when you already know the exam you want. Most live modules meet the current simulation-readiness bar; strategic foundational exceptions are disclosed on their certification pages.
               </p>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function Catalog() {
           <div className="mb-5 flex items-end justify-between gap-4">
             <div>
               <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">Ready now</p>
-              <h2 className="text-2xl font-bold text-zinc-100">Production practice</h2>
+              <h2 className="text-2xl font-bold text-zinc-100">Live practice</h2>
             </div>
             <p className="text-sm text-zinc-500">{liveCerts.length} live modules</p>
           </div>

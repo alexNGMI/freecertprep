@@ -14,6 +14,7 @@ const cert = {
     checkedAt: '2026-06-08',
     examFormat: 'Selected-response practice format.',
     scoreModel: 'Readiness target only.',
+    readinessGrade: 'B+',
     editorialStatus: 'Current blueprint verified',
   },
 }
@@ -25,6 +26,7 @@ describe('TrustPanel', () => {
     render(<TrustPanel cert={cert} />)
 
     expect(screen.getByRole('heading', { name: 'Source and simulation status' })).toBeTruthy()
+    expect(screen.getByText('Simulation readiness B+')).toBeTruthy()
     expect(screen.getByRole('link', { name: /Official source/ }).getAttribute('href')).toBe(cert.source.officialUrl)
 
     const report = screen.getByRole('link', { name: /Report an issue/ }).getAttribute('href')

@@ -234,3 +234,19 @@ The grade update should reflect the difference between:
 - actual objective breadth, distractor discrimination, and interaction realism.
 
 No public availability decision was changed during this audit. Grade and catalog-position decisions belong to step five.
+
+## Step-five decision
+
+Completed June 8, 2026:
+
+| Certification | Previous | Updated | Catalog decision |
+| --- | ---: | ---: | --- |
+| A+ Core 1 | B | C+ | Keep live as a disclosed foundational strategic exception. |
+| A+ Core 2 | B | C+ | Keep live as a disclosed foundational strategic exception. |
+| Splunk Core Certified User | B+ | B+ | Keep live; it meets the current readiness bar. |
+
+Rationale:
+
+- A+ remains useful and generally factually sound, but its limited underlying concept breadth, weak distractor discrimination, generic multiple-response construction, and simplified PBQ delivery make it a study bank more than a comprehensive simulator under the grading rubric.
+- A+ remains strategically valuable as the optional starting point for learners without technical experience. Removing it would weaken the intended learning path, so the product must disclose its exception status and prioritize remediation.
+- Splunk maps well to its compact selected-response blueprint and has no foundational architecture gap. Its remaining issues fit B+ targeted polish rather than a downgrade.

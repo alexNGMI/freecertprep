@@ -25,6 +25,7 @@ export default function TrustPanel({ cert, light = false }) {
           <div className={`mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs font-semibold ${muted}`}>
             <span>{source.sourceLabel}</span>
             <span>Checked {source.checkedAt}</span>
+            {source.readinessGrade && <span>Simulation readiness {source.readinessGrade}</span>}
             <span>{source.editorialStatus}</span>
           </div>
         </div>
