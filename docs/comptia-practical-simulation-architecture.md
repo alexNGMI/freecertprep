@@ -1,7 +1,7 @@
 # CompTIA Practical Simulation Architecture
 
 Date: June 8, 2026  
-Status: production-ready v1 for Network+ N10-009 and Security+ SY0-701
+Status: production-ready v2 for Network+ N10-009 and Security+ SY0-701
 
 ## Purpose
 
@@ -67,6 +67,28 @@ Tests fail if:
 - a generated full form contains fewer than six practical questions;
 - a generated full form changes the expected 90-question domain allocation;
 - PBQ evidence, topology, command, or configuration data is malformed.
+- any official objective has fewer than three questions or lacks a classified concept family;
+- objective metadata is missing or mapped outside its official domain;
+- more than 20% of a bank requires conservative domain-level fallback classification;
+- any practical scenario explanation falls below the review-quality threshold.
+
+## Objective Learning Loop
+
+Every Network+ and Security+ question now carries:
+
+- `objectiveId` for the current numbered CompTIA objective;
+- `objectiveTitle` for learner-facing review;
+- `conceptId` for editorial breadth measurement.
+
+The learner experience uses that metadata to provide:
+
+- objective-level accuracy and coverage on the dashboard;
+- ten-question objective focus sessions;
+- recent-miss and spaced due-review queues;
+- objective badges in questions and review mode;
+- up to three objective recommendations after each practice block.
+
+Accuracy and coverage are intentionally separate. A learner who answers one question correctly has high accuracy but low coverage and should not be shown as having mastered the full objective.
 
 ## Next Iteration
 
@@ -76,4 +98,4 @@ The v2 opportunity is interaction depth, not more ordinary questions:
 2. Add a firewall-rule builder with ordered rule evaluation.
 3. Add multi-artifact incident cases with logs, topology, and policy evidence in one item.
 4. Add richer per-component explanations for every multi-part response.
-
+5. Continue reducing conservative fallback mappings as practical items and weak objective families receive future editorial replacement.

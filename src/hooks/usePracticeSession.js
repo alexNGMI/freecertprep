@@ -3,18 +3,24 @@ import { fisherYates, weightedSample } from '../utils/shuffle'
 import { isAnswerCorrect } from '../utils/scoring'
 import { useProgress } from './useProgress'
 import { useQuestionStats } from './useQuestionStats'
+import { getDueReviewQuestions, getRecentMissQuestions } from '../utils/objective-progress'
 
 export const SMART_PRACTICE = 'Smart Practice'
 export const BOOKMARKED = 'Bookmarked'
 export const ALL_DOMAINS = 'All Domains'
+export const RECENT_MISSES = 'Recent Misses'
+export const DUE_REVIEW = 'Due Review'
+export const OBJECTIVE_PREFIX = 'Objective:'
 
-export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize = 10 }) {
+export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize = 10, initialSelection = SMART_PRACTICE }) {
   const { addQuizResult } = useProgress(cert.id)
-  const { getWeightedPool, recordSession, trackedCount } = useQuestionStats(cert.id)
+  const { certStats, getWeightedPool, recordSession, trackedCount } = useQuestionStats(cert.id)
 
   const certDomains = useMemo(() => cert.domains.map((d) => d.name), [cert.domains])
-  const [selectedDomain, setSelectedDomain] = useState(SMART_PRACTICE)
-  const [setupStep, setSetupStep] = useState(1)
+  const [selectedDomain, setSelectedDomain] = useState(initialSelection)
+  const [setupStep, setSetupStep] = useState(
+    initialSelection.startsWith(OBJECTIVE_PREFIX) ? 3 : 1,
+  )
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState([])
   const [showResult, setShowResult] = useState(false)
@@ -24,14 +30,23 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
   const activeMode =
     selectedDomain === SMART_PRACTICE ? 'smart'
       : selectedDomain === BOOKMARKED ? 'bookmarked'
+        : selectedDomain === RECENT_MISSES ? 'missed'
+          : selectedDomain === DUE_REVIEW ? 'due'
+            : selectedDomain.startsWith(OBJECTIVE_PREFIX) ? 'objective'
         : 'domain'
 
   const poolQuestions = useMemo(() => {
     if (selectedDomain === SMART_PRACTICE) return questions
     if (selectedDomain === ALL_DOMAINS) return questions
     if (selectedDomain === BOOKMARKED) return questions.filter((q) => bookmarkedIds.includes(q.id))
+    if (selectedDomain === RECENT_MISSES) return getRecentMissQuestions(questions, certStats)
+    if (selectedDomain === DUE_REVIEW) return getDueReviewQuestions(questions, certStats)
+    if (selectedDomain.startsWith(OBJECTIVE_PREFIX)) {
+      const objectiveId = selectedDomain.slice(OBJECTIVE_PREFIX.length)
+      return questions.filter((q) => q.objectiveId === objectiveId)
+    }
     return questions.filter((q) => q.domain === selectedDomain)
-  }, [selectedDomain, questions, bookmarkedIds])
+  }, [selectedDomain, questions, bookmarkedIds, certStats])
 
   const sessionQuestions = useMemo(() => {
     void sessionKey
@@ -49,10 +64,10 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
     setSessionKey((k) => k + 1)
   }
 
-  const changeMode = () => {
+  const changeMode = (selection = SMART_PRACTICE) => {
     setQuizStarted(false)
     setSetupStep(1)
-    setSelectedDomain(SMART_PRACTICE)
+    setSelectedDomain(selection)
   }
 
   const handleAnswer = (selectedChoice) => {
@@ -84,6 +99,7 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
     currentQuestion: sessionQuestions[currentIndex],
     handleAnswer,
     handleNext,
+    certStats,
     isSmartPractice: selectedDomain === SMART_PRACTICE,
     poolQuestions,
     quizStarted,

@@ -141,6 +141,14 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
           <span className="inline-block text-[11px] font-bold px-3 py-1.5 rounded-lg border border-indigo-500/50 bg-indigo-500/10 text-indigo-300 uppercase tracking-widest">
             {question.domain}
           </span>
+          {question.objectiveId && (
+            <span
+              title={question.objectiveTitle || undefined}
+              className="inline-block rounded-lg border border-white/10 bg-zinc-900/70 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-zinc-400"
+            >
+              Objective {question.objectiveId}
+            </span>
+          )}
           {onToggleBookmark && (
             <button
               onClick={() => onToggleBookmark(question.id)}
@@ -451,7 +459,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                 Component check: {answerProgress.correct}/{answerProgress.total} correct
               </p>
             )}
-            <ExplanationReview text={question.explanation} />
+            <ExplanationReview question={question} />
           </div>
         </div>
       )}
@@ -459,11 +467,31 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   )
 }
 
-function ExplanationReview({ text }) {
+function ExplanationReview({ question }) {
+  const text = question.explanation
   const sections = parseExplanationSections(text)
 
   if (!sections) {
-    return <RichText text={text} className="text-zinc-300/90 pr-4" />
+    return (
+      <div className="space-y-3 pr-4">
+        <div className="rounded-lg border border-white/10 bg-zinc-950/35 p-3">
+          <p className="mb-1 text-[0.68rem] font-bold uppercase tracking-widest text-zinc-400">
+            Explanation
+          </p>
+          <RichText text={text} className="text-zinc-300/90" />
+        </div>
+        {question.objectiveTitle && (
+          <div className="rounded-lg border border-indigo-500/20 bg-indigo-500/5 p-3">
+            <p className="mb-1 text-[0.68rem] font-bold uppercase tracking-widest text-indigo-300">
+              Review target · Objective {question.objectiveId}
+            </p>
+            <p className="text-sm leading-relaxed text-zinc-300">
+              {question.objectiveTitle}. Recheck the evidence in the stem and identify which competing choice addresses a different layer, control, or troubleshooting step.
+            </p>
+          </div>
+        )}
+      </div>
+    )
   }
 
   return (

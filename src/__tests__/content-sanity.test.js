@@ -123,6 +123,8 @@ describe('cert registry', () => {
     expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('B+')
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
     expect(certs['terraform-associate'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-net-plus'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-sec-plus'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/coverage verified/i)
     expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/coverage verified/i)
   })
@@ -746,6 +748,35 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
       + (byType['topology-scenario'] || 0)
       + (byType['config-repair'] || 0)
     ).toBeGreaterThanOrEqual(33)
+  })
+
+  it('Network+ and Security+ carry complete objective learning metadata', () => {
+    if (!['comptia-net-plus', 'comptia-sec-plus'].includes(certId)) return
+
+    expect(cert.objectives.length).toBe(certId === 'comptia-net-plus' ? 27 : 28)
+    const expectedIds = new Set(cert.objectives.map(objective => objective.id))
+    expect(new Set(questions.map(question => question.objectiveId))).toEqual(expectedIds)
+
+    for (const objective of cert.objectives) {
+      const matches = questions.filter(question => question.objectiveId === objective.id)
+      expect(matches.length, `${certId} objective ${objective.id} is thin`).toBeGreaterThanOrEqual(3)
+      expect(
+        new Set(matches.map(question => question.conceptId)).size,
+        `${certId} objective ${objective.id} needs a classified concept family`,
+      ).toBeGreaterThanOrEqual(1)
+      expect(matches.every(question => question.domain === objective.domain)).toBe(true)
+      expect(matches.every(question => question.objectiveTitle)).toBe(true)
+    }
+  })
+
+  it('Network+ and Security+ practical scenarios retain review-quality explanations', () => {
+    if (!['comptia-net-plus', 'comptia-sec-plus'].includes(certId)) return
+    const practicalTypes = new Set(['pbq-matching', 'cli-output', 'topology-scenario', 'config-repair'])
+    const practical = questions.filter(question => practicalTypes.has(typeOf(question)))
+
+    expect(practical.length).toBeGreaterThanOrEqual(certId === 'comptia-net-plus' ? 32 : 33)
+    expect(practical.every(question => question.objectiveId && question.conceptId)).toBe(true)
+    expect(practical.every(question => question.explanation.length >= 140)).toBe(true)
   })
 
   it('Google Cloud Digital Leader follows the current six-section guide', () => {

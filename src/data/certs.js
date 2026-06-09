@@ -23,6 +23,7 @@ import realEstateAzStateQuestionsUrl from './real-estate-az-state-questions.json
 import realEstateNcStateQuestionsUrl from './real-estate-nc-state-questions.json?url'
 import realEstateInStateQuestionsUrl from './real-estate-in-state-questions.json?url'
 import certSources from './certSources'
+import { NETWORK_PLUS_OBJECTIVES, SECURITY_PLUS_OBJECTIVES } from './objectiveCatalog'
 
 async function loadQuestionAsset(url) {
   const response = await fetch(url)
@@ -426,6 +427,7 @@ const certs = {
     examTime: 90,
     passingScore: 80,
     practicalQuestionTarget: 6,
+    objectives: NETWORK_PLUS_OBJECTIVES,
     loadQuestions: () => loadQuestionAsset(comptiaNetPlusQuestionsUrl),
     domains: [
       { name: 'Networking Concepts', weight: 23 },
@@ -487,6 +489,7 @@ const certs = {
     examTime: 90,
     passingScore: 83,
     practicalQuestionTarget: 6,
+    objectives: SECURITY_PLUS_OBJECTIVES,
     loadQuestions: () => loadQuestionAsset(comptiaSecPlusQuestionsUrl),
     domains: [
       { name: 'General Security Concepts', weight: 12 },

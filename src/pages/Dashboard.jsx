@@ -43,11 +43,12 @@ import TrustPanel from '../components/TrustPanel'
 import { Tooltip as UiTooltip } from '../components/ui/tooltip'
 import { cn } from '../utils/cn'
 import { readinessTarget } from '../utils/readiness'
+import { rankWeakObjectives, summarizeObjectiveProgress } from '../utils/objective-progress'
 
 export default function Dashboard() {
   const cert = useCert()
   const { getDomainStats, getOverallStats, resetProgress } = useProgress(cert.id)
-  const { trackedCount, resetStats } = useQuestionStats(cert.id)
+  const { certStats, trackedCount, resetStats } = useQuestionStats(cert.id)
   const domainStats = getDomainStats(cert.domains)
   const overall = getOverallStats
   const importRef = useRef(null)
@@ -72,6 +73,8 @@ export default function Dashboard() {
     weight: cert.domains.find((d) => d.name === stat.domain)?.weight || 0,
     color: cert.domainColors[stat.domain]?.hex || cert.color,
   }))
+  const objectiveProgress = summarizeObjectiveProgress(cert.questions, certStats, cert.objectives)
+  const weakObjectives = rankWeakObjectives(objectiveProgress).slice(0, 3)
 
   const action = weakest
     ? {
@@ -252,11 +255,53 @@ export default function Dashboard() {
         </Surface>
       </section>
 
+      {cert.objectives?.length > 0 && (
+        <Surface className="p-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Objective learning loop</p>
+              <h2 className="mt-2 text-2xl font-black text-zinc-50">
+                {weakObjectives.length ? 'Your next three study targets' : 'Build an objective-level signal'}
+              </h2>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                Accuracy shows performance on attempted questions. Coverage shows how much of that objective you have actually seen.
+              </p>
+            </div>
+            <DomainBadge color={cert.color}>{cert.objectives.length} objectives</DomainBadge>
+          </div>
+
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            {(weakObjectives.length ? weakObjectives : objectiveProgress.slice(0, 3)).map(objective => (
+              <Link
+                key={objective.id}
+                to={`quiz?objective=${objective.id}`}
+                className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5 transition hover:-translate-y-0.5 hover:border-white/20"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-xs font-black uppercase tracking-wider" style={{ color: cert.color }}>
+                    Objective {objective.id}
+                  </p>
+                  <ArrowRight className="h-4 w-4 text-zinc-600" />
+                </div>
+                <p className="mt-3 font-black text-zinc-100">{objective.title}</p>
+                <p className="mt-1 text-xs text-zinc-500">{objective.domain}</p>
+                <div className="mt-5 grid grid-cols-2 gap-2 text-sm">
+                  <Insight label="Accuracy" value={objective.accuracy === null ? 'New' : `${objective.accuracy}%`} />
+                  <Insight label="Coverage" value={`${objective.coverage}%`} />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Surface>
+      )}
+
       <section className="grid gap-6 lg:grid-cols-3">
         <ActionCard
           icon={BookOpenCheck}
           title="Practice Quiz"
-          body="Smart Practice, bookmarks, or one focused domain."
+          body={cert.objectives?.length
+            ? 'Smart Practice, objective focus, review queues, bookmarks, or one domain.'
+            : 'Smart Practice, bookmarks, or one focused domain.'}
           to="quiz"
           cta="Start Quiz"
           color="#6366f1"

@@ -75,8 +75,8 @@ Scoring dimensions:
 | CCNA, 200-301 | B+ | Best advanced simulation fit in the app: CLI output, topology scenarios, config repair, subnetting drills, 750 questions, current v2.0 blueprint. | Still not a true Cisco lab/simlet environment; topology diagrams are text/SVG-style approximations; explanations are thinner than SAA. | Make this the model for advanced simulation polish; add richer multi-command troubleshooting and visual topology variety. |
 | A+ Core 1, 220-1201 | B+ | 760 unique stems, 84 concepts, all 27 official objectives covered, objective/domain gates, plausible domain-level distractors, repaired multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery remains an approximation of CompTIA's proprietary interactive environment; some objectives remain intentionally broader than individual bullet-level skills. | Maintain the automated objective matrix and expand practical artifacts during future PBQ-engine work. |
 | A+ Core 2, 220-1202 | B+ | 760 unique stems, 94 concepts, all 36 official objectives covered, complete malware-response coverage, repaired distractors and multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery and confidential vendor scoring cannot be reproduced exactly. | Maintain objective coverage and add richer settings, command, and policy artifacts over time. |
-| Network+, N10-009 | B+ | 760 questions; recent rebalance improved troubleshooting and operations; PBQ-lite included. | Needs more network-diagram, cable-map, routing table, wireless survey, and port/service simulations to approach CompTIA PBQs. | Use Network+ as next CompTIA PBQ engine pilot after scoring/trust fixes. |
-| Security+, SY0-701 | B+ | 760 questions, strong domain fit, zero normalized duplicate groups in scan, varied item types. | Real Security+ PBQs often require log triage, policy/config matching, attack-chain interpretation, and control placement; current app approximates. | Add log-analysis and incident-response PBQ widgets; expand why-wrong explanations. |
+| Network+, N10-009 | B+ | 760 questions, exact domain allocation, 32 practical items, and complete metadata across all 27 numbered objectives. Objective accuracy, coverage, recent misses, due review, and targeted sessions are live. | Needs more cable-map, routing-table, wireless-survey, and multi-artifact simulations to approach CompTIA PBQs. | Keep live; deepen practical interactions without increasing ordinary question volume. |
+| Security+, SY0-701 | B+ | 760 questions, exact domain allocation, 33 practical items, and complete metadata across all 28 numbered objectives. Objective learning and review queues are live. | Real Security+ PBQs can combine log triage, policy/config matching, attack-chain interpretation, and control placement in one task. | Keep live; add richer multi-artifact incident and firewall-rule interactions. |
 | Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
 | Splunk Core Certified User | B+ | Exact blueprint allocation, substantive coverage of the compact published blueprint, 750 exact-unique questions, and official-style selected-response forms. | Stems are verbose, some paired multiple-response items feel like learning drills, and distractors/result evidence can be more discriminating. | Keep live at the readiness bar; shorten stems, split weak paired items, and add compact result-table evidence. |
@@ -314,6 +314,8 @@ Actions:
    - richer topologies
 3. Add scoring notes that CCNA practice is simulation-backed but not Cisco's actual exam engine.
 
+Status update, June 9, 2026: CCNA remains live but is intentionally parked. The current quality program is limited to Network+ and Security+.
+
 Acceptance criteria:
 
 - CCNA remains production-live.
@@ -408,6 +410,7 @@ After that, the most rational expansion options are:
 - Security+ log triage widgets.
 - Network+ topology/cabling widgets.
 - CCNA topology and multi-command troubleshooting polish.
+- Completed June 9, 2026: Network+ and Security+ objective metadata, accuracy/coverage dashboard, objective practice, recent-miss queue, and spaced due-review queue.
 - Completed June 8, 2026: Terraform true/false and multiple-answer support with guaranteed mixed-format exam forms.
 
 PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. Richer cable-map, firewall-builder, and multi-artifact interaction remain open.

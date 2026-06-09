@@ -687,7 +687,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              907 Vitest tests across 26 files cover the math, the scoring, the Smart Practice weights, the progress rollups,
+              1,142 Vitest tests across 29 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -736,6 +736,7 @@ key = random() ** (1 / weight)
                   'Vercel deployment — public URL, auto-deploy on push to main',
                   'Trust layer phase 0 - every cert now has source metadata, official source links, source-check dates, exam-format notes, score-model notes, editorial status, dashboard source cards, report-an-issue links, and readiness-language cleanup for exam starts/results.',
                   'CompTIA PBQ-lite expansion - A+ Core 1, A+ Core 2, Network+, Security+, and Server+ now each include 10 scenario-based pbq-matching troubleshooting items.',
+                  'Network+ and Security+ Objective Learning Loop - every N10-009 and SY0-701 question now carries objective and concept metadata; dashboards separate accuracy from coverage; practice supports objective focus, recent misses, and spaced due review; session results recommend the objectives behind each miss.',
                   'CompTIA Network+ (N10-009) — 760-question pool with scenario-forward PBQ-lite troubleshooting coverage',
                   'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before live CCNA practice.',
                   'CompTIA Security+ (SY0-701) — 760-question pool with PBQ-lite security operations and architecture scenarios',
@@ -762,7 +763,7 @@ key = random() ** (1 / weight)
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
                   'Cisco CCNA (200-301) - live 750-question production pool aligned to Cisco 200-301 v2.0, with CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style practice connected to Networking and Data Center Technician paths.',
                   'HashiCorp Terraform Associate (004) — live: 647 questions covering all 35 published Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 910-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,142-test regression suite.',
                 ],
               },
               {
