@@ -52,11 +52,11 @@ const certSources = {
   'comptia-net-plus': {
     officialUrl: 'https://www.comptia.org/en-us/certifications/network/',
     sourceLabel: 'CompTIA Network+ N10-009 exam details',
-    checkedAt: '2026-06-09',
+    checkedAt: '2026-06-13',
     examFormat: 'Maximum of 90 multiple-choice and performance-based questions in 90 minutes.',
     scoreModel: 'CompTIA reports a scaled score; 720 on a 100-900 scale is required.',
     readinessGrade: 'B+',
-    editorialStatus: 'Live at readiness bar; all 27 N10-009 objectives mapped to targeted practice',
+    editorialStatus: 'Live at readiness bar; objective coverage and four-category practical interaction depth verified',
   },
   'ccst-networking': {
     officialUrl: 'https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/ccst-networking/index.html',

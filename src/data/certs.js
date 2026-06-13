@@ -443,6 +443,12 @@ const certs = {
     examTime: 90,
     passingScore: 80,
     practicalQuestionTarget: 6,
+    requiredPracticalCategories: [
+      'cable-mapping',
+      'routing-analysis',
+      'wireless-survey',
+      'multi-artifact-troubleshooting',
+    ],
     objectives: NETWORK_PLUS_OBJECTIVES,
     loadQuestions: () => loadQuestionAsset(comptiaNetPlusQuestionsUrl),
     domains: [

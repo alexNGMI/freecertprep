@@ -27,6 +27,15 @@ const pbqQuestion = {
         title: 'Controller summary',
         lines: ['AP-01 retries: 41%', 'AP-02 RADIUS rejects: 18'],
       },
+      {
+        type: 'table',
+        title: 'Wireless survey',
+        columns: ['Area', 'RSSI', 'SNR'],
+        rows: [
+          ['Warehouse', '-68 dBm', '12 dB'],
+          ['Lobby', '-52 dBm', '29 dB'],
+        ],
+      },
     ],
   },
   question: 'Match each observation to the most likely next action.',
@@ -78,6 +87,8 @@ describe('QuestionCard pbq-matching questions', () => {
     expect(screen.getByText('High retries on 2.4 GHz')).toBeTruthy()
     expect(screen.getByText('Controller summary')).toBeTruthy()
     expect(screen.getByText(/AP-01 retries: 41%/)).toBeTruthy()
+    expect(screen.getByText('Wireless survey')).toBeTruthy()
+    expect(screen.getByText('-68 dBm')).toBeTruthy()
 
     const selects = screen.getAllByRole('combobox')
     fireEvent.change(selects[0], { target: { value: '1' } })

@@ -22,7 +22,7 @@ The current product is strongest when the real exam is selected-response only or
 
 Updated June 13, 2026:
 
-1. Network+ interaction depth: cable maps, routing-table evidence, wireless survey artifacts, and multi-artifact troubleshooting.
+1. Completed June 13, 2026: Network+ interaction depth added cable maps, routing-table evidence, wireless survey artifacts, multi-artifact troubleshooting, component coaching, and four-category form guarantees.
 2. Security+ interaction depth: log triage, ordered firewall-rule evaluation, incident evidence, and control-placement tasks.
 3. Splunk editorial polish: shorter stems, more discriminating distractors, stronger SPL/result evidence, and clearer review explanations.
 
@@ -417,7 +417,7 @@ After that, the most rational expansion options are:
 ### P2
 
 - CompTIA PBQ engine v1.
-- Network+ topology/cabling widgets.
+- Completed June 13, 2026: Network+ enriched ten PBQ scenarios with two correlated artifacts each, component-level coaching, cable/routing/wireless/multi-artifact category metadata, and 500-form category audits.
 - Security+ log triage and firewall-rule widgets.
 - Splunk stem, distractor, result-evidence, and review-explanation polish.
 - Parked: CCNA topology and multi-command troubleshooting polish.
@@ -426,7 +426,7 @@ After that, the most rational expansion options are:
 - Completed June 13, 2026: A+ PBQ-lite v2 enriched all 20 practicals with task briefs, console/table/checklist artifacts, per-component feedback, and category-balanced 90-question forms. Automated audits generate 500 forms per core and require at least six practicals while preserving domain allocation.
 - Completed June 8, 2026: Terraform true/false and multiple-answer support with guaranteed mixed-format exam forms.
 
-PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. Richer cable-map, firewall-builder, and multi-artifact interaction remain open.
+PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. The Network+ cable-map, routing, wireless-survey, and multi-artifact pass completed June 13; Security+ firewall-builder and incident interactions remain open.
 
 ### P3
 

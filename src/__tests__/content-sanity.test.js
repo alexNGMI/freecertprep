@@ -748,6 +748,47 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     ).toBeGreaterThanOrEqual(32)
   })
 
+  it('CompTIA Network+ keeps the enriched practical interaction set', () => {
+    if (certId !== 'comptia-net-plus') return
+
+    const enriched = questions.filter(question => /^netplus-pbq-\d{3}$/.test(question.id))
+    const expectedCategories = [
+      'cable-mapping',
+      'routing-analysis',
+      'wireless-survey',
+      'multi-artifact-troubleshooting',
+    ]
+
+    expect(enriched).toHaveLength(10)
+    expect(new Set(enriched.map(question => question.practicalCategory))).toEqual(new Set(expectedCategories))
+
+    for (const category of expectedCategories) {
+      expect(
+        enriched.filter(question => question.practicalCategory === category).length,
+        `Network+ practical category ${category} needs multiple scenarios`,
+      ).toBeGreaterThanOrEqual(2)
+    }
+
+    for (const question of enriched) {
+      expect(question.pbq.category).toBe(question.practicalCategory)
+      expect(question.pbq.task.length, `${question.id} needs an operational task brief`).toBeGreaterThanOrEqual(80)
+      expect(question.pbq.artifacts, `${question.id} needs correlated artifacts`).toHaveLength(2)
+      expect(new Set(question.pbq.artifacts.map(artifact => artifact.type)).size).toBeGreaterThanOrEqual(2)
+      expect(question.componentFeedback, `${question.id} needs component coaching`).toHaveLength(question.itemsLeft.length)
+      expect(question.explanation.length, `${question.id} needs review-quality rationale`).toBeGreaterThanOrEqual(180)
+
+      for (const component of question.componentFeedback) {
+        expect(component.label.length).toBeGreaterThan(15)
+        expect(component.action.length).toBeGreaterThan(20)
+        expect(component.why.length).toBeGreaterThan(120)
+      }
+    }
+
+    const cableValidation = questions.find(question => question.id === 'netplus-pbq-006')
+    expect(cableValidation.objectiveId).toBe('2.4')
+    expect(cableValidation.objectiveTitle).toMatch(/physical installation/i)
+  })
+
   it('CompTIA Security+ retains practical log, segmentation, and control-repair coverage', () => {
     if (certId !== 'comptia-sec-plus') return
 
@@ -1085,8 +1126,9 @@ describe('CompTIA practical exam forms', () => {
     ],
   ])('%s forms preserve blueprint allocation and practical coverage', (certId, questions, expectedDomains) => {
     const cert = certs[certId]
+    const auditRuns = certId === 'comptia-net-plus' ? 500 : 50
 
-    for (let run = 0; run < 50; run++) {
+    for (let run = 0; run < auditRuns; run++) {
       const form = weightedSelect(questions, cert.examQuestions, cert.domains, {
         practicalQuestionTarget: cert.practicalQuestionTarget,
         requiredPracticalCategories: cert.requiredPracticalCategories,

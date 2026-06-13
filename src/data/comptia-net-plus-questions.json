@@ -14340,6 +14340,53 @@
             }
           ]
         }
+      ],
+      "category": "wireless-survey",
+      "task": "Correlate RF health, authentication, and wired-uplink evidence to choose the most direct corrective action for each affected wireless service.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Wireless survey snapshot",
+          "columns": [
+            "Area",
+            "Band / channel",
+            "RSSI",
+            "SNR",
+            "Retry rate"
+          ],
+          "rows": [
+            [
+              "Warehouse",
+              "2.4 GHz / 6",
+              "-67 dBm",
+              "13 dB",
+              "38%"
+            ],
+            [
+              "Contractor lobby",
+              "5 GHz / 44",
+              "-51 dBm",
+              "31 dB",
+              "4%"
+            ],
+            [
+              "Conference room",
+              "5 GHz / 149",
+              "-48 dBm",
+              "35 dB",
+              "3%"
+            ]
+          ]
+        },
+        {
+          "type": "console",
+          "title": "Controller and switch evidence",
+          "lines": [
+            "AP-01 radio 2.4 GHz: high channel utilization | retries 38%",
+            "AP-02 Contractor SSID: RADIUS Access-Reject | EAP-TLS trust failure",
+            "SW-BR1 Gi1/0/18: up | 100/full | PoE+ 18.2 W | input errors 0"
+          ]
+        }
       ]
     },
     "question": "Match each observation to the best next troubleshooting action.",
@@ -14361,7 +14408,25 @@
     "explanation": "The warehouse symptom maps to RF interference, especially with high retries on 2.4 GHz near a microwave. Contractor failures after the passphrase point to 802.1X/RADIUS policy or trust. A refreshed AP capped by a 100 Mbps uplink should be checked at the switchport, cabling, negotiation, and PoE/link layer before changing WLAN policy.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
-    "conceptId": "comptia-net-plus-5.4-performance"
+    "conceptId": "comptia-net-plus-5.4-performance",
+    "practicalCategory": "wireless-survey",
+    "componentFeedback": [
+      {
+        "label": "Warehouse scanners show high retries and poor performance near the microwave",
+        "action": "Move clients to 5 GHz or adjust channel and power to reduce 2.4 GHz interference",
+        "why": "The correct action distinguishes RF coverage and contention from authentication and wired-uplink faults by using measured signal, noise, retry, channel, and roaming evidence."
+      },
+      {
+        "label": "Contractor devices fail after the wireless passphrase is accepted",
+        "action": "Review RADIUS policy, shared secret, and certificate trust for the Contractor SSID",
+        "why": "The correct action distinguishes RF coverage and contention from authentication and wired-uplink faults by using measured signal, noise, retry, channel, and roaming evidence."
+      },
+      {
+        "label": "Conference room clients are stable, but throughput is capped after the AP refresh",
+        "action": "Check the AP switchport cabling, speed/duplex negotiation, and PoE link status",
+        "why": "The correct action distinguishes RF coverage and contention from authentication and wired-uplink faults by using measured signal, noise, retry, channel, and roaming evidence."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-002",
@@ -14388,6 +14453,45 @@
             }
           ]
         }
+      ],
+      "category": "multi-artifact-troubleshooting",
+      "task": "Use interface counters, utilization timing, and clock evidence to select a focused validation step for each post-change monitoring alert.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Monitoring alerts",
+          "lines": [
+            "CORE-1 Te1/1: CRC errors +284 after fiber move",
+            "WAN-1 utilization: 96% from 01:00-02:00 during replication",
+            "SW-14 clock offset: +247 seconds from NTP-1"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Change record",
+          "columns": [
+            "Asset",
+            "Approved work",
+            "Baseline before change"
+          ],
+          "rows": [
+            [
+              "CORE-1 Te1/1",
+              "Move LC patch to new panel",
+              "0 CRC errors"
+            ],
+            [
+              "WAN-1",
+              "No circuit change",
+              "42% peak utilization"
+            ],
+            [
+              "SW-14",
+              "Firmware update",
+              "NTP synchronized"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each operations observation to the best next validation step.",
@@ -14409,7 +14513,25 @@
     "explanation": "Post-move interface errors call for physical fiber/optic checks. Backup-related latency should be validated against utilization and QoS. NTP offset warnings require checking NTP reachability, trust/authentication, and device time configuration.",
     "objectiveId": "3.2",
     "objectiveTitle": "Use network monitoring technologies",
-    "conceptId": "comptia-net-plus-3.2-monitoring"
+    "conceptId": "comptia-net-plus-3.2-monitoring",
+    "practicalCategory": "multi-artifact-troubleshooting",
+    "componentFeedback": [
+      {
+        "label": "Interface errors rise after a fiber move",
+        "action": "Inspect optics, fiber polarity/cleanliness, and interface counters on both ends",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "WAN latency rises only during scheduled backups",
+        "action": "Review QoS, backup schedule, and utilization graphs for congestion during the window",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "Several devices report time offset warnings",
+        "action": "Verify NTP source reachability, authentication if used, and device time settings",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-003",
@@ -14436,6 +14558,49 @@
             }
           ]
         }
+      ],
+      "category": "cable-mapping",
+      "task": "Map each endpoint symptom to the switchport or uplink correction supported by the VLAN, voice, and multi-SSID port evidence.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Endpoint-to-port map",
+          "columns": [
+            "Endpoint",
+            "Switchport",
+            "Expected service",
+            "Observed address"
+          ],
+          "rows": [
+            [
+              "HR-PC",
+              "Gi1/0/12",
+              "Data VLAN 20",
+              "10.30.10.84/24"
+            ],
+            [
+              "Phone + PC",
+              "Gi1/0/18",
+              "Voice 30 / Data 20",
+              "Phone online; PC no lease"
+            ],
+            [
+              "AP-03",
+              "Gi1/0/22",
+              "SSIDs on VLANs 40, 50, 60",
+              "Management VLAN 40 only"
+            ]
+          ]
+        },
+        {
+          "type": "console",
+          "title": "Switchport summary",
+          "lines": [
+            "Gi1/0/12  mode access | access vlan 10",
+            "Gi1/0/18  mode access | voice vlan 30 | access vlan 999",
+            "Gi1/0/22  mode access | access vlan 40"
+          ]
+        }
       ]
     },
     "question": "Match each switch symptom to the most likely corrective action.",
@@ -14454,10 +14619,28 @@
       1,
       2
     ],
-    "explanation": "Wrong subnet usually means wrong VLAN. Phone/PC pass-through issues often involve voice/data VLAN tagging. Multi-SSID APs generally require trunking.",
+    "explanation": "Wrong subnet usually means wrong VLAN. Phone/PC pass-through issues often involve voice/data VLAN tagging. Multi-SSID APs generally require trunking. The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services.",
     "objectiveId": "5.3",
     "objectiveTitle": "Troubleshoot network services",
-    "conceptId": "comptia-net-plus-5.3-service-failures"
+    "conceptId": "comptia-net-plus-5.3-vlan-service-failures",
+    "practicalCategory": "cable-mapping",
+    "componentFeedback": [
+      {
+        "label": "User receives an address from the wrong subnet",
+        "action": "Assign the port to the correct access VLAN",
+        "why": "The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services."
+      },
+      {
+        "label": "IP phone works but attached PC cannot reach the LAN",
+        "action": "Verify voice/data VLAN configuration and phone pass-through tagging",
+        "why": "The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services."
+      },
+      {
+        "label": "Access point needs multiple SSIDs but port is access-only",
+        "action": "Configure the AP uplink as a trunk with allowed VLANs",
+        "why": "The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-004",
@@ -14484,6 +14667,49 @@
             }
           ]
         }
+      ],
+      "category": "multi-artifact-troubleshooting",
+      "task": "Translate each approved service requirement into the narrowest firewall rule that permits the required traffic without unnecessary exposure.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Approved flows",
+          "columns": [
+            "Service",
+            "Source",
+            "Destination",
+            "Requirement"
+          ],
+          "rows": [
+            [
+              "Customer portal",
+              "Internet",
+              "203.0.113.25",
+              "HTTPS only"
+            ],
+            [
+              "Device administration",
+              "10.10.99.0/24",
+              "Network devices",
+              "SSH only"
+            ],
+            [
+              "Name resolution",
+              "Client VLANs",
+              "10.10.20.53",
+              "Recursive DNS"
+            ]
+          ]
+        },
+        {
+          "type": "checklist",
+          "title": "Policy constraints",
+          "items": [
+            "Inbound services use default deny after approved rules.",
+            "Administrative access must be source restricted.",
+            "Clients may query only the approved internal resolver."
+          ]
+        }
       ]
     },
     "question": "Match each firewall requirement to the correct rule.",
@@ -14502,10 +14728,28 @@
       1,
       2
     ],
-    "explanation": "Public web access should be limited to HTTPS. Admin protocols should be restricted by source. DNS requires TCP/UDP 53 to approved resolvers.",
+    "explanation": "Public web access should be limited to HTTPS. Admin protocols should be restricted by source. DNS requires TCP/UDP 53 to approved resolvers. The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof.",
     "objectiveId": "4.3",
     "objectiveTitle": "Apply network security features and defenses",
-    "conceptId": "comptia-net-plus-4.3-defensive-features"
+    "conceptId": "comptia-net-plus-4.3-defensive-features",
+    "practicalCategory": "multi-artifact-troubleshooting",
+    "componentFeedback": [
+      {
+        "label": "Expose a public web application securely",
+        "action": "Allow TCP 443 to the web server/load balancer and deny unnecessary inbound ports",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "Limit SSH administration to trusted hosts",
+        "action": "Allow TCP 22 only from the management subnet",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "Allow clients to use internal DNS resolution",
+        "action": "Allow DNS TCP/UDP 53 from client networks to approved resolvers",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-005",
@@ -14532,6 +14776,49 @@
             }
           ]
         }
+      ],
+      "category": "routing-analysis",
+      "task": "Inspect each host address, prefix, and gateway state to identify the addressing correction that restores local or routed connectivity.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Host configuration",
+          "lines": [
+            "HOST-A IPv4 192.168.10.25/24 | gateway 192.168.11.1",
+            "HOST-B IPv4 169.254.44.8/16 | gateway none | DHCP enabled",
+            "HOST-C IPv4 10.40.8.22/24 | duplicate address detected"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Network services",
+          "columns": [
+            "Segment",
+            "Expected subnet",
+            "Gateway",
+            "DHCP scope"
+          ],
+          "rows": [
+            [
+              "User A",
+              "192.168.10.0/24",
+              "192.168.10.1",
+              "Active"
+            ],
+            [
+              "User B",
+              "172.20.44.0/24",
+              "172.20.44.1",
+              "Active"
+            ],
+            [
+              "User C",
+              "10.40.8.0/24",
+              "10.40.8.1",
+              "Active"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each addressing clue to the best diagnosis.",
@@ -14550,10 +14837,28 @@
       1,
       2
     ],
-    "explanation": "A gateway must be reachable in the local subnet. APIPA points to DHCP failure. Duplicate warnings require finding the conflicting assignment.",
+    "explanation": "A gateway must be reachable in the local subnet. APIPA points to DHCP failure. Duplicate warnings require finding the conflicting assignment. The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path.",
     "objectiveId": "1.7",
     "objectiveTitle": "Use IPv4 addressing and subnetting",
-    "conceptId": "comptia-net-plus-1.7-ipv4-subnetting"
+    "conceptId": "comptia-net-plus-1.7-ipv4-subnetting",
+    "practicalCategory": "routing-analysis",
+    "componentFeedback": [
+      {
+        "label": "Default gateway is outside the configured subnet",
+        "action": "Correct the gateway or subnet mask so the gateway is reachable locally",
+        "why": "The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path."
+      },
+      {
+        "label": "Host self-assigned a 169.254 address",
+        "action": "Investigate DHCP reachability/scope/VLAN assignment",
+        "why": "The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path."
+      },
+      {
+        "label": "System reports a duplicate IP address",
+        "action": "Find and correct the conflicting static or leased address",
+        "why": "The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-006",
@@ -14580,6 +14885,53 @@
             }
           ]
         }
+      ],
+      "category": "cable-mapping",
+      "task": "Use wire-map, certification, and optical-loss measurements to choose the least invasive repair for each failed permanent link.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Cable tester results",
+          "columns": [
+            "Run",
+            "Media",
+            "Length",
+            "Wire map / loss",
+            "Certification result"
+          ],
+          "rows": [
+            [
+              "A-17",
+              "Cat 6 UTP",
+              "62 m",
+              "Pins 1-2 open at 61.8 m",
+              "Fail"
+            ],
+            [
+              "B-04",
+              "Cat 6A UTP",
+              "88 m",
+              "Map pass; NEXT 2.1 dB below limit",
+              "Fail"
+            ],
+            [
+              "F-09",
+              "OM4 fiber",
+              "74 m",
+              "3.8 dB insertion loss",
+              "Fail"
+            ]
+          ]
+        },
+        {
+          "type": "checklist",
+          "title": "Installation observations",
+          "items": [
+            "A-17 terminates at a recently replaced patch panel.",
+            "B-04 has 38 mm of pair untwist at the work-area jack.",
+            "F-09 connectors were patched without inspection or cleaning."
+          ]
+        }
       ]
     },
     "question": "Match each cabling result to the best next action.",
@@ -14598,10 +14950,28 @@
       1,
       2
     ],
-    "explanation": "Open pairs require termination/cable repair. NEXT failures often come from cable/termination quality. Fiber loss calls for cleaning, inspection, polarity, and optic checks.",
-    "objectiveId": "2.3",
-    "objectiveTitle": "Select and configure wireless technologies",
-    "conceptId": "comptia-net-plus-2.3-domain-fallback-0"
+    "explanation": "Open pairs require termination/cable repair. NEXT failures often come from cable/termination quality. Fiber loss calls for cleaning, inspection, polarity, and optic checks. The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services.",
+    "objectiveId": "2.4",
+    "objectiveTitle": "Apply physical installation factors",
+    "conceptId": "comptia-net-plus-2.4-cable-certification",
+    "practicalCategory": "cable-mapping",
+    "componentFeedback": [
+      {
+        "label": "Copper run shows an open pair",
+        "action": "Re-terminate or replace the cable section with the open pair",
+        "why": "The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services."
+      },
+      {
+        "label": "Copper run fails NEXT certification",
+        "action": "Check cable category, bend radius, untwist length, and termination quality",
+        "why": "The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services."
+      },
+      {
+        "label": "Fiber link shows high optical loss",
+        "action": "Clean/inspect connectors and verify patch polarity and optic compatibility",
+        "why": "The correct action follows the endpoint-to-port, wire-map, certification, or optical-loss evidence and repairs the failing physical path without changing unrelated network services."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-007",
@@ -14628,6 +14998,49 @@
             }
           ]
         }
+      ],
+      "category": "multi-artifact-troubleshooting",
+      "task": "Connect each baseline deviation to the operational response that best protects capacity, service quality, or change accountability.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Thirty-day baseline comparison",
+          "columns": [
+            "Signal",
+            "Baseline",
+            "Current",
+            "Time pattern"
+          ],
+          "rows": [
+            [
+              "WAN utilization",
+              "48% peak",
+              "91% peak",
+              "Daily 09:00-11:00"
+            ],
+            [
+              "Voice packet loss",
+              "<0.2%",
+              "3.4%",
+              "Business hours"
+            ],
+            [
+              "Core config hash",
+              "Approved v42",
+              "Unknown v43",
+              "Changed 02:14"
+            ]
+          ]
+        },
+        {
+          "type": "console",
+          "title": "Event correlation",
+          "lines": [
+            "09:07 WAN queue drops begin as utilization exceeds 88%",
+            "09:08 RTP quality alert: loss 3.4% | jitter 41 ms",
+            "02:14 CONFIG_CHANGE user=local-admin ticket=none"
+          ]
+        }
       ]
     },
     "question": "Match each metric to the best operational response.",
@@ -14646,10 +15059,28 @@
       1,
       2
     ],
-    "explanation": "Utilization baselines drive capacity planning. Packet loss requires service-path investigation. Unauthorized changes need change-control review.",
+    "explanation": "Utilization baselines drive capacity planning. Packet loss requires service-path investigation. Unauthorized changes need change-control review. The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof.",
     "objectiveId": "3.2",
     "objectiveTitle": "Use network monitoring technologies",
-    "conceptId": "comptia-net-plus-3.2-monitoring"
+    "conceptId": "comptia-net-plus-3.2-monitoring",
+    "practicalCategory": "multi-artifact-troubleshooting",
+    "componentFeedback": [
+      {
+        "label": "Interface utilization trends near capacity",
+        "action": "Use capacity planning or upgrade path before saturation",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "Packet loss appears during business hours",
+        "action": "Investigate congestion, errors, or path instability impacting service",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "Configuration change occurs outside the approved window",
+        "action": "Review change logs and validate authorization/rollback need",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-008",
@@ -14676,6 +15107,53 @@
             }
           ]
         }
+      ],
+      "category": "wireless-survey",
+      "task": "Use AP placement, channel reuse, signal overlap, and roaming timing to select the corrective wireless design check for each area.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Post-change wireless survey",
+          "columns": [
+            "Area",
+            "Serving AP",
+            "RSSI",
+            "Neighbor AP",
+            "Channel / overlap"
+          ],
+          "rows": [
+            [
+              "Area A",
+              "AP-1 at -76 dBm",
+              "-76 dBm",
+              "AP-2 at -54 dBm",
+              "5 GHz / adequate"
+            ],
+            [
+              "Area B",
+              "AP-3 at -67 dBm",
+              "-67 dBm",
+              "AP-4 at -65 dBm",
+              "5 GHz / 8%"
+            ],
+            [
+              "Area C",
+              "AP-5",
+              "-49 dBm",
+              "AP-6 and AP-7",
+              "2.4 GHz / all channel 6"
+            ]
+          ]
+        },
+        {
+          "type": "console",
+          "title": "Roaming telemetry",
+          "lines": [
+            "AREA-A client remained on AP-1 for 94 seconds after AP-2 became stronger",
+            "AREA-B reassociation 82 ms | 802.1X authentication 1180 ms | voice gap 1.4 s",
+            "AREA-C channel utilization 87% | co-channel contenders 3"
+          ]
+        }
       ]
     },
     "question": "Match each wireless symptom to the best corrective check.",
@@ -14694,10 +15172,28 @@
       1,
       2
     ],
-    "explanation": "Sticky clients often need power/cell tuning. Roaming drops involve overlap and authentication delay. 2.4 GHz overlap needs channel planning.",
+    "explanation": "Sticky clients often need power/cell tuning. Roaming drops involve overlap and authentication delay. 2.4 GHz overlap needs channel planning. The correct action distinguishes RF coverage and contention from authentication and wired-uplink faults by using measured signal, noise, retry, channel, and roaming evidence.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
-    "conceptId": "comptia-net-plus-5.4-domain-fallback-2"
+    "conceptId": "comptia-net-plus-5.4-domain-fallback-2",
+    "practicalCategory": "wireless-survey",
+    "componentFeedback": [
+      {
+        "label": "Clients remain associated with distant APs",
+        "action": "Review transmit power/cell sizing and roaming thresholds",
+        "why": "The correct action distinguishes RF coverage and contention from authentication and wired-uplink faults by using measured signal, noise, retry, channel, and roaming evidence."
+      },
+      {
+        "label": "Voice calls drop during roaming",
+        "action": "Validate roaming support, coverage overlap, and authentication delay",
+        "why": "The correct action distinguishes RF coverage and contention from authentication and wired-uplink faults by using measured signal, noise, retry, channel, and roaming evidence."
+      },
+      {
+        "label": "Multiple nearby 2.4 GHz APs overlap on one channel",
+        "action": "Adjust channel plan to non-overlapping 2.4 GHz channels",
+        "why": "The correct action distinguishes RF coverage and contention from authentication and wired-uplink faults by using measured signal, noise, retry, channel, and roaming evidence."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-009",
@@ -14724,6 +15220,49 @@
             }
           ]
         }
+      ],
+      "category": "multi-artifact-troubleshooting",
+      "task": "Match each remote-access use case to a control set that limits scope, verifies identity and device state, and preserves auditability.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Access requirements",
+          "columns": [
+            "Identity",
+            "Managed device",
+            "Needed resource",
+            "Duration"
+          ],
+          "rows": [
+            [
+              "Vendor",
+              "No",
+              "One maintenance portal",
+              "14 days"
+            ],
+            [
+              "Employee",
+              "Yes",
+              "Several internal applications",
+              "Ongoing"
+            ],
+            [
+              "Administrator",
+              "Yes",
+              "Privileged network console",
+              "Emergency only"
+            ]
+          ]
+        },
+        {
+          "type": "checklist",
+          "title": "Security requirements",
+          "items": [
+            "MFA is mandatory for every remote-access method.",
+            "Third parties receive only application-level access.",
+            "Privileged sessions require approval, recording, and automatic expiration."
+          ]
+        }
       ]
     },
     "question": "Match each remote-access scenario to the best control.",
@@ -14742,10 +15281,28 @@
       1,
       2
     ],
-    "explanation": "Vendors should receive narrow app-level access. Employees may need broader managed access with posture/MFA. Admin access needs stronger privileged controls and auditing.",
+    "explanation": "Vendors should receive narrow app-level access. Employees may need broader managed access with posture/MFA. Admin access needs stronger privileged controls and auditing. The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof.",
     "objectiveId": "4.4",
     "objectiveTitle": "Compare remote access methods and security implications",
-    "conceptId": "comptia-net-plus-4.4-remote-access-security"
+    "conceptId": "comptia-net-plus-4.4-remote-access-security",
+    "practicalCategory": "multi-artifact-troubleshooting",
+    "componentFeedback": [
+      {
+        "label": "Vendor needs limited access to one app",
+        "action": "Publish only the app through a controlled reverse proxy or ZTNA policy",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "Employee needs managed-device access to several internal apps",
+        "action": "Use VPN/ZTNA with device posture and MFA requirements",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      },
+      {
+        "label": "Administrator needs highly audited emergency access",
+        "action": "Use privileged access workflow with MFA, logging, and time-bounded access",
+        "why": "The correct action correlates the supplied configuration, baseline, event, and policy evidence instead of treating one isolated symptom as sufficient proof."
+      }
+    ]
   },
   {
     "id": "netplus-pbq-010",
@@ -14772,6 +15329,49 @@
             }
           ]
         }
+      ],
+      "category": "routing-analysis",
+      "task": "Read the route and neighbor evidence for each branch, then select the smallest routing correction that restores the intended path.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Routing table excerpts",
+          "columns": [
+            "Branch",
+            "Destination",
+            "Next hop / state",
+            "Interface"
+          ],
+          "rows": [
+            [
+              "A",
+              "0.0.0.0/0",
+              "No route",
+              "-"
+            ],
+            [
+              "B",
+              "10.80.0.0/16",
+              "192.0.2.5 (retired)",
+              "WAN0"
+            ],
+            [
+              "C",
+              "OSPF neighbor 192.0.2.14",
+              "INIT",
+              "WAN1"
+            ]
+          ]
+        },
+        {
+          "type": "console",
+          "title": "Reachability and adjacency checks",
+          "lines": [
+            "BR-A ping 198.51.100.1: success | internet destinations: unreachable",
+            "BR-B ping 192.0.2.5: timeout | new peer 192.0.2.9: success",
+            "BR-C received hello from 192.0.2.14 | local neighbor list: INIT"
+          ]
+        }
       ]
     },
     "question": "Match each routing symptom to the best action.",
@@ -14790,9 +15390,27 @@
       1,
       2
     ],
-    "explanation": "Missing defaults break unknown-destination forwarding. Retired next hops require static route correction. Adjacency failures need neighbor and filtering checks.",
+    "explanation": "Missing defaults break unknown-destination forwarding. Retired next hops require static route correction. Adjacency failures need neighbor and filtering checks. The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path.",
     "objectiveId": "2.1",
     "objectiveTitle": "Use routing technologies and bandwidth management",
-    "conceptId": "comptia-net-plus-2.1-routing-qos"
+    "conceptId": "comptia-net-plus-2.1-routing-qos",
+    "practicalCategory": "routing-analysis",
+    "componentFeedback": [
+      {
+        "label": "No default route exists for internet-bound traffic",
+        "action": "Add or restore the appropriate default route",
+        "why": "The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path."
+      },
+      {
+        "label": "Static route uses an old next-hop address",
+        "action": "Update the static route next hop and verify reachability",
+        "why": "The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path."
+      },
+      {
+        "label": "Routing neighbors do not reach full adjacency",
+        "action": "Check neighbor parameters, ACLs, timers, and interface/network settings",
+        "why": "The correct action follows the address, prefix, gateway, route, next-hop, and adjacency evidence and changes only the routing or addressing element that breaks the intended path."
+      }
+    ]
   }
 ]

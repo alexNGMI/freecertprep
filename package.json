@@ -13,6 +13,7 @@
     "validate:content": "vitest run src/__tests__/content-sanity.test.js",
     "audit:aplus": "node scripts/audit_aplus_objective_coverage.mjs",
     "enrich:aplus-pbqs": "node scripts/enrich_aplus_pbqs.mjs",
+    "enrich:netplus-practicals": "node scripts/enrich_netplus_practicals.mjs",
     "audit:terraform": "node scripts/audit_terraform_objective_coverage.mjs",
     "audit:comptia-objectives": "node scripts/audit_comptia_objective_coverage.mjs"
   },
