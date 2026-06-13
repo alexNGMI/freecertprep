@@ -18,6 +18,17 @@ freecertprep has enough catalog breadth. The next competitive advantage is not "
 
 The current product is strongest when the real exam is selected-response only or mostly selected-response: AWS CLF-C02, AWS SAA-C03, Google CDL, Splunk Core User, Real Estate national/state modules, and many foundational cloud exams. It is weaker when the real exam depends on rich interactive performance tasks: CompTIA PBQs, Cisco CCNA simulations, Microsoft interactive item types, and Linux+ command/task simulations.
 
+## June 13 Consolidation Review
+
+The original remediation plan has now completed its A+, Network+, Security+, and Splunk quality sequence. The current repository passes 1,219 tests across 30 files. The next active sequence is:
+
+1. verify source/version and public-copy freshness for all nine live modules;
+2. polish Terraform review quality without increasing its 647-question pool;
+3. harden the complete first-user journey on desktop and mobile;
+4. re-grade and select one Coming Soon module for promotion.
+
+CCNA remains live but parked from active simulation expansion. The trust-layer backend, account sync, Real Estate re-publication, and sister-site expansion remain deferred. See `docs/current-state-and-next-steps-2026-06-13.md` for the current decision record.
+
 ## Current Quality Sequence
 
 Updated June 13, 2026:
@@ -85,8 +96,8 @@ Scoring dimensions:
 | CCNA, 200-301 | B+ | Best advanced simulation fit in the app: CLI output, topology scenarios, config repair, subnetting drills, 750 questions, current v2.0 blueprint. | Still not a true Cisco lab/simlet environment; topology diagrams are text/SVG-style approximations; explanations are thinner than SAA. | Make this the model for advanced simulation polish; add richer multi-command troubleshooting and visual topology variety. |
 | A+ Core 1, 220-1201 | B+ | 760 unique stems, 84 concepts, all 27 official objectives covered, objective/domain gates, plausible domain-level distractors, repaired multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery remains an approximation of CompTIA's proprietary interactive environment; some objectives remain intentionally broader than individual bullet-level skills. | Maintain the automated objective matrix and expand practical artifacts during future PBQ-engine work. |
 | A+ Core 2, 220-1202 | B+ | 760 unique stems, 94 concepts, all 36 official objectives covered, complete malware-response coverage, repaired distractors and multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery and confidential vendor scoring cannot be reproduced exactly. | Maintain objective coverage and add richer settings, command, and policy artifacts over time. |
-| Network+, N10-009 | B+ | 760 questions, exact domain allocation, 32 practical items, and complete metadata across all 27 numbered objectives. Objective accuracy, coverage, recent misses, due review, and targeted sessions are live. | Needs more cable-map, routing-table, wireless-survey, and multi-artifact simulations to approach CompTIA PBQs. | Keep live; deepen practical interactions without increasing ordinary question volume. |
-| Security+, SY0-701 | B+ | 760 questions, exact domain allocation, 33 practical items, and complete metadata across all 28 numbered objectives. Objective learning and review queues are live. | Real Security+ PBQs can combine log triage, policy/config matching, attack-chain interpretation, and control placement in one task. | Keep live; add richer multi-artifact incident and firewall-rule interactions. |
+| Network+, N10-009 | B+ | 760 questions, exact domain allocation, 32 practical items, complete metadata across all 27 numbered objectives, and ten enriched PBQs with cable, routing, wireless, and multi-artifact category guarantees. | Browser practice approximates rather than reproduces CompTIA's proprietary PBQ interface and scoring. | Maintain current objective, practical-category, and form-composition gates. |
+| Security+, SY0-701 | B+ | 760 questions, exact domain allocation, 33 practical items, complete metadata across all 28 numbered objectives, and ten enriched PBQs with log, firewall, incident, and control-placement guarantees. | Browser practice approximates rather than reproduces CompTIA's proprietary PBQ interface and scoring. | Maintain current objective, practical-category, and form-composition gates. |
 | Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
 | Splunk Core Certified User | B+ | Exact blueprint allocation, 750 exact and normalized-unique stems, concise selected-response forms, rendered search evidence, and structured review explanations. | Browser practice remains an independent approximation rather than Splunk's confidential delivery interface. | Keep live; maintain the generator gates and perform normal source/version review. |
@@ -311,7 +322,7 @@ Next actions:
 1. Completed June 8, 2026: replace repeated frames with device scope, observed behavior, prior checks, and operational constraints.
 2. Completed June 8, 2026: preserve the current blueprint allocation, 760-question pool size, and ten handcrafted PBQ-lite items per core.
 3. Completed June 8, 2026: require explanations to identify why the chosen action is safer or more diagnostic than alternatives.
-4. Next audit: map the underlying 44 Core 1 and 36 Core 2 concept templates against every official Version 2.0 subobjective. Stem uniqueness does not by itself prove complete objective breadth.
+4. Completed June 8, 2026: mapped and expanded the concept templates against every official Version 2.0 objective. Core 1 now uses 84 concepts and Core 2 uses 94.
 5. Completed June 8, 2026: the readiness audit confirmed material objective-breadth gaps, generic multiple-response answers, and weak cross-domain distractors. See the step-four audit for the ordered remediation plan.
 
 #### 4.4 CCST and CCNA
@@ -386,38 +397,32 @@ Only resume major catalog expansion when:
 
 1. No known high-severity dependency issue remains.
 2. Every live cert has source metadata.
-3. Issue reporting is live.
-4. Linux+ and DCCA rewrites are complete.
-5. Splunk polish is complete.
-6. Real Estate source ledger is reconciled.
-7. At least one CompTIA PBQ widget and one Cisco/Linux advanced widget are production-tested.
+3. The current live-source sweep is complete.
+4. Terraform review-quality polish is complete.
+5. The first-user journey passes the desktop/mobile release checklist.
+6. The candidate module independently meets the B+ readiness bar.
 
 After that, the most rational expansion options are:
 
-1. SAA polish and premium architecture review depth, not more SAA count.
-2. CCNA simulation polish.
-3. CDL sister site planning.
-4. More real estate states only after source-ledger workflow is proven.
-5. NCLEX only after a separate clinical-judgment engine and expert-review model exist.
+1. CCST Networking promotion, if networking-path depth is the priority.
+2. Server+ promotion, if infrastructure support is the priority.
+3. Linux+ only with a substantial command/output rewrite.
+4. AZ-900 or Google CDL if a selected-response cloud module is the best low-risk promotion.
+5. DCCA, NVIDIA, Real Estate, CDL, and NCLEX only when those product lanes become active priorities.
 
 ## Priority Backlog
 
 ### P0
 
-- Correct scoring/readiness language.
-- Add source metadata skeleton.
-- Add report-an-issue affordance.
-- Fix source/status ambiguity in docs.
-- Recheck dependency audit and release safety.
+- Complete a current official-source, exam-version, scoring-language, and public-copy audit for all nine live modules.
+- Keep catalog visibility, Docs, README, and source metadata synchronized.
+- Run dependency, test, lint, and build release gates.
 
 ### P1
 
-- Linux+ rewrite.
-- DCCA rewrite.
-- Completed June 8, 2026: Splunk duplicate-stem, SPL-evidence, explanation, and exam-format rewrite.
-- Completed June 8, 2026: A+ Core 1 and Core 2 duplicate-stem and first evidence rewrite.
-- Arizona real estate source/delivery verification.
-- Georgia real estate source verification.
+- Terraform review-quality pass: evidence-led stems, plausible distractors, and why-right/why-wrong explanations.
+- First-user journey audit across path selection, study modes, results, review queues, and progress portability.
+- Maintain the completed A+, Network+, Security+, and Splunk quality gates.
 
 ### P2
 
@@ -431,16 +436,16 @@ After that, the most rational expansion options are:
 - Completed June 13, 2026: A+ PBQ-lite v2 enriched all 20 practicals with task briefs, console/table/checklist artifacts, per-component feedback, and category-balanced 90-question forms. Automated audits generate 500 forms per core and require at least six practicals while preserving domain allocation.
 - Completed June 8, 2026: Terraform true/false and multiple-answer support with guaranteed mixed-format exam forms.
 
-PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. The Network+ and Security+ interaction-depth passes completed June 13; Splunk editorial polish is next.
+PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. The Network+, Security+, A+, and Splunk interaction/editorial passes completed June 13.
 
 ### P3
 
-- NVIDIA pool expansion and scenario rewrite.
+- Re-grade Coming Soon candidates and promote only one at a time.
 - CCST synthetic-ticket and normalized-cluster cleanup before publication.
-- Linux+ remaining change-ticket framing cleanup as part of its rewrite.
-- DCCA synthetic ticket identifiers must be removed before publication.
-- Real estate duplicate reduction for Texas and Indiana.
-- Variable-count simulator support for CDL/AZ-900/NVIDIA where applicable.
+- Linux+ command/output rewrite before publication.
+- DCCA source and facility-scenario rewrite before publication.
+- NVIDIA scenario expansion only if its hidden path becomes a product priority.
+- Real Estate source reconciliation remains deferred while the sister product is hidden.
 
 ## Strategic Interpretation
 
@@ -448,7 +453,7 @@ The product should not claim to be an exact replica of vendor exam engines. That
 
 > freecertprep provides exam-shaped practice: current blueprint weighting, realistic timing, scenario-based review, transparent source status, and specialized interaction practice where the real exam demands it.
 
-That promise is achievable with the current architecture. The backend/trust layer is the missing operational system, and the PBQ/simulation widget work is the missing product fidelity layer.
+That promise is achievable with the current architecture. The immediate missing layer is release discipline across source freshness, review quality, and the complete first-user journey. A backend trust workflow remains valuable later, but it is not required for the next quality milestone.
 
 ## Source Notes
 

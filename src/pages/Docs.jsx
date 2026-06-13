@@ -687,7 +687,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,146 Vitest tests across 29 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,219 Vitest tests across 30 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -720,12 +720,10 @@ key = random() ** (1 / weight)
           <Section id="roadmap" title="Roadmap">
             <P>
               The product is live and usable today with 9 public IT certification modules, 8 Coming Soon IT modules, and a
-              Real Estate build hidden from public navigation for rework. The latest
-              refresh adds guided homepage path pages, a modern study UI, dashboard charts, route-level code splitting, JSON asset
-              loading, and focused UI regression tests. The roadmap now splits into four tracks: making the guided IT paths richer,
-              adding platform features such as synced accounts, a custom domain, and PWA support, hardening advanced certification
-              tracks such as CCNA simulations and AWS SAA review quality, and designing a backend-backed trust layer for public
-              content quality signals.
+              Real Estate build hidden from public navigation for rework. The current phase is consolidation: keep the live
+              catalog accurate, improve Terraform review value, and make the complete first-user study journey feel coherent.
+              CCNA remains live but parked from active expansion. Authored Coming Soon banks remain preserved without being
+              presented as production-ready.
             </P>
 
             {[
@@ -740,12 +738,12 @@ key = random() ** (1 / weight)
                   'A+ Objective Learning Loop - both 220-1201 and 220-1202 now expose all 63 objectives through accuracy and coverage cards, focused drills, recent misses, spaced due review, support-oriented explanation cues, and post-session recommendations.',
                   'A+ PBQ-lite v2 - all 20 practical scenarios now include task briefs, console/table/checklist artifacts, component-level corrective feedback, and category-balanced exam forms with at least six practicals.',
                   'CompTIA Network+ (N10-009) — 760-question pool with scenario-forward PBQ-lite troubleshooting coverage',
-                  'Cisco CCST Networking (100-150) - live 750-question production pool across the 6 public Cisco objective areas; Networking path now frames Network+ or CCST Networking as level-one options before live CCNA practice.',
+                  'Cisco CCST Networking (100-150) - authored 750-question pool retained as Coming Soon while repetition and simulation fidelity are revised.',
                   'CompTIA Security+ (SY0-701) — 760-question pool with PBQ-lite security operations and architecture scenarios',
-                  'CompTIA Server+ (SK0-005) — 760-question pool with PBQ-lite troubleshooting and recovery scenarios',
+                  'CompTIA Server+ (SK0-005) - authored 760-question pool retained as Coming Soon while practical server troubleshooting is revised.',
                   'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is now the Cybersecurity path level-three SOC tooling layer.',
-                  'CompTIA Linux+ (XK0-006) - live 750-question pool aligned to the current V8 domain weights: system management, services and user management, security, automation/orchestration/scripting, and troubleshooting. It is now the NVIDIA path systems foundation.',
-                  'Schneider Data Center Certified Associate (DCCA) - live 750-question pool built from Schneider Electric University DCCA Exam Development Path modules: availability, fire protection, cabling, cooling, humidity, physical security, power, generators, cooling layouts, redundancy, power distribution, racks, room/row/rack cooling, and physical infrastructure management.',
+                  'CompTIA Linux+ (XK0-006) - authored 750-question pool retained as Coming Soon pending a major command, output, and configuration rewrite.',
+                  'Schneider Data Center Certified Associate (DCCA) - authored 750-question pool retained as Coming Soon pending source hardening and facility-scenario rewrites.',
                   'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 9 live modules from 8 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister-site prototype — retained as a hidden review build that reuses the same Smart Practice, scoring, and exam-selection engine; removed from public navigation until its source and simulation quality are ready.',
@@ -765,19 +763,18 @@ key = random() ** (1 / weight)
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
                   'Cisco CCNA (200-301) - live 750-question production pool aligned to Cisco 200-301 v2.0, with CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style practice connected to Networking and Data Center Technician paths.',
                   'HashiCorp Terraform Associate (004) — live: 647 questions covering all 35 published Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,146-test regression suite.',
+                  'A+, Network+, Security+, and Splunk quality sprint - objective learning, evidence-led practicals, form-composition guarantees, full-bank uniqueness checks, and structured review explanations completed by June 13, 2026.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,219-test regression suite.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  'Content accuracy hardening - recent passes completed Network+ troubleshooting rebalance, Google CDL six-section refresh, NVIDIA AIIO rebalance, AZ-900 ranged-weight cleanup, Texas 2026 outline reconciliation, and live GA/AZ/NC/IN state-module validation.',
-                  'Advanced simulation polish - continue adding richer multi-command CCNA troubleshooting, more varied topology diagrams, and deeper config-repair review around OSPF, VLANs, NAT/PAT, ACLs, wireless, and management operations.',
-                  'User accounts + Supabase backend — cloud-synced progress and Smart Practice history across devices',
-                  'Trust layer phase 1 — durable report persistence, moderation queue, editorial review workflow, source/blueprint audit trails, and correction history. This likely needs a backend because reports, moderation state, and review provenance should be durable across users and devices.',
-                  'Custom domain — freecertprep.org',
-                  'Mobile PWA — offline support, installable home-screen experience',
+                  '1. Live source and release audit - verify the official guide, active exam code, count/time model, scoring language, source date, and public copy for all nine live modules.',
+                  '2. Terraform learning-value pass - keep the 647-question pool stable while improving evidence, distractors, explanations, uniqueness gates, and operational review guidance.',
+                  '3. First-user journey hardening - test homepage through results, next-study recommendations, mobile layout, bookmarks, review queues, and progress export/import as one release flow.',
+                  '4. Coming Soon promotion review - re-grade candidates and select one module only after it independently clears the B+ readiness bar.',
                 ],
               },
               {
@@ -787,7 +784,10 @@ key = random() ** (1 / weight)
                   'Streak tracking and study reminders',
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
                   'Shared result cards — privacy-respecting shareable score screenshots',
-                  'Advanced cert pathway pages - use CCNA as the first simulation-backed associate cert pattern before deciding whether SAA/CCNA-level sister tracks need richer specialized review engines.',
+                  'CCNA simulation expansion - parked while the live-source, Terraform, and first-user quality sequence is completed.',
+                  'User accounts and synced progress - useful after the local-first product journey is fully hardened.',
+                  'Trust layer phase 1 - durable reports, moderation, audit trails, and correction history when a backend becomes an active priority.',
+                  'Custom domain and installable PWA support.',
                   'CDL sister site - future written-test prep lane for General Knowledge, Air Brakes, Combination Vehicles, and endorsements. Architecture fit is strong because FMCSA sets federal minimum standards while state manuals can be layered like real-estate state modules.',
                   'NCLEX sister site - future nursing prep lane for RN/PN licensure. Defer content buildout until the app has a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.',
                   'More sister sites for adjacent non-IT career paths (e.g., fiber technician credentials)',

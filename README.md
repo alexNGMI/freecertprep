@@ -34,9 +34,9 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **Terraform format fidelity is live:** the Associate 004 bank includes 24 true/false and 32 multiple-answer questions across all eight groups. Every 57-question simulation guarantees at least three true/false and four multiple-answer items. HashiCorp does not publish objective weights, so the simulator clearly uses a stable editorial practice allocation rather than claiming official weighting.
 
-> **Live-bank language cleanup is active:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, and Splunk Core User. Automated gates prevent that phrasing from returning. The cleanup exposed repeated stem clusters that are now measured directly and queued for evidence-based rewrites rather than hidden behind artificial IDs.
+> **Live-bank language cleanup is complete for the current quality set:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, and Splunk Core User. Automated gates prevent that phrasing from returning, and all three banks now meet their current uniqueness and evidence standards.
 
-> **Splunk evidence rewrite is live:** all 750 Core Certified User stems are exact-unique and now use concrete SPL, event, field, result-set, lookup, report, dashboard, or alert evidence. Structural stem diversity increased from 297 to 529 after normalizing numbers and code literals. Official-style 60-question simulations exclude the matching and ordering learning drills.
+> **Splunk evidence rewrite is live:** all 750 Core Certified User stems are exact and normalized-unique. All 690 selected-response items render compact SPL, event, field, result-set, lookup, report, dashboard, or alert evidence, and every explanation follows a why-right, why-wrong, and review-takeaway structure. Official-style 60-question simulations exclude matching and ordering learning drills.
 
 > **A+ evidence rewrite is live:** both 760-question Core banks now have 760 exact and normalized-unique stems, retain ten handcrafted PBQ-lite scenarios, and avoid generated ticket framing. Formal simulations guarantee at least six PBQ-lite items and exclude statement-block learning drills.
 
@@ -91,8 +91,8 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Catalog** - Dedicated `/catalog` page for the full certification grid plus the Real Estate sister-site entry.
 - **Path pages** - Public homepage lanes cover A+ entry, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
-- **Advanced cert roadmap** - AWS Solutions Architect - Associate (SAA-C03) is live with premium study-plan guidance, and Cisco CCNA (200-301) is live as the first advanced simulation-backed networking cert. CLI-output, topology-scenario, config-repair, and subnetting-drill support are implemented for ongoing advanced-cert polish.
-- **Content accuracy roadmap** - Latest full-bank blueprint audit completed the Network+ N10-009 troubleshooting rebalance, refreshed Google CDL to the current six-section guide, rebalanced NVIDIA AIIO to its official 40/38/22 split, moved AZ-900 inside Microsoft's current ranged weights, reconciled Texas to the 2026 state-law outline, and shipped the Georgia, Arizona, North Carolina, and Indiana state-law modules.
+- **Current roadmap** - The immediate sequence is a nine-module live source/release audit, Terraform review-quality polish, and an end-to-end first-user journey pass. CCNA remains live but parked from further expansion, and Coming Soon modules must independently clear the B+ readiness bar before promotion. See `docs/current-state-and-next-steps-2026-06-13.md`.
+- **Content quality status** - A+, Network+, Security+, and Splunk completed their current practical/editorial sprint on June 13, 2026. Cert-specific gates now cover objective breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
@@ -131,7 +131,7 @@ CCNA simulation types implemented: CLI output interpretation, topology scenarios
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,146 tests across 29 files), GitHub Actions CI
+- Vitest (1,219 tests across 30 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 
