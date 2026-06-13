@@ -3,6 +3,7 @@
 import { act, renderHook } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { SMART_PRACTICE, usePracticeSession } from '../hooks/usePracticeSession'
+import { KEYS } from '../utils/storage'
 
 const cert = {
   id: 'test-cert',
@@ -42,5 +43,29 @@ describe('practice session stability', () => {
 
     expect(result.current.showResult).toBe(true)
     expect(result.current.sessionQuestions.map(question => question.id)).toEqual(selectedIds)
+  })
+
+  it('records a completed practice block only once when completion is triggered twice', () => {
+    const { result } = renderHook(() => usePracticeSession({
+      cert,
+      questions,
+      bookmarkedIds: [],
+      blockSize: 1,
+      initialSelection: SMART_PRACTICE,
+    }))
+
+    act(() => result.current.startQuiz())
+    act(() => result.current.handleAnswer(0))
+    act(() => {
+      result.current.handleNext()
+      result.current.handleNext()
+    })
+
+    const progress = JSON.parse(localStorage.getItem(KEYS.progress))
+    const stats = JSON.parse(localStorage.getItem(KEYS.questionStats))
+    const questionId = result.current.sessionQuestions[0].id
+
+    expect(progress[cert.id].quizHistory).toHaveLength(1)
+    expect(stats[cert.id][questionId].attempts).toBe(1)
   })
 })

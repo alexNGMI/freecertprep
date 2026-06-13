@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { fisherYates, weightedSample } from '../utils/shuffle'
 import { isAnswerCorrect } from '../utils/scoring'
 import { useProgress } from './useProgress'
@@ -26,6 +26,7 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
   const [showResult, setShowResult] = useState(false)
   const [quizStarted, setQuizStarted] = useState(false)
   const [sessionQuestions, setSessionQuestions] = useState([])
+  const completedRef = useRef(false)
 
   const activeMode =
     selectedDomain === SMART_PRACTICE ? 'smart'
@@ -53,6 +54,7 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
       ? weightedSample(getWeightedPool(questions), blockSize)
       : fisherYates(poolQuestions).slice(0, blockSize)
 
+    completedRef.current = false
     setCurrentIndex(0)
     setAnswers([])
     setShowResult(false)
@@ -81,6 +83,8 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
       setCurrentIndex((prev) => prev + 1)
       return
     }
+    if (completedRef.current) return
+    completedRef.current = true
     addQuizResult({ domain: selectedDomain, answers })
     recordSession(answers)
     setShowResult(true)

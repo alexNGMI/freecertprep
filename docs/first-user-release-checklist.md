@@ -42,7 +42,7 @@ Run this checklist before merging a learner-facing release.
 ## Progress Portability
 
 - Export downloads valid progress JSON.
-- Import accepts a valid export and rejects malformed JSON with visible feedback.
+- Import accepts a valid export and rejects malformed or structurally unsafe JSON with visible feedback.
 - Smart Practice reset and progress reset require confirmation.
 
 ## Release Gates

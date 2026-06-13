@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { aggregateDomainStats, aggregateOverallStats } from '../utils/progress-stats.js'
-import { KEYS, readJSON, writeJSON, subscribe } from '../utils/storage.js'
+import { KEYS, isValidProgressData, readJSON, writeJSON, subscribe } from '../utils/storage.js'
 
 const STORAGE_KEY = KEYS.progress
 
@@ -10,8 +10,13 @@ function getCertProgress(progress, certId) {
   return progress[certId] || { quizHistory: [], examHistory: [] }
 }
 
+function loadProgress() {
+  const stored = readJSON(STORAGE_KEY, defaultProgress)
+  return isValidProgressData(stored) ? stored : defaultProgress
+}
+
 export function useProgress(certId) {
-  const [progress, setProgress] = useState(() => readJSON(STORAGE_KEY, defaultProgress))
+  const [progress, setProgress] = useState(loadProgress)
 
   useEffect(() => {
     writeJSON(STORAGE_KEY, progress)
@@ -19,7 +24,7 @@ export function useProgress(certId) {
 
   // Keep this tab in sync if another tab writes progress (or clears storage).
   useEffect(
-    () => subscribe(STORAGE_KEY, () => setProgress(readJSON(STORAGE_KEY, defaultProgress))),
+    () => subscribe(STORAGE_KEY, () => setProgress(loadProgress())),
     [],
   )
 

@@ -20,12 +20,12 @@ The current product is strongest when the real exam is selected-response only or
 
 ## June 13 Consolidation Review
 
-The original remediation plan has now completed its A+, Network+, Security+, Splunk, source-release, and Terraform quality sequence. The current repository passes 1,225 tests across 33 files. The next active sequence is:
+The original remediation plan has now completed its A+, Network+, Security+, Splunk, source-release, and Terraform quality sequence. The current repository passes 1,237 tests across 36 files. The active sequence is:
 
 1. Completed June 13: verified source/version and public-copy freshness for the then-nine live modules; the audit moved future-v2.0 CCNA to Coming Soon.
 2. Completed June 13: polished Terraform review quality without increasing its 647-question pool.
 3. Completed June 13: hardened the complete first-user journey on desktop and mobile.
-4. Next: re-grade and select one Coming Soon module for promotion.
+4. Active: keep promotion paused and continue runtime, persistence, recovery, and routing hardening.
 
 CCNA is preserved as a Coming Soon v2.0 preview because Cisco v1.1 remains active through February 2, 2027. The trust-layer backend, account sync, Real Estate re-publication, and sister-site expansion remain deferred. See `docs/current-state-and-next-steps-2026-06-13.md` for the current decision record.
 
@@ -422,6 +422,7 @@ After that, the most rational expansion options are:
 
 - Completed June 13, 2026: Terraform review-quality pass with 647 structured explanations, 532 supporting evidence artifacts, stronger distractors, uniqueness gates, and 500-form audits.
 - Completed June 13, 2026: first-user journey audit stabilized Smart Practice result context, added direct Recent Misses handoffs, protected incomplete exam submission, raised mobile nav targets to 44px, and added a release checklist.
+- Completed June 13, 2026: reliability pass froze timed-drill forms, made session completion idempotent, hardened progress imports, removed exam-timer state-updater side effects, and prevented stale cert content during route transitions.
 - Maintain the completed A+, Network+, Security+, and Splunk quality gates.
 
 ### P2

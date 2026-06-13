@@ -38,6 +38,14 @@ describe('useProgress — initial state', () => {
       examsTaken: 0,
     })
   })
+
+  it('falls back safely when storage contains valid JSON with the wrong shape', () => {
+    localStorage.setItem(KEYS.progress, 'null')
+    const { result } = renderHook(() => useProgress('cert-a'))
+
+    expect(result.current.progress).toEqual({ quizHistory: [], examHistory: [] })
+    expect(result.current.getOverallStats.totalQuestions).toBe(0)
+  })
 })
 
 describe('useProgress — recording results', () => {

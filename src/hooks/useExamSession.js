@@ -16,7 +16,9 @@ export function useExamSession({ cert, questions, resultsPath }) {
   const [timeLeft, setTimeLeft] = useState(examTime)
   const [finished, setFinished] = useState(false)
   const timerRef = useRef(null)
+  const timeLeftRef = useRef(examTime)
   const selectedAnswersRef = useRef(selectedAnswers)
+  const finishedRef = useRef(false)
 
   const [examQuestions] = useState(() =>
     cert.composite
@@ -34,6 +36,8 @@ export function useExamSession({ cert, questions, resultsPath }) {
   }, [selectedAnswers])
 
   const finishExam = useCallback(() => {
+    if (finishedRef.current) return
+    finishedRef.current = true
     setFinished(true)
     clearInterval(timerRef.current)
     const currentAnswers = selectedAnswersRef.current
@@ -49,14 +53,13 @@ export function useExamSession({ cert, questions, resultsPath }) {
   useEffect(() => {
     if (started && !finished) {
       timerRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timerRef.current)
-            finishExam()
-            return 0
-          }
-          return prev - 1
-        })
+        const next = Math.max(0, timeLeftRef.current - 1)
+        timeLeftRef.current = next
+        setTimeLeft(next)
+        if (next === 0) {
+          clearInterval(timerRef.current)
+          finishExam()
+        }
       }, 1000)
     }
     return () => clearInterval(timerRef.current)

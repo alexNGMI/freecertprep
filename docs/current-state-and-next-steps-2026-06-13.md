@@ -12,9 +12,9 @@ The June quality sprint materially improved the strongest learner-facing modules
 - Network+ and Security+ now have objective-level learning loops and richer practical forms with category guarantees.
 - Splunk Core Certified User now has 750 exact and normalized-unique stems, concise evidence-led prompts, stronger distractors, and structured review explanations.
 - Terraform Associate covers all 37 implemented Associate 004 subobjectives, guarantees a mixed-format practice form, and now includes structured operational review across the full bank.
-- The full automated suite passes: 1,225 tests across 33 files.
+- The full automated suite passes: 1,237 tests across 36 files.
 
-The product is in a strong consolidation phase. The live source audit, Terraform learning-value pass, and first-user journey hardening are complete. The next decision is which single Coming Soon module should earn promotion. The preserved CCNA bank targets the future v2.0 release and remains Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
+The product is in a strong consolidation phase. The live source audit, Terraform learning-value pass, first-user journey hardening, and session/persistence reliability pass are complete. Catalog promotion is paused while the existing product remains under bug review and operational hardening. The preserved CCNA bank targets the future v2.0 release and remains Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
 
 ## Current Public Offering
 
@@ -51,7 +51,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 
 ## Main Risks and Gaps
 
-1. **Coming Soon promotion needs discipline.** Only one module should be remediated at a time, and it must clear active-release, content, review, and simulation gates before becoming public.
+1. **Runtime reliability remains the active priority.** Continue auditing session lifecycle, persistence, recovery, routing, accessibility, and browser behavior before expanding the public catalog.
 2. **CCNA release alignment needs discipline.** The preserved bank targets v2.0, but Cisco v1.1 remains active through February 2, 2027. The preview must remain Coming Soon until the active release matches and a fresh audit passes.
 3. **Documentation can drift behind code.** Source status, catalog visibility, and readiness claims now need to remain synchronized through release checks.
 4. **Trust workflow remains local and lightweight.** Source cards and report links exist, but durable reports, moderation, and correction history require a backend. This is useful later, not the immediate priority for a first user.
@@ -109,19 +109,24 @@ Done when:
 
 - A new learner can choose a goal, start the right module, finish a session, understand the review, and know what to study next without consulting docs.
 - The core journey works at mobile and desktop widths.
-- Lint, 1,225 tests, and production build pass.
+- Lint, 1,237 tests, production build, browser smoke, and dependency audit pass.
 
-### 4. Choose One Coming Soon Promotion Candidate - Next
+### 4. Runtime Reliability and Recovery - Active
 
-Do not reopen several banks at once. Re-grade the candidates after the live-product pass and select one module based on learner value, architecture fit, and remediation cost.
+Keep the catalog frozen while the current application is treated as the release candidate:
 
-Recommended evaluation order:
+- continue targeted review of timers, navigation state, persistence, resets, imports, and recovery paths;
+- add a regression for every confirmed defect;
+- run the complete suite, lint, production build, dependency audit, and browser smoke before publication;
+- keep Coming Soon modules unchanged until the owner explicitly reopens promotion work.
 
-1. CCST Networking, if the goal is strengthening the networking entry path.
-2. Server+, if the goal is adding practical infrastructure support.
-3. Linux+, only when prepared for a substantial command/output rewrite.
-4. AZ-900 or Google CDL, if a selected-response cloud module offers the quickest credible promotion.
-5. DCCA and NVIDIA only after their hidden paths become strategic priorities again.
+Completed June 13:
+
+- timed drills now preserve their selected form after stats update;
+- practice, drill, and exam completion are idempotent against rapid duplicate actions and timer races;
+- exam timer completion no longer performs side effects inside a React state updater;
+- progress imports reject structurally unsafe JSON, and existing malformed storage falls back safely;
+- certification-provider transitions show loading instead of stale content from the previous module.
 
 ### 5. Deferred Platform Work
 
