@@ -687,7 +687,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,223 Vitest tests across 31 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,225 Vitest tests across 33 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -765,16 +765,16 @@ key = random() ** (1 / weight)
                   'HashiCorp Terraform Associate (004) — live: 647 questions covering all 37 implemented Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
                   'Live source and release audit - all then-live modules checked against official vendor sources; AWS, A+, Splunk, Cisco, and Terraform metadata corrected or tightened, and CCNA moved to Coming Soon because its bank targets future v2.0.',
                   'Terraform learning-value pass - 647 normalized-unique stems, structured operational explanations, 532 supporting evidence artifacts, stronger distractors, and automated allocation, evidence, uniqueness, and 500-form gates.',
+                  'First-user journey hardening - Smart Practice result context is stable, Recent Misses is a direct next action, incomplete exams require confirmation, mobile cert navigation meets 44px touch targets, and a repeatable release checklist covers desktop and mobile flows.',
                   'A+, Network+, Security+, and Splunk quality sprint - objective learning, evidence-led practicals, form-composition guarantees, full-bank uniqueness checks, and structured review explanations completed by June 13, 2026.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,223-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,225-test regression suite.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  '1. First-user journey hardening - test homepage through results, next-study recommendations, mobile layout, bookmarks, review queues, and progress export/import as one release flow.',
-                  '2. Coming Soon promotion review - re-grade candidates and select one module only after it independently clears the B+ readiness bar and matches the active vendor release.',
+                  '1. Coming Soon promotion review - re-grade candidates and select one module only after it independently clears the B+ readiness bar and matches the active vendor release.',
                 ],
               },
               {

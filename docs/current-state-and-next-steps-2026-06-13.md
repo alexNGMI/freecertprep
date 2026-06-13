@@ -12,9 +12,9 @@ The June quality sprint materially improved the strongest learner-facing modules
 - Network+ and Security+ now have objective-level learning loops and richer practical forms with category guarantees.
 - Splunk Core Certified User now has 750 exact and normalized-unique stems, concise evidence-led prompts, stronger distractors, and structured review explanations.
 - Terraform Associate covers all 37 implemented Associate 004 subobjectives, guarantees a mixed-format practice form, and now includes structured operational review across the full bank.
-- The full automated suite passes: 1,223 tests across 31 files.
+- The full automated suite passes: 1,225 tests across 33 files.
 
-The product is in a strong consolidation phase. The live source audit and Terraform learning-value pass are complete. The next work should improve the eight live modules and the first-user study experience. The preserved CCNA bank targets the future v2.0 release and is now Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
+The product is in a strong consolidation phase. The live source audit, Terraform learning-value pass, and first-user journey hardening are complete. The next decision is which single Coming Soon module should earn promotion. The preserved CCNA bank targets the future v2.0 release and remains Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
 
 ## Current Public Offering
 
@@ -51,7 +51,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 
 ## Main Risks and Gaps
 
-1. **The first-user journey has not been treated as a release gate.** The individual pieces work, but homepage-to-path-to-practice-to-results-to-next-session should be tested as one coherent experience on desktop and mobile.
+1. **Coming Soon promotion needs discipline.** Only one module should be remediated at a time, and it must clear active-release, content, review, and simulation gates before becoming public.
 2. **CCNA release alignment needs discipline.** The preserved bank targets v2.0, but Cisco v1.1 remains active through February 2, 2027. The preview must remain Coming Soon until the active release matches and a fresh audit passes.
 3. **Documentation can drift behind code.** Source status, catalog visibility, and readiness claims now need to remain synchronized through release checks.
 4. **Trust workflow remains local and lightweight.** Source cards and report links exist, but durable reports, moderation, and correction history require a backend. This is useful later, not the immediate priority for a first user.
@@ -85,7 +85,7 @@ Done when:
 - No material repeated stem or generic explanation cluster remains.
 - Mixed-format 57-question forms continue to pass.
 
-### 3. First-User Journey and Release Hardening - Next
+### 3. First-User Journey and Release Hardening - Completed
 
 Treat the product as something the owner will use every day:
 
@@ -95,13 +95,23 @@ Treat the product as something the owner will use every day:
 - add focused browser and component regressions for any corrected workflow;
 - record a short manual release checklist.
 
+Completed improvements:
+
+- Smart Practice now preserves the exact question block through session results, so missed-objective recommendations cannot drift after stats are saved.
+- Practice completion provides a direct Recent Misses action and shows the objectives behind the learner's misses.
+- Exam results route directly into Recent Misses.
+- Incomplete exams require confirmation and display the unanswered count before submission.
+- Mobile certification navigation uses 44px minimum touch targets.
+- Desktop and 390px mobile browser checks found no horizontal overflow or console errors.
+- `docs/first-user-release-checklist.md` now defines the repeatable release gate.
+
 Done when:
 
 - A new learner can choose a goal, start the right module, finish a session, understand the review, and know what to study next without consulting docs.
 - The core journey works at mobile and desktop widths.
-- Lint, 1,223+ tests, and production build pass.
+- Lint, 1,225 tests, and production build pass.
 
-### 4. Choose One Coming Soon Promotion Candidate
+### 4. Choose One Coming Soon Promotion Candidate - Next
 
 Do not reopen several banks at once. Re-grade the candidates after the live-product pass and select one module based on learner value, architecture fit, and remediation cost.
 

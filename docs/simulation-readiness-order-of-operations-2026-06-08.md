@@ -20,12 +20,12 @@ The current product is strongest when the real exam is selected-response only or
 
 ## June 13 Consolidation Review
 
-The original remediation plan has now completed its A+, Network+, Security+, Splunk, source-release, and Terraform quality sequence. The current repository passes 1,223 tests across 31 files. The next active sequence is:
+The original remediation plan has now completed its A+, Network+, Security+, Splunk, source-release, and Terraform quality sequence. The current repository passes 1,225 tests across 33 files. The next active sequence is:
 
 1. Completed June 13: verified source/version and public-copy freshness for the then-nine live modules; the audit moved future-v2.0 CCNA to Coming Soon.
 2. Completed June 13: polished Terraform review quality without increasing its 647-question pool.
-3. Next: harden the complete first-user journey on desktop and mobile.
-4. Then: re-grade and select one Coming Soon module for promotion.
+3. Completed June 13: hardened the complete first-user journey on desktop and mobile.
+4. Next: re-grade and select one Coming Soon module for promotion.
 
 CCNA is preserved as a Coming Soon v2.0 preview because Cisco v1.1 remains active through February 2, 2027. The trust-layer backend, account sync, Real Estate re-publication, and sister-site expansion remain deferred. See `docs/current-state-and-next-steps-2026-06-13.md` for the current decision record.
 
@@ -421,7 +421,7 @@ After that, the most rational expansion options are:
 ### P1
 
 - Completed June 13, 2026: Terraform review-quality pass with 647 structured explanations, 532 supporting evidence artifacts, stronger distractors, uniqueness gates, and 500-form audits.
-- Next: first-user journey audit across path selection, study modes, results, review queues, and progress portability.
+- Completed June 13, 2026: first-user journey audit stabilized Smart Practice result context, added direct Recent Misses handoffs, protected incomplete exam submission, raised mobile nav targets to 44px, and added a release checklist.
 - Maintain the completed A+, Network+, Security+, and Splunk quality gates.
 
 ### P2

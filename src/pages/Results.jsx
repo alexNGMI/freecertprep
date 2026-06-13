@@ -131,10 +131,10 @@ export default function Results() {
         </Link>
         <Link
           id="results-practice-btn"
-          to={`/${cert.id}/quiz`}
+          to={`/${cert.id}/quiz?mode=missed`}
           className="px-6 py-4 rounded-xl font-bold text-center bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:shadow-[0_0_20px_-5px_#6366f1] transition-all"
         >
-          Target Weak Areas
+          Review Recent Misses
         </Link>
         <Link
           id="results-retake-btn"

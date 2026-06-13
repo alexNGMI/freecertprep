@@ -93,7 +93,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Catalog** - Dedicated `/catalog` page for the full certification grid plus the Real Estate sister-site entry.
 - **Path pages** - Public homepage lanes cover A+ entry, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
-- **Current roadmap** - The eight-module live source/release audit and Terraform review-quality pass are complete. The immediate next step is an end-to-end first-user journey pass, followed by promotion of one Coming Soon module only after it clears the B+ readiness bar. See `docs/current-state-and-next-steps-2026-06-13.md`.
+- **Current roadmap** - The live source/release audit, Terraform review-quality pass, and end-to-end first-user journey hardening are complete. The next step is choosing one Coming Soon module for focused remediation and promotion only after it clears the B+ readiness and active-release bars. See `docs/current-state-and-next-steps-2026-06-13.md`.
 - **Content quality status** - A+, Network+, Security+, and Splunk completed their current practical/editorial sprint on June 13, 2026. Cert-specific gates now cover objective breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
@@ -133,7 +133,7 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,223 tests across 31 files), GitHub Actions CI
+- Vitest (1,225 tests across 33 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

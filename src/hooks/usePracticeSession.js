@@ -25,7 +25,7 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
   const [answers, setAnswers] = useState([])
   const [showResult, setShowResult] = useState(false)
   const [quizStarted, setQuizStarted] = useState(false)
-  const [sessionKey, setSessionKey] = useState(0)
+  const [sessionQuestions, setSessionQuestions] = useState([])
 
   const activeMode =
     selectedDomain === SMART_PRACTICE ? 'smart'
@@ -48,26 +48,23 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
     return questions.filter((q) => q.domain === selectedDomain)
   }, [selectedDomain, questions, bookmarkedIds, certStats])
 
-  const sessionQuestions = useMemo(() => {
-    void sessionKey
-    if (selectedDomain === SMART_PRACTICE) {
-      return weightedSample(getWeightedPool(questions), blockSize)
-    }
-    return fisherYates(poolQuestions).slice(0, blockSize)
-  }, [selectedDomain, poolQuestions, sessionKey, questions, getWeightedPool, blockSize])
-
   const startQuiz = () => {
+    const nextQuestions = selectedDomain === SMART_PRACTICE
+      ? weightedSample(getWeightedPool(questions), blockSize)
+      : fisherYates(poolQuestions).slice(0, blockSize)
+
     setCurrentIndex(0)
     setAnswers([])
     setShowResult(false)
+    setSessionQuestions(nextQuestions)
     setQuizStarted(true)
-    setSessionKey((k) => k + 1)
   }
 
   const changeMode = (selection = SMART_PRACTICE) => {
     setQuizStarted(false)
     setSetupStep(1)
     setSelectedDomain(selection)
+    setSessionQuestions([])
   }
 
   const handleAnswer = (selectedChoice) => {
