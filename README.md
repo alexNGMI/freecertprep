@@ -44,6 +44,8 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **A+ Objective Learning Loop is live:** both cores now expose objective-level accuracy and coverage, ten-question objective drills, recent misses, spaced due review, objective badges, A+-specific troubleshooting review cues, and post-session recommendations tied to the learner's misses.
 
+> **A+ PBQ-lite v2 is live:** all 20 practical scenarios now include an explicit task brief, realistic console/table/checklist artifacts, and per-component corrective-action feedback. Core 1 forms guarantee coverage across hardware diagnostics, networking, mobile/peripherals, storage, and virtualization; Core 2 forms guarantee OS tools, security response, software/mobile troubleshooting, and operational workflow while retaining at least six practicals and exact domain allocation.
+
 > **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
 > **CompTIA practical simulation v1 is live:** every 90-question Network+ and Security+ form now guarantees at least six practical scenarios while preserving exact blueprint allocation. Network+ has 32 practical items across PBQ matching, topology, command output, and config repair; Security+ has 33 across PBQ matching, log triage, segmented architecture, and control repair. Multi-part review shows component-level correctness without claiming CompTIA's confidential partial-credit model.
@@ -129,7 +131,7 @@ CCNA simulation types implemented: CLI output interpretation, topology scenarios
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,143 tests across 29 files), GitHub Actions CI
+- Vitest (1,146 tests across 29 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

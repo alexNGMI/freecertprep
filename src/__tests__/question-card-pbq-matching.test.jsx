@@ -20,6 +20,14 @@ const pbqQuestion = {
         ],
       },
     ],
+    task: 'Use the controller evidence to select the most direct corrective action for each affected wireless service.',
+    artifacts: [
+      {
+        type: 'console',
+        title: 'Controller summary',
+        lines: ['AP-01 retries: 41%', 'AP-02 RADIUS rejects: 18'],
+      },
+    ],
   },
   question: 'Match each observation to the most likely next action.',
   itemsLeft: [
@@ -31,6 +39,16 @@ const pbqQuestion = {
     'Move clients to 5 GHz or adjust channel/power to reduce interference',
   ],
   correctMatches: [1, 0],
+  componentFeedback: [
+    {
+      action: 'Move clients to 5 GHz or adjust channel/power to reduce interference',
+      why: 'The retry evidence and nearby microwave point to radio-frequency interference rather than authentication or addressing.',
+    },
+    {
+      action: 'Review RADIUS policy and certificate trust for the SSID',
+      why: 'Valid credentials reaching a rejection state indicate the authentication policy or certificate trust path should be checked.',
+    },
+  ],
   explanation: 'RF interference explains the retries and throughput issue; authentication failures point first to RADIUS policy or trust.',
 }
 
@@ -58,6 +76,8 @@ describe('QuestionCard pbq-matching questions', () => {
     expect(screen.getByText('Controller alerts')).toBeTruthy()
     expect(screen.getByText('AP-01')).toBeTruthy()
     expect(screen.getByText('High retries on 2.4 GHz')).toBeTruthy()
+    expect(screen.getByText('Controller summary')).toBeTruthy()
+    expect(screen.getByText(/AP-01 retries: 41%/)).toBeTruthy()
 
     const selects = screen.getAllByRole('combobox')
     fireEvent.change(selects[0], { target: { value: '1' } })
@@ -96,5 +116,7 @@ describe('QuestionCard pbq-matching questions', () => {
 
     expect(screen.getByText('Incorrect')).toBeTruthy()
     expect(screen.getByText('Component check: 1/2 correct')).toBeTruthy()
+    expect(screen.getAllByText(/Correct action:/)).toHaveLength(2)
+    expect(screen.getByText(/retry evidence and nearby microwave/i)).toBeTruthy()
   })
 })

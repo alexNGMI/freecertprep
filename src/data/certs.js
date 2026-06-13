@@ -640,6 +640,13 @@ const certs = {
     examTime: 90,
     passingScore: 75,
     practicalQuestionTarget: 6,
+    requiredPracticalCategories: [
+      'hardware-diagnostics',
+      'network-connectivity',
+      'mobile-peripherals',
+      'storage-configuration',
+      'virtualization-cloud',
+    ],
     examAllowedTypes: ['single-choice', 'multiple-response', 'matching', 'ordering', 'pbq-matching'],
     loadQuestions: () => loadObjectiveQuestionAsset(
       comptiaAPlusCore1QuestionsUrl,
@@ -663,6 +670,12 @@ const certs = {
     examTime: 90,
     passingScore: 78,
     practicalQuestionTarget: 6,
+    requiredPracticalCategories: [
+      'os-tools',
+      'security-response',
+      'software-mobile',
+      'operational-workflow',
+    ],
     examAllowedTypes: ['single-choice', 'multiple-response', 'matching', 'ordering', 'pbq-matching'],
     loadQuestions: () => loadObjectiveQuestionAsset(
       comptiaAPlusCore2QuestionsUrl,

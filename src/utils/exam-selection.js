@@ -97,9 +97,48 @@ export function weightedSelect(questions, count, domains, options = {}) {
 
   guaranteePracticalQuestions(picked, eligibleQuestions, options.practicalQuestionTarget)
   guaranteeQuestionTypes(picked, eligibleQuestions, options.requiredTypeCounts)
+  guaranteePracticalCategories(picked, eligibleQuestions, options.requiredPracticalCategories)
 
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)
+}
+
+function guaranteePracticalCategories(picked, questions, requiredCategories = []) {
+  if (!requiredCategories?.length) return
+
+  const pickedIds = new Set(picked.map((question) => question.id))
+  for (const category of requiredCategories) {
+    if (picked.some((question) => question.practicalCategory === category)) continue
+
+    const candidates = fisherYates(questions.filter((question) =>
+      !pickedIds.has(question.id)
+      && isPracticalQuestion(question)
+      && question.practicalCategory === category
+    ))
+    const candidate = candidates.find((item) =>
+      picked.some((question) =>
+        question.domain === item.domain
+        && canSwapPracticalCategory(picked, question, requiredCategories)
+      )
+    )
+    if (!candidate) continue
+
+    const swapIndex = picked.findIndex((question) =>
+      question.domain === candidate.domain
+      && canSwapPracticalCategory(picked, question, requiredCategories)
+    )
+    if (swapIndex === -1) continue
+
+    pickedIds.delete(picked[swapIndex].id)
+    picked[swapIndex] = candidate
+    pickedIds.add(candidate.id)
+  }
+}
+
+function canSwapPracticalCategory(questions, question, requiredCategories) {
+  if (!isPracticalQuestion(question)) return countType(questions, question.type || 'single-choice') > 1
+  if (!requiredCategories.includes(question.practicalCategory)) return true
+  return questions.filter((item) => item.practicalCategory === question.practicalCategory).length > 1
 }
 
 function guaranteeQuestionTypes(picked, questions, requiredTypeCounts = {}) {

@@ -516,8 +516,26 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
         }
 
     expect(questions).toHaveLength(760)
-    expect(questions.filter(q => typeOf(q) === 'pbq-matching')).toHaveLength(10)
+    const practicalQuestions = questions.filter(q => typeOf(q) === 'pbq-matching')
+    expect(practicalQuestions).toHaveLength(10)
     expect(new Set(questions.map(q => q.objectiveId))).toEqual(new Set(expectedObjectiveIds))
+
+    const requiredPracticalCategories = certId === 'comptia-a-plus-core-1'
+      ? ['hardware-diagnostics', 'network-connectivity', 'mobile-peripherals', 'storage-configuration', 'virtualization-cloud']
+      : ['os-tools', 'security-response', 'software-mobile', 'operational-workflow']
+    expect(new Set(practicalQuestions.map(q => q.practicalCategory))).toEqual(new Set(requiredPracticalCategories))
+
+    for (const q of practicalQuestions) {
+      expect(q.pbq.category).toBe(q.practicalCategory)
+      expect(q.pbq.task.length, `${certId} ${q.id} needs a task brief`).toBeGreaterThanOrEqual(60)
+      expect(q.pbq.artifacts, `${certId} ${q.id} needs practical artifacts`).toHaveLength(1)
+      expect(['console', 'table', 'checklist']).toContain(q.pbq.artifacts[0].type)
+      expect(q.componentFeedback, `${certId} ${q.id} needs component feedback`).toHaveLength(q.itemsLeft.length)
+      for (const component of q.componentFeedback) {
+        expect(component.action.length).toBeGreaterThan(20)
+        expect(component.why.length).toBeGreaterThanOrEqual(100)
+      }
+    }
 
     const normalizedStems = new Set(questions.map(q =>
       q.question
@@ -1023,6 +1041,27 @@ describe('CCNA 200-301 production pool', () => {
 describe('CompTIA practical exam forms', () => {
   it.each([
     [
+      'comptia-a-plus-core-1',
+      comptiaAPlusCore1,
+      {
+        'Mobile Devices': 12,
+        'Networking': 21,
+        'Hardware': 22,
+        'Virtualization and Cloud Computing': 10,
+        'Hardware and Network Troubleshooting': 25,
+      },
+    ],
+    [
+      'comptia-a-plus-core-2',
+      comptiaAPlusCore2,
+      {
+        'Operating Systems': 25,
+        'Security': 25,
+        'Software Troubleshooting': 21,
+        'Operational Procedures': 19,
+      },
+    ],
+    [
       'comptia-net-plus',
       comptiaNetPlus,
       {
@@ -1050,6 +1089,7 @@ describe('CompTIA practical exam forms', () => {
     for (let run = 0; run < 50; run++) {
       const form = weightedSelect(questions, cert.examQuestions, cert.domains, {
         practicalQuestionTarget: cert.practicalQuestionTarget,
+        requiredPracticalCategories: cert.requiredPracticalCategories,
       })
       const byDomain = form.reduce((acc, question) => {
         acc[question.domain] = (acc[question.domain] || 0) + 1
@@ -1062,6 +1102,9 @@ describe('CompTIA practical exam forms', () => {
       expect(form).toHaveLength(90)
       expect(byDomain).toEqual(expectedDomains)
       expect(practicalCount).toBeGreaterThanOrEqual(6)
+      for (const category of cert.requiredPracticalCategories || []) {
+        expect(form.some(question => question.practicalCategory === category)).toBe(true)
+      }
     }
   })
 })

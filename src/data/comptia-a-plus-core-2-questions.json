@@ -12313,6 +12313,36 @@
             }
           ]
         }
+      ],
+      "category": "software-mobile",
+      "task": "Use profile, recovery, and endpoint evidence to choose the safest next software-repair action.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Support console",
+          "columns": [
+            "Ticket",
+            "Comparison test",
+            "Relevant evidence"
+          ],
+          "rows": [
+            [
+              "A",
+              "New user profile: app works",
+              "Original profile only"
+            ],
+            [
+              "B",
+              "WinRE available",
+              "Three failed starts"
+            ],
+            [
+              "C",
+              "PUP alert active",
+              "Unknown browser extension"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each support ticket to the best next action.",
@@ -12333,7 +12363,25 @@
     ],
     "explanation": "A profile-only crash should be handled as profile corruption after confirming the app works elsewhere. Repeated boot failure belongs in WinRE repair workflow. Redirects with unwanted extensions and a PUP alert call for malware/PUP cleanup and browser reset.",
     "objectiveId": "3.1",
-    "conceptId": "aplus-core2-pbq-001-practical-01"
+    "conceptId": "aplus-core2-pbq-001-practical-01",
+    "practicalCategory": "software-mobile",
+    "componentFeedback": [
+      {
+        "label": "Application crashes only inside one damaged user profile",
+        "action": "Repair the user profile or migrate data to a new profile after confirming app health",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      },
+      {
+        "label": "System repeatedly fails startup and enters recovery",
+        "action": "Use WinRE Startup Repair or restore options before reinstalling the OS",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      },
+      {
+        "label": "Browser redirects and unwanted extensions appear after a PUP alert",
+        "action": "Run antimalware cleanup, remove suspicious extensions, and reset browser settings",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-002",
@@ -12360,6 +12408,19 @@
             }
           ]
         }
+      ],
+      "category": "security-response",
+      "task": "Contain the active risk first, then protect the affected account, endpoint, or managed data.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Security alerts",
+          "lines": [
+            "Laptop A  Identity alert: sign-in from new country after phishing report",
+            "Laptop B  EDR: rapid file rename activity | process still active",
+            "Laptop C  MDM: last check-in 42 minutes ago | disk encryption enabled"
+          ]
+        }
       ]
     },
     "question": "Match each endpoint security event to the best immediate response.",
@@ -12380,7 +12441,25 @@
     ],
     "explanation": "Phished credentials require account containment, password/session reset, and reporting. Active ransomware behavior should be isolated immediately. A lost managed device should be locked or wiped according to policy and documented.",
     "objectiveId": "2.6",
-    "conceptId": "aplus-core2-pbq-002-practical-02"
+    "conceptId": "aplus-core2-pbq-002-practical-02",
+    "practicalCategory": "security-response",
+    "componentFeedback": [
+      {
+        "label": "A user submitted credentials to a confirmed phishing page",
+        "action": "Reset the password, revoke sessions/tokens, and report the account compromise",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      },
+      {
+        "label": "A system shows active ransomware-like file changes",
+        "action": "Isolate the host from the network and escalate according to incident response procedures",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      },
+      {
+        "label": "A managed laptop with cached email is reported lost",
+        "action": "Trigger remote lock or wipe and document the asset incident",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-003",
@@ -12407,6 +12486,36 @@
             }
           ]
         }
+      ],
+      "category": "os-tools",
+      "task": "Apply the approved identity or profile-management action for each Windows access condition.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Account state",
+          "columns": [
+            "User",
+            "Account type",
+            "System message"
+          ],
+          "rows": [
+            [
+              "A",
+              "Domain",
+              "Password rejected"
+            ],
+            [
+              "B",
+              "Standard user",
+              "Approved installer requires elevation"
+            ],
+            [
+              "C",
+              "Domain",
+              "Signed in with a temporary profile"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each access issue to the best next action.",
@@ -12427,7 +12536,25 @@
     ],
     "explanation": "Domain password issues are handled through identity tooling. Temporary admin access should follow least privilege and approval. Temporary profiles indicate profile corruption or load failure.",
     "objectiveId": "1.6",
-    "conceptId": "aplus-core2-pbq-003-practical-03"
+    "conceptId": "aplus-core2-pbq-003-practical-03",
+    "practicalCategory": "os-tools",
+    "componentFeedback": [
+      {
+        "label": "Domain user forgot the password",
+        "action": "Reset the domain account password through approved identity tools",
+        "why": "The action uses the native operating-system or identity tool suited to the evidence while preserving data and approved access."
+      },
+      {
+        "label": "User needs temporary elevated rights for approved software",
+        "action": "Use approved elevation/admin workflow and remove rights after the task",
+        "why": "The action uses the native operating-system or identity tool suited to the evidence while preserving data and approved access."
+      },
+      {
+        "label": "Windows loads a temporary profile warning",
+        "action": "Repair/recreate the profile and migrate user data as appropriate",
+        "why": "The action uses the native operating-system or identity tool suited to the evidence while preserving data and approved access."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-004",
@@ -12454,6 +12581,19 @@
             }
           ]
         }
+      ],
+      "category": "os-tools",
+      "task": "Choose the Windows storage tool that matches cleanup, file-system repair, or partition work.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Disk status",
+          "lines": [
+            "PC-A  C: 3.1 GB free | Temporary files: 18.4 GB",
+            "PC-B  NTFS event: volume marked dirty after unexpected shutdown",
+            "PC-C  C: healthy 380 GB | 120 GB unallocated | BitLocker: off"
+          ]
+        }
       ]
     },
     "question": "Match each storage issue to the best action.",
@@ -12474,7 +12614,25 @@
     ],
     "explanation": "Cleanup tools remove safe temporary/update files. File-system errors call for repair checks. Partition size/layout changes belong in disk management tooling.",
     "objectiveId": "1.4",
-    "conceptId": "aplus-core2-pbq-004-practical-04"
+    "conceptId": "aplus-core2-pbq-004-practical-04",
+    "practicalCategory": "os-tools",
+    "componentFeedback": [
+      {
+        "label": "Recover space from old cache/update files",
+        "action": "Run Disk Cleanup/Storage Sense with approved cleanup categories",
+        "why": "The action uses the native operating-system or identity tool suited to the evidence while preserving data and approved access."
+      },
+      {
+        "label": "Check and repair file system errors",
+        "action": "Run chkdsk or equivalent file-system repair workflow",
+        "why": "The action uses the native operating-system or identity tool suited to the evidence while preserving data and approved access."
+      },
+      {
+        "label": "Resize a partition before enabling encryption",
+        "action": "Use Disk Management or approved partitioning tool",
+        "why": "The action uses the native operating-system or identity tool suited to the evidence while preserving data and approved access."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-005",
@@ -12501,6 +12659,19 @@
             }
           ]
         }
+      ],
+      "category": "security-response",
+      "task": "Match each malware or account-compromise clue to the containment and remediation step that addresses it.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Endpoint findings",
+          "lines": [
+            "Host A  Defender service: stopped | unknownsvc: automatic",
+            "Host B  Browser notification source: untrusted-security.example",
+            "Host C  Active sessions: 5 | unfamiliar device: 1"
+          ]
+        }
       ]
     },
     "question": "Match each malware-response clue to the best step.",
@@ -12521,7 +12692,25 @@
     ],
     "explanation": "Persistent malware should be isolated and scanned with trusted tools. Scareware/rogue AV requires removal and user coaching. Active sessions after compromise must be revoked.",
     "objectiveId": "2.6",
-    "conceptId": "aplus-core2-pbq-005-practical-05"
+    "conceptId": "aplus-core2-pbq-005-practical-05",
+    "practicalCategory": "security-response",
+    "componentFeedback": [
+      {
+        "label": "Unknown persistent service with disabled protection",
+        "action": "Isolate, re-enable/update protection, scan offline if needed, and remove persistence",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      },
+      {
+        "label": "Fake antivirus pop-ups pressure the user to pay",
+        "action": "Remove rogue software/browser changes and educate user not to pay/click",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      },
+      {
+        "label": "Open sessions remain after suspected account compromise",
+        "action": "Revoke sessions/tokens and reset affected credentials",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-006",
@@ -12548,6 +12737,36 @@
             }
           ]
         }
+      ],
+      "category": "software-mobile",
+      "task": "Use application, credential, and storage evidence to select a focused mobile-support action.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Mobile management status",
+          "columns": [
+            "Phone",
+            "Managed state",
+            "Observed condition"
+          ],
+          "rows": [
+            [
+              "A",
+              "Compliant",
+              "One app crashes after version update"
+            ],
+            [
+              "B",
+              "Compliant",
+              "Mail auth failed after password reset"
+            ],
+            [
+              "C",
+              "Compliant",
+              "Storage 98% used"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each mobile support issue to the best action.",
@@ -12568,7 +12787,25 @@
     ],
     "explanation": "A single-app crash points to app cache/reinstall. Password changes often require updated mail credentials or profile refresh. Low storage can degrade mobile performance.",
     "objectiveId": "3.2",
-    "conceptId": "aplus-core2-pbq-006-practical-06"
+    "conceptId": "aplus-core2-pbq-006-practical-06",
+    "practicalCategory": "software-mobile",
+    "componentFeedback": [
+      {
+        "label": "One app crashes immediately after it was updated",
+        "action": "Clear app cache/reinstall or roll back through approved app management",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      },
+      {
+        "label": "Corporate mail fails after password change",
+        "action": "Update saved credentials or re-enroll mail profile if required",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      },
+      {
+        "label": "Device performance is poor with nearly full storage",
+        "action": "Free storage by removing cached/offline data and unused apps",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-007",
@@ -12595,6 +12832,19 @@
             }
           ]
         }
+      ],
+      "category": "operational-workflow",
+      "task": "Apply change control, privacy, and validation requirements before the work begins.",
+      "artifacts": [
+        {
+          "type": "checklist",
+          "title": "Maintenance review",
+          "items": [
+            "Business-hours restart affects a shared service.",
+            "A repair session may expose customer records.",
+            "The proposed software will enter the standard workstation image."
+          ]
+        }
       ]
     },
     "question": "Match each work item to the correct procedure.",
@@ -12615,7 +12865,25 @@
     ],
     "explanation": "Service-impacting restarts need approval and communication. Visible customer data requires privacy controls. Shared images need tested and approved changes.",
     "objectiveId": "4.2",
-    "conceptId": "aplus-core2-pbq-007-practical-07"
+    "conceptId": "aplus-core2-pbq-007-practical-07",
+    "practicalCategory": "operational-workflow",
+    "componentFeedback": [
+      {
+        "label": "Restart required during business hours",
+        "action": "Get approval, communicate impact, and schedule a maintenance window",
+        "why": "The action preserves approval, privacy, validation, documentation, and accountability around the technical work."
+      },
+      {
+        "label": "Customer data may be visible during repair",
+        "action": "Protect privacy by minimizing exposure and following data-handling policy",
+        "why": "The action preserves approval, privacy, validation, documentation, and accountability around the technical work."
+      },
+      {
+        "label": "Software install may affect a shared image",
+        "action": "Test/approve the change before adding it to the standard image",
+        "why": "The action preserves approval, privacy, validation, documentation, and accountability around the technical work."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-008",
@@ -12642,6 +12910,36 @@
             }
           ]
         }
+      ],
+      "category": "security-response",
+      "task": "Choose the identity control that reduces the stated risk while preserving individual accountability.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Authentication review",
+          "columns": [
+            "Use case",
+            "Current state",
+            "Risk"
+          ],
+          "rows": [
+            [
+              "Remote access",
+              "Password only",
+              "Credential reuse"
+            ],
+            [
+              "Shared workstation",
+              "Shared account",
+              "No attribution"
+            ],
+            [
+              "Privileged install",
+              "Permanent local admin",
+              "Excess privilege"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each authentication requirement to the best control.",
@@ -12662,7 +12960,25 @@
     ],
     "explanation": "MFA reduces risk for remote access. Unique accounts support accountability. Temporary elevation limits privileged exposure.",
     "objectiveId": "2.1",
-    "conceptId": "aplus-core2-pbq-008-practical-08"
+    "conceptId": "aplus-core2-pbq-008-practical-08",
+    "practicalCategory": "security-response",
+    "componentFeedback": [
+      {
+        "label": "Remote users need stronger authentication",
+        "action": "Require MFA for remote access",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      },
+      {
+        "label": "Shared workstation actions need user accountability",
+        "action": "Assign unique user accounts instead of shared logins",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      },
+      {
+        "label": "Admin rights should exist only during approved tasks",
+        "action": "Use least privilege with just-in-time or temporary elevation",
+        "why": "The action contains active risk and restores control without destroying evidence or weakening authentication and data protection."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-009",
@@ -12689,6 +13005,19 @@
             }
           ]
         }
+      ],
+      "category": "software-mobile",
+      "task": "Use service and change evidence to reverse the smallest likely software fault first.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Service status",
+          "lines": [
+            "Spooler       Running -> Stopped after error | queue: 14 jobs",
+            "LOB plugin    Version 6.4 installed immediately before crashes",
+            "SyncService   Startup type: Disabled | application dependency: Yes"
+          ]
+        }
       ]
     },
     "question": "Match each software symptom to the best first action.",
@@ -12709,7 +13038,25 @@
     ],
     "explanation": "Print spooler errors often require clearing the queue and restarting the service. Plugin-related crashes should be isolated by disabling/removing the plugin. Disabled required services must be re-enabled.",
     "objectiveId": "3.1",
-    "conceptId": "aplus-core2-pbq-009-practical-09"
+    "conceptId": "aplus-core2-pbq-009-practical-09",
+    "practicalCategory": "software-mobile",
+    "componentFeedback": [
+      {
+        "label": "Print jobs are stuck after a spooler error",
+        "action": "Clear stuck jobs and restart the print spooler service",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      },
+      {
+        "label": "Application crashes immediately after a plugin update",
+        "action": "Disable/remove the plugin or restore the previous version",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      },
+      {
+        "label": "Required background service is disabled",
+        "action": "Set the service startup correctly and start the service",
+        "why": "The action isolates the smallest likely software, profile, service, credential, or capacity fault before broader recovery."
+      }
+    ]
   },
   {
     "id": "aplus-core2-pbq-010",
@@ -12736,6 +13083,19 @@
             }
           ]
         }
+      ],
+      "category": "operational-workflow",
+      "task": "Update the record that preserves configuration, asset, or incident history for each completed task.",
+      "artifacts": [
+        {
+          "type": "checklist",
+          "title": "Closure requirements",
+          "items": [
+            "Record the new shared-printer address and affected users.",
+            "Preserve replacement serial, warranty, and RMA information.",
+            "Record containment, credential reset, and notifications."
+          ]
+        }
       ]
     },
     "question": "Match each completed task to the best documentation update.",
@@ -12756,6 +13116,24 @@
     ],
     "explanation": "Shared network changes need accurate records. Hardware replacements affect asset/warranty history. Security events require incident documentation and notification trail.",
     "objectiveId": "4.1",
-    "conceptId": "aplus-core2-pbq-010-practical-10"
+    "conceptId": "aplus-core2-pbq-010-practical-10",
+    "practicalCategory": "operational-workflow",
+    "componentFeedback": [
+      {
+        "label": "Static IP changed on a shared printer",
+        "action": "Update asset/network records and printer documentation",
+        "why": "The action preserves approval, privacy, validation, documentation, and accountability around the technical work."
+      },
+      {
+        "label": "Motherboard replaced under warranty",
+        "action": "Update asset history, warranty/RMA notes, and serial details",
+        "why": "The action preserves approval, privacy, validation, documentation, and accountability around the technical work."
+      },
+      {
+        "label": "Credential reset completed after phishing",
+        "action": "Document incident ticket actions and user/security notifications",
+        "why": "The action preserves approval, privacy, validation, documentation, and accountability around the technical work."
+      }
+    ]
   }
 ]

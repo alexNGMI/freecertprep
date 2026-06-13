@@ -129,6 +129,38 @@ describe('weightedSelect', () => {
     }
   })
 
+  it('guarantees required practical categories while preserving domain allocation', () => {
+    const domains = [
+      { name: 'Hardware', weight: 50 },
+      { name: 'Networking', weight: 50 },
+    ]
+    const pool = [
+      ...makePool(['Hardware', 'Networking'], 80, ['single-choice']),
+      { id: 'hw-diag', domain: 'Hardware', type: 'pbq-matching', practicalCategory: 'hardware-diagnostics' },
+      { id: 'hw-storage', domain: 'Hardware', type: 'pbq-matching', practicalCategory: 'storage-configuration' },
+      { id: 'net-link', domain: 'Networking', type: 'pbq-matching', practicalCategory: 'network-connectivity' },
+    ]
+    const requiredPracticalCategories = [
+      'hardware-diagnostics',
+      'storage-configuration',
+      'network-connectivity',
+    ]
+
+    for (let i = 0; i < 50; i++) {
+      const result = weightedSelect(pool, 20, domains, {
+        practicalQuestionTarget: 3,
+        requiredPracticalCategories,
+      })
+      const categories = new Set(result.map(question => question.practicalCategory).filter(Boolean))
+
+      expect(result.filter(question => question.domain === 'Hardware')).toHaveLength(10)
+      expect(result.filter(question => question.domain === 'Networking')).toHaveLength(10)
+      for (const category of requiredPracticalCategories) {
+        expect(categories.has(category), `missing practical category: ${category}`).toBe(true)
+      }
+    }
+  })
+
   it('guarantees certification-specific question type counts', () => {
     const domains = [{ name: 'D1', weight: 100 }]
     const pool = [

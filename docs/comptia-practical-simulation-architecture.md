@@ -92,9 +92,22 @@ Accuracy and coverage are intentionally separate. A learner who answers one ques
 
 A+ adds a support-oriented review cue to each explanation. Core 1 asks the learner to connect the symptom to the least invasive likely fix and confirming evidence. Core 2 emphasizes the safest next action, protection of user data and security, and verification through the relevant setting, command, log, or policy.
 
+## A+ PBQ-lite v2
+
+The A+ practical layer remains an honest browser approximation of CompTIA simulations, not a reproduction of the confidential exam engine. CompTIA describes PBQs as real-world problem solving delivered through simulations or virtual environments, and the current A+ exams can include multiple-choice, drag-and-drop, and performance-based questions.
+
+Each of the 20 A+ practicals now includes:
+
+- a clear technician task rather than only a narrative;
+- structured evidence plus a console, status table, or workflow checklist;
+- three matched decisions based on the supplied artifact;
+- component-level corrective actions and rationale during review.
+
+Every 90-question A+ form still preserves exact domain allocation and at least six practical items. Core 1 additionally guarantees hardware diagnostics, network connectivity, mobile/peripheral support, storage configuration, and virtualization/cloud practice. Core 2 guarantees OS tools, security response, software/mobile troubleshooting, and operational workflow practice. The audit generates 500 forms per core and fails if any category or practical minimum is missing.
+
 ## Next Iteration
 
-The v2 opportunity is interaction depth, not more ordinary questions:
+The next opportunity is interaction depth, not more ordinary questions:
 
 1. Add a cable-map interaction with endpoint-to-port placement.
 2. Add a firewall-rule builder with ordered rule evaluation.

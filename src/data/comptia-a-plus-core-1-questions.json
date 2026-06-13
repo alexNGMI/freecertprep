@@ -12257,6 +12257,19 @@
             }
           ]
         }
+      ],
+      "category": "hardware-diagnostics",
+      "task": "Use the POST, temperature, and port evidence to choose the least invasive next hardware check for each workstation.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Bench diagnostics",
+          "lines": [
+            "PC-A  POST: no display | GPU reseated | onboard video available",
+            "PC-B  CPU: 96 C under load | fan: 780 RPM | intake: obstructed",
+            "PC-C  POST: keyboard error | rear USB: normal | front USB: intermittent"
+          ]
+        }
       ]
     },
     "question": "Match each workstation symptom to the best next troubleshooting action.",
@@ -12277,7 +12290,25 @@
     ],
     "explanation": "No video after a GPU reseat points first to GPU seating, power, or fallback video. Thermal shutdown under load calls for cooling and airflow checks. A keyboard POST error with loose front USB ports should be isolated by testing a known-good rear USB port before replacing the keyboard.",
     "objectiveId": "5.1",
-    "conceptId": "aplus-core1-pbq-001-practical-01"
+    "conceptId": "aplus-core1-pbq-001-practical-01",
+    "practicalCategory": "hardware-diagnostics",
+    "componentFeedback": [
+      {
+        "label": "PC-A has power but no display after the discrete GPU was disturbed",
+        "action": "Verify GPU power connectors, reseat the card, and test onboard video if available",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      },
+      {
+        "label": "PC-B shuts down under load and shows rapidly rising temperatures",
+        "action": "Inspect airflow, clean dust from vents, and verify CPU fan/heatsink contact",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      },
+      {
+        "label": "PC-C stops at POST with a keyboard error and loose front USB ports",
+        "action": "Test with a rear motherboard USB port or replace/repair the front-panel USB connection",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-002",
@@ -12304,6 +12335,19 @@
             }
           ]
         }
+      ],
+      "category": "network-connectivity",
+      "task": "Correlate link, addressing, and name-resolution evidence before changing network infrastructure.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Client checks",
+          "lines": [
+            "User 1  Ethernet: Media disconnected | switch LED: off",
+            "User 2  IPv4: 169.254.44.18/16 | gateway: none",
+            "User 3  ping 10.20.0.1: success | nslookup intranet: timeout"
+          ]
+        }
       ]
     },
     "question": "Match each networking symptom to the best next action.",
@@ -12324,7 +12368,25 @@
     ],
     "explanation": "No link light is a physical-layer issue first. APIPA means the client did not receive a DHCP lease, so DHCP/VLAN placement is the right path. Gateway reachability with failed name resolution points to DNS.",
     "objectiveId": "5.5",
-    "conceptId": "aplus-core1-pbq-002-practical-02"
+    "conceptId": "aplus-core1-pbq-002-practical-02",
+    "practicalCategory": "network-connectivity",
+    "componentFeedback": [
+      {
+        "label": "A workstation has no link light after the move",
+        "action": "Replace or re-terminate the Ethernet patch cable and confirm the switchport link",
+        "why": "The action stays at the failing network layer shown by the link, addressing, DNS, wireless, or segmentation evidence."
+      },
+      {
+        "label": "A workstation receives an APIPA address while other desks get DHCP leases",
+        "action": "Check DHCP scope availability and verify the client is on the correct VLAN",
+        "why": "The action stays at the failing network layer shown by the link, addressing, DNS, wireless, or segmentation evidence."
+      },
+      {
+        "label": "A workstation reaches the gateway but fails name resolution",
+        "action": "Check DNS server settings and test lookup with a known hostname",
+        "why": "The action stays at the failing network layer shown by the link, addressing, DNS, wireless, or segmentation evidence."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-003",
@@ -12351,6 +12413,36 @@
             }
           ]
         }
+      ],
+      "category": "mobile-peripherals",
+      "task": "Choose the accessory, profile, or display-path correction supported by each observed symptom.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Accessory status",
+          "columns": [
+            "Device",
+            "Detected state",
+            "Observed limit"
+          ],
+          "rows": [
+            [
+              "Tablet USB-C",
+              "Power reconnects when moved",
+              "Charging intermittent"
+            ],
+            [
+              "Bluetooth headset",
+              "Paired",
+              "Speaker remains active output"
+            ],
+            [
+              "USB-C display adapter",
+              "Detected",
+              "1920x1080 maximum"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each mobile-device symptom to the best next action.",
@@ -12371,7 +12463,25 @@
     ],
     "explanation": "Intermittent charging points to cable or port damage. A paired headset still needs to be selected as the audio output and use the correct profile. Low external-display resolution often comes from adapter/cable limits or display configuration.",
     "objectiveId": "5.4",
-    "conceptId": "aplus-core1-pbq-003-practical-03"
+    "conceptId": "aplus-core1-pbq-003-practical-03",
+    "practicalCategory": "mobile-peripherals",
+    "componentFeedback": [
+      {
+        "label": "Tablet charging is intermittent when the cable moves",
+        "action": "Replace the damaged charging cable or inspect the charge port for debris/damage",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      },
+      {
+        "label": "Bluetooth headset pairs but does not become the audio output",
+        "action": "Select the paired headset as the active audio output and verify profile support",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      },
+      {
+        "label": "External monitor is detected but limited to low resolution",
+        "action": "Check adapter/cable capability and display settings for the target resolution",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-004",
@@ -12398,6 +12508,36 @@
             }
           ]
         }
+      ],
+      "category": "mobile-peripherals",
+      "task": "Separate OS configuration faults from cable and battery hardware faults.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Laptop comparison",
+          "columns": [
+            "Unit",
+            "Pre-boot test",
+            "OS or hardware clue"
+          ],
+          "rows": [
+            [
+              "A",
+              "Trackpad works in firmware",
+              "Fails after Windows loads"
+            ],
+            [
+              "B",
+              "Panel image changes with lid angle",
+              "External display stable"
+            ],
+            [
+              "C",
+              "Battery health: 31%",
+              "AC operation stable"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each laptop issue to the most appropriate action.",
@@ -12418,7 +12558,25 @@
     ],
     "explanation": "Hardware that works in BIOS but not Windows usually points to driver/settings. Flicker tied to hinge movement suggests a display cable issue. Poor battery health calls for battery replacement.",
     "objectiveId": "5.4",
-    "conceptId": "aplus-core1-pbq-004-practical-04"
+    "conceptId": "aplus-core1-pbq-004-practical-04",
+    "practicalCategory": "mobile-peripherals",
+    "componentFeedback": [
+      {
+        "label": "Trackpad works before the OS loads but fails in Windows",
+        "action": "Update or reinstall the touchpad driver and check OS settings",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      },
+      {
+        "label": "Screen flickers when the display hinge angle changes",
+        "action": "Inspect or replace the display cable routed through the hinge",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      },
+      {
+        "label": "Battery health is poor and runtime is much shorter than expected",
+        "action": "Replace the battery with a compatible approved pack",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-005",
@@ -12445,6 +12603,36 @@
             }
           ]
         }
+      ],
+      "category": "hardware-diagnostics",
+      "task": "Use the print pattern and device technology to select the correct maintenance action.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Print inspection",
+          "columns": [
+            "Printer",
+            "Technology",
+            "Test-page result"
+          ],
+          "rows": [
+            [
+              "Laser A",
+              "Laser",
+              "Spot repeats every 94 mm"
+            ],
+            [
+              "Inkjet B",
+              "Inkjet",
+              "Faded cyan and magenta"
+            ],
+            [
+              "Thermal C",
+              "Direct thermal",
+              "Feeds labels with no image"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each printer symptom to the best maintenance action.",
@@ -12465,7 +12653,25 @@
     ],
     "explanation": "Repeating laser defects usually map to a rotating drum/roller. Faded inkjet output after replacement suggests cartridge tape, alignment, or printhead cleaning. Blank thermal labels often mean the media is reversed or incompatible.",
     "objectiveId": "5.6",
-    "conceptId": "aplus-core1-pbq-005-practical-05"
+    "conceptId": "aplus-core1-pbq-005-practical-05",
+    "practicalCategory": "hardware-diagnostics",
+    "componentFeedback": [
+      {
+        "label": "Laser pages show repeating marks at a fixed interval",
+        "action": "Inspect/replace the drum or roller associated with the repeating defect",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      },
+      {
+        "label": "Inkjet output is faded after new cartridges were installed",
+        "action": "Run printhead cleaning/alignment and verify protective tape was removed",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      },
+      {
+        "label": "Thermal labels advance but print blank",
+        "action": "Reload thermal media in the correct orientation and verify compatible labels",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-006",
@@ -12492,6 +12698,36 @@
             }
           ]
         }
+      ],
+      "category": "storage-configuration",
+      "task": "Match interface, performance, and resilience requirements to a compatible storage design.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Storage inventory",
+          "columns": [
+            "System",
+            "Available interface",
+            "Priority"
+          ],
+          "rows": [
+            [
+              "Workstation",
+              "M.2 PCIe 4.0 x4",
+              "Fast local boot and applications"
+            ],
+            [
+              "NAS",
+              "Four SATA bays",
+              "Continue after one drive failure"
+            ],
+            [
+              "Old laptop",
+              "2.5-inch SATA III bay",
+              "Replace mechanical disk"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each storage requirement to the best option.",
@@ -12512,7 +12748,25 @@
     ],
     "explanation": "NVMe over PCIe is the best local performance option. NAS fault tolerance requires a supported RAID layout and appropriate drives. Older 2.5-inch SATA bays need a compatible SATA SSD.",
     "objectiveId": "3.4",
-    "conceptId": "aplus-core1-pbq-006-practical-06"
+    "conceptId": "aplus-core1-pbq-006-practical-06",
+    "practicalCategory": "storage-configuration",
+    "componentFeedback": [
+      {
+        "label": "High-performance workstation boot/application drive",
+        "action": "Use an NVMe SSD in an available M.2 PCIe slot",
+        "why": "The action matches the available interface and required performance or resilience instead of assuming every storage technology is interchangeable."
+      },
+      {
+        "label": "Small NAS needing drive failure tolerance",
+        "action": "Use a supported RAID configuration with NAS-rated drives",
+        "why": "The action matches the available interface and required performance or resilience instead of assuming every storage technology is interchangeable."
+      },
+      {
+        "label": "Older laptop with only a 2.5-inch SATA bay",
+        "action": "Use a 2.5-inch SATA SSD compatible with the bay",
+        "why": "The action matches the available interface and required performance or resilience instead of assuming every storage technology is interchangeable."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-007",
@@ -12539,6 +12793,19 @@
             }
           ]
         }
+      ],
+      "category": "virtualization-cloud",
+      "task": "Apply the isolation, recovery, or delivery feature that directly meets each virtual-workload requirement.",
+      "artifacts": [
+        {
+          "type": "checklist",
+          "title": "Lab requirements",
+          "items": [
+            "Developer traffic must not reach the production LAN.",
+            "Training machines must return to baseline between classes.",
+            "Remote users cannot install the application locally."
+          ]
+        }
       ]
     },
     "question": "Match each virtualization/cloud requirement to the best action.",
@@ -12559,7 +12826,25 @@
     ],
     "explanation": "Virtual switches can isolate VM traffic. Snapshots/checkpoints support rollback. Cloud/virtual app delivery lets users access software without local installation.",
     "objectiveId": "4.1",
-    "conceptId": "aplus-core1-pbq-007-practical-07"
+    "conceptId": "aplus-core1-pbq-007-practical-07",
+    "practicalCategory": "virtualization-cloud",
+    "componentFeedback": [
+      {
+        "label": "Create an isolated virtual test network",
+        "action": "Use an internal/private virtual switch or isolated network",
+        "why": "The action applies the virtualization feature that directly provides isolation, rollback, or remote delivery."
+      },
+      {
+        "label": "Return lab systems to a known-good state after exercises",
+        "action": "Create snapshots/checkpoints before the lab begins",
+        "why": "The action applies the virtualization feature that directly provides isolation, rollback, or remote delivery."
+      },
+      {
+        "label": "Provide app access without installing the app locally",
+        "action": "Use a cloud-hosted or virtual app delivery option",
+        "why": "The action applies the virtualization feature that directly provides isolation, rollback, or remote delivery."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-008",
@@ -12586,6 +12871,19 @@
             }
           ]
         }
+      ],
+      "category": "hardware-diagnostics",
+      "task": "Interpret startup behavior and begin with the component or firmware check most directly supported by the evidence.",
+      "artifacts": [
+        {
+          "type": "console",
+          "title": "Startup evidence",
+          "lines": [
+            "Desktop A  AC outlet: PASS | standby LED: OFF | fans: OFF",
+            "Desktop B  POST code: memory initialization failure",
+            "Desktop C  NVMe device: detected | boot entry: missing"
+          ]
+        }
       ]
     },
     "question": "Match each startup symptom to the best first check.",
@@ -12606,7 +12904,25 @@
     ],
     "explanation": "No power starts with PSU and power path. POST beeps after RAM changes point to memory seating/compatibility. Boot-device errors after storage work call for UEFI detection and boot order checks.",
     "objectiveId": "5.1",
-    "conceptId": "aplus-core1-pbq-008-practical-08"
+    "conceptId": "aplus-core1-pbq-008-practical-08",
+    "practicalCategory": "hardware-diagnostics",
+    "componentFeedback": [
+      {
+        "label": "No power signs from a known-good outlet",
+        "action": "Test PSU power connections, switch position, and power supply health",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      },
+      {
+        "label": "POST beeps after RAM upgrade",
+        "action": "Reseat RAM and verify module compatibility/slot population",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      },
+      {
+        "label": "Boot device not found after replacing storage",
+        "action": "Check BIOS/UEFI boot order and storage detection",
+        "why": "The action follows the observed hardware symptom and verifies the direct power, thermal, POST, print, or connection path before replacing unrelated parts."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-009",
@@ -12633,6 +12949,36 @@
             }
           ]
         }
+      ],
+      "category": "network-connectivity",
+      "task": "Select a wireless configuration that fits the client capability, isolation, and density evidence.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Wireless survey",
+          "columns": [
+            "Area",
+            "Client capability",
+            "Requirement"
+          ],
+          "rows": [
+            [
+              "Lobby",
+              "Mixed visitor devices",
+              "Internet only"
+            ],
+            [
+              "Warehouse",
+              "2.4 GHz 802.11n scanners",
+              "Reliable broad coverage"
+            ],
+            [
+              "Conference room",
+              "Wi-Fi 6/6E laptops",
+              "High-density video"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each wireless requirement to the best configuration choice.",
@@ -12653,7 +12999,25 @@
     ],
     "explanation": "Guest access should be segmented. Older devices may require 2.4 GHz. Dense, high-throughput areas benefit from higher-frequency bands and capacity planning.",
     "objectiveId": "2.2",
-    "conceptId": "aplus-core1-pbq-009-practical-09"
+    "conceptId": "aplus-core1-pbq-009-practical-09",
+    "practicalCategory": "network-connectivity",
+    "componentFeedback": [
+      {
+        "label": "Guest users should be isolated from internal devices",
+        "action": "Create a guest SSID/VLAN with client isolation and internet-only access",
+        "why": "The action stays at the failing network layer shown by the link, addressing, DNS, wireless, or segmentation evidence."
+      },
+      {
+        "label": "Older scanners require broad 2.4 GHz compatibility",
+        "action": "Enable appropriate 2.4 GHz support while managing channel overlap",
+        "why": "The action stays at the failing network layer shown by the link, addressing, DNS, wireless, or segmentation evidence."
+      },
+      {
+        "label": "Dense conference room needs higher throughput and less interference",
+        "action": "Prefer 5 GHz/6 GHz capable AP design with capacity planning",
+        "why": "The action stays at the failing network layer shown by the link, addressing, DNS, wireless, or segmentation evidence."
+      }
+    ]
   },
   {
     "id": "aplus-core1-pbq-010",
@@ -12680,6 +13044,36 @@
             }
           ]
         }
+      ],
+      "category": "mobile-peripherals",
+      "task": "Use driver, firmware, and privacy evidence to restore each peripheral without replacing working hardware.",
+      "artifacts": [
+        {
+          "type": "table",
+          "title": "Device Manager and settings",
+          "columns": [
+            "Peripheral",
+            "Hardware state",
+            "Software clue"
+          ],
+          "rows": [
+            [
+              "Scanner",
+              "Detected",
+              "TWAIN source unavailable"
+            ],
+            [
+              "Dock",
+              "USB device present",
+              "Firmware revision below baseline"
+            ],
+            [
+              "Webcam",
+              "Test utility passes",
+              "Camera permission denied"
+            ]
+          ]
+        }
       ]
     },
     "question": "Match each peripheral issue to the best fix.",
@@ -12700,6 +13094,24 @@
     ],
     "explanation": "Application scanner support often depends on vendor/TWAIN drivers. Dock problems across systems commonly require firmware/driver updates. Webcam app failures with working hardware often trace to privacy permissions.",
     "objectiveId": "1.3",
-    "conceptId": "aplus-core1-pbq-010-practical-10"
+    "conceptId": "aplus-core1-pbq-010-practical-10",
+    "practicalCategory": "mobile-peripherals",
+    "componentFeedback": [
+      {
+        "label": "Scanner is detected but line-of-business app cannot use it",
+        "action": "Install the correct vendor scanner/TWAIN driver package",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      },
+      {
+        "label": "Dock ports fail after imaging on multiple laptops",
+        "action": "Update dock firmware and verify supported host drivers",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      },
+      {
+        "label": "Webcam works in test utility but not meeting apps",
+        "action": "Allow camera access in OS privacy/application permissions",
+        "why": "The action separates working hardware from accessory, driver, firmware, profile, permission, or cable limitations."
+      }
+    ]
   }
 ]

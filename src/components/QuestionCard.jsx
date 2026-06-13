@@ -373,7 +373,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
               return (
                 <div
                   key={leftIndex}
-                  className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 px-5 py-4 rounded-xl border transition-all ${
+                  className={`flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-4 px-5 py-4 rounded-xl border transition-all ${
                     answered
                       ? isCorrectMatch
                         ? 'border-emerald-500/50 bg-emerald-500/10'
@@ -408,6 +408,16 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                       <span className="text-xs text-emerald-400 shrink-0 whitespace-nowrap">→ {stripMarkdown(question.itemsRight[correct])}</span>
                     )}
                   </div>
+                  {answered && question.componentFeedback?.[leftIndex] && (
+                    <div className="w-full border-t border-white/10 pt-3 text-sm">
+                      <p className="font-semibold text-zinc-200">
+                        Correct action: {question.componentFeedback[leftIndex].action}
+                      </p>
+                      <p className="mt-1 leading-relaxed text-zinc-400">
+                        {question.componentFeedback[leftIndex].why}
+                      </p>
+                    </div>
+                  )}
                 </div>
               )
             })}
@@ -536,6 +546,7 @@ function parseExplanationSections(text) {
 function PbqMatchingPanel({ question }) {
   const pbq = question.pbq || {}
   const evidence = pbq.evidence || []
+  const artifacts = pbq.artifacts || []
 
   return (
     <div className="space-y-4 rounded-2xl border border-amber-500/20 bg-amber-950/10 p-4">
@@ -546,6 +557,11 @@ function PbqMatchingPanel({ question }) {
         {pbq.scenario && (
           <p className="text-sm leading-relaxed text-zinc-300">
             {pbq.scenario}
+          </p>
+        )}
+        {pbq.task && (
+          <p className="rounded-xl border border-amber-500/15 bg-amber-500/5 px-4 py-3 text-sm font-medium leading-relaxed text-amber-100">
+            {pbq.task}
           </p>
         )}
       </div>
@@ -568,6 +584,68 @@ function PbqMatchingPanel({ question }) {
           ))}
         </div>
       )}
+      {artifacts.map((artifact, index) => (
+        <PbqArtifact key={`${artifact.title}-${index}`} artifact={artifact} />
+      ))}
+    </div>
+  )
+}
+
+function PbqArtifact({ artifact }) {
+  if (artifact.type === 'console') {
+    return (
+      <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-950">
+        <div className="border-b border-white/10 bg-zinc-900/80 px-4 py-2">
+          <p className="text-xs font-semibold uppercase tracking-widest text-amber-300">{artifact.title}</p>
+        </div>
+        <pre className="overflow-x-auto whitespace-pre-wrap px-4 py-4 text-xs leading-relaxed text-zinc-300">
+          {artifact.lines.join('\n')}
+        </pre>
+      </div>
+    )
+  }
+
+  if (artifact.type === 'table') {
+    return (
+      <div className="overflow-hidden rounded-xl border border-white/10 bg-zinc-950/80">
+        <div className="border-b border-white/10 bg-zinc-900/80 px-4 py-2">
+          <p className="text-xs font-semibold uppercase tracking-widest text-amber-300">{artifact.title}</p>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[520px] text-left text-xs text-zinc-300">
+            <thead className="bg-zinc-900/60 text-zinc-500">
+              <tr>
+                {artifact.columns.map((column) => (
+                  <th key={column} className="px-4 py-2 font-semibold">{column}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {artifact.rows.map((row, rowIndex) => (
+                <tr key={rowIndex} className="border-t border-white/5">
+                  {row.map((cell, cellIndex) => (
+                    <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-2">{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="rounded-xl border border-white/10 bg-zinc-950/70 p-4">
+      <p className="text-xs font-semibold uppercase tracking-widest text-amber-300">{artifact.title}</p>
+      <ul className="mt-3 space-y-2 text-sm text-zinc-300">
+        {artifact.items.map((item) => (
+          <li key={item} className="flex gap-3">
+            <span className="text-amber-300">•</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
