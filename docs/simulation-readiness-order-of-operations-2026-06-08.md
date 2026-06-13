@@ -23,7 +23,7 @@ The current product is strongest when the real exam is selected-response only or
 Updated June 13, 2026:
 
 1. Completed June 13, 2026: Network+ interaction depth added cable maps, routing-table evidence, wireless survey artifacts, multi-artifact troubleshooting, component coaching, and four-category form guarantees.
-2. Security+ interaction depth: log triage, ordered firewall-rule evaluation, incident evidence, and control-placement tasks.
+2. Completed June 13, 2026: Security+ interaction depth added log triage, ordered firewall-rule evaluation, incident correlation, control placement, component coaching, and four-category form guarantees.
 3. Splunk editorial polish: shorter stems, more discriminating distractors, stronger SPL/result evidence, and clearer review explanations.
 
 CCNA remains parked during this sequence. The goal is to improve the realism and learning value of the current live CompTIA and Splunk offerings before returning to advanced Cisco work or catalog expansion.
@@ -418,7 +418,7 @@ After that, the most rational expansion options are:
 
 - CompTIA PBQ engine v1.
 - Completed June 13, 2026: Network+ enriched ten PBQ scenarios with two correlated artifacts each, component-level coaching, cable/routing/wireless/multi-artifact category metadata, and 500-form category audits.
-- Security+ log triage and firewall-rule widgets.
+- Completed June 13, 2026: Security+ enriched ten PBQ scenarios with two correlated artifacts each, component-level coaching, log/firewall/incident/control category metadata, and 500-form category audits.
 - Splunk stem, distractor, result-evidence, and review-explanation polish.
 - Parked: CCNA topology and multi-command troubleshooting polish.
 - Completed June 9, 2026: Network+ and Security+ objective metadata, accuracy/coverage dashboard, objective practice, recent-miss queue, and spaced due-review queue.
@@ -426,7 +426,7 @@ After that, the most rational expansion options are:
 - Completed June 13, 2026: A+ PBQ-lite v2 enriched all 20 practicals with task briefs, console/table/checklist artifacts, per-component feedback, and category-balanced 90-question forms. Automated audits generate 500 forms per core and require at least six practicals while preserving domain allocation.
 - Completed June 8, 2026: Terraform true/false and multiple-answer support with guaranteed mixed-format exam forms.
 
-PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. The Network+ cable-map, routing, wireless-survey, and multi-artifact pass completed June 13; Security+ firewall-builder and incident interactions remain open.
+PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. The Network+ and Security+ interaction-depth passes completed June 13; Splunk editorial polish is next.
 
 ### P3
 

@@ -1,7 +1,7 @@
 # CompTIA Practical Simulation Architecture
 
 Date: June 13, 2026
-Status: production-ready v3 for Network+ N10-009; production-ready v2 for Security+ SY0-701
+Status: production-ready v3 for Network+ N10-009 and Security+ SY0-701
 
 ## Purpose
 
@@ -53,8 +53,12 @@ The June 13 interaction-depth pass upgraded the ten dedicated `netplus-pbq-*` sc
 - 7 log or command-output investigations.
 - 3 security-architecture topology scenarios.
 - 3 security-control configuration repairs.
+- 10 enriched PBQ scenarios with two correlated artifacts and component-level review guidance.
+- Four guaranteed form categories: log triage, ordered firewall policy, incident correlation, and control placement.
 
 Coverage includes threat attribution, insider-risk evidence, shadow IT, DMZ and zero-trust architecture, microsegmentation, EDR containment, host versus network visibility, vulnerability prioritization, SIEM correlation, log retention, flow analysis, IPS response, cryptography, attack mitigation, ATT&CK tactics, security tools, incident response, and governance artifacts.
+
+The June 13 interaction-depth pass upgraded the ten dedicated `secplus-pbq-*` scenarios without increasing the 760-question pool. Each now presents two different evidence artifacts and corrective feedback for every matched decision. Firewall and data-egress tasks require top-to-bottom first-match policy evaluation; log and incident tasks correlate identity, endpoint, network, timing, and baseline evidence. Generated 90-question forms are audited across 500 runs to include every required practical category while retaining exact domain allocation.
 
 ## Review and Scoring
 
@@ -114,7 +118,7 @@ Every 90-question A+ form still preserves exact domain allocation and at least s
 The next opportunity is interaction depth, not more ordinary questions. Work proceeds through Network+ first and Security+ second, followed by the planned Splunk editorial pass:
 
 1. Completed June 13, 2026: Network+ cable-map, routing-table, wireless-survey, endpoint-to-port, and multi-artifact practical enrichment.
-2. Security+: add an ordered firewall-rule builder and multi-artifact incident cases combining logs, topology, and policy evidence.
+2. Completed June 13, 2026: Security+ log-triage, ordered firewall-policy, incident-correlation, and control-placement enrichment.
 3. Both: continue strengthening per-component explanations for multi-part responses.
 4. Continue reducing conservative fallback mappings as practical items and weak objective families receive future editorial replacement.
-5. After the Security+ pass, polish Splunk stems, distractors, result evidence, and review explanations.
+5. Next: polish Splunk stems, distractors, result evidence, and review explanations.

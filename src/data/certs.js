@@ -511,6 +511,12 @@ const certs = {
     examTime: 90,
     passingScore: 83,
     practicalQuestionTarget: 6,
+    requiredPracticalCategories: [
+      'log-triage',
+      'firewall-policy',
+      'incident-correlation',
+      'control-placement',
+    ],
     objectives: SECURITY_PLUS_OBJECTIVES,
     loadQuestions: () => loadQuestionAsset(comptiaSecPlusQuestionsUrl),
     domains: [

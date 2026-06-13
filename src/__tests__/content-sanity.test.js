@@ -809,6 +809,52 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     ).toBeGreaterThanOrEqual(33)
   })
 
+  it('CompTIA Security+ keeps the enriched practical interaction set', () => {
+    if (certId !== 'comptia-sec-plus') return
+
+    const enriched = questions.filter(question => /^secplus-pbq-\d{3}$/.test(question.id))
+    const expectedCategories = [
+      'log-triage',
+      'firewall-policy',
+      'incident-correlation',
+      'control-placement',
+    ]
+
+    expect(enriched).toHaveLength(10)
+    expect(new Set(enriched.map(question => question.practicalCategory))).toEqual(new Set(expectedCategories))
+
+    for (const category of expectedCategories) {
+      expect(
+        enriched.filter(question => question.practicalCategory === category).length,
+        `Security+ practical category ${category} needs multiple scenarios`,
+      ).toBeGreaterThanOrEqual(2)
+    }
+
+    for (const question of enriched) {
+      expect(question.pbq.category).toBe(question.practicalCategory)
+      expect(question.pbq.task.length, `${question.id} needs an operational task brief`).toBeGreaterThanOrEqual(85)
+      expect(question.pbq.artifacts, `${question.id} needs correlated artifacts`).toHaveLength(2)
+      expect(new Set(question.pbq.artifacts.map(artifact => artifact.type)).size).toBeGreaterThanOrEqual(2)
+      expect(question.componentFeedback, `${question.id} needs component coaching`).toHaveLength(question.itemsLeft.length)
+      expect(question.explanation.length, `${question.id} needs review-quality rationale`).toBeGreaterThanOrEqual(190)
+
+      for (const component of question.componentFeedback) {
+        expect(component.label.length).toBeGreaterThan(15)
+        expect(component.action.length).toBeGreaterThan(4)
+        expect(component.why.length).toBeGreaterThan(130)
+      }
+    }
+
+    const logInvestigation = questions.find(question => question.id === 'secplus-pbq-005')
+    expect(logInvestigation.objectiveId).toBe('4.9')
+    expect(logInvestigation.objectiveTitle).toMatch(/data sources/i)
+
+    const orderedPolicy = questions.find(question => question.id === 'secplus-pbq-010')
+    expect(orderedPolicy.objectiveId).toBe('3.3')
+    expect(orderedPolicy.pbq.title).toMatch(/ordered data-egress policy/i)
+    expect(orderedPolicy.pbq.artifacts[0].rows.map(row => row[0])).toEqual(['10', '20', '30', '40', '50'])
+  })
+
   it('Network+ and Security+ carry complete objective learning metadata', () => {
     if (!['comptia-net-plus', 'comptia-sec-plus'].includes(certId)) return
 
@@ -1126,7 +1172,7 @@ describe('CompTIA practical exam forms', () => {
     ],
   ])('%s forms preserve blueprint allocation and practical coverage', (certId, questions, expectedDomains) => {
     const cert = certs[certId]
-    const auditRuns = certId === 'comptia-net-plus' ? 500 : 50
+    const auditRuns = ['comptia-net-plus', 'comptia-sec-plus'].includes(certId) ? 500 : 50
 
     for (let run = 0; run < auditRuns; run++) {
       const form = weightedSelect(questions, cert.examQuestions, cert.domains, {

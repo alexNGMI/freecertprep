@@ -77,11 +77,11 @@ const certSources = {
   'comptia-sec-plus': {
     officialUrl: 'https://www.comptia.org/en-us/certifications/security/',
     sourceLabel: 'CompTIA Security+ SY0-701 exam details',
-    checkedAt: '2026-06-09',
+    checkedAt: '2026-06-13',
     examFormat: 'Maximum of 90 multiple-choice and performance-based questions in 90 minutes.',
     scoreModel: 'CompTIA reports a scaled score; 750 on a 100-900 scale is required.',
     readinessGrade: 'B+',
-    editorialStatus: 'Live at readiness bar; all 28 SY0-701 objectives mapped to targeted practice',
+    editorialStatus: 'Live at readiness bar; objective coverage and four-category practical interaction depth verified',
   },
   'splunk-core-certified-user': {
     officialUrl: 'https://www.splunk.com/en_us/training/certification-track/splunk-core-certified-user.html',
