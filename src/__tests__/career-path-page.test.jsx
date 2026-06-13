@@ -41,14 +41,14 @@ describe('career path pages', () => {
     expect(screen.queryByText('Google Professional Cloud Architect')).toBeNull()
   })
 
-  it('keeps Network+ and CCNA live while holding CCST as coming soon', () => {
+  it('keeps Network+ live while holding CCST and the future CCNA v2.0 module as coming soon', () => {
     renderPath('/paths/networking')
 
     expect(screen.getByRole('heading', { name: 'Networking Career Path' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Choose your level-one foundation' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Then move toward CCNA' })).toBeTruthy()
     expect(screen.getByText('Network+ and CCST both work as level-one networking foundations.')).toBeTruthy()
-    expect(screen.getByText('CCNA is the career-defining milestone.')).toBeTruthy()
+    expect(screen.getByText('CCNA remains the career-defining milestone and returns when its v2.0 module is release-ready.')).toBeTruthy()
     expect(screen.getByText('Each step builds toward real network troubleshooting and operations skill.')).toBeTruthy()
     expect(screen.getByText('Step 01 / Option A / Vendor-neutral foundation')).toBeTruthy()
     expect(screen.getByText('Step 01 / Option B / Cisco foundation')).toBeTruthy()
@@ -56,8 +56,8 @@ describe('career path pages', () => {
     expect(screen.getByRole('link', { name: /CompTIA Network\+/ }).getAttribute('href')).toBe('/comptia-net-plus')
     expect(screen.getByText('Cisco CCST Networking')).toBeTruthy()
     expect(screen.queryByRole('link', { name: /Cisco CCST Networking/ })).toBeNull()
-    expect(screen.getByText('Coming soon')).toBeTruthy()
-    expect(screen.getByRole('link', { name: /Cisco CCNA/ }).getAttribute('href')).toBe('/ccna-200-301')
+    expect(screen.getAllByText('Coming soon')).toHaveLength(2)
+    expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
   })
 
   it('keeps the hidden Data Center route intact while pausing Server+ and DCCA', () => {
@@ -75,7 +75,7 @@ describe('career path pages', () => {
     expect(screen.getByText('Step 03 / Level 3')).toBeTruthy()
     expect(screen.queryByRole('link', { name: /CompTIA Server\+/ })).toBeNull()
     expect(screen.queryByRole('link', { name: /Schneider Data Center Certified Associate/ })).toBeNull()
-    expect(screen.getByRole('link', { name: /Cisco CCNA/ }).getAttribute('href')).toBe('/ccna-200-301')
+    expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
   })
 
   it('frames Cybersecurity as Network+ to Security+ to live Splunk practice', () => {

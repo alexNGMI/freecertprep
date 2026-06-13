@@ -24,15 +24,17 @@ Free, open-source certification exam prep for the IT certifications that open do
 | Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 647 | 57 | 60 min | 70% readiness |
 
-**11,693 authored questions across 17 IT certifications.** The public catalog currently exposes 9 live modules and holds 8 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
+**11,693 authored questions across 17 IT certifications.** The public catalog currently exposes 8 live modules and holds 9 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
 
-Live now: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, CCNA, and Terraform Associate.
+Live now: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, and Terraform Associate.
 
-Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA. No question banks or routes were deleted.
+Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL, CCST Networking, CCNA, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA. No question banks or routes were deleted.
 
-> **Terraform objective remediation is live:** HashiCorp Terraform Associate (004) now ships a 647-question pool covering all 35 published subobjectives across the eight Terraform 1.12 objective groups. Every item carries objective and concept metadata, and automated gates reject missing coverage, objective-group mismatches, blueprint-trivia prompts, deprecated-command guidance, and legacy product naming.
+> **Terraform objective remediation is live:** HashiCorp Terraform Associate (004) now ships a 647-question pool covering all 37 implemented subobjectives across the eight Terraform 1.12 objective groups. Every item carries objective and concept metadata, and automated gates reject missing coverage, objective-group mismatches, blueprint-trivia prompts, deprecated-command guidance, and legacy product naming.
 
 > **Terraform format fidelity is live:** the Associate 004 bank includes 24 true/false and 32 multiple-answer questions across all eight groups. Every 57-question simulation guarantees at least three true/false and four multiple-answer items. HashiCorp does not publish objective weights, so the simulator clearly uses a stable editorial practice allocation rather than claiming official weighting.
+
+> **Terraform learning-value pass is live:** all 647 stems are exact and normalized-unique, all explanations now use why-right, why-wrong, and operational-takeaway coaching, 532 questions include supporting plan/state/HCL/diagnostic evidence, and automated gates audit allocation, evidence structure, explanation quality, and 500 randomized forms.
 
 > **Live-bank language cleanup is complete for the current quality set:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, and Splunk Core User. Automated gates prevent that phrasing from returning, and all three banks now meet their current uniqueness and evidence standards.
 
@@ -56,7 +58,7 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.
 
-> **Guided paths are live:** The homepage focuses on A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician paths remain implemented but are hidden from homepage discovery while their component certifications are revised. The Networking path keeps Network+ and CCNA live while showing CCST as Coming Soon; Cybersecurity runs Network+ to Security+ to Splunk; Cloud runs AWS Cloud Practitioner to SAA to Terraform.
+> **Guided paths are live:** The homepage focuses on A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician paths remain implemented but are hidden from homepage discovery while their component certifications are revised. The Networking path keeps Network+ live while showing CCST and the future CCNA v2.0 module as Coming Soon; Cybersecurity runs Network+ to Security+ to Splunk; Cloud runs AWS Cloud Practitioner to SAA to Terraform.
 
 > **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
 
@@ -64,11 +66,11 @@ Coming Soon while simulations are revised: AZ-900, Google CDL, CCST Networking, 
 
 > **AI infrastructure revision:** Linux+, NVIDIA AI Infrastructure & Operations, and NVIDIA Generative AI remain authored but are Coming Soon while their simulation realism is improved.
 
-> **Data center revision:** Server+ and Schneider DCCA remain authored but are Coming Soon. CCNA remains live. The Data Center Technician route is retained for future iteration but removed from homepage discovery.
+> **Data center revision:** Server+, Schneider DCCA, and CCNA remain authored but are Coming Soon. The Data Center Technician route is retained for future iteration but removed from homepage discovery.
 
 > **Cisco foundation revision:** Cisco CCST Networking (100-150) retains its 750-question pool but is marked Coming Soon until repeated content patterns and simulation fidelity are improved.
 
-> **CCNA is live:** Cisco CCNA (200-301) now ships a 750-question production pool aligned to the current Cisco 200-301 v2.0 blueprint. CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style items are published in the catalog and connected to the Networking and Data Center Technician paths.
+> **CCNA v2.0 preview is preserved:** the 750-question simulation bank targets Cisco's announced 200-301 v2.0 blueprint, which begins testing February 3, 2027. Cisco v1.1 remains active through February 2, 2027, so CCNA is Coming Soon rather than presented as current-exam practice.
 
 ### Sister site — Real Estate
 
@@ -91,7 +93,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Catalog** - Dedicated `/catalog` page for the full certification grid plus the Real Estate sister-site entry.
 - **Path pages** - Public homepage lanes cover A+ entry, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
-- **Current roadmap** - The immediate sequence is a nine-module live source/release audit, Terraform review-quality polish, and an end-to-end first-user journey pass. CCNA remains live but parked from further expansion, and Coming Soon modules must independently clear the B+ readiness bar before promotion. See `docs/current-state-and-next-steps-2026-06-13.md`.
+- **Current roadmap** - The eight-module live source/release audit and Terraform review-quality pass are complete. The immediate next step is an end-to-end first-user journey pass, followed by promotion of one Coming Soon module only after it clears the B+ readiness bar. See `docs/current-state-and-next-steps-2026-06-13.md`.
 - **Content quality status** - A+, Network+, Security+, and Splunk completed their current practical/editorial sprint on June 13, 2026. Cert-specific gates now cover objective breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
@@ -124,14 +126,14 @@ Additional advanced formats are also supported where the exam surface needs them
 - **Config repair** - Review a broken configuration and choose the safest fix.
 - **Subnetting drill** - Calculate requested network values from a subnet prompt.
 
-CCNA simulation types implemented: CLI output interpretation, topology scenarios, config repair, and subnetting drills. Linux+ also uses CLI output and config-repair items for PBQ-style practice. A 750-item production CCNA pool is registered at `ccna-200-301` and aligned to Cisco 200-301 v2.0. See `docs/ccna-simulation-architecture.md`.
+CCNA simulation types implemented in the preserved v2.0 preview: CLI output interpretation, topology scenarios, config repair, and subnetting drills. Linux+ also uses CLI output and config-repair items for PBQ-style practice. See `docs/ccna-simulation-architecture.md`.
 
 ## Tech stack
 
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,219 tests across 30 files), GitHub Actions CI
+- Vitest (1,223 tests across 31 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

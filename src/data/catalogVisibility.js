@@ -6,7 +6,6 @@ export const LIVE_CERT_IDS = new Set([
   'comptia-net-plus',
   'comptia-sec-plus',
   'splunk-core-certified-user',
-  'ccna-200-301',
   'terraform-associate',
 ])
 
@@ -19,6 +18,7 @@ export const COMING_SOON_CERT_IDS = new Set([
   'comptia-server-plus',
   'comptia-linux-plus',
   'schneider-dcca',
+  'ccna-200-301',
 ])
 
 export function isCertLive(certId) {

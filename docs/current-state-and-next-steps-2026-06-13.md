@@ -4,17 +4,17 @@ Date: June 13, 2026
 
 ## Executive Summary
 
-freecertprep has moved past the catalog-building stage. The repository now contains 11,693 authored questions across 17 IT certifications, but the public product deliberately exposes only nine modules and marks eight as Coming Soon. That is the right strategy: the competitive advantage now comes from making the live experience trustworthy, useful, and repeatable rather than publishing more banks.
+freecertprep has moved past the catalog-building stage. The repository now contains 11,693 authored questions across 17 IT certifications, but the public product deliberately exposes only eight modules and marks nine as Coming Soon. That is the right strategy: the competitive advantage now comes from making the live experience trustworthy, useful, and repeatable rather than publishing more banks.
 
 The June quality sprint materially improved the strongest learner-facing modules:
 
 - A+ Core 1 and Core 2 now have complete objective coverage, objective-level learning loops, and 20 evidence-led PBQ-lite scenarios.
 - Network+ and Security+ now have objective-level learning loops and richer practical forms with category guarantees.
 - Splunk Core Certified User now has 750 exact and normalized-unique stems, concise evidence-led prompts, stronger distractors, and structured review explanations.
-- Terraform Associate covers all 35 published Associate 004 objectives and guarantees a mixed-format practice form.
-- The full automated suite passes: 1,219 tests across 30 files.
+- Terraform Associate covers all 37 implemented Associate 004 subobjectives, guarantees a mixed-format practice form, and now includes structured operational review across the full bank.
+- The full automated suite passes: 1,223 tests across 31 files.
 
-The product is in a strong consolidation phase. The next work should improve the nine live modules and the first-user study experience. CCNA should remain available but parked from active expansion. Coming Soon banks should not return to the public catalog until they independently clear the B+ readiness bar.
+The product is in a strong consolidation phase. The live source audit and Terraform learning-value pass are complete. The next work should improve the eight live modules and the first-user study experience. The preserved CCNA bank targets the future v2.0 release and is now Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
 
 ## Current Public Offering
 
@@ -27,14 +27,13 @@ The product is in a strong consolidation phase. The next work should improve the
 | CompTIA Network+ | B+ | Maintain practical-category and objective gates |
 | CompTIA Security+ | B+ | Maintain practical-category and objective gates |
 | Splunk Core Certified User | B+ | Maintain evidence, uniqueness, and explanation gates |
-| HashiCorp Terraform Associate | B+ | Next editorial and review-mode polish target |
-| AWS Cloud Practitioner | A- | Source/version check, then maintain |
-| AWS Solutions Architect - Associate | A- | Source/version check, then maintain architecture-focused review |
-| Cisco CCNA | B+ | Keep live, but park new simulation expansion |
+| HashiCorp Terraform Associate | B+ | Learning-value pass complete; maintain quality gates |
+| AWS Cloud Practitioner | A- | Source/version audit complete; maintain |
+| AWS Solutions Architect - Associate | A- | Source/version audit complete; maintain architecture-focused review |
 
 ### Coming Soon
 
-AZ-900, Google Cloud Digital Leader, CCST Networking, NVIDIA AI Infrastructure and Operations, NVIDIA Generative AI LLMs, Server+, Linux+, and Schneider DCCA remain authored and preserved. Their routes and banks are not deleted, but they should stay out of the live catalog until a focused remediation pass proves B+ readiness.
+AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastructure and Operations, NVIDIA Generative AI LLMs, Server+, Linux+, and Schneider DCCA remain authored and preserved. Their routes and banks are not deleted, but they should stay out of the live catalog until a focused remediation or release-alignment pass proves B+ readiness.
 
 ### Hidden Adjacent Products
 
@@ -52,18 +51,16 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, NVIDIA AI Infrastructure a
 
 ## Main Risks and Gaps
 
-1. **Source freshness is uneven.** Several source records were last checked on June 8, while the recently remediated modules were checked June 9 or June 13. A live-module source sweep should precede more major content work.
-2. **Terraform is structurally strong but less polished in review mode.** It has full objective coverage and correct format support, but it has not received the same evidence-and-explanation pass as Splunk or the same practical coaching pass as the CompTIA modules.
-3. **The first-user journey has not been treated as a release gate.** The individual pieces work, but homepage-to-path-to-practice-to-results-to-next-session should be tested as one coherent experience on desktop and mobile.
-4. **Documentation drifted behind the code.** Older roadmap text still described completed work as pending and sometimes called authored Coming Soon modules live.
-5. **Trust workflow remains local and lightweight.** Source cards and report links exist, but durable reports, moderation, and correction history require a backend. This is useful later, not the immediate priority for a first user.
-6. **CCNA can consume unlimited scope.** Its current simulator is useful, but reproducing deeper Cisco interaction behavior would be a large project. Parking it protects the current quality plan.
+1. **The first-user journey has not been treated as a release gate.** The individual pieces work, but homepage-to-path-to-practice-to-results-to-next-session should be tested as one coherent experience on desktop and mobile.
+2. **CCNA release alignment needs discipline.** The preserved bank targets v2.0, but Cisco v1.1 remains active through February 2, 2027. The preview must remain Coming Soon until the active release matches and a fresh audit passes.
+3. **Documentation can drift behind code.** Source status, catalog visibility, and readiness claims now need to remain synchronized through release checks.
+4. **Trust workflow remains local and lightweight.** Source cards and report links exist, but durable reports, moderation, and correction history require a backend. This is useful later, not the immediate priority for a first user.
 
 ## Ordered Next Steps
 
-### 1. Live Source and Release Audit
+### 1. Live Source and Release Audit - Completed June 13, 2026
 
-Verify the official exam guide, active exam code, question-count/time model, scoring language, and source date for all nine live modules. Update `certSources.js`, docs, and any stale simulator copy. Run the full content suite, lint, and build afterward.
+The audit verified the official exam guide, active exam code, question-count/time model, scoring language, and source date for the nine modules that were live at the start of the audit. It corrected metadata and moved future-v2.0 CCNA to Coming Soon.
 
 Done when:
 
@@ -71,24 +68,24 @@ Done when:
 - Public copy matches the registry and catalog visibility.
 - No live module is accidentally described as an exact vendor score conversion or delivery engine.
 
-### 2. Terraform Learning-Value Pass
+### 2. Terraform Learning-Value Pass - Completed June 13, 2026
 
 Keep the 647-question pool and objective allocation stable. Improve the weakest review experiences instead of increasing count:
 
-- tighten repetitive command-choice stems;
-- add concise configuration, plan, state, and diagnostic evidence where it helps;
-- strengthen why-right and why-wrong explanations;
-- verify plausible distractors around state, modules, providers, lifecycle, imports, and automation;
-- add automated uniqueness, explanation, and form-composition gates comparable to the Splunk pass.
+- Generic command openings were reduced from 60 to zero.
+- All 647 explanations now use why-right, why-wrong, and operational-takeaway coaching.
+- 532 questions include supporting configuration, plan, state, diagnostic, or HCP Terraform evidence.
+- Weak distractors were replaced with plausible Terraform misconceptions.
+- Automated gates now cover uniqueness, explanation structure, evidence validity, allocation, and 500 randomized forms.
 
 Done when:
 
-- Terraform retains complete coverage of all 35 objectives.
+- Terraform retains complete coverage of all 37 implemented subobjectives.
 - Review mode consistently teaches the operational reason behind the answer.
 - No material repeated stem or generic explanation cluster remains.
 - Mixed-format 57-question forms continue to pass.
 
-### 3. First-User Journey and Release Hardening
+### 3. First-User Journey and Release Hardening - Next
 
 Treat the product as something the owner will use every day:
 
@@ -102,7 +99,7 @@ Done when:
 
 - A new learner can choose a goal, start the right module, finish a session, understand the review, and know what to study next without consulting docs.
 - The core journey works at mobile and desktop widths.
-- Lint, 1,219+ tests, and production build pass.
+- Lint, 1,223+ tests, and production build pass.
 
 ### 4. Choose One Coming Soon Promotion Candidate
 
@@ -137,4 +134,3 @@ The next release should make the current product more useful, not larger. New or
 3. pass cert-specific content and form audits;
 4. provide useful review explanations;
 5. fit a visible learner path without cluttering the product.
-

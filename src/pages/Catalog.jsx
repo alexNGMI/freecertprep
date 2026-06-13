@@ -65,7 +65,7 @@ export default function Catalog() {
                 Live certs first.
               </h1>
               <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-                Use this page when you already know the exam you want. Most live modules meet the current simulation-readiness bar; strategic foundational exceptions are disclosed on their certification pages.
+                Use this page when you already know the exam you want. Live modules meet the current release and readiness bar; preserved modules remain visible without implying they are ready today.
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function Catalog() {
           <div className="mb-5 flex items-end justify-between gap-4">
             <div>
               <p className="text-[10px] font-bold text-amber-300 uppercase tracking-widest mb-2">Coming soon</p>
-              <h2 className="text-2xl font-bold text-zinc-100">Held for simulation polish</h2>
+              <h2 className="text-2xl font-bold text-zinc-100">Held for quality or release alignment</h2>
             </div>
             <p className="text-sm text-zinc-500">{comingSoonCerts.length} modules</p>
           </div>
@@ -147,7 +147,7 @@ function CertRow({ cert, live }) {
         </span>
       </div>
       <div className="grid grid-cols-2 gap-2 border-t border-white/5 pt-4">
-        <MiniStat value={cert.examQuestions} label="Exam" />
+        <MiniStat value={cert.examQuestions} label="Practice form" />
         <MiniStat value={`${cert.examTime}m`} label="Time" />
       </div>
     </>

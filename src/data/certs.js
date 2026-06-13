@@ -487,7 +487,7 @@ const certs = {
     title: 'Cisco CCNA',
     code: '200-301',
     provider: 'Cisco',
-    description: 'Cisco associate networking practice aligned to the current 200-301 v2.0 blueprint, including CLI-output, topology, config-repair, subnetting, routing, switching, services, security, and network operations scenarios.',
+    description: 'Coming Soon preview aligned to Cisco 200-301 v2.0, which begins testing February 3, 2027. The preserved bank includes CLI-output, topology, config-repair, subnetting, routing, switching, services, security, and network operations scenarios.',
     difficulty: 'Associate',
     color: '#1d4ed8',
     questionCount: 750,

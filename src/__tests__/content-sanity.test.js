@@ -159,7 +159,7 @@ describe('cert registry', () => {
     expect(visibleIds).toEqual(publicIds)
     expect(LIVE_CERT_IDS.has('comptia-a-plus-core-1')).toBe(true)
     expect(LIVE_CERT_IDS.has('comptia-a-plus-core-2')).toBe(true)
-    expect(LIVE_CERT_IDS.has('ccna-200-301')).toBe(true)
+    expect(COMING_SOON_CERT_IDS.has('ccna-200-301')).toBe(true)
     expect(LIVE_CERT_IDS.has('terraform-associate')).toBe(true)
   })
 
@@ -1088,8 +1088,8 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
   })
 })
 
-describe('CCNA 200-301 production pool', () => {
-  it('is published while covering the 750-item v2.0 simulation mix', () => {
+describe('CCNA 200-301 v2.0 preview pool', () => {
+  it('is preserved while covering the 750-item v2.0 simulation mix', () => {
     expect(certs['ccna-200-301'].published).not.toBe(false)
     expect(ccna200301).toHaveLength(750)
 
@@ -1156,10 +1156,10 @@ describe('CCNA 200-301 production pool', () => {
     }
   })
 
-  it('keeps the CCNA audit plan aligned with the live 750-item v2.0 target', () => {
+  it('keeps the CCNA audit plan aligned with the preserved 750-item v2.0 preview', () => {
     const audit = readFileSync('scripts/audits/ccna-prod-readiness-audit.md', 'utf8')
 
-    expect(audit).toContain('Status: `ccna-200-301` is published')
+    expect(audit).toContain('Status: `ccna-200-301` is preserved as Coming Soon')
     expect(audit).toContain('| Network Infrastructure and Connectivity | 188 |')
     expect(audit).toContain('| Switching and Network Access | 187 |')
     expect(audit).toContain('| IP Routing | 150 |')

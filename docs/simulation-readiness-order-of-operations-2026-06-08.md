@@ -20,14 +20,14 @@ The current product is strongest when the real exam is selected-response only or
 
 ## June 13 Consolidation Review
 
-The original remediation plan has now completed its A+, Network+, Security+, and Splunk quality sequence. The current repository passes 1,219 tests across 30 files. The next active sequence is:
+The original remediation plan has now completed its A+, Network+, Security+, Splunk, source-release, and Terraform quality sequence. The current repository passes 1,223 tests across 31 files. The next active sequence is:
 
-1. verify source/version and public-copy freshness for all nine live modules;
-2. polish Terraform review quality without increasing its 647-question pool;
-3. harden the complete first-user journey on desktop and mobile;
-4. re-grade and select one Coming Soon module for promotion.
+1. Completed June 13: verified source/version and public-copy freshness for the then-nine live modules; the audit moved future-v2.0 CCNA to Coming Soon.
+2. Completed June 13: polished Terraform review quality without increasing its 647-question pool.
+3. Next: harden the complete first-user journey on desktop and mobile.
+4. Then: re-grade and select one Coming Soon module for promotion.
 
-CCNA remains live but parked from active simulation expansion. The trust-layer backend, account sync, Real Estate re-publication, and sister-site expansion remain deferred. See `docs/current-state-and-next-steps-2026-06-13.md` for the current decision record.
+CCNA is preserved as a Coming Soon v2.0 preview because Cisco v1.1 remains active through February 2, 2027. The trust-layer backend, account sync, Real Estate re-publication, and sister-site expansion remain deferred. See `docs/current-state-and-next-steps-2026-06-13.md` for the current decision record.
 
 ## Current Quality Sequence
 
@@ -43,13 +43,13 @@ CCNA remains parked during this sequence. The goal is to improve the realism and
 
 Implemented June 8, 2026:
 
-- Live: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, CCNA, and Terraform Associate.
-- Coming Soon: AZ-900, Google CDL, CCST Networking, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA.
+- Live: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, and Terraform Associate.
+- Coming Soon: AZ-900, Google CDL, CCST Networking, CCNA, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA.
 - Homepage lanes: A+, Networking, Cybersecurity, and Cloud only.
 - NVIDIA and Data Center Technician lanes remain implemented but are removed from homepage discovery.
 - Real Estate remains in the codebase and is reachable only from Docs for internal review.
 
-The default rule is B+ simulation readiness or better. A+ Core 1, A+ Core 2, and Terraform now meet that bar with objective-level coverage gates. CCNA remains live.
+The default rule is B+ simulation readiness or better plus alignment to the actively delivered exam release. A+ Core 1, A+ Core 2, and Terraform meet the readiness bar. CCNA is held because its bank targets future v2.0 rather than active v1.1.
 
 The remediation program should therefore follow this order:
 
@@ -93,7 +93,7 @@ Scoring dimensions:
 | NVIDIA AI Infrastructure & Operations | B | Official page says 50 questions / 60 minutes; domain split is aligned after rebalance. | Only 336 questions, lower scenario realism, and some NVIDIA operational topics need more applied data-center context. | Expand to 500-750 after higher-priority rewrites; add GPU cluster/logistics scenarios. |
 | NVIDIA Generative AI LLMs | B- | Good foundational selected-response fit; 330 questions; covers NVIDIA LLM associate topics. | Low scenario rate; needs stronger applied RAG, inference, evaluation, safety, and deployment tradeoff items. | Expand and scenario-ize only after Linux+/DCCA/Splunk polish. |
 | CCST Networking, 100-150 | B | 750 questions and close blueprint alignment; good entry networking practice. | Real Cisco exam interface and item set are simplified; high normalized repetition means some items feel templated. | Rewrite repeated normalized clusters; add more packet/output evidence. |
-| CCNA, 200-301 | B+ | Best advanced simulation fit in the app: CLI output, topology scenarios, config repair, subnetting drills, 750 questions, current v2.0 blueprint. | Still not a true Cisco lab/simlet environment; topology diagrams are text/SVG-style approximations; explanations are thinner than SAA. | Make this the model for advanced simulation polish; add richer multi-command troubleshooting and visual topology variety. |
+| CCNA, 200-301 | Preview | Strong advanced simulation surface: CLI output, topology scenarios, config repair, subnetting drills, and 750 future-v2.0 questions. | Cisco v1.1 remains active through February 2, 2027; the bank targets v2.0 and cannot be labeled current-exam practice. | Keep Coming Soon; re-audit against the active v2.0 release on or after February 3, 2027. |
 | A+ Core 1, 220-1201 | B+ | 760 unique stems, 84 concepts, all 27 official objectives covered, objective/domain gates, plausible domain-level distractors, repaired multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery remains an approximation of CompTIA's proprietary interactive environment; some objectives remain intentionally broader than individual bullet-level skills. | Maintain the automated objective matrix and expand practical artifacts during future PBQ-engine work. |
 | A+ Core 2, 220-1202 | B+ | 760 unique stems, 94 concepts, all 36 official objectives covered, complete malware-response coverage, repaired distractors and multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery and confidential vendor scoring cannot be reproduced exactly. | Maintain objective coverage and add richer settings, command, and policy artifacts over time. |
 | Network+, N10-009 | B+ | 760 questions, exact domain allocation, 32 practical items, complete metadata across all 27 numbered objectives, and ten enriched PBQs with cable, routing, wireless, and multi-artifact category guarantees. | Browser practice approximates rather than reproduces CompTIA's proprietary PBQ interface and scoring. | Maintain current objective, practical-category, and form-composition gates. |
@@ -102,7 +102,7 @@ Scoring dimensions:
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
 | Splunk Core Certified User | B+ | Exact blueprint allocation, 750 exact and normalized-unique stems, concise selected-response forms, rendered search evidence, and structured review explanations. | Browser practice remains an independent approximation rather than Splunk's confidential delivery interface. | Keep live; maintain the generator gates and perform normal source/version review. |
 | Schneider Data Center Certified Associate | C | Vendor-source topic architecture is useful; 750 questions across data-center physical infrastructure. | Heavy normalized duplication and obvious distractors; official exam-source details are less pinned than major vendors. | Rewrite repeated facility scenarios; pin current official exam guide/source package. |
-| Terraform Associate 004 | B+ | The 647-question Terraform 1.12 pool covers all 35 published subobjectives with at least two concepts each and uses the official true/false, multiple-choice, and multiple-answer formats. | HashiCorp does not publish objective weights, live items, or a fixed raw passing percentage. The simulator therefore uses a disclosed editorial practice allocation and readiness target. | Keep live; maintain objective gates and continue normal command/config editorial review. |
+| Terraform Associate 004 | B+ | The 647-question Terraform 1.12 pool covers all 37 implemented subobjectives with at least two concepts each, uses the official formats, has 647 normalized-unique stems, and provides structured operational review. | HashiCorp does not publish objective weights, live items, a fixed question count, or a raw passing percentage. | Keep live; maintain the new evidence, explanation, uniqueness, and 500-form gates. |
 
 ### Real Estate Sister Product
 
@@ -340,11 +340,11 @@ Actions:
    - richer topologies
 3. Add scoring notes that CCNA practice is simulation-backed but not Cisco's actual exam engine.
 
-Status update, June 9, 2026: CCNA remains live but is intentionally parked. The current quality program is limited to Network+ and Security+.
+Status update, June 13, 2026: CCNA moved to Coming Soon after the source audit confirmed that its bank targets future v2.0 while v1.1 remains active through February 2, 2027.
 
 Acceptance criteria:
 
-- CCNA remains production-live.
+- CCNA remains preserved and visible as a Coming Soon path milestone.
 - CCST feels less templated.
 - Network path copy can say: "Network+ or CCST for foundation, CCNA for Cisco associate readiness."
 
@@ -397,10 +397,10 @@ Only resume major catalog expansion when:
 
 1. No known high-severity dependency issue remains.
 2. Every live cert has source metadata.
-3. The current live-source sweep is complete.
-4. Terraform review-quality polish is complete.
+3. The live-source sweep remains current.
+4. Terraform quality gates remain green.
 5. The first-user journey passes the desktop/mobile release checklist.
-6. The candidate module independently meets the B+ readiness bar.
+6. The candidate module independently meets the B+ readiness bar and active-release alignment.
 
 After that, the most rational expansion options are:
 
@@ -414,14 +414,14 @@ After that, the most rational expansion options are:
 
 ### P0
 
-- Complete a current official-source, exam-version, scoring-language, and public-copy audit for all nine live modules.
+- Completed June 13, 2026: audited the then-nine live modules and corrected CCNA's future-release mismatch.
 - Keep catalog visibility, Docs, README, and source metadata synchronized.
 - Run dependency, test, lint, and build release gates.
 
 ### P1
 
-- Terraform review-quality pass: evidence-led stems, plausible distractors, and why-right/why-wrong explanations.
-- First-user journey audit across path selection, study modes, results, review queues, and progress portability.
+- Completed June 13, 2026: Terraform review-quality pass with 647 structured explanations, 532 supporting evidence artifacts, stronger distractors, uniqueness gates, and 500-form audits.
+- Next: first-user journey audit across path selection, study modes, results, review queues, and progress portability.
 - Maintain the completed A+, Network+, Security+, and Splunk quality gates.
 
 ### P2
@@ -464,7 +464,7 @@ Official/vendor sources checked for this plan include:
 - Google Cloud Digital Leader certification guide and exam page: https://cloud.google.com/learn/certification/guides/cloud-digital-leader and https://cloud.google.com/learn/certification/cloud-digital-leader
 - NVIDIA AI Infrastructure & Operations certification page: https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate/
 - NVIDIA Generative AI LLMs certification page: https://www.nvidia.com/ja-jp/learn/certification/generative-ai-llm-associate/
-- Cisco CCNA 200-301 page and exam topics PDF: https://www.cisco.com/c/en/us/training-events/training-certifications/exams/current-list/ccna-200-301.html and https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf
+- Cisco CCNA active v1.1 page, release schedule, and future v2.0 topics: https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html , https://learningnetwork.cisco.com/s/ccna-exam-topics , and https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf
 - Cisco CCST FAQ and CCST Networking material: https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/faq.html
 - CompTIA A+, Network+, Security+, Linux+, Server+, and PBQ guidance: https://www.comptia.org/certifications/a/ , https://www.comptia.org/en-us/certifications/network/ , https://www.comptia.org/en-eu/certifications/security/ , https://www.comptia.org/certifications/linux , https://www.comptia.org/en-us/certifications/server/ , and https://www.comptia.org/en/resources/test-policies/exam-development/performance-based-questions-explained/
 - Splunk Core Certified User certification page and blueprint: https://www.splunk.com/en_us/training/certification-track/splunk-core-certified-user.html and https://www.splunk.com/content/dam/splunk2/en_us/pdfs/training/splunk-test-blueprint-user.pdf

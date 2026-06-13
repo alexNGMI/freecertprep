@@ -15,6 +15,7 @@
     "enrich:aplus-pbqs": "node scripts/enrich_aplus_pbqs.mjs",
     "enrich:netplus-practicals": "node scripts/enrich_netplus_practicals.mjs",
     "enrich:secplus-practicals": "node scripts/enrich_secplus_practicals.mjs",
+    "enrich:terraform": "node scripts/enrich_terraform_learning_value.mjs",
     "generate:splunk": "node scripts/generate_splunk_core_user_questions.mjs",
     "audit:terraform": "node scripts/audit_terraform_objective_coverage.mjs",
     "audit:comptia-objectives": "node scripts/audit_comptia_objective_coverage.mjs"

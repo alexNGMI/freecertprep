@@ -18,12 +18,12 @@ const PATHS = {
     eyebrow: 'Networking',
     title: 'Networking Career Path',
     description:
-      'Start with Network+ or CCST Networking for the foundation, then build toward CCNA, the high-value credential for Cisco networking, NOC, junior network admin, and infrastructure support careers.',
+      'Start with Network+ now or use CCST Networking as a future Cisco-aligned foundation, then build toward CCNA when its v2.0 practice module is released.',
     icon: Network,
     color: '#f97316',
     highlights: [
       'Network+ and CCST both work as level-one networking foundations.',
-      'CCNA is the career-defining milestone.',
+      'CCNA remains the career-defining milestone and returns when its v2.0 module is release-ready.',
       'Each step builds toward real network troubleshooting and operations skill.',
     ],
     groups: [
@@ -38,7 +38,7 @@ const PATHS = {
       {
         label: 'Then move toward CCNA',
         items: [
-          certStep('Advanced networking', 'ccna-200-301', 'Practice Cisco associate-level routing, switching, services, security, CLI-output, topology, config-repair, and subnetting scenarios.'),
+          certStep('Advanced networking', 'ccna-200-301', 'Coming Soon for Cisco 200-301 v2.0, which begins testing February 3, 2027. The preserved preview covers routing, switching, services, security, CLI output, topology, config repair, and subnetting.'),
         ],
       },
     ],

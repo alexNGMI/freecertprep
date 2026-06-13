@@ -1,10 +1,10 @@
 # CCNA 200-301 Simulation Architecture
 
-Status: production-ready for the current CCNA 200-301 v2.0 scope. The app now publishes `ccna-200-301` as a 750-question Cisco associate-level pool with `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` items alongside written single-choice and multiple-response questions.
+Status: preserved Coming Soon preview for Cisco CCNA 200-301 v2.0. The 750-question bank includes `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` items alongside written single-choice and multiple-response questions, but it is not presented as current-exam practice.
 
 ## Official Scope
 
-Cisco lists **200-301 CCNA v2.0** as a 120-minute exam tied to the CCNA certification. The official exam topic PDF defines five weighted domains:
+Cisco's active exam is **200-301 CCNA v1.1** through February 2, 2027. The first date to test for **v2.0** is February 3, 2027. This bank was authored against the announced v2.0 topic PDF, which defines five weighted domains:
 
 | Domain | Weight | Pool Count |
 | --- | ---: | ---: |
@@ -17,15 +17,18 @@ Cisco lists **200-301 CCNA v2.0** as a 120-minute exam tied to the CCNA certific
 Primary sources:
 
 - Cisco exam page: https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html
-- Cisco official exam topics PDF: https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf
+- Cisco active v1.1 exam page: https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html
+- Cisco release schedule: https://learningnetwork.cisco.com/s/ccna-exam-topics
+- Cisco future v2.0 exam topics PDF: https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf
 
 ## Product Position
 
-CCNA is now the first advanced networking track in the catalog. It sits above Network+ and CCST Networking:
+CCNA remains the intended advanced networking milestone. The v2.0 preview sits above Network+ and CCST Networking in the path, but remains Coming Soon:
 
 - Network+ remains the broad vendor-neutral networking foundation.
 - CCST Networking remains the Cisco-oriented entry foundation.
 - CCNA is the associate-level Cisco networking target for NOC, junior network admin, infrastructure support, and data center technician learners.
+- The preview is intentionally not linked as a live study module while v1.1 remains the active exam.
 
 The pool is intentionally simulation-heavy because CCNA should not feel like another vocabulary bank. It asks learners to read command output, reason from topology evidence, repair configuration snippets, calculate subnets, and choose the least risky operational fix.
 
@@ -53,9 +56,9 @@ These types share the existing quiz, drill, exam, results, bookmark, and Smart P
 
 ## Production Gate
 
-The production gate for CCNA is now:
+The preserved v2.0 preview gate is:
 
-- 750 questions aligned to the official v2.0 domain weights.
+- 750 questions aligned to the announced v2.0 domain weights.
 - Exact simulation mix locked by automated tests.
 - No duplicate stems.
 - Explanation coverage for every item, with short explanations rejected.
@@ -68,8 +71,9 @@ Ongoing polish should focus on improving realism and variety rather than reopeni
 - Add richer multi-command CLI bundles for OSPF, VLAN, NAT, ACL, and wireless troubleshooting.
 - Add more diagram variants for redundant paths, FHRP, WLAN controller placement, and management architectures.
 - Expand subnetting drills beyond /25-/30 while keeping review feedback readable.
-- Continue editorial audits against Cisco 200-301 v2.0 source wording whenever Cisco updates the blueprint.
+- Recheck Cisco's transition schedule and final v2.0 source wording before public release.
+- Decide whether a separate v1.1 practice form is worth building before February 2027; do not mix v1.1 and v2.0 claims.
 
 ## Decision
 
-CCNA is production-ready as an advanced simulation-backed cert, not a normal MCQ-only bank. Future work should harden the simulation experience and content realism while keeping the current v2.0 blueprint as the source of truth.
+CCNA is a substantial simulation-backed v2.0 preview, not a normal MCQ-only bank. It returns to Live only after Cisco's v2.0 release is active and the bank passes a fresh source, content, form, and editorial audit.
