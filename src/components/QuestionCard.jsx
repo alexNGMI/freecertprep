@@ -199,6 +199,16 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
       {isPbqMatching && (
         <PbqMatchingPanel question={question} />
       )}
+      {!isPbqMatching && question.evidenceArtifacts?.length > 0 && (
+        <div className="space-y-3 rounded-2xl border border-emerald-500/20 bg-emerald-950/10 p-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300">
+            Search evidence
+          </p>
+          {question.evidenceArtifacts.map((artifact, index) => (
+            <PbqArtifact key={`${artifact.title}-${index}`} artifact={artifact} />
+          ))}
+        </div>
+      )}
 
       <RichText text={question.question} className="text-zinc-100 text-xl font-medium leading-relaxed" />
 

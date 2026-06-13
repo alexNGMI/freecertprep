@@ -86,11 +86,11 @@ const certSources = {
   'splunk-core-certified-user': {
     officialUrl: 'https://www.splunk.com/en_us/training/certification-track/splunk-core-certified-user.html',
     sourceLabel: 'Splunk Core Certified User exam page',
-    checkedAt,
+    checkedAt: '2026-06-13',
     examFormat: '60 multiple-choice questions in 60 minutes, including agreement review time.',
     scoreModel: 'The app uses a practice-readiness target, not a vendor score conversion.',
     readinessGrade: 'B+',
-    editorialStatus: 'Live at readiness bar; targeted editorial polish scheduled',
+    editorialStatus: 'Live at readiness bar; concise evidence-led editorial pass complete',
   },
   'comptia-server-plus': {
     officialUrl: 'https://www.comptia.org/en-us/certifications/server/',

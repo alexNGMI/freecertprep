@@ -37,11 +37,15 @@ The official certification page describes a 60-question multiple-choice exam. Si
 - `src/__tests__/content-sanity.test.js` locks exact blueprint-weighted counts.
 - The generator rejects duplicate stems and short explanations.
 - Structural diversity tests normalize numbers and code literals and require at least 500 distinct stem structures.
-- Current measured diversity is 750 exact-unique stems and 529 normalized structures, up from the June 8 pre-rewrite baseline of 297.
+- Current measured diversity is 750 exact-unique stems and 750 normalized structures.
+- Median stem length is at most 230 characters, the 90th percentile is at most 270, and no stem may exceed 420.
+- Every explanation contains a correct-choice rationale, distractor analysis, and review takeaway.
+- Every selected-response item includes one compact console or result-table evidence artifact.
+- Retired weak distractors are blocked by automated tests.
 - Exam selection permits only `single-choice` and `multiple-response` items for this certification.
 - Every item uses a domain registered in `src/data/certs.js`.
 - The Cybersecurity path points to the live Splunk route rather than a preview card.
 
-## Next Editorial Pass
+## June 13 Editorial Pass
 
-Splunk follows the Network+ and Security+ interaction-depth work in the current quality sequence. That pass will shorten verbose stems, strengthen distractors, add compact SPL/result-table evidence, and improve review explanations without expanding the pool merely for volume.
+The production pool remains 750 questions with the exact blueprint allocation and original exam-format strategy. The pass removed repeated synthetic search-window and result-count filler, reduced the median stem from 290 to 221 characters and the 90th percentile from 417 to 257, rewrote weak distractors into plausible same-scope misconceptions, and added rendered evidence to all 690 selected-response items. Matching and ordering remain learning drills outside simulated exams.

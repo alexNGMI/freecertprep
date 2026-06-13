@@ -24,7 +24,7 @@ Updated June 13, 2026:
 
 1. Completed June 13, 2026: Network+ interaction depth added cable maps, routing-table evidence, wireless survey artifacts, multi-artifact troubleshooting, component coaching, and four-category form guarantees.
 2. Completed June 13, 2026: Security+ interaction depth added log triage, ordered firewall-rule evaluation, incident correlation, control placement, component coaching, and four-category form guarantees.
-3. Splunk editorial polish: shorter stems, more discriminating distractors, stronger SPL/result evidence, and clearer review explanations.
+3. Completed June 13, 2026: Splunk editorial polish shortened stems, strengthened distractors, added evidence artifacts to all selected-response items, and standardized review explanations.
 
 CCNA remains parked during this sequence. The goal is to improve the realism and learning value of the current live CompTIA and Splunk offerings before returning to advanced Cisco work or catalog expansion.
 
@@ -89,7 +89,7 @@ Scoring dimensions:
 | Security+, SY0-701 | B+ | 760 questions, exact domain allocation, 33 practical items, and complete metadata across all 28 numbered objectives. Objective learning and review queues are live. | Real Security+ PBQs can combine log triage, policy/config matching, attack-chain interpretation, and control placement in one task. | Keep live; add richer multi-artifact incident and firewall-rule interactions. |
 | Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
-| Splunk Core Certified User | B+ | Exact blueprint allocation, substantive coverage of the compact published blueprint, 750 exact-unique questions, and official-style selected-response forms. | Stems are verbose, some paired multiple-response items feel like learning drills, and distractors/result evidence can be more discriminating. | Keep live at the readiness bar; shorten stems, split weak paired items, and add compact result-table evidence. |
+| Splunk Core Certified User | B+ | Exact blueprint allocation, 750 exact and normalized-unique stems, concise selected-response forms, rendered search evidence, and structured review explanations. | Browser practice remains an independent approximation rather than Splunk's confidential delivery interface. | Keep live; maintain the generator gates and perform normal source/version review. |
 | Schneider Data Center Certified Associate | C | Vendor-source topic architecture is useful; 750 questions across data-center physical infrastructure. | Heavy normalized duplication and obvious distractors; official exam-source details are less pinned than major vendors. | Rewrite repeated facility scenarios; pin current official exam guide/source package. |
 | Terraform Associate 004 | B+ | The 647-question Terraform 1.12 pool covers all 35 published subobjectives with at least two concepts each and uses the official true/false, multiple-choice, and multiple-answer formats. | HashiCorp does not publish objective weights, live items, or a fixed raw passing percentage. The simulator therefore uses a disclosed editorial practice allocation and readiness target. | Keep live; maintain objective gates and continue normal command/config editorial review. |
 
@@ -282,14 +282,19 @@ Actions:
 2. Completed June 8, 2026: rebuilt repeated clusters with concrete SPL, event, field, result-set, lookup, report, dashboard, and alert evidence.
 3. Completed June 8, 2026: expanded explanations with applied guidance and distractor distinctions.
 4. Completed June 8, 2026: limited the official-style 60-question / 60-minute simulator to selected-response items.
+5. Completed June 13, 2026: removed repeated synthetic time-window and result-count filler, reducing median stem length from 290 to 221 characters and the 90th percentile from 417 to 257.
+6. Completed June 13, 2026: added compact rendered search evidence to all 690 selected-response items and standardized every explanation into correct-choice rationale, distractor analysis, and review takeaway.
+7. Completed June 13, 2026: retired weak distractor language and raised normalized structural uniqueness to 750.
 
-The language cleanup exposed 156 normalized duplicate stem groups containing 609 questions. The evidence rewrite raised exact uniqueness to 750 of 750 and structural uniqueness to 529 after normalizing numbers and code literals, compared with the exposed 297-stem baseline.
+The language cleanup exposed 156 normalized duplicate stem groups containing 609 questions. The first evidence rewrite raised exact uniqueness to 750 and structural uniqueness to 529. The June 13 pass now measures 750 exact and normalized-unique stems while keeping the official blueprint allocation unchanged.
 
 Acceptance criteria:
 
 - No synthetic ticket markers.
 - Review mode teaches field/search/report/dashboard concepts clearly.
-- Normalized structural uniqueness remains at or above 500 and does not regress toward the June 8 baseline.
+- Normalized structural uniqueness remains at 750.
+- Median stem length remains at or below 230 characters and the 90th percentile at or below 270.
+- Every selected-response item retains compact console or result-table evidence.
 
 #### 4.5 A+ Core 1 and Core 2
 
@@ -419,7 +424,7 @@ After that, the most rational expansion options are:
 - CompTIA PBQ engine v1.
 - Completed June 13, 2026: Network+ enriched ten PBQ scenarios with two correlated artifacts each, component-level coaching, cable/routing/wireless/multi-artifact category metadata, and 500-form category audits.
 - Completed June 13, 2026: Security+ enriched ten PBQ scenarios with two correlated artifacts each, component-level coaching, log/firewall/incident/control category metadata, and 500-form category audits.
-- Splunk stem, distractor, result-evidence, and review-explanation polish.
+- Completed June 13, 2026: Splunk stem, distractor, result-evidence, and review-explanation polish across the full 750-question pool.
 - Parked: CCNA topology and multi-command troubleshooting polish.
 - Completed June 9, 2026: Network+ and Security+ objective metadata, accuracy/coverage dashboard, objective practice, recent-miss queue, and spaced due-review queue.
 - Completed June 9, 2026: A+ Core 1 and Core 2 joined the Objective Learning Loop with all 63 learner-facing objective labels, targeted practice, recent-miss and due-review queues, objective dashboard signals, support-oriented review cues, and post-session recommendations.

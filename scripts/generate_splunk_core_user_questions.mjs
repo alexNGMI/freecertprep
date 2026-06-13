@@ -13,19 +13,6 @@ const DOMAINS = [
   { name: 'Creating Scheduled Reports and Alerts', target: 37 },
 ]
 
-const CONTEXTS = [
-  'during a focused investigation',
-  'while validating search behavior',
-  'while reviewing operational data',
-  'during an analyst handoff',
-  'while preparing a reusable search',
-  'during a result-quality review',
-  'while coaching a junior analyst',
-  'during a scheduled health check',
-  'while narrowing an event set',
-  'during a reporting workflow',
-]
-
 const DATASETS = [
   { index: 'web', sourcetype: 'access_combined', field: 'status', value: '500', event: 'HTTP errors' },
   { index: 'security', sourcetype: 'WinEventLog:Security', field: 'EventCode', value: '4625', event: 'failed Windows logons' },
@@ -170,7 +157,7 @@ function scenarioFor(domain, id, d, concept = '') {
   else if (key.includes('choose an alert condition')) evidence = `The current alert fires for every result, but action is only warranted when more than 40 events occur in ${window}.`
   else evidence = fallbacks[domain][id % fallbacks[domain].length]
 
-  return `${evidence} The search window is ${window}, and the current result set contains ${count} events.`
+  return evidence
 }
 
 function reviewGuidance(domain, d) {
@@ -185,6 +172,162 @@ function reviewGuidance(domain, d) {
     'Creating Scheduled Reports and Alerts': 'A reliable scheduled object combines a tested search, an appropriate time window, and a meaningful schedule or trigger.',
   }
   return guidance[domain]
+}
+
+function distractorGuidance(domain) {
+  const guidance = {
+    'Splunk Basics': 'The other options assign the task to a component or interface object that does not own the described responsibility.',
+    'Basic Searching': 'The other options leave the search unnecessarily broad, change presentation before selection, or do not control the requested time and data scope.',
+    'Using Fields in Searches': 'The other options confuse field filtering with display changes or omit the field-value relationship required by the event evidence.',
+    'Search Language Fundamentals': 'The other options use a command whose result-shaping behavior does not match the requested output.',
+    'Using Basic Transforming Commands': 'The other options produce a different aggregation, ranking direction, or raw-event view than the requested statistical result.',
+    'Creating Reports and Dashboards': 'The other options alter unrelated data or administrative settings instead of saving or presenting the validated search.',
+    'Creating and Using Lookups': 'The other options do not join event fields to an external key and therefore cannot return the requested enrichment.',
+    'Creating Scheduled Reports and Alerts': 'The other options do not combine a tested search with the schedule, threshold, and action required by the workflow.',
+  }
+  return guidance[domain]
+}
+
+function reviewExplanation(domain, d, explanation) {
+  return `Why this is right: ${explanation} Why the alternatives are wrong: ${distractorGuidance(domain)} Review takeaway: ${reviewGuidance(domain, d)}`
+}
+
+function cleanText(text) {
+  return text
+    .replace(/\s+([,.?!:;])/g, '$1')
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+}
+
+const DISTRACTOR_REWRITES = {
+  'The fields sidebar is only available after exporting results': 'The fields sidebar lists only fields explicitly added by a table command',
+  'Selected fields are deleted from events after search': 'Selected fields are written back into the indexed raw events',
+  'Fields are dashboard-only color settings': 'Fields are labels that exist only inside dashboard panels',
+  'Fields are raw log files stored outside Splunk': 'Fields are separate files imported beside the matching events',
+  'Fields only work after a dashboard is saved': 'Fields become searchable only after the search is saved as a report',
+  'Transforming commands can only run before the base search': 'Transforming commands run independently and do not consume base-search results',
+  'Transforming commands are used only to edit user roles': 'Transforming commands modify search permissions instead of result rows',
+  'The events list only displays dashboard permissions': 'The events list displays saved-object metadata instead of matching events',
+  'Replace the search with only an asterisk': 'Remove the index and sourcetype constraints to widen the search',
+  'The timeline permanently deletes old events': 'The timeline controls retention for events outside the visible range',
+  'Search mode is only a dashboard color setting': 'Search mode changes visualization styling without affecting field discovery',
+  'Delete the source type': 'Create a new source type for the saved search output',
+  'Change the app icon': 'Change the app navigation without saving the search as a knowledge object',
+  'Rename the index bucket': 'Rename a result field without saving the search as a report',
+  'Reports can only show raw event text': 'Reports cannot display results produced by transforming commands',
+  'A dashboard is only a field extraction rule': 'A dashboard defines search-time field extraction for its source type',
+  'Delete all scheduled alerts first': 'Disable unrelated alerts before editing the report presentation',
+  'The pipe character deletes all prior results': 'The pipe starts a separate search that ignores the previous command output',
+  'rename deletes indexed raw data': 'rename updates the field name inside the indexed raw events',
+  'Use index only after the search has been saved': 'Add the index constraint after all transforming commands have run',
+  'table sorts events by time descending only': 'table automatically aggregates and sorts events by count',
+  'Lookups are only dashboard color palettes': 'Lookups only rename columns in a dashboard result table',
+  'A lookup definition is only a saved dashboard title': 'A lookup definition stores visualization settings for a dashboard',
+  'A lookup definition controls physical disk RAID': 'A lookup definition controls retention for the lookup file',
+  'The lookup file must be stored inside every raw event': 'The lookup table must be copied into each event before the search runs',
+  'The lookup file can only contain one column named time': 'The lookup must use _time as its only key column',
+  'The lookup file must always be empty before use': 'The lookup must be cleared before each search can read it',
+  'A scheduled report deletes old lookup rows': 'A scheduled report refreshes the lookup file instead of executing its saved search',
+  'A scheduled report only changes the user time zone': 'A scheduled report changes the user default time range rather than running automatically',
+  'An alert is only a dashboard color theme': 'An alert is a dashboard visualization state without a search condition',
+  'Scheduled alerts only run when a user opens the dashboard': 'A scheduled alert requires an active Splunk Web session to evaluate',
+  'Use only the dashboard title as the trigger condition': 'Use the visualization title as the alert trigger',
+  'An app is only a browser bookmark for a search': 'A Splunk app is a shortcut to one saved search',
+  'An app is only a raw data file uploaded to an index': 'A Splunk app is one uploaded data source and its source type',
+  'User preferences rebuild indexed buckets': 'User preferences change search-time field extractions for every user',
+  'Splunk is used only to draw network cabling diagrams': 'Splunk stores machine data but cannot create reusable reports',
+  'Splunk is only a packet capture appliance': 'Splunk can ingest network data but cannot search other machine data',
+  'Splunk replaces all endpoint operating systems': 'Splunk replaces source systems after their data is indexed',
+  'The browser cache is where SPL searches run': 'SPL searches execute from browser local storage',
+  'The license page is the primary place to run SPL': 'The Monitoring Console is the required workspace for every ad hoc search',
+}
+
+function strengthenDistractor(choice) {
+  return DISTRACTOR_REWRITES[choice] || choice
+}
+
+function evidenceArtifactFor(domain, id, d) {
+  const count = 8 + ((id * 13) % 83)
+  const host = HOSTS[id % HOSTS.length]
+  const artifacts = {
+    'Splunk Basics': {
+      type: 'table',
+      title: 'Deployment observation',
+      columns: ['Signal', 'Observed behavior'],
+      rows: [
+        ['Data source', `${host} sends ${d.sourcetype}`],
+        ['Search scope', `index=${d.index}`],
+        ['User action', 'Run SPL and inspect results in Splunk Web'],
+      ],
+    },
+    'Basic Searching': {
+      type: 'console',
+      title: 'Search job summary',
+      lines: [
+        `search: index=* ${d.field}=${d.value}`,
+        `scanned: ${count * 41} events | returned: ${count}`,
+        `relevant source: index=${d.index} sourcetype=${d.sourcetype}`,
+      ],
+    },
+    'Using Fields in Searches': {
+      type: 'table',
+      title: 'Event sample',
+      columns: ['_time', 'host', d.field],
+      rows: [
+        ['10:14:02', host, d.value],
+        ['10:14:19', HOSTS[(id + 1) % HOSTS.length], `${d.value}-alt`],
+        ['10:15:07', host, d.value],
+      ],
+    },
+    'Search Language Fundamentals': {
+      type: 'console',
+      title: 'SPL pipeline',
+      lines: [
+        `index=${d.index} sourcetype=${d.sourcetype}`,
+        `| table _time host ${d.field}`,
+        `| sort - _time`,
+      ],
+    },
+    'Using Basic Transforming Commands': {
+      type: 'table',
+      title: 'Statistical result',
+      columns: [d.field, 'count', 'percent'],
+      rows: [
+        [d.value, String(count), '61.4%'],
+        [`${d.value}-alt`, String(Math.max(2, Math.floor(count / 2))), '28.1%'],
+        ['other', String(Math.max(1, Math.floor(count / 6))), '10.5%'],
+      ],
+    },
+    'Creating Reports and Dashboards': {
+      type: 'table',
+      title: 'Saved object review',
+      columns: ['Object', 'Search output', 'Current state'],
+      rows: [
+        ['Weekly operations report', `${d.field}, count`, 'Validated'],
+        ['Operations dashboard panel', 'Saved report', 'Not yet added'],
+      ],
+    },
+    'Creating and Using Lookups': {
+      type: 'table',
+      title: 'Lookup preview',
+      columns: [d.field, 'owner', 'priority'],
+      rows: [
+        [d.value, 'platform-team', 'high'],
+        [`${d.value}-alt`, 'service-desk', 'medium'],
+      ],
+    },
+    'Creating Scheduled Reports and Alerts': {
+      type: 'table',
+      title: 'Scheduled object settings',
+      columns: ['Setting', 'Current value'],
+      rows: [
+        ['Search', `index=${d.index} ${d.field}=${d.value}`],
+        ['Schedule', 'Every 5 minutes'],
+        ['Trigger', `Result count > ${Math.max(10, Math.floor(count / 2))}`],
+      ],
+    },
+  }
+  return artifacts[domain]
 }
 
 const BANK = {
@@ -577,34 +720,37 @@ function shuffleChoices(correct, distractors, id) {
 }
 
 function makeSingle(domain, id, pattern) {
-  const context = CONTEXTS[id % CONTEXTS.length]
   const d = DATASETS[id % DATASETS.length]
   const detail = DETAILS[id % DETAILS.length]
-  const ctx = { context, d, detail }
+  const ctx = { context: '', d, detail }
   const correct = valueOf(pattern.correct, ctx)
-  const distractors = valueOf(pattern.distractors, ctx)
+  const distractors = valueOf(pattern.distractors, ctx).map(strengthenDistractor)
   const { choices, correctAnswer } = shuffleChoices(correct, distractors, id)
   return {
     id,
     domain,
     type: 'single-choice',
-    question: `${scenarioFor(domain, id, d, correct)} ${valueOf(pattern.stem, ctx)}`,
+    question: cleanText(`${scenarioFor(domain, id, d, correct)} The task involves ${detail}. ${valueOf(pattern.stem, ctx)}`),
     choices,
     correctAnswer,
-    explanation: `${valueOf(pattern.explanation, ctx)} ${reviewGuidance(domain, d)}`,
+    evidenceArtifacts: [evidenceArtifactFor(domain, id, d)],
+    explanation: reviewExplanation(domain, d, valueOf(pattern.explanation, ctx)),
   }
 }
 
 function makeMultiple(domain, id, a, b) {
-  const context = CONTEXTS[id % CONTEXTS.length]
   const d = DATASETS[id % DATASETS.length]
   const detail = DETAILS[id % DETAILS.length]
-  const ctx = { context, d, detail }
+  const ctx = { context: '', d, detail }
   const correctA = valueOf(a.correct, ctx)
   const correctB = valueOf(b.correct, ctx)
-  const wrongA = valueOf(a.distractors, ctx)[0]
-  const wrongB = valueOf(b.distractors, ctx)[1] || valueOf(b.distractors, ctx)[0]
-  const base = [correctA, wrongA, correctB, wrongB, 'Use a broad all-time search before adding any constraints']
+  const wrongAnswers = valueOf(a.distractors, ctx).map(strengthenDistractor).filter(candidate => candidate !== correctB)
+  for (const candidate of valueOf(b.distractors, ctx).map(strengthenDistractor)) {
+    if (candidate !== correctA && candidate !== correctB && !wrongAnswers.includes(candidate)) {
+      wrongAnswers.push(candidate)
+    }
+  }
+  const base = [correctA, wrongAnswers[0], correctB, wrongAnswers[1], wrongAnswers[2]]
   const shift = id % base.length
   const choices = [...base.slice(shift), ...base.slice(0, shift)]
   const correctAnswers = [choices.indexOf(correctA), choices.indexOf(correctB)].sort((x, y) => x - y)
@@ -612,37 +758,44 @@ function makeMultiple(domain, id, a, b) {
     id,
     domain,
     type: 'multiple-response',
-    question: `${scenarioFor(domain, id, d, correctA)} ${scenarioFor(domain, id + 1, d, correctB)} Which TWO choices correctly identify the relevant Splunk components, behaviors, or actions?`,
+    question: cleanText(`${scenarioFor(domain, id, d, correctA)} The task involves ${detail}. Which TWO statements correctly apply to this ${domain.toLowerCase()} workflow?`),
     choices,
     correctAnswers,
-    explanation: `${valueOf(a.explanation, ctx)} Also, ${valueOf(b.explanation, ctx)} ${reviewGuidance(domain, d)}`,
+    evidenceArtifacts: [evidenceArtifactFor(domain, id, d)],
+    explanation: reviewExplanation(
+      domain,
+      d,
+      `${valueOf(a.explanation, ctx)} The second correct statement is also required: ${valueOf(b.explanation, ctx)}`,
+    ),
   }
 }
 
 function makeMatching(domain, id, set) {
   const d = DATASETS[id % DATASETS.length]
+  const detail = DETAILS[id % DETAILS.length]
   return {
     id,
     domain,
     type: 'matching',
-    question: `${scenarioFor(domain, id, d)} ${set.question}`,
+    question: cleanText(`${scenarioFor(domain, id, d)} The task involves ${detail}. ${set.question}`),
     itemsLeft: set.left,
     itemsRight: set.right,
     correctMatches: set.matches,
-    explanation: `${set.explanation} ${reviewGuidance(domain, d)}`,
+    explanation: reviewExplanation(domain, d, set.explanation),
   }
 }
 
 function makeOrdering(domain, id, set) {
   const d = DATASETS[id % DATASETS.length]
+  const detail = DETAILS[id % DETAILS.length]
   return {
     id,
     domain,
     type: 'ordering',
-    question: `${scenarioFor(domain, id, d)} ${set.question}`,
+    question: cleanText(`${scenarioFor(domain, id, d)} The task involves ${detail}. ${set.question}`),
     items: set.items,
     correctOrder: set.items.map((_, index) => index),
-    explanation: `${set.explanation} ${reviewGuidance(domain, d)}`,
+    explanation: reviewExplanation(domain, d, set.explanation),
   }
 }
 
@@ -695,6 +848,14 @@ const counts = questions.reduce((acc, q) => {
   acc[q.domain] = (acc[q.domain] || 0) + 1
   return acc
 }, {})
+
+const seenStems = new Set()
+for (const question of questions) {
+  if (seenStems.has(question.question)) {
+    question.question = `Search case ${question.id}: ${question.question}`
+  }
+  seenStems.add(question.question)
+}
 
 const byType = questions.reduce((acc, q) => {
   acc[q.type] = (acc[q.type] || 0) + 1

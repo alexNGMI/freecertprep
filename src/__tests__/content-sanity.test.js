@@ -451,6 +451,54 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(structuralStems.size).toBeGreaterThanOrEqual(500)
   })
 
+  it('Splunk Core Certified User keeps the concise evidence-led editorial pass', () => {
+    if (certId !== 'splunk-core-certified-user') return
+
+    const stemLengths = questions.map(question => question.question.length).sort((a, b) => a - b)
+    const median = stemLengths[Math.floor(stemLengths.length / 2)]
+    const p90 = stemLengths[Math.floor(stemLengths.length * 0.9)]
+    const examStyle = questions.filter(question =>
+      ['single-choice', 'multiple-response'].includes(typeOf(question))
+    )
+
+    expect(median).toBeLessThanOrEqual(230)
+    expect(p90).toBeLessThanOrEqual(270)
+    expect(questions.filter(question => question.question.length > 320).length).toBeLessThanOrEqual(20)
+    expect(questions.filter(question => question.question.length > 420)).toHaveLength(0)
+    expect(questions.every(question =>
+      /Why this is right:.*Why the alternatives are wrong:.*Review takeaway:/.test(question.explanation)
+    )).toBe(true)
+
+    expect(examStyle.length).toBe(690)
+    expect(examStyle.every(question => question.evidenceArtifacts?.length === 1)).toBe(true)
+    const retiredWeakDistractors = [
+      'Splunk is used only to draw network cabling diagrams',
+      'Splunk is only a packet capture appliance',
+      'The browser cache is where SPL searches run',
+      'The license page is the primary place to run SPL',
+      'Lookups are only dashboard color palettes',
+      'A lookup definition controls physical disk RAID',
+      'The lookup file must always be empty before use',
+      'A scheduled report deletes old lookup rows',
+      'An alert is only a dashboard color theme',
+    ]
+    for (const question of examStyle) {
+      expect(question.choices.some(choice => retiredWeakDistractors.includes(choice))).toBe(false)
+    }
+
+    for (const question of examStyle) {
+      const artifact = question.evidenceArtifacts[0]
+      expect(['console', 'table']).toContain(artifact.type)
+      expect(artifact.title.length).toBeGreaterThan(5)
+      if (artifact.type === 'console') {
+        expect(artifact.lines.length).toBeGreaterThanOrEqual(3)
+      } else {
+        expect(artifact.columns.length).toBeGreaterThanOrEqual(2)
+        expect(artifact.rows.length).toBeGreaterThanOrEqual(2)
+      }
+    }
+  })
+
   it('live A+ and Splunk banks avoid synthetic ticket framing', () => {
     if (![
       'comptia-a-plus-core-1',
