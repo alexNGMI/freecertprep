@@ -41,3 +41,7 @@ The official certification page describes a 60-question multiple-choice exam. Si
 - Exam selection permits only `single-choice` and `multiple-response` items for this certification.
 - Every item uses a domain registered in `src/data/certs.js`.
 - The Cybersecurity path points to the live Splunk route rather than a preview card.
+
+## Next Editorial Pass
+
+Splunk follows the Network+ and Security+ interaction-depth work in the current quality sequence. That pass will shorten verbose stems, strengthen distractors, add compact SPL/result-table evidence, and improve review explanations without expanding the pool merely for volume.

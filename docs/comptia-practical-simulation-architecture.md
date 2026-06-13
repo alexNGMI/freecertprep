@@ -107,10 +107,10 @@ Every 90-question A+ form still preserves exact domain allocation and at least s
 
 ## Next Iteration
 
-The next opportunity is interaction depth, not more ordinary questions:
+The next opportunity is interaction depth, not more ordinary questions. Work proceeds through Network+ first and Security+ second, followed by the planned Splunk editorial pass:
 
-1. Add a cable-map interaction with endpoint-to-port placement.
-2. Add a firewall-rule builder with ordered rule evaluation.
-3. Add multi-artifact incident cases with logs, topology, and policy evidence in one item.
-4. Add richer per-component explanations for every multi-part response.
-5. Continue reducing conservative fallback mappings as practical items and weak objective families receive future editorial replacement.
+1. Network+: add cable-map interactions, routing-table evidence, wireless survey artifacts, and endpoint-to-port placement.
+2. Security+: add an ordered firewall-rule builder and multi-artifact incident cases combining logs, topology, and policy evidence.
+3. Both: add richer per-component explanations for every multi-part response.
+4. Continue reducing conservative fallback mappings as practical items and weak objective families receive future editorial replacement.
+5. After both CompTIA passes, polish Splunk stems, distractors, result evidence, and review explanations.

@@ -18,6 +18,16 @@ freecertprep has enough catalog breadth. The next competitive advantage is not "
 
 The current product is strongest when the real exam is selected-response only or mostly selected-response: AWS CLF-C02, AWS SAA-C03, Google CDL, Splunk Core User, Real Estate national/state modules, and many foundational cloud exams. It is weaker when the real exam depends on rich interactive performance tasks: CompTIA PBQs, Cisco CCNA simulations, Microsoft interactive item types, and Linux+ command/task simulations.
 
+## Current Quality Sequence
+
+Updated June 13, 2026:
+
+1. Network+ interaction depth: cable maps, routing-table evidence, wireless survey artifacts, and multi-artifact troubleshooting.
+2. Security+ interaction depth: log triage, ordered firewall-rule evaluation, incident evidence, and control-placement tasks.
+3. Splunk editorial polish: shorter stems, more discriminating distractors, stronger SPL/result evidence, and clearer review explanations.
+
+CCNA remains parked during this sequence. The goal is to improve the realism and learning value of the current live CompTIA and Splunk offerings before returning to advanced Cisco work or catalog expansion.
+
 ## Public Catalog Decision
 
 Implemented June 8, 2026:
@@ -407,9 +417,10 @@ After that, the most rational expansion options are:
 ### P2
 
 - CompTIA PBQ engine v1.
-- Security+ log triage widgets.
 - Network+ topology/cabling widgets.
-- CCNA topology and multi-command troubleshooting polish.
+- Security+ log triage and firewall-rule widgets.
+- Splunk stem, distractor, result-evidence, and review-explanation polish.
+- Parked: CCNA topology and multi-command troubleshooting polish.
 - Completed June 9, 2026: Network+ and Security+ objective metadata, accuracy/coverage dashboard, objective practice, recent-miss queue, and spaced due-review queue.
 - Completed June 9, 2026: A+ Core 1 and Core 2 joined the Objective Learning Loop with all 63 learner-facing objective labels, targeted practice, recent-miss and due-review queues, objective dashboard signals, support-oriented review cues, and post-session recommendations.
 - Completed June 13, 2026: A+ PBQ-lite v2 enriched all 20 practicals with task briefs, console/table/checklist artifacts, per-component feedback, and category-balanced 90-question forms. Automated audits generate 500 forms per core and require at least six practicals while preserving domain allocation.
