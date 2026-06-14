@@ -442,7 +442,13 @@ const certs = {
     examQuestions: 90,
     examTime: 90,
     passingScore: 80,
-    practicalQuestionTarget: 6,
+    practicalQuestionTarget: 8,
+    requiredTypeCounts: {
+      'cli-output': 2,
+      'topology-scenario': 1,
+      'config-repair': 1,
+      'subnetting-drill': 1,
+    },
     requiredPracticalCategories: [
       'cable-mapping',
       'routing-analysis',

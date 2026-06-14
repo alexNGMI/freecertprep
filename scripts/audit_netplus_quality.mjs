@@ -15,7 +15,7 @@ const objectiveIds = [
   '3.5', '4.1', '4.2', '4.3', '4.4', '4.5', '5.1', '5.2',
   '5.3', '5.4', '5.5',
 ]
-const practicalTypes = new Set(['pbq-matching', 'cli-output', 'topology-scenario', 'config-repair'])
+const practicalTypes = new Set(['pbq-matching', 'cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill'])
 const requiredCategories = ['cable-mapping', 'routing-analysis', 'wireless-survey', 'multi-artifact-troubleshooting']
 const failures = []
 const assert = (condition, message) => { if (!condition) failures.push(message) }
@@ -50,21 +50,33 @@ const correctPositions = questions.reduce((counts, question) => {
 
 assert(questions.length === 760, `expected 760 questions, found ${questions.length}`)
 assert(exactGroups.length === 0, `found ${exactGroups.length} normalized duplicate-stem groups`)
-assert(templateQuestions <= 91, `found ${templateQuestions} questions in repeated scenario-template groups (baseline maximum 91)`)
+assert(templateQuestions === 0, `found ${templateQuestions} questions in repeated scenario-template groups`)
 assert(!questions.some((q) => /â€”|â†’|âˆ’|Ã¢/.test(JSON.stringify(q))), 'found visible mojibake')
 assert(!questions.some((q) => /\bticket\b/i.test(q.question)), 'found ticket-driven question wording')
 assert(Object.values(objectiveCounts).every((count) => count >= 3), 'one or more official objectives have fewer than three questions')
 assert(questions.every((q) => wordCount(q.explanation) >= 20), 'one or more explanations have fewer than 20 words')
+assert(!questions.some((q) => q.conceptId.includes('domain-fallback')), 'found unreviewed objective fallback metadata')
+assert(questions.filter((q) => practicalTypes.has(q.type)).length >= 50, 'expected at least 50 practical questions')
 
 const bankText = JSON.stringify(questions).toLowerCase()
 for (const topic of ['infrastructure as code', 'configuration drift', 'network function virtualization', 'virtual private cloud']) {
   assert(bankText.includes(topic), `missing current N10-009 topic: ${topic}`)
 }
 
-const formTypeMinimums = { 'multiple-response': 1, matching: 1, ordering: 1, 'statement-block': 1 }
+const formTypeMinimums = {
+  'multiple-response': 1,
+  matching: 1,
+  ordering: 1,
+  'statement-block': 1,
+  'cli-output': 2,
+  'topology-scenario': 1,
+  'config-repair': 1,
+  'subnetting-drill': 1,
+}
 for (let run = 0; run < 500; run += 1) {
   const form = weightedSelect(questions, 90, domains, {
-    practicalQuestionTarget: 6,
+    practicalQuestionTarget: 8,
+    requiredTypeCounts: formTypeMinimums,
     requiredPracticalCategories: requiredCategories,
   })
   const byDomain = form.reduce((counts, q) => ({ ...counts, [q.domain]: (counts[q.domain] || 0) + 1 }), {})
@@ -75,7 +87,7 @@ for (let run = 0; run < 500; run += 1) {
     'Networking Concepts': 21, 'Network Implementation': 18, 'Network Operations': 17,
     'Network Security': 13, 'Network Troubleshooting': 21,
   })) assert(byDomain[domain] === expected, `form ${run + 1} has wrong ${domain} allocation`)
-  assert(form.filter((q) => practicalTypes.has(q.type)).length >= 6, `form ${run + 1} has fewer than six practicals`)
+  assert(form.filter((q) => practicalTypes.has(q.type)).length >= 8, `form ${run + 1} has fewer than eight practicals`)
   for (const category of requiredCategories) assert(categories.has(category), `form ${run + 1} is missing ${category}`)
   for (const [type, minimum] of Object.entries(formTypeMinimums)) assert((byType[type] || 0) >= minimum, `form ${run + 1} is missing ${type}`)
 }

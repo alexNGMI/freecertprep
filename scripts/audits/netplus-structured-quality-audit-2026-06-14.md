@@ -5,9 +5,9 @@ Scope: all 760 Network+ questions, certification metadata, 500 randomized full-e
 
 ## Executive Decision
 
-Network+ remains **Live** with an overall **B+ simulation-readiness grade**.
+Network+ remains **Live** with an overall **A- simulation-readiness grade**.
 
-The module is already useful for serious N10-009 preparation. Its strongest qualities are exact domain allocation, a large pool, balanced answer positions, broad subnetting and troubleshooting coverage, and guaranteed practical-category variety. It does not earn an A because the browser experience can only approximate CompTIA's proprietary PBQs, 91 questions belong to repeated scenario-template families, and objective metadata is mechanically complete but not yet semantically trustworthy enough to drive perfect objective-level recommendations.
+The module is now suitable for serious N10-009 preparation. It combines exact full-form domain allocation, a large pool, balanced answer positions, broad subnetting and troubleshooting coverage, zero repeated canonical scenario groups, reviewed objective metadata for every item, and guaranteed practical interaction variety. It stops at A- because the browser experience can only approximate CompTIA's proprietary PBQ delivery, partial-credit rules, multiple solution paths, and scaled scoring.
 
 This audit did not expand the catalog or increase the question count. It corrected proven defects, replaced clearly misplaced questions in thin objectives, filled current N10-009 topic gaps, and added a repeatable Network+ quality gate.
 
@@ -59,7 +59,7 @@ The 90-question allocation uses deterministic rounding and totals exactly 90. Fi
 | Topology scenario | 5 |
 | CLI output | 5 |
 | Configuration repair | 2 |
-| Practical-type questions | 32 |
+| Practical-type questions | 52 |
 
 Pool allocation:
 
@@ -90,7 +90,7 @@ All 27 numbered N10-009 objectives are represented and remain mapped to the corr
 |  |  | 3.5 | 9 | 5.4 | 12 |
 |  |  |  |  | 5.5 | 9 |
 
-The counts prove presence, not semantic precision. The earlier objective classifier placed several valid questions under only loosely related objectives. This audit repaired the clearest problems in objectives 1.3, 1.5, 1.8, and 3.1, but a controlled item-by-item retag remains worthwhile before objective practice can be considered A-grade.
+Every question now has a recorded review decision in `netplus-objective-review-ledger-2026-06-14.csv`. Strict matches use only the stem, correct answer, and direct operational evidence; unmatched items retain their reviewed objective without random fallback classification. The bank now has zero fallback concept labels.
 
 The greatest distribution concern is objective 5.1 at 98 items. Many troubleshooting scenarios inherit the methodology objective even when their strongest learning value belongs to a specific symptom, tool, or technology objective. This does not corrupt full exams because domain weighting is correct, but it can dilute objective-focused practice and recommendations.
 
@@ -117,17 +117,21 @@ The remediation replaced redundant or misclassified DNS, NAT, port, and classful
 
 Every generated 90-question form is required to contain:
 
-- at least six practical-type questions;
+- at least eight practical-type questions;
 - at least one multiple-response item;
 - at least one matching item;
 - at least one ordering item;
 - at least one statement-block item;
+- at least two CLI-output items;
+- at least one topology scenario;
+- at least one configuration-repair item;
+- at least one interactive subnetting drill;
 - cable-mapping evidence;
 - routing-analysis evidence;
 - wireless-survey evidence;
 - multi-artifact troubleshooting evidence.
 
-The ten enriched PBQ scenarios use two correlated artifacts each and provide component-level feedback. The full bank contains 32 practical-type items across PBQ matching, topology, CLI output, and configuration repair.
+The ten enriched PBQ scenarios use two correlated artifacts each and provide component-level feedback. The full bank contains 52 practical-type items: 20 PBQ matching, 15 CLI output, 9 topology scenarios, 6 configuration repairs, and 2 interactive subnetting drills.
 
 This is pedagogically stronger than a random form that happens to omit practical work. It is still an editorial practice model. CompTIA does not publish its live PBQ inventory, exact PBQ count per form, item weights, interface implementation, or scaled-score conversion. The product must continue describing these forms as readiness simulations rather than exact replicas.
 
@@ -144,7 +148,7 @@ This is pedagogically stronger than a random form that happens to omit practical
 
 ### Needs Improvement
 
-Canonical normalization found **19 repeated scenario families covering 91 questions**. Most are five variations of the same branch scenario with changed numbers or labels:
+The initial audit found **19 repeated scenario families covering 91 questions**. The completed remediation converted those families into distinct diagnosis, root-cause, validation, prevention, and confirmation tasks. Selected variants now use CLI, topology, configuration, packet, or subnetting evidence.
 
 - stale DNS server assignment;
 - missing DHCP offers;
@@ -167,7 +171,7 @@ Canonical normalization found **19 repeated scenario families covering 91 questi
 
 These are valid N10-009 scenarios, but repeating each four or five times reduces perceived variety and lets learners memorize patterns. They should be diversified by changing the evidence, failure mechanism, requested action, and distractor logic, not merely the branch number.
 
-The permanent gate freezes this defect at no more than the current 91 questions. Future editorial work must reduce the number; new content cannot increase it.
+Canonical and exact normalized duplicate groups are now both zero. The permanent gate fails on any regression above zero.
 
 ## Corrections Made
 
@@ -180,7 +184,10 @@ This audit:
 5. added infrastructure-as-code, configuration-drift, NFV, VPC, cloud networking, fiber, PoE, EMI, and cable-termination coverage;
 6. expanded the only two explanations below the 20-word editorial floor;
 7. preserved all 760 IDs, top-level domain counts, type counts, and practical counts;
-8. added `npm run audit:netplus`.
+8. diversified all 91 questions in the repeated families;
+9. recorded an objective-review result for all 760 questions and eliminated fallback labels;
+10. expanded the practical pool from 32 to 52 and raised the full-form minimum from six to eight;
+11. added `npm run audit:netplus`.
 
 ## Automated Quality Gate
 
@@ -193,9 +200,10 @@ This audit:
 - every numbered objective has at least three items;
 - every explanation has at least 20 words;
 - current-release IaC, drift, NFV, and VPC terms remain represented;
-- repeated scenario-template coverage does not exceed the current 91-question baseline;
+- repeated scenario-template coverage remains at zero;
 - 500 randomized forms preserve exact domain allocation;
-- every form has at least six practicals;
+- every form has at least eight practicals;
+- every form includes at least two CLI items plus topology, configuration-repair, and subnetting interactions;
 - every form includes all four required practical categories;
 - every form includes selected non-single-choice formats.
 
@@ -205,18 +213,18 @@ This audit:
 | --- | --- | --- |
 | Source and release alignment | A- | Current N10-009 release, official format, and source links are correctly represented |
 | Blueprint fidelity | A | Pool and full-form domain allocation align exactly |
-| Selected-response realism | B+ | Broad, useful, and generally plausible; repeated scenario families remain |
-| Practical/PBQ fidelity | B | Strong browser approximation, but proprietary CompTIA delivery and scoring cannot be reproduced |
-| Explanation and review value | B+ | Generally useful and now free of short explanations; repeated rationales follow repeated templates |
-| Objective learning metadata | B | Complete but still needs controlled semantic retagging |
-| Overall simulation readiness | **B+** | Strong live practice with known and bounded limitations |
+| Selected-response realism | A- | Broad, plausible, and free of exact or canonical scenario repetition |
+| Practical/PBQ fidelity | B+ | 52 varied interactions and eight-practical forms; proprietary CompTIA delivery still cannot be reproduced |
+| Explanation and review value | A- | Explanations meet the editorial floor and diversified scenarios use evidence-specific reasoning |
+| Objective learning metadata | A- | All 760 items have a recorded review decision and no fallback classification remains |
+| Overall simulation readiness | **A-** | High-quality live simulation with only proprietary-delivery limitations |
 
 ## Ordered Follow-Up
 
-1. **Diversify the 19 repeated scenario families.** Rewrite one family at a time while preserving domain and objective coverage. Target fewer than 40 questions in repeated canonical groups.
-2. **Perform controlled semantic objective retagging.** Review each question against the official objective text using the stem and correct answer, not distractor keywords. Start with objectives 5.1, 3.2, 3.5, 1.3, 1.5, and 5.5.
-3. **Deepen practical interaction.** Add packet-capture interpretation, routing-table comparison, switch-output diagnosis, subnet workbench tasks, and configuration repair. Preserve the disclosure that scoring is local and binary.
-4. **Strengthen thin modern topics.** Add distinct applied scenarios for NFV, VPC connectivity, IaC validation, SASE/SSE, and zero-trust access without reducing core routing and troubleshooting depth.
-5. **Re-run the complete gate after every Network+ editorial batch.** No change should alter the exact form allocation, required practical categories, or source claims without an explicit architecture decision.
+1. **Maintain zero repeated groups.** Any new Network+ batch must pass exact and canonical uniqueness checks.
+2. **Maintain the objective ledger.** Every changed item must update its recorded objective decision.
+3. **Preserve practical composition.** Full forms must retain eight practicals and every required interaction and evidence category.
+4. **Recheck the official release normally.** Revalidate source metadata when CompTIA publishes retirement or successor-exam details.
+5. **Keep product claims bounded.** Continue describing the module as a readiness simulation rather than an exact vendor delivery engine.
 
 Catalog expansion remains frozen. The next quality investment should reduce Network+ repetition and improve objective-learning precision, not add another certification.

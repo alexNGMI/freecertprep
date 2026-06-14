@@ -26,7 +26,7 @@ The original remediation plan has now completed its A+, Network+, Security+, Spl
 2. Completed June 13: polished Terraform review quality without increasing its 647-question pool.
 3. Completed June 13: hardened the complete first-user journey on desktop and mobile.
 4. Completed June 13: hardened runtime, persistence, recovery, and routing behavior.
-5. Active June 14: use Network+ as the top content priority; reduce repeated scenario families and improve semantic objective tagging while keeping promotion paused.
+5. Completed June 14: Network+ reached A- readiness after eliminating repeated scenario families, reviewing all 760 objective mappings, and deepening practical interaction while keeping promotion paused.
 
 CCNA is preserved as a Coming Soon v2.0 preview because Cisco v1.1 remains active through February 2, 2027. The trust-layer backend, account sync, Real Estate re-publication, and sister-site expansion remain deferred. See `docs/current-state-and-next-steps-2026-06-13.md` for the current decision record.
 
@@ -97,7 +97,7 @@ Scoring dimensions:
 | CCNA, 200-301 | Preview | Strong advanced simulation surface: CLI output, topology scenarios, config repair, subnetting drills, and 750 future-v2.0 questions. | Cisco v1.1 remains active through February 2, 2027; the bank targets v2.0 and cannot be labeled current-exam practice. | Keep Coming Soon; re-audit against the active v2.0 release on or after February 3, 2027. |
 | A+ Core 1, 220-1201 | B+ | 760 unique stems, 84 concepts, all 27 official objectives covered, objective/domain gates, plausible domain-level distractors, repaired multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery remains an approximation of CompTIA's proprietary interactive environment; some objectives remain intentionally broader than individual bullet-level skills. | Maintain the automated objective matrix and expand practical artifacts during future PBQ-engine work. |
 | A+ Core 2, 220-1202 | B+ | 760 unique stems, 94 concepts, all 36 official objectives covered, complete malware-response coverage, repaired distractors and multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery and confidential vendor scoring cannot be reproduced exactly. | Maintain objective coverage and add richer settings, command, and policy artifacts over time. |
-| Network+, N10-009 | B+ | 760 questions, exact domain allocation, 32 practical items, all 27 numbered objectives represented, and ten enriched PBQs with cable, routing, wireless, and multi-artifact category guarantees. A June 14 structured audit repaired encoding, thin-objective misfits, and current-topic gaps. | Browser practice approximates CompTIA PBQs; 19 repeated scenario families cover 91 questions; objective metadata still needs controlled semantic retagging. | Reduce repeated families, retag objectives, and maintain the new `audit:netplus` form/content gate. |
+| Network+, N10-009 | A- | 760 questions, exact full-form domain allocation, zero repeated canonical scenario groups, a 760-item objective review ledger, 52 practical items, and eight-practical forms with required CLI, topology, configuration-repair, subnetting, and evidence categories. | Browser practice cannot reproduce CompTIA's confidential PBQ delivery, multiple valid solution paths, partial-credit rules, or scaled scoring. | Maintain the `audit:netplus` gate and source review; no expansion required. |
 | Security+, SY0-701 | B+ | 760 questions, exact domain allocation, 33 practical items, complete metadata across all 28 numbered objectives, and ten enriched PBQs with log, firewall, incident, and control-placement guarantees. | Browser practice approximates rather than reproduces CompTIA's proprietary PBQ interface and scoring. | Maintain current objective, practical-category, and form-composition gates. |
 | Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
@@ -200,7 +200,7 @@ Goal: close the biggest realism gaps before rewriting thousands of stems.
 Status update, June 8, 2026:
 
 - PBQ simulation v1 is production-ready for Network+ and Security+ using the tested interaction engine.
-- Network+ has 32 practical items across PBQ matching, topology, command output, and configuration repair.
+- Network+ has 52 practical items across PBQ matching, topology, command output, configuration repair, and subnetting drills.
 - Security+ has 33 practical items across PBQ matching, log triage, segmentation topology, and security-control repair.
 - The 760-question pool size and official domain allocation for both certifications remain unchanged because weaker single-choice items were upgraded in place.
 - Every generated 90-question form is tested to preserve exact domain allocation and include at least six practical items.
@@ -438,7 +438,7 @@ After that, the most rational expansion options are:
 - Completed June 13, 2026: A+ PBQ-lite v2 enriched all 20 practicals with task briefs, console/table/checklist artifacts, per-component feedback, and category-balanced 90-question forms. Automated audits generate 500 forms per core and require at least six practicals while preserving domain allocation.
 - Completed June 8, 2026: Terraform true/false and multiple-answer support with guaranteed mixed-format exam forms.
 
-PBQ simulation v1 completed June 8, 2026: Network+ and Security+ forms guarantee at least six practical scenarios, preserve exact blueprint allocation, and provide component-level review for multi-part items. The Network+, Security+, A+, and Splunk interaction/editorial passes completed June 13.
+PBQ simulation began June 8, 2026 and the Network+ A-grade pass completed June 14: Network+ forms now guarantee eight practical scenarios while Security+ retains six; both preserve exact blueprint allocation and provide component-level review for multi-part items.
 
 ### P3
 

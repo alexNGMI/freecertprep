@@ -24,7 +24,7 @@ The product is in a strong consolidation phase. The live source audit, Terraform
 | --- | --- | --- |
 | CompTIA A+ Core 1 | B+ | Maintain objective and PBQ gates |
 | CompTIA A+ Core 2 | B+ | Maintain objective and PBQ gates |
-| CompTIA Network+ | B+ | Reduce repeated scenario families, then semantically retag objective metadata |
+| CompTIA Network+ | A- | Maintain the full-bank objective ledger and eight-practical form gate |
 | CompTIA Security+ | B+ | Maintain practical-category and objective gates |
 | Splunk Core Certified User | B+ | Maintain evidence, uniqueness, and explanation gates |
 | HashiCorp Terraform Associate | B+ | Learning-value pass complete; maintain quality gates |
@@ -51,7 +51,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 
 ## Main Risks and Gaps
 
-1. **Network+ editorial precision is the active content priority.** The structured audit found 19 repeated scenario families covering 91 questions and mechanically complete but uneven objective tagging. Reduce repetition and then perform controlled objective retagging.
+1. **Network+ A-grade remediation is complete.** All 760 items have a recorded objective review, repeated scenario families are at zero, and full forms guarantee eight practical interactions while retaining exact domain allocation.
 2. **CCNA release alignment needs discipline.** The preserved bank targets v2.0, but Cisco v1.1 remains active through February 2, 2027. The preview must remain Coming Soon until the active release matches and a fresh audit passes.
 3. **Documentation can drift behind code.** Source status, catalog visibility, and readiness claims now need to remain synchronized through release checks.
 4. **Trust workflow remains local and lightweight.** Source cards and report links exist, but durable reports, moderation, and correction history require a backend. This is useful later, not the immediate priority for a first user.
@@ -128,16 +128,16 @@ Completed June 13:
 - progress imports reject structurally unsafe JSON, and existing malformed storage falls back safely;
 - certification-provider transitions show loading instead of stale content from the previous module.
 
-### 5. Network+ Structured Quality Program - Active
+### 5. Network+ Structured Quality Program - Completed June 14, 2026
 
-The June 14 audit retained the B+ grade and verified all 760 questions, 27 objectives, 32 practical items, and 500 randomized forms. It repaired visible encoding, removed the lone ticket-driven stem, replaced clearly misplaced thin-objective questions, and added a permanent `npm run audit:netplus` gate.
+The June 14 audit now grades Network+ **A-** and verifies all 760 questions, 27 objectives, 52 practical items, and 500 randomized forms. It repaired visible encoding, removed ticket framing, eliminated all 19 repeated scenario families, recorded an objective-review decision for every question, deepened CLI/topology/configuration/subnetting practice, and strengthened `npm run audit:netplus`.
 
 Next:
 
-- diversify 19 repeated scenario families covering 91 questions;
-- semantically retag objective metadata, starting with 5.1, 3.2, 3.5, 1.3, 1.5, and 5.5;
-- deepen packet, CLI, topology, configuration-repair, and subnetting interactions;
-- keep the catalog frozen.
+- preserve zero normalized and canonical duplicate groups;
+- preserve the 760-row objective review ledger and zero fallback classifications;
+- preserve eight practicals, required interaction types, and all evidence categories in every full form;
+- keep the catalog frozen and treat future Network+ work as maintenance.
 
 Detailed record: `scripts/audits/netplus-structured-quality-audit-2026-06-14.md`.
 

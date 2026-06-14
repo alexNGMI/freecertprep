@@ -123,7 +123,7 @@ describe('cert registry', () => {
     expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('B+')
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
     expect(certs['terraform-associate'].source.readinessGrade).toBe('B+')
-    expect(certs['comptia-net-plus'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-net-plus'].source.readinessGrade).toBe('A-')
     expect(certs['comptia-sec-plus'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/coverage verified/i)
     expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/coverage verified/i)
@@ -710,12 +710,13 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(troubleshootingQuestions).toHaveLength(182)
 
     const evidenceBasedCount = troubleshootingQuestions.filter(q =>
-      /^At branch \d{2},/.test(q.question)
-      && /best next step/i.test(q.question)
-      && /address|ARP|DHCP|DNS|duplex|firewall|latency|light|logs|MTU|RTP|route|traceroute|trunk|VLAN|wireless/i.test(q.question)
+      /^(Users report|A post-incident review|Before changing production settings|A second location|After correcting)/.test(q.question)
+        && q.question.length >= 100
+        && /address|ARP|DHCP|DNS|duplex|firewall|latency|light|MTU|RTP|route|trunk|VLAN|wireless|PoE|MAC/i.test(q.question)
+        && q.explanation.length >= 180
     ).length
 
-    expect(evidenceBasedCount).toBeGreaterThanOrEqual(75)
+    expect(evidenceBasedCount).toBeGreaterThanOrEqual(80)
   })
 
   it('Terraform Associate 004 uses the official direct question formats across every objective', () => {

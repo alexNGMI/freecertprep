@@ -22,7 +22,7 @@ Official references:
 Each 90-question Network+ and Security+ readiness simulation:
 
 - preserves the official domain-weight allocation;
-- includes at least six practical scenario questions;
+- includes at least eight practical scenario questions for Network+ and six for Security+;
 - includes every supported question type represented in that certification's pool;
 - presents no answer feedback until submission;
 - reports component-level correctness for multi-part items during review;
@@ -33,7 +33,7 @@ Each 90-question Network+ and Security+ readiness simulation:
 ### Network+ N10-009
 
 - 760 total questions.
-- 32 practical questions.
+- 52 practical questions: 20 PBQ matching, 15 CLI output, 9 topology scenarios, 6 configuration repairs, and 2 subnetting drills.
 - 20 PBQ matching scenarios.
 - 5 command-output investigations.
 - 5 topology scenarios.
@@ -72,7 +72,7 @@ Tests fail if:
 - official domain allocation drifts;
 - practical coverage drops below 32 Network+ or 33 Security+ items;
 - PBQ matching drops below 20 items per certification;
-- a generated full form contains fewer than six practical questions;
+- a generated Network+ form contains fewer than eight practical questions or omits a required CLI, topology, configuration-repair, subnetting, or evidence category;
 - a generated full form changes the expected 90-question domain allocation;
 - PBQ evidence, topology, command, or configuration data is malformed.
 - any official objective has fewer than three questions or lacks a classified concept family;

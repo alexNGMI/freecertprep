@@ -31,7 +31,7 @@ for (const [certId, relativePath] of banks) {
   const missing = questions.filter(question => !question.objectiveTitle || !question.conceptId)
   const fallbackCount = questions.filter(question => question.conceptId.includes('domain-fallback')).length
   const fallbackRate = fallbackCount / questions.length
-  const practicalTypes = new Set(['pbq-matching', 'cli-output', 'topology-scenario', 'config-repair'])
+  const practicalTypes = new Set(['pbq-matching', 'cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill'])
   const practical = questions.filter(question => practicalTypes.has(question.type))
   const weakPracticalExplanations = practical.filter(question => question.explanation.length < 140)
   console.log(`Questions: ${questions.length}`)
