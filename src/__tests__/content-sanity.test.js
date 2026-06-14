@@ -124,7 +124,7 @@ describe('cert registry', () => {
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
     expect(certs['terraform-associate'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-net-plus'].source.readinessGrade).toBe('A-')
-    expect(certs['comptia-sec-plus'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-sec-plus'].source.readinessGrade).toBe('A-')
     expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/coverage verified/i)
     expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/coverage verified/i)
   })
@@ -1227,6 +1227,7 @@ describe('CompTIA practical exam forms', () => {
       const form = weightedSelect(questions, cert.examQuestions, cert.domains, {
         practicalQuestionTarget: cert.practicalQuestionTarget,
         requiredPracticalCategories: cert.requiredPracticalCategories,
+        requiredTypeCounts: cert.requiredTypeCounts,
       })
       const byDomain = form.reduce((acc, question) => {
         acc[question.domain] = (acc[question.domain] || 0) + 1
@@ -1241,6 +1242,12 @@ describe('CompTIA practical exam forms', () => {
       expect(practicalCount).toBeGreaterThanOrEqual(6)
       for (const category of cert.requiredPracticalCategories || []) {
         expect(form.some(question => question.practicalCategory === category)).toBe(true)
+      }
+      for (const [type, minimum] of Object.entries(cert.requiredTypeCounts || {})) {
+        expect(
+          form.filter(question => typeOf(question) === type).length,
+          `${certId} form is missing required ${type} coverage`,
+        ).toBeGreaterThanOrEqual(minimum)
       }
     }
   })

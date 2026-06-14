@@ -60,6 +60,8 @@ Coverage includes threat attribution, insider-risk evidence, shadow IT, DMZ and 
 
 The June 13 interaction-depth pass upgraded the ten dedicated `secplus-pbq-*` scenarios without increasing the 760-question pool. Each now presents two different evidence artifacts and corrective feedback for every matched decision. Firewall and data-egress tasks require top-to-bottom first-match policy evaluation; log and incident tasks correlate identity, endpoint, network, timing, and baseline evidence. Generated 90-question forms are audited across 500 runs to include every required practical category while retaining exact domain allocation.
 
+The June 14 structured audit added a 760-row objective-review ledger, removed all 101 fallback classifications, corrected four additional legacy misclassifications and other cross-domain metadata, and eliminated synthetic workflow-ticket framing while preserving legitimate Kerberos terminology. Every objective now has at least two reviewed concept families. Security+ forms also guarantee PBQ matching, CLI/log analysis, topology, configuration repair, multiple-response, matching, ordering, and statement-block coverage in addition to the four practical categories.
+
 ## Review and Scoring
 
 The readiness score continues to count each question as correct or incorrect. Multi-part questions additionally display a component check such as `3/4 correct`. This gives the learner useful diagnostic feedback without presenting an invented approximation of CompTIA's confidential partial-credit model.

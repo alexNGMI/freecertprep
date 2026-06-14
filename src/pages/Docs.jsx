@@ -770,6 +770,7 @@ key = random() ** (1 / weight)
                   'First-user journey hardening - Smart Practice result context is stable, Recent Misses is a direct next action, incomplete exams require confirmation, mobile cert navigation meets 44px touch targets, and a repeatable release checklist covers desktop and mobile flows.',
                   'Runtime reliability hardening - timed forms stay stable, session completion is idempotent, malformed progress data fails safely, exam expiry avoids state-updater side effects, and cert transitions cannot display stale module content.',
                   'A+, Network+, Security+, and Splunk quality sprint - objective learning, evidence-led practicals, form-composition guarantees, full-bank uniqueness checks, and structured review explanations completed by June 13, 2026.',
+                  'Security+ structured quality audit - all 760 SY0-701 items now have ledger-locked objective decisions, all 101 fallback labels plus four legacy misclassifications were corrected, synthetic workflow-ticket wording was removed, and 500 randomized forms guarantee exact allocation plus the required practical and interaction mix. Readiness grade: A-.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,237-test regression suite.',
                 ],
               },

@@ -27,7 +27,7 @@ The public presentation now matches that narrower strategy. A+ is an optional st
 | CompTIA A+ Core 1 | B+ | Maintain objective and PBQ gates |
 | CompTIA A+ Core 2 | B+ | Maintain objective and PBQ gates |
 | CompTIA Network+ | A- | Maintain the full-bank objective ledger and eight-practical form gate |
-| CompTIA Security+ | B+ | Maintain practical-category and objective gates |
+| CompTIA Security+ | A- | Maintain the full-bank objective ledger and mixed-interaction form gate |
 | Splunk Core Certified User | B+ | Maintain evidence, uniqueness, and explanation gates |
 | HashiCorp Terraform Associate | B+ | Learning-value pass complete; maintain quality gates |
 | AWS Cloud Practitioner | A- | Source/version audit complete; maintain |
@@ -153,7 +153,19 @@ Detailed record: `scripts/audits/netplus-structured-quality-audit-2026-06-14.md`
 - Homepage cards identify target roles and clearly separate available practice from Coming Soon work.
 - Desktop and 390px mobile checks found no horizontal overflow; the complete 1,237-test suite, lint, and production build pass.
 
-### 7. Deferred Platform Work
+### 7. Security+ Structured Quality Program - Completed June 14, 2026
+
+- Reviewed all 760 SY0-701 questions and recorded every item in a durable objective-review ledger.
+- Corrected all 101 fallback labels plus four additional legacy misclassifications.
+- Removed synthetic workflow-ticket framing while preserving legitimate Kerberos terminology.
+- Preserved zero normalized and canonical duplicate groups.
+- Expanded thin objective labels into at least two meaningful concept families for every objective.
+- Added `npm run audit:secplus` and validated 500 randomized forms with exact domain allocation, six practicals, all four practical categories, and a required interaction mix.
+- Regraded Security+ from B+ to **A-**; proprietary CompTIA PBQ delivery, partial credit, and scaled scoring remain the limiting factors.
+
+Detailed record: `scripts/audits/secplus-structured-quality-audit-2026-06-14.md`.
+
+### 8. Deferred Platform Work
 
 Keep these visible in the roadmap but outside the immediate sprint:
 

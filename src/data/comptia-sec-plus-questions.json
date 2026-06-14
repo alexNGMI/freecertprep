@@ -257,7 +257,7 @@
     "explanation": "Ransomware blocks legitimate access to data — authorized users can no longer reach the files they need to do their jobs. While integrity is also impacted (the data is altered), the PRIMARY business impact is availability: operations halt until restoration or ransom payment.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-15",
@@ -271,9 +271,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "Authentication verifies identity — proving you are who you say you are. Authorization grants the authenticated user specific permissions (what you can do). Accounting logs the activity for later review. Auditing is sometimes used interchangeably with accounting.",
-    "objectiveId": "1.4",
-    "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-domain-fallback-0"
+    "objectiveId": "1.2",
+    "objectiveTitle": "Summarize fundamental security concepts",
+    "conceptId": "comptia-sec-plus-1.2-authentication-and-core-principles"
   },
   {
     "id": "secplus-16",
@@ -326,7 +326,7 @@
     "explanation": "Non-repudiation provides proof of origin so a sender can't later deny sending a message and a signer can't deny signing a document. Digital signatures and detailed, tamper-evident audit logs are the main mechanisms used to achieve non-repudiation.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-19",
@@ -358,7 +358,7 @@
     "explanation": "Honeypots are deliberately vulnerable, isolated systems placed in the network to attract attackers. They waste attacker time, allow defenders to study techniques, and generate high-fidelity alerts because any interaction with them is by definition suspicious.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-21",
@@ -374,7 +374,7 @@
     "explanation": "A honeytoken is fake data — a credit card number, a credential, a document, a database row — that should NEVER be touched legitimately. Any access to it is an immediate high-confidence breach signal. A honeypot is a whole decoy system; a honeytoken is just a piece of data.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-22",
@@ -426,7 +426,7 @@
     "explanation": "IDS signatures are TECHNICAL controls (network- or host-based intrusion detection). Bollards, mantraps, and locked cabinets are tangible physical security mechanisms protecting people, equipment, and facilities.",
     "objectiveId": "1.1",
     "objectiveTitle": "Compare categories and types of security controls",
-    "conceptId": "comptia-sec-plus-1.1-domain-fallback-0"
+    "conceptId": "comptia-sec-plus-1.1-physical-and-control-classification"
   },
   {
     "id": "secplus-25",
@@ -479,7 +479,7 @@
   {
     "id": "secplus-28",
     "domain": "General Security Concepts",
-    "question": "The MOST important reason a change management ticket REQUIRES a documented backout plan before the change is approved is:",
+    "question": "The MOST important reason a change request REQUIRES a documented backout plan before the change is approved is:",
     "choices": [
       "To satisfy external auditor requirements",
       "To meet vendor support contract terms",
@@ -488,9 +488,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "The PRIMARY operational purpose of a backout plan is rapid recovery: if the deployed change breaks something, the team needs a known-good way to revert quickly. Audit and documentation value are real but secondary benefits. Without a backout plan, an outage from a bad change becomes much worse.",
-    "objectiveId": "1.1",
-    "objectiveTitle": "Compare categories and types of security controls",
-    "conceptId": "comptia-sec-plus-1.1-security-controls"
+    "objectiveId": "1.3",
+    "objectiveTitle": "Explain change management security impact",
+    "conceptId": "comptia-sec-plus-1.3-change-governance"
   },
   {
     "id": "secplus-29",
@@ -557,9 +557,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "The CAB is a cross-functional body that reviews proposed changes, weighs the risk versus benefit, and approves or schedules them. Implementation is the change executor's role. Code audits and user training are separate functions performed by other teams.",
-    "objectiveId": "1.1",
-    "objectiveTitle": "Compare categories and types of security controls",
-    "conceptId": "comptia-sec-plus-1.1-domain-fallback-2"
+    "objectiveId": "1.3",
+    "objectiveTitle": "Explain change management security impact",
+    "conceptId": "comptia-sec-plus-1.3-change-governance"
   },
   {
     "id": "secplus-33",
@@ -613,9 +613,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "ITIL standard changes are pre-authorized, low-risk, repeatable activities like password resets, account creation, or routine patch deployment. They follow a documented procedure and bypass full CAB review. The two other ITIL change categories are 'normal' (CAB review) and 'emergency' (expedited).",
-    "objectiveId": "1.4",
-    "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-domain-fallback-2"
+    "objectiveId": "1.3",
+    "objectiveTitle": "Explain change management security impact",
+    "conceptId": "comptia-sec-plus-1.3-change-governance"
   },
   {
     "id": "secplus-36",
@@ -651,7 +651,7 @@
     "explanation": "Symmetric encryption (AES, ChaCha20, 3DES) uses one shared key for both encrypt and decrypt operations. Asymmetric encryption (RSA, ECC) uses paired public and private keys. Hashing is one-way (no key needed). Digital signatures use asymmetric crypto.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-38",
@@ -667,7 +667,7 @@
     "explanation": "Cryptographic hash functions like `SHA-256` are designed to be one-way — irreversible by mathematical design. Encryption is reversible with the appropriate key. Encoding (Base64) is fully reversible by anyone. Hashes are used for integrity checks and password storage exactly because they're one-way.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-39",
@@ -683,7 +683,7 @@
     "explanation": "A unique salt per user means identical passwords produce different hashes, so an attacker cannot use precomputed rainbow tables. Every password must be cracked individually, multiplying the attacker's workload by the number of accounts.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-40",
@@ -699,7 +699,7 @@
     "explanation": "Digital signatures bind a document to the signer's identity by encrypting a hash of the document with the signer's private key. Verifiers use the public key to confirm origin. This proves WHO signed (authentication) and prevents the signer from later denying it (non-repudiation). Signatures do not provide confidentiality on their own.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-41",
@@ -720,7 +720,7 @@
     "explanation": "HSMs are tamper-resistant hardware that generate, store, and use cryptographic keys without ever exposing them to the operating system. They perform sensitive crypto operations (sign, decrypt) inside the secure boundary. Load balancing, spam filtering, and DNS are unrelated functions.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-cryptographic-key-management"
   },
   {
     "id": "secplus-42",
@@ -736,7 +736,7 @@
     "explanation": "A TPM is a chip integrated into a device's motherboard that handles boot integrity (measured boot), stores keys for full-disk encryption (BitLocker, FileVault), and provides a hardware root of trust. TPMs are local to a single device; HSMs may be local or network-attached and are typically used for enterprise-scale key management.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-43",
@@ -752,7 +752,7 @@
     "explanation": "Online Certificate Status Protocol (`OCSP`) lets a client query the issuing CA to check whether a specific certificate has been revoked. It replaces the older, cumbersome process of downloading the full Certificate Revocation List (CRL) for every validation.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-44",
@@ -768,7 +768,7 @@
     "explanation": "Certificate authorities publish CRLs listing certificates they have revoked before expiration (compromised keys, employee departures, key rotation, etc.). Browsers consult CRLs — or the more efficient `OCSP` — to validate certificate status during TLS handshakes.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-45",
@@ -815,7 +815,7 @@
     },
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-46",
@@ -831,7 +831,7 @@
     "explanation": "Password storage requires SLOW, salted, computationally expensive hashing — `bcrypt`, `scrypt`, and `Argon2id` are purpose-built for this. `MD5` and `SHA-1` are fast (bad for passwords because attackers can guess billions per second) and have known collision weaknesses. `AES-256` is reversible — the wrong tool entirely for a one-way password hash.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-47",
@@ -847,7 +847,7 @@
     "explanation": "Each block in a blockchain includes the cryptographic hash of the previous block, so altering any historical block invalidates every subsequent hash. Combined with distributed consensus, this makes tampering effectively impossible without controlling a majority of the network — making the chain an 'open public ledger.'",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-48",
@@ -863,7 +863,7 @@
     "explanation": "Browsers and operating systems trust certificates whose chain terminates at a pre-installed trusted root CA. A self-signed certificate is its own issuer with no third-party validation — so the trust must come from somewhere else (e.g., the organization distributing the cert internally). Self-signed certs are useful for internal services but unsuitable for public TLS.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-49",
@@ -879,7 +879,7 @@
     "explanation": "PFS uses ephemeral session keys negotiated via Diffie-Hellman (DHE) or elliptic-curve DH (ECDHE) for each connection. Even if an attacker captures encrypted traffic today and later steals the server's long-term private key, they still cannot decrypt the past sessions because the ephemeral keys were never stored.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-50",
@@ -899,7 +899,7 @@
     "explanation": "Statement 1 is FALSE — asymmetric encryption is much SLOWER than symmetric for bulk data. TLS uses asymmetric ONLY to securely exchange a symmetric session key, then switches to symmetric for the bulk transfer (exactly because asymmetric is too slow). Statement 2 correctly describes collision resistance, a core hash property. Statement 3 correctly describes the standard TLS handshake pattern.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-51",
@@ -1110,9 +1110,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Implicit deny is the security best practice — if no rule explicitly permits the traffic, it's blocked. This 'deny by default' posture is much safer than 'allow by default' because new threats don't get a free pass. Firewalls, RBAC systems, and SELinux all use this pattern.",
-    "objectiveId": "1.4",
-    "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-domain-fallback-0"
+    "objectiveId": "1.2",
+    "objectiveTitle": "Summarize fundamental security concepts",
+    "conceptId": "comptia-sec-plus-1.2-authentication-and-core-principles"
   },
   {
     "id": "secplus-64",
@@ -1132,7 +1132,7 @@
   },
   {
     "id": "secplus-65",
-    "domain": "General Security Concepts",
+    "domain": "Security Program Management and Oversight",
     "question": "In standard risk-management terminology, a 'threat' is BEST defined as:",
     "choices": [
       "The actual occurrence of a security event",
@@ -1142,13 +1142,13 @@
     ],
     "correctAnswer": 3,
     "explanation": "Threat = a potential cause: a malicious hacker, a malicious insider, a hurricane, an accidental misconfiguration. Vulnerability = a weakness. Exploit = the technique that uses the vulnerability. Risk = likelihood × impact, combining all of these. The distinctions matter on the exam.",
-    "objectiveId": "1.2",
-    "objectiveTitle": "Summarize fundamental security concepts",
-    "conceptId": "comptia-sec-plus-1.2-domain-fallback-2"
+    "objectiveId": "5.2",
+    "objectiveTitle": "Explain risk management",
+    "conceptId": "comptia-sec-plus-5.2-risk-and-continuity-analysis"
   },
   {
     "id": "secplus-66",
-    "domain": "General Security Concepts",
+    "domain": "Security Program Management and Oversight",
     "question": "A 'vulnerability' differs from a 'threat' in that a vulnerability is specifically:",
     "choices": [
       "A weakness in a system or process that could be taken advantage of",
@@ -1158,14 +1158,14 @@
     ],
     "correctAnswer": 0,
     "explanation": "A vulnerability is the WEAKNESS — unpatched software, weak password policy, missing input validation. A threat is the potential ACTOR or event that could exploit it. An exploit is the actual technique. These three are routinely confused but the exam tests whether you can keep them straight.",
-    "objectiveId": "1.3",
-    "objectiveTitle": "Explain change management security impact",
-    "conceptId": "comptia-sec-plus-1.3-domain-fallback-0"
+    "objectiveId": "5.2",
+    "objectiveTitle": "Explain risk management",
+    "conceptId": "comptia-sec-plus-5.2-risk-and-continuity-analysis"
   },
   {
     "id": "secplus-67",
     "type": "matching",
-    "domain": "General Security Concepts",
+    "domain": "Security Program Management and Oversight",
     "question": "Match each risk-management term with its correct definition:",
     "itemsLeft": [
       "Threat",
@@ -1186,9 +1186,9 @@
       1
     ],
     "explanation": "Threat = a potential cause. Vulnerability = a weakness. Exploit = a technique that uses a weakness. Risk = likelihood × impact. These four terms are foundational to security frameworks and are routinely confused in practice.",
-    "objectiveId": "1.4",
-    "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-domain-fallback-1"
+    "objectiveId": "5.2",
+    "objectiveTitle": "Explain risk management",
+    "conceptId": "comptia-sec-plus-5.2-risk-and-continuity-analysis"
   },
   {
     "id": "secplus-68",
@@ -1224,11 +1224,11 @@
     "explanation": "An access vestibule physically prevents an unauthorized person from following an authorized person into a secure area — defeating the tailgating attack. The first door must close fully and re-authenticate the badge before the second door unlocks. CompTIA SY0-701 explicitly uses 'access control vestibule' as the preferred term.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-70",
-    "domain": "General Security Concepts",
+    "domain": "Security Program Management and Oversight",
     "question": "An attacker abuses a SQL injection vulnerability to exfiltrate customer records from an e-commerce database. In risk-management terminology, the SQL injection technique itself is the:",
     "choices": [
       "Exploit",
@@ -1238,9 +1238,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "The SQL injection technique IS the exploit — the specific action that takes advantage of a vulnerability (unsanitized user input). The attacker is the threat actor. The unsanitized code is the vulnerability. The combined likelihood and impact would be the risk. Mitigation would be a control like parameterized queries.",
-    "objectiveId": "1.3",
-    "objectiveTitle": "Explain change management security impact",
-    "conceptId": "comptia-sec-plus-1.3-domain-fallback-1"
+    "objectiveId": "5.2",
+    "objectiveTitle": "Explain risk management",
+    "conceptId": "comptia-sec-plus-5.2-risk-and-continuity-analysis"
   },
   {
     "id": "secplus-71",
@@ -1363,9 +1363,9 @@
       4
     ],
     "explanation": "Standard emergency change flow: IDENTIFY the cause first (so you fix the right thing), NOTIFY stakeholders before acting (so business isn't surprised), IMPLEMENT the fix, DOCUMENT retrospectively, then SCHEDULE a root-cause review. Skipping the notification step is a classic mistake — leadership finds out about the outage from customers, not from IT.",
-    "objectiveId": "1.2",
-    "objectiveTitle": "Summarize fundamental security concepts",
-    "conceptId": "comptia-sec-plus-1.2-domain-fallback-2"
+    "objectiveId": "1.3",
+    "objectiveTitle": "Explain change management security impact",
+    "conceptId": "comptia-sec-plus-1.3-change-governance"
   },
   {
     "id": "secplus-78",
@@ -1413,7 +1413,7 @@
     "explanation": "Both `AES-256` and `ChaCha20` are symmetric ciphers — the same key is used for encryption and decryption. `RSA` and `ECC` are asymmetric. `SHA-256` is a hash function. `Diffie-Hellman` is a key exchange protocol. The exam will mix algorithm names across categories — knowing which is which is essential.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-81",
@@ -1429,7 +1429,7 @@
     "explanation": "Diffie-Hellman lets two parties derive a shared secret by exchanging public values whose combination produces the shared secret. The secret itself never crosses the wire, so eavesdroppers can't capture it. Modern TLS uses ephemeral DH (DHE/ECDHE) variants that also provide Perfect Forward Secrecy.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-82",
@@ -1445,7 +1445,7 @@
     "explanation": "FDE encrypts the storage device contents. Its protection is strongest when the device is OFF — once the user boots and unlocks the disk, the OS sees plaintext for all subsequent reads. In-transit encryption (TLS) handles network traffic; in-use encryption (homomorphic, enclaves) is a separate problem with different solutions.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-83",
@@ -1461,7 +1461,7 @@
     "explanation": "A wildcard cert with `*.example.com` covers any single-label direct subdomain — `mail.example.com`, `api.example.com`, etc. It does NOT cover the root `example.com` itself (you need a separate SAN entry for that), and does NOT cover multi-level subdomains like `a.b.example.com` unless explicitly listed.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-84",
@@ -1489,7 +1489,7 @@
     "explanation": "HMAC = keyed-hash for integrity+authenticity. HKDF = key derivation function (derives session keys from a shared secret). Forward secrecy = past sessions stay confidential even if a future key compromise occurs. PKI = the whole framework of CAs, certificates, and policies.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-85",
@@ -1509,7 +1509,7 @@
     "explanation": "Statement 1 correctly describes digital signature mechanics. Statement 2 correctly defines hash collision — a property cryptographic hashes try to make computationally infeasible. Statement 3 is FALSE — `TLS 1.3` actually REMOVED legacy and weak algorithms (RC4, CBC modes, RSA key exchange, static DH, etc.) compared to `TLS 1.2`. It's deliberately leaner and safer.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-86",
@@ -1525,7 +1525,7 @@
     "explanation": "A KMS (AWS KMS, Azure Key Vault, GCP KMS) manages keys throughout their lifecycle: generating them inside HSMs, storing them encrypted, rotating them according to policy, and revoking them when needed. Applications request crypto operations from the KMS rather than handling raw key material themselves.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-87",
@@ -1541,7 +1541,7 @@
     "explanation": "Envelope encryption uses two-level keys: a DEK directly encrypts the data, and a KEK (managed by a KMS or HSM) encrypts the DEK. This lets you rotate the KEK without re-encrypting all underlying data, and limits exposure if a single DEK is compromised. Standard pattern in AWS, Azure, and GCP.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-88",
@@ -1562,7 +1562,7 @@
     "explanation": "`MD5` is broken for password storage for two main reasons: (1) it has known practical collision attacks, and (2) it's TOO FAST. Modern GPUs compute billions of `MD5` hashes per second, making brute-force feasible against even reasonably complex passwords. Modern alternatives like `bcrypt` and `Argon2id` are deliberately slow and memory-hard.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-89",
@@ -1578,7 +1578,7 @@
     "explanation": "Sufficiently large quantum computers could theoretically break current asymmetric algorithms (`RSA`, `ECC`) using Shor's algorithm. PQC algorithms — `CRYSTALS-Kyber`, `CRYSTALS-Dilithium`, and others — are designed to resist this future threat. NIST has begun standardizing PQC algorithms so organizations can transition ahead of practical quantum computers existing.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-encryption-and-key-exchange"
   },
   {
     "id": "secplus-90",
@@ -1594,7 +1594,7 @@
     "explanation": "The SAN field lists alternative names a certificate covers — a single cert can secure `example.com`, `www.example.com`, and `mail.example.com` by listing all of them as SANs. Modern TLS uses SAN as the PRIMARY mechanism for hostname matching; the legacy CN (Common Name) field is deprecated for this purpose.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-91",
@@ -1624,7 +1624,7 @@
     "explanation": "Nation-state activity is distinguished by strategic objectives, sustained resources, and advanced capabilities. Persistence and TLS are common across many attacker types and do not independently establish attribution.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-nation-state-and-organized-crime"
   },
   {
     "id": "secplus-92",
@@ -1640,7 +1640,7 @@
     "explanation": "Hacktivists (a portmanteau of 'hack' and 'activist') are motivated by ideology — political, social, or environmental causes. They typically WANT publicity for their attacks (defacements, doxxing, DDoS) because the goal is to spread a message, not stay hidden. Anonymous is a well-known example.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-hacktivist-and-unskilled-actors"
   },
   {
     "id": "secplus-93",
@@ -1656,7 +1656,7 @@
     "explanation": "Unskilled attackers (formerly called 'script kiddies') run prebuilt tools — Metasploit modules, downloaded exploit scripts, password lists — without truly understanding the techniques. They're low-sophistication but still dangerous because the tools they use are often genuinely effective. SY0-701 specifically uses the term 'unskilled attacker' now.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-hacktivist-and-unskilled-actors"
   },
   {
     "id": "secplus-94",
@@ -1686,7 +1686,7 @@
     "explanation": "The combination of impending departure, abnormal volume, after-hours activity, removable media, and a personal storage destination creates a strong exfiltration indicator. None of the other facts alone demonstrates malicious behavior.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-95",
@@ -1733,7 +1733,7 @@
     },
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-96",
@@ -1758,7 +1758,7 @@
     "explanation": "Employees are using an unsanctioned cloud application outside managed SSO, DLP, and vendor review. That is shadow IT and creates governance, data-loss, and compliance risk even if the service itself is not known to be malicious.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-97",
@@ -1774,7 +1774,7 @@
     "explanation": "Organized cybercrime is run as a business — ransomware-as-a-service operations, banking trojans, credit card fraud rings, business email compromise. The motivation is profit, and the operations have professional structure: developers, affiliates, money launderers, customer support for victims.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-actor-motivation-and-capability"
   },
   {
     "id": "secplus-98",
@@ -1795,7 +1795,7 @@
     "explanation": "Nation-state actors invest in capabilities others can't afford — zero-day research, custom implants — and they play the long game. Maintaining access for months or years to slowly collect intelligence is the hallmark of APT operations. Smash-and-grab is more typical of opportunistic criminals.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-nation-state-and-organized-crime"
   },
   {
     "id": "secplus-99",
@@ -1811,7 +1811,7 @@
     "explanation": "APT describes the WHO and the HOW — sophisticated actors (typically nation-states or well-resourced criminal groups) using stealthy, prolonged campaigns rather than smash-and-grab attacks. The 'persistent' refers to maintained network access over time; the 'advanced' refers to the resources and techniques.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-100",
@@ -1827,7 +1827,7 @@
     "explanation": "Unintentional insiders cause harm without meaning to — clicking phishing links, sending sensitive data to the wrong recipient, misconfiguring a cloud bucket, losing a laptop. They're not malicious, but they cause real breaches. Most data leaks involve some unintentional-insider element, which is why training matters.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-101",
@@ -1910,9 +1910,9 @@
       3
     ],
     "explanation": "Robert Cialdini's classic influence principles — authority, urgency, scarcity, social proof, liking, reciprocity, commitment — are the toolkit of social engineers. Authority (CEO is calling!) and urgency (act now or lose the deal!) are particularly effective because they short-circuit critical thinking.",
-    "objectiveId": "2.1",
-    "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-domain-fallback-0"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-106",
@@ -2258,14 +2258,14 @@
     ],
     "correctAnswer": 0,
     "explanation": "Password spraying turns the brute-force model sideways — instead of hammering one account, try `Welcome2026!` against ten thousand accounts. Per-account lockout policies don't trigger because each account only sees one or two attempts. Spraying succeeds because at scale, SOMEONE always has the weak common password.",
-    "objectiveId": "2.5",
-    "objectiveTitle": "Explain mitigation techniques",
-    "conceptId": "comptia-sec-plus-2.5-domain-fallback-1"
+    "objectiveId": "2.4",
+    "objectiveTitle": "Analyze indicators of malicious activity",
+    "conceptId": "comptia-sec-plus-2.4-attack-behavior-and-indicators"
   },
   {
     "id": "secplus-125",
     "type": "ordering",
-    "domain": "Threats, Vulnerabilities, and Mitigations",
+    "domain": "Security Operations",
     "question": "Arrange the standard NIST incident response phases in the correct order:",
     "items": [
       "Containment",
@@ -2284,9 +2284,9 @@
       1
     ],
     "explanation": "Standard NIST SP 800-61 lifecycle: PREPARATION → DETECTION & ANALYSIS → CONTAINMENT → ERADICATION → RECOVERY → LESSONS LEARNED. Containment comes before eradication because you stop the bleeding first, then remove the root cause. Lessons learned is the closing retrospective.",
-    "objectiveId": "2.1",
-    "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-domain-fallback-2"
+    "objectiveId": "4.8",
+    "objectiveTitle": "Apply incident response activities",
+    "conceptId": "comptia-sec-plus-4.8-incident-exercises-and-response"
   },
   {
     "id": "secplus-126",
@@ -2435,7 +2435,7 @@
     "explanation": "Service accounts often have long-lived credentials and broad access — making them prime targets. Least privilege scoped to specific permissions (read-only on this bucket, write to that queue) limits damage when (not if) credentials leak. Cloud providers offer fine-grained IAM precisely so this can be enforced practically.",
     "objectiveId": "2.5",
     "objectiveTitle": "Explain mitigation techniques",
-    "conceptId": "comptia-sec-plus-2.5-domain-fallback-2"
+    "conceptId": "comptia-sec-plus-2.5-hardening-and-access-mitigation"
   },
   {
     "id": "secplus-135",
@@ -2463,7 +2463,7 @@
   },
   {
     "id": "secplus-136",
-    "domain": "Threats, Vulnerabilities, and Mitigations",
+    "domain": "Security Operations",
     "question": "A 'configuration baseline' is BEST described as:",
     "choices": [
       "The list of currently authorized employees maintained by HR",
@@ -2473,13 +2473,13 @@
     ],
     "correctAnswer": 3,
     "explanation": "Baselines define 'good' for a system type — what services run, what's installed, what registry keys are set, what permissions are applied. Configuration management tools (Ansible, Puppet, Chef, GPO) enforce baselines automatically. Drift from baseline is itself a security signal — why has this server diverged from standard?",
-    "objectiveId": "2.2",
-    "objectiveTitle": "Explain threat vectors and attack surfaces",
-    "conceptId": "comptia-sec-plus-2.2-domain-fallback-1"
+    "objectiveId": "4.1",
+    "objectiveTitle": "Apply secure techniques to computing resources",
+    "conceptId": "comptia-sec-plus-4.1-secure-baselines-and-endpoints"
   },
   {
     "id": "secplus-137",
-    "domain": "Threats, Vulnerabilities, and Mitigations",
+    "domain": "Security Operations",
     "question": "A Security Information and Event Management (SIEM) system PRIMARILY:",
     "choices": [
       "Aggregates and correlates security events from across the environment to enable detection, investigation, and compliance reporting",
@@ -2489,9 +2489,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "SIEM platforms (Splunk, Sentinel, Elastic, etc.) ingest logs and events from firewalls, endpoints, cloud APIs, applications, and identity systems — then correlate them to surface high-priority security events. They're the central nervous system of a SOC; they don't replace other controls but make them collectively useful.",
-    "objectiveId": "2.3",
-    "objectiveTitle": "Explain vulnerability types",
-    "conceptId": "comptia-sec-plus-2.3-domain-fallback-2"
+    "objectiveId": "4.4",
+    "objectiveTitle": "Use security alerting and monitoring concepts",
+    "conceptId": "comptia-sec-plus-4.4-monitoring-intelligence-and-metrics"
   },
   {
     "id": "secplus-138",
@@ -2516,7 +2516,7 @@
   },
   {
     "id": "secplus-139",
-    "domain": "Threats, Vulnerabilities, and Mitigations",
+    "domain": "Security Operations",
     "question": "When a corporate laptop reaches end-of-life and is being decommissioned, the BEST way to ensure that sensitive data on its storage cannot be practically recovered by future possessors is:",
     "choices": [
       "Cryptographic erasure (destroying the encryption key) for encrypted drives, or physical destruction of the storage media",
@@ -2526,9 +2526,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "Standard reformatting or deletion leaves recoverable data — forensic tools can typically retrieve it. Cryptographic erasure renders an encrypted drive unrecoverable because the data without the key is just random bytes. For drives with sensitive data, physical destruction (shredding, degaussing, drilling) is the most reliable approach.",
-    "objectiveId": "2.5",
-    "objectiveTitle": "Explain mitigation techniques",
-    "conceptId": "comptia-sec-plus-2.5-domain-fallback-1"
+    "objectiveId": "4.2",
+    "objectiveTitle": "Explain hardware, software, and data asset management",
+    "conceptId": "comptia-sec-plus-4.2-asset-lifecycle-and-disposal"
   },
   {
     "id": "secplus-140",
@@ -2612,7 +2612,7 @@
     "explanation": "Log4j is a ubiquitous Java logging library — embedded in tens of thousands of applications, often deeply nested in dependency trees. The JNDI vulnerability allowed remote code execution via a single crafted log message. Patching required identifying every product (often via SBOMs) that bundled Log4j, not just the direct dependency.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-145",
@@ -2633,7 +2633,7 @@
     "explanation": "IoT devices are commonly attacked through default credentials (admin/admin still in production) and out-of-date firmware (vendors stop releasing updates quickly, and end-users rarely apply them). Botnets like Mirai built massive armies from exactly these two weaknesses across consumer routers and cameras.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-nation-state-and-organized-crime"
   },
   {
     "id": "secplus-146",
@@ -3105,9 +3105,9 @@
       2
     ],
     "explanation": "Standard Lockheed Martin Cyber Kill Chain: RECONNAISSANCE → WEAPONIZATION → DELIVERY → EXPLOITATION → INSTALLATION → COMMAND & CONTROL → ACTIONS ON OBJECTIVES. Defenders use the chain to identify which phases their controls disrupt — the earlier in the chain you stop the attacker, the smaller the impact.",
-    "objectiveId": "2.3",
-    "objectiveTitle": "Explain vulnerability types",
-    "conceptId": "comptia-sec-plus-2.3-domain-fallback-1"
+    "objectiveId": "2.4",
+    "objectiveTitle": "Analyze indicators of malicious activity",
+    "conceptId": "comptia-sec-plus-2.4-attack-behavior-and-indicators"
   },
   {
     "id": "secplus-173",
@@ -3224,7 +3224,7 @@
   {
     "id": "secplus-180",
     "type": "multiple-response",
-    "domain": "Threats, Vulnerabilities, and Mitigations",
+    "domain": "Security Operations",
     "question": "Which TWO of the following BEST illustrate the security value provided by Multi-Factor Authentication (MFA)? (Select TWO)",
     "choices": [
       "It replaces the need for any password complexity requirements entirely",
@@ -3238,9 +3238,9 @@
       4
     ],
     "explanation": "MFA defeats the two highest-volume attacks: credential stuffing (using leaked credentials from one site against another) and password spraying (trying common passwords across many accounts). Even if the password is correct, the attacker doesn't have the second factor. MFA doesn't replace password hygiene and doesn't stop all attacks — but it's one of the highest-leverage security investments available.",
-    "objectiveId": "2.1",
-    "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-domain-fallback-0"
+    "objectiveId": "4.6",
+    "objectiveTitle": "Implement identity and access management",
+    "conceptId": "comptia-sec-plus-4.6-identity-access-and-account-lifecycle"
   },
   {
     "id": "secplus-181",
@@ -3317,9 +3317,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "NIST 800-63B updated the consensus: length beats complexity, forced periodic rotation makes things WORSE (users predictably increment a counter), and screening against known-bad password lists matters more than character-class rules. The 'must contain uppercase, lowercase, number, symbol, change every 90 days' regime is now considered counterproductive.",
-    "objectiveId": "2.4",
-    "objectiveTitle": "Analyze indicators of malicious activity",
-    "conceptId": "comptia-sec-plus-2.4-domain-fallback-0"
+    "objectiveId": "2.5",
+    "objectiveTitle": "Explain mitigation techniques",
+    "conceptId": "comptia-sec-plus-2.5-hardening-and-access-mitigation"
   },
   {
     "id": "secplus-184",
@@ -3441,9 +3441,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "Cable locks deter quick grab-and-go theft. They won't stop a determined attacker with tools, but they raise the effort enough that opportunistic thieves move on. Pairing with full-disk encryption, MFA, and remote wipe capability turns a stolen laptop into expensive scrap rather than a data breach.",
-    "objectiveId": "2.1",
-    "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-domain-fallback-1"
+    "objectiveId": "2.5",
+    "objectiveTitle": "Explain mitigation techniques",
+    "conceptId": "comptia-sec-plus-2.5-hardening-and-access-mitigation"
   },
   {
     "id": "secplus-241",
@@ -3492,9 +3492,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Open-source intelligence (OSINT) is the collection and analysis of information from publicly available sources — websites, social media, job boards, public DNS records, certificate transparency logs, and public code repositories. OSINT requires no unauthorized access and is a foundational technique in both offensive reconnaissance and defensive threat intelligence. HUMINT uses human sources; SIGINT intercepts signals/communications; TECHINT analyzes technical systems and capabilities.",
-    "objectiveId": "2.4",
-    "objectiveTitle": "Analyze indicators of malicious activity",
-    "conceptId": "comptia-sec-plus-2.4-domain-fallback-0"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-244",
@@ -3700,7 +3700,7 @@
     },
     "objectiveId": "2.4",
     "objectiveTitle": "Analyze indicators of malicious activity",
-    "conceptId": "comptia-sec-plus-2.4-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-2.4-attack-behavior-and-indicators"
   },
   {
     "id": "secplus-254",
@@ -4132,9 +4132,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "IPSec transport mode encrypts only the payload (data) of the original IP packet while leaving the original IP header intact, making it suitable for end-to-end protection between two hosts that can see each other's real IP addresses. Tunnel mode encapsulates the entire original packet — including its IP header — within a new IP packet, making it suitable for VPN gateways connecting networks across untrusted infrastructure. Aggressive and main mode refer to IKE (key exchange) negotiation phases.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-2"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-264",
@@ -4205,7 +4205,7 @@
     "explanation": "RAID 5 stripes data and distributed parity across all member disks (minimum 3). It tolerates one disk failure: the missing data can be reconstructed from the surviving disks' parity. The write penalty — recalculating parity on every write — is the key trade-off. RAID 0 stripes without parity (no fault tolerance); RAID 1 mirrors data to a second disk; RAID 10 (1+0) mirrors then stripes, requiring at least 4 disks and tolerating one failure per mirror pair.",
     "objectiveId": "3.4",
     "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-0"
+    "conceptId": "comptia-sec-plus-3.4-resilience-and-recovery-design"
   },
   {
     "id": "secplus-268",
@@ -4294,7 +4294,7 @@
   },
   {
     "id": "secplus-273",
-    "domain": "Security Architecture",
+    "domain": "Security Operations",
     "question": "A security team wants to find vulnerabilities in application source code by analyzing it without executing the application — scanning for insecure function calls, hardcoded credentials, and injection-prone patterns. Which testing technique does this describe?",
     "type": "single-choice",
     "choices": [
@@ -4305,9 +4305,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Static application security testing (SAST) analyzes source code, bytecode, or binary code without executing it, identifying vulnerabilities at the code level early in development. DAST tests a running application from the outside by sending malicious inputs and observing responses; IAST combines both approaches by instrumenting the application at runtime; fuzzing sends malformed/random inputs to a running application to trigger crashes or unexpected behavior.",
-    "objectiveId": "3.2",
-    "objectiveTitle": "Apply security principles to enterprise infrastructure",
-    "conceptId": "comptia-sec-plus-3.2-domain-fallback-0"
+    "objectiveId": "4.3",
+    "objectiveTitle": "Explain vulnerability management",
+    "conceptId": "comptia-sec-plus-4.3-vulnerability-and-patch-operations"
   },
   {
     "id": "secplus-274",
@@ -4425,9 +4425,9 @@
       2
     ],
     "explanation": "The PKI certificate lifecycle proceeds: (1) Generate key pair and create CSR — the private key is generated locally and never leaves the server; (2) Submit CSR to the CA and receive the signed certificate — the CA validates identity and signs the public key; (3) Install the certificate on the service; (4) Monitor health and expiration throughout the validity period; (5) Renew before expiration or revoke immediately if the private key is compromised.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-0"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-280",
@@ -4445,9 +4445,9 @@
       false
     ],
     "explanation": "Site-to-site VPNs establish permanent encrypted tunnels between fixed network endpoints — the classic branch-to-HQ connectivity model (TRUE). SSL/TLS VPNs can operate in clientless mode entirely through a browser, which is one of their key advantages over IPSec for remote users (FALSE). The third statement inverts the modes: IPSec tunnel mode encapsulates the entire original packet (including its IP header) inside a new IP packet — it is transport mode that preserves the original header while encrypting only the payload (FALSE).",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-1"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-281",
@@ -4556,7 +4556,7 @@
   },
   {
     "id": "secplus-287",
-    "domain": "Security Architecture",
+    "domain": "General Security Concepts",
     "question": "Arrange the steps of an IT change management process in the correct order from initiation to closure.",
     "type": "ordering",
     "items": [
@@ -4574,9 +4574,9 @@
       0
     ],
     "explanation": "Change management follows: (1) Submit change request — document what, why, risk, and rollback; (2) Obtain CAB/approver approval — the change is reviewed and authorized; (3) Test in non-production — validate the change works as intended without impacting production; (4) Implement in production during the approved window; (5) Document and close — capture outcomes and lessons learned for future reference.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-2"
+    "objectiveId": "1.3",
+    "objectiveTitle": "Explain change management security impact",
+    "conceptId": "comptia-sec-plus-1.3-change-governance"
   },
   {
     "id": "secplus-288",
@@ -4689,9 +4689,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "Shoulder surfing involves directly observing someone entering sensitive information — PINs, passwords, or other credentials — by looking over their shoulder or through a camera. Tailgating and piggybacking both involve unauthorized physical access by following an authorized person; skimming captures card data from payment terminals or ATMs.",
-    "objectiveId": "2.3",
-    "objectiveTitle": "Explain vulnerability types",
-    "conceptId": "comptia-sec-plus-2.3-domain-fallback-0"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-193",
@@ -4706,9 +4706,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Dumpster diving is the practice of searching through discarded materials — physical trash, recycling bins, or electronic waste — to find useful information such as organizational charts, credentials, or device configurations. Tailgating is physical access following, pretexting is a fabricated story, and elicitation is drawing information out through seemingly innocent conversation.",
-    "objectiveId": "2.4",
-    "objectiveTitle": "Analyze indicators of malicious activity",
-    "conceptId": "comptia-sec-plus-2.4-domain-fallback-1"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-194",
@@ -4774,9 +4774,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "NFC/RFID skimming captures data from contactless cards or fobs by placing an unauthorized reader close enough to read the signal without physical contact. Badge cloning copies access card data to create a duplicate physical credential; shoulder surfing involves visually observing data entry; the evil maid attack involves physical access to an unattended device.",
-    "objectiveId": "2.3",
-    "objectiveTitle": "Explain vulnerability types",
-    "conceptId": "comptia-sec-plus-2.3-domain-fallback-2"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-198",
@@ -4793,7 +4793,7 @@
     "explanation": "The evil maid attack describes a scenario in which a threat actor gains brief, unsupervised physical access to a target's device — classically in a hotel room — to install malware, hardware implants, or keyloggers. The name references how an attacker could pose as hotel staff. Skimming captures card data remotely; shoulder surfing is visual observation; supply chain attacks compromise products before they reach the target.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-199",
@@ -4997,7 +4997,7 @@
     "explanation": "DNS exfiltration (DNS tunneling) encodes data within DNS query fields — typically subdomain labels — and sends it to an attacker-controlled authoritative DNS server. Because DNS traffic is rarely blocked or deeply inspected at perimeter controls, it can bypass DLP and firewall rules focused on HTTP/S. DNS hijacking redirects queries to malicious resolvers; BGP hijacking reroutes internet-level traffic; ICMP tunneling uses ping packet payloads as the covert channel.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-211",
@@ -5031,7 +5031,7 @@
     "explanation": "A birthday attack exploits the birthday paradox: the probability that any two random inputs share the same hash value (a collision) is much higher than the probability of finding an input that matches one specific hash. Attackers use this to find collisions in weaker hash functions (e.g., MD5, SHA-1), undermining digital signatures. A preimage attack finds an input matching a specific known hash; a rainbow table attack uses precomputed hash chains to reverse hashes; a padding oracle attack exploits CBC mode decryption feedback.",
     "objectiveId": "2.3",
     "objectiveTitle": "Explain vulnerability types",
-    "conceptId": "comptia-sec-plus-2.3-domain-fallback-2"
+    "conceptId": "comptia-sec-plus-2.3-software-and-cryptographic-weaknesses"
   },
   {
     "id": "secplus-213",
@@ -5102,7 +5102,7 @@
     "explanation": "Tactical threat intelligence consists of specific, actionable indicators of compromise (IoCs) — IP addresses, file hashes, domains, URLs — that can be directly ingested into SIEMs, firewalls, and threat intelligence platforms. Strategic intelligence is high-level and aimed at executives and policy decisions. Operational intelligence relates to attacker campaigns, TTPs, and motivations at a campaign level. An executive briefing is a communication format, not an intelligence tier.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-actor-motivation-and-capability"
   },
   {
     "id": "secplus-217",
@@ -5187,7 +5187,7 @@
     "explanation": "Attackers frequently create scheduled tasks with names mimicking legitimate software to blend in and establish persistence. Red flags here include: the task name slightly differs from genuine Edge update task naming, it runs Base64-encoded PowerShell (obfuscation indicator), it fires every 15 minutes (unusually frequent for an update check), and it is present on only one server rather than consistently across the fleet. Legitimate update tasks and GPO-deployed tasks are distributed consistently environment-wide.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-222",
@@ -5235,7 +5235,7 @@
     "explanation": "DNS tunneling encodes data within DNS subdomain labels (item 3). ARP poisoning sends forged ARP replies to associate the attacker's MAC address with a legitimate IP, intercepting LAN traffic (item 2). ICMP tunneling hides data in the payload field of echo request/reply packets (item 0). BGP hijacking announces false routes to redirect internet-level traffic through attacker-controlled infrastructure (item 1).",
     "objectiveId": "2.4",
     "objectiveTitle": "Analyze indicators of malicious activity",
-    "conceptId": "comptia-sec-plus-2.4-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-2.4-attack-behavior-and-indicators"
   },
   {
     "id": "secplus-224",
@@ -5369,9 +5369,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "Badge cloning uses a specialized RFID/NFC reader/writer (such as a Proxmark) to read the credential data from an access card and write it to a blank card, creating a functional duplicate. Skimming typically refers to capturing payment card data from readers without producing a cloned access card; shoulder surfing observes credential entry visually; tailgating follows an authorized person through a door without any cloning.",
-    "objectiveId": "2.1",
-    "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-domain-fallback-2"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-231",
@@ -5388,7 +5388,7 @@
     "explanation": "A supply chain attack compromises a trusted upstream component — here, an open-source library — to reach downstream targets that would otherwise be well-defended. The dependency relationship means a single point of compromise can affect thousands of organizations simultaneously. A watering hole attack compromises websites the target visits; an insider threat originates from within the targeted organization itself; a zero-day exploits an unknown vulnerability rather than tampering with a trusted component.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-232",
@@ -5563,9 +5563,9 @@
       false
     ],
     "explanation": "The birthday paradox shows that collision probability grows much faster than expected as the number of sampled inputs increases, making birthday attacks practical against weaker hash functions (TRUE). Preimage attacks — finding an input that matches a specific hash — remain computationally infeasible for well-designed functions such as SHA-256, even with significant computing resources (TRUE). MD5 is NOT considered secure for digital signatures; practical collision attacks against MD5 have been demonstrated since the mid-2000s, and it must not be used where collision resistance matters (FALSE).",
-    "objectiveId": "2.1",
-    "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-domain-fallback-0"
+    "objectiveId": "2.3",
+    "objectiveTitle": "Explain vulnerability types",
+    "conceptId": "comptia-sec-plus-2.3-software-and-cryptographic-weaknesses"
   },
   {
     "id": "secplus-291",
@@ -5633,7 +5633,7 @@
     "explanation": "A wildcard certificate uses an asterisk as the leftmost label (e.g., `*.example.com`) to secure any single-level subdomain under the base domain — mail, vpn, portal — with a single certificate. It covers one wildcard level only; nested subdomains like sub.sub.example.com require additional coverage. A SAN certificate explicitly lists multiple distinct domains; an EV certificate provides rigorous organization identity verification; a self-signed certificate is issued by the entity itself rather than a public CA.",
     "objectiveId": "3.3",
     "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-0"
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-295",
@@ -5648,9 +5648,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "A Subject Alternative Name (SAN) certificate — also called a multi-domain or UC certificate — lists explicitly named domains, subdomains, and IP addresses in its SAN extension, covering identifiers across completely different domain names and IP addresses in a single certificate. A wildcard covers only one subdomain level under a single base domain and cannot include IP addresses or cross-domain names; DV refers to validation level, not multi-domain capability; a Root CA certificate is a trust anchor, not an end-entity TLS certificate.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-1"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-296",
@@ -5665,9 +5665,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "Extended Validation (EV) certificates require the most rigorous CA vetting per CA/Browser Forum guidelines: confirming legal organization existence, verifying the requester's authority via business records, and conducting phone verification through an independently sourced number. DV verifies only domain control via DNS record or HTTP file challenge; OV verifies organization existence with less rigor than EV; Certificate Transparency is a public logging system for issued certificates, not a validation level.",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-2"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-297",
@@ -5682,9 +5682,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "A Root Certificate Authority (Root CA) is the trust anchor of a PKI hierarchy. Its self-signed certificate is pre-installed in operating systems and browsers as inherently trusted. Because compromise of the root CA would be catastrophic, it is kept offline in a physically secured, air-gapped environment and brought online only to sign subordinate CA certificates. The intermediate (subordinate) CA issues end-entity certificates in day-to-day operations. An RA handles enrollment; an OCSP responder answers real-time revocation queries.",
-    "objectiveId": "3.2",
-    "objectiveTitle": "Apply security principles to enterprise infrastructure",
-    "conceptId": "comptia-sec-plus-3.2-domain-fallback-0"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-298",
@@ -5701,7 +5701,7 @@
     "explanation": "OCSP (Online Certificate Status Protocol) allows a client to query the CA's OCSP responder for the real-time revocation status of a specific certificate, receiving a signed 'good', 'revoked', or 'unknown' response. CRLs are large files downloaded periodically and cached — they may be hours out of date at check time. OCSP stapling is an optimization where the server pre-fetches the OCSP response and delivers it in the TLS handshake, avoiding the client contacting the CA. CT logs provide an audit trail of issued certificates, not a revocation mechanism.",
     "objectiveId": "3.3",
     "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-299",
@@ -5716,9 +5716,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "Certificate pinning associates a specific certificate or public key with a known host, preventing acceptance of any other certificate even if legitimately CA-signed. It defeats attacks where an adversary presents a fraudulent certificate from a compromised or rogue CA. The trade-off is operational complexity: when the server's certificate is renewed with a new key pair, pinned apps must be updated. mTLS requires both sides to present certificates; HSTS forces HTTPS; CT enforcement requires certificates to be logged in public CT logs.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-2"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-300",
@@ -5750,9 +5750,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "Diffie-Hellman (DH) key exchange allows two parties to independently derive the same shared secret by combining their own private value with the other party's public value, relying on the discrete logarithm problem's computational hardness to prevent eavesdroppers from recovering the secret. Ephemeral DH (DHE) or ECDHE enables perfect forward secrecy. RSA key transport encrypts a symmetric key with the recipient's RSA public key; a PSK must be established out-of-band before the session; key wrapping encrypts one key with another for secure storage or transport.",
-    "objectiveId": "3.2",
-    "objectiveTitle": "Apply security principles to enterprise infrastructure",
-    "conceptId": "comptia-sec-plus-3.2-domain-fallback-1"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-302",
@@ -5772,7 +5772,7 @@
     "explanation": "CRLs are downloaded periodically and cached for their validity period — they may be hours or days out of date at the time of a TLS check, making them non-real-time (FALSE). OCSP stapling improves on standard OCSP by having the server fetch and present the signed status response in the TLS handshake, removing the client's need to contact the CA directly and preventing the CA from tracking individual user connections (TRUE). Certificate pinning does the opposite of the statement — it restricts a host to only specific pre-approved certificates or public keys, rejecting all others even if signed by a trusted CA (FALSE).",
     "objectiveId": "3.3",
     "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-2"
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-303",
@@ -5807,9 +5807,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "DNSSEC (Domain Name System Security Extensions) adds digital signatures to DNS resource records, allowing resolvers to verify record authenticity using a chain of trust rooted at the DNS root zone. It directly addresses cache poisoning and tampering. DNS over HTTPS (DoH) and DNS over TLS (DoT) encrypt DNS queries in transit to protect privacy from eavesdroppers but do not authenticate the integrity of the DNS records themselves; split DNS serves different records to internal and external resolvers.",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-1"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-305",
@@ -5841,9 +5841,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "SSH key-based authentication is resistant to brute-force and credential-stuffing attacks because authentication relies on possession of a private key that never leaves the client and is computationally infeasible to guess from the public key. Passwords can be guessed, phished, or captured by keyloggers. With a passphrase protecting the key file, key-based auth also resists loss through physical theft of the device. The SSH session is always encrypted regardless of authentication method; private keys must never be shared; host key verification remains important regardless of authentication type.",
-    "objectiveId": "3.3",
-    "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-0"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-307",
@@ -6025,9 +6025,9 @@
       2
     ],
     "explanation": "Organization Validation (OV) and Extended Validation (EV) are both CA/Browser Forum-defined validation levels. OV verifies that the organization legally exists; EV applies the most stringent identity checks, including legal existence, physical address, phone verification, and requester authority. Certificate Transparency is a public logging system for all issued certificates — it ensures visibility but is not itself a validation level. OCSP stapling is a performance optimization for revocation checking, not a validation category.",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-1"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-317",
@@ -6127,9 +6127,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "OAuth 2.0 is an authorization framework issuing access tokens that grant delegated API permissions — it does not convey who the user is. OpenID Connect (OIDC) is an authentication layer built on top of OAuth 2.0 that adds an ID token (a signed JWT) containing identity claims such as subject identifier, email, and name. 'Sign in with Google' uses both: OAuth 2.0 for API access authorization, OIDC for user identity assertion. Using raw OAuth 2.0 without OIDC for authentication is a well-known security anti-pattern.",
-    "objectiveId": "3.3",
-    "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-1"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-323",
@@ -6168,9 +6168,9 @@
       3
     ],
     "explanation": "TLS 1.3 handshake: (1) Client sends ClientHello with cipher suites and an ephemeral Diffie-Hellman key share; (2) Server responds with ServerHello selecting parameters and providing its key share; (3) Server sends Certificate and CertificateVerify (a digital signature over the handshake transcript proving private key possession); (4) Both parties derive the same symmetric session keys from the exchanged key material; (5) Encrypted application data begins. TLS 1.3 achieves this in a single round-trip (1-RTT), down from TLS 1.2's two round-trips.",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-0"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-325",
@@ -6187,7 +6187,7 @@
     "explanation": "A mantrap (also called an airlock or access control vestibule) is a physical security mechanism consisting of two interlocked doors forming a small buffer zone. Only one door can be open at a time, and the inner door opens only after identity verification in the vestibule, actively preventing tailgating and enabling detention of unauthorized persons. A turnstile controls entry flow but does not create an identity verification hold; a biometric lock is an authentication mechanism; a Faraday cage blocks electromagnetic signals.",
     "objectiveId": "3.2",
     "objectiveTitle": "Apply security principles to enterprise infrastructure",
-    "conceptId": "comptia-sec-plus-3.2-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-326",
@@ -6219,9 +6219,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "False Acceptance Rate (FAR) measures how often an unauthorized person is incorrectly accepted. False Rejection Rate (FRR) measures how often an authorized person is incorrectly rejected. These metrics are inversely related: increasing sensitivity (stricter matching threshold) decreases FAR but raises FRR — fewer impostors get through but more legitimate users are turned away. The Crossover Error Rate (CER/EER) is where FAR equals FRR, representing the system's optimal operating balance. Lowering FAR always raises FRR; they cannot both decrease simultaneously for a fixed algorithm.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-0"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-328",
@@ -6239,9 +6239,9 @@
       2
     ],
     "explanation": "Motion-activated lighting illuminates suspicious activity to enable visual detection and provides a deterrent effect — but it does not physically stop entry, making it primarily a detective (and deterrent) control. CCTV cameras record activity for post-incident detection and evidence collection — primarily detective. Biometric door locks and mantraps are preventive controls: the door lock physically blocks entry without a valid biometric; the mantrap physically detains a person in an airlock for verification, actively preventing tailgating.",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-1"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-329",
@@ -6389,9 +6389,9 @@
       1
     ],
     "explanation": "A honeypot is a single decoy system designed to attract and log attacker interactions while isolated from real assets (item 3). A honeynet is an entire network of honeypots simulating broader organizational infrastructure for large-scale attacker study (item 0). A canary token is a lightweight decoy — a fake password, document, or URL embedded in real systems — that generates an alert when accessed, with no dedicated decoy system required (item 2). A tarpit slows attacker connections by artificially delaying responses, wasting their time and compute resources (item 1).",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-0"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-337",
@@ -6423,9 +6423,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "A network TAP (Test Access Point) is passive hardware inserted physically inline that creates a bit-perfect copy of all traffic at the physical layer — it cannot drop packets because it has no software processing layer that could deprioritize copies. A SPAN (Switched Port Analyzer) port is a switch feature that mirrors traffic in software; under congestion the switch may drop SPAN copies to prioritize forwarding. For forensically reliable packet capture, TAPs are preferred over SPAN ports. SPAN is simpler to deploy but unreliable at high utilization.",
-    "objectiveId": "3.3",
-    "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-2"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-339",
@@ -6637,9 +6637,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Secure by default (also called security by design) means the product is shipped in its most secure configuration — hardened out of the box without requiring administrators to take extra steps. Open design (B) means the security mechanism's strength does not rely on keeping its design secret. Separation of privilege (C) requires multiple conditions to be met before access is granted. Psychological acceptability (D) means security mechanisms should not make the system harder to use than if there were no security at all.",
-    "objectiveId": "3.3",
-    "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-2"
+    "objectiveId": "3.1",
+    "objectiveTitle": "Compare security implications of architecture models",
+    "conceptId": "comptia-sec-plus-3.1-secure-architecture-models"
   },
   {
     "id": "secplus-351",
@@ -6654,9 +6654,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "Mandatory Access Control (MAC) uses system-enforced labels on subjects and objects; access decisions are made by the system, and data owners cannot override them. DAC (A) lets data owners control access permissions — used in most commercial operating systems. RBAC (C) assigns permissions based on job roles. ABAC (D) makes decisions based on multiple attributes of the user, resource, and environment.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-0"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-352",
@@ -6822,9 +6822,9 @@
       0
     ],
     "explanation": "EAP-TLS uses mutual certificate authentication — client and server both present certificates (index 1). PEAP creates a TLS tunnel using a server certificate, then authenticates the client with a password or token inside that tunnel (index 3). EAP-TTLS also creates a server-authenticated TLS tunnel but is more flexible — it supports legacy password protocols like PAP and CHAP inside the tunnel (index 2). EAP-FAST uses a PAC file provisioned out-of-band to establish the protected tunnel instead of a certificate (index 0).",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-0"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-361",
@@ -6856,9 +6856,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "OAuth 2.0 issues short-lived access tokens (typically 15–60 minutes) with refresh tokens for renewal. If an access token is compromised, it expires automatically. Tokens can be revoked, scoped to specific resources, and issued per-session without embedding long-lived credentials in the app. Longer API keys (A) increase guessing resistance but don't address revocation or expiration. Basic Authentication (C) sends credentials on every request and has no token expiration. IP allowlisting (D) adds a network-layer control but the embedded key is still long-lived.",
-    "objectiveId": "3.3",
-    "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-2"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-363",
@@ -6873,9 +6873,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Rate limiting restricts the number of requests a client (identified by API key, IP, or token) can make within a time window. This directly prevents abuse — whether accidental or deliberate — from overwhelming the service. Input validation (A) protects against malformed or malicious payloads but does not limit request volume. OAuth 2.0 (C) and mTLS (D) verify identity but do not limit how many requests an authenticated client can send.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-0"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-364",
@@ -6958,9 +6958,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "A digital signature provides integrity (the data has not been altered since it was signed) and non-repudiation (the signer cannot deny having signed it, because only the holder of the private key can produce the signature). It does not provide confidentiality — the content is readable; signing does not encrypt. Availability (A, D) is not addressed by signing. Authentication (C) is a partial benefit, but confidentiality is not provided by signing alone.",
-    "objectiveId": "3.1",
-    "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-2"
+    "objectiveId": "3.3",
+    "objectiveTitle": "Select strategies to protect data",
+    "conceptId": "comptia-sec-plus-3.3-cryptographic-data-protection"
   },
   {
     "id": "secplus-369",
@@ -7159,9 +7159,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Cable locks physically tether devices to desks or furniture, making opportunistic theft difficult without visible effort. They are a deterrent and delay mechanism — they do not cryptographically protect data, block USB ports, prevent boot from external media, or address electromagnetic attacks. The other controls require separate measures: USB port blocking (A) uses endpoint management tools or port blockers; unauthorized boot (C) is addressed with UEFI secure boot and BIOS passwords; electromagnetic threats (D) require shielding.",
-    "objectiveId": "3.4",
-    "objectiveTitle": "Explain resilience and recovery",
-    "conceptId": "comptia-sec-plus-3.4-domain-fallback-1"
+    "objectiveId": "3.2",
+    "objectiveTitle": "Apply security principles to enterprise infrastructure",
+    "conceptId": "comptia-sec-plus-3.2-infrastructure-and-access-architecture"
   },
   {
     "id": "secplus-380",
@@ -7335,7 +7335,7 @@
     "explanation": "A penetration test follows this order: (1) Rules of engagement/scoping — define authorized targets, test boundaries, and legal authorization before any testing begins; (2) Reconnaissance — gather information about the target using passive and active techniques; (3) Exploitation — attempt to compromise discovered vulnerabilities; (4) Post-exploitation — explore what can be achieved with achieved access (privilege escalation, lateral movement, data access); (5) Reporting — document findings, evidence, and remediation recommendations.",
     "objectiveId": "3.1",
     "objectiveTitle": "Compare security implications of architecture models",
-    "conceptId": "comptia-sec-plus-3.1-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-3.1-secure-architecture-models"
   },
   {
     "id": "secplus-389",
@@ -7374,9 +7374,9 @@
       false
     ],
     "explanation": "Statement 1 (TRUE): Principle of least privilege is a foundational security design principle — restricting access rights reduces the blast radius of compromised accounts, insider threats, and software bugs. Statement 2 (TRUE): Defense in depth (layered security) recognizes that no single control is perfect; overlapping independent controls ensure that an attacker must defeat multiple barriers, reducing the probability of successful compromise. Statement 3 (FALSE): Security by obscurity — relying on secrecy of design to provide security — is explicitly discouraged by NIST and the security community. NIST SP 800-123 and other guidance note that obscurity may be a minor supplementary measure but must not be the primary security mechanism.",
-    "objectiveId": "3.3",
-    "objectiveTitle": "Select strategies to protect data",
-    "conceptId": "comptia-sec-plus-3.3-domain-fallback-0"
+    "objectiveId": "3.1",
+    "objectiveTitle": "Compare security implications of architecture models",
+    "conceptId": "comptia-sec-plus-3.1-secure-architecture-models"
   },
   {
     "id": "secplus-391",
@@ -7892,7 +7892,7 @@
   {
     "id": "secplus-414",
     "domain": "Security Operations",
-    "question": "After a phishing incident, the security team automates the response: SIEM alert triggers ticket creation, queries threat intel for the sender domain, isolates the affected endpoint via EDR API, and blocks the domain in the email filter — all without analyst intervention. Which technology orchestrates this?",
+    "question": "After a phishing incident, the security team automates the response: SIEM alert opens an incident record, queries threat intel for the sender domain, isolates the affected endpoint via EDR API, and blocks the domain in the email filter — all without analyst intervention. Which technology orchestrates this?",
     "type": "single-choice",
     "choices": [
       "Security Orchestration, Automation, and Response (SOAR)",
@@ -7902,9 +7902,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "SOAR platforms orchestrate automated playbooks that connect multiple security tools via APIs — SIEM, EDR, email gateway, threat intel — executing multi-step response workflows without manual intervention. A SIEM (B) generates the alert but does not execute the response workflow. XDR (C) integrates detection across telemetry sources. A TIP (D) manages threat intelligence feeds.",
-    "objectiveId": "4.8",
-    "objectiveTitle": "Apply incident response activities",
-    "conceptId": "comptia-sec-plus-4.8-incident-response"
+    "objectiveId": "4.7",
+    "objectiveTitle": "Explain automation and orchestration",
+    "conceptId": "comptia-sec-plus-4.7-soar-and-playbook-orchestration"
   },
   {
     "id": "secplus-415",
@@ -8058,9 +8058,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "Pass-the-ticket extracts a valid Kerberos ticket from memory and replays it to authenticate to other services — no password required. Pass-the-hash (B) replays NTLM password hashes. A golden ticket (C) is a forged TGT created using the KRBTGT account hash, providing unlimited domain access. Kerberoasting (D) extracts service ticket hashes offline for password cracking.",
-    "objectiveId": "4.1",
-    "objectiveTitle": "Apply secure techniques to computing resources",
-    "conceptId": "comptia-sec-plus-4.1-domain-fallback-0"
+    "objectiveId": "4.6",
+    "objectiveTitle": "Implement identity and access management",
+    "conceptId": "comptia-sec-plus-4.6-identity-access-and-account-lifecycle"
   },
   {
     "id": "secplus-424",
@@ -8357,9 +8357,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Incremental backups capture only changes since the last backup of any type (full or incremental). Restoring requires the last full backup plus every incremental since then. Differential backups (B) capture changes since the last full backup — they grow daily, but restoration only requires the full + the latest differential (two sets, but differentials accumulate more data). Snapshots (D) capture volume state at a point in time, often used in virtualization.",
-    "objectiveId": "4.7",
-    "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-domain-fallback-0"
+    "objectiveId": "4.1",
+    "objectiveTitle": "Apply secure techniques to computing resources",
+    "conceptId": "comptia-sec-plus-4.1-secure-baselines-and-endpoints"
   },
   {
     "id": "secplus-439",
@@ -8606,9 +8606,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "On personal devices, corporate MDM cannot control what other apps are installed or how the OS shares data between apps — a malicious or poorly coded personal app may access corporate data in shared storage. Screen lock (A), app deployment (B), and encryption (D) can all be enforced via MDM profiles, but cross-app data isolation on personal devices remains a fundamental challenge.",
-    "objectiveId": "4.3",
-    "objectiveTitle": "Explain vulnerability management",
-    "conceptId": "comptia-sec-plus-4.3-domain-fallback-2"
+    "objectiveId": "4.1",
+    "objectiveTitle": "Apply secure techniques to computing resources",
+    "conceptId": "comptia-sec-plus-4.1-secure-baselines-and-endpoints"
   },
   {
     "id": "secplus-453",
@@ -8828,9 +8828,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "A tabletop exercise is a discussion-based scenario walkthrough — participants talk through their actions without touching live systems. A full interruption test (A) actually fails over to the DR environment. A parallel test (B) runs DR systems alongside production. A red team (D) actively simulates attacker behavior against live systems.",
-    "objectiveId": "4.6",
-    "objectiveTitle": "Implement identity and access management",
-    "conceptId": "comptia-sec-plus-4.6-domain-fallback-2"
+    "objectiveId": "4.8",
+    "objectiveTitle": "Apply incident response activities",
+    "conceptId": "comptia-sec-plus-4.8-incident-exercises-and-response"
   },
   {
     "id": "secplus-465",
@@ -8845,9 +8845,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "Red team simulates attackers; blue team defends and detects; purple team bridges both — facilitating real-time collaboration so defenders learn from attacker findings and red team validates defensive coverage gaps. The other options describe functional security roles, not adversarial exercise team structures.",
-    "objectiveId": "4.7",
-    "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-domain-fallback-0"
+    "objectiveId": "4.8",
+    "objectiveTitle": "Apply incident response activities",
+    "conceptId": "comptia-sec-plus-4.8-incident-exercises-and-response"
   },
   {
     "id": "secplus-466",
@@ -8918,7 +8918,7 @@
     "explanation": "ALE = SLE × ARO. Single Loss Expectancy (SLE) = Asset Value × Exposure Factor = $200,000 × 0.40 = $80,000. Annualized Rate of Occurrence (ARO) = 1/5 = 0.2. ALE = $80,000 × 0.2 = $16,000 per year. This figure helps justify control costs — spending more than $16,000/year on flood mitigation exceeds the expected annual loss.",
     "objectiveId": "5.2",
     "objectiveTitle": "Explain risk management",
-    "conceptId": "comptia-sec-plus-5.2-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-5.2-risk-and-continuity-analysis"
   },
   {
     "id": "secplus-470",
@@ -9005,13 +9005,13 @@
     ],
     "correctAnswer": 1,
     "explanation": "The BCP addresses maintaining critical business functions during a disruption — alternate processes, workarounds, manual operations. The DRP (C) focuses specifically on restoring IT systems and data after a disaster. The IRP (A) addresses cybersecurity incidents. A Change Management Plan (D) governs controlled changes to systems, not continuity.",
-    "objectiveId": "5.1",
-    "objectiveTitle": "Summarize security governance",
-    "conceptId": "comptia-sec-plus-5.1-domain-fallback-0"
+    "objectiveId": "5.2",
+    "objectiveTitle": "Explain risk management",
+    "conceptId": "comptia-sec-plus-5.2-risk-and-continuity-analysis"
   },
   {
     "id": "secplus-475",
-    "domain": "Security Program Management and Oversight",
+    "domain": "Security Architecture",
     "question": "A financial firm tests its DR plan by activating the failover site and running actual production workloads there, while simultaneously keeping the primary site operational. No primary-site services are disrupted. Which test type is this?",
     "type": "single-choice",
     "choices": [
@@ -9022,9 +9022,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "A parallel test activates the recovery environment and validates it can support production workloads, while the primary site continues running — no disruption, but a real technical validation. A full interruption test (D) shuts down the primary site and forces complete failover. A tabletop (A) is discussion-only. A simulation (B) tests specific components in isolation.",
-    "objectiveId": "5.2",
-    "objectiveTitle": "Explain risk management",
-    "conceptId": "comptia-sec-plus-5.2-domain-fallback-1"
+    "objectiveId": "3.4",
+    "objectiveTitle": "Explain resilience and recovery",
+    "conceptId": "comptia-sec-plus-3.4-resilience-and-recovery-design"
   },
   {
     "id": "secplus-476",
@@ -9144,7 +9144,7 @@
     "explanation": "SOC 2 Type II (AICPA) is an independent audit of a service organization's controls covering security, availability, processing integrity, confidentiality, and privacy Trust Services Criteria — evaluated over a period (typically 6–12 months) to confirm operating effectiveness, not just design. Type I only assesses design at a point in time. SOC 1 (C) addresses financial reporting controls. ISO 27001 (B) is a separate certification.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-vendor-due-diligence-and-monitoring"
   },
   {
     "id": "secplus-482",
@@ -9161,7 +9161,7 @@
     "explanation": "ISO 27001 certifies that an organization has established, implemented, maintained, and continually improved an ISMS — a systematic approach to managing information security risk. Certification requires a third-party audit. Implementing all ISO 27002 controls (B) is not required — only those relevant per the risk assessment. ISO 27001 is distinct from GDPR compliance (D), though it supports it.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-vendor-due-diligence-and-monitoring"
   },
   {
     "id": "secplus-483",
@@ -9253,7 +9253,7 @@
     "explanation": "A SOC 2 Type II report (B) provides independent audit evidence of control effectiveness over time. A security questionnaire (D) allows targeted questions about controls specific to the engagement's risk profile. Marketing materials (A) are promotional. Cyber insurance (C) addresses financial risk transfer, not control quality. Registry listing (E) may only verify procurement approval, not security controls.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-vendor-due-diligence-and-monitoring"
   },
   {
     "id": "secplus-488",
@@ -9270,7 +9270,7 @@
     "explanation": "A Software Bill of Materials (SBOM) is a formal inventory of all software components, libraries, and dependencies — including open-source packages and their known vulnerabilities — shipped within a product. SBOMs enable rapid identification of affected systems when a new CVE is disclosed in a dependency. A CMDB (A) tracks IT assets. A CVSS report (D) scores vulnerability severity.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-489",
@@ -9287,7 +9287,7 @@
     "explanation": "A right-to-audit clause grants the customer the contractual authority to inspect the vendor's security controls, processes, and records. It is a key vendor risk management tool when third-party attestations (SOC 2) alone are insufficient. An SLA (A) defines service performance targets. A DPA (B) governs data processing terms under GDPR. An NDA (C) protects confidential information.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-490",
@@ -9341,7 +9341,7 @@
     "explanation": "An AUP defines permitted and prohibited uses of organizational systems and requires employee acknowledgment. It establishes the legal and policy basis for disciplinary action and monitoring. An NDA (A) covers confidentiality of information. An MOU (C) documents inter-organizational agreements. An SLA (D) defines service performance expectations.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-493",
@@ -9358,7 +9358,7 @@
     "explanation": "An NDA (also called a confidentiality agreement) creates a legal obligation to keep shared information confidential and restricts its further disclosure. An SLA (A) governs service performance. A BPA (B) defines terms of a business partnership. A DPA (D) governs processing of personal data under GDPR.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-494",
@@ -9375,7 +9375,7 @@
     "explanation": "An MOU documents mutual understanding and intent between parties — outlining roles, responsibilities, and expectations — but typically lacks the binding legal force of a contract. It is commonly used between government entities and organizations where a formal contract is not appropriate. An SLA (A) carries service commitments. NDAs (B) and BPAs (C) are typically binding contracts.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-495",
@@ -9392,7 +9392,7 @@
     "explanation": "Due diligence is the process of investigating and verifying facts before making decisions — thoroughly assessing vendor security posture before and during a relationship. Due care (B) is the ongoing application of reasonable effort to protect assets after a decision is made. Both are required: due diligence to select wisely, due care to act responsibly afterward.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-496",
@@ -9409,11 +9409,11 @@
     "explanation": "A background investigation (background check) validates identity, employment history, criminal history, and credentials before granting access — a key pre-employment personnel security control. Security awareness training (A) occurs after hiring. Reference checks (C) are one input to the investigation but not its entirety. Privileged access reviews (D) are ongoing access management activities.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-role-based-and-recurring-training"
   },
   {
     "id": "secplus-497",
-    "domain": "Security Program Management and Oversight",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "A new employee starts work and is provisioned with access only to the specific systems and data required for their job role on day one. Which security principle drives this provisioning approach?",
     "type": "single-choice",
     "choices": [
@@ -9424,13 +9424,13 @@
     ],
     "correctAnswer": 0,
     "explanation": "Provisioning new accounts with only the minimum access required for the role applies least privilege from the start — preventing the accumulation of unnecessary permissions. Separation of duties (A) divides sensitive tasks across multiple people. Defense in depth (B) layers controls. Need-to-know with MAC (D) applies to classified environments specifically.",
-    "objectiveId": "5.6",
-    "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-domain-fallback-2"
+    "objectiveId": "2.5",
+    "objectiveTitle": "Explain mitigation techniques",
+    "conceptId": "comptia-sec-plus-2.5-hardening-and-access-mitigation"
   },
   {
     "id": "secplus-498",
-    "domain": "Security Program Management and Oversight",
+    "domain": "Security Operations",
     "question": "An employee resigns. The security team must complete tasks within the same business day to protect organizational assets. Which action is MOST critical to complete immediately?",
     "type": "single-choice",
     "choices": [
@@ -9441,9 +9441,9 @@
     ],
     "correctAnswer": 3,
     "explanation": "Immediate account deprovisioning is the most critical offboarding security action — a disgruntled or former employee retaining access is an active insider threat risk. Physical asset collection (A) and exit interviews (B) are important but secondary. Email archiving (C) is a retention function, typically automated.",
-    "objectiveId": "5.1",
-    "objectiveTitle": "Summarize security governance",
-    "conceptId": "comptia-sec-plus-5.1-domain-fallback-0"
+    "objectiveId": "4.6",
+    "objectiveTitle": "Implement identity and access management",
+    "conceptId": "comptia-sec-plus-4.6-identity-access-and-account-lifecycle"
   },
   {
     "id": "secplus-499",
@@ -9464,7 +9464,7 @@
     "explanation": "NDAs (B) and SLAs (D) are binding legal contracts — NDAs create enforceable confidentiality obligations; SLAs create enforceable service commitments with defined remedies. MOUs (A) and LOIs (C) typically document intent without binding force. An SOW summary (E) describes scope but the binding obligation is in the executed contract, not a summary.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-500",
@@ -9519,7 +9519,7 @@
   },
   {
     "id": "secplus-503",
-    "domain": "Security Program Management and Oversight",
+    "domain": "Security Operations",
     "question": "A configuration management tool continuously compares running server configurations against the approved baseline and alerts when any server deviates — for example, when a service is enabled that should be disabled. What problem does this tooling detect?",
     "type": "single-choice",
     "choices": [
@@ -9530,13 +9530,13 @@
     ],
     "correctAnswer": 0,
     "explanation": "Configuration drift occurs when a system's running state diverges from its approved baseline — often through manual changes, failed patches, or software updates. Continuous configuration monitoring (via tools like Chef InSpec, Puppet, or Microsoft SCCM) detects and can remediate drift automatically. Zero-days (A), login anomalies (B), and exfiltration (C) are detected by other tool categories.",
-    "objectiveId": "5.6",
-    "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-domain-fallback-2"
+    "objectiveId": "4.4",
+    "objectiveTitle": "Use security alerting and monitoring concepts",
+    "conceptId": "comptia-sec-plus-4.4-monitoring-intelligence-and-metrics"
   },
   {
     "id": "secplus-504",
-    "domain": "Security Program Management and Oversight",
+    "domain": "Security Operations",
     "question": "Before deploying an OS security patch to 5,000 production workstations, the team installs it on 20 representative test machines for one week. Which patch management principle does this implement?",
     "type": "single-choice",
     "choices": [
@@ -9547,14 +9547,14 @@
     ],
     "correctAnswer": 3,
     "explanation": "Pilot (or staged) testing validates that a patch does not break functionality or introduce new issues before broad rollout. This balances the urgency of patching with the risk of outages from bad patches. CVSS prioritization (A) determines which patches to apply first. Emergency change (B) addresses urgency of deployment, not testing methodology.",
-    "objectiveId": "5.1",
-    "objectiveTitle": "Summarize security governance",
-    "conceptId": "comptia-sec-plus-5.1-domain-fallback-0"
+    "objectiveId": "4.3",
+    "objectiveTitle": "Explain vulnerability management",
+    "conceptId": "comptia-sec-plus-4.3-vulnerability-and-patch-operations"
   },
   {
     "id": "secplus-505",
-    "domain": "Security Program Management and Oversight",
-    "question": "A patch is released for a critical vulnerability. The security team inventories affected systems, assesses patch risk, tests in staging, deploys to production in waves, and then confirms successful deployment and closes the ticket. Which process describes this?",
+    "domain": "Security Operations",
+    "question": "A patch is released for a critical vulnerability. The security team inventories affected systems, assesses patch risk, tests in staging, deploys to production in waves, and then confirms successful deployment and closes the change record. Which process describes this?",
     "type": "single-choice",
     "choices": [
       "Patch management lifecycle",
@@ -9564,9 +9564,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "The patch management lifecycle covers the full process: identify available patches → assess applicability and risk → test in non-production → deploy in waves → verify and document. Change management (C) is the broader governance process that patch deployments flow through. Vulnerability assessment (A) identifies weaknesses. Configuration management (D) maintains approved system states.",
-    "objectiveId": "5.5",
-    "objectiveTitle": "Explain audits and assessments",
-    "conceptId": "comptia-sec-plus-5.5-audits-assessments"
+    "objectiveId": "4.3",
+    "objectiveTitle": "Explain vulnerability management",
+    "conceptId": "comptia-sec-plus-4.3-vulnerability-and-patch-operations"
   },
   {
     "id": "secplus-506",
@@ -9613,7 +9613,7 @@
     },
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-507",
@@ -9664,7 +9664,7 @@
     "explanation": "Rules of Engagement define the technical and operational boundaries of a pen test — scope, permitted techniques, time windows, escalation contacts, and what constitutes a stop condition. An NDA (B) covers confidentiality. A SOW (C) describes the overall scope and deliverables. A pen test report (D) is the output after testing.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-510",
@@ -9698,7 +9698,7 @@
     "explanation": "Coordinated (responsible) vulnerability disclosure gives vendors time to develop and release a patch before the vulnerability becomes publicly known, reducing exposure. Full disclosure (A) publishes details immediately without vendor notification. A bug bounty submission (B) may follow a coordinated disclosure process but is a specific program structure. Zero-day exploitation (D) is malicious use of an unpatched vulnerability.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-512",
@@ -9756,7 +9756,7 @@
     "explanation": "Leading indicators measure the current state of security inputs and activities — training completion rates and MFA coverage predict future security outcomes. Lagging indicators (B) measure outcomes after events — breach count, incident frequency, mean time to detect. Leading indicators help organizations identify gaps proactively; lagging indicators confirm what already happened.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-role-based-and-recurring-training"
   },
   {
     "id": "secplus-515",
@@ -10085,9 +10085,9 @@
       0
     ],
     "explanation": "Antivirus blocking (index 3): preventive — stops malware from executing. Security camera footage review (index 2): detective — identifies what happened after the fact. Warning banner (index 1): deterrent — discourages unauthorized access by communicating legal consequences. Restoring from backup (index 0): corrective — returns the system to a known-good state after an incident.",
-    "objectiveId": "4.2",
-    "objectiveTitle": "Explain hardware, software, and data asset management",
-    "conceptId": "comptia-sec-plus-4.2-domain-fallback-1"
+    "objectiveId": "4.5",
+    "objectiveTitle": "Modify enterprise capabilities to improve security",
+    "conceptId": "comptia-sec-plus-4.5-enterprise-security-capabilities"
   },
   {
     "id": "secplus-533",
@@ -10102,9 +10102,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "Mandatory vacation is a detective control specifically designed to uncover fraud — an employee committing ongoing fraud must be present to conceal it. When a replacement handles their duties, inconsistencies, missing transactions, or manipulated records may surface. It is standard practice in financial services for employees with access to cash or high-value transactions.",
-    "objectiveId": "4.3",
-    "objectiveTitle": "Explain vulnerability management",
-    "conceptId": "comptia-sec-plus-4.3-domain-fallback-2"
+    "objectiveId": "4.5",
+    "objectiveTitle": "Modify enterprise capabilities to improve security",
+    "conceptId": "comptia-sec-plus-4.5-enterprise-security-capabilities"
   },
   {
     "id": "secplus-534",
@@ -10141,7 +10141,7 @@
     "explanation": "Statement 1 (TRUE): A risk register is the central artifact of a risk management program — it documents each risk's metadata and is updated as risks change, are treated, or new risks emerge. Statement 2 (FALSE): Risk appetite is a strategic, board-level declaration of overall risk willingness; risk tolerance is the acceptable operational deviation from appetite for specific objectives. They are related but distinct. Statement 3 (TRUE): Third-party risk management (TPRM) acknowledges that vendor and supply chain risks flow into the organization — a breach at a vendor can directly impact the organization.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-supply-chain-and-provider-risk"
   },
   {
     "id": "secplus-536",
@@ -10158,7 +10158,7 @@
     "explanation": "Fourth-party risk (or nth-party risk) is the risk introduced by your vendor's vendors — parties you have no direct relationship with but whose failures can still impact you. Organizations must understand their critical vendors' dependency chains and assess whether those sub-vendors introduce unacceptable risk.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-537",
@@ -10175,7 +10175,7 @@
     "explanation": "A software supply chain attack compromises upstream software development or distribution infrastructure to inject malicious code that is delivered to victims through trusted update mechanisms — as in the 2020 SolarWinds SUNBURST attack. Watering hole (A) compromises websites visited by targets. Spear phishing (B) targets specific individuals with email. Insider threat (D) involves a malicious employee, not external compromise of build infrastructure.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-supply-chain-and-provider-risk"
   },
   {
     "id": "secplus-538",
@@ -10196,7 +10196,7 @@
     "explanation": "An SBOM (A) provides visibility into all components in delivered software — enabling rapid identification when a component is found vulnerable. Hash verification (C) confirms that software received matches what the vendor published, detecting tampering in transit or in the distribution infrastructure. Encryption at rest (B), social engineering tests (D), and MFA requirements (E) are general security controls that don't specifically address software supply chain integrity.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-supply-chain-and-provider-risk"
   },
   {
     "id": "secplus-539",
@@ -10233,7 +10233,7 @@
     "explanation": "Statement 1 (FALSE): Internal audits lack independence — auditors may be reluctant to report findings that reflect poorly on their colleagues or management. External audits by independent third parties provide unbiased assurance valued by regulators and customers. Statement 2 (TRUE): A gap analysis is a structured comparison of current state vs. target state (e.g., NIST CSF or ISO 27001) that produces a prioritized remediation roadmap. Statement 3 (TRUE): Attestation is a formal written assertion — e.g., a vendor attesting that their controls meet specific requirements — creating accountability. SOC 2 Type II includes management's attestation alongside auditor findings.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-vendor-due-diligence-and-monitoring"
   },
   {
     "id": "secplus-541",
@@ -10254,7 +10254,7 @@
   },
   {
     "id": "secplus-542",
-    "domain": "Security Operations",
+    "domain": "Security Architecture",
     "question": "A hospital deploys its clinical systems on infrastructure owned and operated exclusively by the hospital, located in its own data center, accessible only to hospital staff. Which cloud deployment model is this?",
     "type": "single-choice",
     "choices": [
@@ -10265,9 +10265,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "A private cloud is dedicated to a single organization — infrastructure, services, and access are exclusive. Public cloud (A) shares infrastructure among many tenants. Hybrid cloud (C) combines private and public. Community cloud (D) is shared among organizations with common interests, such as multiple hospitals sharing a HIPAA-compliant platform.",
-    "objectiveId": "4.3",
-    "objectiveTitle": "Explain vulnerability management",
-    "conceptId": "comptia-sec-plus-4.3-domain-fallback-2"
+    "objectiveId": "3.1",
+    "objectiveTitle": "Compare security implications of architecture models",
+    "conceptId": "comptia-sec-plus-3.1-secure-architecture-models"
   },
   {
     "id": "secplus-543",
@@ -10352,7 +10352,7 @@
     "explanation": "Secrets management platforms (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault) store credentials centrally and inject them into applications at runtime via APIs — no credentials ever appear in source code. Repository access controls (B) reduce exposure but don't eliminate the risk of credentials being committed. Dockerfile environment variables (D) are still stored in the image layer and exposed in image inspection.",
     "objectiveId": "4.7",
     "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-automation-orchestration"
+    "conceptId": "comptia-sec-plus-4.7-scripting-apis-and-integration"
   },
   {
     "id": "secplus-548",
@@ -10633,7 +10633,7 @@
   },
   {
     "id": "secplus-563",
-    "domain": "Security Operations",
+    "domain": "Security Program Management and Oversight",
     "question": "A research dataset has all names, email addresses, and account numbers removed and replaced with random identifiers. The mapping table between identifiers and real identities is retained in a separate system. Under GDPR, this dataset is still considered personal data. What technique was applied?",
     "type": "single-choice",
     "choices": [
@@ -10644,9 +10644,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "Pseudonymization replaces direct identifiers with pseudonyms while retaining a mapping that allows re-identification — GDPR considers pseudonymized data still personal since re-identification is possible. Anonymization (A) is irreversible destruction of the re-identification key, making the data no longer personal under GDPR. Tokenization (B) is a specific pseudonymization technique. Aggregation (D) combines records into statistical summaries.",
-    "objectiveId": "4.6",
-    "objectiveTitle": "Implement identity and access management",
-    "conceptId": "comptia-sec-plus-4.6-domain-fallback-2"
+    "objectiveId": "5.4",
+    "objectiveTitle": "Summarize compliance and privacy",
+    "conceptId": "comptia-sec-plus-5.4-compliance-privacy-and-ethics"
   },
   {
     "id": "secplus-564",
@@ -10717,7 +10717,7 @@
     "explanation": "The ISC2 Code of Ethics canons are ordered by priority: (1) Protect society; (2) Act honorably and legally — includes refusing to participate in illegal activities; (3) Serve principals diligently; (4) Advance the profession. When an employer's actions are illegal, the professional's obligation to act lawfully (Canon 2) supersedes loyalty to the employer. Canon 1 is highest priority but addresses societal harm broadly.",
     "objectiveId": "5.4",
     "objectiveTitle": "Summarize compliance and privacy",
-    "conceptId": "comptia-sec-plus-5.4-domain-fallback-0"
+    "conceptId": "comptia-sec-plus-5.4-compliance-privacy-and-ethics"
   },
   {
     "id": "secplus-568",
@@ -10734,7 +10734,7 @@
     "explanation": "A conflict of interest exists when a personal or financial relationship could impair objectivity. Professional ethics require disclosure of such conflicts to allow clients to make informed decisions about the engagement. Failing to disclose violates trust and professional ethics codes. Confidentiality (A) protects client information — not a reason to conceal conflicts. Non-repudiation (B) is a cryptographic property.",
     "objectiveId": "5.5",
     "objectiveTitle": "Explain audits and assessments",
-    "conceptId": "comptia-sec-plus-5.5-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-5.5-assessment-independence-and-evidence"
   },
   {
     "id": "secplus-569",
@@ -10768,7 +10768,7 @@
     "explanation": "A CISO reporting to the CEO (not just the CIO) and having board-level access elevates security to an enterprise risk issue — ensuring security receives appropriate resources, strategic alignment, and board oversight. When the CISO reports only to the CIO, security can be subordinated to IT operational priorities. Board visibility supports the tone-from-the-top security culture.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-security-culture-and-reporting"
   },
   {
     "id": "secplus-571",
@@ -10949,7 +10949,7 @@
     "explanation": "SQL injection occurs when attacker-controlled input is concatenated into a SQL query, allowing manipulation of query logic. The primary defense is parameterized queries (prepared statements), which separate query structure from data — the database driver treats input as data, not SQL syntax. Output encoding (A) addresses XSS. Path traversal (C) exploits file path manipulation.",
     "objectiveId": "4.7",
     "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-automation-orchestration"
+    "conceptId": "comptia-sec-plus-4.7-scripting-apis-and-integration"
   },
   {
     "id": "secplus-581",
@@ -10966,7 +10966,7 @@
     "explanation": "Input validation rejects or sanitizes dangerous input before it reaches interpreters — preventing SQL injection and command injection. Output encoding converts data into a safe representation before rendering in HTML — preventing XSS. Both are needed because different vulnerabilities arise at different stages: injection exploits the interpreter; XSS exploits the browser rendering engine. Neither alone covers both attack classes.",
     "objectiveId": "4.7",
     "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-automation-orchestration"
+    "conceptId": "comptia-sec-plus-4.7-scripting-apis-and-integration"
   },
   {
     "id": "secplus-582",
@@ -10994,7 +10994,7 @@
     "explanation": "Injection (index 2): malicious input interpreted as commands — SQL, LDAP, OS command injection. Broken Access Control (index 0): users can act outside their intended permissions — accessing other users' data, privilege escalation. Security Misconfiguration (index 3): insecure default settings, unnecessary features, unpatched systems. Cryptographic Failures (index 1): formerly 'Sensitive Data Exposure' — weak/missing encryption exposing data in transit or at rest.",
     "objectiveId": "4.7",
     "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-automation-orchestration"
+    "conceptId": "comptia-sec-plus-4.7-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-583",
@@ -11028,7 +11028,7 @@
     "explanation": "Minimal container images reduce the attack surface — fewer packages mean fewer vulnerabilities, no package manager means attackers cannot install tools post-compromise, and non-root execution limits the blast radius of a container compromise. This is the principle of least functionality applied to container images. Image signing (D) provides integrity verification but is a separate control.",
     "objectiveId": "4.7",
     "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-automation-orchestration"
+    "conceptId": "comptia-sec-plus-4.7-soar-and-playbook-orchestration"
   },
   {
     "id": "secplus-585",
@@ -11108,7 +11108,7 @@
   {
     "id": "secplus-589",
     "domain": "Security Operations",
-    "question": "A SOC automates the response to phishing alerts: ticket created, URL reputation checked, email quarantined, user notified, and endpoint scanned — all within 90 seconds of alert trigger, without analyst intervention. Which primary benefit does this automation deliver beyond speed?",
+    "question": "A SOC automates the response to phishing alerts: incident record created, URL reputation checked, email quarantined, user notified, and endpoint scanned — all within 90 seconds of alert trigger, without analyst intervention. Which primary benefit does this automation deliver beyond speed?",
     "type": "single-choice",
     "choices": [
       "Ensures consistent, repeatable response execution without human error or analyst fatigue",
@@ -11118,9 +11118,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "Automation delivers consistent, repeatable execution — every phishing alert receives identical response steps without the variability of human decision-making under fatigue or time pressure. This reduces human error and ensures no step is missed at 2 AM as effectively as during business hours. Automation augments analysts (A) rather than replacing them — complex decisions still require human judgment. SOAR consumes SIEM alerts (B) rather than replacing SIEM.",
-    "objectiveId": "4.4",
-    "objectiveTitle": "Use security alerting and monitoring concepts",
-    "conceptId": "comptia-sec-plus-4.4-monitoring-alerting"
+    "objectiveId": "4.7",
+    "objectiveTitle": "Explain automation and orchestration",
+    "conceptId": "comptia-sec-plus-4.7-soar-and-playbook-orchestration"
   },
   {
     "id": "secplus-590",
@@ -11178,7 +11178,7 @@
   },
   {
     "id": "secplus-593",
-    "domain": "Security Operations",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "An attacker compromises a CEO's email account and sends messages to the finance department directing wire transfers to an attacker-controlled bank account. No malware is involved — only social engineering via email. What attack type is this?",
     "type": "single-choice",
     "choices": [
@@ -11189,9 +11189,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "Business Email Compromise (BEC) uses compromised or impersonated executive email accounts to fraudulently authorize financial transactions — no malware required. Spear phishing (A) targets specific individuals but typically delivers malware or credential harvesting links. Whaling (C) is phishing targeting executives specifically. Email spoofing (D) fakes the sender domain without account compromise.",
-    "objectiveId": "4.9",
-    "objectiveTitle": "Use data sources to support investigations",
-    "conceptId": "comptia-sec-plus-4.9-domain-fallback-2"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-594",
@@ -11259,7 +11259,7 @@
     "explanation": "API-mode CASBs use published cloud APIs to inspect stored data and audit logs — they are excellent for discovering existing policy violations and retrospective analysis. However, because they are not inline, they cannot block a file upload or data exfiltration attempt in real time. Proxy-mode CASBs sit in the traffic path and can enforce real-time controls at the cost of additional latency and configuration complexity.",
     "objectiveId": "4.7",
     "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-automation-orchestration"
+    "conceptId": "comptia-sec-plus-4.7-scripting-apis-and-integration"
   },
   {
     "id": "secplus-598",
@@ -11408,9 +11408,9 @@
       3
     ],
     "explanation": "STIX (index 2): the structured JSON language for describing threat actors, TTPs, indicators, and campaigns. TAXII (index 1): the HTTPS-based transport protocol that delivers STIX content between organizations. MISP (index 0): Malware Information Sharing Platform — open-source collaborative tool for ingesting, enriching, and sharing threat intelligence. OpenIOC (index 3): Mandiant's XML-based IOC format, older and less flexible than STIX.",
-    "objectiveId": "4.3",
-    "objectiveTitle": "Explain vulnerability management",
-    "conceptId": "comptia-sec-plus-4.3-domain-fallback-2"
+    "objectiveId": "4.4",
+    "objectiveTitle": "Use security alerting and monitoring concepts",
+    "conceptId": "comptia-sec-plus-4.4-monitoring-intelligence-and-metrics"
   },
   {
     "id": "secplus-606",
@@ -11628,7 +11628,7 @@
   },
   {
     "id": "secplus-618",
-    "domain": "Security Operations",
+    "domain": "Security Program Management and Oversight",
     "question": "An organization suffers a breach of personal data affecting EU residents. Which regulatory body must be notified within 72 hours under GDPR, and what happens if notification deadlines are missed?",
     "type": "single-choice",
     "choices": [
@@ -11639,9 +11639,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "GDPR Article 33 requires notification to the competent supervisory authority (e.g., ICO in UK, CNIL in France) within 72 hours of becoming aware of a breach. Failure to notify or late notification can result in administrative fines up to €10 million or 2% of global annual turnover (whichever is higher). Article 83 fines for more serious violations (including inadequate security) can reach €20M or 4%.",
-    "objectiveId": "4.7",
-    "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-domain-fallback-0"
+    "objectiveId": "5.4",
+    "objectiveTitle": "Summarize compliance and privacy",
+    "conceptId": "comptia-sec-plus-5.4-compliance-privacy-and-ethics"
   },
   {
     "id": "secplus-619",
@@ -11658,7 +11658,7 @@
     "explanation": "A purple team exercise combines red (offensive) and blue (defensive) teams working collaboratively — the red team executes TTPs while the blue team responds, and both share intelligence in real time. This maximizes learning compared to a traditional red team (D) where findings are disclosed only at the end. A tabletop (A) is discussion-only. A full interruption test (B) is a DR exercise.",
     "objectiveId": "4.8",
     "objectiveTitle": "Apply incident response activities",
-    "conceptId": "comptia-sec-plus-4.8-domain-fallback-1"
+    "conceptId": "comptia-sec-plus-4.8-incident-exercises-and-response"
   },
   {
     "id": "secplus-620",
@@ -11692,7 +11692,7 @@
     "explanation": "Git-based IaC workflows provide version history (every change is tracked with author and timestamp), peer review (mandatory approval catches errors and policy violations), and full audit trail — core change management benefits applied to infrastructure. It reduces configuration drift but does not eliminate insider threats (A), replace CAB processes (C), or scan for runtime vulnerabilities (D) — those require separate tools.",
     "objectiveId": "4.1",
     "objectiveTitle": "Apply secure techniques to computing resources",
-    "conceptId": "comptia-sec-plus-4.1-domain-fallback-0"
+    "conceptId": "comptia-sec-plus-4.1-secure-baselines-and-endpoints"
   },
   {
     "id": "secplus-622",
@@ -11713,7 +11713,7 @@
     "explanation": "A formally documented risk acceptance must include: the risk owner's signature (A) — establishing personal accountability and authority; and an expiration date (C) — ensuring the decision is periodically revisited as the threat landscape and business context evolve. Vulnerability lists (B) and pen test reports (D) may inform the decision but are not required elements of the acceptance form itself. Salary (E) is irrelevant.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-vendor-due-diligence-and-monitoring"
   },
   {
     "id": "secplus-623",
@@ -11820,9 +11820,9 @@
       4
     ],
     "explanation": "Classification program implementation: (1) Define categories — establish what tiers exist and what each requires before anything can be classified; (2) Assign owners — designate who is accountable for classification decisions per data set; (3) Inventory and assess — catalog existing data and apply the criteria; (4) Apply labels and controls — enforce handling requirements; (5) Train employees — ensure all staff understand their classification responsibilities.",
-    "objectiveId": "5.5",
-    "objectiveTitle": "Explain audits and assessments",
-    "conceptId": "comptia-sec-plus-5.5-domain-fallback-1"
+    "objectiveId": "5.4",
+    "objectiveTitle": "Summarize compliance and privacy",
+    "conceptId": "comptia-sec-plus-5.4-compliance-privacy-and-ethics"
   },
   {
     "id": "secplus-629",
@@ -11952,7 +11952,7 @@
     "explanation": "User-reported phishing attempts demonstrate active application of awareness training — employees are not just avoiding clicks but actively identifying and reporting threats, multiplying the security team's detection capacity. Training completion (A) is an activity metric that doesn't confirm behavior change. Click rate (B) measures susceptibility. Proactive reporting is the strongest indicator that training has changed actual security behavior.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-phishing-and-social-engineering-training"
   },
   {
     "id": "secplus-636",
@@ -11989,7 +11989,7 @@
     "explanation": "An MSSP delivers outsourced security monitoring and management services — typically including SIEM monitoring, threat detection, SOC-as-a-service, and incident response support. This allows organizations to achieve 24/7 coverage without building internal capability. A CASB (B) is a specific security technology. A SOAR vendor (C) provides automation software. A TIP (D) manages threat intelligence data.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-638",
@@ -12027,7 +12027,7 @@
     "explanation": "Administrative controls are policies, procedures, and programs — they govern how people behave. Security awareness training policy (A) and background check requirements (C) are administrative controls. Firewall rules (B) and full disk encryption (E) are technical controls. Biometric door locks (D) are physical controls.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-role-based-and-recurring-training"
   },
   {
     "id": "secplus-640",
@@ -12064,7 +12064,7 @@
     "explanation": "CSRF exploits the browser's automatic inclusion of session cookies in requests — the malicious link causes the victim's authenticated browser to submit an unauthorized request on behalf of the attacker. The primary defense is CSRF tokens (unpredictable values included in forms and validated server-side) and SameSite cookie attributes. XSS (B) injects scripts into pages. Session hijacking (C) steals the token directly. Clickjacking (D) overlays invisible elements to trick clicks.",
     "objectiveId": "4.7",
     "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-automation-orchestration"
+    "conceptId": "comptia-sec-plus-4.7-scripting-apis-and-integration"
   },
   {
     "id": "secplus-642",
@@ -12085,7 +12085,7 @@
   },
   {
     "id": "secplus-643",
-    "domain": "Security Operations",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "An application parses XML input from users. An attacker submits a crafted XML document containing an entity declaration that references the local filesystem path /etc/passwd. The application returns the file contents in its response. Which vulnerability does this exploit?",
     "type": "single-choice",
     "choices": [
@@ -12096,13 +12096,13 @@
     ],
     "correctAnswer": 3,
     "explanation": "XXE injection exploits XML parsers that process external entity declarations — attackers define entities referencing local files or internal URLs, causing the parser to read and return sensitive content. Defenses include disabling external entity processing in the XML parser (FEATURE_EXTERNAL_GENERAL_ENTITIES = false) and using safer data formats like JSON. SSRF (A) uses HTTP requests. XPath injection (B) manipulates XML database queries.",
-    "objectiveId": "4.5",
-    "objectiveTitle": "Modify enterprise capabilities to improve security",
-    "conceptId": "comptia-sec-plus-4.5-domain-fallback-1"
+    "objectiveId": "2.3",
+    "objectiveTitle": "Explain vulnerability types",
+    "conceptId": "comptia-sec-plus-2.3-software-and-cryptographic-weaknesses"
   },
   {
     "id": "secplus-644",
-    "domain": "Security Operations",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "An application deserializes user-supplied data without validation. An attacker crafts a malicious serialized object that, when deserialized, triggers a chain of method calls executing arbitrary OS commands. Which vulnerability class is this?",
     "type": "single-choice",
     "choices": [
@@ -12113,9 +12113,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "Insecure deserialization occurs when applications deserialize untrusted data without integrity checks — attackers manipulate serialized object graphs to trigger gadget chains that execute arbitrary code during deserialization. It appears in OWASP Top 10. Defenses include serialization integrity checks (digital signatures), avoiding deserialization of user-supplied data, and using safe serialization formats. Command injection (A) uses direct input parameters, not serialized objects.",
-    "objectiveId": "4.6",
-    "objectiveTitle": "Implement identity and access management",
-    "conceptId": "comptia-sec-plus-4.6-domain-fallback-2"
+    "objectiveId": "2.3",
+    "objectiveTitle": "Explain vulnerability types",
+    "conceptId": "comptia-sec-plus-2.3-software-and-cryptographic-weaknesses"
   },
   {
     "id": "secplus-645",
@@ -12225,7 +12225,7 @@
   },
   {
     "id": "secplus-651",
-    "domain": "Security Operations",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "Both ARP poisoning and DNS cache poisoning redirect traffic to attacker-controlled systems. What is the key difference between these two attacks?",
     "type": "single-choice",
     "choices": [
@@ -12236,13 +12236,13 @@
     ],
     "correctAnswer": 2,
     "explanation": "ARP operates at Layer 2 (Data Link) and only affects hosts on the same network segment — it cannot cross routers. DNS cache poisoning operates at the application layer and can affect any client that queries a poisoned resolver, including clients across the internet. Both are man-in-the-middle enablers but at very different scopes.",
-    "objectiveId": "4.4",
-    "objectiveTitle": "Use security alerting and monitoring concepts",
-    "conceptId": "comptia-sec-plus-4.4-domain-fallback-0"
+    "objectiveId": "2.4",
+    "objectiveTitle": "Analyze indicators of malicious activity",
+    "conceptId": "comptia-sec-plus-2.4-attack-behavior-and-indicators"
   },
   {
     "id": "secplus-652",
-    "domain": "Security Operations",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "An attacker sends a small DNS query to an open resolver with a spoofed source IP of the victim. The resolver responds with a large DNS response (amplification factor ~50×) directed at the victim. What attack type is this?",
     "type": "single-choice",
     "choices": [
@@ -12253,13 +12253,13 @@
     ],
     "correctAnswer": 0,
     "explanation": "DNS amplification uses open DNS resolvers to amplify attack traffic — small queries (ANY or DNSSEC-signed zones) generate large responses sent to the spoofed victim IP. The amplification factor can reach 100×. Smurf attacks (B) use ICMP broadcasts similarly but are largely mitigated. NTP amplification (C) uses NTP monlist responses. DNS cache poisoning (A) injects forged records — a different attack goal.",
-    "objectiveId": "4.5",
-    "objectiveTitle": "Modify enterprise capabilities to improve security",
-    "conceptId": "comptia-sec-plus-4.5-domain-fallback-1"
+    "objectiveId": "2.4",
+    "objectiveTitle": "Analyze indicators of malicious activity",
+    "conceptId": "comptia-sec-plus-2.4-attack-behavior-and-indicators"
   },
   {
     "id": "secplus-653",
-    "domain": "Security Operations",
+    "domain": "General Security Concepts",
     "question": "A facility requires visitors to enter through a small enclosure with two interlocking doors — the first door must fully close and lock before the second can open, allowing only one person through at a time under surveillance. Which physical security control is this?",
     "type": "single-choice",
     "choices": [
@@ -12270,13 +12270,13 @@
     ],
     "correctAnswer": 3,
     "explanation": "A security vestibule (mantrap) uses two interlocking doors to enforce single-occupancy access — preventing tailgating by ensuring each individual is separately authenticated before proceeding. It is a preventive physical control combining access control with anti-piggybacking. Bollards (A) stop vehicles. Proximity readers (C) authenticate individual credentials. A Faraday cage (D) blocks electromagnetic signals.",
-    "objectiveId": "4.6",
-    "objectiveTitle": "Implement identity and access management",
-    "conceptId": "comptia-sec-plus-4.6-domain-fallback-2"
+    "objectiveId": "1.1",
+    "objectiveTitle": "Compare categories and types of security controls",
+    "conceptId": "comptia-sec-plus-1.1-physical-and-control-classification"
   },
   {
     "id": "secplus-654",
-    "domain": "Security Operations",
+    "domain": "General Security Concepts",
     "question": "A government facility installs large, concrete-filled steel posts around its perimeter at vehicle entry points to prevent cars and trucks from being driven into the building. What physical security control are these posts?",
     "type": "single-choice",
     "choices": [
@@ -12287,13 +12287,13 @@
     ],
     "correctAnswer": 0,
     "explanation": "Bollards are short, sturdy vertical posts — typically concrete-filled steel — designed to stop vehicle-ramming attacks. They are rated by the vehicle weight and speed they can arrest (K-ratings). Jersey barriers (B) are concrete dividers used for traffic channeling — less aesthetically integrated. Security fencing (C) deters pedestrian access. Crash-rated planters (D) serve the same function as bollards but in decorative form.",
-    "objectiveId": "4.7",
-    "objectiveTitle": "Explain automation and orchestration",
-    "conceptId": "comptia-sec-plus-4.7-domain-fallback-0"
+    "objectiveId": "1.1",
+    "objectiveTitle": "Compare categories and types of security controls",
+    "conceptId": "comptia-sec-plus-1.1-physical-and-control-classification"
   },
   {
     "id": "secplus-655",
-    "domain": "Security Operations",
+    "domain": "General Security Concepts",
     "question": "Match each physical security control to its primary threat it addresses.",
     "type": "matching",
     "itemsLeft": [
@@ -12315,13 +12315,13 @@
       0
     ],
     "explanation": "Mantrap (index 2): prevents tailgating — one person at a time, interlocked doors. Bollards (index 1): stop vehicle-ramming attacks. Guard patrol (index 3): human deterrence and detection through visible presence. Motion lighting (index 0): deters and reveals intruders by eliminating concealing darkness.",
-    "objectiveId": "4.8",
-    "objectiveTitle": "Apply incident response activities",
-    "conceptId": "comptia-sec-plus-4.8-domain-fallback-1"
+    "objectiveId": "1.1",
+    "objectiveTitle": "Compare categories and types of security controls",
+    "conceptId": "comptia-sec-plus-1.1-physical-and-control-classification"
   },
   {
     "id": "secplus-656",
-    "domain": "Security Operations",
+    "domain": "General Security Concepts",
     "question": "Security cameras are installed throughout a facility. Cameras placed in visible, prominent locations with signage serve a different purpose than cameras hidden in ceiling tiles. What is the security function of prominently displayed cameras?",
     "type": "single-choice",
     "choices": [
@@ -12332,9 +12332,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "Visible cameras with signage serve as deterrents — the knowledge of being watched discourages misconduct before it occurs. Hidden cameras are primarily detective controls — recording events for post-incident analysis without providing the deterrent effect. Many facilities use both: visible cameras for deterrence and concealed cameras for unbiased evidence collection.",
-    "objectiveId": "4.9",
-    "objectiveTitle": "Use data sources to support investigations",
-    "conceptId": "comptia-sec-plus-4.9-domain-fallback-2"
+    "objectiveId": "1.1",
+    "objectiveTitle": "Compare categories and types of security controls",
+    "conceptId": "comptia-sec-plus-1.1-physical-and-control-classification"
   },
   {
     "id": "secplus-657",
@@ -12355,7 +12355,7 @@
   },
   {
     "id": "secplus-658",
-    "domain": "Security Operations",
+    "domain": "Threats, Vulnerabilities, and Mitigations",
     "question": "An employee follows an authorized person through a secured door without using their own badge, entering a restricted area. Which social engineering technique is being used, and what technical control most directly prevents it?",
     "type": "single-choice",
     "choices": [
@@ -12366,9 +12366,9 @@
     ],
     "correctAnswer": 2,
     "explanation": "Tailgating (passive) or piggybacking (with the authorized person's knowledge) gains physical access by following someone through a secured entry. A security vestibule/mantrap enforces one-person-at-a-time passage with interlocking doors, making this physically impossible. Security awareness training helps employees challenge tailgaters, but the mantrap is the technical control that prevents it mechanically.",
-    "objectiveId": "4.2",
-    "objectiveTitle": "Explain hardware, software, and data asset management",
-    "conceptId": "comptia-sec-plus-4.2-domain-fallback-1"
+    "objectiveId": "2.2",
+    "objectiveTitle": "Explain threat vectors and attack surfaces",
+    "conceptId": "comptia-sec-plus-2.2-social-engineering-and-physical-vectors"
   },
   {
     "id": "secplus-659",
@@ -12531,7 +12531,7 @@
     "explanation": "The GLBA Safeguards Rule (updated 2023) requires covered financial institutions — banks, insurance companies, mortgage lenders, investment advisors — to implement a comprehensive written information security program with specific elements including risk assessment, security coordinator designation, and vendor oversight. PCI DSS (A) covers payment card data. SOX (B) governs financial reporting. FISMA (D) applies to federal agencies.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-668",
@@ -12705,7 +12705,7 @@
     "explanation": "Microlearning delivers short, focused content segments (3–5 minutes) on a single topic, delivered frequently — improving retention through spaced repetition without the cognitive overload of long sessions. Gamification (A) applies game mechanics. Role-based training (B) tailors content by job function. Security certification prep (D) is exam-focused study, not a general awareness delivery model.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-phishing-and-social-engineering-training"
   },
   {
     "id": "secplus-678",
@@ -12729,7 +12729,7 @@
     "explanation": "Awareness program development: (1) Executive sponsorship — without leadership commitment, budget and employee buy-in are lacking; (2) Audience identification — different roles face different threats; (3) Content development — build materials targeted at identified audiences and threats; (4) Delivery — use varied modalities for engagement; (5) Measure and iterate — track metrics (click rates, reporting rates) and refine.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-security-culture-and-reporting"
   },
   {
     "id": "secplus-679",
@@ -12825,7 +12825,7 @@
     "explanation": "Risk-based vendor tiering allocates assessment resources proportional to the risk each vendor poses — PII access, system integration depth, regulatory implications. Equal treatment (A) wastes resources on low-risk vendors while potentially under-scrutinizing high-risk ones. Outsourcing assessments (C) and ISO certification requirements (D) are procurement decisions, not the tiering principle itself.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-684",
@@ -12842,7 +12842,7 @@
     "explanation": "For a high-risk vendor with privileged access: SOC 2 Type II provides independent assurance of operating effectiveness; the right-to-audit preserves the option for direct inspection; periodic questionnaires fill gaps between annual audits. This layered approach reflects the depth of risk. NDA alone (B) establishes confidentiality without verifying controls. Options C and D are not meaningful assurance activities.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-685",
@@ -12859,7 +12859,7 @@
     "explanation": "A targeted security questionnaire allows the assessment team to probe specific controls — network segmentation, encryption key management, incident response procedures — that fall outside the SOC 2 scope. Reperforming the SOC 2 (D) is costly and time-consuming. Cyber insurance (A) addresses financial risk transfer. The vendor's website (B) is marketing material, not evidence of control effectiveness.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-vendor-due-diligence-and-monitoring"
   },
   {
     "id": "secplus-686",
@@ -12879,7 +12879,7 @@
     "explanation": "Statement 1 (TRUE): Fourth-party risk is the exposure from your vendor's vendors — entities you have no direct contractual relationship with but whose failures can cascade to affect you. Statement 2 (FALSE): SOC 2 Type II provides assurance that controls were operating effectively during the audit period — it is not a guarantee against future breaches. No certification eliminates breach risk. Statement 3 (TRUE): Embedding security requirements directly in contracts — minimum encryption standards, SLAs for patching, breach notification within 24/48 hours — creates enforceable obligations beyond attestation.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-687",
@@ -12911,9 +12911,9 @@
     ],
     "correctAnswer": 0,
     "explanation": "The security architecture defines the target state — what the security environment should look like when fully implemented. The security roadmap defines the journey — prioritized initiatives, timelines, and resource investments to move from the current state to the architectural target. They are complementary, not interchangeable, and neither is limited to specific environments.",
-    "objectiveId": "5.5",
-    "objectiveTitle": "Explain audits and assessments",
-    "conceptId": "comptia-sec-plus-5.5-domain-fallback-1"
+    "objectiveId": "5.1",
+    "objectiveTitle": "Summarize security governance",
+    "conceptId": "comptia-sec-plus-5.1-program-governance-and-reporting"
   },
   {
     "id": "secplus-689",
@@ -12954,7 +12954,7 @@
     "explanation": "Statement 1 (TRUE): A steering committee with cross-functional representation ensures security policies and priorities align with business objectives, legal requirements, and operational realities — not just technical preferences. Statement 2 (FALSE): Security governance is fundamentally a business function — risk decisions require business context, and IT alone cannot determine acceptable risk levels for business operations. Statement 3 (TRUE): Research consistently shows that organizations where leadership visibly prioritizes security have stronger security cultures — employees model leadership behavior and take security requirements seriously when they see them enforced from the top.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-security-culture-and-reporting"
   },
   {
     "id": "secplus-691",
@@ -13005,7 +13005,7 @@
     "explanation": "Certificate pinning embeds an expected certificate or public key hash directly in the application. The app rejects any certificate — even a validly CA-signed one — that doesn't match the pin, defeating rogue CA attacks. OCSP stapling (A) is a revocation efficiency technique, not a pinning defense. EV certs (B) provide identity validation but don't prevent rogue CA issuance. mTLS (D) authenticates both parties but still relies on the CA trust chain.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-certificate-status-and-pki"
   },
   {
     "id": "secplus-694",
@@ -13022,7 +13022,7 @@
     "explanation": "Inherent risk is the raw, uncontrolled risk level — the exposure before any security controls or mitigations are considered. Residual risk is what remains after controls reduce the inherent risk. The gap between them represents the risk reduction provided by the vendor's (and organization's) controls. Risk acceptance is applied to residual risk, not inherent risk. The other options describe concepts that don't align with standard TPRM definitions.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-695",
@@ -13107,7 +13107,7 @@
     "explanation": "A Hardware Security Module (HSM) is a dedicated, tamper-resistant hardware device designed to generate, store, and manage cryptographic keys — performing cryptographic operations without ever exposing private keys in plaintext. Financial institutions use HSMs for payment card processing (PCI HSM standard). TPMs (B) are embedded chips for device integrity, not high-throughput transaction signing. Smart cards (C) hold individual keys for one user. Software KMS (D) stores keys in software, not hardware-protected silicon.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-700",
@@ -13141,7 +13141,7 @@
     "explanation": "Rules of Engagement (ROE) define the operational parameters of a penetration test or red team engagement: authorized scope, permitted techniques, start/stop windows, escalation procedures, and legal authorization. The ROE protects both the testing team (authorization defense) and the organization (scope controls). The pen test report (A) is the output document. The SOW (C) covers commercial terms. The NDA (D) addresses confidentiality — all are separate documents.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-702",
@@ -13158,7 +13158,7 @@
     "explanation": "A 14-day MTTD means adversaries dwell in the environment for two weeks before detection — significantly above best-practice targets (hours to low single-digit days). The 4-hour MTTR is reasonable, indicating the team responds efficiently once they know about an incident. The bottleneck is detection — likely requiring better telemetry coverage, detection rule tuning, or threat hunting investment. Option A reverses the metrics. Option B incorrectly characterizes 14-day MTTD as excellent.",
     "objectiveId": "5.1",
     "objectiveTitle": "Summarize security governance",
-    "conceptId": "comptia-sec-plus-5.1-domain-fallback-0"
+    "conceptId": "comptia-sec-plus-5.1-program-governance-and-reporting"
   },
   {
     "id": "secplus-703",
@@ -13175,7 +13175,7 @@
     "explanation": "Compromising a vendor's update infrastructure to distribute malware through legitimate, trusted channels is a supply chain attack. Customers trust the vendor's signing and distribution process, making this highly effective — recipients believe they're installing legitimate updates. SolarWinds and XZ Utils are real-world examples. Watering hole (B) targets websites victims visit. Typosquatting (C) uses lookalike names. An insider threat (D) is a person within the organization, not external compromise of infrastructure.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-704",
@@ -13192,7 +13192,7 @@
     "explanation": "A Privacy Impact Assessment (PIA) — or DPIA under GDPR — is a structured process for identifying and mitigating privacy risks before launching new systems or processing activities. GDPR Article 35 mandates DPIAs for high-risk processing (biometrics, large-scale location data). The PIA documents data flows, purposes, retention periods, and recommended controls. Data classification review (A) categorizes data sensitivity. Security risk assessment (C) focuses on security threats. Vendor questionnaires (D) assess third-party practices.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-705",
@@ -13311,7 +13311,7 @@
     "explanation": "Symmetric algorithms (AES) are orders of magnitude faster than asymmetric algorithms (RSA) for bulk data encryption — this is the fundamental reason for hybrid cryptography. RSA is used only to securely transport the symmetric key (solving the key exchange problem), while AES handles the actual data. Option A is false — NIST approves AES for data at rest. Option B reverses the roles. Option D conflates RSA's padding size limit with its ability to encrypt arbitrary data (RSA-OAEP encrypts up to key size minus padding overhead).",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-712",
@@ -13328,7 +13328,7 @@
     "explanation": "Coordinated (responsible) disclosure notifies the vendor/maintainer privately, gives a reasonable remediation window (often 90 days, as Google Project Zero popularized), and publishes details only after a patch is available — balancing security community transparency with protection for users during the patch window. Full disclosure (A) publishes immediately, potentially before patches exist. Bug bounty (C) describes a commercial program, not the disclosure process itself. Brokering (D) is ethically problematic — selling exploits without giving vendors a chance to patch.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-713",
@@ -13360,13 +13360,13 @@
     ],
     "correctAnswer": 1,
     "explanation": "Working from a verified forensic image (never the original) with a write blocker protects evidence integrity — the original evidence remains unaltered, and the matching hash proves the copy is an exact duplicate. This is critical for legal admissibility; defense counsel cannot challenge that analysis modified the original. Chain of custody (B) documents who handled the evidence. Non-repudiation (C) relates to authentication. Confidentiality (D) is a separate concern from forensic methodology.",
-    "objectiveId": "5.1",
-    "objectiveTitle": "Summarize security governance",
-    "conceptId": "comptia-sec-plus-5.1-domain-fallback-0"
+    "objectiveId": "5.5",
+    "objectiveTitle": "Explain audits and assessments",
+    "conceptId": "comptia-sec-plus-5.5-assessment-independence-and-evidence"
   },
   {
     "id": "secplus-715",
-    "domain": "General Security Concepts",
+    "domain": "Security Operations",
     "question": "An enterprise deploys a federated identity system where employees authenticate once to the corporate identity provider (IdP) and access multiple third-party SaaS applications without re-entering credentials. The IdP issues signed assertions to SaaS applications confirming the user's identity and attributes. Which protocol is this describing?",
     "type": "single-choice",
     "choices": [
@@ -13377,9 +13377,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "SAML 2.0 (Security Assertion Markup Language) is the standard protocol for federated SSO — the IdP issues signed XML assertions (authentication, attribute, authorization) to the service provider (SaaS app) after authenticating the user. This enables cross-domain SSO without the SP needing to store credentials. OAuth 2.0 (A) is an authorization framework (delegating API access), not an authentication/identity federation protocol. RADIUS (B) authenticates network access (VPN, Wi-Fi). Kerberos (C) operates within a Kerberos realm (typically Windows AD), not cross-domain federation.",
-    "objectiveId": "1.4",
-    "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-domain-fallback-1"
+    "objectiveId": "4.6",
+    "objectiveTitle": "Implement identity and access management",
+    "conceptId": "comptia-sec-plus-4.6-identity-access-and-account-lifecycle"
   },
   {
     "id": "secplus-716",
@@ -13447,7 +13447,7 @@
     "explanation": "Living off the land (LotL) techniques use legitimate, pre-installed OS tools and binaries (LOLBins) to conduct malicious activities — evading antivirus and EDR tools that look for external malware. `net`, `nltest`, and `dsquery` are standard Windows administrative tools repurposed for AD enumeration. This technique appears in ATT&CK under Discovery tactics. DLL injection (B) is a persistence/evasion technique. Credential dumping (C) extracts credentials from memory. Lateral movement (D) describes pivoting to other hosts.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-editorial-reviewed-secondary"
   },
   {
     "id": "secplus-720",
@@ -13464,7 +13464,7 @@
     "explanation": "External audits provide independent third-party assurance — auditors have no stake in the outcome, giving stakeholders (regulators, customers, boards) higher confidence in the findings. Internal assessments lack independence but offer operational value: they're more frequent, deeper in institutional context, and less expensive. Many frameworks (SOC 2, ISO 27001, PCI DSS) require external audits for attestation; internal assessments support continuous improvement between audit cycles.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-721",
@@ -13498,7 +13498,7 @@
     "explanation": "KPIs measure process effectiveness and operational performance — did we achieve our objectives? (e.g., 95% of critical vulns patched within SLA). KRIs measure risk signals — how exposed are we, and are leading indicators trending toward failure? (e.g., 15% of assets not scanned represents a blind spot risk). KRIs often serve as early warning indicators enabling proactive intervention before KPIs degrade. The other options incorrectly characterize reporting scope or conflate the two metrics.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-723",
@@ -13532,7 +13532,7 @@
     "explanation": "A Service Level Agreement (SLA) defines measurable, contractual performance commitments — specific metrics (response times, availability percentages, MTTR targets) with remedies (credits, termination rights) for non-compliance. SLAs give the customer contractual recourse if the provider underperforms. The MSA (A) governs the overall relationship and commercial terms. MOUs (C) are non-binding statements of intent. NDAs (D) address confidentiality, not performance metrics.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-725",
@@ -13583,7 +13583,7 @@
     "explanation": "Advanced Persistent Threat (APT) describes nation-state or nation-state-sponsored threat actors characterized by advanced technical capabilities (custom tooling), long-duration persistence (months to years), strategic objectives (espionage, IP theft), and sophisticated operational security. APT groups maintain access while conducting reconnaissance over extended periods. Hacktivists (B) have ideological motivations. Insider threats (C) originate from within. Cybercriminals (D) are typically financially motivated and opportunistic rather than conducting targeted, long-duration campaigns.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
   },
   {
     "id": "secplus-728",
@@ -13700,7 +13700,7 @@
     "explanation": "ISACs (A) are sector-specific sharing communities (FS-ISAC for financial, H-ISAC for health) that share threat intelligence among member organizations. STIX/TAXII (C) is the standard machine-readable format (STIX) and transport mechanism (TAXII) for automated threat intelligence sharing between organizations and platforms. OpenIOC (D) is a framework for describing indicators of compromise in a machine-readable format for sharing. MITRE ATT&CK Navigator (B) is a visualization tool, not a sharing platform. Shodan (E) is a search engine for internet-exposed devices, not a threat intel sharing mechanism.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-threat-actors"
+    "conceptId": "comptia-sec-plus-2.1-actor-motivation-and-capability"
   },
   {
     "id": "secplus-734",
@@ -13827,7 +13827,7 @@
     "explanation": "Statement 1 (TRUE): Hash functions produce fixed-length digests with the avalanche effect — small input changes cause unpredictable, large output changes — making them useful for integrity verification. Statement 2 (TRUE): Symmetric encryption's key distribution problem (how to securely share the secret key) led to asymmetric cryptography, where public keys can be freely distributed while private keys remain secret. Statement 3 (FALSE): Digital signatures provide authenticity, integrity, and non-repudiation — NOT confidentiality. The message itself is not encrypted by a digital signature; the signature only proves origin and integrity.",
     "objectiveId": "1.4",
     "objectiveTitle": "Use cryptographic solutions",
-    "conceptId": "comptia-sec-plus-1.4-cryptography"
+    "conceptId": "comptia-sec-plus-1.4-hashing-signatures-and-integrity"
   },
   {
     "id": "secplus-739",
@@ -13847,7 +13847,7 @@
     "explanation": "Statement 1 (FALSE): Internal audits lack independence — the organization auditing itself has inherent conflicts of interest. Regulators and standards bodies (SOC 2, PCI DSS, ISO 27001) require external third-party auditors for formal attestations precisely because internal teams cannot provide objective assurance to external stakeholders. Statement 2 (TRUE): Compliance audits check adherence to requirements (HIPAA, PCI DSS); performance audits assess whether security processes achieve their intended objectives effectively. Statement 3 (TRUE): Penetration testing is a technical audit methodology that validates whether identified vulnerabilities are actually exploitable under realistic conditions.",
     "objectiveId": "5.3",
     "objectiveTitle": "Explain third-party risk management",
-    "conceptId": "comptia-sec-plus-5.3-third-party-risk"
+    "conceptId": "comptia-sec-plus-5.3-contracts-and-agreements"
   },
   {
     "id": "secplus-740",
@@ -13882,9 +13882,9 @@
     ],
     "correctAnswer": 1,
     "explanation": "MTTD trend over time is the most board-relevant detection metric — it directly answers 'how quickly do we find threats?' in a single, intuitive number. A declining MTTD demonstrates improving detection capability. Vulnerability counts (B) measure exposure, not detection speed. Firewall rule reviews (C) measure operational hygiene, not detection effectiveness. AV signature timeliness (D) is a hygiene metric, not a detection performance indicator.",
-    "objectiveId": "5.4",
-    "objectiveTitle": "Summarize compliance and privacy",
-    "conceptId": "comptia-sec-plus-5.4-domain-fallback-0"
+    "objectiveId": "5.1",
+    "objectiveTitle": "Summarize security governance",
+    "conceptId": "comptia-sec-plus-5.1-program-governance-and-reporting"
   },
   {
     "id": "secplus-742",
@@ -14007,7 +14007,7 @@
     "explanation": "An Information Security Policy (B) is the top-level governance document — it states management's direction and commitment without technical specifics. Password complexity requirements (C) are a standard — specific, measurable technical requirements that operationalize policy. AUP (A) is a policy (acceptable behavior rules), not a standard (technical configuration specs). Security awareness training (D) is a program or control, not a procedure (which describes step-by-step task instructions). NIST CSF adoption (E) is a framework reference; guidelines are typically voluntary recommendations like NIST SP 800-53.",
     "objectiveId": "5.6",
     "objectiveTitle": "Implement security awareness practices",
-    "conceptId": "comptia-sec-plus-5.6-security-awareness"
+    "conceptId": "comptia-sec-plus-5.6-role-based-and-recurring-training"
   },
   {
     "id": "secplus-749",
@@ -14566,7 +14566,7 @@
     ],
     "explanation": "Large uploads can indicate exfiltration. Failed logons then success suggests credential attack. Random DNS subdomains can indicate tunneling or malware beaconing. The correct response uses multiple log sources and baseline context to form a defensible hypothesis, contain immediate risk, and preserve the evidence needed to confirm or reject that hypothesis.",
     "objectiveId": "4.9",
-    "objectiveTitle": "Use data sources to support an investigation",
+    "objectiveTitle": "Use data sources to support investigations",
     "conceptId": "comptia-sec-plus-4.9-log-source-correlation",
     "practicalCategory": "log-triage",
     "componentFeedback": [

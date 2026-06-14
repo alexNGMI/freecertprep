@@ -517,6 +517,16 @@ const certs = {
     examTime: 90,
     passingScore: 83,
     practicalQuestionTarget: 6,
+    requiredTypeCounts: {
+      'multiple-response': 1,
+      matching: 1,
+      ordering: 1,
+      'statement-block': 1,
+      'pbq-matching': 2,
+      'cli-output': 1,
+      'topology-scenario': 1,
+      'config-repair': 1,
+    },
     requiredPracticalCategories: [
       'log-triage',
       'firewall-policy',
