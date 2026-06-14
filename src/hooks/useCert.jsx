@@ -30,8 +30,7 @@ export function CertProvider({ children, certId: certIdProp, light = false }) {
   const certId = certIdProp ?? params.certId
   const certConfig = getCert(certId)
   const [cert, setCert] = useState(null)
-  const [loading, setLoading] = useState(!!certConfig)
-  const [loadError, setLoadError] = useState(false)
+  const [loadErrorId, setLoadErrorId] = useState(null)
 
   useEffect(() => {
     if (!certConfig) return
@@ -45,7 +44,7 @@ export function CertProvider({ children, certId: certIdProp, light = false }) {
           ...certConfig,
           questions,
         })
-        setLoading(false)
+        setLoadErrorId(null)
       }
     }).catch((err) => {
       // A failed dynamic import (offline, bad deploy, corrupt chunk) must
@@ -54,8 +53,7 @@ export function CertProvider({ children, certId: certIdProp, light = false }) {
       console.error('Failed to load question bank:', err)
       questionCache.delete(certConfig.id)
       if (!cancelled) {
-        setLoadError(true)
-        setLoading(false)
+        setLoadErrorId(certConfig.id)
       }
     })
 
@@ -66,7 +64,7 @@ export function CertProvider({ children, certId: certIdProp, light = false }) {
     return <CertContext.Provider value={null}>{children}</CertContext.Provider>
   }
 
-  if (loadError) {
+  if (loadErrorId === certConfig.id) {
     const dark = !light
     return (
       <div className={`min-h-screen flex items-center justify-center px-6 ${dark ? 'bg-[#0a0a23] text-[#f5f6f7]' : 'bg-white text-slate-900'}`}>
@@ -86,7 +84,7 @@ export function CertProvider({ children, certId: certIdProp, light = false }) {
     )
   }
 
-  if (loading) {
+  if (cert?.id !== certConfig.id) {
     if (light) {
       return (
         <div className="min-h-screen bg-white flex items-center justify-center">

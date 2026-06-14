@@ -30,51 +30,55 @@ function useVisitorCount() {
 const paths = [
   {
     id: 'it-entry',
-    eyebrow: 'IT Entry',
-    title: 'Start with A+ if you are brand new',
+    eyebrow: 'New to IT?',
+    title: 'Build your foundation with A+.',
     description:
-      'A+ is the stepping stone for learners with no technical background before networking, security, cloud, or AI paths.',
+      'Learn the hardware, operating system, networking, security, and troubleshooting basics that support every career direction below.',
     icon: GraduationCap,
     color: '#ef4444',
     featured: true,
     to: '/comptia/a-plus',
-    meta: 'A+ foundation',
+    available: ['A+ Core 1', 'A+ Core 2'],
     certIds: [],
   },
   {
     id: 'networking',
     eyebrow: 'Networking',
-    title: 'Networking Career Path',
+    title: 'Build and troubleshoot networks.',
     description:
-      'Start with Network+ or CCST Networking, then build toward CCNA for NOC, junior network admin, and infrastructure support careers.',
+      'Develop the vendor-neutral or Cisco-aligned foundation used in network support, operations, and infrastructure roles.',
     icon: Network,
     color: '#f97316',
     to: '/paths/networking',
-    meta: 'Network+ or CCST to CCNA',
+    roles: ['NOC Technician', 'Network Support', 'Junior Network Administrator'],
+    available: ['Network+'],
+    upcoming: ['CCST Networking', 'CCNA'],
     certIds: ['comptia-net-plus', 'ccst-networking', 'ccna-200-301'],
   },
   {
     id: 'cybersecurity',
     eyebrow: 'Cybersecurity',
-    title: 'Cybersecurity with tooling',
+    title: 'Protect systems and investigate threats.',
     description:
-      'Network+ and Security+ give the theory and baseline; Splunk adds the practical SOC tooling layer that helps entry-level candidates look closer to job-ready.',
+      'Combine network fluency, a recognized security baseline, and practical SIEM search skills for entry-level security work.',
     icon: LockKeyhole,
     color: '#fb7185',
     to: '/paths/cybersecurity',
-    meta: 'Network+ to Security+ to Splunk',
+    roles: ['SOC Analyst', 'Security Support', 'Junior Security Analyst'],
+    available: ['Network+', 'Security+', 'Splunk'],
     certIds: ['comptia-net-plus', 'comptia-sec-plus', 'splunk-core-certified-user'],
   },
   {
     id: 'cloud',
     eyebrow: 'Cloud',
-    title: 'Deployable cloud skill',
+    title: 'Design and automate cloud infrastructure.',
     description:
-      'Move from AWS fundamentals into architecture, then finish with Terraform so your path points toward real cloud support, junior cloud, and infrastructure roles.',
+      'Move from cloud concepts into AWS architecture and infrastructure as code for practical cloud and platform roles.',
     icon: Cloud,
     color: '#38bdf8',
     to: '/paths/cloud',
-    meta: 'AWS foundation to Terraform automation',
+    roles: ['Cloud Support', 'Junior Cloud Engineer', 'Infrastructure Engineer'],
+    available: ['Cloud Practitioner', 'SAA', 'Terraform'],
     certIds: ['clf-c02', 'aws-saa-c03', 'terraform-associate'],
   },
 ]
@@ -158,18 +162,22 @@ export default function Home() {
         </section>
 
         <section id="paths" className="max-w-7xl mx-auto px-6 py-16 border-y border-white/5">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
+          <div className="mb-10">
+            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Starting point</p>
+            <PathCard path={paths[0]} variant="wide" />
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 pt-10 border-t border-white/5">
             <div>
-              <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Career paths</p>
-              <h2 className="text-3xl font-bold text-zinc-100">Find the lane that fits next.</h2>
+              <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Career directions</p>
+              <h2 className="text-3xl font-bold text-zinc-100">Choose the work you want to grow into.</h2>
             </div>
             <p className="text-sm text-zinc-500 max-w-xl leading-relaxed">
-              Each lane keeps related certifications together without forcing every learner through the same starting point.
+              Each direction shows the roles it supports, what you can practice now, and which milestones are still being prepared.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            <PathCard path={paths[0]} variant="wide" className="md:col-span-2 xl:col-span-3" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {paths.slice(1).map((path) => (
               <PathCard key={path.id} path={path} />
             ))}
@@ -234,9 +242,10 @@ function PathCard({ path, className = '', variant = 'default' }) {
               <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">{path.eyebrow}</p>
               <h3 className="text-2xl md:text-3xl font-bold text-zinc-100 tracking-tight mb-2">{path.title}</h3>
               <p className="text-sm text-zinc-400 leading-relaxed max-w-2xl">{path.description}</p>
+              <StatusLine label="Available now" items={path.available} color={path.color} className="mt-4" />
             </div>
           </div>
-          <PathCta to={path.to} label="View A+ path" accentColor={path.color} compact />
+          <PathCta to={path.to} label="Start with A+" accentColor={path.color} compact />
         </div>
       </div>
     )
@@ -260,12 +269,37 @@ function PathCard({ path, className = '', variant = 'default' }) {
             {path.title}
           </h3>
           <p className={`text-sm text-zinc-400 leading-relaxed ${wide ? 'max-w-2xl' : ''}`}>{path.description}</p>
+          <div className="mt-5 border-t border-white/5 pt-4 space-y-3">
+            <StatusLine label="Target roles" items={path.roles} color={path.color} />
+            <StatusLine label="Available now" items={path.available} color={path.color} />
+            {path.upcoming?.length > 0 && (
+              <StatusLine label="Coming next" items={path.upcoming} color="#fbbf24" muted />
+            )}
+          </div>
         </div>
 
         <div className={wide ? '' : 'mt-auto pt-6'}>
-          <p className="text-xs font-semibold text-zinc-500 mb-4">{path.meta}</p>
-          <PathCta to={path.to} label="Open path" accentColor={path.color} />
+          <PathCta to={path.to} label={`Explore ${path.eyebrow}`} accentColor={path.color} />
         </div>
+      </div>
+    </div>
+  )
+}
+
+function StatusLine({ label, items = [], color, className = '', muted = false }) {
+  return (
+    <div className={className}>
+      <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-zinc-600">{label}</p>
+      <div className="flex flex-wrap gap-1.5">
+        {items.map((item) => (
+          <span
+            key={item}
+            className={`rounded-md border px-2 py-1 text-[11px] font-semibold ${muted ? 'bg-amber-300/5 text-amber-100/70' : 'bg-zinc-900/70 text-zinc-300'}`}
+            style={{ borderColor: `${color}35` }}
+          >
+            {item}
+          </span>
+        ))}
       </div>
     </div>
   )

@@ -115,6 +115,25 @@ export function exportProgress(filenamePrefix = 'freecertprep') {
   }
 }
 
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
+}
+
+export function isValidProgressData(value) {
+  if (!isPlainObject(value)) return false
+
+  return Object.values(value).every((certProgress) => {
+    if (!isPlainObject(certProgress)) return false
+    if (!Array.isArray(certProgress.quizHistory) || !Array.isArray(certProgress.examHistory)) return false
+
+    return [...certProgress.quizHistory, ...certProgress.examHistory].every((session) => {
+      if (!isPlainObject(session)) return false
+      if (session.answers === undefined) return true
+      return Array.isArray(session.answers) && session.answers.every(isPlainObject)
+    })
+  })
+}
+
 /**
  * Validate and persist a raw progress-JSON string from an imported file.
  * Writes the raw string verbatim (not re-serialized) to preserve exact
@@ -125,11 +144,13 @@ export function exportProgress(filenamePrefix = 'freecertprep') {
  * Shared by Dashboard and REDashboard.
  */
 export function importProgressRaw(raw) {
+  let parsed
   try {
-    JSON.parse(raw)
+    parsed = JSON.parse(raw)
   } catch {
     return 'invalid'
   }
+  if (!isValidProgressData(parsed)) return 'invalid'
   const ls = getLS()
   if (!ls) return 'error'
   try {

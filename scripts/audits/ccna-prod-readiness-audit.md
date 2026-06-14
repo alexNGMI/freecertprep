@@ -1,8 +1,8 @@
 # CCNA Production Readiness Audit
 
-Status: `ccna-200-301` is published as a production catalog cert.
+Status: `ccna-200-301` is preserved as Coming Soon.
 
-Source basis: Cisco 200-301 v2.0 exam page and official exam topics PDF. The pool follows the current five-domain Cisco blueprint and keeps the advanced simulation types needed for CCNA-style practice.
+Source basis: Cisco's announced 200-301 v2.0 exam topics PDF. The pool follows the future five-domain blueprint and keeps the advanced simulation types needed for CCNA-style practice. Cisco v1.1 remains active through February 2, 2027; v2.0 first tests February 3, 2027.
 
 ## Domain Distribution
 

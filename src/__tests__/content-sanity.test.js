@@ -123,7 +123,7 @@ describe('cert registry', () => {
     expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('B+')
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
     expect(certs['terraform-associate'].source.readinessGrade).toBe('B+')
-    expect(certs['comptia-net-plus'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-net-plus'].source.readinessGrade).toBe('A-')
     expect(certs['comptia-sec-plus'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/coverage verified/i)
     expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/coverage verified/i)
@@ -159,7 +159,7 @@ describe('cert registry', () => {
     expect(visibleIds).toEqual(publicIds)
     expect(LIVE_CERT_IDS.has('comptia-a-plus-core-1')).toBe(true)
     expect(LIVE_CERT_IDS.has('comptia-a-plus-core-2')).toBe(true)
-    expect(LIVE_CERT_IDS.has('ccna-200-301')).toBe(true)
+    expect(COMING_SOON_CERT_IDS.has('ccna-200-301')).toBe(true)
     expect(LIVE_CERT_IDS.has('terraform-associate')).toBe(true)
   })
 
@@ -710,12 +710,13 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     expect(troubleshootingQuestions).toHaveLength(182)
 
     const evidenceBasedCount = troubleshootingQuestions.filter(q =>
-      /^At branch \d{2},/.test(q.question)
-      && /best next step/i.test(q.question)
-      && /address|ARP|DHCP|DNS|duplex|firewall|latency|light|logs|MTU|RTP|route|traceroute|trunk|VLAN|wireless/i.test(q.question)
+      /^(Users report|A post-incident review|Before changing production settings|A second location|After correcting)/.test(q.question)
+        && q.question.length >= 100
+        && /address|ARP|DHCP|DNS|duplex|firewall|latency|light|MTU|RTP|route|trunk|VLAN|wireless|PoE|MAC/i.test(q.question)
+        && q.explanation.length >= 180
     ).length
 
-    expect(evidenceBasedCount).toBeGreaterThanOrEqual(75)
+    expect(evidenceBasedCount).toBeGreaterThanOrEqual(80)
   })
 
   it('Terraform Associate 004 uses the official direct question formats across every objective', () => {
@@ -1088,8 +1089,8 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
   })
 })
 
-describe('CCNA 200-301 production pool', () => {
-  it('is published while covering the 750-item v2.0 simulation mix', () => {
+describe('CCNA 200-301 v2.0 preview pool', () => {
+  it('is preserved while covering the 750-item v2.0 simulation mix', () => {
     expect(certs['ccna-200-301'].published).not.toBe(false)
     expect(ccna200301).toHaveLength(750)
 
@@ -1156,10 +1157,10 @@ describe('CCNA 200-301 production pool', () => {
     }
   })
 
-  it('keeps the CCNA audit plan aligned with the live 750-item v2.0 target', () => {
+  it('keeps the CCNA audit plan aligned with the preserved 750-item v2.0 preview', () => {
     const audit = readFileSync('scripts/audits/ccna-prod-readiness-audit.md', 'utf8')
 
-    expect(audit).toContain('Status: `ccna-200-301` is published')
+    expect(audit).toContain('Status: `ccna-200-301` is preserved as Coming Soon')
     expect(audit).toContain('| Network Infrastructure and Connectivity | 188 |')
     expect(audit).toContain('| Switching and Network Access | 187 |')
     expect(audit).toContain('| IP Routing | 150 |')

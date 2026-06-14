@@ -160,6 +160,18 @@ describe('storage: importProgressRaw', () => {
     expect(globalThis.localStorage.getItem(KEYS.progress)).toBeNull()
   })
 
+  it.each([
+    ['null', null],
+    ['an array', []],
+    ['a primitive', 'progress'],
+    ['a cert without history arrays', { cert: {} }],
+    ['a history containing null', { cert: { quizHistory: [null], examHistory: [] } }],
+    ['an answers field that is not an array', { cert: { quizHistory: [{ answers: {} }], examHistory: [] } }],
+  ])('returns invalid for %s even though it is valid JSON', (_, value) => {
+    expect(importProgressRaw(JSON.stringify(value))).toBe('invalid')
+    expect(globalThis.localStorage.getItem(KEYS.progress)).toBeNull()
+  })
+
   it('returns error when the write fails (quota)', () => {
     globalThis.localStorage.setItem = () => {
       const e = new Error('quota')

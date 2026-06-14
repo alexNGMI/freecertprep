@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import { fisherYates, weightedSample } from '../utils/shuffle'
 import { isAnswerCorrect } from '../utils/scoring'
 import { useProgress } from './useProgress'
@@ -25,7 +25,8 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
   const [answers, setAnswers] = useState([])
   const [showResult, setShowResult] = useState(false)
   const [quizStarted, setQuizStarted] = useState(false)
-  const [sessionKey, setSessionKey] = useState(0)
+  const [sessionQuestions, setSessionQuestions] = useState([])
+  const completedRef = useRef(false)
 
   const activeMode =
     selectedDomain === SMART_PRACTICE ? 'smart'
@@ -48,26 +49,24 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
     return questions.filter((q) => q.domain === selectedDomain)
   }, [selectedDomain, questions, bookmarkedIds, certStats])
 
-  const sessionQuestions = useMemo(() => {
-    void sessionKey
-    if (selectedDomain === SMART_PRACTICE) {
-      return weightedSample(getWeightedPool(questions), blockSize)
-    }
-    return fisherYates(poolQuestions).slice(0, blockSize)
-  }, [selectedDomain, poolQuestions, sessionKey, questions, getWeightedPool, blockSize])
-
   const startQuiz = () => {
+    const nextQuestions = selectedDomain === SMART_PRACTICE
+      ? weightedSample(getWeightedPool(questions), blockSize)
+      : fisherYates(poolQuestions).slice(0, blockSize)
+
+    completedRef.current = false
     setCurrentIndex(0)
     setAnswers([])
     setShowResult(false)
+    setSessionQuestions(nextQuestions)
     setQuizStarted(true)
-    setSessionKey((k) => k + 1)
   }
 
   const changeMode = (selection = SMART_PRACTICE) => {
     setQuizStarted(false)
     setSetupStep(1)
     setSelectedDomain(selection)
+    setSessionQuestions([])
   }
 
   const handleAnswer = (selectedChoice) => {
@@ -84,6 +83,8 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
       setCurrentIndex((prev) => prev + 1)
       return
     }
+    if (completedRef.current) return
+    completedRef.current = true
     addQuizResult({ domain: selectedDomain, answers })
     recordSession(answers)
     setShowResult(true)

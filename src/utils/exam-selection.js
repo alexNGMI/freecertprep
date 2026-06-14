@@ -97,13 +97,18 @@ export function weightedSelect(questions, count, domains, options = {}) {
 
   guaranteePracticalQuestions(picked, eligibleQuestions, options.practicalQuestionTarget)
   guaranteeQuestionTypes(picked, eligibleQuestions, options.requiredTypeCounts)
-  guaranteePracticalCategories(picked, eligibleQuestions, options.requiredPracticalCategories)
+  guaranteePracticalCategories(
+    picked,
+    eligibleQuestions,
+    options.requiredPracticalCategories,
+    options.requiredTypeCounts,
+  )
 
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)
 }
 
-function guaranteePracticalCategories(picked, questions, requiredCategories = []) {
+function guaranteePracticalCategories(picked, questions, requiredCategories = [], requiredTypeCounts = {}) {
   if (!requiredCategories?.length) return
 
   const pickedIds = new Set(picked.map((question) => question.id))
@@ -118,14 +123,14 @@ function guaranteePracticalCategories(picked, questions, requiredCategories = []
     const candidate = candidates.find((item) =>
       picked.some((question) =>
         question.domain === item.domain
-        && canSwapPracticalCategory(picked, question, requiredCategories)
+        && canSwapPracticalCategory(picked, question, requiredCategories, requiredTypeCounts)
       )
     )
     if (!candidate) continue
 
     const swapIndex = picked.findIndex((question) =>
       question.domain === candidate.domain
-      && canSwapPracticalCategory(picked, question, requiredCategories)
+      && canSwapPracticalCategory(picked, question, requiredCategories, requiredTypeCounts)
     )
     if (swapIndex === -1) continue
 
@@ -135,8 +140,11 @@ function guaranteePracticalCategories(picked, questions, requiredCategories = []
   }
 }
 
-function canSwapPracticalCategory(questions, question, requiredCategories) {
-  if (!isPracticalQuestion(question)) return countType(questions, question.type || 'single-choice') > 1
+function canSwapPracticalCategory(questions, question, requiredCategories, requiredTypeCounts) {
+  const type = question.type || 'single-choice'
+  const protectedMinimum = Math.max(1, requiredTypeCounts?.[type] || 0)
+  if (countType(questions, type) <= protectedMinimum) return false
+  if (!isPracticalQuestion(question)) return true
   if (!requiredCategories.includes(question.practicalCategory)) return true
   return questions.filter((item) => item.practicalCategory === question.practicalCategory).length > 1
 }

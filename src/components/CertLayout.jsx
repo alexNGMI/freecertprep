@@ -56,7 +56,7 @@ export default function CertLayout() {
                 aria-label={label}
                 title={label}
                 className={({ isActive }) =>
-                  `inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-sm transition-all duration-300 ${
+                  `inline-flex min-h-11 min-w-11 items-center justify-center gap-2 px-3 sm:px-4 py-2 rounded-xl text-sm transition-all duration-300 ${
                     isActive
                       ? 'font-semibold text-zinc-950 shadow-md transform scale-[1.02]'
                       : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5'

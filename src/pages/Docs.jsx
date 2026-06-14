@@ -179,11 +179,12 @@ export default function Docs() {
               afford them.
             </P>
             <P>
-              The live platform currently centers AWS, Google Cloud, CompTIA, Cisco CCNA, Splunk, and Terraform. Azure, CCST,
-              NVIDIA, Linux+, Server+, and DCCA remain authored but are marked Coming Soon until their simulations meet the current bar. Every cert is chosen deliberately:
+              The live platform currently centers AWS, CompTIA, Splunk, and Terraform. Azure, Google Cloud, CCST, CCNA,
+              NVIDIA, Linux+, Server+, and DCCA remain authored but are marked Coming Soon until their simulations and active-release alignment meet the current bar. Every cert is chosen deliberately:
               these are exams where the test-taker is typically paying out of pocket, studying independently, with no employer
-              tuition pipeline to lean on. The homepage now focuses on guided career paths so beginners can follow a sequence,
-              while experienced learners can use the dedicated catalog page to jump straight to the cert they need.
+              tuition pipeline to lean on. The homepage presents A+ as an optional starting point, then organizes Networking,
+              Cybersecurity, and Cloud around target roles, available practice, and upcoming milestones. Experienced learners can
+              still use the dedicated catalog page to jump straight to the cert they need.
             </P>
             <P>
               Real Estate is temporarily hidden from public navigation while its source and simulation quality are reworked. The
@@ -221,9 +222,9 @@ export default function Docs() {
               from the official exam guides published by the certification providers.
             </P>
             <P>
-              The catalog currently exposes 9 live modules. Eight additional IT modules remain in the repository and appear as
-              Coming Soon without links. A+ Core 1/Core 2, Terraform, and CCNA remain live because their simulation grades meet
-              the current bar.
+              The catalog currently exposes 8 live modules. Nine additional IT modules remain in the repository and appear as
+              Coming Soon without links. CCNA's preserved bank targets Cisco's future v2.0 release, so it remains Coming Soon
+              while v1.1 is the active exam.
             </P>
 
             <Table
@@ -687,7 +688,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,219 Vitest tests across 30 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,237 Vitest tests across 36 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -719,10 +720,10 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today with 9 public IT certification modules, 8 Coming Soon IT modules, and a
+              The product is live and usable today with 8 public IT certification modules, 9 Coming Soon IT modules, and a
               Real Estate build hidden from public navigation for rework. The current phase is consolidation: keep the live
-              catalog accurate, improve Terraform review value, and make the complete first-user study journey feel coherent.
-              CCNA remains live but parked from active expansion. Authored Coming Soon banks remain preserved without being
+              catalog accurate and make the complete first-user study journey feel coherent. The live-source and Terraform
+              learning-value passes are complete. CCNA is preserved as a future-v2.0 preview rather than current-exam practice. Authored Coming Soon banks remain preserved without being
               presented as production-ready.
             </P>
 
@@ -744,7 +745,8 @@ key = random() ** (1 / weight)
                   'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is now the Cybersecurity path level-three SOC tooling layer.',
                   'CompTIA Linux+ (XK0-006) - authored 750-question pool retained as Coming Soon pending a major command, output, and configuration rewrite.',
                   'Schneider Data Center Certified Associate (DCCA) - authored 750-question pool retained as Coming Soon pending source hardening and facility-scenario rewrites.',
-                  'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 9 live modules from 8 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',
+                  'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 8 live modules from 9 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',
+                  'Career-direction presentation - A+ is now a distinct optional starting point above three role-oriented directions. Networking, Cybersecurity, and Cloud show target roles and distinguish available practice from upcoming milestones; their detail pages distinguish optional foundations, career credentials, and applied skills instead of presenting every cert as a mandatory numbered step.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister-site prototype — retained as a hidden review build that reuses the same Smart Practice, scoring, and exam-selection engine; removed from public navigation until its source and simulation quality are ready.',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',
@@ -761,20 +763,21 @@ key = random() ** (1 / weight)
                   'AWS Solutions Architect - Associate (SAA-C03) - live 750-question production pool aligned to the official 30/26/24/20 domain weights, now listed in the full catalog and Cloud path.',
                   'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
-                  'Cisco CCNA (200-301) - live 750-question production pool aligned to Cisco 200-301 v2.0, with CLI output interpretation, topology scenarios, config repair, subnetting drills, and written exam-style practice connected to Networking and Data Center Technician paths.',
-                  'HashiCorp Terraform Associate (004) — live: 647 questions covering all 35 published Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
+                  'Cisco CCNA (200-301) - preserved 750-question v2.0 preview with CLI output, topology, config repair, subnetting, and written practice. It is Coming Soon because Cisco v1.1 remains active through February 2, 2027.',
+                  'HashiCorp Terraform Associate (004) — live: 647 questions covering all 37 implemented Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
+                  'Live source and release audit - all then-live modules checked against official vendor sources; AWS, A+, Splunk, Cisco, and Terraform metadata corrected or tightened, and CCNA moved to Coming Soon because its bank targets future v2.0.',
+                  'Terraform learning-value pass - 647 normalized-unique stems, structured operational explanations, 532 supporting evidence artifacts, stronger distractors, and automated allocation, evidence, uniqueness, and 500-form gates.',
+                  'First-user journey hardening - Smart Practice result context is stable, Recent Misses is a direct next action, incomplete exams require confirmation, mobile cert navigation meets 44px touch targets, and a repeatable release checklist covers desktop and mobile flows.',
+                  'Runtime reliability hardening - timed forms stay stable, session completion is idempotent, malformed progress data fails safely, exam expiry avoids state-updater side effects, and cert transitions cannot display stale module content.',
                   'A+, Network+, Security+, and Splunk quality sprint - objective learning, evidence-led practicals, form-composition guarantees, full-bank uniqueness checks, and structured review explanations completed by June 13, 2026.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,219-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,237-test regression suite.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  '1. Live source and release audit - verify the official guide, active exam code, count/time model, scoring language, source date, and public copy for all nine live modules.',
-                  '2. Terraform learning-value pass - keep the 647-question pool stable while improving evidence, distractors, explanations, uniqueness gates, and operational review guidance.',
-                  '3. First-user journey hardening - test homepage through results, next-study recommendations, mobile layout, bookmarks, review queues, and progress export/import as one release flow.',
-                  '4. Coming Soon promotion review - re-grade candidates and select one module only after it independently clears the B+ readiness bar.',
+                  '1. Continue codebase bug review and hardening while catalog promotion remains paused.',
                 ],
               },
               {
@@ -784,7 +787,7 @@ key = random() ** (1 / weight)
                   'Streak tracking and study reminders',
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
                   'Shared result cards — privacy-respecting shareable score screenshots',
-                  'CCNA simulation expansion - parked while the live-source, Terraform, and first-user quality sequence is completed.',
+                  'CCNA simulation expansion - parked until Cisco v2.0 becomes active and the preserved preview passes a fresh release audit.',
                   'User accounts and synced progress - useful after the local-first product journey is fully hardened.',
                   'Trust layer phase 1 - durable reports, moderation, audit trails, and correction history when a backend becomes an active priority.',
                   'Custom domain and installable PWA support.',

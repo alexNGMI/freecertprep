@@ -28,9 +28,16 @@ export default function Quiz() {
   const questions = cert.questions
   const [searchParams] = useSearchParams()
   const requestedObjective = searchParams.get('objective')
+  const requestedMode = searchParams.get('mode')
   const initialSelection = cert.objectives?.some(objective => objective.id === requestedObjective)
     ? `${OBJECTIVE_PREFIX}${requestedObjective}`
-    : SMART_PRACTICE
+    : requestedMode === 'missed'
+      ? RECENT_MISSES
+      : requestedMode === 'due'
+        ? DUE_REVIEW
+        : requestedMode === 'bookmarked'
+          ? BOOKMARKED
+          : SMART_PRACTICE
   const { bookmarkedIds, toggle: toggleBookmark, isBookmarked } = useBookmarks(cert.id)
   const {
     activeMode,
@@ -370,6 +377,12 @@ export default function Quiz() {
             {correct} of {total} correct. {passed ? 'You are trending above the pass mark.' : 'Use the misses as your next study target.'}
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            {correct < total && (
+              <Button onClick={() => changeMode(RECENT_MISSES)} variant="accent" size="lg" accentColor="#f59e0b">
+                Review Recent Misses
+                <History className="h-5 w-5" />
+              </Button>
+            )}
             <Button id="quiz-try-again-btn" onClick={startQuiz} variant="accent" size="lg" accentColor={isSmartPractice ? '#6366f1' : cert.color}>
               {isSmartPractice ? 'Next Smart Block' : 'New Block'}
             </Button>
