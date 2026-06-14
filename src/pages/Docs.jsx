@@ -604,8 +604,8 @@ key = random() ** (1 / weight)
             <CodeBlock>{`src/
 ├── pages/
 │   ├── Home.jsx          — Landing page, guided paths, visitor counter
-│   ├── Catalog.jsx       — Full cert catalog and Real Estate sister-site entry
-│   ├── CareerPath.jsx    - Guided Networking / Cyber / Cloud / NVIDIA path pages
+│   ├── Catalog.jsx       — Live and Coming Soon IT certification catalog
+│   ├── CareerPath.jsx    - Public Networking / Cyber / Cloud directions plus preserved hidden routes
 │   ├── Dashboard.jsx     — Per-cert stats, domain readiness, resets
 │   ├── Quiz.jsx          — Smart Practice / Bookmarked / Domain mode
 │   ├── Drill.jsx         — Timed 10-question drill with countdown
@@ -742,7 +742,7 @@ key = random() ** (1 / weight)
                   'Cisco CCST Networking (100-150) - authored 750-question pool retained as Coming Soon while repetition and simulation fidelity are revised.',
                   'CompTIA Security+ (SY0-701) — 760-question pool with PBQ-lite security operations and architecture scenarios',
                   'CompTIA Server+ (SK0-005) - authored 760-question pool retained as Coming Soon while practical server troubleshooting is revised.',
-                  'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is now the Cybersecurity path level-three SOC tooling layer.',
+                  'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is the Cybersecurity direction’s applied SOC tooling layer after the Security+ career credential.',
                   'CompTIA Linux+ (XK0-006) - authored 750-question pool retained as Coming Soon pending a major command, output, and configuration rewrite.',
                   'Schneider Data Center Certified Associate (DCCA) - authored 750-question pool retained as Coming Soon pending source hardening and facility-scenario rewrites.',
                   'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 8 live modules from 9 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',

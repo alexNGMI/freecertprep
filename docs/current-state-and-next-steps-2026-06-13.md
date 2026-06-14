@@ -1,6 +1,6 @@
 # Current State and Next Steps
 
-Date: June 13, 2026
+Last updated: June 14, 2026
 
 ## Executive Summary
 
@@ -15,6 +15,8 @@ The June quality sprint materially improved the strongest learner-facing modules
 - The full automated suite passes: 1,237 tests across 36 files.
 
 The product is in a strong consolidation phase. The live source audit, Terraform learning-value pass, first-user journey hardening, session/persistence reliability pass, and detailed Network+ structured audit are complete. Catalog promotion is paused while the strongest live module is improved rather than the catalog expanded. The preserved CCNA bank targets the future v2.0 release and remains Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
+
+The public presentation now matches that narrower strategy. A+ is an optional starting point above three role-oriented career directions: Networking, Cybersecurity, and Cloud. Each direction names target roles, distinguishes available practice from upcoming milestones, and labels certifications as optional foundations, career credentials, or applied skills instead of implying one mandatory sequence.
 
 ## Current Public Offering
 
@@ -48,10 +50,11 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 3. **Quality gates are becoming cert-specific.** A+, Network+, Security+, Splunk, and Terraform now have meaningful automated checks beyond basic JSON validity.
 4. **The public catalog is intentionally narrower than the authored catalog.** This protects learner trust while weaker modules are revised.
 5. **The application remains operationally simple.** Progress is local, question banks are lazy-loaded, and the full product can run as a static deployment.
+6. **The offering is easier to understand.** The homepage and path pages now explain who each direction serves, what is usable today, and where Coming Soon work belongs.
 
-## Main Risks and Gaps
+## Current Constraints and Guardrails
 
-1. **Network+ A-grade remediation is complete.** All 760 items have a recorded objective review, repeated scenario families are at zero, and full forms guarantee eight practical interactions while retaining exact domain allocation.
+1. **Network+ quality must be preserved.** All 760 items have a recorded objective review, repeated scenario families are at zero, and full forms guarantee eight practical interactions while retaining exact domain allocation. Future edits must keep those gates green.
 2. **CCNA release alignment needs discipline.** The preserved bank targets v2.0, but Cisco v1.1 remains active through February 2, 2027. The preview must remain Coming Soon until the active release matches and a fresh audit passes.
 3. **Documentation can drift behind code.** Source status, catalog visibility, and readiness claims now need to remain synchronized through release checks.
 4. **Trust workflow remains local and lightweight.** Source cards and report links exist, but durable reports, moderation, and correction history require a backend. This is useful later, not the immediate priority for a first user.
@@ -141,7 +144,16 @@ Next:
 
 Detailed record: `scripts/audits/netplus-structured-quality-audit-2026-06-14.md`.
 
-### 6. Deferred Platform Work
+### 6. Career-Direction Presentation - Completed June 14, 2026
+
+- A+ is separated from the career directions and presented as an optional starting point.
+- Networking shows Network+ as available, with CCST Networking and CCNA as upcoming Cisco-focused milestones.
+- Cybersecurity treats Network+ as an optional foundation, Security+ as the career credential, and Splunk as the applied tool.
+- Cloud asks "New to cloud?" before the optional Cloud Practitioner foundation, then frames SAA as the career credential and Terraform as the applied skill.
+- Homepage cards identify target roles and clearly separate available practice from Coming Soon work.
+- Desktop and 390px mobile checks found no horizontal overflow; the complete 1,237-test suite, lint, and production build pass.
+
+### 7. Deferred Platform Work
 
 Keep these visible in the roadmap but outside the immediate sprint:
 

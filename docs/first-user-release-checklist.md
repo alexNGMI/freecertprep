@@ -6,6 +6,8 @@ Run this checklist before merging a learner-facing release.
 
 - Homepage has no horizontal overflow at desktop or 390px mobile width.
 - A new learner can reach A+, Networking, Cybersecurity, Cloud, and the full catalog without reading Docs.
+- A+ is presented as an optional starting point rather than a mandatory first step.
+- Networking, Cybersecurity, and Cloud identify target roles and distinguish available practice from upcoming milestones.
 - Live and Coming Soon modules are visually and functionally distinct.
 - Coming Soon cards do not link to study routes.
 

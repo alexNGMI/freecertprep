@@ -1,6 +1,6 @@
 # Splunk Core Certified User Content Architecture
 
-Splunk Core Certified User (SPLK-1001) is the Cybersecurity path's level-three practical tooling cert. It gives learners hands-on SIEM/search fluency after Network+ traffic fundamentals and Security+ security baseline knowledge.
+Splunk Core Certified User (SPLK-1001) is the Cybersecurity direction's applied tooling certification. It adds hands-on SIEM and search fluency after the Security+ career credential; Network+ is an optional foundation for learners who still need networking fluency.
 
 ## Official Source Spine
 

@@ -5,6 +5,8 @@ Scope: Product, catalog, content quality, technology, operations, roadmap, risk,
 Repository reviewed: `alexNGMI/freecertprep`  
 Prepared from the current workspace and Git history through commit `2a46a8e`
 
+> **Historical snapshot:** This report records the repository as reviewed on June 8, 2026. It is retained for board-history context and is not the current product-status source. See `docs/current-state-and-next-steps-2026-06-13.md` for the maintained roadmap and current public offering.
+
 ## Executive Summary
 
 freecertprep has moved beyond an early prototype. It is now a functioning, reusable exam-preparation platform with:
@@ -92,7 +94,7 @@ The current workspace contains a reversible, local-only branch:
 - Commit: `2a46a8e Move catalog to dedicated page`
 - Status: committed locally, not pushed to GitHub, not merged into `main`
 
-This change removes the certification grid and Real Estate bar from the homepage and places them on `/catalog`. Automated tests and local browser verification passed. Production `main` currently remains at `4bbfa3a`.
+At the time of this report, this change removed the certification grid and Real Estate bar from the homepage and placed them on `/catalog`. Automated tests and local browser verification passed. Production `main` was then at `4bbfa3a`; subsequent releases changed the catalog and hid Real Estate from public navigation.
 
 Recommendation: approve the direction, push the branch for review, and merge after one mobile visual check. The separation gives the homepage a clearer job: help uncertain users choose a path. The catalog serves users who already know the exam they want.
 

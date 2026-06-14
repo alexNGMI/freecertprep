@@ -1,6 +1,6 @@
 # CompTIA Linux+ Content Architecture
 
-CompTIA Linux+ (XK0-006 V8) is the NVIDIA path's systems foundation. It gives learners Linux administration, security, automation, container, and troubleshooting fluency before they move into AI infrastructure and GPU operations.
+CompTIA Linux+ (XK0-006 V8) is preserved as the systems foundation for the hidden NVIDIA path. It gives learners Linux administration, security, automation, container, and troubleshooting fluency before AI infrastructure and GPU operations, but it remains Coming Soon while its command, output, configuration, and task realism is revised.
 
 ## Official Source Spine
 
@@ -40,4 +40,6 @@ Linux+ includes performance-based questions, so the pool uses more practical for
 
 - `src/__tests__/content-sanity.test.js` locks the exact XK0-006 domain distribution.
 - The generator rejects duplicate stems and short explanations.
-- Linux+ is live in the full catalog and the NVIDIA path as the systems foundation step.
+- Linux+ remains authored and visible as Coming Soon in the full catalog.
+- The hidden NVIDIA path retains Linux+ as its future systems foundation; it is not part of current homepage discovery.
+- Promotion requires a focused rewrite and a fresh simulation-readiness audit.

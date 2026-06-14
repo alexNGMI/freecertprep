@@ -49,4 +49,4 @@ DCCA questions should test field judgment, not trivia alone:
 
 ## Publication Status
 
-The DCCA bank is preserved as the Data Center Technician path's future level-two certification between CompTIA Server+ and the Coming Soon CCNA v2.0 preview.
+The DCCA bank is preserved as the hidden Data Center Technician direction's future facility-infrastructure specialty between the Server+ systems foundation and the Coming Soon CCNA v2.0 networking milestone.

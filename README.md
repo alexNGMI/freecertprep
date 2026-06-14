@@ -64,7 +64,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
 
-> **Splunk is live:** Splunk Core Certified User (SPLK-1001) ships a 750-question production pool aligned to the official 5/22/20/15/15/12/6/5 blueprint weights. It is now the Cybersecurity path's live level-three SOC tooling layer.
+> **Splunk is live:** Splunk Core Certified User (SPLK-1001) ships a 750-question production pool aligned to the official 5/22/20/15/12/6/5 blueprint weights. It is the Cybersecurity direction's applied SOC tooling layer after the Security+ career credential.
 
 > **AI infrastructure revision:** Linux+, NVIDIA AI Infrastructure & Operations, and NVIDIA Generative AI remain authored but are Coming Soon while their simulation realism is improved.
 
@@ -92,7 +92,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 ## Features
 
 - **Home** - An A+ starting point followed by role-oriented Networking, Cybersecurity, and Cloud directions with clear live and upcoming status.
-- **Catalog** - Dedicated `/catalog` page for the full certification grid plus the Real Estate sister-site entry.
+- **Catalog** - Dedicated `/catalog` page for the live certification grid and preserved Coming Soon modules. Real Estate remains accessible only through Docs while it is reworked.
 - **Path pages** - Career pages identify target roles, optional foundations, career credentials, and applied skills. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
 - **Current roadmap** - The catalog is frozen while the current product is hardened. The live source/release audit, Terraform review-quality pass, first-user journey pass, and session/persistence reliability pass are complete. Coming Soon promotion is paused. See `docs/current-state-and-next-steps-2026-06-13.md`.
