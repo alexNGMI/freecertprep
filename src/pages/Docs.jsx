@@ -182,8 +182,9 @@ export default function Docs() {
               The live platform currently centers AWS, CompTIA, Splunk, and Terraform. Azure, Google Cloud, CCST, CCNA,
               NVIDIA, Linux+, Server+, and DCCA remain authored but are marked Coming Soon until their simulations and active-release alignment meet the current bar. Every cert is chosen deliberately:
               these are exams where the test-taker is typically paying out of pocket, studying independently, with no employer
-              tuition pipeline to lean on. The homepage now focuses on guided career paths so beginners can follow a sequence,
-              while experienced learners can use the dedicated catalog page to jump straight to the cert they need.
+              tuition pipeline to lean on. The homepage presents A+ as an optional starting point, then organizes Networking,
+              Cybersecurity, and Cloud around target roles, available practice, and upcoming milestones. Experienced learners can
+              still use the dedicated catalog page to jump straight to the cert they need.
             </P>
             <P>
               Real Estate is temporarily hidden from public navigation while its source and simulation quality are reworked. The
@@ -745,6 +746,7 @@ key = random() ** (1 / weight)
                   'CompTIA Linux+ (XK0-006) - authored 750-question pool retained as Coming Soon pending a major command, output, and configuration rewrite.',
                   'Schneider Data Center Certified Associate (DCCA) - authored 750-question pool retained as Coming Soon pending source hardening and facility-scenario rewrites.',
                   'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 8 live modules from 9 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',
+                  'Career-direction presentation - A+ is now a distinct optional starting point above three role-oriented directions. Networking, Cybersecurity, and Cloud show target roles and distinguish available practice from upcoming milestones; their detail pages distinguish optional foundations, career credentials, and applied skills instead of presenting every cert as a mandatory numbered step.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister-site prototype — retained as a hidden review build that reuses the same Smart Practice, scoring, and exam-selection engine; removed from public navigation until its source and simulation quality are ready.',
                   'GitHub Actions CI — lint, full test suite, and production build gated on every push and pull request',

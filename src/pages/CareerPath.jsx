@@ -16,29 +16,31 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 const PATHS = {
   networking: {
     eyebrow: 'Networking',
-    title: 'Networking Career Path',
+    title: 'Build a career in networking.',
     description:
-      'Start with Network+ now or use CCST Networking as a future Cisco-aligned foundation, then build toward CCNA when its v2.0 practice module is released.',
+      'Choose a vendor-neutral or Cisco-aligned foundation, then build toward the credential most associated with hands-on network administration.',
     icon: Network,
     color: '#f97316',
+    roles: ['NOC Technician', 'Network Support Specialist', 'Junior Network Administrator'],
+    availability: 'Practice Network+ now. CCST Networking and CCNA are being prepared as Cisco-focused milestones.',
     highlights: [
-      'Network+ and CCST both work as level-one networking foundations.',
-      'CCNA remains the career-defining milestone and returns when its v2.0 module is release-ready.',
+      'Choose Network+ for broad vendor-neutral fluency or CCST for a Cisco-first foundation.',
+      'CCNA is the career credential this direction builds toward.',
       'Each step builds toward real network troubleshooting and operations skill.',
     ],
     groups: [
       {
-        label: 'Choose your level-one foundation',
+        label: 'Choose a foundation',
         type: 'choice',
         items: [
-          certStep('Vendor-neutral foundation', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and support environments.'),
-          certStep('Cisco foundation', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
+          certStep('Foundation', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and support environments.'),
+          certStep('Foundation', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
         ],
       },
       {
-        label: 'Then move toward CCNA',
+        label: 'Build toward the career credential',
         items: [
-          certStep('Advanced networking', 'ccna-200-301', 'Coming Soon for Cisco 200-301 v2.0, which begins testing February 3, 2027. The preserved preview covers routing, switching, services, security, CLI output, topology, config repair, and subnetting.'),
+          certStep('Career Credential', 'ccna-200-301', 'Coming Soon for Cisco 200-301 v2.0, which begins testing February 3, 2027. The preserved preview covers routing, switching, services, security, CLI output, topology, config repair, and subnetting.'),
         ],
       },
     ],
@@ -83,6 +85,8 @@ const PATHS = {
       'Network+ and Security+ give the theory and baseline; Splunk adds the practical SOC tooling layer that helps entry-level candidates look closer to job-ready.',
     icon: LockKeyhole,
     color: '#fb7185',
+    roles: ['SOC Analyst', 'Security Support Specialist', 'Junior Security Analyst'],
+    availability: 'Network+, Security+, and Splunk Core Certified User are all available now.',
     highlights: [
       'Network+ builds the traffic and troubleshooting foundation.',
       'Security+ proves the security baseline most entry roles recognize.',
@@ -90,21 +94,21 @@ const PATHS = {
     ],
     groups: [
       {
-        label: 'Start with network fluency',
+        label: 'Optional foundation — start here if networking is new',
         items: [
-          certStep('Level 1', 'comptia-net-plus', 'Build the network fluency that makes security scenarios easier to reason through.'),
+          certStep('Optional Foundation', 'comptia-net-plus', 'Build the network fluency that makes security scenarios easier to reason through. Skip this step if networking already feels comfortable.'),
         ],
       },
       {
-        label: 'Then build the security baseline',
+        label: 'Earn the career credential',
         items: [
-          certStep('Level 2', 'comptia-sec-plus', 'Practice the core security exam domains once the network layer feels steady.'),
+          certStep('Career Credential', 'comptia-sec-plus', 'Practice the core security exam domains once the network layer feels steady.'),
         ],
       },
       {
-        label: 'Then add SOC tooling',
+        label: 'Add an applied tool',
         items: [
-          certStep('Level 3', 'splunk-core-certified-user', 'Practice Splunk searching, fields, SPL fundamentals, transforming commands, dashboards, lookups, scheduled reports, and alerts for SOC analyst readiness.'),
+          certStep('Applied Tool', 'splunk-core-certified-user', 'Practice Splunk searching, fields, SPL fundamentals, transforming commands, dashboards, lookups, scheduled reports, and alerts for SOC analyst readiness.'),
         ],
       },
     ],
@@ -115,29 +119,31 @@ const PATHS = {
     description:
       'Move from AWS fundamentals into architecture, then finish with Terraform so your path points toward real cloud support, junior cloud, and infrastructure roles.',
     highlights: [
-      'AWS is the default role-focused lane.',
-      'SAA comes before Terraform so architecture tradeoffs have context.',
-      'Azure Fundamentals and Google CDL remain in the full catalog.',
+      'New to cloud? Start with Cloud Practitioner.',
+      'Already comfortable with cloud fundamentals? Begin with SAA.',
+      'Terraform turns architecture knowledge into a deployable infrastructure skill.',
     ],
     icon: Cloud,
     color: '#38bdf8',
+    roles: ['Cloud Support Associate', 'Junior Cloud Engineer', 'Infrastructure Engineer'],
+    availability: 'Cloud Practitioner, SAA-C03, and Terraform Associate are all available now.',
     groups: [
       {
-        label: 'Start with AWS foundation',
+        label: 'Optional foundation — new to cloud?',
         items: [
-          certStep('AWS Foundation', 'clf-c02', 'Start here for broad AWS service, billing, security, and cloud operating model fluency.'),
+          certStep('Optional Foundation', 'clf-c02', 'Start here for broad AWS service, billing, security, and cloud operating model fluency. Skip ahead if these concepts already feel familiar.'),
         ],
       },
       {
-        label: 'Then move into architecture',
+        label: 'Earn the career credential',
         items: [
-          certStep('Architecture Layer', 'aws-saa-c03', 'Use SAA after cloud fundamentals to practice secure, resilient, high-performing, and cost-optimized AWS design.'),
+          certStep('Career Credential', 'aws-saa-c03', 'Use SAA to practice secure, resilient, high-performing, and cost-optimized AWS design.'),
         ],
       },
       {
-        label: 'Then add infrastructure as code',
+        label: 'Add an applied skill',
         items: [
-          certStep('Automation Layer', 'terraform-associate', 'Use Terraform after AWS architecture so infrastructure concepts have realistic designs to attach to.'),
+          certStep('Applied Skill', 'terraform-associate', 'Use Terraform after AWS architecture so infrastructure concepts have realistic designs to attach to.'),
         ],
       },
     ],
@@ -244,22 +250,42 @@ export default function CareerPath() {
               </p>
             </div>
 
-            <div className="border border-white/10 bg-zinc-950/75 rounded-lg p-5">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-4">Path logic</p>
-              {path.highlights ? (
-                <ul className="space-y-3">
-                  {path.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-3 text-sm text-zinc-400 leading-relaxed">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: path.color }} />
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm text-zinc-400 leading-relaxed">
-                  This page is a guided sequence, not a lock-in. Use it when you want a recommendation. Use the catalog when you already know the exact cert you want.
-                </p>
+            <div className="border border-white/10 bg-zinc-950/75 rounded-lg p-5 space-y-5">
+              {path.roles?.length > 0 && (
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">Target roles</p>
+                  <div className="flex flex-wrap gap-2">
+                    {path.roles.map((role) => (
+                      <span key={role} className="rounded-md border border-white/10 bg-zinc-900/60 px-2.5 py-1.5 text-xs font-semibold text-zinc-300">
+                        {role}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               )}
+              {path.availability && (
+                <div className="border-t border-white/5 pt-4">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">Available practice</p>
+                  <p className="text-sm leading-relaxed text-zinc-300">{path.availability}</p>
+                </div>
+              )}
+              <div className={path.roles?.length > 0 || path.availability ? 'border-t border-white/5 pt-4' : ''}>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">Path logic</p>
+                {path.highlights ? (
+                  <ul className="space-y-3">
+                    {path.highlights.map((highlight) => (
+                      <li key={highlight} className="flex gap-3 text-sm text-zinc-400 leading-relaxed">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: path.color }} />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-sm text-zinc-400 leading-relaxed">
+                    This page is a guided sequence, not a lock-in. Use it when you want a recommendation. Use the catalog when you already know the exact cert you want.
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </section>

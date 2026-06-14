@@ -60,7 +60,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.
 
-> **Guided paths are live:** The homepage focuses on A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician paths remain implemented but are hidden from homepage discovery while their component certifications are revised. The Networking path keeps Network+ live while showing CCST and the future CCNA v2.0 module as Coming Soon; Cybersecurity runs Network+ to Security+ to Splunk; Cloud runs AWS Cloud Practitioner to SAA to Terraform.
+> **Guided career directions are live:** The homepage presents A+ as an optional starting point above Networking, Cybersecurity, and Cloud career directions. Each direction names target roles, separates available practice from upcoming milestones, and avoids implying that every learner must begin at the same level. Networking offers Network+ or CCST foundations before CCNA; Cybersecurity treats Network+ as optional before Security+ and Splunk; Cloud asks "New to cloud?" before the optional Cloud Practitioner foundation, then builds through SAA and Terraform.
 
 > **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
 
@@ -91,9 +91,9 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 ## Features
 
-- **Home** - Guided learning paths and study workflow highlights.
+- **Home** - An A+ starting point followed by role-oriented Networking, Cybersecurity, and Cloud directions with clear live and upcoming status.
 - **Catalog** - Dedicated `/catalog` page for the full certification grid plus the Real Estate sister-site entry.
-- **Path pages** - Public homepage lanes cover A+ entry, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
+- **Path pages** - Career pages identify target roles, optional foundations, career credentials, and applied skills. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
 - **Current roadmap** - The catalog is frozen while the current product is hardened. The live source/release audit, Terraform review-quality pass, first-user journey pass, and session/persistence reliability pass are complete. Coming Soon promotion is paused. See `docs/current-state-and-next-steps-2026-06-13.md`.
 - **Content quality status** - A+, Network+, Security+, and Splunk completed their current practical/editorial sprint on June 13, 2026. Cert-specific gates now cover objective breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
