@@ -14,7 +14,7 @@ The June quality sprint materially improved the strongest learner-facing modules
 - Terraform Associate covers all 37 implemented Associate 004 subobjectives, guarantees a mixed-format practice form, and now includes structured operational review across the full bank.
 - The full automated suite passes: 1,237 tests across 36 files.
 
-The product is in a strong consolidation phase. The live source audit, Terraform learning-value pass, first-user journey hardening, and session/persistence reliability pass are complete. Catalog promotion is paused while the existing product remains under bug review and operational hardening. The preserved CCNA bank targets the future v2.0 release and remains Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
+The product is in a strong consolidation phase. The live source audit, Terraform learning-value pass, first-user journey hardening, session/persistence reliability pass, and detailed Network+ structured audit are complete. Catalog promotion is paused while the strongest live module is improved rather than the catalog expanded. The preserved CCNA bank targets the future v2.0 release and remains Coming Soon until Cisco begins v2.0 testing and the bank is re-audited.
 
 ## Current Public Offering
 
@@ -24,7 +24,7 @@ The product is in a strong consolidation phase. The live source audit, Terraform
 | --- | --- | --- |
 | CompTIA A+ Core 1 | B+ | Maintain objective and PBQ gates |
 | CompTIA A+ Core 2 | B+ | Maintain objective and PBQ gates |
-| CompTIA Network+ | B+ | Maintain practical-category and objective gates |
+| CompTIA Network+ | B+ | Reduce repeated scenario families, then semantically retag objective metadata |
 | CompTIA Security+ | B+ | Maintain practical-category and objective gates |
 | Splunk Core Certified User | B+ | Maintain evidence, uniqueness, and explanation gates |
 | HashiCorp Terraform Associate | B+ | Learning-value pass complete; maintain quality gates |
@@ -51,7 +51,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 
 ## Main Risks and Gaps
 
-1. **Runtime reliability remains the active priority.** Continue auditing session lifecycle, persistence, recovery, routing, accessibility, and browser behavior before expanding the public catalog.
+1. **Network+ editorial precision is the active content priority.** The structured audit found 19 repeated scenario families covering 91 questions and mechanically complete but uneven objective tagging. Reduce repetition and then perform controlled objective retagging.
 2. **CCNA release alignment needs discipline.** The preserved bank targets v2.0, but Cisco v1.1 remains active through February 2, 2027. The preview must remain Coming Soon until the active release matches and a fresh audit passes.
 3. **Documentation can drift behind code.** Source status, catalog visibility, and readiness claims now need to remain synchronized through release checks.
 4. **Trust workflow remains local and lightweight.** Source cards and report links exist, but durable reports, moderation, and correction history require a backend. This is useful later, not the immediate priority for a first user.
@@ -111,7 +111,7 @@ Done when:
 - The core journey works at mobile and desktop widths.
 - Lint, 1,237 tests, production build, browser smoke, and dependency audit pass.
 
-### 4. Runtime Reliability and Recovery - Active
+### 4. Runtime Reliability and Recovery - Completed June 13, 2026
 
 Keep the catalog frozen while the current application is treated as the release candidate:
 
@@ -128,7 +128,20 @@ Completed June 13:
 - progress imports reject structurally unsafe JSON, and existing malformed storage falls back safely;
 - certification-provider transitions show loading instead of stale content from the previous module.
 
-### 5. Deferred Platform Work
+### 5. Network+ Structured Quality Program - Active
+
+The June 14 audit retained the B+ grade and verified all 760 questions, 27 objectives, 32 practical items, and 500 randomized forms. It repaired visible encoding, removed the lone ticket-driven stem, replaced clearly misplaced thin-objective questions, and added a permanent `npm run audit:netplus` gate.
+
+Next:
+
+- diversify 19 repeated scenario families covering 91 questions;
+- semantically retag objective metadata, starting with 5.1, 3.2, 3.5, 1.3, 1.5, and 5.5;
+- deepen packet, CLI, topology, configuration-repair, and subnetting interactions;
+- keep the catalog frozen.
+
+Detailed record: `scripts/audits/netplus-structured-quality-audit-2026-06-14.md`.
+
+### 6. Deferred Platform Work
 
 Keep these visible in the roadmap but outside the immediate sprint:
 
