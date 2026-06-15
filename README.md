@@ -62,9 +62,9 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.
 
-> **Guided career directions are live:** The homepage presents A+ as an optional starting point above Networking, Cybersecurity, and Cloud career directions. Each direction names target roles, separates available practice from upcoming milestones, and avoids implying that every learner must begin at the same level. Networking offers Network+ or CCST foundations before CCNA; Cybersecurity treats Network+ as optional before Security+ and Splunk; Cloud asks "New to cloud?" before the optional Cloud Practitioner foundation, then builds through SAA and Terraform.
+> **Guided career progression is live:** The homepage now reads as A+ foundation → Networking → Cybersecurity → Cloud while still allowing experienced learners to enter at the stage that fits. Network+ appears only in Networking; Cybersecurity progresses from Security+ to Splunk; Cloud asks "New to cloud?" before the optional Cloud Practitioner foundation, then builds through SAA and Terraform.
 
-> **Role-specialty path copy is live:** Cloud now frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity now frames Splunk as the practical SOC tooling layer after Network+ and Security+.
+> **Role-specialty path copy is live:** Cloud frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity frames Security+ as the recognized baseline and Splunk as the practical SOC tooling layer.
 
 > **Splunk is live:** Splunk Core Certified User (SPLK-1001) ships a 750-question production pool aligned to the official 5/22/20/15/12/6/5 blueprint weights. It is the Cybersecurity direction's applied SOC tooling layer after the Security+ career credential.
 

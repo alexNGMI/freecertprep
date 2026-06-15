@@ -69,7 +69,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 
 ## What Is Working Well
 
-1. **The public offering is focused.** The homepage gives A+ a distinct optional starting position and presents Networking, Cybersecurity, and Cloud as role-oriented directions.
+1. **The public offering is focused.** The homepage presents A+ → Networking → Cybersecurity → Cloud as a recommended progression while allowing experienced learners to enter later; Network+ belongs only to Networking.
 2. **The study engine has real depth.** It supports weighted forms, ten interaction types, objective-level review, Smart Practice, bookmarks, recent misses, due review, timed drills, and full simulations.
 3. **Question banks do not inflate the initial bundle.** Certification JSON is loaded only when its route is opened.
 4. **Core correctness has meaningful tests.** Scoring, allocation, weighted sampling, storage recovery, session idempotency, UI behavior, and full-bank content structure are covered.

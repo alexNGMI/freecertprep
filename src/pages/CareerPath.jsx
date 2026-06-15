@@ -80,29 +80,23 @@ const PATHS = {
   },
   cybersecurity: {
     eyebrow: 'Cybersecurity',
-    title: 'Cybersecurity with a practical tool layer.',
+    title: 'Turn security knowledge into SOC skill.',
     description:
-      'Network+ and Security+ give the theory and baseline; Splunk adds the practical SOC tooling layer that helps entry-level candidates look closer to job-ready.',
+      'Build on the networking stage with Security+ for the recognized baseline, then add Splunk for practical search, dashboard, and alerting skill.',
     icon: LockKeyhole,
     color: '#fb7185',
     roles: ['SOC Analyst', 'Security Support Specialist', 'Junior Security Analyst'],
-    availability: 'Network+, Security+, and Splunk Core Certified User are all available now.',
+    availability: 'Security+ and Splunk Core Certified User are available now.',
     highlights: [
-      'Network+ builds the traffic and troubleshooting foundation.',
-      'Security+ proves the security baseline most entry roles recognize.',
+      'The Networking path supplies the traffic and troubleshooting foundation.',
+      'Security+ establishes the security baseline most entry roles recognize.',
       'Splunk Core Certified User adds the practical SIEM search and alerting layer.',
     ],
     groups: [
       {
-        label: 'Optional foundation — start here if networking is new',
+        label: 'Establish the security baseline',
         items: [
-          certStep('Optional Foundation', 'comptia-net-plus', 'Build the network fluency that makes security scenarios easier to reason through. Skip this step if networking already feels comfortable.'),
-        ],
-      },
-      {
-        label: 'Earn the career credential',
-        items: [
-          certStep('Career Credential', 'comptia-sec-plus', 'Practice the core security exam domains once the network layer feels steady.'),
+          certStep('Career Credential', 'comptia-sec-plus', 'Practice the core security domains after building the networking fluency needed to reason through traffic, segmentation, and troubleshooting scenarios.'),
         ],
       },
       {

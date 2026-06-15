@@ -79,7 +79,7 @@ The home experience is organized around career direction rather than a wall of v
 
 - IT Entry: A+ Core 1 and Core 2.
 - Networking: Network+ or CCST Networking, then CCNA.
-- Cybersecurity: Network+, Security+, then Splunk Core Certified User.
+- Cybersecurity: Security+, then Splunk Core Certified User, building on the separate Networking stage.
 - Cloud: AWS Cloud Practitioner, SAA-C03, then Terraform Associate.
 - NVIDIA: Linux+, NVIDIA AI Infrastructure, then NVIDIA Generative AI.
 - Data Center Technician: Server+, Schneider DCCA, then CCNA.

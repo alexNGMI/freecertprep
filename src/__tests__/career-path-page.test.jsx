@@ -81,19 +81,18 @@ describe('career path pages', () => {
     expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
   })
 
-  it('frames Cybersecurity as Network+ to Security+ to live Splunk practice', () => {
+  it('frames Cybersecurity as Security+ followed by live Splunk practice', () => {
     renderPath('/paths/cybersecurity')
 
-    expect(screen.getByRole('heading', { name: 'Cybersecurity with a practical tool layer.' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Optional foundation — start here if networking is new' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Earn the career credential' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Turn security knowledge into SOC skill.' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Establish the security baseline' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Add an applied tool' })).toBeTruthy()
     expect(screen.getByText('Splunk Core Certified User adds the practical SIEM search and alerting layer.')).toBeTruthy()
-    expect(screen.getByText('Step 01 / Optional Foundation')).toBeTruthy()
-    expect(screen.getByText('Step 02 / Career Credential')).toBeTruthy()
-    expect(screen.getByText('Step 03 / Applied Tool')).toBeTruthy()
+    expect(screen.getByText('The Networking path supplies the traffic and troubleshooting foundation.')).toBeTruthy()
+    expect(screen.getByText('Step 01 / Career Credential')).toBeTruthy()
+    expect(screen.getByText('Step 02 / Applied Tool')).toBeTruthy()
     expect(screen.getByText('SOC Analyst')).toBeTruthy()
-    expect(screen.getByRole('link', { name: /CompTIA Network\+/ }).getAttribute('href')).toBe('/comptia-net-plus')
+    expect(screen.queryByText('CompTIA Network+')).toBeNull()
     expect(screen.getByRole('link', { name: /CompTIA Security\+/ }).getAttribute('href')).toBe('/comptia-sec-plus')
     expect(screen.getByText('Splunk Core Certified User')).toBeTruthy()
     expect(screen.getByText('SPLK-1001')).toBeTruthy()

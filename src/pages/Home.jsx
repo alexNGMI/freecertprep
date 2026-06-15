@@ -16,7 +16,7 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 const paths = [
   {
     id: 'it-entry',
-    eyebrow: 'New to IT?',
+    eyebrow: '01 · IT foundation',
     title: 'Build your foundation with A+.',
     description:
       'Learn the hardware, operating system, networking, security, and troubleshooting basics that support every career direction below.',
@@ -29,7 +29,7 @@ const paths = [
   },
   {
     id: 'networking',
-    eyebrow: 'Networking',
+    eyebrow: '02 · Networking',
     title: 'Build and troubleshoot networks.',
     description:
       'Develop the vendor-neutral or Cisco-aligned foundation used in network support, operations, and infrastructure roles.',
@@ -43,20 +43,20 @@ const paths = [
   },
   {
     id: 'cybersecurity',
-    eyebrow: 'Cybersecurity',
+    eyebrow: '03 · Cybersecurity',
     title: 'Protect systems and investigate threats.',
     description:
-      'Combine network fluency, a recognized security baseline, and practical SIEM search skills for entry-level security work.',
+      'Build on your networking foundation with a recognized security baseline and practical SIEM search skills for entry-level security work.',
     icon: LockKeyhole,
     color: '#fb7185',
     to: '/paths/cybersecurity',
     roles: ['SOC Analyst', 'Security Support', 'Junior Security Analyst'],
-    available: ['Network+', 'Security+', 'Splunk'],
-    certIds: ['comptia-net-plus', 'comptia-sec-plus', 'splunk-core-certified-user'],
+    available: ['Security+', 'Splunk'],
+    certIds: ['comptia-sec-plus', 'splunk-core-certified-user'],
   },
   {
     id: 'cloud',
-    eyebrow: 'Cloud',
+    eyebrow: '04 · Cloud',
     title: 'Design and automate cloud infrastructure.',
     description:
       'Move from cloud concepts into AWS architecture and infrastructure as code for practical cloud and platform roles.',
@@ -147,17 +147,17 @@ export default function Home() {
 
         <section id="paths" className="max-w-7xl mx-auto px-6 py-16 border-y border-white/5">
           <div className="mb-10">
-            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Starting point</p>
+            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Recommended progression</p>
             <PathCard path={paths[0]} variant="wide" />
           </div>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 pt-10 border-t border-white/5">
             <div>
-              <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Career directions</p>
-              <h2 className="text-3xl font-bold text-zinc-100">Choose the work you want to grow into.</h2>
+              <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Build forward</p>
+              <h2 className="text-3xl font-bold text-zinc-100">Foundation. Networks. Security. Cloud.</h2>
             </div>
             <p className="text-sm text-zinc-500 max-w-xl leading-relaxed">
-              Each direction shows the roles it supports, what you can practice now, and which milestones are still being prepared.
+              Move through the sequence when it serves your goal, or enter at the stage that matches what you already know.
             </p>
           </div>
 
@@ -257,7 +257,7 @@ function PathCard({ path, className = '', variant = 'default' }) {
         </div>
 
         <div className={wide ? '' : 'mt-auto pt-6'}>
-          <PathCta to={path.to} label={`Explore ${path.eyebrow}`} accentColor={path.color} />
+          <PathCta to={path.to} label={`Explore ${path.id === 'networking' ? 'Networking' : path.id === 'cybersecurity' ? 'Cybersecurity' : 'Cloud'}`} accentColor={path.color} />
         </div>
       </div>
     </div>

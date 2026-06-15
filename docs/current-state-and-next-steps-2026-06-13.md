@@ -117,7 +117,7 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 - session completion and malformed-storage recovery fixes;
 - Network+ structured full-bank audit and A- grade;
 - Security+ structured full-bank audit and A- grade;
-- focused A+/Networking/Cybersecurity/Cloud presentation;
+- explicit A+ → Networking → Cybersecurity → Cloud progression, with Network+ owned by Networking;
 - public catalog split into Live and Coming Soon.
 
 ## Decision Rule
