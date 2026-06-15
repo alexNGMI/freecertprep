@@ -13,6 +13,9 @@ const Quiz = lazy(() => import('./pages/Quiz'))
 const Drill = lazy(() => import('./pages/Drill'))
 const Exam = lazy(() => import('./pages/Exam'))
 const Results = lazy(() => import('./pages/Results'))
+const LearningPlan = lazy(() => import('./pages/LearningPlan'))
+const Diagnostic = lazy(() => import('./pages/Diagnostic'))
+const CasePractice = lazy(() => import('./pages/CasePractice'))
 // Sister-site landing page — distinct light theme, no shared layout.
 const RealEstate = lazy(() => import('./pages/RealEstate'))
 // Sister-site study app — light theme, reuses the shared cert engine
@@ -79,6 +82,9 @@ function App() {
           <Route path="drill" element={<Drill />} />
           <Route path="exam" element={<Exam />} />
           <Route path="results" element={<Results />} />
+          <Route path="learning" element={<LearningPlan />} />
+          <Route path="learning/diagnostic" element={<Diagnostic />} />
+          <Route path="learning/cases" element={<CasePractice />} />
         </Route>
       </Routes>
     </Suspense>

@@ -58,6 +58,8 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Objective Learning Loop v2 is live for A+, Network+, and Security+:** all 63 A+, 27 N10-009, and 28 SY0-701 objectives support learner-facing objective labels and targeted review. Dashboards distinguish accuracy from coverage, objective-focused ten-question sessions are available, recent misses and spaced due-review queues are built into practice, and session results recommend the exact objectives behind the learner's misses.
 
+> **Network+ Personal Learning Loop is live:** N10-009 now adds a balanced 35-question diagnostic, four-state objective mastery map, evidence-driven 7/14/30-day plans, objective-level full-exam debriefs, and ten-question applied case sets built from CLI, topology, configuration, matching, and subnetting work. The system remains local-first and treats untouched objectives as Not measured rather than weak.
+
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.
@@ -106,6 +108,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Timed Drill** — 10 questions in 10 minutes, color-shifting countdown timer.
 - **Exam Simulator** — Full-length timed readiness simulation using official domain weights and the closest supported question count/time model.
 - **Results** — Filterable review with explanations for every question.
+- **Network+ Study Plan** - Diagnostic assessment, mastery map, personal study sequence, exam debrief, and case-based practice.
 - **Bookmarks** — Star any question and recall the set in any mode.
 
 ## Smart Practice
@@ -137,7 +140,7 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,237 tests across 36 files), GitHub Actions CI
+- Vitest (1,244 tests across 38 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

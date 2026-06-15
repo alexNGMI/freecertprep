@@ -1,6 +1,6 @@
 # Current State and Next Steps
 
-Last updated: June 14, 2026
+Last updated: June 15, 2026
 
 ## Executive Summary
 
@@ -18,6 +18,8 @@ The June 14 full-codebase review found four priorities:
 Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
 The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul and trust/metadata pass are now complete. Local data durability is the next active phase.
+
+Network+ also now has a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. This improves how the existing flagship content is used without expanding the catalog.
 
 ## Current Public Offering
 
@@ -47,7 +49,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 
 ## Verified Baseline
 
-- 1,237 tests pass across 36 files.
+- 1,244 tests pass across 38 files.
 - Production dependency audit reports zero vulnerabilities.
 - Homepage and catalog have no horizontal overflow at 1280px or 390px.
 - The public offering contains eight live and nine Coming Soon modules.
@@ -56,6 +58,17 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 - Catalog expansion remains frozen.
 
 ## Ordered Next Steps
+
+### Network+ Personal Learning Loop - Completed June 15, 2026
+
+- added a 35-question diagnostic that samples every official objective;
+- added Strong, Developing, Weak, and Not measured mastery states;
+- added evidence-driven 7-, 14-, and 30-day plans;
+- upgraded full exam results with objective priorities and practical-miss context;
+- added ten-question case practice using the existing applied interaction pool;
+- retained local-first persistence with no account or backend requirement.
+
+Detailed architecture: `docs/network-plus-learning-loop.md`.
 
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026
 

@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { useCert } from '../hooks/useCert'
 import QuestionCard from '../components/QuestionCard'
 import { readinessResult, readinessTarget } from '../utils/readiness'
+import { buildExamDebrief } from '../utils/learning-loop'
 
 export default function Results() {
   const cert = useCert()
@@ -44,6 +45,9 @@ export default function Results() {
   }))
 
   domainResults.sort((a, b) => a.percentage - b.percentage)
+  const debrief = cert.id === 'comptia-net-plus' && examQuestions
+    ? buildExamDebrief(answers, examQuestions, cert.objectives)
+    : null
 
   return (
     <div className="space-y-12 animate-fade-up pt-4 max-w-4xl mx-auto">
@@ -120,6 +124,47 @@ export default function Results() {
           })}
         </div>
       </div>
+
+      {debrief && (
+        <div className="glass-panel rounded-2xl p-8 space-y-6">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">Exam debrief</p>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-100">Turn this attempt into the next study block</h2>
+            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+              This form measured {debrief.measuredObjectives} objectives and included {debrief.practicalMisses} missed applied question{debrief.practicalMisses === 1 ? '' : 's'}.
+            </p>
+          </div>
+          {debrief.priorities.length > 0 ? (
+            <div className="grid gap-3 md:grid-cols-3">
+              {debrief.priorities.map(priority => (
+                <Link
+                  key={priority.id}
+                  to={`/${cert.id}/quiz?objective=${priority.id}`}
+                  className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5 transition hover:border-white/20"
+                >
+                  <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>
+                    Objective {priority.id} · {priority.misses} miss{priority.misses === 1 ? '' : 'es'}
+                  </p>
+                  <p className="mt-2 font-bold text-zinc-100">{priority.title}</p>
+                  <p className="mt-3 text-sm text-zinc-500">{priority.accuracy}% on this form</p>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <p className="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-5 text-sm font-semibold text-emerald-200">
+              No objective produced a miss on this form. Use the mastery map to check coverage before treating that as full readiness.
+            </p>
+          )}
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <Link to={`/${cert.id}/learning`} className="rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-zinc-200 hover:bg-white/5">
+              Open Mastery Map
+            </Link>
+            <Link to={`/${cert.id}/learning/cases`} className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-5 py-3 text-center text-sm font-bold text-amber-200 hover:bg-amber-500/20">
+              Practice Applied Cases
+            </Link>
+          </div>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
         <Link

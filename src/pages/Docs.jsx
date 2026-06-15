@@ -688,7 +688,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,237 Vitest tests across 36 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,244 Vitest tests across 38 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -735,6 +735,7 @@ key = random() ** (1 / weight)
                   'Trust layer phase 0 - every cert now has source metadata, official source links, source-check dates, exam-format notes, score-model notes, editorial status, dashboard source cards, report-an-issue links, and readiness-language cleanup for exam starts/results.',
                   'CompTIA PBQ-lite expansion - A+ Core 1, A+ Core 2, Network+, Security+, and Server+ now each include 10 scenario-based pbq-matching troubleshooting items.',
                   'Network+ and Security+ Objective Learning Loop - every N10-009 and SY0-701 question now carries objective and concept metadata; dashboards separate accuracy from coverage; practice supports objective focus, recent misses, and spaced due review; session results recommend the objectives behind each miss.',
+                  'Network+ Personal Learning Loop - N10-009 now includes a 35-question all-objective diagnostic, Strong/Developing/Weak/Not measured mastery map, evidence-driven 7/14/30-day plans, objective-level exam debriefs, and ten-question applied case practice.',
                   'A+ Objective Learning Loop - both 220-1201 and 220-1202 now expose all 63 objectives through accuracy and coverage cards, focused drills, recent misses, spaced due review, support-oriented explanation cues, and post-session recommendations.',
                   'A+ PBQ-lite v2 - all 20 practical scenarios now include task briefs, console/table/checklist artifacts, component-level corrective feedback, and category-balanced exam forms with at least six practicals.',
                   'CompTIA Network+ (N10-009) — 760-question pool with scenario-forward PBQ-lite troubleshooting coverage',
@@ -772,7 +773,7 @@ key = random() ** (1 / weight)
                   'Security+ structured quality audit - all 760 SY0-701 items now have ledger-locked objective decisions, all 101 fallback labels plus four legacy misclassifications were corrected, synthetic workflow-ticket wording was removed, and 500 randomized forms guarantee exact allocation plus the required practical and interaction mix. Readiness grade: A-.',
                   'A+ full-bank quality overhaul - both 760-question cores now grade A+ under the project rubric, with 760 unique answer interactions, structured correct/distractor/verification teaching, 20 evidence-based practicals per core, and 500-form gates.',
                   'Trust and metadata correction - removed the third-party visitor counter and Google-hosted fonts, refreshed root search/share metadata and artwork, corrected privacy language, and added the MIT License.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,237-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,244-test regression suite.',
                 ],
               },
               {

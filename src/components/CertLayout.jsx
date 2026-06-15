@@ -1,12 +1,13 @@
 import { createElement } from 'react'
 import { NavLink, Outlet, Link, Navigate } from 'react-router-dom'
-import { BarChart3, BookOpenCheck, ClipboardList, Timer } from 'lucide-react'
+import { BarChart3, BookOpenCheck, ClipboardList, Route, Timer } from 'lucide-react'
 import { useCert } from '../hooks/useCert'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import BrandedName from './BrandedName'
 
 const navItems = [
   { to: '', label: 'Dashboard', end: true, icon: BarChart3 },
+  { to: 'learning', label: 'Study Plan', icon: Route, certId: 'comptia-net-plus' },
   { to: 'quiz', label: 'Quiz', icon: BookOpenCheck },
   { to: 'drill', label: 'Timed Drill', icon: Timer },
   { to: 'exam', label: 'Exam Simulator', icon: ClipboardList },
@@ -48,7 +49,7 @@ export default function CertLayout() {
             </span>
           </div>
           <nav className="flex gap-1 p-1 rounded-2xl bg-zinc-900/70 border border-white/10 shadow-inner" aria-label="Cert navigation">
-            {navItems.map(({ to, label, end, icon: Icon }) => (
+            {navItems.filter(item => !item.certId || item.certId === cert.id).map(({ to, label, end, icon: Icon }) => (
               <NavLink
                 key={label}
                 to={to}

@@ -88,6 +88,8 @@ export default function Dashboard() {
         to: 'quiz',
       }
 
+  const learningLoop = cert.id === 'comptia-net-plus'
+
   function handleImport(e) {
     const file = e.target.files?.[0]
     if (!file) return
@@ -291,6 +293,34 @@ export default function Dashboard() {
                 </div>
               </Link>
             ))}
+          </div>
+        </Surface>
+      )}
+
+      {learningLoop && (
+        <Surface className="overflow-hidden">
+          <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_360px]">
+            <div className="p-6 md:p-8">
+              <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>Network+ learning loop</p>
+              <h2 className="mt-3 text-3xl font-black text-zinc-50">Know what to study next.</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                Run a balanced diagnostic, turn objective evidence into a mastery map, follow a personal plan, and close the loop with exam debriefs and applied network cases.
+              </p>
+              <Button as={Link} to="learning" variant="accent" size="lg" accentColor={cert.color} className="mt-6">
+                Open Study Plan
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </div>
+            <div className="border-t border-white/10 bg-zinc-900/45 p-6 lg:border-l lg:border-t-0">
+              <div className="space-y-3">
+                {['Diagnostic assessment', 'Objective mastery map', '7, 14, or 30-day plan', 'Exam debrief', 'Case-based practice'].map((item, index) => (
+                  <div key={item} className="flex items-center gap-3 rounded-xl border border-white/10 bg-zinc-950/50 px-4 py-3">
+                    <span className="text-xs font-black" style={{ color: cert.color }}>{String(index + 1).padStart(2, '0')}</span>
+                    <span className="text-sm font-bold text-zinc-200">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </Surface>
       )}
