@@ -10,6 +10,9 @@ Run this checklist before merging a learner-facing release.
 - Networking, Cybersecurity, and Cloud identify target roles and distinguish available practice from upcoming milestones.
 - Live and Coming Soon modules are visually and functionally distinct.
 - Coming Soon cards do not link to study routes.
+- Root description, Open Graph, Twitter, and canonical metadata describe the current focused catalog.
+- Privacy copy states exactly which study records remain local.
+- Repository licensing language matches the MIT license file.
 
 ## Certification Entry
 
@@ -46,10 +49,13 @@ Run this checklist before merging a learner-facing release.
 - Export downloads valid progress JSON.
 - Import accepts a valid export and rejects malformed or structurally unsafe JSON with visible feedback.
 - Smart Practice reset and progress reset require confirmation.
+- Storage failures produce visible feedback rather than silently losing a completed session.
+- The latest completed result remains recoverable after a page refresh.
+- A full backup restores progress, Smart Practice statistics, and bookmarks.
 
 ## Release Gates
 
 - Browser console has no errors during the core journey.
 - Desktop and 390px mobile layouts have no horizontal overflow or overlapping controls.
-- Terraform and certification-specific audits pass.
+- A+, Network+, Security+, Terraform, and CompTIA objective audits pass.
 - Full Vitest suite, lint, and production build pass.

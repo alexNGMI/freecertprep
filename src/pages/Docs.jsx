@@ -195,8 +195,8 @@ export default function Docs() {
             </P>
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
-              Free forever. No account required. No data leaves your device. Study progress lives in your browser's localStorage and
-              stays fully under your control — exportable and importable at any time.
+              Free forever. No account required. Study answers and progress live in your browser's localStorage and are not sent to
+              an application backend. Fonts use the local system stack, and the homepage does not call a third-party visitor counter.
             </Callout>
 
             <H3>What's included</H3>
@@ -445,8 +445,8 @@ key = random() ** (1 / weight)
             </P>
 
             <Callout icon="🔒" color="#a1a1aa" title="Privacy">
-              No data ever leaves your device. Smart Practice history is local-only. Nothing is sent to any server.
-              You can inspect, export, or delete it at any time from the Dashboard.
+              Smart Practice history, answers, bookmarks, and progress remain local to this browser and are not sent to an
+              application backend. You can inspect, export, reset, or delete the locally stored study history from the Dashboard.
             </Callout>
           </Section>
 
@@ -603,7 +603,7 @@ key = random() ** (1 / weight)
             <H3>Project structure</H3>
             <CodeBlock>{`src/
 ├── pages/
-│   ├── Home.jsx          — Landing page, guided paths, visitor counter
+│   ├── Home.jsx          — Landing page and guided career directions
 │   ├── Catalog.jsx       — Live and Coming Soon IT certification catalog
 │   ├── CareerPath.jsx    - Public Networking / Cyber / Cloud directions plus preserved hidden routes
 │   ├── Dashboard.jsx     — Per-cert stats, domain readiness, resets
@@ -720,11 +720,10 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is live and usable today with 8 public IT certification modules, 9 Coming Soon IT modules, and a
-              Real Estate build hidden from public navigation for rework. The current phase is consolidation: keep the live
-              catalog accurate and make the complete first-user study journey feel coherent. The live-source and Terraform
-              learning-value passes are complete. CCNA is preserved as a future-v2.0 preview rather than current-exam practice. Authored Coming Soon banks remain preserved without being
-              presented as production-ready.
+              The product is usable today with 8 public IT certification modules, 9 Coming Soon IT modules, and a Real Estate
+              build hidden from public navigation. The catalog remains frozen. The June 14 full-codebase review moved the next
+              work toward public-claim accuracy, local data durability, release automation, and maintainability before another
+              certification is promoted.
             </P>
 
             {[
@@ -771,6 +770,8 @@ key = random() ** (1 / weight)
                   'Runtime reliability hardening - timed forms stay stable, session completion is idempotent, malformed progress data fails safely, exam expiry avoids state-updater side effects, and cert transitions cannot display stale module content.',
                   'A+, Network+, Security+, and Splunk quality sprint - objective learning, evidence-led practicals, form-composition guarantees, full-bank uniqueness checks, and structured review explanations completed by June 13, 2026.',
                   'Security+ structured quality audit - all 760 SY0-701 items now have ledger-locked objective decisions, all 101 fallback labels plus four legacy misclassifications were corrected, synthetic workflow-ticket wording was removed, and 500 randomized forms guarantee exact allocation plus the required practical and interaction mix. Readiness grade: A-.',
+                  'A+ full-bank quality overhaul - both 760-question cores now grade A+ under the project rubric, with 760 unique answer interactions, structured correct/distractor/verification teaching, 20 evidence-based practicals per core, and 500-form gates.',
+                  'Trust and metadata correction - removed the third-party visitor counter and Google-hosted fonts, refreshed root search/share metadata and artwork, corrected privacy language, and added the MIT License.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,237-test regression suite.',
                 ],
               },
@@ -778,16 +779,17 @@ key = random() ** (1 / weight)
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  '1. Continue codebase bug review and hardening while catalog promotion remains paused.',
+                  '1. Local data durability - bound session history, surface storage write failures, persist completed results across refresh, and add a versioned full-study backup.',
+                  '2. Release automation - run all cert-specific audits in CI, add a focused desktop/mobile browser smoke suite, and eliminate chart sizing warnings.',
+                  '3. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
+                  '4. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
                 ],
               },
               {
                 status: 'Considering',
                 color: '#fbbf24',
                 items: [
-                  'Streak tracking and study reminders',
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
-                  'Shared result cards — privacy-respecting shareable score screenshots',
                   'CCNA simulation expansion - parked until Cisco v2.0 becomes active and the preserved preview passes a fresh release audit.',
                   'User accounts and synced progress - useful after the local-first product journey is fully hardened.',
                   'Trust layer phase 1 - durable reports, moderation, audit trails, and correction history when a backend becomes an active priority.',
@@ -815,8 +817,8 @@ key = random() ** (1 / weight)
             ))}
 
             <Callout icon="🔓" color="#34d399" title="Open source">
-              freecertprep is fully open source. The question banks, scoring logic, weighted sampling algorithm, and all UI
-              code are available on GitHub. Contributions, bug reports, and question corrections are welcome.
+              The question banks, scoring logic, weighted sampling algorithm, and UI code are available on GitHub under the
+              MIT License. Contributions, bug reports, and question corrections are welcome.
             </Callout>
           </Section>
 

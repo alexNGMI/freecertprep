@@ -4,26 +4,26 @@ import { fileURLToPath } from 'node:url'
 import {
   APLUS_OBJECTIVES,
   EXISTING_OBJECTIVE_ASSIGNMENTS,
-  OBJECTIVE_CHECKS,
   PRACTICAL_OBJECTIVE_MAP,
   SUPPLEMENTAL_CONCEPTS,
 } from './data/aplus-objectives.mjs'
+import { EXTRA_APLUS_PRACTICALS } from './data/aplus-practicals.mjs'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
 const core1Domains = [
-  ['Mobile Devices', 98],
-  ['Networking', 173],
-  ['Hardware', 188],
-  ['Virtualization and Cloud Computing', 82],
-  ['Hardware and Network Troubleshooting', 209],
+  ['Mobile Devices', 96],
+  ['Networking', 171],
+  ['Hardware', 186],
+  ['Virtualization and Cloud Computing', 81],
+  ['Hardware and Network Troubleshooting', 206],
 ]
 
 const core2Domains = [
-  ['Operating Systems', 210],
-  ['Security', 210],
-  ['Software Troubleshooting', 173],
-  ['Operational Procedures', 157],
+  ['Operating Systems', 207],
+  ['Security', 207],
+  ['Software Troubleshooting', 171],
+  ['Operational Procedures', 155],
 ]
 
 const banks = {
@@ -260,17 +260,18 @@ function buildObjectiveBanks(coreKey) {
       if (!objectiveCorrectAnswers.has(objectiveId)) objectiveCorrectAnswers.set(objectiveId, [])
       objectiveCorrectAnswers.get(objectiveId).push(topic[1])
     }
-    const strengthenedExisting = tagged.map((topic) => {
-      const [task, correct, , why, objectiveId] = topic
+    const strengthenedTopics = allTopics.map((topic) => {
+      const [task, correct, authoredDistractors, why, objectiveId] = topic
       const candidates = [
-        ...allTopics.filter(candidate => candidate[4] !== objectiveId).map(candidate => candidate[1]),
+        ...authoredDistractors,
         ...objectiveCorrectAnswers.get(objectiveId),
+        ...allTopics.filter(candidate => candidate[4] !== objectiveId).map(candidate => candidate[1]),
       ].filter((answer, candidateIndex, answers) =>
         answer !== correct && answers.indexOf(answer) === candidateIndex
       )
-      return [task, correct, candidates.slice(0, 3), why, objectiveId]
+      return [task, correct, candidates, why, objectiveId, authoredDistractors]
     })
-    return [domain, [...strengthenedExisting, ...supplemental]]
+    return [domain, strengthenedTopics]
   }))
 }
 
@@ -357,6 +358,45 @@ const domainGuidance = {
   'Operational Procedures': 'Protect people, data, and service continuity through approval, documentation, privacy, safety, rollback, and verified completion.',
 }
 
+const domainChecks = {
+  'Mobile Devices': [
+    'the approved part, accessory, account, or managed setting works on the affected mobile device',
+    'charging, synchronization, display, wireless, and peripheral behavior meet the original requirement',
+  ],
+  Networking: [
+    'link, addressing, gateway, name-resolution, service, and segmentation tests match the intended network design',
+    'the affected client reaches the required service without disrupting working users or weakening security',
+  ],
+  Hardware: [
+    'firmware detects the compatible component and the system passes a functional test under the intended workload',
+    'power, cooling, interface, capacity, and device-status evidence remain normal after the change',
+  ],
+  'Virtualization and Cloud Computing': [
+    'the workload has the required isolation, connectivity, rollback, and service-management behavior',
+    'the guest or cloud application meets the requirement without exposing unrelated systems or replacing backup controls',
+  ],
+  'Hardware and Network Troubleshooting': [
+    'the original symptom is absent and a direct power, POST, thermal, storage, display, print, or network test now passes',
+    'the repair resolves the failing layer without changing unrelated working components or infrastructure',
+  ],
+  'Operating Systems': [
+    'the native tool, command, log, account, file-system, or operating-system setting shows the intended state',
+    'the original user workflow succeeds while data, permissions, and supported configuration remain intact',
+  ],
+  Security: [
+    'the active risk is contained and logs, policy, encryption, authentication, or endpoint status show the intended protection',
+    'authorized access still works while unapproved access, malware activity, or data exposure is blocked',
+  ],
+  'Software Troubleshooting': [
+    'the application, profile, service, browser, mobile app, or account works under the original conditions',
+    'logs and comparison tests confirm the focused repair without permanently disabling security controls',
+  ],
+  'Operational Procedures': [
+    'approval, implementation, validation, rollback, safety, privacy, asset, and closure records are complete where required',
+    'the work is supportable by the next technician without exposing credentials or confidential data',
+  ],
+}
+
 function rotateChoices(correct, distractors, offset) {
   const choices = [...distractors]
   const index = offset % 4
@@ -387,10 +427,11 @@ function isSymptom(task) {
 }
 
 function scenarioStem(task, variant, prompt) {
+  const evidence = `${variant.observation}. ${variant.constraint}.`
   if (isSymptom(task)) {
-    return `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${prompt}`
+    return `${sentenceCase(variant.context)}, ${variant.asset} shows this symptom: ${task}. ${evidence} ${prompt}`
   }
-  return `${sentenceCase(variant.context)}, a technician needs to ${task} ${targetPhrase(variant.asset)}. ${prompt}`
+  return `${sentenceCase(variant.context)}, a technician needs to ${task} ${targetPhrase(variant.asset)}. ${evidence} ${prompt}`
 }
 
 function shuffleWithMatches(itemsRight, offset) {
@@ -403,9 +444,54 @@ function shuffleWithMatches(itemsRight, offset) {
   }
 }
 
+function distractorReview(distractors, domain) {
+  return distractors
+    .map((distractor) => `"${distractor}" is unsafe, unrelated, or does not directly satisfy the stated requirement.`)
+    .join(' ')
+    + ` ${domainGuidance[domain]}`
+}
+
+function explanationFor(correct, distractors, why, check, domain) {
+  return `Why this is right: ${why} The best answer is "${correct}" because it directly addresses the observed requirement. `
+    + `Why the other choices are wrong: ${distractorReview(distractors, domain)} `
+    + `Verification: ${sentenceCase(check)}.`
+}
+
+function selectDistractors(topic, occurrence) {
+  const candidates = topic[2]
+  const authored = topic[5]
+  if (candidates.length < 3) throw new Error(`Concept "${topic[0]}" has fewer than three distractors`)
+  const selected = [authored[occurrence % authored.length]]
+  const combination = Math.floor(occurrence / authored.length)
+  const preferredIndices = [
+    combination % candidates.length,
+    Math.floor(combination / candidates.length) % candidates.length,
+  ]
+  for (const index of preferredIndices) {
+    const candidate = candidates[index]
+    if (!selected.includes(candidate)) selected.push(candidate)
+  }
+  let index = combination + 1
+  while (selected.length < 3) {
+    const candidate = candidates[index % candidates.length]
+    if (!selected.includes(candidate)) selected.push(candidate)
+    index += 1
+  }
+  return selected
+}
+
+function answerInteractionSignature(question) {
+  if (question.type === 'multiple-response') {
+    return `multiple-response|${[...question.choices].sort().join('|')}`
+  }
+  return `single-choice|${[...question.choices].sort().join('|')}`
+}
+
 function singleQuestion(prefix, idNum, domain, topic, variant) {
   const [task, correct, distractors, why, objectiveId] = topic
   const { choices, correctAnswer } = rotateChoices(correct, distractors, idNum)
+  const checks = domainChecks[domain]
+  const check = checks[(variant.occurrence + variant.conceptIndex) % checks.length]
   return {
     id: `${prefix}-${String(idNum).padStart(3, '0')}`,
     domain,
@@ -414,13 +500,13 @@ function singleQuestion(prefix, idNum, domain, topic, variant) {
     question: scenarioStem(task, variant, prompts[idNum % prompts.length]),
     choices,
     correctAnswer,
-    explanation: `${why} ${domainGuidance[domain]}`,
+    explanation: explanationFor(correct, distractors, why, check, domain),
   }
 }
 
 function multipleResponse(prefix, idNum, domain, topic, variant) {
   const [task, correct, distractors, why, objectiveId] = topic
-  const checks = OBJECTIVE_CHECKS[objectiveId]
+  const checks = domainChecks[domain]
   const companion = sentenceCase(checks[idNum % checks.length])
   const answerChoices = [correct, companion, ...distractors.slice(0, 2)]
   const rotation = idNum % answerChoices.length
@@ -437,7 +523,13 @@ function multipleResponse(prefix, idNum, domain, topic, variant) {
       : `${sentenceCase(variant.context)}, a technician is asked to ${task} ${targetPhrase(variant.asset)}. Which TWO choices best support the requirement?`,
     choices,
     correctAnswers,
-    explanation: `${why} A complete response also confirms that ${checks[idNum % checks.length]}. ${domainGuidance[domain]}`,
+    explanation: explanationFor(
+      correct,
+      distractors.slice(0, 2),
+      `${why} A complete response also confirms that ${checks[idNum % checks.length]}.`,
+      checks[(idNum + 1) % checks.length],
+      domain,
+    ),
   }
 }
 
@@ -502,6 +594,7 @@ function orderingQuestion(prefix, idNum, domain, topic, variant) {
 
 function generate(prefix, domains, coreKey) {
   const questions = []
+  const interactionSignatures = new Set()
   const objectiveBanks = buildObjectiveBanks(coreKey)
   let idNum = 1
   for (const [domain, count] of domains) {
@@ -516,17 +609,31 @@ function generate(prefix, domains, coreKey) {
       const variant = {
         asset: inferAsset(task, domain),
         conceptIndex: i % topics.length,
+        occurrence,
         observation: neutralObservations[(occurrence * 3 + i) % neutralObservations.length],
         constraint: neutralConstraints[(occurrence * 5 + i) % neutralConstraints.length],
         context: contexts[(occurrence * contextStep + i) % contexts.length],
       }
       const absolute = questions.length + 1
       let q = null
-      if (absolute % 17 === 0) q = matchingQuestion(prefix, idNum, domain, topic, variant)
-      if (!q && absolute % 19 === 0) q = orderingQuestion(prefix, idNum, domain, topic, variant)
-      if (!q && absolute % 11 === 0) q = statementBlock(prefix, idNum, domain, topic, variant)
-      if (!q && absolute % 7 === 0) q = multipleResponse(prefix, idNum, domain, topic, variant)
-      if (!q) q = singleQuestion(prefix, idNum, domain, topic, variant)
+      for (let attempt = 0; attempt < 100; attempt += 1) {
+        const variedTopic = [
+          topic[0],
+          topic[1],
+          selectDistractors(topic, occurrence + attempt),
+          topic[3],
+          topic[4],
+        ]
+        q = absolute % 7 === 0
+          ? multipleResponse(prefix, idNum, domain, variedTopic, variant)
+          : singleQuestion(prefix, idNum, domain, variedTopic, variant)
+        if (!interactionSignatures.has(answerInteractionSignature(q))) break
+      }
+      const signature = answerInteractionSignature(q)
+      if (interactionSignatures.has(signature)) {
+        throw new Error(`${prefix} could not create a unique answer interaction for ${q.id}`)
+      }
+      interactionSignatures.add(signature)
       questions.push(q)
       idNum += 1
     }
@@ -542,13 +649,18 @@ const outputs = [
 for (const [coreKey, target, questions] of outputs) {
   const targetPath = path.join(root, target)
   const existing = JSON.parse(fs.readFileSync(targetPath, 'utf8'))
-  const practicalQuestions = existing.filter(question => question.type === 'pbq-matching').map((question, index) => {
+  const preservedPracticals = existing.filter(question =>
+    question.type === 'pbq-matching' && PRACTICAL_OBJECTIVE_MAP[question.id]
+  )
+  const practicalQuestions = [
+    ...preservedPracticals,
+    ...EXTRA_APLUS_PRACTICALS[coreKey],
+  ].map((question, index) => {
     const [domain, objectiveId] = PRACTICAL_OBJECTIVE_MAP[question.id] || []
-    if (!domain || !objectiveId) throw new Error(`${target} missing practical objective mapping for ${question.id}`)
     return {
       ...question,
-      domain,
-      objectiveId,
+      domain: domain || question.domain,
+      objectiveId: objectiveId || question.objectiveId,
       conceptId: `${question.id}-practical-${String(index + 1).padStart(2, '0')}`,
     }
   })
@@ -562,7 +674,7 @@ for (const [coreKey, target, questions] of outputs) {
       .trim()
   ))
   if (completeBank.length !== 760) throw new Error(`${target} expected 760 questions`)
-  if (practicalQuestions.length !== 10) throw new Error(`${target} expected 10 preserved PBQs`)
+  if (practicalQuestions.length !== 20) throw new Error(`${target} expected 20 PBQ-lite questions`)
   if (normalizedStems.size !== completeBank.length) {
     throw new Error(`${target} contains normalized duplicate stems`)
   }

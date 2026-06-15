@@ -102,11 +102,11 @@ Accuracy and coverage are intentionally separate. A learner who answers one ques
 
 A+ adds a support-oriented review cue to each explanation. Core 1 asks the learner to connect the symptom to the least invasive likely fix and confirming evidence. Core 2 emphasizes the safest next action, protection of user data and security, and verification through the relevant setting, command, log, or policy.
 
-## A+ PBQ-lite v2
+## A+ PBQ-lite v3
 
 The A+ practical layer remains an honest browser approximation of CompTIA simulations, not a reproduction of the confidential exam engine. CompTIA describes PBQs as real-world problem solving delivered through simulations or virtual environments, and the current A+ exams can include multiple-choice, drag-and-drop, and performance-based questions.
 
-Each of the 20 A+ practicals now includes:
+Each of the 40 A+ practicals now includes:
 
 - a clear technician task rather than only a narrative;
 - structured evidence plus a console, status table, or workflow checklist;

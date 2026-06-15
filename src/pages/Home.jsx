@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import {
   ArrowRight,
   BrainCircuit,
@@ -13,19 +12,6 @@ import {
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
-
-function useVisitorCount() {
-  const [count, setCount] = useState(null)
-
-  useEffect(() => {
-    fetch('https://api.counterapi.dev/v1/freecertprep/homepage/up')
-      .then(r => r.json())
-      .then(data => { if (data?.count) setCount(data.count) })
-      .catch(() => {})
-  }, [])
-
-  return count
-}
 
 const paths = [
   {
@@ -102,8 +88,6 @@ const featureItems = [
 ]
 
 export default function Home() {
-  const visitorCount = useVisitorCount()
-
   useDocumentMeta({
     description:
       'Free, open-source certification exam prep organized by career path: A+, networking, cybersecurity, and cloud. Timed simulators, Smart Practice, and no signup.',
@@ -208,12 +192,6 @@ export default function Home() {
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <BrandedName size="text-lg" />
           </Link>
-          {visitorCount !== null && (
-            <div className="flex items-center gap-2 text-xs text-zinc-400 bg-zinc-900/60 border border-white/5 px-3 py-1.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-              {visitorCount.toLocaleString()} visitors
-            </div>
-          )}
           <p className="text-sm">Built for the leap. Free forever.</p>
         </div>
       </footer>

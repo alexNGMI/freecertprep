@@ -8,9 +8,9 @@
   </defs>
   <rect width="1200" height="630" fill="url(#g)"/>
   <polygon points="96,150 150,250 42,250" fill="#f1be32"/>
-  <text x="190" y="232" font-family="Outfit, Inter, sans-serif" font-size="64" font-weight="900" fill="#f5f6f7">freecertprep</text>
-  <text x="96" y="360" font-family="Outfit, Inter, sans-serif" font-size="56" font-weight="800" fill="#f5f6f7">Free certification exam prep</text>
-  <text x="96" y="430" font-family="Inter, sans-serif" font-size="34" font-weight="500" fill="#a1a1aa">AWS · Azure · Google Cloud · NVIDIA · CompTIA</text>
-  <text x="96" y="486" font-family="Inter, sans-serif" font-size="34" font-weight="500" fill="#a1a1aa">~5,800 realistic questions · timed simulators · no signup</text>
+  <text x="190" y="232" font-family="Arial, sans-serif" font-size="64" font-weight="900" fill="#f5f6f7">freecertprep</text>
+  <text x="96" y="360" font-family="Arial, sans-serif" font-size="56" font-weight="800" fill="#f5f6f7">Free certification exam prep</text>
+  <text x="96" y="430" font-family="Arial, sans-serif" font-size="34" font-weight="500" fill="#a1a1aa">A+ | Network+ | Security+ | AWS | Splunk | Terraform</text>
+  <text x="96" y="486" font-family="Arial, sans-serif" font-size="34" font-weight="500" fill="#a1a1aa">Focused practice | timed simulations | no signup</text>
   <rect x="96" y="540" width="320" height="8" rx="4" fill="#f1be32"/>
 </svg>

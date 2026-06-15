@@ -675,7 +675,7 @@ const certs = {
       'storage-configuration',
       'virtualization-cloud',
     ],
-    examAllowedTypes: ['single-choice', 'multiple-response', 'matching', 'ordering', 'pbq-matching'],
+    examAllowedTypes: ['single-choice', 'multiple-response', 'pbq-matching'],
     loadQuestions: () => loadObjectiveQuestionAsset(
       comptiaAPlusCore1QuestionsUrl,
       APLUS_CORE_1_OBJECTIVES,
@@ -704,7 +704,7 @@ const certs = {
       'software-mobile',
       'operational-workflow',
     ],
-    examAllowedTypes: ['single-choice', 'multiple-response', 'matching', 'ordering', 'pbq-matching'],
+    examAllowedTypes: ['single-choice', 'multiple-response', 'pbq-matching'],
     loadQuestions: () => loadObjectiveQuestionAsset(
       comptiaAPlusCore2QuestionsUrl,
       APLUS_CORE_2_OBJECTIVES,

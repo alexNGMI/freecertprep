@@ -1,6 +1,6 @@
 # freecertprep
 
-Free, open-source certification exam prep for the IT certifications that open doors. Realistic question banks, timed exam simulators, Smart Practice that targets your weaknesses, and full progress tracking — all in the browser, with no account required.
+Free, open-source certification exam prep for the IT certifications that open doors. Realistic question banks, timed exam simulators, Smart Practice that targets your weaknesses, and full progress tracking - all in the browser, with no account required.
 
 ## Supported certifications
 
@@ -40,13 +40,13 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Splunk evidence rewrite is live:** all 750 Core Certified User stems are exact and normalized-unique. All 690 selected-response items render compact SPL, event, field, result-set, lookup, report, dashboard, or alert evidence, and every explanation follows a why-right, why-wrong, and review-takeaway structure. Official-style 60-question simulations exclude matching and ordering learning drills.
 
-> **A+ evidence rewrite is live:** both 760-question Core banks now have 760 exact and normalized-unique stems, retain ten handcrafted PBQ-lite scenarios, and avoid generated ticket framing. Formal simulations guarantee at least six PBQ-lite items and exclude statement-block learning drills.
+> **A+ evidence rewrite is live:** both 760-question Core banks now have 760 exact and normalized-unique stems, 760 unique answer interactions, twenty handcrafted PBQ-lite scenarios, and no generated ticket framing. Formal simulations guarantee at least six PBQ-lite items and use only production-approved selected-response and PBQ formats.
 
-> **A+ readiness remediation is live:** Core 1 and Core 2 now earn B+ simulation-readiness grades. All 63 current official objectives are covered by at least two distinct concepts, Core 1 expanded from 44 to 84 concepts, Core 2 expanded from 36 to 94, all 187 generated multiple-response items use objective-specific second answers, and the PBQ-lite set is explicitly mapped to the objective hierarchy.
+> **A+ full-bank overhaul is live:** Core 1 and Core 2 now grade A+ under the project readiness rubric. The rebuild eliminated repeated and cross-objective answer interactions, replaced generic drill templates, added structured right-answer/distractor/verification teaching, doubled each practical pool to twenty, and retained 500-form blueprint and practical-category gates.
 
 > **A+ Objective Learning Loop is live:** both cores now expose objective-level accuracy and coverage, ten-question objective drills, recent misses, spaced due review, objective badges, A+-specific troubleshooting review cues, and post-session recommendations tied to the learner's misses.
 
-> **A+ PBQ-lite v2 is live:** all 20 practical scenarios now include an explicit task brief, realistic console/table/checklist artifacts, and per-component corrective-action feedback. Core 1 forms guarantee coverage across hardware diagnostics, networking, mobile/peripherals, storage, and virtualization; Core 2 forms guarantee OS tools, security response, software/mobile troubleshooting, and operational workflow while retaining at least six practicals and exact domain allocation.
+> **A+ PBQ-lite v3 is live:** all 40 practical scenarios now include an explicit task brief, realistic console/table/checklist artifacts, and per-component corrective-action feedback. Core 1 forms guarantee coverage across hardware diagnostics, networking, mobile/peripherals, storage, and virtualization; Core 2 forms guarantee OS tools, security response, software/mobile troubleshooting, and operational workflow while retaining at least six practicals and exact domain allocation.
 
 > **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
@@ -97,7 +97,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Catalog** - Dedicated `/catalog` page for the live certification grid and preserved Coming Soon modules. Real Estate remains accessible only through Docs while it is reworked.
 - **Path pages** - Career pages identify target roles, optional foundations, career credentials, and applied skills. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
-- **Current roadmap** - The catalog is frozen while the current product is hardened. The live source/release audit, Terraform review-quality pass, first-user journey pass, and session/persistence reliability pass are complete. Coming Soon promotion is paused. See `docs/current-state-and-next-steps-2026-06-13.md`.
+- **Current roadmap** - The catalog is frozen. The A+ full-bank readiness overhaul and trust/metadata pass are complete; local data durability is next, followed by release automation and maintainability. Coming Soon promotion is paused. See `docs/current-state-and-next-steps-2026-06-13.md` and `docs/codebase-review-and-action-plan-2026-06-14.md`.
 - **Content quality status** - A+, Network+, Security+, and Splunk completed their current practical/editorial sprint on June 13, 2026. Cert-specific gates now cover objective breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
@@ -112,7 +112,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 Per-question performance is tracked locally. The weighted pool surfaces the questions you keep getting wrong more often, while mastered questions fade (but never disappear entirely). Selection uses the Efraimidis–Spirakis weighted reservoir sampling algorithm, so every session is probabilistic — you won't see the same 10 questions twice, but your weakest ones are statistically far more likely to appear.
 
-All stats are written to `localStorage` at session end. No data ever leaves your device.
+Study answers, progress, bookmarks, and Smart Practice statistics are written to `localStorage`; the application does not send those study records to a backend. Fonts are served from the local system stack, and the homepage does not use a third-party visitor counter.
 
 ## Question types
 

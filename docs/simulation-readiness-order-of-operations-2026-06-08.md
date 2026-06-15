@@ -10,7 +10,7 @@ Step-four audit completed June 8, 2026:
 - Scope: A+ Core 1, A+ Core 2, and Splunk Core Certified User.
 - The audit confirms stable form allocation and strong surface uniqueness.
 - The initial audit found that A+ was materially thin at the official objective level: Core 1 used 44 concept templates and Core 2 used 36 across 750 generated questions each.
-- A+ remediation completed June 8, 2026: Core 1 now uses 84 concepts across all 27 official objectives; Core 2 uses 94 across all 36. Both now grade B+.
+- A+ objective remediation completed June 8, 2026. The stricter June 14 audit briefly reduced both cores to C+, then the full-bank overhaul eliminated the measured interaction debt and raised both cores to A+ under the project rubric.
 
 ## Executive Takeaway
 
@@ -50,7 +50,7 @@ Implemented June 8, 2026:
 - NVIDIA and Data Center Technician lanes remain implemented but are removed from homepage discovery.
 - Real Estate remains in the codebase and is reachable only from Docs for internal review.
 
-The default rule is B+ simulation readiness or better plus alignment to the actively delivered exam release. A+ Core 1, A+ Core 2, and Terraform meet the readiness bar. CCNA is held because its bank targets future v2.0 rather than active v1.1.
+The default rule is B+ simulation readiness or better plus alignment to the actively delivered exam release. Both A+ cores now exceed that bar at A+ readiness. Terraform meets the readiness bar. CCNA is held because its bank targets future v2.0 rather than active v1.1.
 
 The remediation program should therefore follow this order:
 
@@ -95,8 +95,8 @@ Scoring dimensions:
 | NVIDIA Generative AI LLMs | B- | Good foundational selected-response fit; 330 questions; covers NVIDIA LLM associate topics. | Low scenario rate; needs stronger applied RAG, inference, evaluation, safety, and deployment tradeoff items. | Expand and scenario-ize only after Linux+/DCCA/Splunk polish. |
 | CCST Networking, 100-150 | B | 750 questions and close blueprint alignment; good entry networking practice. | Real Cisco exam interface and item set are simplified; high normalized repetition means some items feel templated. | Rewrite repeated normalized clusters; add more packet/output evidence. |
 | CCNA, 200-301 | Preview | Strong advanced simulation surface: CLI output, topology scenarios, config repair, subnetting drills, and 750 future-v2.0 questions. | Cisco v1.1 remains active through February 2, 2027; the bank targets v2.0 and cannot be labeled current-exam practice. | Keep Coming Soon; re-audit against the active v2.0 release on or after February 3, 2027. |
-| A+ Core 1, 220-1201 | B+ | 760 unique stems, 84 concepts, all 27 official objectives covered, objective/domain gates, plausible domain-level distractors, repaired multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery remains an approximation of CompTIA's proprietary interactive environment; some objectives remain intentionally broader than individual bullet-level skills. | Maintain the automated objective matrix and expand practical artifacts during future PBQ-engine work. |
-| A+ Core 2, 220-1202 | B+ | 760 unique stems, 94 concepts, all 36 official objectives covered, complete malware-response coverage, repaired distractors and multiple-response items, and ten evidence-based PBQ-lite scenarios. | PBQ delivery and confidential vendor scoring cannot be reproduced exactly. | Maintain objective coverage and add richer settings, command, and policy artifacts over time. |
+| A+ Core 1, 220-1201 | A+ | 760 unique stems and answer interactions, all 27 official objectives represented, balanced answer positions, 20 evidence-based PBQ-lite scenarios, structured review teaching, and 500 validated forms. | Proprietary CompTIA PBQ delivery, partial credit, and scaled scoring remain outside browser simulation scope. | Maintain the strict audit and official-source review. |
+| A+ Core 2, 220-1202 | A+ | 760 unique stems and answer interactions, all 36 official objectives represented, balanced answer positions, 20 evidence-based PBQ-lite scenarios, structured review teaching, and 500 validated forms. | Proprietary CompTIA PBQ delivery, partial credit, and scaled scoring remain outside browser simulation scope. | Maintain the strict audit and official-source review. |
 | Network+, N10-009 | A- | 760 questions, exact full-form domain allocation, zero repeated canonical scenario groups, a 760-item objective review ledger, 52 practical items, and eight-practical forms with required CLI, topology, configuration-repair, subnetting, and evidence categories. | Browser practice cannot reproduce CompTIA's confidential PBQ delivery, multiple valid solution paths, partial-credit rules, or scaled scoring. | Maintain the `audit:netplus` gate and source review; no expansion required. |
 | Security+, SY0-701 | A- | 760 questions, a complete objective-review ledger, zero fallback or repeated canonical stem groups, 33 practical items, and 500-form guarantees across interaction types and four practical categories. | Browser practice approximates rather than reproduces CompTIA's proprietary PBQ interface, partial credit, psychometrics, or scaled scoring. | Maintain `audit:secplus`, the ledger, and the mixed-interaction form gate. |
 | Server+, SK0-005 | B | 760 questions, strong blueprint fit, PBQ-lite included. | Needs server hardware/config/storage troubleshooting simulations; exam has performance-based items. | Add rack/power/storage/RAID/boot troubleshooting PBQs. |
@@ -316,12 +316,12 @@ Status update, June 8, 2026:
 - Retained legitimate support-ticket wording inside handcrafted PBQ-lite scenarios where triage itself is being practiced.
 - The cleanup exposed 114 duplicate stem groups covering 475 Core 1 questions and 108 groups covering 404 Core 2 questions.
 - Completed the first evidence rewrite: both banks now contain 760 exact and normalized-unique stems, no generated ticket framing, and at least 120 characters of applied explanation for every generated item.
-- Formal 90-question forms now guarantee at least six of the ten handcrafted PBQ-lite scenarios and exclude statement-block learning drills.
+- Formal 90-question forms now guarantee at least six of twenty handcrafted PBQ-lite scenarios and exclude generic matching, ordering, and statement-block drills.
 
 Next actions:
 
 1. Completed June 8, 2026: replace repeated frames with device scope, observed behavior, prior checks, and operational constraints.
-2. Completed June 8, 2026: preserve the current blueprint allocation, 760-question pool size, and ten handcrafted PBQ-lite items per core.
+2. Completed June 14, 2026: preserve the current blueprint allocation and 760-question pool size while expanding to twenty handcrafted PBQ-lite items per core.
 3. Completed June 8, 2026: require explanations to identify why the chosen action is safer or more diagnostic than alternatives.
 4. Completed June 8, 2026: mapped and expanded the concept templates against every official Version 2.0 objective. Core 1 now uses 84 concepts and Core 2 uses 94.
 5. Completed June 8, 2026: the readiness audit confirmed material objective-breadth gaps, generic multiple-response answers, and weak cross-domain distractors. See the step-four audit for the ordered remediation plan.

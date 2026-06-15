@@ -119,14 +119,14 @@ describe('cert registry', () => {
   })
 
   it('keeps audited live-bank readiness grades explicit', () => {
-    expect(certs['comptia-a-plus-core-1'].source.readinessGrade).toBe('B+')
-    expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('B+')
+    expect(certs['comptia-a-plus-core-1'].source.readinessGrade).toBe('A+')
+    expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('A+')
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
     expect(certs['terraform-associate'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-net-plus'].source.readinessGrade).toBe('A-')
     expect(certs['comptia-sec-plus'].source.readinessGrade).toBe('A-')
-    expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/coverage verified/i)
-    expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/coverage verified/i)
+    expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/full-bank interaction rewrite/i)
+    expect(certs['comptia-a-plus-core-2'].source.editorialStatus).toMatch(/full-bank interaction rewrite/i)
   })
 
   it('every cert reports the same questionCount in the registry as its JSON (published or not)', () => {
@@ -565,7 +565,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
 
     expect(questions).toHaveLength(760)
     const practicalQuestions = questions.filter(q => typeOf(q) === 'pbq-matching')
-    expect(practicalQuestions).toHaveLength(10)
+    expect(practicalQuestions).toHaveLength(20)
     expect(new Set(questions.map(q => q.objectiveId))).toEqual(new Set(expectedObjectiveIds))
 
     const requiredPracticalCategories = certId === 'comptia-a-plus-core-1'
@@ -1228,6 +1228,7 @@ describe('CompTIA practical exam forms', () => {
         practicalQuestionTarget: cert.practicalQuestionTarget,
         requiredPracticalCategories: cert.requiredPracticalCategories,
         requiredTypeCounts: cert.requiredTypeCounts,
+        allowedQuestionTypes: cert.examAllowedTypes,
       })
       const byDomain = form.reduce((acc, question) => {
         acc[question.domain] = (acc[question.domain] || 0) + 1
@@ -1248,6 +1249,9 @@ describe('CompTIA practical exam forms', () => {
           form.filter(question => typeOf(question) === type).length,
           `${certId} form is missing required ${type} coverage`,
         ).toBeGreaterThanOrEqual(minimum)
+      }
+      if (certId.startsWith('comptia-a-plus')) {
+        expect(form.some(question => ['matching', 'statement-block'].includes(typeOf(question)))).toBe(false)
       }
     }
   })
