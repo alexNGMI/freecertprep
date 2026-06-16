@@ -1,6 +1,6 @@
 # Current State and Next Steps
 
-Last updated: June 15, 2026
+Last updated: June 16, 2026
 
 ## Executive Summary
 
@@ -20,6 +20,8 @@ Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul and trust/metadata pass are now complete. Local data durability is the next active phase.
 
 Network+ also now has a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. This improves how the existing flagship content is used without expanding the catalog.
+
+The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md`.
 
 ## Current Public Offering
 
@@ -46,16 +48,20 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 - NVIDIA and Data Center Technician path routes remain implemented but hidden.
 - CDL and NCLEX remain future sister-site concepts.
 - CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the bank is re-audited.
+- AZ-900, Google CDL, CCST, Linux+, Server+, DCCA, NVIDIA, and CCNA should not be promoted because raw question count alone is not enough; each needs a current source audit and cert-specific release gate.
 
 ## Verified Baseline
 
 - 1,245 tests pass across 38 files.
-- Production dependency audit reports zero vulnerabilities.
+- 1,025 content sanity tests pass.
+- `npm audit --omit=dev` reports zero vulnerabilities.
+- A+, Network+, Security+, Terraform, and CompTIA objective audit scripts pass locally.
 - Homepage and catalog have no horizontal overflow at 1280px or 390px.
 - The public offering contains eight live and nine Coming Soon modules.
 - Question banks are lazy-loaded by certification.
 - Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+.
 - Catalog expansion remains frozen.
+- Fresh dashboards now show one clear recommended next step across certs: Network+ points to the diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
 
 ## Ordered Next Steps
 
@@ -98,9 +104,11 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 - create a versioned full backup for progress, Smart Practice statistics, and bookmarks;
 - add active-session resume only after completed-result recovery is reliable.
 
+This is the next active product phase because it directly protects the first user's work.
+
 ### 4. Release Automation
 
-- create one `verify:quality` command;
+- create one `verify:quality` command that runs lint, tests, build, dependency audit, and cert-specific audits;
 - include all cert-specific audits in CI;
 - add a small desktop/mobile browser smoke suite for the critical learner journey;
 - eliminate the current Recharts sizing warnings;
@@ -130,9 +138,10 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 - session completion and malformed-storage recovery fixes;
 - Network+ structured full-bank audit and A- grade;
 - Security+ structured full-bank audit and A- grade;
+- Network+ personal learning loop and simplified first-start dashboard;
 - explicit A+ → Networking → Cybersecurity → Cloud progression, with Network+ owned by Networking;
 - public catalog split into Live and Coming Soon.
 
 ## Decision Rule
 
-Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope until the remaining durability, release, maintainability, and A+ remediation phases are complete.
+Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope until local data durability, release automation, and maintainability are in better shape.

@@ -723,7 +723,8 @@ key = random() ** (1 / weight)
               The product is usable today with 8 public IT certification modules, 9 Coming Soon IT modules, and a Real Estate
               build hidden from public navigation. The catalog remains frozen. The June 14 full-codebase review moved the next
               work toward public-claim accuracy, local data durability, release automation, and maintainability before another
-              certification is promoted.
+              certification is promoted. The June 16 offering audit reaffirmed that direction: the current offering is broad
+              enough, and the next advantage comes from protecting local learner work and making quality gates repeatable.
             </P>
 
             {[
@@ -774,6 +775,7 @@ key = random() ** (1 / weight)
                   'A+ full-bank quality overhaul - both 760-question cores now grade A+ under the project rubric, with 760 unique answer interactions, structured correct/distractor/verification teaching, 20 evidence-based practicals per core, and 500-form gates.',
                   'Trust and metadata correction - removed the third-party visitor counter and Google-hosted fonts, refreshed root search/share metadata and artwork, corrected privacy language, and added the MIT License.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,245-test regression suite.',
+                  'June 16 offering audit - confirmed 8 live modules, 9 parked IT modules, 11,693 authored IT questions, zero dependency vulnerabilities, passing content/cert-specific audits, and a hold-the-catalog roadmap focused on local data durability, release gates, and maintainability.',
                 ],
               },
               {
@@ -781,7 +783,7 @@ key = random() ** (1 / weight)
                 color: '#a1a1aa',
                 items: [
                   '1. Local data durability - bound session history, surface storage write failures, persist completed results across refresh, and add a versioned full-study backup.',
-                  '2. Release automation - run all cert-specific audits in CI, add a focused desktop/mobile browser smoke suite, and eliminate chart sizing warnings.',
+                  '2. Release automation - add one verify:quality command for lint, tests, build, dependency audit, and cert-specific audits; run it in CI, add a focused desktop/mobile browser smoke suite, and eliminate chart sizing warnings.',
                   '3. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
                   '4. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
                 ],

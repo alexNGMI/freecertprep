@@ -2,7 +2,7 @@
 
 Review date: June 14, 2026
 
-Execution update: Phase 5 was performed first at the owner's request, followed by Phase 1. The A+ full-bank overhaul and public trust/metadata cleanup are complete. A Network+ personal learning loop was added June 15 without changing the catalog. Phase 2, local data durability, remains next.
+Execution update: Phase 5 was performed first at the owner's request, followed by Phase 1. The A+ full-bank overhaul and public trust/metadata cleanup are complete. A Network+ personal learning loop was added June 15 without changing the catalog. The June 16 offering audit confirmed the current catalog should remain frozen and pointed the next work at local data durability, release automation, and maintainability. Phase 2, local data durability, remains next.
 
 ## Executive Assessment
 
@@ -37,7 +37,7 @@ Baseline at review time:
 - 17 authored IT certification modules;
 - 11,693 authored IT questions;
 - 8 live modules and 9 Coming Soon modules;
-- 1,237 passing tests across 36 files;
+- 1,245 passing tests across 38 files;
 - zero production dependency vulnerabilities reported by `npm audit --omit=dev`;
 - clean `main` branch at commit `cb6caeb` before this documentation update.
 
@@ -213,3 +213,5 @@ The following work would consume time without addressing the current product's s
 ## Recommended Next Sprint
 
 Execute Phase 2 next. The trust-and-metadata cleanup is complete, and the highest remaining product risk is silent or incomplete recovery of the first user's locally stored study work.
+
+Reference: `docs/offering-audit-2026-06-16.md`.
