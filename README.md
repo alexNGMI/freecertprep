@@ -38,6 +38,8 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **CCST Networking is live:** Cisco CCST Networking (100-150) now ships as the Cisco-first Network+ alternative with 750 exact and normalized-unique stems, evidence artifacts on all 750 items, six-domain diagnostic, mastery map, study plan, exam debrief, and case practice. CCNA remains Coming Soon because the preserved bank targets Cisco 200-301 v2.0.
 
+> **CCNA preview learning loop is available:** the preserved CCNA 200-301 v2.0 bank now uses the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow as the live modules, driven by its 25 objective families and simulation-heavy CLI/topology/config/subnetting items. It remains labeled as a preview until Cisco 200-301 v2.0 is active.
+
 > **Live-bank language cleanup is complete for the current quality set:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, Splunk Core User, and CCST Networking. Automated gates prevent that phrasing from returning, and all four banks now meet their current uniqueness and evidence standards.
 
 > **Splunk evidence rewrite is live:** all 750 Core Certified User stems are exact and normalized-unique. All 690 selected-response items render compact SPL, event, field, result-set, lookup, report, dashboard, or alert evidence, and every explanation follows a why-right, why-wrong, and review-takeaway structure. Official-style 60-question simulations exclude matching and ordering learning drills.
@@ -64,7 +66,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Network+ Personal Learning Loop is live:** N10-009 now adds a balanced 35-question diagnostic, four-state objective mastery map, evidence-driven 7/14/30-day plans, objective-level full-exam debriefs, and ten-question applied case sets built from CLI, topology, configuration, matching, and subnetting work. The system remains local-first and treats untouched objectives as Not measured rather than weak.
 
-> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk Core User, and Terraform Associate now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+, Security+, and Terraform use objective-backed targets; CCST, CLF-C02, SAA-C03, and Splunk use domain-backed targets.
+> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk Core User, and Terraform Associate now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+, Security+, Terraform, and the CCNA preview use objective-backed targets; CCST, CLF-C02, SAA-C03, and Splunk use domain-backed targets.
 
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and SAA now adds a domain-backed diagnostic, mastery map, study plan, exam debrief, and architecture case practice around secure, resilient, high-performing, and cost-optimized design.
 

@@ -122,6 +122,24 @@ export const LEARNING_LOOP_CONFIGS = {
     objectiveLabel: 'Domain',
     useDomainObjectives: true,
   },
+  'ccna-200-301': {
+    eyebrow: 'CCNA preview loop',
+    title: 'Turn Cisco practice into troubleshooting evidence.',
+    subtitle: 'Measure the CCNA v2.0 preview objectives, separate weak CLI/topology/config/subnetting evidence from unmeasured areas, and work the highest-value Cisco gaps in order.',
+    diagnosticTitle: 'Baseline your CCNA preview readiness.',
+    diagnosticSubtitle: 'This samples the preserved 200-301 v2.0 preview bank without feedback until the end. It is a study tool for the future v2.0 target, not current v1.1 exam positioning.',
+    diagnosticModeTitle: 'CCNA Preview Diagnostic',
+    diagnosticSize: 40,
+    caseTitle: 'Practice CCNA work from evidence.',
+    caseSubtitle: 'Read command output, inspect topology evidence, repair configurations, and calculate subnets before another preview simulation.',
+    caseModeTitle: 'CCNA Case Practice',
+    caseModeLabel: 'Cisco troubleshooting scenarios',
+    caseCategories: ['CLI interpretation', 'Topology reasoning', 'Configuration repair', 'Subnetting drills'],
+    caseBody: 'Read the network evidence, choose the least risky Cisco action, and verify why the alternatives solve the wrong layer or ignore the symptom.',
+    measuredLabel: 'preview objective families',
+    objectiveLabel: 'Objective',
+    useQuestionObjectives: true,
+  },
   'comptia-a-plus-core-1': {
     eyebrow: 'A+ Core 1 learning loop',
     title: 'Turn hardware practice into a support plan.',
@@ -170,6 +188,21 @@ export function getLearningObjectives(cert) {
   const config = getLearningLoopConfig(cert?.id)
   if (!config) return []
   if (cert.objectives?.length) return cert.objectives
+
+  if (config.useQuestionObjectives && cert.questions?.length) {
+    const objectiveMap = new Map()
+    for (const question of cert.questions) {
+      if (!question.objectiveId) continue
+      if (!objectiveMap.has(question.objectiveId)) {
+        objectiveMap.set(question.objectiveId, {
+          id: question.objectiveId,
+          domain: question.domain,
+          title: question.objectiveTitle || question.conceptId || question.objectiveId,
+        })
+      }
+    }
+    return [...objectiveMap.values()]
+  }
 
   return (cert.domains || []).map((domain, index) => ({
     id: `domain-${index + 1}`,

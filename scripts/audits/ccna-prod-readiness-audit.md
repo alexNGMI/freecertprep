@@ -4,7 +4,7 @@ Status: `ccna-200-301` is preserved as Coming Soon.
 
 Source basis: Cisco's announced 200-301 v2.0 exam topics PDF. The pool follows the future five-domain blueprint and keeps the advanced simulation types needed for CCNA-style practice. Cisco v1.1 remains active through February 2, 2027; v2.0 first tests February 3, 2027.
 
-Latest audit: June 16, 2026. The preview bank was rebuilt to the same quality bar used for Network+: clean scenario stems, objective metadata, explanation depth, simulation evidence, and automated regression gates.
+Latest audit: June 16, 2026. The preview bank was rebuilt to the same quality bar used for Network+: clean scenario stems, objective metadata, explanation depth, simulation evidence, automated regression gates, and the shared diagnostic/mastery/study-plan/debrief/case-practice loop.
 
 ## Domain Distribution
 
@@ -41,6 +41,7 @@ Latest audit: June 16, 2026. The preview bank was rebuilt to the same quality ba
 - Config-repair items include device context, configuration excerpts, and operational notes.
 - Subnetting drills require network, broadcast, first usable, last usable, host count, mask, and wildcard values.
 - Legacy templated phrasing such as "case 001" and "CCNA candidate is asked" is blocked by tests.
+- Preview learning loop is enabled with a 40-question diagnostic, 25 objective-family mastery map, study plan, exam debrief, and ten-item applied case practice.
 - Registry publishes `ccna-200-301` and exposes it in the full catalog.
 - Networking path routes Network+ or CCST Networking into CCNA.
 - Data Center Technician path routes Server+ to Schneider DCCA to CCNA.

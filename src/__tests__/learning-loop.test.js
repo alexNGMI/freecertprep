@@ -9,6 +9,7 @@ import {
   selectDiagnosticQuestions,
 } from '../utils/learning-loop'
 import { getLearningLoopConfig, getLearningObjectives, hasLearningLoop } from '../utils/learning-loop-config'
+import ccna200301 from '../data/ccna-200-301-questions.json'
 
 const objectives = [
   { id: '1.1', domain: 'Concepts', title: 'Models' },
@@ -190,6 +191,39 @@ describe('Network+ learning loop', () => {
       'Endpoint and media checks',
       'Infrastructure roles',
       'Troubleshooting path',
+    ])
+  })
+
+  it('registers CCNA as an objective-backed preview learning-loop module', () => {
+    const config = getLearningLoopConfig('ccna-200-301')
+    const cert = {
+      id: 'ccna-200-301',
+      questions: ccna200301,
+      domains: [
+        { name: 'Network Infrastructure and Connectivity', weight: 25 },
+        { name: 'Switching and Network Access', weight: 25 },
+        { name: 'IP Routing', weight: 20 },
+        { name: 'Network Services and Security', weight: 20 },
+        { name: 'AI, Network Operations, and Management', weight: 10 },
+      ],
+    }
+    const objectives = getLearningObjectives(cert)
+    const diagnostic = selectDiagnosticQuestions(ccna200301, objectives, config.diagnosticSize)
+    const cases = selectCaseQuestions(ccna200301, 10, objectives)
+
+    expect(hasLearningLoop('ccna-200-301')).toBe(true)
+    expect(config.useQuestionObjectives).toBe(true)
+    expect(config.diagnosticSize).toBe(40)
+    expect(objectives).toHaveLength(25)
+    expect(new Set(objectives.map(objective => objective.domain)).size).toBe(5)
+    expect(new Set(diagnostic.map(question => question.objectiveId)).size).toBeGreaterThanOrEqual(25)
+    expect(cases).toHaveLength(10)
+    expect(cases.every(question => ['cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill'].includes(question.type))).toBe(true)
+    expect(config.caseCategories).toEqual([
+      'CLI interpretation',
+      'Topology reasoning',
+      'Configuration repair',
+      'Subnetting drills',
     ])
   })
 })

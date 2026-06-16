@@ -2,7 +2,7 @@
 
 Status: preserved Coming Soon preview for Cisco CCNA 200-301 v2.0. The 750-question bank includes `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` items alongside written single-choice and multiple-response questions, but it is not presented as current-exam practice.
 
-June 16, 2026 quality pass: rebuilt to the same internal standard used for Network+. The bank now has 750 exact and normalized unique stems, structured explanations on every item, 25 objective families, and 440 practical simulation items with explicit CLI, topology, config-repair, and subnetting evidence.
+June 16, 2026 quality pass: rebuilt to the same internal standard used for Network+. The bank now has 750 exact and normalized unique stems, structured explanations on every item, 25 objective families, and 440 practical simulation items with explicit CLI, topology, config-repair, and subnetting evidence. The preserved preview now also uses the shared diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow, driven by those 25 objective families.
 
 ## Official Scope
 
@@ -56,6 +56,18 @@ The current `QuestionCard` contract supports the full CCNA surface:
 
 These types share the existing quiz, drill, exam, results, bookmark, and Smart Practice flows. Content sanity tests validate schema shape, domain distribution, type mix, exact and normalized unique stems, answer balance, objective metadata, structured explanation coverage, practical category coverage, and domain-appropriate simulation evidence.
 
+## Learning Loop
+
+CCNA uses the same learner workflow as the live modules, but copy keeps it in preview posture:
+
+- Diagnostic: 40 questions sampled across the 25 question-backed objective families.
+- Mastery map: objective-family accuracy, coverage, confidence, and recency.
+- Personal plan: ordered repair blocks, case practice, and readiness checkpoints.
+- Exam debrief: missed objectives and applied-scenario misses after preview simulations.
+- Case practice: ten applied items pulled from CLI output, topology scenarios, configuration repair, and subnetting drills.
+
+This makes CCNA useful as a private study and preview track without changing the public release decision.
+
 ## Production Gate
 
 The preserved v2.0 preview gate is:
@@ -70,6 +82,7 @@ The preserved v2.0 preview gate is:
   - 120 topology items with diagrams and evidence tables.
   - 100 config-repair items with device context, config excerpts, and operational notes.
   - 50 subnetting drills covering network, broadcast, usable range, host count, mask, and wildcard.
+- Shared learning loop enabled for the preview bank: diagnostic, mastery map, personal plan, exam debrief, and case practice.
 - Published registry entry and catalog/path visibility.
 - Networking path: Network+ or CCST Networking, then CCNA.
 - Data Center Technician path: Server+, Schneider DCCA, then CCNA.
