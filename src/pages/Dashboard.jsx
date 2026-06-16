@@ -22,8 +22,6 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
-  Pie,
-  PieChart,
   PolarAngleAxis,
   PolarGrid,
   Radar,
@@ -42,7 +40,6 @@ import { DomainBadge, Kicker, Surface } from '../components/ui/surface'
 import TrustPanel from '../components/TrustPanel'
 import { Tooltip as UiTooltip } from '../components/ui/tooltip'
 import { cn } from '../utils/cn'
-import { readinessTarget } from '../utils/readiness'
 import { rankWeakObjectives, summarizeObjectiveProgress } from '../utils/objective-progress'
 
 export default function Dashboard() {
@@ -60,10 +57,6 @@ export default function Dashboard() {
   const weakest = attemptsPerDomain.length
     ? [...attemptsPerDomain].sort((a, b) => a.percentage - b.percentage || a.total - b.total)[0]
     : null
-  const strongest = attemptsPerDomain.length
-    ? [...attemptsPerDomain].sort((a, b) => b.percentage - a.percentage || b.total - a.total)[0]
-    : null
-
   const chartData = domainStats.map((stat) => ({
     domain: stat.domain,
     short: shortenDomain(stat.domain),
@@ -97,6 +90,12 @@ export default function Dashboard() {
         to: hasStarted ? 'learning' : 'learning/diagnostic',
       }
     : action
+  const nextStepTitle = learningLoop
+    ? hasStarted ? 'Continue from your map.' : 'Take the diagnostic first.'
+    : hasStarted ? 'Work the weakest signal.' : 'Start with Smart Practice.'
+  const nextStepBody = learningLoop
+    ? `${primaryAction.sub} The app will separate what you know, what needs work, and what has not been measured yet.`
+    : `${primaryAction.sub}. Build a small signal first, then the dashboard will surface domains, objectives, and exam readiness.`
 
   function handleImport(e) {
     const file = e.target.files?.[0]
@@ -123,7 +122,7 @@ export default function Dashboard() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-4">
               <Kicker>
-                {learningLoop ? 'Start here' : 'Command center'}
+                Start here
                 <span className="text-zinc-600">/</span>
                 <span style={{ color: cert.color }}>{cert.code}</span>
               </Kicker>
@@ -134,22 +133,15 @@ export default function Dashboard() {
                 <p className="max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
                   {learningLoop
                     ? 'New to Network+? Start with the diagnostic. If you already practiced, use the study plan to choose the next objective, case set, or exam simulation.'
-                    : 'A readiness view built from your practice history, exam attempts, and Smart Practice signal.'}
+                    : 'Start with a short practice block. As you answer questions, this page turns into your readiness dashboard.'}
                 </p>
               </div>
             </div>
-            {learningLoop && (
-              <div className="rounded-2xl border border-white/10 bg-zinc-900/60 px-5 py-4 text-sm text-zinc-400 lg:max-w-xs">
-                Start with a baseline, then let the study plan choose the next useful block.
-              </div>
-            )}
-            {!learningLoop && (
-              <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color}>
-                <Sparkles className="h-5 w-5" />
-                {primaryAction.label}
-                <ArrowRight className="h-5 w-5" />
-              </Button>
-            )}
+            <div className="rounded-2xl border border-white/10 bg-zinc-900/60 px-5 py-4 text-sm text-zinc-400 lg:max-w-xs">
+              {learningLoop
+                ? 'Start with a baseline, then let the study plan choose the next useful block.'
+                : 'One short block is enough to unlock useful progress signals.'}
+            </div>
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -160,19 +152,20 @@ export default function Dashboard() {
           </div>
         </Surface>
 
-        {learningLoop ? (
-          <Surface className="p-6">
-            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Recommended next step</p>
-            <h2 className="mt-2 text-2xl font-black text-zinc-50">
-              {hasStarted ? 'Continue from your map.' : 'Take the diagnostic first.'}
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-              {primaryAction.sub} The app will separate what you know, what needs work, and what has not been measured yet.
-            </p>
-            <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color} className="mt-5 w-full">
-              {primaryAction.label}
-              <ArrowRight className="h-5 w-5" />
-            </Button>
+        <Surface className="p-6">
+          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Recommended next step</p>
+          <h2 className="mt-2 text-2xl font-black text-zinc-50">
+            {nextStepTitle}
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+            {nextStepBody}
+          </p>
+          <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color} className="mt-5 w-full">
+            <Sparkles className="h-5 w-5" />
+            {primaryAction.label}
+            <ArrowRight className="h-5 w-5" />
+          </Button>
+          {learningLoop && (
             <div className="mt-5 space-y-3">
               {[
                 ['01', 'Measure', 'A short diagnostic checks every objective.'],
@@ -188,49 +181,8 @@ export default function Dashboard() {
                 </div>
               ))}
             </div>
-          </Surface>
-        ) : (
-          <Surface className="p-6">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Exam signal</p>
-              <h2 className="mt-2 text-2xl font-black text-zinc-50">Readiness ring</h2>
-            </div>
-            <DomainBadge color={cert.color}>{readinessTarget(cert)} target</DomainBadge>
-          </div>
-          <div className="mt-5 h-56">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={[
-                    { name: 'Ready', value: readiness },
-                    { name: 'Remaining', value: Math.max(100 - readiness, 0) },
-                  ]}
-                  dataKey="value"
-                  innerRadius="70%"
-                  outerRadius="90%"
-                  startAngle={90}
-                  endAngle={-270}
-                  stroke="none"
-                >
-                  <Cell fill={cert.color} />
-                  <Cell fill="#27272a" />
-                </Pie>
-                <text x="50%" y="48%" textAnchor="middle" dominantBaseline="middle" className="fill-zinc-50 text-4xl font-black">
-                  {overall.totalQuestions ? readiness : 0}%
-                </text>
-                <text x="50%" y="62%" textAnchor="middle" dominantBaseline="middle" className="fill-zinc-500 text-xs font-bold uppercase tracking-wider">
-                  current signal
-                </text>
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-          <div className="grid grid-cols-2 gap-3 text-sm">
-            <Insight label="Strongest" value={strongest ? shortenDomain(strongest.domain) : 'Pending'} />
-            <Insight label="Weakest" value={weakest ? shortenDomain(weakest.domain) : 'Pending'} />
-          </div>
-          </Surface>
-        )}
+          )}
+        </Surface>
       </section>
 
       {cert.studyPlan && (
@@ -259,7 +211,7 @@ export default function Dashboard() {
         </Surface>
       )}
 
-      {(!learningLoop || hasStarted) && (
+      {hasStarted && (
         <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
           <Surface className="p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
@@ -307,7 +259,7 @@ export default function Dashboard() {
         </section>
       )}
 
-      {cert.objectives?.length > 0 && (!learningLoop || hasStarted) && (
+      {cert.objectives?.length > 0 && hasStarted && (
         <Surface className="p-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
