@@ -60,6 +60,8 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Network+ Personal Learning Loop is live:** N10-009 now adds a balanced 35-question diagnostic, four-state objective mastery map, evidence-driven 7/14/30-day plans, objective-level full-exam debriefs, and ten-question applied case sets built from CLI, topology, configuration, matching, and subnetting work. The system remains local-first and treats untouched objectives as Not measured rather than weak.
 
+> **Foundation learning-loop parity is live:** Security+ now has the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow across SY0-701 objectives. AWS Cloud Practitioner uses the same flow with CLF-C02 domain-backed targets and cloud scenario practice.
+
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.

@@ -6,16 +6,17 @@ import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
 import { isAnswerComplete, isAnswerCorrect } from '../utils/scoring'
 import { buildMasteryMap, MASTERY_LEVELS, selectDiagnosticQuestions } from '../utils/learning-loop'
+import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
 import QuestionCard from '../components/QuestionCard'
 import { QuestionNavigator, StudyWorkspace } from '../components/StudyWorkspace'
 import { StudyHeader } from '../components/StudyHeader'
 import { Button } from '../components/ui/button'
 import { Surface } from '../components/ui/surface'
 
-const DIAGNOSTIC_SIZE = 35
-
 export default function Diagnostic() {
   const cert = useCert()
+  const config = getLearningLoopConfig(cert.id)
+  const learningObjectives = useMemo(() => getLearningObjectives(cert), [cert])
   const { addQuizResult } = useProgress(cert.id)
   const { certStats, recordSession } = useQuestionStats(cert.id)
   const [started, setStarted] = useState(false)
@@ -26,7 +27,7 @@ export default function Diagnostic() {
   const [completedAt, setCompletedAt] = useState(null)
 
   const begin = () => {
-    setDiagnosticQuestions(selectDiagnosticQuestions(cert.questions, cert.objectives, DIAGNOSTIC_SIZE))
+    setDiagnosticQuestions(selectDiagnosticQuestions(cert.questions, learningObjectives, config.diagnosticSize))
     setSelectedAnswers({})
     setCurrentIndex(0)
     setFinished(false)
@@ -67,27 +68,27 @@ export default function Diagnostic() {
         lastSeen: completedAt,
       }
     })
-    return buildMasteryMap(cert.questions, mergedStats, cert.objectives, completedAt)
-  }, [cert.questions, cert.objectives, certStats, completedAt, diagnosticQuestions, finished, selectedAnswers])
+    return buildMasteryMap(cert.questions, mergedStats, learningObjectives, completedAt)
+  }, [cert.questions, certStats, completedAt, diagnosticQuestions, finished, learningObjectives, selectedAnswers])
 
-  if (cert.id !== 'comptia-net-plus') return <Navigate to={`/${cert.id}`} replace />
+  if (!config) return <Navigate to={`/${cert.id}`} replace />
 
   if (!started) {
     return (
       <div className="mx-auto max-w-5xl space-y-8">
         <StudyHeader
           eyebrow="Diagnostic assessment"
-          title="Find the gaps before you study."
-          subtitle="This is a measurement tool, not a pass/fail exam. It samples every official Network+ objective and withholds feedback until the end."
+          title={config.diagnosticTitle}
+          subtitle={config.diagnosticSubtitle}
           cert={cert}
           stats={[
-            { label: 'Questions', value: DIAGNOSTIC_SIZE, icon: ClipboardCheck },
-            { label: 'Objectives', value: cert.objectives.length, icon: Map },
+            { label: 'Questions', value: config.diagnosticSize, icon: ClipboardCheck },
+            { label: 'Targets', value: learningObjectives.length, icon: Map },
           ]}
         />
         <Surface className="grid gap-6 p-6 md:grid-cols-3">
           <Rule number="01" title="Answer cold" body="Use what you know now. Looking everything up would make the study plan less useful." />
-          <Rule number="02" title="Skip honestly" body="An unanswered question is evidence that the objective needs measurement, not a personal failure." />
+          <Rule number="02" title="Skip honestly" body="An unanswered question is evidence that the target needs measurement, not a personal failure." />
           <Rule number="03" title="Study the map" body="The result feeds your mastery map and creates an ordered study plan." />
         </Surface>
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
@@ -114,7 +115,7 @@ export default function Diagnostic() {
         <StudyHeader
           eyebrow="Diagnostic complete"
           title="Your baseline is ready."
-          subtitle="The result is now part of your objective history. Repeated practice will increase confidence and can move objectives between levels."
+          subtitle="The result is now part of your study history. Repeated practice will increase confidence and can move targets between levels."
           cert={cert}
           stats={[
             { label: 'Answered', value: `${answeredCount}/${diagnosticQuestions.length}`, icon: CheckCircle2 },
@@ -130,12 +131,12 @@ export default function Diagnostic() {
           ))}
         </div>
         <Surface className="p-6">
-          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Priority objectives</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Priority targets</p>
           <div className="mt-4 space-y-3">
             {result.filter(item => item.level === 'weak' || item.level === 'developing').slice(0, 5).map(item => (
               <div key={item.id} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
                 <p className="text-xs font-bold uppercase tracking-wider" style={{ color: MASTERY_LEVELS[item.level].color }}>
-                  Objective {item.id} · {MASTERY_LEVELS[item.level].label}
+                  {formatLearningTarget(config, item.id)} · {MASTERY_LEVELS[item.level].label}
                 </p>
                 <p className="mt-1 font-bold text-zinc-100">{item.title}</p>
               </div>
@@ -157,7 +158,7 @@ export default function Diagnostic() {
   return (
     <StudyWorkspace
       cert={cert}
-      title="Network+ Diagnostic"
+      title={config.diagnosticModeTitle}
       subtitle={currentQuestion.domain}
       modeLabel="No feedback until submission"
       currentIndex={currentIndex}

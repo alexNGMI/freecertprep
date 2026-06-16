@@ -4,6 +4,8 @@ import { isAnswerCorrect } from '../utils/scoring'
 import { useProgress } from './useProgress'
 import { useQuestionStats } from './useQuestionStats'
 import { getDueReviewQuestions, getRecentMissQuestions } from '../utils/objective-progress'
+import { getQuestionObjectiveId } from '../utils/learning-loop'
+import { getLearningObjectives } from '../utils/learning-loop-config'
 
 export const SMART_PRACTICE = 'Smart Practice'
 export const BOOKMARKED = 'Bookmarked'
@@ -15,6 +17,7 @@ export const OBJECTIVE_PREFIX = 'Objective:'
 export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize = 10, initialSelection = SMART_PRACTICE }) {
   const { addQuizResult } = useProgress(cert.id)
   const { certStats, getWeightedPool, recordSession, trackedCount } = useQuestionStats(cert.id)
+  const learningObjectives = useMemo(() => getLearningObjectives(cert), [cert])
 
   const certDomains = useMemo(() => cert.domains.map((d) => d.name), [cert.domains])
   const [selectedDomain, setSelectedDomain] = useState(initialSelection)
@@ -44,10 +47,10 @@ export function usePracticeSession({ cert, questions, bookmarkedIds, blockSize =
     if (selectedDomain === DUE_REVIEW) return getDueReviewQuestions(questions, certStats)
     if (selectedDomain.startsWith(OBJECTIVE_PREFIX)) {
       const objectiveId = selectedDomain.slice(OBJECTIVE_PREFIX.length)
-      return questions.filter((q) => q.objectiveId === objectiveId)
+      return questions.filter((q) => getQuestionObjectiveId(q, learningObjectives) === objectiveId)
     }
     return questions.filter((q) => q.domain === selectedDomain)
-  }, [selectedDomain, questions, bookmarkedIds, certStats])
+  }, [selectedDomain, questions, bookmarkedIds, certStats, learningObjectives])
 
   const startQuiz = () => {
     const nextQuestions = selectedDomain === SMART_PRACTICE

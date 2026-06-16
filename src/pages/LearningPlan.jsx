@@ -4,17 +4,20 @@ import { ArrowRight, CalendarDays, ClipboardCheck, Map, Network, Route, Wrench }
 import { useCert } from '../hooks/useCert'
 import { useQuestionStats } from '../hooks/useQuestionStats'
 import { buildMasteryMap, buildStudyPlan, MASTERY_LEVELS } from '../utils/learning-loop'
+import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
 import { Button } from '../components/ui/button'
 import { DomainBadge, Surface } from '../components/ui/surface'
 import { StudyHeader } from '../components/StudyHeader'
 
 export default function LearningPlan() {
   const cert = useCert()
+  const config = getLearningLoopConfig(cert.id)
+  const learningObjectives = useMemo(() => getLearningObjectives(cert), [cert])
   const { certStats } = useQuestionStats(cert.id)
   const [planDays, setPlanDays] = useState(14)
   const mastery = useMemo(
-    () => buildMasteryMap(cert.questions, certStats, cert.objectives),
-    [cert.questions, cert.objectives, certStats],
+    () => buildMasteryMap(cert.questions, certStats, learningObjectives),
+    [cert.questions, certStats, learningObjectives],
   )
   const plan = useMemo(() => buildStudyPlan(mastery, planDays), [mastery, planDays])
   const counts = mastery.reduce((result, item) => {
@@ -23,14 +26,14 @@ export default function LearningPlan() {
   }, { strong: 0, developing: 0, weak: 0, unmeasured: 0 })
   const measured = mastery.length - counts.unmeasured
 
-  if (cert.id !== 'comptia-net-plus') return <Navigate to={`/${cert.id}`} replace />
+  if (!config) return <Navigate to={`/${cert.id}`} replace />
 
   return (
     <div className="space-y-8 animate-fade-up">
       <StudyHeader
-        eyebrow="Personal learning loop"
-        title="Turn practice into a study plan."
-        subtitle="Measure the official objectives, see what the evidence actually supports, and work the highest-value gaps before another exam simulation."
+        eyebrow={config.eyebrow}
+        title={config.title}
+        subtitle={config.subtitle}
         cert={cert}
         stats={[
           { label: 'Measured', value: `${measured}/${mastery.length}`, icon: Map },
@@ -49,7 +52,7 @@ export default function LearningPlan() {
           <Surface key={level} className="p-5">
             <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">{meta.label}</p>
             <p className="mt-3 text-4xl font-black" style={{ color: meta.color }}>{counts[level]}</p>
-            <p className="mt-2 text-sm text-zinc-500">official objectives</p>
+            <p className="mt-2 text-sm text-zinc-500">{config.measuredLabel}</p>
           </Surface>
         ))}
       </section>
@@ -60,10 +63,10 @@ export default function LearningPlan() {
             <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Mastery map</p>
             <h2 className="mt-2 text-2xl font-black text-zinc-50">What your practice evidence says</h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
-              An objective needs repeated coverage before it can become Strong. Untested material stays Not measured instead of being mislabeled as weak.
+              A target needs repeated coverage before it can become Strong. Untested material stays Not measured instead of being mislabeled as weak.
             </p>
           </div>
-          <DomainBadge color={cert.color}>{cert.objectives.length} objectives</DomainBadge>
+          <DomainBadge color={cert.color}>{learningObjectives.length} targets</DomainBadge>
         </div>
 
         <div className="mt-6 grid gap-3 lg:grid-cols-2">
@@ -78,7 +81,7 @@ export default function LearningPlan() {
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-xs font-black uppercase tracking-wider" style={{ color: cert.color }}>
-                      Objective {objective.id} · {objective.domain}
+                      {formatLearningTarget(config, objective.id)} · {objective.domain}
                     </p>
                     <p className="mt-2 font-black text-zinc-100">{objective.title}</p>
                   </div>
@@ -135,7 +138,7 @@ export default function LearningPlan() {
                   <p className="mt-1 text-sm text-zinc-500">{item.questionTarget} questions</p>
                 </div>
                 <div>
-                  <p className="text-xs text-zinc-500">Objective {item.objectiveId} · {item.domain}</p>
+                  <p className="text-xs text-zinc-500">{formatLearningTarget(config, item.objectiveId)} · {item.domain}</p>
                   <p className="mt-1 font-bold text-zinc-100">{item.objectiveTitle}</p>
                 </div>
                 <ArrowRight className="h-5 w-5 text-zinc-600" />
@@ -144,16 +147,16 @@ export default function LearningPlan() {
           </div>
         ) : (
           <div className="mt-6 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-6">
-            <p className="font-bold text-emerald-200">Every measured objective is currently strong.</p>
+            <p className="font-bold text-emerald-200">Every measured target is currently strong.</p>
             <p className="mt-2 text-sm text-emerald-100/70">Use a diagnostic or full exam to refresh the evidence and expose any remaining gaps.</p>
           </div>
         )}
       </Surface>
 
       <section className="grid gap-4 md:grid-cols-3">
-        <LoopCard icon={ClipboardCheck} title="Diagnostic" body="A balanced assessment that touches all 27 objectives." to="diagnostic" />
-        <LoopCard icon={Wrench} title="Case practice" body="CLI, topology, configuration, and subnetting work." to="cases" />
-        <LoopCard icon={Network} title="Exam simulation" body="Test the full blueprint, then receive an objective debrief." to="../exam" />
+        <LoopCard icon={ClipboardCheck} title="Diagnostic" body={`A balanced assessment that touches ${learningObjectives.length} measured targets.`} to="diagnostic" />
+        <LoopCard icon={Wrench} title="Case practice" body={config.caseCategories.join(', ')} to="cases" />
+        <LoopCard icon={Network} title="Exam simulation" body="Test the full blueprint, then receive a debrief." to="../exam" />
       </section>
     </div>
   )

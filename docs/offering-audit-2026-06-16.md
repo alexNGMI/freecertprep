@@ -25,7 +25,7 @@ The next phase should improve reliability and repeatability, not breadth. The hi
    The live set is intentionally smaller than the authored set. A+, Network+, Security+, Splunk, Terraform, CLF-C02, and SAA-C03 are the live product. AZ-900, Google CDL, CCST, CCNA, NVIDIA, Server+, Linux+, and DCCA stay parked.
 
 5. **Make the product useful to the owner as the first user.**
-   Network+ now has the best end-to-end learner loop: diagnostic, mastery map, study plan, exam debrief, and case practice. A+ has the strongest content quality gates. The dashboard starting point is now consistent across certs.
+   Network+ established the end-to-end learner loop: diagnostic, mastery map, study plan, exam debrief, and case practice. Security+ and AWS Cloud Practitioner now use the same loop, adapted to security objectives and cloud foundation domains. A+ has the strongest content quality gates. The dashboard starting point is now consistent across certs.
 
 ## Current Offering Snapshot
 
@@ -46,9 +46,9 @@ The next phase should improve reliability and repeatability, not breadth. The hi
 | --- | --- | --- | --- |
 | CompTIA A+ Core 1 | A+ | Entry IT foundation | Strongest beginner module; keep maintaining source alignment and PBQ-lite gates |
 | CompTIA A+ Core 2 | A+ | Entry IT foundation | Strongest beginner module; same maintenance posture as Core 1 |
-| CompTIA Network+ | A- | Flagship networking cert | Best candidate for personal study workflow expansion; current simulation is highly useful |
-| CompTIA Security+ | A- | Cybersecurity baseline | Strong live module; practical variety is good, but fewer practicals than Network+ |
-| AWS Cloud Practitioner | A- | Optional cloud foundation | Useful, lightweight entry point; selected-response nature limits deep simulation value |
+| CompTIA Network+ | A- | Flagship networking cert | Full diagnostic, mastery map, study plan, exam debrief, and case-practice workflow |
+| CompTIA Security+ | A- | Cybersecurity baseline | Now has Network+-style diagnostic, mastery map, study plan, debrief, and security case practice |
+| AWS Cloud Practitioner | A- | Optional cloud foundation | Now has domain-backed diagnostic, mastery map, study plan, debrief, and cloud scenario practice |
 | AWS SAA-C03 | A- | Cloud architecture tier | Valuable role-facing module; continue architecture explanation polish over count growth |
 | Splunk Core Certified User | B+ | Applied SOC tooling | Meets bar, but should remain maintenance-focused until evidence and SPL realism can be sampled again |
 | Terraform Associate | B+ | Infrastructure automation skill | Meets bar; needs ongoing source review and practical HCL/state reasoning maintenance |
@@ -140,8 +140,8 @@ The competitive gap is not another cert. The gap is confidence infrastructure: r
 ### 5. Content Maintenance, Not Expansion
 
 - Maintain A+ A+ grade gates.
-- Use Network+ as the flagship learning-loop model.
-- Improve Security+, Splunk, Terraform, and SAA review quality through sampling and targeted rewrites.
+- Preserve the foundation learning-loop model now shared by Network+, Security+, and CLF-C02.
+- Improve Splunk, Terraform, and SAA review quality through sampling and targeted rewrites.
 - Keep CCNA, CCST, Linux+, Server+, DCCA, NVIDIA, AZ-900, and Google CDL parked.
 
 ## Board-Level Recommendation

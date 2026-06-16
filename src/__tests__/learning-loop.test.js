@@ -3,10 +3,12 @@ import {
   buildExamDebrief,
   buildMasteryMap,
   buildStudyPlan,
+  getQuestionObjectiveId,
   getMasteryLevel,
   selectCaseQuestions,
   selectDiagnosticQuestions,
 } from '../utils/learning-loop'
+import { getLearningObjectives } from '../utils/learning-loop-config'
 
 const objectives = [
   { id: '1.1', domain: 'Concepts', title: 'Models' },
@@ -76,5 +78,53 @@ describe('Network+ learning loop', () => {
     expect(debrief.priorities.map(item => item.id)).toEqual(['1.1', '5.1'])
     expect(debrief.practicalMisses).toBe(2)
     expect(debrief.measuredObjectives).toBe(3)
+  })
+
+  it('supports domain-backed learning targets for Cloud Practitioner', () => {
+    const cert = {
+      id: 'clf-c02',
+      domains: [
+        { name: 'Cloud Concepts', weight: 24 },
+        { name: 'Security and Compliance', weight: 30 },
+      ],
+    }
+    const domainObjectives = getLearningObjectives(cert)
+    const cloudQuestions = [
+      { id: 'c1', domain: 'Cloud Concepts', question: 'A company wants elasticity. What should it use?' },
+      { id: 'c4', domain: 'Cloud Concepts', question: 'A startup needs to scale quickly. Which AWS benefit fits?' },
+      { id: 'c5', domain: 'Cloud Concepts', question: 'An organization wants variable expense. Which model helps?' },
+      { id: 'c2', domain: 'Security and Compliance', question: 'A team needs to identify shared responsibility.' },
+      { id: 'c3', domain: 'Security and Compliance', question: 'Which control belongs to AWS?' },
+    ]
+
+    expect(getQuestionObjectiveId(cloudQuestions[0], domainObjectives)).toBe('domain-1')
+    expect(selectDiagnosticQuestions(cloudQuestions, domainObjectives, 2).map(question => question.domain).sort())
+      .toEqual(['Cloud Concepts', 'Security and Compliance'])
+
+    const mastery = buildMasteryMap(cloudQuestions, {
+      c1: { attempts: 3, correct: 3, lastSeen: 1000 },
+      c4: { attempts: 1, correct: 1, lastSeen: 1000 },
+      c5: { attempts: 1, correct: 1, lastSeen: 1000 },
+    }, domainObjectives, 1000)
+
+    expect(mastery.find(item => item.id === 'domain-1').level).toBe('strong')
+    expect(mastery.find(item => item.id === 'domain-2').level).toBe('unmeasured')
+  })
+
+  it('falls back to scenario-like questions for case practice when PBQ formats are absent', () => {
+    const domainObjectives = [
+      { id: 'domain-1', domain: 'Cloud Concepts', title: 'Cloud Concepts', domainBacked: true },
+      { id: 'domain-2', domain: 'Billing', title: 'Billing', domainBacked: true },
+    ]
+    const cloudQuestions = [
+      { id: 'c1', domain: 'Cloud Concepts', question: 'A company wants to avoid upfront hardware costs. What helps?' },
+      { id: 'c2', domain: 'Billing', question: 'An organization needs budget alerts. What should it use?' },
+      { id: 'c3', domain: 'Billing', question: 'Define reserved capacity.' },
+    ]
+
+    const selected = selectCaseQuestions(cloudQuestions, 2, domainObjectives)
+
+    expect(selected).toHaveLength(2)
+    expect(selected.every(question => ['c1', 'c2'].includes(question.id))).toBe(true)
   })
 })

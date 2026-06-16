@@ -34,6 +34,7 @@ describe('cert study UI', () => {
     )
 
     expect(screen.getByRole('link', { name: 'Dashboard' }).getAttribute('href')).toBe('/clf-c02')
+    expect(screen.getByRole('link', { name: 'Study Plan' }).getAttribute('href')).toBe('/clf-c02/learning')
     expect(screen.getByRole('link', { name: 'Quiz' }).getAttribute('href')).toBe('/clf-c02/quiz')
     expect(screen.getByRole('link', { name: 'Timed Drill' }).getAttribute('href')).toBe('/clf-c02/drill')
     expect(screen.getByRole('link', { name: 'Exam Simulator' }).getAttribute('href')).toBe('/clf-c02/exam')

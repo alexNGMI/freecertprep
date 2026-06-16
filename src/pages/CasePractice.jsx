@@ -6,6 +6,7 @@ import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
 import { isAnswerCorrect } from '../utils/scoring'
 import { selectCaseQuestions } from '../utils/learning-loop'
+import { getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
 import QuestionCard from '../components/QuestionCard'
 import { StudyHeader } from '../components/StudyHeader'
 import { StudyWorkspace } from '../components/StudyWorkspace'
@@ -16,6 +17,8 @@ const CASE_SIZE = 10
 
 export default function CasePractice() {
   const cert = useCert()
+  const config = getLearningLoopConfig(cert.id)
+  const learningObjectives = getLearningObjectives(cert)
   const { addQuizResult } = useProgress(cert.id)
   const { recordSession } = useQuestionStats(cert.id)
   const [started, setStarted] = useState(false)
@@ -24,10 +27,10 @@ export default function CasePractice() {
   const [answers, setAnswers] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  if (cert.id !== 'comptia-net-plus') return <Navigate to={`/${cert.id}`} replace />
+  if (!config) return <Navigate to={`/${cert.id}`} replace />
 
   const start = () => {
-    setQuestions(selectCaseQuestions(cert.questions, CASE_SIZE))
+    setQuestions(selectCaseQuestions(cert.questions, CASE_SIZE, learningObjectives))
     setAnswers([])
     setCurrentIndex(0)
     setFinished(false)
@@ -57,8 +60,8 @@ export default function CasePractice() {
       <div className="mx-auto max-w-5xl space-y-8">
         <StudyHeader
           eyebrow="Case-based practice"
-          title="Work the network, not the vocabulary."
-          subtitle="Interpret command output, inspect topologies, repair configuration, and calculate subnet values in applied troubleshooting scenarios."
+          title={config.caseTitle}
+          subtitle={config.caseSubtitle}
           cert={cert}
           stats={[
             { label: 'Cases', value: CASE_SIZE, icon: Wrench },
@@ -67,10 +70,10 @@ export default function CasePractice() {
         />
         <Surface className="p-6">
           <div className="grid gap-5 md:grid-cols-4">
-            {['CLI evidence', 'Topology reasoning', 'Configuration repair', 'Subnetting'].map(item => (
+            {config.caseCategories.map(item => (
               <div key={item} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
                 <p className="font-black text-zinc-100">{item}</p>
-                <p className="mt-2 text-sm text-zinc-500">Explain the evidence, choose the action, and verify the result.</p>
+                <p className="mt-2 text-sm text-zinc-500">{config.caseBody}</p>
               </div>
             ))}
           </div>
@@ -116,9 +119,9 @@ export default function CasePractice() {
   return (
     <StudyWorkspace
       cert={cert}
-      title="Network+ Case Practice"
+      title={config.caseModeTitle}
       subtitle={currentQuestion.domain}
-      modeLabel="Applied troubleshooting"
+      modeLabel={config.caseModeLabel}
       currentIndex={currentIndex}
       total={questions.length}
       answeredCount={answers.length}

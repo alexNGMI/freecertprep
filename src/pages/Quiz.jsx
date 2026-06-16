@@ -20,16 +20,20 @@ import { Button } from '../components/ui/button'
 import { DomainBadge, Surface } from '../components/ui/surface'
 import { cn } from '../utils/cn'
 import { getDueReviewQuestions, getRecentMissQuestions } from '../utils/objective-progress'
+import { getQuestionObjectiveId } from '../utils/learning-loop'
+import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
 
 const BLOCK_SIZE = 10
 
 export default function Quiz() {
   const cert = useCert()
   const questions = cert.questions
+  const learningLoopConfig = getLearningLoopConfig(cert.id)
+  const learningObjectives = getLearningObjectives(cert)
   const [searchParams] = useSearchParams()
   const requestedObjective = searchParams.get('objective')
   const requestedMode = searchParams.get('mode')
-  const initialSelection = cert.objectives?.some(objective => objective.id === requestedObjective)
+  const initialSelection = learningObjectives.some(objective => objective.id === requestedObjective)
     ? `${OBJECTIVE_PREFIX}${requestedObjective}`
     : requestedMode === 'missed'
       ? RECENT_MISSES
@@ -63,7 +67,7 @@ export default function Quiz() {
     trackedCount,
   } = usePracticeSession({ cert, questions, bookmarkedIds, blockSize: BLOCK_SIZE, initialSelection })
   const selectedObjective = selectedDomain.startsWith(OBJECTIVE_PREFIX)
-    ? cert.objectives?.find(objective => objective.id === selectedDomain.slice(OBJECTIVE_PREFIX.length))
+    ? learningObjectives.find(objective => objective.id === selectedDomain.slice(OBJECTIVE_PREFIX.length))
     : null
 
   if (!quizStarted) {
@@ -146,15 +150,15 @@ export default function Quiz() {
             onBack={() => { setSetupStep(1); setSelectedDomain(SMART_PRACTICE) }}
             stats={[
               { label: 'Block', value: `${BLOCK_SIZE} Qs`, icon: ListChecks },
-              { label: 'Objectives', value: cert.objectives.length, icon: Target },
+              { label: 'Targets', value: learningObjectives.length, icon: Target },
             ]}
           />
           <Surface className="p-4 md:p-5">
             <div className="grid gap-3 md:grid-cols-2">
-              {cert.objectives.map((objective) => {
+              {learningObjectives.map((objective) => {
                 const selection = `${OBJECTIVE_PREFIX}${objective.id}`
                 const isSelected = selectedDomain === selection
-                const count = questions.filter(question => question.objectiveId === objective.id).length
+                const count = questions.filter(question => getQuestionObjectiveId(question, learningObjectives) === objective.id).length
                 return (
                   <button
                     key={objective.id}
@@ -170,7 +174,7 @@ export default function Quiz() {
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <p className="text-xs font-black uppercase tracking-wider opacity-70">
-                          Objective {objective.id} · {objective.domain}
+                          {formatLearningTarget(learningLoopConfig, objective.id)} · {objective.domain}
                         </p>
                         <p className="mt-2 text-base font-black">{objective.title}</p>
                         <p className={cn('mt-2 text-sm', isSelected ? 'text-zinc-900/70' : 'text-zinc-500')}>
@@ -215,13 +219,15 @@ export default function Quiz() {
       },
       {
         id: 'objective',
-        label: 'Objective Focus',
-        description: 'Drill one numbered exam skill and measure it separately from the broader domain.',
+        label: learningLoopConfig?.useDomainObjectives ? 'Domain Focus' : 'Objective Focus',
+        description: learningLoopConfig?.useDomainObjectives
+          ? 'Drill one exam domain and measure it separately from the broader pool.'
+          : 'Drill one numbered exam skill and measure it separately from the broader domain.',
         icon: Target,
         accent: cert.color,
-        action: () => { setSetupStep(3); setSelectedDomain(`${OBJECTIVE_PREFIX}${cert.objectives?.[0]?.id || ''}`) },
+        action: () => { setSetupStep(3); setSelectedDomain(`${OBJECTIVE_PREFIX}${learningObjectives[0]?.id || ''}`) },
         meta: 'Precise',
-        hidden: !cert.objectives?.length,
+        hidden: !learningObjectives.length,
       },
       {
         id: 'missed',
@@ -389,22 +395,23 @@ export default function Quiz() {
             <Button onClick={() => changeMode()} variant="secondary" size="lg">Change Mode</Button>
           </div>
         </Surface>
-        {cert.objectives && (() => {
+        {learningObjectives.length > 0 && (() => {
           const questionById = new Map(sessionQuestions.map(question => [question.id, question]))
           const missed = answers
             .filter(answer => !answer.correct)
             .map(answer => questionById.get(answer.questionId))
             .filter(Boolean)
           const objectiveCounts = missed.reduce((counts, question) => {
-            if (!question.objectiveId) return counts
-            counts[question.objectiveId] = (counts[question.objectiveId] || 0) + 1
+            const objectiveId = getQuestionObjectiveId(question, learningObjectives)
+            if (!objectiveId) return counts
+            counts[objectiveId] = (counts[objectiveId] || 0) + 1
             return counts
           }, {})
           const recommendations = Object.entries(objectiveCounts)
             .sort((a, b) => b[1] - a[1])
             .slice(0, 3)
             .map(([objectiveId, misses]) => ({
-              ...cert.objectives.find(objective => objective.id === objectiveId),
+              ...learningObjectives.find(objective => objective.id === objectiveId),
               misses,
             }))
             .filter(objective => objective.id)
@@ -423,7 +430,7 @@ export default function Quiz() {
                   >
                     <div>
                       <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>
-                        Objective {objective.id} · {objective.misses} miss{objective.misses === 1 ? '' : 'es'}
+                        {formatLearningTarget(learningLoopConfig, objective.id)} · {objective.misses} miss{objective.misses === 1 ? '' : 'es'}
                       </p>
                       <p className="mt-1 font-bold text-zinc-100">{objective.title}</p>
                     </div>
@@ -446,7 +453,7 @@ export default function Quiz() {
       modeLabel={isSmartPractice
         ? 'Smart Practice'
         : selectedObjective
-          ? `Objective ${selectedObjective.id}: ${selectedObjective.title}`
+          ? `${formatLearningTarget(learningLoopConfig, selectedObjective.id)}: ${selectedObjective.title}`
           : selectedDomain}
       currentIndex={currentIndex}
       total={sessionQuestions.length}

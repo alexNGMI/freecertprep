@@ -41,6 +41,7 @@ import TrustPanel from '../components/TrustPanel'
 import { Tooltip as UiTooltip } from '../components/ui/tooltip'
 import { cn } from '../utils/cn'
 import { rankWeakObjectives, summarizeObjectiveProgress } from '../utils/objective-progress'
+import { getLearningLoopConfig } from '../utils/learning-loop-config'
 
 export default function Dashboard() {
   const cert = useCert()
@@ -81,7 +82,8 @@ export default function Dashboard() {
         to: 'quiz',
       }
 
-  const learningLoop = cert.id === 'comptia-net-plus'
+  const learningLoopConfig = getLearningLoopConfig(cert.id)
+  const learningLoop = Boolean(learningLoopConfig)
   const hasStarted = overall.totalQuestions > 0 || trackedCount > 0
   const primaryAction = learningLoop
     ? {
@@ -132,7 +134,7 @@ export default function Dashboard() {
                 </h1>
                 <p className="max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
                   {learningLoop
-                    ? 'New to Network+? Start with the diagnostic. If you already practiced, use the study plan to choose the next objective, case set, or exam simulation.'
+                    ? `New to ${cert.code}? Start with the diagnostic. If you already practiced, use the study plan to choose the next target, case set, or exam simulation.`
                     : 'Start with a short practice block. As you answer questions, this page turns into your readiness dashboard.'}
                 </p>
               </div>

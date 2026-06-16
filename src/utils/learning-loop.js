@@ -15,7 +15,7 @@ export function selectDiagnosticQuestions(questions, objectives, count = 35) {
 
   for (const objective of objectives) {
     const candidates = fisherYates(
-      questions.filter(question => question.objectiveId === objective.id),
+      questions.filter(question => getQuestionObjectiveId(question, objectives) === objective.id),
     )
     const question = candidates[0]
     if (!question) continue
@@ -34,8 +34,10 @@ export function selectDiagnosticQuestions(questions, objectives, count = 35) {
 export function buildMasteryMap(questions, statsMap, objectives, now = Date.now()) {
   const questionsByObjective = new Map()
   for (const question of questions || []) {
-    if (!questionsByObjective.has(question.objectiveId)) questionsByObjective.set(question.objectiveId, [])
-    questionsByObjective.get(question.objectiveId).push(question)
+    const objectiveId = getQuestionObjectiveId(question, objectives)
+    if (!objectiveId) continue
+    if (!questionsByObjective.has(objectiveId)) questionsByObjective.set(objectiveId, [])
+    questionsByObjective.get(objectiveId).push(question)
   }
 
   return (objectives || []).map(objective => {
@@ -136,11 +138,11 @@ export function buildExamDebrief(answers, questions, objectives) {
 
   for (const answer of answers || []) {
     const question = byId.get(answer.questionId)
-    const result = objectiveMap.get(question?.objectiveId)
+    const result = objectiveMap.get(getQuestionObjectiveId(question, objectives))
     if (!result) continue
     result.total += 1
     if (answer.correct) result.correct += 1
-    else if (practicalTypes.has(question.type)) result.practicalMisses += 1
+    else if (practicalTypes.has(question.type) || question.practicalCategory || isScenarioLike(question)) result.practicalMisses += 1
   }
 
   const measured = [...objectiveMap.values()]
@@ -159,10 +161,56 @@ export function buildExamDebrief(answers, questions, objectives) {
   }
 }
 
-export function selectCaseQuestions(questions, count = 10) {
+export function selectCaseQuestions(questions, count = 10, objectives = []) {
   const practicalTypes = new Set(['cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill', 'matching', 'pbq-matching'])
   const practical = questions.filter(question =>
     practicalTypes.has(question.type) || question.practicalCategory,
   )
-  return fisherYates(practical).slice(0, count)
+  if (practical.length >= count) return fisherYates(practical).slice(0, count)
+
+  const selected = [...fisherYates(practical)]
+  const selectedIds = new Set(selected.map(question => question.id))
+  const scenarioCandidates = fisherYates(
+    questions.filter(question => !selectedIds.has(question.id) && isScenarioLike(question)),
+  )
+
+  for (const objective of objectives || []) {
+    if (selected.length >= count) break
+    const candidate = scenarioCandidates.find(question =>
+      !selectedIds.has(question.id) && getQuestionObjectiveId(question, objectives) === objective.id
+    )
+    if (!candidate) continue
+    selected.push(candidate)
+    selectedIds.add(candidate.id)
+  }
+
+  if (selected.length < count) {
+    for (const candidate of scenarioCandidates) {
+      if (selected.length >= count) break
+      if (selectedIds.has(candidate.id)) continue
+      selected.push(candidate)
+      selectedIds.add(candidate.id)
+    }
+  }
+
+  if (selected.length < count) {
+    for (const candidate of fisherYates(questions.filter(question => !selectedIds.has(question.id)))) {
+      if (selected.length >= count) break
+      selected.push(candidate)
+      selectedIds.add(candidate.id)
+    }
+  }
+
+  return fisherYates(selected).slice(0, count)
+}
+
+export function getQuestionObjectiveId(question, objectives = []) {
+  if (!question) return null
+  if (question.objectiveId) return question.objectiveId
+  return objectives.find(objective => objective.domainBacked && objective.domain === question.domain)?.id || null
+}
+
+function isScenarioLike(question) {
+  const text = `${question?.question || ''} ${question?.explanation || ''}`.toLowerCase()
+  return /\b(company|organization|team|user|customer|workload|application|needs|wants|must|should|requires|scenario|investigation|analyst|administrator)\b/.test(text)
 }
