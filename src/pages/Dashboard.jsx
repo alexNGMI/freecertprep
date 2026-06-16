@@ -138,11 +138,18 @@ export default function Dashboard() {
                 </p>
               </div>
             </div>
-            <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color}>
-              <Sparkles className="h-5 w-5" />
-              {primaryAction.label}
-              <ArrowRight className="h-5 w-5" />
-            </Button>
+            {learningLoop && (
+              <div className="rounded-2xl border border-white/10 bg-zinc-900/60 px-5 py-4 text-sm text-zinc-400 lg:max-w-xs">
+                Start with a baseline, then let the study plan choose the next useful block.
+              </div>
+            )}
+            {!learningLoop && (
+              <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color}>
+                <Sparkles className="h-5 w-5" />
+                {primaryAction.label}
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            )}
           </div>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
