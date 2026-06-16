@@ -22,15 +22,12 @@ const cert = {
 describe('TrustPanel', () => {
   afterEach(cleanup)
 
-  it('links learners to the official source and a prefilled content report', () => {
+  it('links learners to the official source without an external report link', () => {
     render(<TrustPanel cert={cert} />)
 
     expect(screen.getByRole('heading', { name: 'Source and simulation status' })).toBeTruthy()
     expect(screen.getByText('Simulation readiness B+')).toBeTruthy()
     expect(screen.getByRole('link', { name: /Official source/ }).getAttribute('href')).toBe(cert.source.officialUrl)
-
-    const report = screen.getByRole('link', { name: /Report an issue/ }).getAttribute('href')
-    expect(report).toContain('github.com/alexNGMI/freecertprep/issues/new')
-    expect(decodeURIComponent(report)).toContain('[Content report] EX-100')
+    expect(screen.queryByRole('link', { name: /Report an issue/ })).toBeNull()
   })
 })

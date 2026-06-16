@@ -1,12 +1,9 @@
-import { ExternalLink, Flag, ShieldCheck } from 'lucide-react'
-
-const ISSUE_URL = 'https://github.com/alexNGMI/freecertprep/issues/new'
+import { ExternalLink, ShieldCheck } from 'lucide-react'
 
 export default function TrustPanel({ cert, light = false }) {
   const source = cert.source
   if (!source) return null
 
-  const reportUrl = `${ISSUE_URL}?title=${encodeURIComponent(`[Content report] ${cert.code}`)}&body=${encodeURIComponent(`Certification: ${cert.title} (${cert.code})\nQuestion ID (if applicable):\nIssue:\nSource or correction:`)}`
   const border = light ? 'border-slate-200 bg-white' : 'border-white/10 bg-zinc-900/55'
   const heading = light ? 'text-slate-900' : 'text-zinc-100'
   const body = light ? 'text-slate-500' : 'text-zinc-400'
@@ -38,15 +35,6 @@ export default function TrustPanel({ cert, light = false }) {
           >
             Official source
             <ExternalLink className="h-4 w-4" />
-          </a>
-          <a
-            href={reportUrl}
-            target="_blank"
-            rel="noreferrer"
-            className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-bold transition-colors ${light ? 'border-rose-200 text-rose-700 hover:bg-rose-50' : 'border-rose-500/30 text-rose-300 hover:bg-rose-500/10'}`}
-          >
-            Report an issue
-            <Flag className="h-4 w-4" />
           </a>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import BrandedName from '../components/BrandedName'
 import { getAllCerts } from '../data/certs'
@@ -119,6 +119,40 @@ export default function Docs() {
     path: '/docs',
   })
 
+  useEffect(() => {
+    const sections = NAV
+      .map(({ id }) => document.getElementById(id))
+      .filter(Boolean)
+
+    if (!sections.length) return undefined
+
+    let frameId = null
+    const updateActiveSection = () => {
+      frameId = null
+      const marker = 128
+      const current = sections.reduce((active, section) => {
+        return section.getBoundingClientRect().top <= marker ? section : active
+      }, sections[0])
+
+      setActiveSection(current.id)
+    }
+
+    const requestUpdate = () => {
+      if (frameId !== null) return
+      frameId = window.requestAnimationFrame(updateActiveSection)
+    }
+
+    updateActiveSection()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', requestUpdate)
+
+    return () => {
+      if (frameId !== null) window.cancelAnimationFrame(frameId)
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', requestUpdate)
+    }
+  }, [])
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
@@ -129,7 +163,6 @@ export default function Docs() {
           </Link>
           <div className="flex items-center gap-6 text-sm font-medium text-zinc-400">
             <Link to="/" className="hover:text-zinc-100 transition-colors">Home</Link>
-            <a href="https://github.com/alexNGMI/freecertprep" target="_blank" rel="noreferrer" className="hover:text-zinc-100 transition-colors">GitHub</a>
           </div>
         </div>
       </header>
@@ -144,6 +177,7 @@ export default function Docs() {
               <button
                 key={id}
                 onClick={() => { scrollTo(id); setActiveSection(id) }}
+                aria-current={activeSection === id ? 'true' : undefined}
                 className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
                   activeSection === id
                     ? 'text-zinc-100 bg-zinc-800/60 font-semibold'
@@ -820,9 +854,9 @@ key = random() ** (1 / weight)
               </div>
             ))}
 
-            <Callout icon="🔓" color="#34d399" title="Open source">
-              The question banks, scoring logic, weighted sampling algorithm, and UI code are available on GitHub under the
-              MIT License. Contributions, bug reports, and question corrections are welcome.
+            <Callout icon="🔓" color="#34d399" title="Maintenance posture">
+              The question banks, scoring logic, weighted sampling algorithm, and UI are maintained with repeatable local checks,
+              content audits, and production builds before release.
             </Callout>
           </Section>
 

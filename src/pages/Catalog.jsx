@@ -47,7 +47,6 @@ export default function Catalog() {
             <Link to="/#paths" className="hover:text-zinc-100 transition-colors">Paths</Link>
             <Link to="/catalog" className="text-zinc-100 transition-colors">Catalog</Link>
             <Link to="/docs" className="hover:text-zinc-100 transition-colors">Docs</Link>
-            <a href="https://github.com/alexNGMI/freecertprep" target="_blank" rel="noreferrer" className="hover:text-zinc-100 transition-colors">GitHub</a>
           </div>
         </div>
       </header>
