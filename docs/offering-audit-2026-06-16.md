@@ -60,7 +60,7 @@ The next phase should improve reliability and repeatability, not breadth. The hi
 | --- | --- | --- |
 | AZ-900 | Coming Soon | Useful only for specific Azure goals; not core to the current career path |
 | Google Cloud Digital Leader | Coming Soon | Slightly off-strategy for the AWS-centric cloud path |
-| CCNA | Coming Soon | Preserved bank targets future 200-301 v2.0; current public exam remains v1.1 until February 2, 2027 |
+| CCNA | Coming Soon | Preserved bank now meets the internal Network+ quality bar for the future 200-301 v2.0 target; current public exam remains v1.1 until February 2, 2027 |
 | NVIDIA AIIO / GENL | Coming Soon | Authored but not enough role-fit or simulation maturity for homepage priority |
 | Server+ | Coming Soon | Potential data-center value, but practical troubleshooting needs revision |
 | Linux+ | Coming Soon | Useful future AI/infrastructure foundation, but needs command/output/config rewrite |

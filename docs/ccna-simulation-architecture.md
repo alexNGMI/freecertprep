@@ -2,6 +2,8 @@
 
 Status: preserved Coming Soon preview for Cisco CCNA 200-301 v2.0. The 750-question bank includes `cli-output`, `topology-scenario`, `config-repair`, and `subnetting-drill` items alongside written single-choice and multiple-response questions, but it is not presented as current-exam practice.
 
+June 16, 2026 quality pass: rebuilt to the same internal standard used for Network+. The bank now has 750 exact and normalized unique stems, structured explanations on every item, 25 objective families, and 440 practical simulation items with explicit CLI, topology, config-repair, and subnetting evidence.
+
 ## Official Scope
 
 Cisco's active exam is **200-301 CCNA v1.1** through February 2, 2027. The first date to test for **v2.0** is February 3, 2027. This bank was authored against the announced v2.0 topic PDF, which defines five weighted domains:
@@ -52,7 +54,7 @@ The current `QuestionCard` contract supports the full CCNA surface:
 - `config-repair` renders numbered configuration excerpts, notes, and device context.
 - `subnetting-drill` renders typed subnetting fields and review-mode field feedback.
 
-These types share the existing quiz, drill, exam, results, bookmark, and Smart Practice flows. Content sanity tests validate schema shape, domain distribution, type mix, unique stems, answer balance, and domain-appropriate simulation evidence.
+These types share the existing quiz, drill, exam, results, bookmark, and Smart Practice flows. Content sanity tests validate schema shape, domain distribution, type mix, exact and normalized unique stems, answer balance, objective metadata, structured explanation coverage, practical category coverage, and domain-appropriate simulation evidence.
 
 ## Production Gate
 
@@ -60,8 +62,14 @@ The preserved v2.0 preview gate is:
 
 - 750 questions aligned to the announced v2.0 domain weights.
 - Exact simulation mix locked by automated tests.
-- No duplicate stems.
-- Explanation coverage for every item, with short explanations rejected.
+- No duplicate stems by exact or normalized comparison.
+- Structured explanation coverage for every item: why the answer is right, why distractors are wrong, and the CCNA takeaway.
+- Objective metadata across at least 25 objective families.
+- 440 practical simulation items:
+  - 170 two-command CLI-output items.
+  - 120 topology items with diagrams and evidence tables.
+  - 100 config-repair items with device context, config excerpts, and operational notes.
+  - 50 subnetting drills covering network, broadcast, usable range, host count, mask, and wildcard.
 - Published registry entry and catalog/path visibility.
 - Networking path: Network+ or CCST Networking, then CCNA.
 - Data Center Technician path: Server+, Schneider DCCA, then CCNA.

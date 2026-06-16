@@ -61,7 +61,7 @@ Highest-confidence aligned banks:
 
 1. AWS Solutions Architect - Associate (SAA-C03): exact 30 / 26 / 24 / 20 split.
 2. Cisco CCST Networking: within 0.5 questions of the 15 / 20 / 20 / 20 / 15 / 10 target.
-3. Cisco CCNA: live 750-question pool aligned to the current 25 / 25 / 20 / 20 / 10 Cisco 200-301 v2.0 target, with simulation QA continuing as an advanced-cert polish track.
+3. Cisco CCNA: preserved Coming Soon 750-question pool aligned to the future 25 / 25 / 20 / 20 / 10 Cisco 200-301 v2.0 target. The June 16 quality pass upgraded it to the Network+ standard, but it remains parked until v2.0 is the active Cisco release.
 4. CompTIA A+ Core 1 and Core 2: within 1 question of the official V15 domain weights.
 5. CompTIA Server+: within 1 question of the SK0-005 domain weights.
 6. NVIDIA Generative AI LLMs and Indiana / North Carolina / Arizona real-estate state modules: close enough for the current authored-pool standard.

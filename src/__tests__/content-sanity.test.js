@@ -1182,6 +1182,12 @@ describe('CCNA 200-301 v2.0 preview pool', () => {
     const stems = ccna200301.map(q => q.question)
     expect(new Set(stems).size).toBe(stems.length)
 
+    const normalizedStems = stems.map(stem =>
+      stem.toLowerCase().replace(/\d+/g, '#').replace(/\s+/g, ' ').trim()
+    )
+    expect(new Set(normalizedStems).size).toBe(stems.length)
+    expect(stems.join('\n')).not.toMatch(/case \d+|CCNA candidate is asked|Which answer is most appropriate/i)
+
     const answerPositions = ccna200301.reduce((acc, q) => {
       if (Number.isInteger(q.correctAnswer)) {
         acc[q.correctAnswer] = (acc[q.correctAnswer] || 0) + 1
@@ -1194,9 +1200,53 @@ describe('CCNA 200-301 v2.0 preview pool', () => {
     const explanationPrefixes = ccna200301.map(q => q.explanation.slice(0, 100))
     const repeatedPrefixCount = explanationPrefixes.length - new Set(explanationPrefixes).size
     expect(repeatedPrefixCount).toBeLessThanOrEqual(2)
+
+    for (const q of ccna200301) {
+      expect(q.explanation, `${q.id} needs structured review value`).toMatch(/Why this is right:.*Why the alternatives are wrong:.*CCNA takeaway:/s)
+      expect(q.objectiveId, `${q.id} missing objectiveId`).toBeTruthy()
+      expect(q.objectiveTitle, `${q.id} missing objectiveTitle`).toBeTruthy()
+      expect(q.conceptId, `${q.id} missing conceptId`).toBeTruthy()
+    }
+
+    expect(new Set(ccna200301.map(q => q.objectiveId)).size).toBeGreaterThanOrEqual(25)
   })
 
   it('keeps simulation scenarios aligned to their CCNA domain', () => {
+    const cliItems = ccna200301.filter(q => typeOf(q) === 'cli-output')
+    expect(cliItems).toHaveLength(170)
+    for (const q of cliItems) {
+      expect(q.commands, `${q.id} should include multi-command evidence`).toHaveLength(2)
+      expect(q.practicalCategory, `${q.id} missing practical category`).toMatch(/-cli$/)
+    }
+
+    const topologyItems = ccna200301.filter(q => typeOf(q) === 'topology-scenario')
+    expect(topologyItems).toHaveLength(120)
+    for (const q of topologyItems) {
+      expect(q.topology.nodes.length, `${q.id} should include a meaningful topology`).toBeGreaterThanOrEqual(5)
+      expect(q.topology.links.length, `${q.id} should include topology links`).toBeGreaterThanOrEqual(4)
+      expect(q.tables.length, `${q.id} should include evidence tables`).toBeGreaterThanOrEqual(1)
+      expect(q.practicalCategory, `${q.id} missing practical category`).toMatch(/-topology$/)
+    }
+
+    const configItems = ccna200301.filter(q => typeOf(q) === 'config-repair')
+    expect(configItems).toHaveLength(100)
+    for (const q of configItems) {
+      expect(q.config.length, `${q.id} should include enough config evidence`).toBeGreaterThanOrEqual(6)
+      expect(q.notes.length, `${q.id} should include operational notes`).toBeGreaterThanOrEqual(3)
+      expect(q.practicalCategory, `${q.id} missing practical category`).toMatch(/-config$/)
+    }
+
+    const subnetItems = ccna200301.filter(q => typeOf(q) === 'subnetting-drill')
+    expect(subnetItems).toHaveLength(50)
+    for (const q of subnetItems) {
+      expect(q.asks).toEqual(['network', 'broadcast', 'firstUsable', 'lastUsable', 'hostCount', 'mask', 'wildcard'])
+      expect(Object.keys(q.correct).sort()).toEqual(['broadcast', 'firstUsable', 'hostCount', 'lastUsable', 'mask', 'network', 'wildcard'])
+      expect(q.practicalCategory).toBe('subnetting')
+    }
+
+    const practicalCategories = new Set(ccna200301.filter(q => q.practicalCategory).map(q => q.practicalCategory))
+    expect(practicalCategories.size).toBeGreaterThanOrEqual(16)
+
     const operationsSims = ccna200301.filter(q =>
       q.domain === 'AI, Network Operations, and Management'
       && ['topology-scenario', 'config-repair'].includes(typeOf(q))
