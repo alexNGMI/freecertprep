@@ -89,6 +89,14 @@ export default function Dashboard() {
       }
 
   const learningLoop = cert.id === 'comptia-net-plus'
+  const hasStarted = overall.totalQuestions > 0 || trackedCount > 0
+  const primaryAction = learningLoop
+    ? {
+        label: hasStarted ? 'Open Study Plan' : 'Start Diagnostic',
+        sub: hasStarted ? 'Use your current results to choose the next block.' : 'Answer a short baseline first.',
+        to: hasStarted ? 'learning' : 'learning/diagnostic',
+      }
+    : action
 
   function handleImport(e) {
     const file = e.target.files?.[0]
@@ -115,7 +123,7 @@ export default function Dashboard() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl space-y-4">
               <Kicker>
-                Command center
+                {learningLoop ? 'Start here' : 'Command center'}
                 <span className="text-zinc-600">/</span>
                 <span style={{ color: cert.color }}>{cert.code}</span>
               </Kicker>
@@ -124,13 +132,15 @@ export default function Dashboard() {
                   {cert.title}
                 </h1>
                 <p className="max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
-                  A readiness view built from your practice history, exam attempts, and Smart Practice signal.
+                  {learningLoop
+                    ? 'New to Network+? Start with the diagnostic. If you already practiced, use the study plan to choose the next objective, case set, or exam simulation.'
+                    : 'A readiness view built from your practice history, exam attempts, and Smart Practice signal.'}
                 </p>
               </div>
             </div>
-            <Button as={Link} to={action.to} variant="accent" size="lg" accentColor={cert.color}>
+            <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color}>
               <Sparkles className="h-5 w-5" />
-              {action.label}
+              {primaryAction.label}
               <ArrowRight className="h-5 w-5" />
             </Button>
           </div>
@@ -143,7 +153,37 @@ export default function Dashboard() {
           </div>
         </Surface>
 
-        <Surface className="p-6">
+        {learningLoop ? (
+          <Surface className="p-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Recommended next step</p>
+            <h2 className="mt-2 text-2xl font-black text-zinc-50">
+              {hasStarted ? 'Continue from your map.' : 'Take the diagnostic first.'}
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              {primaryAction.sub} The app will separate what you know, what needs work, and what has not been measured yet.
+            </p>
+            <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color} className="mt-5 w-full">
+              {primaryAction.label}
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+            <div className="mt-5 space-y-3">
+              {[
+                ['01', 'Measure', 'A short diagnostic checks every objective.'],
+                ['02', 'Practice', 'The plan points you to the next useful block.'],
+                ['03', 'Simulate', 'Exam results turn into a debrief and repair list.'],
+              ].map(([number, label, body]) => (
+                <div key={label} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-black" style={{ color: cert.color }}>{number}</span>
+                    <p className="font-black text-zinc-100">{label}</p>
+                  </div>
+                  <p className="mt-1 text-sm leading-relaxed text-zinc-500">{body}</p>
+                </div>
+              ))}
+            </div>
+          </Surface>
+        ) : (
+          <Surface className="p-6">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Exam signal</p>
@@ -182,7 +222,8 @@ export default function Dashboard() {
             <Insight label="Strongest" value={strongest ? shortenDomain(strongest.domain) : 'Pending'} />
             <Insight label="Weakest" value={weakest ? shortenDomain(weakest.domain) : 'Pending'} />
           </div>
-        </Surface>
+          </Surface>
+        )}
       </section>
 
       {cert.studyPlan && (
@@ -211,53 +252,55 @@ export default function Dashboard() {
         </Surface>
       )}
 
-      <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
-        <Surface className="p-6">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Domain mastery</p>
-              <h2 className="mt-2 text-2xl font-black text-zinc-50">Weighted readiness map</h2>
+      {(!learningLoop || hasStarted) && (
+        <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
+          <Surface className="p-6">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Domain mastery</p>
+                <h2 className="mt-2 text-2xl font-black text-zinc-50">Weighted readiness map</h2>
+              </div>
+              <span className="text-sm text-zinc-500">{cert.domains.length} exam domains</span>
             </div>
-            <span className="text-sm text-zinc-500">{cert.domains.length} exam domains</span>
-          </div>
 
-          <div className="mt-6 h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <RadarChart data={chartData}>
-                <PolarGrid stroke="#27272a" />
-                <PolarAngleAxis dataKey="short" tick={{ fill: '#a1a1aa', fontSize: 11 }} />
-                <Radar dataKey="score" stroke={cert.color} fill={cert.color} fillOpacity={0.22} />
-                <Tooltip content={<ChartTooltip />} />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
-        </Surface>
-
-        <Surface className="p-6">
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Attempts</p>
-              <h2 className="mt-2 text-2xl font-black text-zinc-50">Coverage</h2>
+            <div className="mt-6 h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={chartData}>
+                  <PolarGrid stroke="#27272a" />
+                  <PolarAngleAxis dataKey="short" tick={{ fill: '#a1a1aa', fontSize: 11 }} />
+                  <Radar dataKey="score" stroke={cert.color} fill={cert.color} fillOpacity={0.22} />
+                  <Tooltip content={<ChartTooltip />} />
+                </RadarChart>
+              </ResponsiveContainer>
             </div>
-            <Target className="h-6 w-6" style={{ color: cert.color }} />
-          </div>
-          <div className="mt-6 h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 8, top: 4, bottom: 4 }}>
-                <CartesianGrid stroke="#27272a" horizontal={false} />
-                <XAxis type="number" hide />
-                <YAxis type="category" dataKey="short" width={92} tick={{ fill: '#a1a1aa', fontSize: 11 }} />
-                <Tooltip content={<ChartTooltip />} />
-                <Bar dataKey="attempts" radius={[0, 8, 8, 0]}>
-                  {chartData.map((entry) => <Cell key={entry.domain} fill={entry.color} fillOpacity={0.78} />)}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </Surface>
-      </section>
+          </Surface>
 
-      {cert.objectives?.length > 0 && (
+          <Surface className="p-6">
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Attempts</p>
+                <h2 className="mt-2 text-2xl font-black text-zinc-50">Coverage</h2>
+              </div>
+              <Target className="h-6 w-6" style={{ color: cert.color }} />
+            </div>
+            <div className="mt-6 h-80">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 8, top: 4, bottom: 4 }}>
+                  <CartesianGrid stroke="#27272a" horizontal={false} />
+                  <XAxis type="number" hide />
+                  <YAxis type="category" dataKey="short" width={92} tick={{ fill: '#a1a1aa', fontSize: 11 }} />
+                  <Tooltip content={<ChartTooltip />} />
+                  <Bar dataKey="attempts" radius={[0, 8, 8, 0]}>
+                    {chartData.map((entry) => <Cell key={entry.domain} fill={entry.color} fillOpacity={0.78} />)}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </Surface>
+        </section>
+      )}
+
+      {cert.objectives?.length > 0 && (!learningLoop || hasStarted) && (
         <Surface className="p-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -293,34 +336,6 @@ export default function Dashboard() {
                 </div>
               </Link>
             ))}
-          </div>
-        </Surface>
-      )}
-
-      {learningLoop && (
-        <Surface className="overflow-hidden">
-          <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_360px]">
-            <div className="p-6 md:p-8">
-              <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>Network+ learning loop</p>
-              <h2 className="mt-3 text-3xl font-black text-zinc-50">Know what to study next.</h2>
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
-                Run a balanced diagnostic, turn objective evidence into a mastery map, follow a personal plan, and close the loop with exam debriefs and applied network cases.
-              </p>
-              <Button as={Link} to="learning" variant="accent" size="lg" accentColor={cert.color} className="mt-6">
-                Open Study Plan
-                <ArrowRight className="h-5 w-5" />
-              </Button>
-            </div>
-            <div className="border-t border-white/10 bg-zinc-900/45 p-6 lg:border-l lg:border-t-0">
-              <div className="space-y-3">
-                {['Diagnostic assessment', 'Objective mastery map', '7, 14, or 30-day plan', 'Exam debrief', 'Case-based practice'].map((item, index) => (
-                  <div key={item} className="flex items-center gap-3 rounded-xl border border-white/10 bg-zinc-950/50 px-4 py-3">
-                    <span className="text-xs font-black" style={{ color: cert.color }}>{String(index + 1).padStart(2, '0')}</span>
-                    <span className="text-sm font-bold text-zinc-200">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </Surface>
       )}
