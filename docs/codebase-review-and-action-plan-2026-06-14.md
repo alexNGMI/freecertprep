@@ -2,7 +2,7 @@
 
 Review date: June 14, 2026
 
-Execution update: Phase 5 was performed first at the owner's request, followed by Phase 1. The A+ full-bank overhaul and public trust/metadata cleanup are complete. A Network+ personal learning loop was added June 15 without changing the catalog. The June 16 offering audit confirmed the current catalog should remain frozen and pointed the next work at local data durability, release automation, and maintainability. Phase 2, local data durability, remains next.
+Execution update: Phase 5 was performed first at the owner's request, followed by Phase 1. The A+ full-bank overhaul and public trust/metadata cleanup are complete. A Network+ personal learning loop was added June 15 without changing the catalog, then extended to the live modules and the preserved CCNA v2.0 preview. The June 16 offering audit confirmed the current catalog should remain frozen and pointed the next work at local data durability, release automation, and maintainability. Phase 2, local data durability, remains next.
 
 ## Executive Assessment
 
@@ -13,7 +13,7 @@ The next release should not add certifications. It should close the gap between 
 Current overall position:
 
 - **Content:** strong for the focused live catalog, with two A+ modules, four A- modules, and three B+ modules.
-- **Study experience:** useful and coherent across dashboard, practice, drill, exam, results, bookmarks, and objective review.
+- **Study experience:** useful and coherent across dashboard, practice, drill, exam, results, bookmarks, objective review, diagnostic, mastery map, study plan, debrief, and case practice.
 - **Frontend:** polished and responsive on the reviewed homepage and catalog routes.
 - **Reliability:** good automated coverage, with several recoverability and long-term storage gaps still open.
 - **Trust:** source metadata and honest readiness language are strong; privacy and licensing claims need correction.
@@ -37,7 +37,7 @@ Baseline at review time:
 - 17 authored IT certification modules;
 - 11,693 authored IT questions;
 - 9 live modules and 8 Coming Soon modules;
-- 1,277 passing tests across 38 files;
+- 1,278 passing tests across 38 files;
 - zero production dependency vulnerabilities reported by `npm audit --omit=dev`;
 - clean `main` branch at commit `cb6caeb` before this documentation update.
 
@@ -66,7 +66,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 - Real Estate remains an internal review build with public navigation removed.
 - NVIDIA and Data Center Technician path routes remain implemented but hidden.
 - CDL and NCLEX remain future sister-site concepts.
-- CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the preserved bank is re-audited.
+- CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the preserved bank is re-audited. The preview now has the shared diagnostic, mastery map, study plan, exam debrief, and case-practice workflow, but that does not change its public release posture.
 
 ## What Is Working Well
 

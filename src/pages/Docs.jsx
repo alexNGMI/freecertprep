@@ -722,7 +722,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,277 Vitest tests across 38 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,278 Vitest tests across 38 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -771,7 +771,7 @@ key = random() ** (1 / weight)
                   'CompTIA PBQ-lite expansion - A+ Core 1, A+ Core 2, Network+, Security+, and Server+ now each include 10 scenario-based pbq-matching troubleshooting items.',
                   'Network+ and Security+ Objective Learning Loop - every N10-009 and SY0-701 question now carries objective and concept metadata; dashboards separate accuracy from coverage; practice supports objective focus, recent misses, and spaced due review; session results recommend the objectives behind each miss.',
                   'Network+ Personal Learning Loop - N10-009 now includes a 35-question all-objective diagnostic, Strong/Developing/Weak/Not measured mastery map, evidence-driven 7/14/30-day plans, objective-level exam debriefs, and ten-question applied case practice.',
-                  'Foundation learning-loop parity - A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow established for Network+. A+, Security+, and Terraform use objective-backed targets; CCST, CLF-C02, SAA-C03, and Splunk use domain-backed targets.',
+                  'Foundation learning-loop parity - A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow established for Network+. A+, Security+, Terraform, and the CCNA preview use objective-backed targets; CCST, CLF-C02, SAA-C03, and Splunk use domain-backed targets.',
                   'A+ Objective Learning Loop - both 220-1201 and 220-1202 now expose all 63 objectives through accuracy and coverage cards, focused drills, recent misses, spaced due review, support-oriented explanation cues, and post-session recommendations.',
                   'A+ PBQ-lite v2 - all 20 practical scenarios now include task briefs, console/table/checklist artifacts, component-level corrective feedback, and category-balanced exam forms with at least six practicals.',
                   'CompTIA Network+ (N10-009) — 760-question pool with scenario-forward PBQ-lite troubleshooting coverage',
@@ -801,7 +801,7 @@ key = random() ** (1 / weight)
                   'SAA-C03 editorial pass - removed generated case-label phrasing, expanded generic explanations into architecture tradeoff feedback, and updated all SAA multiple-response questions to five-option exam-style formatting.',
                   'SAA-C03 learning-loop parity - SAA now has the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow as Network+, using the four official SAA-C03 domains as architecture decision targets.',
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
-                  'Cisco CCNA (200-301) - preserved 750-question v2.0 preview with CLI output, topology, config repair, subnetting, and written practice. It is Coming Soon because Cisco v1.1 remains active through February 2, 2027.',
+                  'Cisco CCNA (200-301) - preserved 750-question v2.0 preview with CLI output, topology, config repair, subnetting, written practice, 25 objective families, and a preview diagnostic/mastery/study-plan/debrief/case loop. It is Coming Soon because Cisco v1.1 remains active through February 2, 2027.',
                   'HashiCorp Terraform Associate (004) — live: 647 questions covering all 37 implemented Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
                   'Terraform learning-loop parity - Terraform now has a 40-question subobjective diagnostic, mastery map, personal plan, exam debrief, and case practice built around HCL, plan output, state, CLI maintenance, modules, providers, and HCP Terraform operations.',
                   'Live source and release audit - all then-live modules checked against official vendor sources; AWS, A+, Splunk, Cisco, and Terraform metadata corrected or tightened, and CCNA moved to Coming Soon because its bank targets future v2.0.',
@@ -812,7 +812,7 @@ key = random() ** (1 / weight)
                   'Security+ structured quality audit - all 760 SY0-701 items now have ledger-locked objective decisions, all 101 fallback labels plus four legacy misclassifications were corrected, synthetic workflow-ticket wording was removed, and 500 randomized forms guarantee exact allocation plus the required practical and interaction mix. Readiness grade: A-.',
                   'A+ full-bank quality overhaul - both 760-question cores now grade A+ under the project rubric, with 760 unique answer interactions, structured correct/distractor/verification teaching, 20 evidence-based practicals per core, and 500-form gates.',
                   'Trust and metadata correction - removed the third-party visitor counter and Google-hosted fonts, refreshed root search/share metadata and artwork, corrected privacy language, and added the MIT License.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,277-test regression suite.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,278-test regression suite.',
                   'June 16 offering audit - confirmed 9 live modules, 8 parked IT modules, 11,693 authored IT questions, zero dependency vulnerabilities, passing content/cert-specific audits, and a hold-the-catalog roadmap focused on local data durability, release gates, and maintainability.',
                 ],
               },
@@ -831,7 +831,7 @@ key = random() ** (1 / weight)
                 color: '#fbbf24',
                 items: [
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
-                  'CCNA simulation expansion - parked until Cisco v2.0 becomes active and the preserved preview passes a fresh release audit.',
+                  'CCNA release promotion - parked until Cisco v2.0 becomes active and the preserved preview passes a fresh release audit; maintain the preview loop and advanced simulation quality through targeted sampling.',
                   'User accounts and synced progress - useful after the local-first product journey is fully hardened.',
                   'Trust layer phase 1 - durable reports, moderation, audit trails, and correction history when a backend becomes an active priority.',
                   'Custom domain and installable PWA support.',

@@ -38,7 +38,7 @@ Updated June 13, 2026:
 2. Completed June 13, 2026: Security+ interaction depth added log triage, ordered firewall-rule evaluation, incident correlation, control placement, component coaching, and four-category form guarantees.
 3. Completed June 13, 2026: Splunk editorial polish shortened stems, strengthened distractors, added evidence artifacts to all selected-response items, and standardized review explanations.
 
-CCNA remains parked during this sequence. The goal is to improve the realism and learning value of the current live CompTIA and Splunk offerings before returning to advanced Cisco work or catalog expansion.
+CCNA remains parked for public release during this sequence because the preserved bank targets future 200-301 v2.0. Its preview bank now meets the internal usefulness bar and has the shared learning loop, but promotion still waits for Cisco's active-release transition and a fresh source audit.
 
 ## Public Catalog Decision
 
@@ -94,7 +94,7 @@ Scoring dimensions:
 | NVIDIA AI Infrastructure & Operations | B | Official page says 50 questions / 60 minutes; domain split is aligned after rebalance. | Only 336 questions, lower scenario realism, and some NVIDIA operational topics need more applied data-center context. | Expand to 500-750 after higher-priority rewrites; add GPU cluster/logistics scenarios. |
 | NVIDIA Generative AI LLMs | B- | Good foundational selected-response fit; 330 questions; covers NVIDIA LLM associate topics. | Low scenario rate; needs stronger applied RAG, inference, evaluation, safety, and deployment tradeoff items. | Expand and scenario-ize only after Linux+/DCCA/Splunk polish. |
 | CCST Networking, 100-150 | B+ | 750 exact and normalized-unique questions, close six-domain blueprint alignment, evidence artifacts on all 750 items, structured explanations, and a domain-backed learning loop. | Real Cisco exam interface and confidential item delivery remain outside browser simulation scope. | Keep live; maintain the CCST quality gate and source review. |
-| CCNA, 200-301 | Preview A- | Strong advanced simulation surface: 750 exact and normalized unique future-v2.0 questions, 25 objective families, structured explanations, and 440 practical CLI/topology/config/subnetting items. | Cisco v1.1 remains active through February 2, 2027; the bank targets v2.0 and cannot be labeled current-exam practice. | Keep Coming Soon; re-audit against the active v2.0 release on or after February 3, 2027. |
+| CCNA, 200-301 | Preview A- | Strong advanced simulation surface: 750 exact and normalized unique future-v2.0 questions, 25 objective families, structured explanations, 440 practical CLI/topology/config/subnetting items, and the shared diagnostic/mastery/study-plan/debrief/case loop. | Cisco v1.1 remains active through February 2, 2027; the bank targets v2.0 and cannot be labeled current-exam practice. | Keep Coming Soon; re-audit against the active v2.0 release on or after February 3, 2027. |
 | A+ Core 1, 220-1201 | A+ | 760 unique stems and answer interactions, all 27 official objectives represented, balanced answer positions, 20 evidence-based PBQ-lite scenarios, structured review teaching, and 500 validated forms. | Proprietary CompTIA PBQ delivery, partial credit, and scaled scoring remain outside browser simulation scope. | Maintain the strict audit and official-source review. |
 | A+ Core 2, 220-1202 | A+ | 760 unique stems and answer interactions, all 36 official objectives represented, balanced answer positions, 20 evidence-based PBQ-lite scenarios, structured review teaching, and 500 validated forms. | Proprietary CompTIA PBQ delivery, partial credit, and scaled scoring remain outside browser simulation scope. | Maintain the strict audit and official-source review. |
 | Network+, N10-009 | A- | 760 questions, exact full-form domain allocation, zero repeated canonical scenario groups, a 760-item objective review ledger, 52 practical items, and eight-practical forms with required CLI, topology, configuration-repair, subnetting, and evidence categories. | Browser practice cannot reproduce CompTIA's confidential PBQ delivery, multiple valid solution paths, partial-credit rules, or scaled scoring. | Maintain the `audit:netplus` gate and source review; no expansion required. |
@@ -345,6 +345,8 @@ Status update, June 13, 2026: CCNA moved to Coming Soon after the source audit c
 
 Status update, June 16, 2026: CCNA was rebuilt to the Network+ quality standard while staying Coming Soon. The 750-item v2.0 preview now has exact and normalized unique stems, structured explanations, objective metadata, 170 two-command CLI items, 120 topology items with evidence tables, 100 config-repair items, and 50 subnetting drills.
 
+Status update, June 16, 2026: CCNA also joined the shared learning-loop workflow as a preview module: 40-question diagnostic, 25-family mastery map, personal study plan, exam debrief, and ten-item applied case practice across CLI, topology, configuration repair, and subnetting.
+
 Acceptance criteria:
 
 - CCNA remains preserved and visible as a Coming Soon path milestone.
@@ -434,7 +436,7 @@ After that, the most rational expansion options are:
 - Completed June 13, 2026: Network+ enriched ten PBQ scenarios with two correlated artifacts each, component-level coaching, cable/routing/wireless/multi-artifact category metadata, and 500-form category audits.
 - Completed June 13, 2026: Security+ enriched ten PBQ scenarios with two correlated artifacts each, component-level coaching, log/firewall/incident/control category metadata, and 500-form category audits.
 - Completed June 13, 2026: Splunk stem, distractor, result-evidence, and review-explanation polish across the full 750-question pool.
-- Parked: CCNA topology and multi-command troubleshooting polish.
+- Parked: CCNA public promotion until v2.0 is active; maintain preview topology and multi-command troubleshooting polish through targeted sampling.
 - Completed June 9, 2026: Network+ and Security+ objective metadata, accuracy/coverage dashboard, objective practice, recent-miss queue, and spaced due-review queue.
 - Completed June 9, 2026: A+ Core 1 and Core 2 joined the Objective Learning Loop with all 63 learner-facing objective labels, targeted practice, recent-miss and due-review queues, objective dashboard signals, support-oriented review cues, and post-session recommendations.
 - Completed June 13, 2026: A+ PBQ-lite v2 enriched all 20 practicals with task briefs, console/table/checklist artifacts, per-component feedback, and category-balanced 90-question forms. Automated audits generate 500 forms per core and require at least six practicals while preserving domain allocation.

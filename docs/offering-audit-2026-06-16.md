@@ -25,7 +25,7 @@ The next phase should improve reliability and repeatability, not breadth. The hi
    The live set is intentionally smaller than the authored set. A+, Network+, CCST Networking, Security+, Splunk, Terraform, CLF-C02, and SAA-C03 are the live product. AZ-900, Google CDL, CCNA, NVIDIA, Server+, Linux+, and DCCA stay parked.
 
 5. **Make the product useful to the owner as the first user.**
-   Network+ established the end-to-end learner loop: diagnostic, mastery map, study plan, exam debrief, and case practice. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same loop, adapted to A+ support objectives, Cisco foundation domains, security objectives, cloud foundation domains, AWS architecture domains, Splunk blueprint domains, and Terraform subobjectives. A+ also has the strongest content quality gates. The dashboard starting point is now consistent across certs.
+   Network+ established the end-to-end learner loop: diagnostic, mastery map, study plan, exam debrief, and case practice. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same loop for the live product, adapted to A+ support objectives, Cisco foundation domains, security objectives, cloud foundation domains, AWS architecture domains, Splunk blueprint domains, and Terraform subobjectives. CCNA also uses the loop as a preserved v2.0 preview, driven by its 25 objective families and applied Cisco evidence types. A+ still has the strongest content quality gates. The dashboard starting point is now consistent across certs and the CCNA preview.
 
 ## Current Offering Snapshot
 
@@ -60,7 +60,7 @@ The next phase should improve reliability and repeatability, not breadth. The hi
 | --- | --- | --- |
 | AZ-900 | Coming Soon | Useful only for specific Azure goals; not core to the current career path |
 | Google Cloud Digital Leader | Coming Soon | Slightly off-strategy for the AWS-centric cloud path |
-| CCNA | Coming Soon | Preserved bank now meets the internal Network+ quality bar for the future 200-301 v2.0 target; current public exam remains v1.1 until February 2, 2027 |
+| CCNA | Coming Soon | Preserved bank now meets the internal Network+ quality bar for the future 200-301 v2.0 target, including diagnostic, mastery map, study plan, debrief, and case practice; current public exam remains v1.1 until February 2, 2027 |
 | NVIDIA AIIO / GENL | Coming Soon | Authored but not enough role-fit or simulation maturity for homepage priority |
 | Server+ | Coming Soon | Potential data-center value, but practical troubleshooting needs revision |
 | Linux+ | Coming Soon | Useful future AI/infrastructure foundation, but needs command/output/config rewrite |
@@ -140,8 +140,8 @@ The competitive gap is not another cert. The gap is confidence infrastructure: r
 ### 5. Content Maintenance, Not Expansion
 
 - Maintain A+ A+ grade gates.
-- Preserve the foundation learning-loop model now shared by A+ Core 1, A+ Core 2, Network+, Security+, CLF-C02, SAA-C03, Splunk, and Terraform.
-- Improve Splunk, Terraform, and SAA review quality through sampling and targeted rewrites.
+- Preserve the foundation learning-loop model now shared by A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, CLF-C02, SAA-C03, Splunk, Terraform, and the CCNA preview.
+- Improve Splunk, Terraform, SAA, and CCNA review quality through sampling and targeted rewrites without adding new catalog surface.
 - Keep CCNA, Linux+, Server+, DCCA, NVIDIA, AZ-900, and Google CDL parked.
 
 ## Board-Level Recommendation

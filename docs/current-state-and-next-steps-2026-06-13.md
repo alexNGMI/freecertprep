@@ -19,7 +19,7 @@ Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
 The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul and trust/metadata pass are now complete. Local data durability is the next active phase.
 
-Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture, adapted to A+, Security+, and Terraform objectives plus CCST, CLF-C02, SAA-C03, and Splunk domain targets. This improves the live offering while keeping the catalog disciplined.
+Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
 The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md`.
 
@@ -48,12 +48,12 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 - Real Estate remains an internal review build.
 - NVIDIA and Data Center Technician path routes remain implemented but hidden.
 - CDL and NCLEX remain future sister-site concepts.
-- CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the bank is re-audited. June 16 update: the preserved bank now meets the internal Network+ quality bar for content structure, simulation evidence, unique stems, and explanation depth, but it still cannot be presented as current-exam practice before the active Cisco release changes.
+- CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the bank is re-audited. June 16 update: the preserved bank now meets the internal Network+ quality bar for content structure, simulation evidence, unique stems, explanation depth, and the diagnostic/mastery/study-plan/debrief/case-practice loop, but it still cannot be presented as current-exam practice before the active Cisco release changes.
 - AZ-900, Google CDL, Linux+, Server+, DCCA, and NVIDIA should not be promoted because raw question count alone is not enough; each needs a current source audit and cert-specific release gate.
 
 ## Verified Baseline
 
-- 1,277 tests pass across 38 files.
+- 1,278 tests pass across 38 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, and CompTIA objective audit scripts pass locally.
@@ -62,7 +62,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 - Question banks are lazy-loaded by certification.
 - Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+.
 - Catalog expansion remains frozen.
-- Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, CLF-C02, SAA-C03, Splunk, and Terraform point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
+- Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, CLF-C02, SAA-C03, Splunk, Terraform, and the CCNA preview point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
 
 ## Ordered Next Steps
 
@@ -87,6 +87,7 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - added Splunk diagnostic, mastery map, personal plan, exam debrief, and search evidence case practice using the eight blueprint domains as measurable targets;
 - added Terraform diagnostic, mastery map, personal plan, exam debrief, and infrastructure case practice using all 37 implemented Terraform subobjectives as measurable targets;
 - added CCST Networking diagnostic, mastery map, personal plan, exam debrief, and Cisco foundation case practice using the six official 100-150 domains as measurable targets;
+- added CCNA preview diagnostic, mastery map, personal plan, exam debrief, and Cisco troubleshooting case practice using the 25 objective families in the preserved v2.0 bank;
 - kept the implementation local-first and reused the existing Smart Practice, stats, and result-review engine.
 
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026
@@ -151,7 +152,7 @@ This is the next active product phase because it directly protects the first use
 - session completion and malformed-storage recovery fixes;
 - Network+ structured full-bank audit and A- grade;
 - Security+ structured full-bank audit and A- grade;
-- A+, Network+, Security+, and CLF-C02 learning loops plus simplified first-start dashboard;
+- shared diagnostic/mastery/study-plan/debrief/case loops for A+, Network+, CCST, Security+, CLF-C02, SAA-C03, Splunk, Terraform, and the CCNA preview;
 - explicit A+ → Networking → Cybersecurity → Cloud progression, with Network+ owned by Networking;
 - public catalog split into Live and Coming Soon.
 

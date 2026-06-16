@@ -107,8 +107,8 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Catalog** - Dedicated `/catalog` page for the live certification grid and preserved Coming Soon modules. Real Estate remains accessible only through Docs while it is reworked.
 - **Path pages** - Career pages identify target roles, optional foundations, career credentials, and applied skills. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
-- **Current roadmap** - The catalog is mostly frozen after the CCST promotion. The June 16 offering audit confirms the live product is broad enough; local data durability is next, followed by release automation and maintainability. Coming Soon promotion is paused unless a module clears current source, simulation-readiness, and cert-specific quality gates. See `docs/offering-audit-2026-06-16.md`, `docs/current-state-and-next-steps-2026-06-13.md`, and `docs/codebase-review-and-action-plan-2026-06-14.md`.
-- **Content quality status** - A+, Network+, Security+, Splunk, Terraform, SAA-C03, and CCST have current practical/editorial gates. Cert-specific gates now cover objective or domain breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
+- **Current roadmap** - The catalog is mostly frozen after the CCST promotion and CCNA preview-loop pass. The June 16 offering audit confirms the live product is broad enough; local data durability is next, followed by release automation and maintainability. Coming Soon promotion is paused unless a module clears current source, simulation-readiness, active-release alignment, and cert-specific quality gates. See `docs/offering-audit-2026-06-16.md`, `docs/current-state-and-next-steps-2026-06-13.md`, and `docs/codebase-review-and-action-plan-2026-06-14.md`.
+- **Content quality status** - A+, Network+, Security+, Splunk, Terraform, SAA-C03, CCST, and the CCNA v2.0 preview have current practical/editorial gates. Cert-specific gates now cover objective or domain breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
@@ -141,14 +141,14 @@ Additional advanced formats are also supported where the exam surface needs them
 - **Config repair** - Review a broken configuration and choose the safest fix.
 - **Subnetting drill** - Calculate requested network values from a subnet prompt.
 
-CCNA simulation types implemented in the preserved v2.0 preview: CLI output interpretation, topology scenarios, config repair, and subnetting drills. Automated tests now lock exact/normalized uniqueness, explanation structure, objective metadata, and practical evidence shape for the CCNA bank. Linux+ also uses CLI output and config-repair items for PBQ-style practice. See `docs/ccna-simulation-architecture.md`.
+CCNA simulation types implemented in the preserved v2.0 preview: CLI output interpretation, topology scenarios, config repair, and subnetting drills. Automated tests now lock exact/normalized uniqueness, explanation structure, objective metadata, practical evidence shape, and the preview diagnostic/mastery/case loop for the CCNA bank. Linux+ also uses CLI output and config-repair items for PBQ-style practice. See `docs/ccna-simulation-architecture.md`.
 
 ## Tech stack
 
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,277 tests across 38 files), GitHub Actions CI
+- Vitest (1,278 tests across 38 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 
