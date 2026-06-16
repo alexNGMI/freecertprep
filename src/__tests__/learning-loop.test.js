@@ -8,7 +8,7 @@ import {
   selectCaseQuestions,
   selectDiagnosticQuestions,
 } from '../utils/learning-loop'
-import { getLearningObjectives } from '../utils/learning-loop-config'
+import { getLearningLoopConfig, getLearningObjectives, hasLearningLoop } from '../utils/learning-loop-config'
 
 const objectives = [
   { id: '1.1', domain: 'Concepts', title: 'Models' },
@@ -126,5 +126,12 @@ describe('Network+ learning loop', () => {
 
     expect(selected).toHaveLength(2)
     expect(selected.every(question => ['c1', 'c2'].includes(question.id))).toBe(true)
+  })
+
+  it('registers A+ cores as guided learning-loop modules', () => {
+    expect(hasLearningLoop('comptia-a-plus-core-1')).toBe(true)
+    expect(hasLearningLoop('comptia-a-plus-core-2')).toBe(true)
+    expect(getLearningLoopConfig('comptia-a-plus-core-1').caseCategories).toContain('Hardware diagnostics')
+    expect(getLearningLoopConfig('comptia-a-plus-core-2').caseCategories).toContain('Security response')
   })
 })

@@ -46,6 +46,8 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **A+ Objective Learning Loop is live:** both cores now expose objective-level accuracy and coverage, ten-question objective drills, recent misses, spaced due review, objective badges, A+-specific troubleshooting review cues, and post-session recommendations tied to the learner's misses.
 
+> **A+ guided learning loops are live:** Core 1 and Core 2 now add the same diagnostic -> mastery map -> personal plan -> exam debrief -> case-practice workflow used by the other foundation modules, with Core-specific support scenarios for hardware/network/mobile and OS/security/operations.
+
 > **A+ PBQ-lite v3 is live:** all 40 practical scenarios now include an explicit task brief, realistic console/table/checklist artifacts, and per-component corrective-action feedback. Core 1 forms guarantee coverage across hardware diagnostics, networking, mobile/peripherals, storage, and virtualization; Core 2 forms guarantee OS tools, security response, software/mobile troubleshooting, and operational workflow while retaining at least six practicals and exact domain allocation.
 
 > **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
@@ -60,7 +62,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Network+ Personal Learning Loop is live:** N10-009 now adds a balanced 35-question diagnostic, four-state objective mastery map, evidence-driven 7/14/30-day plans, objective-level full-exam debriefs, and ten-question applied case sets built from CLI, topology, configuration, matching, and subnetting work. The system remains local-first and treats untouched objectives as Not measured rather than weak.
 
-> **Foundation learning-loop parity is live:** Security+ now has the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow across SY0-701 objectives. AWS Cloud Practitioner uses the same flow with CLF-C02 domain-backed targets and cloud scenario practice.
+> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, Security+, and AWS Cloud Practitioner now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+ and Security+ use official objectives; CLF-C02 uses domain-backed targets.
 
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
 

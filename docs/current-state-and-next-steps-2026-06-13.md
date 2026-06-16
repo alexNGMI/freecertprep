@@ -19,7 +19,7 @@ Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
 The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul and trust/metadata pass are now complete. Local data durability is the next active phase.
 
-Network+ also now has a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. Security+ and AWS Cloud Practitioner now use the same learning-loop architecture, adapted to Security+ objectives and CLF-C02 domain targets. This improves the foundational offering without expanding the catalog.
+Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, Security+, and AWS Cloud Practitioner now use the same learning-loop architecture, adapted to A+ and Security+ objectives and CLF-C02 domain targets. This improves the foundational offering without expanding the catalog.
 
 The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md`.
 
@@ -29,8 +29,8 @@ The June 16 offering audit confirms the same strategic direction: the current ca
 
 | Certification | Readiness | Current Direction |
 | --- | --- | --- |
-| CompTIA A+ Core 1 | A+ | Full-bank interaction rewrite, 20 practicals, and 500-form gate verified |
-| CompTIA A+ Core 2 | A+ | Full-bank interaction rewrite, 20 practicals, and 500-form gate verified |
+| CompTIA A+ Core 1 | A+ | Full-bank interaction rewrite, 20 practicals, 500-form gate, diagnostic, mastery map, study plan, debrief, and case practice verified |
+| CompTIA A+ Core 2 | A+ | Full-bank interaction rewrite, 20 practicals, 500-form gate, diagnostic, mastery map, study plan, debrief, and case practice verified |
 | CompTIA Network+ | A- | Preserve objective ledger, practical form gates, diagnostic, mastery map, study plan, exam debrief, and case practice |
 | CompTIA Security+ | A- | Preserve objective ledger, mixed-interaction gates, diagnostic, mastery map, study plan, exam debrief, and security case practice |
 | Splunk Core Certified User | B+ | Maintain evidence, uniqueness, and explanation gates |
@@ -61,7 +61,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 - Question banks are lazy-loaded by certification.
 - Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+.
 - Catalog expansion remains frozen.
-- Fresh dashboards now show one clear recommended next step across certs: Network+, Security+, and CLF-C02 point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
+- Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, Security+, and CLF-C02 point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
 
 ## Ordered Next Steps
 
@@ -79,6 +79,7 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 ### Foundation Learning Loop Parity - Completed June 16, 2026
 
 - extended the learning-loop routes from Network+ to Security+ and AWS Cloud Practitioner;
+- extended the same loop to A+ Core 1 and A+ Core 2, using their 63 official objectives and 40 PBQ-lite practical scenarios;
 - added Security+ diagnostic, mastery map, personal plan, exam debrief, and security case practice across the official SY0-701 objectives;
 - added CLF-C02 diagnostic, mastery map, personal plan, exam debrief, and cloud scenario practice using the four official exam domains as measurable targets;
 - kept the implementation local-first and reused the existing Smart Practice, stats, and result-review engine.
@@ -145,7 +146,7 @@ This is the next active product phase because it directly protects the first use
 - session completion and malformed-storage recovery fixes;
 - Network+ structured full-bank audit and A- grade;
 - Security+ structured full-bank audit and A- grade;
-- Network+, Security+, and CLF-C02 learning loops plus simplified first-start dashboard;
+- A+, Network+, Security+, and CLF-C02 learning loops plus simplified first-start dashboard;
 - explicit A+ → Networking → Cybersecurity → Cloud progression, with Network+ owned by Networking;
 - public catalog split into Live and Coming Soon.
 
