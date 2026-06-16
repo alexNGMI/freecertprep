@@ -22,7 +22,7 @@ const PATHS = {
     icon: Network,
     color: '#f97316',
     roles: ['NOC Technician', 'Network Support Specialist', 'Junior Network Administrator'],
-    availability: 'Practice Network+ now. CCST Networking and CCNA are being prepared as Cisco-focused milestones.',
+    availability: 'Practice Network+ or CCST Networking now. CCNA remains parked as the future Cisco career milestone.',
     highlights: [
       'Choose Network+ for broad vendor-neutral fluency or CCST for a Cisco-first foundation.',
       'CCNA is the career credential this direction builds toward.',

@@ -213,7 +213,7 @@ export default function Docs() {
               afford them.
             </P>
             <P>
-              The live platform currently centers AWS, CompTIA, Splunk, and Terraform. Azure, Google Cloud, CCST, CCNA,
+              The live platform currently centers AWS, Cisco CCST, CompTIA, Splunk, and Terraform. Azure, Google Cloud, CCNA,
               NVIDIA, Linux+, Server+, and DCCA remain authored but are marked Coming Soon until their simulations and active-release alignment meet the current bar. Every cert is chosen deliberately:
               these are exams where the test-taker is typically paying out of pocket, studying independently, with no employer
               tuition pipeline to lean on. The homepage presents A+, Networking, Cybersecurity, and Cloud as a recommended
@@ -256,7 +256,7 @@ export default function Docs() {
               from the official exam guides published by the certification providers.
             </P>
             <P>
-              The catalog currently exposes 8 live modules. Nine additional IT modules remain in the repository and appear as
+              The catalog currently exposes 9 live modules. Eight additional IT modules remain in the repository and appear as
               Coming Soon without links. CCNA's preserved bank targets Cisco's future v2.0 release, so it remains Coming Soon
               while v1.1 is the active exam.
             </P>
@@ -722,7 +722,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,245 Vitest tests across 38 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,277 Vitest tests across 38 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -754,8 +754,8 @@ key = random() ** (1 / weight)
           {/* ── Roadmap ─────────────────────────────────────────────────────── */}
           <Section id="roadmap" title="Roadmap">
             <P>
-              The product is usable today with 8 public IT certification modules, 9 Coming Soon IT modules, and a Real Estate
-              build hidden from public navigation. The catalog remains frozen. The June 14 full-codebase review moved the next
+              The product is usable today with 9 public IT certification modules, 8 Coming Soon IT modules, and a Real Estate
+              build hidden from public navigation. The catalog is mostly stable after the CCST promotion. The June 14 full-codebase review moved the next
               work toward public-claim accuracy, local data durability, release automation, and maintainability before another
               certification is promoted. The June 16 offering audit reaffirmed that direction: the current offering is broad
               enough, and the next advantage comes from protecting local learner work and making quality gates repeatable.
@@ -771,18 +771,18 @@ key = random() ** (1 / weight)
                   'CompTIA PBQ-lite expansion - A+ Core 1, A+ Core 2, Network+, Security+, and Server+ now each include 10 scenario-based pbq-matching troubleshooting items.',
                   'Network+ and Security+ Objective Learning Loop - every N10-009 and SY0-701 question now carries objective and concept metadata; dashboards separate accuracy from coverage; practice supports objective focus, recent misses, and spaced due review; session results recommend the objectives behind each miss.',
                   'Network+ Personal Learning Loop - N10-009 now includes a 35-question all-objective diagnostic, Strong/Developing/Weak/Not measured mastery map, evidence-driven 7/14/30-day plans, objective-level exam debriefs, and ten-question applied case practice.',
-                  'Foundation learning-loop parity - A+ Core 1, A+ Core 2, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow established for Network+. A+, Security+, and Terraform use objective-backed targets; CLF-C02, SAA-C03, and Splunk use domain-backed targets.',
+                  'Foundation learning-loop parity - A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow established for Network+. A+, Security+, and Terraform use objective-backed targets; CCST, CLF-C02, SAA-C03, and Splunk use domain-backed targets.',
                   'A+ Objective Learning Loop - both 220-1201 and 220-1202 now expose all 63 objectives through accuracy and coverage cards, focused drills, recent misses, spaced due review, support-oriented explanation cues, and post-session recommendations.',
                   'A+ PBQ-lite v2 - all 20 practical scenarios now include task briefs, console/table/checklist artifacts, component-level corrective feedback, and category-balanced exam forms with at least six practicals.',
                   'CompTIA Network+ (N10-009) — 760-question pool with scenario-forward PBQ-lite troubleshooting coverage',
-                  'Cisco CCST Networking (100-150) - authored 750-question pool retained as Coming Soon while repetition and simulation fidelity are revised.',
+                  'Cisco CCST Networking (100-150) - live B+ Cisco-first networking foundation with 750 unique evidence-led questions, six-domain diagnostic, mastery map, study plan, exam debrief, and case practice.',
                   'CompTIA Security+ (SY0-701) — 760-question pool with PBQ-lite security operations and architecture scenarios',
                   'CompTIA Server+ (SK0-005) - authored 760-question pool retained as Coming Soon while practical server troubleshooting is revised.',
                   'Splunk Core Certified User (SPLK-1001) - live 750-question pool aligned to the official 60-question / 60-minute blueprint: Splunk basics, basic searching, fields, SPL fundamentals, transforming commands, reports/dashboards, lookups, scheduled reports, and alerts. It is the Cybersecurity direction’s applied SOC tooling layer after the Security+ career credential.',
                   'Splunk learning-loop parity - Splunk now has a 32-question domain diagnostic, mastery map, personal plan, exam debrief, and case practice built around SPL, field, transforming command, report, dashboard, lookup, scheduled report, and alert evidence.',
                   'CompTIA Linux+ (XK0-006) - authored 750-question pool retained as Coming Soon pending a major command, output, and configuration rewrite.',
                   'Schneider Data Center Certified Associate (DCCA) - authored 750-question pool retained as Coming Soon pending source hardening and facility-scenario rewrites.',
-                  'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 8 live modules from 9 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',
+                  'Public-offering simplification - the homepage now shows only A+, Networking, Cybersecurity, and Cloud. NVIDIA and Data Center Technician lanes are hidden; their routes and content remain intact. The catalog separates 9 live modules from 8 Coming Soon modules, and Real Estate is reachable only through this documentation while it is reworked.',
                   'Career progression presentation - the homepage now reads A+ foundation to Networking to Cybersecurity to Cloud while allowing experienced learners to enter later. Network+ is owned by Networking; Cybersecurity progresses from Security+ to Splunk.',
                   'Cloud path flow - /paths/cloud is now AWS-centric: AWS Cloud Practitioner, then SAA-C03 as the architecture tier, then Terraform Associate as the deployable infrastructure skill. Azure Fundamentals and Google CDL remain in the full catalog for vendor-specific goals.',
                   'Real Estate sister-site prototype — retained as a hidden review build that reuses the same Smart Practice, scoring, and exam-selection engine; removed from public navigation until its source and simulation quality are ready.',
@@ -812,8 +812,8 @@ key = random() ** (1 / weight)
                   'Security+ structured quality audit - all 760 SY0-701 items now have ledger-locked objective decisions, all 101 fallback labels plus four legacy misclassifications were corrected, synthetic workflow-ticket wording was removed, and 500 randomized forms guarantee exact allocation plus the required practical and interaction mix. Readiness grade: A-.',
                   'A+ full-bank quality overhaul - both 760-question cores now grade A+ under the project rubric, with 760 unique answer interactions, structured correct/distractor/verification teaching, 20 evidence-based practicals per core, and 500-form gates.',
                   'Trust and metadata correction - removed the third-party visitor counter and Google-hosted fonts, refreshed root search/share metadata and artwork, corrected privacy language, and added the MIT License.',
-                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,245-test regression suite.',
-                  'June 16 offering audit - confirmed 8 live modules, 9 parked IT modules, 11,693 authored IT questions, zero dependency vulnerabilities, passing content/cert-specific audits, and a hold-the-catalog roadmap focused on local data durability, release gates, and maintainability.',
+                  'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,277-test regression suite.',
+                  'June 16 offering audit - confirmed 9 live modules, 8 parked IT modules, 11,693 authored IT questions, zero dependency vulnerabilities, passing content/cert-specific audits, and a hold-the-catalog roadmap focused on local data durability, release gates, and maintainability.',
                 ],
               },
               {

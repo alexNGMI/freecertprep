@@ -6,13 +6,13 @@ Execution update: Phase 5 was performed first at the owner's request, followed b
 
 ## Executive Assessment
 
-freecertprep is a credible local-first study product, not a prototype held together by placeholder screens. The core learner flow is implemented, the public catalog has been narrowed to eight defensible modules, content is lazy-loaded, and the automated suite covers the scoring and selection logic that would cause the most learner harm if it failed.
+freecertprep is a credible local-first study product, not a prototype held together by placeholder screens. The core learner flow is implemented, the public catalog has been narrowed to nine defensible modules, content is lazy-loaded, and the automated suite covers the scoring and selection logic that would cause the most learner harm if it failed.
 
 The next release should not add certifications. It should close the gap between the quality of the question banks and the reliability, privacy, release automation, and maintainability of the application around them.
 
 Current overall position:
 
-- **Content:** strong for the focused live catalog, with two A+ modules, four A- modules, and two B+ modules.
+- **Content:** strong for the focused live catalog, with two A+ modules, four A- modules, and three B+ modules.
 - **Study experience:** useful and coherent across dashboard, practice, drill, exam, results, bookmarks, and objective review.
 - **Frontend:** polished and responsive on the reviewed homepage and catalog routes.
 - **Reliability:** good automated coverage, with several recoverability and long-term storage gaps still open.
@@ -36,8 +36,8 @@ Baseline at review time:
 
 - 17 authored IT certification modules;
 - 11,693 authored IT questions;
-- 8 live modules and 9 Coming Soon modules;
-- 1,245 passing tests across 38 files;
+- 9 live modules and 8 Coming Soon modules;
+- 1,277 passing tests across 38 files;
 - zero production dependency vulnerabilities reported by `npm audit --omit=dev`;
 - clean `main` branch at commit `cb6caeb` before this documentation update.
 
@@ -50,6 +50,7 @@ Baseline at review time:
 | CompTIA A+ Core 1 | A+ | 760 unique answer interactions, 20 practicals, and 500 validated forms |
 | CompTIA A+ Core 2 | A+ | 760 unique answer interactions, 20 practicals, and 500 validated forms |
 | CompTIA Network+ | A- | Flagship simulation; preserve existing gates |
+| Cisco CCST Networking | B+ | Cisco-first networking foundation with evidence-led six-domain practice |
 | CompTIA Security+ | A- | Preserve structured ledger and form guarantees |
 | Splunk Core Certified User | B+ | Maintain evidence and explanation gates |
 | HashiCorp Terraform Associate | B+ | Maintain objective and operational-review gates |
@@ -58,7 +59,7 @@ Baseline at review time:
 
 ### Preserved as Coming Soon
 
-AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastructure and Operations, NVIDIA Generative AI LLMs, Server+, Linux+, and Schneider DCCA remain in the repository. They should not return to the live catalog without a current source audit, a cert-specific quality gate, and a B+ simulation-readiness decision.
+AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operations, NVIDIA Generative AI LLMs, Server+, Linux+, and Schneider DCCA remain in the repository. They should not return to the live catalog without a current source audit, a cert-specific quality gate, and a B+ simulation-readiness decision.
 
 ### Hidden or Deferred
 
@@ -190,7 +191,7 @@ Done when:
 5. Each practical pool doubled from 10 to 20 while the total bank remained 760.
 6. Both cores were reassessed at A+ under the project readiness rubric.
 7. Maintain Splunk and Terraform rather than increasing their counts.
-8. Keep all Coming Soon modules parked until the platform phases above are complete.
+8. Keep all remaining Coming Soon modules parked until the platform phases above are complete.
 
 Done when:
 

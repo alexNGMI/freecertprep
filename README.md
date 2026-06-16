@@ -24,11 +24,11 @@ Free, open-source certification exam prep for the IT certifications that open do
 | Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 647 | 57 | 60 min | 70% readiness |
 
-**11,693 authored questions across 17 IT certifications.** The public catalog currently exposes 8 live modules and holds 9 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
+**11,693 authored questions across 17 IT certifications.** The public catalog currently exposes 9 live modules and holds 8 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
 
-Live now: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, and Terraform Associate.
+Live now: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, CCST Networking, Security+, Splunk Core User, and Terraform Associate.
 
-Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL, CCST Networking, CCNA, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA. No question banks or routes were deleted.
+Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL, CCNA, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA. No question banks or routes were deleted.
 
 > **Terraform objective remediation is live:** HashiCorp Terraform Associate (004) now ships a 647-question pool covering all 37 implemented subobjectives across the eight Terraform 1.12 objective groups. Every item carries objective and concept metadata, and automated gates reject missing coverage, objective-group mismatches, blueprint-trivia prompts, deprecated-command guidance, and legacy product naming.
 
@@ -36,7 +36,9 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Terraform learning-value pass is live:** all 647 stems are exact and normalized-unique, all explanations now use why-right, why-wrong, and operational-takeaway coaching, 532 questions include supporting plan/state/HCL/diagnostic evidence, and automated gates audit allocation, evidence structure, explanation quality, and 500 randomized forms.
 
-> **Live-bank language cleanup is complete for the current quality set:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, and Splunk Core User. Automated gates prevent that phrasing from returning, and all three banks now meet their current uniqueness and evidence standards.
+> **CCST Networking is live:** Cisco CCST Networking (100-150) now ships as the Cisco-first Network+ alternative with 750 exact and normalized-unique stems, evidence artifacts on all 750 items, six-domain diagnostic, mastery map, study plan, exam debrief, and case practice. CCNA remains Coming Soon because the preserved bank targets Cisco 200-301 v2.0.
+
+> **Live-bank language cleanup is complete for the current quality set:** synthetic ticket identifiers and generated "scenario includes" filler have been removed from A+ Core 1, A+ Core 2, Splunk Core User, and CCST Networking. Automated gates prevent that phrasing from returning, and all four banks now meet their current uniqueness and evidence standards.
 
 > **Splunk evidence rewrite is live:** all 750 Core Certified User stems are exact and normalized-unique. All 690 selected-response items render compact SPL, event, field, result-set, lookup, report, dashboard, or alert evidence, and every explanation follows a why-right, why-wrong, and review-takeaway structure. Official-style 60-question simulations exclude matching and ordering learning drills.
 
@@ -62,7 +64,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Network+ Personal Learning Loop is live:** N10-009 now adds a balanced 35-question diagnostic, four-state objective mastery map, evidence-driven 7/14/30-day plans, objective-level full-exam debriefs, and ten-question applied case sets built from CLI, topology, configuration, matching, and subnetting work. The system remains local-first and treats untouched objectives as Not measured rather than weak.
 
-> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, Security+, AWS Cloud Practitioner, SAA-C03, Splunk Core User, and Terraform Associate now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+, Security+, and Terraform use objective-backed targets; CLF-C02, SAA-C03, and Splunk use domain-backed targets.
+> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk Core User, and Terraform Associate now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+, Security+, and Terraform use objective-backed targets; CCST, CLF-C02, SAA-C03, and Splunk use domain-backed targets.
 
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and SAA now adds a domain-backed diagnostic, mastery map, study plan, exam debrief, and architecture case practice around secure, resilient, high-performing, and cost-optimized design.
 
@@ -79,8 +81,6 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 > **AI infrastructure revision:** Linux+, NVIDIA AI Infrastructure & Operations, and NVIDIA Generative AI remain authored but are Coming Soon while their simulation realism is improved.
 
 > **Data center revision:** Server+, Schneider DCCA, and CCNA remain authored but are Coming Soon. The Data Center Technician route is retained for future iteration but removed from homepage discovery.
-
-> **Cisco foundation revision:** Cisco CCST Networking (100-150) retains its 750-question pool but is marked Coming Soon until repeated content patterns and simulation fidelity are improved.
 
 > **CCNA v2.0 preview is preserved:** the 750-question simulation bank targets Cisco's announced 200-301 v2.0 blueprint, which begins testing February 3, 2027. Cisco v1.1 remains active through February 2, 2027, so CCNA is Coming Soon rather than presented as current-exam practice.
 
@@ -105,8 +105,8 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Catalog** - Dedicated `/catalog` page for the live certification grid and preserved Coming Soon modules. Real Estate remains accessible only through Docs while it is reworked.
 - **Path pages** - Career pages identify target roles, optional foundations, career credentials, and applied skills. NVIDIA and Data Center Technician pages remain implemented but are hidden during content revision.
 - **Recommended playlists** - Docs now link optional Professor Messer YouTube playlists for CompTIA A+ Core 1 (220-1201), A+ Core 2 (220-1202), Network+ (N10-009), and Security+ (SY0-701) as video companions to the practice banks.
-- **Current roadmap** - The catalog is frozen. The June 16 offering audit confirms the live product is broad enough; local data durability is next, followed by release automation and maintainability. Coming Soon promotion is paused unless a module clears current source, simulation-readiness, and cert-specific quality gates. See `docs/offering-audit-2026-06-16.md`, `docs/current-state-and-next-steps-2026-06-13.md`, and `docs/codebase-review-and-action-plan-2026-06-14.md`.
-- **Content quality status** - A+, Network+, Security+, and Splunk completed their current practical/editorial sprint on June 13, 2026. Cert-specific gates now cover objective breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
+- **Current roadmap** - The catalog is mostly frozen after the CCST promotion. The June 16 offering audit confirms the live product is broad enough; local data durability is next, followed by release automation and maintainability. Coming Soon promotion is paused unless a module clears current source, simulation-readiness, and cert-specific quality gates. See `docs/offering-audit-2026-06-16.md`, `docs/current-state-and-next-steps-2026-06-13.md`, and `docs/codebase-review-and-action-plan-2026-06-14.md`.
+- **Content quality status** - A+, Network+, Security+, Splunk, Terraform, SAA-C03, and CCST have current practical/editorial gates. Cert-specific gates now cover objective or domain breadth, practical-category composition, evidence artifacts, explanation structure, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
@@ -146,7 +146,7 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,245 tests across 38 files), GitHub Actions CI
+- Vitest (1,277 tests across 38 files), GitHub Actions CI
 - `localStorage` for all progress; zero-backend by design
 - JSON-based question banks, lazy-loaded per cert
 

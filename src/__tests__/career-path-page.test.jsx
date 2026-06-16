@@ -43,7 +43,7 @@ describe('career path pages', () => {
     expect(screen.queryByText('Google Professional Cloud Architect')).toBeNull()
   })
 
-  it('keeps Network+ live while holding CCST and the future CCNA v2.0 module as coming soon', () => {
+  it('offers Network+ or CCST as live foundations while holding future CCNA v2.0', () => {
     renderPath('/paths/networking')
 
     expect(screen.getByRole('heading', { name: 'Build a career in networking.' })).toBeTruthy()
@@ -57,9 +57,8 @@ describe('career path pages', () => {
     expect(screen.getByText('Step 02 / Career Credential')).toBeTruthy()
     expect(screen.getByText('NOC Technician')).toBeTruthy()
     expect(screen.getByRole('link', { name: /CompTIA Network\+/ }).getAttribute('href')).toBe('/comptia-net-plus')
-    expect(screen.getByText('Cisco CCST Networking')).toBeTruthy()
-    expect(screen.queryByRole('link', { name: /Cisco CCST Networking/ })).toBeNull()
-    expect(screen.getAllByText('Coming soon')).toHaveLength(2)
+    expect(screen.getByRole('link', { name: /Cisco CCST Networking/ }).getAttribute('href')).toBe('/ccst-networking')
+    expect(screen.getAllByText('Coming soon')).toHaveLength(1)
     expect(screen.queryByRole('link', { name: /Cisco CCNA/ })).toBeNull()
   })
 

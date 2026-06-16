@@ -61,10 +61,11 @@ const certSources = {
   'ccst-networking': {
     officialUrl: 'https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/ccst-networking/index.html',
     sourceLabel: 'Cisco CCST Networking certification page',
-    checkedAt,
-    examFormat: 'Cisco entry-level networking certification delivered through the Cisco exam platform.',
+    checkedAt: '2026-06-16',
+    examFormat: 'Cisco entry-level networking certification delivered through the Cisco exam platform; public Cisco material confirms a 50-minute 100-150 exam.',
     scoreModel: 'Cisco does not publish a universal raw passing percentage.',
-    editorialStatus: 'Blueprint verified; editorial polish scheduled',
+    readinessGrade: 'B+',
+    editorialStatus: 'Live at B+ readiness; 750 unique evidence-led questions, six-domain diagnostic, mastery map, study plan, debrief, and case practice verified',
   },
   'ccna-200-301': {
     officialUrl: 'https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html',

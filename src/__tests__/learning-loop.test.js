@@ -178,4 +178,18 @@ describe('Network+ learning loop', () => {
       'HCP Terraform operations',
     ])
   })
+
+  it('registers CCST Networking as a domain-backed Cisco foundation loop', () => {
+    const config = getLearningLoopConfig('ccst-networking')
+
+    expect(hasLearningLoop('ccst-networking')).toBe(true)
+    expect(config.useDomainObjectives).toBe(true)
+    expect(config.diagnosticSize).toBe(30)
+    expect(config.caseCategories).toEqual([
+      'Addressing decisions',
+      'Endpoint and media checks',
+      'Infrastructure roles',
+      'Troubleshooting path',
+    ])
+  })
 })

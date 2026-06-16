@@ -4,7 +4,7 @@ Last updated: June 16, 2026
 
 ## Executive Summary
 
-freecertprep is in a consolidation phase. The repository contains 11,693 authored questions across 17 IT certifications, while the public catalog deliberately exposes eight modules and marks nine as Coming Soon. The current product is useful: its focused homepage, career directions, dashboard, objective learning loops, Smart Practice, drills, simulations, review, bookmarks, and local progress tracking form a coherent study workflow.
+freecertprep is in a consolidation phase. The repository contains 11,693 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The current product is useful: its focused homepage, career directions, dashboard, objective learning loops, Smart Practice, drills, simulations, review, bookmarks, and local progress tracking form a coherent study workflow.
 
 The next release should make that workflow more trustworthy and durable, not larger.
 
@@ -19,7 +19,7 @@ Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
 The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul and trust/metadata pass are now complete. Local data durability is the next active phase.
 
-Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture, adapted to A+, Security+, and Terraform objectives plus CLF-C02, SAA-C03, and Splunk domain targets. This improves the live offering without expanding the catalog.
+Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture, adapted to A+, Security+, and Terraform objectives plus CCST, CLF-C02, SAA-C03, and Splunk domain targets. This improves the live offering while keeping the catalog disciplined.
 
 The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md`.
 
@@ -32,6 +32,7 @@ The June 16 offering audit confirms the same strategic direction: the current ca
 | CompTIA A+ Core 1 | A+ | Full-bank interaction rewrite, 20 practicals, 500-form gate, diagnostic, mastery map, study plan, debrief, and case practice verified |
 | CompTIA A+ Core 2 | A+ | Full-bank interaction rewrite, 20 practicals, 500-form gate, diagnostic, mastery map, study plan, debrief, and case practice verified |
 | CompTIA Network+ | A- | Preserve objective ledger, practical form gates, diagnostic, mastery map, study plan, exam debrief, and case practice |
+| Cisco CCST Networking | B+ | Preserve six-domain source alignment, 750 unique evidence-led stems, diagnostic, mastery map, study plan, debrief, and case practice |
 | CompTIA Security+ | A- | Preserve objective ledger, mixed-interaction gates, diagnostic, mastery map, study plan, exam debrief, and security case practice |
 | Splunk Core Certified User | B+ | Maintain evidence, uniqueness, explanation gates, domain diagnostic, mastery map, study plan, debrief, and search case practice |
 | HashiCorp Terraform Associate | B+ | Maintain objective and operational-review gates plus subobjective diagnostic, mastery map, study plan, debrief, and infrastructure case practice |
@@ -40,7 +41,7 @@ The June 16 offering audit confirms the same strategic direction: the current ca
 
 ### Coming Soon
 
-AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastructure and Operations, NVIDIA Generative AI LLMs, Server+, Linux+, and Schneider DCCA remain authored and preserved. They stay out of the live catalog until a current source audit, cert-specific quality gate, and B+ readiness decision are complete.
+AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operations, NVIDIA Generative AI LLMs, Server+, Linux+, and Schneider DCCA remain authored and preserved. They stay out of the live catalog until a current source audit, cert-specific quality gate, and B+ readiness decision are complete.
 
 ### Hidden and Deferred
 
@@ -48,20 +49,20 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 - NVIDIA and Data Center Technician path routes remain implemented but hidden.
 - CDL and NCLEX remain future sister-site concepts.
 - CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the bank is re-audited.
-- AZ-900, Google CDL, CCST, Linux+, Server+, DCCA, NVIDIA, and CCNA should not be promoted because raw question count alone is not enough; each needs a current source audit and cert-specific release gate.
+- AZ-900, Google CDL, Linux+, Server+, DCCA, NVIDIA, and CCNA should not be promoted because raw question count alone is not enough; each needs a current source audit and cert-specific release gate.
 
 ## Verified Baseline
 
-- 1,245 tests pass across 38 files.
-- 1,025 content sanity tests pass.
+- 1,277 tests pass across 38 files.
+- 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, and CompTIA objective audit scripts pass locally.
 - Homepage and catalog have no horizontal overflow at 1280px or 390px.
-- The public offering contains eight live and nine Coming Soon modules.
+- The public offering contains nine live and eight Coming Soon modules.
 - Question banks are lazy-loaded by certification.
 - Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+.
 - Catalog expansion remains frozen.
-- Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, Security+, CLF-C02, SAA-C03, Splunk, and Terraform point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
+- Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, CLF-C02, SAA-C03, Splunk, and Terraform point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
 
 ## Ordered Next Steps
 
@@ -85,6 +86,7 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - added SAA-C03 diagnostic, mastery map, personal plan, exam debrief, and architecture case practice using the four official SAA-C03 domains as measurable targets;
 - added Splunk diagnostic, mastery map, personal plan, exam debrief, and search evidence case practice using the eight blueprint domains as measurable targets;
 - added Terraform diagnostic, mastery map, personal plan, exam debrief, and infrastructure case practice using all 37 implemented Terraform subobjectives as measurable targets;
+- added CCST Networking diagnostic, mastery map, personal plan, exam debrief, and Cisco foundation case practice using the six official 100-150 domains as measurable targets;
 - kept the implementation local-first and reused the existing Smart Practice, stats, and result-review engine.
 
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026

@@ -6,7 +6,7 @@ Review date: June 16, 2026
 
 freecertprep is meeting its stated goal for the focused IT offering: free, no-account certification prep for career-changing IT paths, with realistic practice, local-first progress, and honest readiness language.
 
-The strongest strategic decision remains the catalog freeze. The repository contains 11,693 authored IT questions across 17 certifications, but the public product exposes only the eight modules that meet the current bar. The remaining nine IT modules are preserved as Coming Soon, not deleted, so future work is recoverable without weakening the current product.
+The strongest strategic decision remains catalog discipline. The repository contains 11,693 authored IT questions across 17 certifications, but the public product exposes only the nine modules that meet the current bar. The remaining eight IT modules are preserved as Coming Soon, not deleted, so future work is recoverable without weakening the current product.
 
 The next phase should improve reliability and repeatability, not breadth. The highest-value work is local data durability, a single release-quality command, browser smoke coverage, and registry/docs deduplication.
 
@@ -22,17 +22,17 @@ The next phase should improve reliability and repeatability, not breadth. The hi
    The app uses official domains, closest-supported timing/count models, and explicit readiness language. It does not claim to reproduce confidential scaled scoring or proprietary PBQ delivery.
 
 4. **Prioritize quality over catalog size.**
-   The live set is intentionally smaller than the authored set. A+, Network+, Security+, Splunk, Terraform, CLF-C02, and SAA-C03 are the live product. AZ-900, Google CDL, CCST, CCNA, NVIDIA, Server+, Linux+, and DCCA stay parked.
+   The live set is intentionally smaller than the authored set. A+, Network+, CCST Networking, Security+, Splunk, Terraform, CLF-C02, and SAA-C03 are the live product. AZ-900, Google CDL, CCNA, NVIDIA, Server+, Linux+, and DCCA stay parked.
 
 5. **Make the product useful to the owner as the first user.**
-   Network+ established the end-to-end learner loop: diagnostic, mastery map, study plan, exam debrief, and case practice. A+ Core 1, A+ Core 2, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same loop, adapted to A+ support objectives, security objectives, cloud foundation domains, AWS architecture domains, Splunk blueprint domains, and Terraform subobjectives. A+ also has the strongest content quality gates. The dashboard starting point is now consistent across certs.
+   Network+ established the end-to-end learner loop: diagnostic, mastery map, study plan, exam debrief, and case practice. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same loop, adapted to A+ support objectives, Cisco foundation domains, security objectives, cloud foundation domains, AWS architecture domains, Splunk blueprint domains, and Terraform subobjectives. A+ also has the strongest content quality gates. The dashboard starting point is now consistent across certs.
 
 ## Current Offering Snapshot
 
 | Area | Status | Assessment |
 | --- | --- | --- |
-| Live IT modules | 8 modules, 5,918 questions | Focused and defensible |
-| Coming Soon IT modules | 9 modules, 5,775 questions | Correctly parked |
+| Live IT modules | 9 modules, 6,668 questions | Focused and defensible |
+| Coming Soon IT modules | 8 modules, 5,025 questions | Correctly parked |
 | Real Estate | Hidden sister-site prototype | Preserve, but do not relaunch yet |
 | Future sister sites | CDL and NCLEX documented | Defer until core product is harder to break |
 | Local-first storage | Functional | Needs durability and recovery work |
@@ -48,6 +48,7 @@ The next phase should improve reliability and repeatability, not breadth. The hi
 | CompTIA A+ Core 2 | A+ | Entry IT foundation | Strongest beginner module; now combines A+ content gates with diagnostic, mastery map, study plan, debrief, and Core 2 case practice |
 | CompTIA Network+ | A- | Flagship networking cert | Full diagnostic, mastery map, study plan, exam debrief, and case-practice workflow |
 | CompTIA Security+ | A- | Cybersecurity baseline | Now has Network+-style diagnostic, mastery map, study plan, debrief, and security case practice |
+| Cisco CCST Networking | B+ | Cisco-first networking foundation | Promoted after source check, 750 unique evidence-led stems, six-domain diagnostic, mastery map, study plan, debrief, and case practice |
 | AWS Cloud Practitioner | A- | Optional cloud foundation | Now has domain-backed diagnostic, mastery map, study plan, debrief, and cloud scenario practice |
 | AWS SAA-C03 | A- | Cloud architecture tier | Valuable role-facing module; now has domain-backed diagnostic, mastery map, study plan, exam debrief, and architecture case practice |
 | Splunk Core Certified User | B+ | Applied SOC tooling | Meets bar; now has domain-backed diagnostic, mastery map, study plan, debrief, and search evidence case practice |
@@ -59,7 +60,6 @@ The next phase should improve reliability and repeatability, not breadth. The hi
 | --- | --- | --- |
 | AZ-900 | Coming Soon | Useful only for specific Azure goals; not core to the current career path |
 | Google Cloud Digital Leader | Coming Soon | Slightly off-strategy for the AWS-centric cloud path |
-| CCST Networking | Coming Soon | Good CCNA feeder idea, but needs repetition and fidelity cleanup |
 | CCNA | Coming Soon | Preserved bank targets future 200-301 v2.0; current public exam remains v1.1 until February 2, 2027 |
 | NVIDIA AIIO / GENL | Coming Soon | Authored but not enough role-fit or simulation maturity for homepage priority |
 | Server+ | Coming Soon | Potential data-center value, but practical troubleshooting needs revision |
@@ -69,7 +69,7 @@ The next phase should improve reliability and repeatability, not breadth. The hi
 ## Verification Performed
 
 - `npm audit --omit=dev`: zero vulnerabilities.
-- `npm run validate:content`: 1,025 content sanity tests passed.
+- `npm test -- --run src/__tests__/content-sanity.test.js`: 1,049 content sanity tests passed.
 - `npm run audit:aplus`: Core 1 and Core 2 each have 760 unique answer interactions, 20 PBQ-lite items, zero duplicate/canonical duplicate stem groups, and 500 validated randomized forms.
 - `npm run audit:netplus`: 760 questions, zero duplicate/template groups, 52 practical questions, and 500 validated forms.
 - `npm run audit:secplus`: 760 objective-ledger rows, zero duplicate/template groups, zero operational-ticket stems, zero objective fallbacks, 33 practical questions, and 500 validated forms.
@@ -142,7 +142,7 @@ The competitive gap is not another cert. The gap is confidence infrastructure: r
 - Maintain A+ A+ grade gates.
 - Preserve the foundation learning-loop model now shared by A+ Core 1, A+ Core 2, Network+, Security+, CLF-C02, SAA-C03, Splunk, and Terraform.
 - Improve Splunk, Terraform, and SAA review quality through sampling and targeted rewrites.
-- Keep CCNA, CCST, Linux+, Server+, DCCA, NVIDIA, AZ-900, and Google CDL parked.
+- Keep CCNA, Linux+, Server+, DCCA, NVIDIA, AZ-900, and Google CDL parked.
 
 ## Board-Level Recommendation
 

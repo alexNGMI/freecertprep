@@ -1,6 +1,7 @@
 export const LIVE_CERT_IDS = new Set([
   'clf-c02',
   'aws-saa-c03',
+  'ccst-networking',
   'comptia-a-plus-core-1',
   'comptia-a-plus-core-2',
   'comptia-net-plus',
@@ -12,7 +13,6 @@ export const LIVE_CERT_IDS = new Set([
 export const COMING_SOON_CERT_IDS = new Set([
   'az-900',
   'cdl',
-  'ccst-networking',
   'nca-aiio',
   'nca-genl',
   'comptia-server-plus',

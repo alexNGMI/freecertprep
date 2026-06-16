@@ -123,6 +123,7 @@ describe('cert registry', () => {
     expect(certs['comptia-a-plus-core-2'].source.readinessGrade).toBe('A+')
     expect(certs['splunk-core-certified-user'].source.readinessGrade).toBe('B+')
     expect(certs['terraform-associate'].source.readinessGrade).toBe('B+')
+    expect(certs['ccst-networking'].source.readinessGrade).toBe('B+')
     expect(certs['comptia-net-plus'].source.readinessGrade).toBe('A-')
     expect(certs['comptia-sec-plus'].source.readinessGrade).toBe('A-')
     expect(certs['comptia-a-plus-core-1'].source.editorialStatus).toMatch(/full-bank interaction rewrite/i)
@@ -499,11 +500,69 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }
   })
 
-  it('live A+ and Splunk banks avoid synthetic ticket framing', () => {
+  it('Cisco CCST Networking follows the official 100-150 domain shape and quality gate', () => {
+    if (certId !== 'ccst-networking') return
+
+    const byDomain = questions.reduce((acc, q) => {
+      acc[q.domain] = (acc[q.domain] || 0) + 1
+      return acc
+    }, {})
+    expect(byDomain).toEqual({
+      'Standards and Concepts': 113,
+      'Addressing and Subnet Formats': 150,
+      'Endpoints and Media Types': 150,
+      Infrastructure: 150,
+      'Diagnosing Problems': 112,
+      Security: 75,
+    })
+
+    const byType = questions.reduce((acc, question) => {
+      const type = typeOf(question)
+      acc[type] = (acc[type] || 0) + 1
+      return acc
+    }, {})
+    expect(byType).toEqual({
+      'single-choice': 450,
+      'multiple-response': 150,
+      matching: 75,
+      ordering: 75,
+    })
+
+    const normalized = new Set(questions.map(question =>
+      question.question
+        .toLowerCase()
+        .replace(/`[^`]+`/g, '<code>')
+        .replace(/\d+/g, '#')
+        .replace(/[^a-z#<>]+/g, ' ')
+        .trim()
+    ))
+    expect(new Set(questions.map(question => question.question)).size).toBe(750)
+    expect(normalized.size).toBe(750)
+
+    const selectedResponse = questions.filter(question =>
+      ['single-choice', 'multiple-response'].includes(typeOf(question))
+    )
+    expect(selectedResponse).toHaveLength(600)
+    expect(selectedResponse.every(question => question.evidenceArtifacts?.length === 1)).toBe(true)
+    expect(questions.every(question => question.evidenceArtifacts?.length === 1)).toBe(true)
+    expect(questions.every(question =>
+      /Why this is right:.*Why the alternatives are wrong:.*Review takeaway:/.test(question.explanation)
+    )).toBe(true)
+
+    for (const question of questions) {
+      expect(question.question, `${question.id} contains old generated case phrasing`).not.toMatch(
+        /case \d+|learner|review sheet|CCNA study plan|support ticket|ticket handoff/i,
+      )
+      expect(question.explanation.length, `${question.id} needs review-quality rationale`).toBeGreaterThanOrEqual(220)
+    }
+  })
+
+  it('live A+, Splunk, and CCST banks avoid synthetic ticket framing', () => {
     if (![
       'comptia-a-plus-core-1',
       'comptia-a-plus-core-2',
       'splunk-core-certified-user',
+      'ccst-networking',
     ].includes(certId)) return
 
     for (const q of questions) {
@@ -521,6 +580,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
       'comptia-a-plus-core-1': 760,
       'comptia-a-plus-core-2': 760,
       'splunk-core-certified-user': 750,
+      'ccst-networking': 750,
     }
     if (!minimumUniqueStems[certId]) return
 

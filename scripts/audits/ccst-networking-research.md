@@ -1,6 +1,7 @@
 # Cisco CCST Networking Research
 
 Date: 2026-05-22
+Updated: 2026-06-16
 
 ## Positioning
 
@@ -8,7 +9,8 @@ Cisco Certified Support Technician (CCST) Networking is a good fit for freecertp
 
 ## Official References
 
-- Cisco CCST Networking exam page: `https://www.cisco.com/c/en/us/training-events/training-certifications/exams/current-list/ccst-networking-exam.html`
+- Cisco CCST Networking exam topics: `https://learningnetwork.cisco.com/s/ccst-networking-exam-topics`
+- Cisco CCST Networking exam page: `https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccst-networking.html`
 - Cisco CCST Networking training page: `https://www.cisco.com/site/us/en/learn/training-certifications/training/courses/ccst-networking.html`
 - Cisco support technician exams and training: `https://www.cisco.com/site/us/en/learn/training-certifications/certifications/support-technician/exams-training.html`
 - Cisco exam policies: `https://www.cisco.com/site/us/en/learn/training-certifications/exams/policies.html`
@@ -59,19 +61,19 @@ Production item mix:
 
 ## Catalog Integration
 
-CCST Networking should appear as:
+CCST Networking appears as:
 
 - Provider: Cisco
 - Cert id: `ccst-networking`
 - Networking path role: Cisco / CCNA-oriented alternative to Network+
 - Direct catalog role: standalone foundational networking certification
 
-The Networking guided path should offer:
+The Networking guided path offers:
 
 1. CompTIA Network+ as the vendor-neutral route
 2. Cisco CCST Networking as the Cisco/CCNA-oriented route
-3. CompTIA Server+ as the systems follow-up
+3. CCNA as the future Cisco career credential once release alignment and simulation gates are ready
 
 ## Production Status
 
-CCST Networking now ships 750 reviewed questions, matching the depth standard used by the mature CompTIA pools.
+CCST Networking now ships live at B+ readiness. The June 16 quality pass removed templated "case" phrasing, regenerated all 750 stems as exact and normalized-unique, added evidence artifacts to all 750 items, and standardized every explanation around why the answer is right, why the alternatives are wrong, and the review takeaway. The module also uses the shared diagnostic -> mastery map -> study plan -> exam debrief -> case-practice workflow with the six official CCST Networking domains as measurable targets.

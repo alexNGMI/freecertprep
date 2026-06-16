@@ -44,8 +44,8 @@ CCNA remains parked during this sequence. The goal is to improve the realism and
 
 Implemented June 8, 2026:
 
-- Live: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, Security+, Splunk Core User, and Terraform Associate.
-- Coming Soon: AZ-900, Google CDL, CCST Networking, CCNA, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA.
+- Live: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, CCST Networking, Security+, Splunk Core User, and Terraform Associate.
+- Coming Soon: AZ-900, Google CDL, CCNA, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA.
 - Homepage lanes: A+, Networking, Cybersecurity, and Cloud only.
 - NVIDIA and Data Center Technician lanes remain implemented but are removed from homepage discovery.
 - Real Estate remains in the codebase and is reachable only from Docs for internal review.
@@ -93,7 +93,7 @@ Scoring dimensions:
 | Google Cloud Digital Leader | A- content fit / Coming Soon | Official exam is 50-60 multiple-choice questions over 90 minutes; current 749-question six-section pool aligns well. | App fixes 50 questions instead of 50-60; explanations can be more business-outcome oriented, and the module currently sits outside the focused public directions. | Keep Coming Soon; revisit only when Google Cloud becomes a deliberate product priority. |
 | NVIDIA AI Infrastructure & Operations | B | Official page says 50 questions / 60 minutes; domain split is aligned after rebalance. | Only 336 questions, lower scenario realism, and some NVIDIA operational topics need more applied data-center context. | Expand to 500-750 after higher-priority rewrites; add GPU cluster/logistics scenarios. |
 | NVIDIA Generative AI LLMs | B- | Good foundational selected-response fit; 330 questions; covers NVIDIA LLM associate topics. | Low scenario rate; needs stronger applied RAG, inference, evaluation, safety, and deployment tradeoff items. | Expand and scenario-ize only after Linux+/DCCA/Splunk polish. |
-| CCST Networking, 100-150 | B | 750 questions and close blueprint alignment; good entry networking practice. | Real Cisco exam interface and item set are simplified; high normalized repetition means some items feel templated. | Rewrite repeated normalized clusters; add more packet/output evidence. |
+| CCST Networking, 100-150 | B+ | 750 exact and normalized-unique questions, close six-domain blueprint alignment, evidence artifacts on all 750 items, structured explanations, and a domain-backed learning loop. | Real Cisco exam interface and confidential item delivery remain outside browser simulation scope. | Keep live; maintain the CCST quality gate and source review. |
 | CCNA, 200-301 | Preview | Strong advanced simulation surface: CLI output, topology scenarios, config repair, subnetting drills, and 750 future-v2.0 questions. | Cisco v1.1 remains active through February 2, 2027; the bank targets v2.0 and cannot be labeled current-exam practice. | Keep Coming Soon; re-audit against the active v2.0 release on or after February 3, 2027. |
 | A+ Core 1, 220-1201 | A+ | 760 unique stems and answer interactions, all 27 official objectives represented, balanced answer positions, 20 evidence-based PBQ-lite scenarios, structured review teaching, and 500 validated forms. | Proprietary CompTIA PBQ delivery, partial credit, and scaled scoring remain outside browser simulation scope. | Maintain the strict audit and official-source review. |
 | A+ Core 2, 220-1202 | A+ | 760 unique stems and answer interactions, all 36 official objectives represented, balanced answer positions, 20 evidence-based PBQ-lite scenarios, structured review teaching, and 500 validated forms. | Proprietary CompTIA PBQ delivery, partial credit, and scaled scoring remain outside browser simulation scope. | Maintain the strict audit and official-source review. |
@@ -332,7 +332,7 @@ Why fourth: these anchor the Networking path and job-value positioning.
 
 Actions:
 
-1. CCST: rewrite repeated normalized clusters and add more practical evidence.
+1. Completed June 16, 2026: CCST repeated normalized clusters were rewritten, all 750 items gained evidence artifacts, and the module was promoted at B+ readiness.
 2. CCNA: improve advanced scenarios rather than increasing count:
    - more OSPF evidence
    - more VLAN/trunk symptoms
@@ -346,7 +346,7 @@ Status update, June 13, 2026: CCNA moved to Coming Soon after the source audit c
 Acceptance criteria:
 
 - CCNA remains preserved and visible as a Coming Soon path milestone.
-- CCST feels less templated.
+- CCST stays live with exact and normalized-unique stems plus evidence-led selected-response practice.
 - Network path copy can say: "Network+ or CCST for foundation, CCNA for Cisco associate readiness."
 
 ### Phase 5: Reconcile Real Estate
@@ -405,7 +405,7 @@ Only resume major catalog expansion when:
 
 After that, the most rational expansion options are:
 
-1. CCST Networking promotion, if networking-path depth is the priority.
+1. Maintain CCST Networking gates after its June 16 promotion.
 2. Server+ promotion, if infrastructure support is the priority.
 3. Linux+ only with a substantial command/output rewrite.
 4. AZ-900 or Google CDL if a selected-response cloud module is the best low-risk promotion.
@@ -443,7 +443,7 @@ PBQ simulation began June 8, 2026 and the Network+ A-grade pass completed June 1
 ### P3
 
 - Re-grade Coming Soon candidates and promote only one at a time.
-- CCST synthetic-ticket and normalized-cluster cleanup before publication.
+- CCST source and quality gate maintenance after publication.
 - Linux+ command/output rewrite before publication.
 - DCCA source and facility-scenario rewrite before publication.
 - NVIDIA scenario expansion only if its hidden path becomes a product priority.

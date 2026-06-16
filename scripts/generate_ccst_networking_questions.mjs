@@ -118,16 +118,72 @@ const typePlan = [
   'ordering',
 ]
 
-const ccstContexts = [
-  'while checking a small-office outage',
-  'during a new switch deployment',
-  'while reviewing a help desk escalation',
-  'during a classroom lab',
-  'while documenting a branch-office issue',
-  'during a wireless support call',
-  'while preparing a CCNA study plan',
-  'during a ticket handoff',
+const siteNames = [
+  'Alder', 'Beacon', 'Cedar', 'Delta', 'Ember', 'Foundry', 'Granite', 'Harbor',
+  'Juniper', 'Keystone', 'Lantern', 'Meridian', 'Northstar', 'Orchard', 'Pioneer',
+  'Quartz', 'Riverbend', 'Summit', 'Timber', 'Union', 'Valley', 'Westport',
+  'Yardley', 'Zephyr',
 ]
+
+const workAreas = [
+  'reception', 'training room', 'shipping desk', 'operations pod', 'warehouse',
+  'conference wing', 'clinic desk', 'sales floor', 'lab bench', 'secure closet',
+  'remote-user room', 'print station', 'server alcove', 'front counter',
+  'call-center row', 'engineering bench', 'inventory cage', 'guest lobby',
+  'building uplink', 'staging cart', 'executive suite', 'service counter',
+  'camera pole', 'classroom rack', 'maintenance bay', 'billing desk',
+  'telehealth room', 'design studio', 'dispatch wall', 'branch entrance',
+  'access-layer rack',
+]
+
+const reviewMoments = [
+  'morning validation',
+  'post-change check',
+  'first-response review',
+  'handoff review',
+  'walkthrough',
+  'maintenance window',
+  'connectivity check',
+]
+
+const scenarioVerbs = {
+  'Standards and Concepts': [
+    'maps a symptom to the correct protocol layer',
+    'documents why a protocol choice fits a network function',
+    'reviews the behavior of a host before choosing the concept',
+    'checks which networking model term explains an observed result',
+  ],
+  'Addressing and Subnet Formats': [
+    'checks an IP configuration before changing the port',
+    'compares a host address with the local subnet',
+    'reviews why traffic is staying local or going to the gateway',
+    'validates the address information used by a client',
+  ],
+  'Endpoints and Media Types': [
+    'identifies the endpoint or medium before replacing hardware',
+    'checks the access-layer connection used by an endpoint',
+    'reviews which media property explains the observed link behavior',
+    'documents the connector, power, or signaling clue in a support note',
+  ],
+  Infrastructure: [
+    'identifies the network device role before changing configuration',
+    'reviews how a service or forwarding device supports the LAN',
+    'checks which infrastructure component belongs in the path',
+    'documents the switching, routing, wireless, or filtering function',
+  ],
+  'Diagnosing Problems': [
+    'chooses the next diagnostic check from the symptom evidence',
+    'isolates the failing layer before changing settings',
+    'reviews the output that points to the most likely fault',
+    'documents the test that best proves the suspected cause',
+  ],
+  Security: [
+    'selects the control that reduces the network risk',
+    'reviews which security principle applies to the access decision',
+    'checks how a basic protection maps to the observed exposure',
+    'documents the safest beginner-level security action',
+  ],
+}
 
 function idFor(domain, n) {
   return `ccst-${domain.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}-${String(n).padStart(3, '0')}`
@@ -137,8 +193,98 @@ function rotate(arr, n) {
   return arr[n % arr.length]
 }
 
-function context(n) {
-  return `${ccstContexts[n % ccstContexts.length]} on case ${String(n + 1).padStart(3, '0')}`
+function site(n) {
+  return `${siteNames[n % siteNames.length]} office`
+}
+
+function scenario(domain, n) {
+  return `At the ${site(n)} ${rotate(workAreas, n)}, a support technician ${rotate(scenarioVerbs[domain], n)} during a ${rotate(reviewMoments, n)}.`
+}
+
+function reviewExplanation({ correct, wrong, takeaway }) {
+  return `Why this is right: ${correct} Why the alternatives are wrong: ${wrong} Review takeaway: ${takeaway}`
+}
+
+function evidenceFor(domain, fact, n) {
+  const [term, definition] = fact
+  const host = `WS-${String(20 + (n % 70)).padStart(2, '0')}`
+  const vlan = 10 + (n % 6) * 10
+  const subnet = 10 + (n % 40)
+  const port = `Gi0/${(n % 24) + 1}`
+  const artifacts = {
+    'Standards and Concepts': [
+      {
+        type: 'table',
+        title: 'Observed network behavior',
+        columns: ['Observation', 'Relevant clue'],
+        rows: [
+          ['Function being reviewed', definition],
+          ['Affected device', n % 2 ? 'Switch access port' : 'Client workstation'],
+          ['Term to identify', term],
+        ],
+      },
+    ],
+    'Addressing and Subnet Formats': [
+      {
+        type: 'console',
+        title: 'Host addressing excerpt',
+        lines: [
+          `${host}> ipconfig`,
+          `IPv4 Address . . . . . . . . . . : 192.168.${subnet}.${40 + (n % 90)}`,
+          `Subnet Mask . . . . . . . . . . : ${n % 3 === 0 ? '255.255.255.0' : '255.255.255.252'}`,
+          `Default Gateway . . . . . . . . : 192.168.${subnet}.1`,
+        ],
+      },
+    ],
+    'Endpoints and Media Types': [
+      {
+        type: 'table',
+        title: 'Endpoint connection note',
+        columns: ['Item', 'Evidence'],
+        rows: [
+          ['Endpoint', n % 3 === 0 ? 'IP phone' : n % 3 === 1 ? 'Wireless laptop' : 'Access switch uplink'],
+          ['Connection', definition],
+          ['Support focus', term],
+        ],
+      },
+    ],
+    Infrastructure: [
+      {
+        type: 'table',
+        title: 'Infrastructure path note',
+        columns: ['Component', 'Observed role'],
+        rows: [
+          ['Device or service', term],
+          ['Path detail', definition],
+          ['Interface or segment', `${port} / VLAN ${vlan}`],
+        ],
+      },
+    ],
+    'Diagnosing Problems': [
+      {
+        type: 'console',
+        title: 'Troubleshooting evidence',
+        lines: [
+          `${host}> ${n % 2 ? 'ping 192.168.' + subnet + '.1' : 'nslookup intranet.local'}`,
+          n % 2 ? 'Reply from gateway: bytes=32 time<1ms TTL=64' : 'DNS request timed out.',
+          `Support note: ${definition}`,
+        ],
+      },
+    ],
+    Security: [
+      {
+        type: 'table',
+        title: 'Basic security review',
+        columns: ['Risk or goal', 'Evidence'],
+        rows: [
+          ['Control area', term],
+          ['Why it matters', definition],
+          ['Environment', `${site(n)} guest and employee access`],
+        ],
+      },
+    ],
+  }
+  return artifacts[domain]
 }
 
 function shuffleWithMatches(itemsRight, offset) {
@@ -158,10 +304,10 @@ function single(domain, fact, n) {
   const offset = n % choices.length
   const rotated = [...choices.slice(offset), ...choices.slice(0, offset)]
   const prompts = [
-    `A junior technician is reviewing a support ticket ${context(n)}. The clue says: "${definition}" Which networking concept is being described?`,
-    `A help desk technician sees this description in a knowledge-base note ${context(n)}: "${definition}" Which term best matches it?`,
-    `A learner is mapping Cisco CCST Networking concepts to support tasks ${context(n)}. Which option matches this description: "${definition}"?`,
-    `A network support ticket includes this finding ${context(n)}: "${definition}" What should the technician identify it as?`,
+    `${scenario(domain, n)} The note says: "${definition}" Which networking concept is being described?`,
+    `${scenario(domain, n)} Which term best matches this evidence: "${definition}"?`,
+    `${scenario(domain, n)} The technician needs the Cisco CCST term for this behavior: "${definition}" What should be selected?`,
+    `${scenario(domain, n)} Which option identifies the concept shown by this clue: "${definition}"?`,
   ]
   return {
     type: 'single-choice',
@@ -169,7 +315,12 @@ function single(domain, fact, n) {
     question: prompts[n % prompts.length],
     choices: rotated,
     correctAnswer: rotated.indexOf(term),
-    explanation,
+    evidenceArtifacts: evidenceFor(domain, fact, n),
+    explanation: reviewExplanation({
+      correct: explanation,
+      wrong: `${wrong.join(', ')} belong to other CCST networking categories or support tasks and do not match the clue in this item.`,
+      takeaway: `For CCST Networking, connect the observed evidence to the specific term before choosing a tool, device, or fix.`,
+    }),
   }
 }
 
@@ -179,9 +330,9 @@ function multipleResponse(domain, facts, n) {
   const wrong = distractors[domain].slice(0, 2)
   const choices = [a[0], wrong[0], b[0], wrong[1]]
   const prompts = [
-    `A learner is building a Cisco CCST review sheet ${context(n)}. Which two choices belong to ${domain}? (Select two.)`,
-    `A technician is sorting ticket notes by objective area ${context(n)}. Which two entries match ${domain}? (Select two.)`,
-    `A mentor asks a trainee to identify concepts from ${domain} ${context(n)}. Which two should the trainee choose? (Select two.)`,
+    `${scenario(domain, n)} Which two choices belong to ${domain}? (Select two.)`,
+    `${scenario(domain, n)} Which two entries match this CCST Networking domain? (Select two.)`,
+    `${scenario(domain, n)} Which two terms should be grouped under ${domain}? (Select two.)`,
   ]
   return {
     type: 'multiple-response',
@@ -189,7 +340,12 @@ function multipleResponse(domain, facts, n) {
     question: prompts[n % prompts.length],
     choices,
     correctAnswers: [0, 2],
-    explanation: `${a[0]} and ${b[0]} are both tested within ${domain}. ${a[2]} ${b[2]}`,
+    evidenceArtifacts: evidenceFor(domain, a, n),
+    explanation: reviewExplanation({
+      correct: `${a[0]} and ${b[0]} are both tested within ${domain}. ${a[2]} ${b[2]}`,
+      wrong: `${wrong[0]} and ${wrong[1]} are plausible networking vocabulary, but they point to different domains or operating concerns than the one being measured.`,
+      takeaway: 'For select-two CCST items, eliminate choices from the wrong domain before comparing the remaining concepts.',
+    }),
   }
 }
 
@@ -216,11 +372,16 @@ function matching(domain, facts, n) {
   return {
     type: 'matching',
     domain,
-    question: `Match each ${domain.toLowerCase()} term to the best description ${context(n)}.`,
+    question: `${scenario(domain, n)} Match each ${domain.toLowerCase()} term to the best description.`,
     itemsLeft: selected.map(f => f[0]),
     itemsRight: shuffled.itemsRight,
     correctMatches: shuffled.correctMatches,
-    explanation: selected.map(f => `${f[0]}: ${f[2]}`).join(' '),
+    evidenceArtifacts: evidenceFor(domain, selected[0], n),
+    explanation: reviewExplanation({
+      correct: selected.map(f => `${f[0]}: ${f[2]}`).join(' '),
+      wrong: 'A mismatched pair usually crosses layers, confuses media with services, or treats a troubleshooting symptom as a device role.',
+      takeaway: `Matching practice should reinforce the boundaries between ${domain} concepts rather than only memorizing terms.`,
+    }),
   }
 }
 
@@ -269,10 +430,15 @@ function ordering(domain, facts, n) {
   return {
     type: 'ordering',
     domain,
-    question: `Place the support workflow steps in the best order for a task in ${domain.toLowerCase()} ${context(n)}.`,
+    question: `${scenario(domain, n)} Place the support workflow steps in the best order for a task in ${domain.toLowerCase()}.`,
     items: display.map(i => steps[i][0]),
     correctOrder: order.map(i => display.indexOf(i)),
-    explanation: steps.map(([, why], i) => `Step ${i + 1}: ${why}`).join(' '),
+    evidenceArtifacts: evidenceFor(domain, rotate(facts, n), n),
+    explanation: reviewExplanation({
+      correct: steps.map(([, why], i) => `Step ${i + 1}: ${why}`).join(' '),
+      wrong: 'Changing configuration, replacing hardware, or escalating before the evidence is checked can skip the failing layer and hide the root cause.',
+      takeaway: 'CCST workflow questions reward a simple support order: observe, classify, verify, then act or escalate.',
+    }),
   }
 }
 

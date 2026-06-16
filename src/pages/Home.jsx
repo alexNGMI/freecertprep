@@ -37,8 +37,8 @@ const paths = [
     color: '#f97316',
     to: '/paths/networking',
     roles: ['NOC Technician', 'Network Support', 'Junior Network Administrator'],
-    available: ['Network+'],
-    upcoming: ['CCST Networking', 'CCNA'],
+    available: ['Network+', 'CCST Networking'],
+    upcoming: ['CCNA'],
     certIds: ['comptia-net-plus', 'ccst-networking', 'ccna-200-301'],
   },
   {
