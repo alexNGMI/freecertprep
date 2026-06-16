@@ -32,6 +32,16 @@ The official certification page describes a 60-question multiple-choice exam. Si
 - Matching: concept-to-purpose learning drills for commands, UI elements, and knowledge objects; excluded from simulated exams.
 - Ordering: workflow learning drills for search, reporting, dashboards, and alerts; excluded from simulated exams.
 
+## Guided Learning Loop
+
+Splunk uses the shared diagnostic -> mastery map -> personal plan -> exam debrief -> case-practice workflow as a domain-backed module. It does not invent objective IDs because the current bank and public blueprint are organized around eight exam domains.
+
+- Diagnostic: 32 questions, sampling the eight Splunk Core User domains.
+- Mastery map: Strong, Developing, Weak, and Not measured states by exam domain.
+- Personal plan: domain-targeted search, field, transforming command, report/dashboard, lookup, scheduled report, and alert practice.
+- Case practice: evidence-led search scenarios using SPL, event/result tables, field behavior, lookup/report/dashboard context, and alert requirements.
+- Exam debrief: missed full-exam items roll back into the domain priorities and case-practice recommendations.
+
 ## Quality Gates
 
 - `src/__tests__/content-sanity.test.js` locks exact blueprint-weighted counts.

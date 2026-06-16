@@ -73,6 +73,16 @@ editorial concepts per objective.
 allocation, explanation quality, evidence structure, uniqueness, and 500
 randomized 57-question forms.
 
+## Guided Learning Loop
+
+Terraform now uses the shared diagnostic -> mastery map -> personal plan -> exam debrief -> case-practice workflow as an objective-backed module. The bank already carries 37 implemented `objectiveId` values, so the learner-facing loop measures Terraform subobjectives rather than only the eight broader practice domains.
+
+- Diagnostic: 40 questions, enough to touch all 37 implemented subobjectives with a small amount of extra sampling.
+- Mastery map: Strong, Developing, Weak, and Not measured states across Terraform subobjectives.
+- Personal plan: provider, workflow, configuration, module, state, maintenance, and HCP Terraform targets are sequenced from the learner's own evidence.
+- Case practice: HCL, plan output, state, module/provider, CLI maintenance, and HCP Terraform run evidence are selected from the existing evidence-led bank.
+- Exam debrief: missed simulator questions roll back into subobjective priorities and infrastructure case-practice recommendations.
+
 ## Readiness Assessment
 
 The bank remains a B+ simulation. This pass materially improves review mode and

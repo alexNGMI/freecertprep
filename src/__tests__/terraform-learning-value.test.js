@@ -126,4 +126,14 @@ describe('Terraform Associate 004 learning-value bank', () => {
       expect(byType['multiple-response']).toBeGreaterThanOrEqual(4)
     }
   })
+
+  it('exposes all Terraform subobjectives for guided learning loops', () => {
+    const cert = certs['terraform-associate']
+    const registeredObjectiveIds = new Set(cert.objectives.map(objective => objective.id))
+    const questionObjectiveIds = new Set(questions.map(question => question.objectiveId))
+
+    expect(cert.objectives).toHaveLength(37)
+    expect(registeredObjectiveIds).toEqual(questionObjectiveIds)
+    expect(cert.objectives.every(objective => objective.domain && objective.title)).toBe(true)
+  })
 })

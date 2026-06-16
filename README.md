@@ -62,7 +62,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Network+ Personal Learning Loop is live:** N10-009 now adds a balanced 35-question diagnostic, four-state objective mastery map, evidence-driven 7/14/30-day plans, objective-level full-exam debriefs, and ten-question applied case sets built from CLI, topology, configuration, matching, and subnetting work. The system remains local-first and treats untouched objectives as Not measured rather than weak.
 
-> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, Security+, AWS Cloud Practitioner, and SAA-C03 now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+ and Security+ use official objectives; CLF-C02 and SAA-C03 use domain-backed targets.
+> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, Security+, AWS Cloud Practitioner, SAA-C03, Splunk Core User, and Terraform Associate now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+, Security+, and Terraform use objective-backed targets; CLF-C02, SAA-C03, and Splunk use domain-backed targets.
 
 > **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and SAA now adds a domain-backed diagnostic, mastery map, study plan, exam debrief, and architecture case practice around secure, resilient, high-performing, and cost-optimized design.
 
@@ -73,6 +73,8 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 > **Role-specialty path copy is live:** Cloud frames Terraform as the deployable infrastructure skill after AWS fundamentals and architecture. Cybersecurity frames Security+ as the recognized baseline and Splunk as the practical SOC tooling layer.
 
 > **Splunk is live:** Splunk Core Certified User (SPLK-1001) ships a 750-question production pool aligned to the official 5/22/20/15/12/6/5 blueprint weights. It is the Cybersecurity direction's applied SOC tooling layer after the Security+ career credential.
+
+> **Splunk and Terraform guided loops are live:** Splunk now adds a 32-question domain diagnostic, mastery map, personal plan, exam debrief, and evidence-based search case practice. Terraform now adds a 40-question subobjective diagnostic, mastery map, personal plan, exam debrief, and HCL/plan/state/HCP case practice across all 37 implemented subobjectives.
 
 > **AI infrastructure revision:** Linux+, NVIDIA AI Infrastructure & Operations, and NVIDIA Generative AI remain authored but are Coming Soon while their simulation realism is improved.
 

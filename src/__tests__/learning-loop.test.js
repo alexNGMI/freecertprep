@@ -150,4 +150,32 @@ describe('Network+ learning loop', () => {
       'Cost optimization',
     ])
   })
+
+  it('registers Splunk as a domain-backed search learning-loop module', () => {
+    const config = getLearningLoopConfig('splunk-core-certified-user')
+
+    expect(hasLearningLoop('splunk-core-certified-user')).toBe(true)
+    expect(config.useDomainObjectives).toBe(true)
+    expect(config.diagnosticSize).toBe(32)
+    expect(config.caseCategories).toEqual([
+      'Search and SPL evidence',
+      'Field and result reasoning',
+      'Transforming commands',
+      'Reports, dashboards, lookups, and alerts',
+    ])
+  })
+
+  it('registers Terraform as an objective-backed infrastructure learning-loop module', () => {
+    const config = getLearningLoopConfig('terraform-associate')
+
+    expect(hasLearningLoop('terraform-associate')).toBe(true)
+    expect(config.useDomainObjectives).toBeUndefined()
+    expect(config.diagnosticSize).toBe(40)
+    expect(config.caseCategories).toEqual([
+      'Plan and apply review',
+      'State and drift repair',
+      'HCL configuration',
+      'HCP Terraform operations',
+    ])
+  })
 })

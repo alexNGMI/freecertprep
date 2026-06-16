@@ -19,7 +19,7 @@ Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
 The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul and trust/metadata pass are now complete. Local data durability is the next active phase.
 
-Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, Security+, AWS Cloud Practitioner, and SAA-C03 now use the same learning-loop architecture, adapted to A+ and Security+ objectives plus CLF-C02 and SAA-C03 domain targets. This improves the foundational offering without expanding the catalog.
+Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture, adapted to A+, Security+, and Terraform objectives plus CLF-C02, SAA-C03, and Splunk domain targets. This improves the live offering without expanding the catalog.
 
 The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md`.
 
@@ -33,8 +33,8 @@ The June 16 offering audit confirms the same strategic direction: the current ca
 | CompTIA A+ Core 2 | A+ | Full-bank interaction rewrite, 20 practicals, 500-form gate, diagnostic, mastery map, study plan, debrief, and case practice verified |
 | CompTIA Network+ | A- | Preserve objective ledger, practical form gates, diagnostic, mastery map, study plan, exam debrief, and case practice |
 | CompTIA Security+ | A- | Preserve objective ledger, mixed-interaction gates, diagnostic, mastery map, study plan, exam debrief, and security case practice |
-| Splunk Core Certified User | B+ | Maintain evidence, uniqueness, and explanation gates |
-| HashiCorp Terraform Associate | B+ | Maintain objective and operational-review gates |
+| Splunk Core Certified User | B+ | Maintain evidence, uniqueness, explanation gates, domain diagnostic, mastery map, study plan, debrief, and search case practice |
+| HashiCorp Terraform Associate | B+ | Maintain objective and operational-review gates plus subobjective diagnostic, mastery map, study plan, debrief, and infrastructure case practice |
 | AWS Cloud Practitioner | A- | Maintain source alignment plus domain-backed diagnostic, mastery map, study plan, exam debrief, and cloud scenario practice |
 | AWS Solutions Architect - Associate | A- | Maintain architecture-focused review plus domain-backed diagnostic, mastery map, study plan, debrief, and case practice |
 
@@ -61,7 +61,7 @@ AZ-900, Google Cloud Digital Leader, CCST Networking, CCNA, NVIDIA AI Infrastruc
 - Question banks are lazy-loaded by certification.
 - Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+.
 - Catalog expansion remains frozen.
-- Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, Security+, CLF-C02, and SAA-C03 point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
+- Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, Security+, CLF-C02, SAA-C03, Splunk, and Terraform point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
 
 ## Ordered Next Steps
 
@@ -78,11 +78,13 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 
 ### Foundation Learning Loop Parity - Completed June 16, 2026
 
-- extended the learning-loop routes from Network+ to Security+, AWS Cloud Practitioner, and SAA-C03;
+- extended the learning-loop routes from Network+ to Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform;
 - extended the same loop to A+ Core 1 and A+ Core 2, using their 63 official objectives and 40 PBQ-lite practical scenarios;
 - added Security+ diagnostic, mastery map, personal plan, exam debrief, and security case practice across the official SY0-701 objectives;
 - added CLF-C02 diagnostic, mastery map, personal plan, exam debrief, and cloud scenario practice using the four official exam domains as measurable targets;
 - added SAA-C03 diagnostic, mastery map, personal plan, exam debrief, and architecture case practice using the four official SAA-C03 domains as measurable targets;
+- added Splunk diagnostic, mastery map, personal plan, exam debrief, and search evidence case practice using the eight blueprint domains as measurable targets;
+- added Terraform diagnostic, mastery map, personal plan, exam debrief, and infrastructure case practice using all 37 implemented Terraform subobjectives as measurable targets;
 - kept the implementation local-first and reused the existing Smart Practice, stats, and result-review engine.
 
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026

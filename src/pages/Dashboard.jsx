@@ -84,6 +84,7 @@ export default function Dashboard() {
 
   const learningLoopConfig = getLearningLoopConfig(cert.id)
   const learningLoop = Boolean(learningLoopConfig)
+  const learningTargetLabel = (learningLoopConfig?.objectiveLabel || 'objective').toLowerCase()
   const hasStarted = overall.totalQuestions > 0 || trackedCount > 0
   const primaryAction = learningLoop
     ? {
@@ -170,7 +171,7 @@ export default function Dashboard() {
           {learningLoop && (
             <div className="mt-5 space-y-3">
               {[
-                ['01', 'Measure', 'A short diagnostic checks every objective.'],
+                ['01', 'Measure', `A short diagnostic checks every ${learningTargetLabel}.`],
                 ['02', 'Practice', 'The plan points you to the next useful block.'],
                 ['03', 'Simulate', 'Exam results turn into a debrief and repair list.'],
               ].map(([number, label, body]) => (
