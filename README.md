@@ -50,7 +50,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **A+ PBQ-lite v3 is live:** all 40 practical scenarios now include an explicit task brief, realistic console/table/checklist artifacts, and per-component corrective-action feedback. Core 1 forms guarantee coverage across hardware diagnostics, networking, mobile/peripherals, storage, and virtualization; Core 2 forms guarantee OS tools, security response, software/mobile troubleshooting, and operational workflow while retaining at least six practicals and exact domain allocation.
 
-> **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source and report-an-issue links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
+> **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
 
 > **CompTIA practical simulation is live:** every 90-question Network+ form guarantees at least eight practical scenarios, while Security+ guarantees at least six. Security+ forms now also guarantee PBQ matching, log/CLI analysis, topology, configuration repair, multiple-response, matching, ordering, statement blocks, and all four practical categories. Multi-part review shows component-level correctness without claiming CompTIA's confidential partial-credit model.
 
@@ -62,9 +62,9 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Network+ Personal Learning Loop is live:** N10-009 now adds a balanced 35-question diagnostic, four-state objective mastery map, evidence-driven 7/14/30-day plans, objective-level full-exam debriefs, and ten-question applied case sets built from CLI, topology, configuration, matching, and subnetting work. The system remains local-first and treats untouched objectives as Not measured rather than weak.
 
-> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, Security+, and AWS Cloud Practitioner now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+ and Security+ use official objectives; CLF-C02 uses domain-backed targets.
+> **Foundation learning-loop parity is live:** A+ Core 1, A+ Core 2, Network+, Security+, AWS Cloud Practitioner, and SAA-C03 now share the diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow. A+ and Security+ use official objectives; CLF-C02 and SAA-C03 use domain-backed targets.
 
-> **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and the SAA dashboard/Smart Practice setup now frames the pool around architecture tradeoff review.
+> **SAA-C03 is live:** AWS Solutions Architect - Associate has a 750-question production pool aligned to the official 30/26/24/20 domain weights. The Cloud path now runs AWS Cloud Practitioner -> SAA -> Terraform as the role-focused AWS lane, SAA multiple-response items use five-option exam-style formatting, and SAA now adds a domain-backed diagnostic, mastery map, study plan, exam debrief, and architecture case practice around secure, resilient, high-performing, and cost-optimized design.
 
 > **A+ track is live:** `/comptia/a-plus` is a dedicated CompTIA A+ selector for choosing Core 1 (220-1201) or Core 2 (220-1202), and both cores also appear directly in the full catalog grid. Each core has a 760-question production pool, including PBQ-lite troubleshooting scenarios, and a 90-question / 90-minute simulator aligned to the official domain weights.
 

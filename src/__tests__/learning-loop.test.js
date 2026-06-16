@@ -109,6 +109,8 @@ describe('Network+ learning loop', () => {
 
     expect(mastery.find(item => item.id === 'domain-1').level).toBe('strong')
     expect(mastery.find(item => item.id === 'domain-2').level).toBe('unmeasured')
+
+    expect(buildStudyPlan(mastery, 7).some(item => item.activity === 'Measure this domain')).toBe(true)
   })
 
   it('falls back to scenario-like questions for case practice when PBQ formats are absent', () => {
@@ -133,5 +135,19 @@ describe('Network+ learning loop', () => {
     expect(hasLearningLoop('comptia-a-plus-core-2')).toBe(true)
     expect(getLearningLoopConfig('comptia-a-plus-core-1').caseCategories).toContain('Hardware diagnostics')
     expect(getLearningLoopConfig('comptia-a-plus-core-2').caseCategories).toContain('Security response')
+  })
+
+  it('registers SAA-C03 as an architecture learning-loop module', () => {
+    const config = getLearningLoopConfig('aws-saa-c03')
+
+    expect(hasLearningLoop('aws-saa-c03')).toBe(true)
+    expect(config.useDomainObjectives).toBe(true)
+    expect(config.diagnosticSize).toBe(40)
+    expect(config.caseCategories).toEqual([
+      'Secure design',
+      'Resilient workloads',
+      'Performance tradeoffs',
+      'Cost optimization',
+    ])
   })
 })

@@ -113,11 +113,11 @@ export function buildStudyPlan(masteryMap, days = 14) {
       level: objective.level,
       activity: reassessment
         ? 'Readiness checkpoint'
-        : practical
-          ? 'Case-based practice'
-          : objective.level === 'unmeasured'
-            ? 'Measure this objective'
-            : 'Repair and review',
+          : practical
+            ? 'Case-based practice'
+            : objective.level === 'unmeasured'
+              ? `Measure this ${objective.domainBacked ? 'domain' : 'objective'}`
+              : 'Repair and review',
       questionTarget: reassessment ? 20 : practical ? 5 : 10,
       route: reassessment
         ? 'diagnostic'
