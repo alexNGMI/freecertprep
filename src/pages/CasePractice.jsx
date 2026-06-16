@@ -76,7 +76,7 @@ export default function CasePractice() {
           </div>
         </Surface>
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
-          <Button as={Link} to=".." variant="secondary" size="lg">
+          <Button as={Link} to={`/${cert.id}/learning`} variant="secondary" size="lg">
             <ArrowLeft className="h-5 w-5" />
             Learning plan
           </Button>
@@ -102,7 +102,7 @@ export default function CasePractice() {
         />
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
           <Button onClick={start} variant="secondary" size="lg">New case set</Button>
-          <Button as={Link} to=".." variant="accent" size="lg" accentColor={cert.color}>
+          <Button as={Link} to={`/${cert.id}/learning`} variant="accent" size="lg" accentColor={cert.color}>
             Review mastery map
             <ArrowRight className="h-5 w-5" />
           </Button>

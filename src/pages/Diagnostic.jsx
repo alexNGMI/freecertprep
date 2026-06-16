@@ -39,9 +39,11 @@ export default function Diagnostic() {
       domain: question.domain,
       selected: selectedAnswers[index] ?? -1,
       correct: isAnswerCorrect(selectedAnswers[index], question),
+      complete: isAnswerComplete(selectedAnswers[index], question),
     }))
-    addQuizResult({ domain: 'Diagnostic', kind: 'diagnostic', answers })
-    recordSession(answers)
+    const completedAnswers = answers.filter(answer => answer.complete)
+    addQuizResult({ domain: 'Diagnostic', kind: 'diagnostic', answers: completedAnswers })
+    recordSession(completedAnswers)
     setCompletedAt(Date.now())
     setFinished(true)
   }
@@ -55,6 +57,7 @@ export default function Diagnostic() {
     if (!finished) return null
     const mergedStats = { ...certStats }
     diagnosticQuestions.forEach((question, index) => {
+      if (!isAnswerComplete(selectedAnswers[index], question)) return
       const current = mergedStats[question.id] || { attempts: 0, correct: 0 }
       const correct = isAnswerCorrect(selectedAnswers[index], question)
       mergedStats[question.id] = {
@@ -88,7 +91,7 @@ export default function Diagnostic() {
           <Rule number="03" title="Study the map" body="The result feeds your mastery map and creates an ordered study plan." />
         </Surface>
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
-          <Button as={Link} to=".." variant="secondary" size="lg">
+          <Button as={Link} to={`/${cert.id}/learning`} variant="secondary" size="lg">
             <ArrowLeft className="h-5 w-5" />
             Learning plan
           </Button>
@@ -141,7 +144,7 @@ export default function Diagnostic() {
         </Surface>
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
           <Button onClick={begin} variant="secondary" size="lg">Run another form</Button>
-          <Button as={Link} to=".." variant="accent" size="lg" accentColor={cert.color}>
+          <Button as={Link} to={`/${cert.id}/learning`} variant="accent" size="lg" accentColor={cert.color}>
             Open mastery map
             <ArrowRight className="h-5 w-5" />
           </Button>
