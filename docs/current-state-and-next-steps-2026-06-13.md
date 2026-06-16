@@ -48,8 +48,8 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 - Real Estate remains an internal review build.
 - NVIDIA and Data Center Technician path routes remain implemented but hidden.
 - CDL and NCLEX remain future sister-site concepts.
-- CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the bank is re-audited.
-- AZ-900, Google CDL, Linux+, Server+, DCCA, NVIDIA, and CCNA should not be promoted because raw question count alone is not enough; each needs a current source audit and cert-specific release gate.
+- CCNA remains parked until Cisco 200-301 v2.0 becomes active on February 3, 2027 and the bank is re-audited. June 16 update: the preserved bank now meets the internal Network+ quality bar for content structure, simulation evidence, unique stems, and explanation depth, but it still cannot be presented as current-exam practice before the active Cisco release changes.
+- AZ-900, Google CDL, Linux+, Server+, DCCA, and NVIDIA should not be promoted because raw question count alone is not enough; each needs a current source audit and cert-specific release gate.
 
 ## Verified Baseline
 

@@ -69,11 +69,12 @@ const certSources = {
   },
   'ccna-200-301': {
     officialUrl: 'https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html',
-    sourceLabel: 'Cisco CCNA 200-301 v1.1 exam page',
-    checkedAt: '2026-06-13',
+    sourceLabel: 'Cisco CCNA 200-301 v1.1 exam page and v2.0 release schedule',
+    checkedAt: '2026-06-16',
     examFormat: '120-minute exam using multiple-choice, drag-and-drop, and performance-based formats; Cisco does not publish a fixed question count.',
     scoreModel: 'Cisco does not publish a universal raw passing percentage.',
-    editorialStatus: 'Coming Soon: authored bank targets future v2.0; active v1.1 testing continues through February 2, 2027',
+    readinessGrade: 'Preview A-',
+    editorialStatus: 'Coming Soon: 750-item v2.0 preview rebuilt to Network+ quality standard; active v1.1 testing continues through February 2, 2027',
   },
   'comptia-sec-plus': {
     officialUrl: 'https://www.comptia.org/en-us/certifications/security/',

@@ -82,7 +82,7 @@ Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL
 
 > **Data center revision:** Server+, Schneider DCCA, and CCNA remain authored but are Coming Soon. The Data Center Technician route is retained for future iteration but removed from homepage discovery.
 
-> **CCNA v2.0 preview is preserved:** the 750-question simulation bank targets Cisco's announced 200-301 v2.0 blueprint, which begins testing February 3, 2027. Cisco v1.1 remains active through February 2, 2027, so CCNA is Coming Soon rather than presented as current-exam practice.
+> **CCNA v2.0 preview is preserved:** the 750-question simulation bank targets Cisco's announced 200-301 v2.0 blueprint, which begins testing February 3, 2027. Cisco v1.1 remains active through February 2, 2027, so CCNA is Coming Soon rather than presented as current-exam practice. The June 16 quality pass rebuilt the bank to the Network+ standard with 750 exact and normalized unique stems, structured explanations, 25 objective families, and 440 practical CLI/topology/config/subnetting items.
 
 ### Sister site — Real Estate
 
@@ -139,7 +139,7 @@ Additional advanced formats are also supported where the exam surface needs them
 - **Config repair** - Review a broken configuration and choose the safest fix.
 - **Subnetting drill** - Calculate requested network values from a subnet prompt.
 
-CCNA simulation types implemented in the preserved v2.0 preview: CLI output interpretation, topology scenarios, config repair, and subnetting drills. Linux+ also uses CLI output and config-repair items for PBQ-style practice. See `docs/ccna-simulation-architecture.md`.
+CCNA simulation types implemented in the preserved v2.0 preview: CLI output interpretation, topology scenarios, config repair, and subnetting drills. Automated tests now lock exact/normalized uniqueness, explanation structure, objective metadata, and practical evidence shape for the CCNA bank. Linux+ also uses CLI output and config-repair items for PBQ-style practice. See `docs/ccna-simulation-architecture.md`.
 
 ## Tech stack
 
