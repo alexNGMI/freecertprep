@@ -5,6 +5,7 @@ import {
   buildStudyPlan,
   getQuestionObjectiveId,
   getMasteryLevel,
+  summarizeAppliedPerformance,
   selectCaseQuestions,
   selectDiagnosticQuestions,
 } from '../utils/learning-loop'
@@ -59,14 +60,31 @@ describe('Network+ learning loop', () => {
 
     expect(plan).toHaveLength(10)
     expect(plan[0].objectiveId).toBe('1.1')
+    expect(plan[0].reason).toContain('Lowest evidence first')
     expect(plan.some(item => item.activity === 'Case-based practice')).toBe(true)
     expect(plan.at(-1).activity).toBe('Readiness checkpoint')
+    expect(plan.at(-1).reason).toContain('mixed objectives')
   })
 
   it('selects only applied question formats for case practice', () => {
     const selected = selectCaseQuestions(questions, 4)
     expect(selected).toHaveLength(4)
     expect(selected.every(question => question.type !== 'single-choice')).toBe(true)
+  })
+
+  it('balances case practice across applied question categories', () => {
+    const appliedPool = [
+      { id: 'cli1', type: 'cli-output' },
+      { id: 'cli2', type: 'cli-output' },
+      { id: 'cli3', type: 'cli-output' },
+      { id: 'topo1', type: 'topology-scenario' },
+      { id: 'repair1', type: 'config-repair' },
+      { id: 'subnet1', type: 'subnetting-drill' },
+    ]
+
+    const selected = selectCaseQuestions(appliedPool, 4)
+
+    expect(new Set(selected.map(question => question.type)).size).toBe(4)
   })
 
   it('turns exam misses into objective priorities', () => {
@@ -78,7 +96,24 @@ describe('Network+ learning loop', () => {
 
     expect(debrief.priorities.map(item => item.id)).toEqual(['1.1', '5.1'])
     expect(debrief.practicalMisses).toBe(2)
+    expect(debrief.bestNext.id).toBe('1.1')
     expect(debrief.measuredObjectives).toBe(3)
+  })
+
+  it('summarizes applied performance by practical category', () => {
+    const summary = summarizeAppliedPerformance([
+      { questionId: 'q2', correct: false },
+      { questionId: 'q3', correct: true },
+      { questionId: 'q5', correct: false },
+    ], questions)
+
+    expect(summary.total).toBe(3)
+    expect(summary.missed).toBe(2)
+    expect(summary.categories.map(item => item.category)).toEqual([
+      'CLI output',
+      'Config repair',
+      'Topology scenario',
+    ])
   })
 
   it('supports domain-backed learning targets for Cloud Practitioner', () => {

@@ -135,5 +135,7 @@ describe('Network+ learning pages', () => {
     expect(addQuizResult.mock.calls[0][0].answers).toHaveLength(1)
     expect(recordSession.mock.calls[0][0][0].questionId).toMatch(/^q[1-4]$/)
     expect(screen.getByText('1/4')).toBeTruthy()
+    expect(screen.getByText('Best next move')).toBeTruthy()
+    expect(screen.getByRole('link', { name: /Practice this target/ })).toBeTruthy()
   })
 })

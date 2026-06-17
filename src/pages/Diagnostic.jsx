@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Map } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Map, Wrench } from 'lucide-react'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
 import { isAnswerComplete, isAnswerCorrect } from '../utils/scoring'
-import { buildMasteryMap, MASTERY_LEVELS, selectDiagnosticQuestions } from '../utils/learning-loop'
+import { buildMasteryMap, MASTERY_LEVELS, selectDiagnosticQuestions, summarizeAppliedPerformance } from '../utils/learning-loop'
 import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
 import QuestionCard from '../components/QuestionCard'
 import { QuestionNavigator, StudyWorkspace } from '../components/StudyWorkspace'
@@ -106,6 +106,21 @@ export default function Diagnostic() {
   }
 
   if (finished) {
+    const completedAnswers = diagnosticQuestions
+      .map((question, index) => ({
+        questionId: question.id,
+        domain: question.domain,
+        selected: selectedAnswers[index] ?? -1,
+        correct: isAnswerCorrect(selectedAnswers[index], question),
+        complete: isAnswerComplete(selectedAnswers[index], question),
+      }))
+      .filter(answer => answer.complete)
+    const appliedSummary = summarizeAppliedPerformance(completedAnswers, diagnosticQuestions)
+    const priorityTargets = result
+      .filter(item => item.level === 'weak' || item.level === 'developing')
+      .concat(result.filter(item => item.level === 'unmeasured'))
+      .slice(0, 5)
+    const bestTarget = priorityTargets[0]
     const counts = result.reduce((summary, objective) => {
       summary[objective.level] += 1
       return summary
@@ -131,9 +146,41 @@ export default function Diagnostic() {
           ))}
         </div>
         <Surface className="p-6">
-          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Priority targets</p>
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>Best next move</p>
+              <h2 className="mt-2 text-2xl font-black text-zinc-50">
+                {bestTarget ? `Work ${formatLearningTarget(config, bestTarget.id)} before retaking this.` : 'Move into a mixed readiness check.'}
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                {bestTarget
+                  ? `${bestTarget.title} is the highest-value next block from this baseline. Do one focused set, then use the mastery map to decide whether to add cases or retest.`
+                  : 'No measured target produced an obvious repair block. Use the mastery map or an exam simulation to look for a wider readiness signal.'}
+              </p>
+              {appliedSummary.total > 0 && (
+                <p className="mt-3 text-sm font-semibold text-amber-200">
+                  Applied items: {appliedSummary.missed} missed out of {appliedSummary.total}. Case practice is worth doing after the focused block.
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col gap-3">
+              {bestTarget && (
+                <Button as={Link} to={`/${cert.id}/quiz?objective=${bestTarget.id}`} variant="accent" size="lg" accentColor={cert.color} className="w-full">
+                  Practice this target
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              )}
+              <Button as={Link} to={`/${cert.id}/learning/cases`} variant="secondary" size="lg" className="w-full">
+                <Wrench className="h-5 w-5" />
+                Applied cases
+              </Button>
+            </div>
+          </div>
+        </Surface>
+        <Surface className="p-6">
+          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Why this is next</p>
           <div className="mt-4 space-y-3">
-            {result.filter(item => item.level === 'weak' || item.level === 'developing').slice(0, 5).map(item => (
+            {priorityTargets.map(item => (
               <div key={item.id} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
                 <p className="text-xs font-bold uppercase tracking-wider" style={{ color: MASTERY_LEVELS[item.level].color }}>
                   {formatLearningTarget(config, item.id)} · {MASTERY_LEVELS[item.level].label}
@@ -144,7 +191,7 @@ export default function Diagnostic() {
           </div>
         </Surface>
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
-          <Button onClick={begin} variant="secondary" size="lg">Run another form</Button>
+          <Button onClick={begin} variant="secondary" size="lg">Retake later</Button>
           <Button as={Link} to={`/${cert.id}/learning`} variant="accent" size="lg" accentColor={cert.color}>
             Open mastery map
             <ArrowRight className="h-5 w-5" />

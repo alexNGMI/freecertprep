@@ -137,6 +137,40 @@ export default function Results() {
               This form measured {debrief.measuredObjectives} target{debrief.measuredObjectives === 1 ? '' : 's'} and included {debrief.practicalMisses} missed applied question{debrief.practicalMisses === 1 ? '' : 's'}.
             </p>
           </div>
+          {debrief.bestNext && (
+            <div className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
+              <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>Best next move</p>
+              <h3 className="mt-2 text-xl font-black text-zinc-100">
+                Repair {formatLearningTarget(learningLoopConfig, debrief.bestNext.id)} before retaking the exam.
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                {debrief.bestNext.title} produced {debrief.bestNext.misses} miss{debrief.bestNext.misses === 1 ? '' : 'es'} on this form. Practice this target first, then use the mastery map or case set to confirm the repair.
+              </p>
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                <Link to={`/${cert.id}/quiz?objective=${debrief.bestNext.id}`} className="rounded-xl px-5 py-3 text-center text-sm font-bold text-zinc-950" style={{ backgroundColor: cert.color }}>
+                  Practice this target
+                </Link>
+                {debrief.practicalMisses > 0 && (
+                  <Link to={`/${cert.id}/learning/cases`} className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-5 py-3 text-center text-sm font-bold text-amber-200 hover:bg-amber-500/20">
+                    Practice applied cases
+                  </Link>
+                )}
+              </div>
+            </div>
+          )}
+          {debrief.appliedSummary?.categories?.length > 0 && (
+            <div className="grid gap-3 md:grid-cols-2">
+              {debrief.appliedSummary.categories.map(item => (
+                <div key={item.category} className="rounded-2xl border border-white/10 bg-zinc-950/45 p-4">
+                  <p className="font-bold text-zinc-100">{item.category}</p>
+                  <p className="mt-2 text-sm text-zinc-500">
+                    {item.correct}/{item.total} correct
+                    {item.missed > 0 ? ` - ${item.missed} missed` : ' - clean pass'}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
           {debrief.priorities.length > 0 ? (
             <div className="grid gap-3 md:grid-cols-3">
               {debrief.priorities.map(priority => (

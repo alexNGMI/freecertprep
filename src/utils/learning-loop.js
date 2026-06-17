@@ -7,6 +7,8 @@ export const MASTERY_LEVELS = {
   unmeasured: { label: 'Not measured', color: '#71717a' },
 }
 
+export const PRACTICAL_TYPES = new Set(['cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill', 'matching', 'pbq-matching'])
+
 export function selectDiagnosticQuestions(questions, objectives, count = 35) {
   if (!questions?.length || !objectives?.length) return []
 
@@ -124,6 +126,7 @@ export function buildStudyPlan(masteryMap, days = 14) {
         : practical
           ? 'cases'
           : `quiz?objective=${objective.id}`,
+      reason: getStudyReason(objective, practical, reassessment),
     }
   })
 }
@@ -134,7 +137,7 @@ export function buildExamDebrief(answers, questions, objectives) {
     objective.id,
     { ...objective, correct: 0, total: 0, practicalMisses: 0 },
   ]))
-  const practicalTypes = new Set(['cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill', 'matching', 'pbq-matching'])
+  const appliedSummary = summarizeAppliedPerformance(answers, questions)
 
   for (const answer of answers || []) {
     const question = byId.get(answer.questionId)
@@ -142,7 +145,7 @@ export function buildExamDebrief(answers, questions, objectives) {
     if (!result) continue
     result.total += 1
     if (answer.correct) result.correct += 1
-    else if (practicalTypes.has(question.type) || question.practicalCategory || isScenarioLike(question)) result.practicalMisses += 1
+    else if (isAppliedQuestion(question)) result.practicalMisses += 1
   }
 
   const measured = [...objectiveMap.values()]
@@ -156,19 +159,19 @@ export function buildExamDebrief(answers, questions, objectives) {
 
   return {
     priorities: measured.filter(result => result.misses > 0).slice(0, 3),
-    practicalMisses: measured.reduce((sum, result) => sum + result.practicalMisses, 0),
+    practicalMisses: appliedSummary.missed,
+    appliedSummary,
     measuredObjectives: measured.length,
+    bestNext: measured.find(result => result.misses > 0) || null,
   }
 }
 
 export function selectCaseQuestions(questions, count = 10, objectives = []) {
-  const practicalTypes = new Set(['cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill', 'matching', 'pbq-matching'])
-  const practical = questions.filter(question =>
-    practicalTypes.has(question.type) || question.practicalCategory,
-  )
-  if (practical.length >= count) return fisherYates(practical).slice(0, count)
+  const practical = questions.filter(question => PRACTICAL_TYPES.has(question.type) || question.practicalCategory)
+  const balancedPractical = selectBalancedAppliedQuestions(practical, count)
+  if (balancedPractical.length >= count) return fisherYates(balancedPractical).slice(0, count)
 
-  const selected = [...fisherYates(practical)]
+  const selected = [...balancedPractical]
   const selectedIds = new Set(selected.map(question => question.id))
   const scenarioCandidates = fisherYates(
     questions.filter(question => !selectedIds.has(question.id) && isScenarioLike(question)),
@@ -204,10 +207,93 @@ export function selectCaseQuestions(questions, count = 10, objectives = []) {
   return fisherYates(selected).slice(0, count)
 }
 
+export function summarizeAppliedPerformance(answers, questions) {
+  const byId = new Map((questions || []).map(question => [question.id, question]))
+  const categories = {}
+  let total = 0
+  let missed = 0
+
+  for (const answer of answers || []) {
+    const question = byId.get(answer.questionId)
+    if (!isAppliedQuestion(question)) continue
+    const category = getAppliedCategory(question)
+    if (!categories[category]) categories[category] = { total: 0, missed: 0, correct: 0 }
+    total += 1
+    categories[category].total += 1
+    if (answer.correct) {
+      categories[category].correct += 1
+    } else {
+      missed += 1
+      categories[category].missed += 1
+    }
+  }
+
+  return {
+    total,
+    missed,
+    categories: Object.entries(categories)
+      .map(([category, stats]) => ({
+        category,
+        ...stats,
+        accuracy: stats.total ? Math.round((stats.correct / stats.total) * 100) : null,
+      }))
+      .sort((a, b) => b.missed - a.missed || b.total - a.total || a.category.localeCompare(b.category)),
+  }
+}
+
+export function isAppliedQuestion(question) {
+  return !!question && (PRACTICAL_TYPES.has(question.type) || !!question.practicalCategory || isScenarioLike(question))
+}
+
+export function getAppliedCategory(question) {
+  if (!question) return 'Applied reasoning'
+  if (question.practicalCategory) return humanize(question.practicalCategory)
+  if (question.type === 'cli-output') return 'CLI output'
+  if (question.type === 'topology-scenario') return 'Topology scenario'
+  if (question.type === 'config-repair') return 'Config repair'
+  if (question.type === 'subnetting-drill') return 'Subnetting drill'
+  if (question.type === 'matching' || question.type === 'pbq-matching') return 'Matching simulation'
+  return 'Scenario reasoning'
+}
+
 export function getQuestionObjectiveId(question, objectives = []) {
   if (!question) return null
   if (question.objectiveId) return question.objectiveId
   return objectives.find(objective => objective.domainBacked && objective.domain === question.domain)?.id || null
+}
+
+function selectBalancedAppliedQuestions(questions, count) {
+  const buckets = new Map()
+  for (const question of fisherYates(questions || [])) {
+    const category = getAppliedCategory(question)
+    if (!buckets.has(category)) buckets.set(category, [])
+    buckets.get(category).push(question)
+  }
+
+  const selected = []
+  while (selected.length < count && [...buckets.values()].some(bucket => bucket.length)) {
+    for (const bucket of buckets.values()) {
+      if (selected.length >= count) break
+      const question = bucket.shift()
+      if (question) selected.push(question)
+    }
+  }
+  return selected
+}
+
+function getStudyReason(objective, practical, reassessment) {
+  if (reassessment) return 'Check whether the repair work held under mixed objectives.'
+  if (practical) return 'Convert topic recall into troubleshooting and decision practice.'
+  if (objective.level === 'weak') return 'Lowest evidence first: repair misses before widening scope.'
+  if (objective.level === 'developing') return 'Close the confidence gap with another focused pass.'
+  if (objective.level === 'unmeasured') return 'Collect evidence so this target is no longer a blind spot.'
+  return 'Keep the target warm with a short review block.'
+}
+
+function humanize(value) {
+  return String(value)
+    .replace(/[-_]+/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase())
 }
 
 function isScenarioLike(question) {

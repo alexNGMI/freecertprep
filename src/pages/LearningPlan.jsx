@@ -20,6 +20,7 @@ export default function LearningPlan() {
     [cert.questions, certStats, learningObjectives],
   )
   const plan = useMemo(() => buildStudyPlan(mastery, planDays), [mastery, planDays])
+  const bestNextBlock = plan[0]
   const counts = mastery.reduce((result, item) => {
     result[item.level] += 1
     return result
@@ -101,6 +102,31 @@ export default function LearningPlan() {
           </Surface>
         ))}
       </section>
+
+      {bestNextBlock && (
+        <Surface className="p-6">
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>Best next block</p>
+              <h2 className="mt-2 text-2xl font-black text-zinc-50">{bestNextBlock.activity}</h2>
+              <p className="mt-2 text-sm text-zinc-500">{formatLearningTarget(config, bestNextBlock.objectiveId)} - {bestNextBlock.domain}</p>
+              <p className="mt-1 font-bold text-zinc-100">{bestNextBlock.objectiveTitle}</p>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">{bestNextBlock.reason}</p>
+            </div>
+            <Button
+              as={Link}
+              to={bestNextBlock.route.startsWith('quiz') ? `../${bestNextBlock.route}` : bestNextBlock.route}
+              variant="accent"
+              size="lg"
+              accentColor={cert.color}
+              className="w-full"
+            >
+              Start this block
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          </div>
+        </Surface>
+      )}
 
       <Surface className="p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -188,6 +214,7 @@ export default function LearningPlan() {
                 <div>
                   <p className="text-xs text-zinc-500">{formatLearningTarget(config, item.objectiveId)} · {item.domain}</p>
                   <p className="mt-1 font-bold text-zinc-100">{item.objectiveTitle}</p>
+                  <p className="mt-1 text-sm text-zinc-500">{item.reason}</p>
                 </div>
                 <ArrowRight className="h-5 w-5 text-zinc-600" />
               </Link>

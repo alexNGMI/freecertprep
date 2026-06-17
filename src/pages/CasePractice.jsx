@@ -5,7 +5,7 @@ import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
 import { isAnswerCorrect } from '../utils/scoring'
-import { selectCaseQuestions } from '../utils/learning-loop'
+import { selectCaseQuestions, summarizeAppliedPerformance } from '../utils/learning-loop'
 import { getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
 import QuestionCard from '../components/QuestionCard'
 import { StudyHeader } from '../components/StudyHeader'
@@ -69,6 +69,9 @@ export default function CasePractice() {
           ]}
         />
         <Surface className="p-6">
+          <p className="mb-5 max-w-3xl text-sm leading-relaxed text-zinc-400">
+            Case sets pull applied question formats first, then balance the set across troubleshooting evidence instead of repeating one style of prompt.
+          </p>
           <div className="grid gap-5 md:grid-cols-4">
             {config.caseCategories.map(item => (
               <div key={item} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
@@ -94,6 +97,7 @@ export default function CasePractice() {
 
   if (finished) {
     const correct = answers.filter(item => item.correct).length
+    const caseSummary = summarizeAppliedPerformance(answers, questions)
     return (
       <div className="mx-auto max-w-4xl space-y-8">
         <StudyHeader
@@ -103,6 +107,22 @@ export default function CasePractice() {
           cert={cert}
           stats={[{ label: 'Case accuracy', value: `${Math.round((correct / questions.length) * 100)}%`, icon: CheckCircle2 }]}
         />
+        {caseSummary.categories.length > 0 && (
+          <Surface className="p-6">
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Applied skill breakdown</p>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {caseSummary.categories.map(item => (
+                <div key={item.category} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
+                  <p className="font-black text-zinc-100">{item.category}</p>
+                  <p className="mt-2 text-sm text-zinc-500">
+                    {item.correct}/{item.total} correct
+                    {item.missed > 0 ? ` - ${item.missed} to repair` : ' - clean pass'}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Surface>
+        )}
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
           <Button onClick={start} variant="secondary" size="lg">New case set</Button>
           <Button as={Link} to={`/${cert.id}/learning`} variant="accent" size="lg" accentColor={cert.color}>
