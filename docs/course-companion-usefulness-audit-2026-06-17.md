@@ -41,11 +41,14 @@ Source links:
 
 - CompTIA A+ official V15 page: https://www.comptia.org/en-us/certifications/a/core-1-and-2-v15/
 - Professor Messer A+ Core 1: https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/220-1201-training-course/
+- Professor Messer A+ Core 1 YouTube playlist: https://www.youtube.com/playlist?list=PLG49S3nxzAnnes8ZGI-OBlKEukHCX46N8
 - Professor Messer A+ Core 2 playlist: https://www.youtube.com/playlist?list=PLG49S3nxzAnn7PDGQ17m5AYbDRhnW7vOb
 - CompTIA Network+ official page: https://www.comptia.org/en-us/certifications/network/
 - Professor Messer Network+ N10-009: https://www.professormesser.com/network-plus/n10-009/n10-009-video/n10-009-training-course/
+- Professor Messer Network+ N10-009 YouTube playlist: https://www.youtube.com/playlist?list=PLG49S3nxzAnl_tQe3kvnmeMid0mjF8Le8
 - CompTIA Security+ official page: https://www.comptia.org/en-us/certifications/security/
 - Professor Messer Security+ SY0-701: https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/
+- Professor Messer Security+ SY0-701 YouTube playlist: https://www.youtube.com/playlist?list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv
 - Cisco CCST Networking exam: https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccst-networking.html
 - Cisco CCST Networking training: https://www.cisco.com/site/us/en/learn/training-certifications/training/courses/ccst-networking.html
 - AWS Cloud Practitioner certification: https://aws.amazon.com/certification/certified-cloud-practitioner/
@@ -130,12 +133,18 @@ The next step is not a larger catalog.
 The highest-value roadmap items are:
 
 1. Add local data durability: completed-result recovery, storage failure warnings, compact history, and full-study backup.
-2. Add one `verify:quality` command for lint, tests, build, dependency audit, and cert-specific audits.
+2. Keep `verify:quality` green after adding the local command for lint, tests, build, dependency audit, and cert-specific audits.
 3. Add browser smoke coverage for the learner loop.
-4. Add a CLF-C02-specific quality gate.
+4. Keep the new CLF-C02-specific quality gate in the release path.
 5. Add a dedicated SAA audit command if SAA remains a flagship cloud module.
 6. Keep Splunk and Terraform in maintenance mode with periodic manual sampling.
-7. Add external companion links in a structured way, but do not turn the app into a course directory.
+7. Keep external companion links in docs only; do not surface them on the homepage, catalog, or cert dashboards.
+
+June 17 implementation update:
+
+- Added exact Professor Messer YouTube playlist links for A+ Core 1, A+ Core 2, Network+, and Security+ to this docs-only source list.
+- Added a local `verify:quality` command that runs lint, tests, production build, dependency audit, and current cert-specific audit scripts.
+- Added a CLF-C02-specific quality gate covering bank size, official domain allocation, selected-response coverage, supplemental learning formats, answer metadata, explanation length, duplicate/template stems, weak distractors, and 500 randomized 65-question forms.
 
 ## Board-Level Recommendation
 

@@ -114,7 +114,14 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - verified current external companion fit for Professor Messer, Cisco/NetAcad, AWS Skill Builder, HashiCorp Developer, and Splunk free training;
 - confirmed the product should be positioned as a readiness coach paired with a course, not a standalone course or lab environment;
 - kept AZ-900, Google CDL, CCNA, NVIDIA, Server+, Linux+, DCCA, and Real Estate excluded from live usefulness scoring;
-- added a roadmap implication to create a CLF-C02 cert-specific quality gate and keep SAA/Terraform/Splunk quality in maintenance without expanding catalog surface.
+- added exact docs-only companion source links for the recommended CompTIA playlists and vendor learning paths;
+- added a roadmap implication to keep SAA/Terraform/Splunk quality in maintenance without expanding catalog surface.
+
+### Release Quality Gate v1 - Completed June 17, 2026
+
+- added `verify:quality` as the one local command for lint, tests, production build, dependency audit, and current cert-specific audits;
+- added `audit:clf-c02` to protect the AWS Cloud Practitioner pool with CLF-C02-specific bank, domain, format, answer, explanation, duplicate, distractor, and randomized-form checks;
+- kept companion-course links in documentation only, not homepage, catalog, or dashboard surfaces.
 
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026
 
@@ -148,8 +155,8 @@ This is the next active product phase because it directly protects the first use
 
 ### 4. Release Automation
 
-- create one `verify:quality` command that runs lint, tests, build, dependency audit, and cert-specific audits;
-- include all cert-specific audits in CI;
+- keep `verify:quality` green locally as the release baseline;
+- wire `verify:quality` into GitHub Actions so CI matches the local gate;
 - add a small desktop/mobile browser smoke suite for the critical learner journey;
 - eliminate the current Recharts sizing warnings;
 - keep the manual first-user checklist as a final human gate.

@@ -153,7 +153,7 @@ Done when:
 
 ### Phase 3 - Turn the Existing Quality Work into a Release Gate
 
-1. Add a `verify:quality` script that runs lint, tests, cert-specific audits, and the production build.
+1. Keep the new local `verify:quality` script green for lint, tests, cert-specific audits, dependency audit, and the production build.
 2. Run `verify:quality` in GitHub Actions.
 3. Add a small browser smoke suite for home, catalog, one live dashboard, practice completion, exam start/submit, and results recovery at desktop and mobile widths.
 4. Remove the Recharts sizing warnings and add a focused regression where practical.

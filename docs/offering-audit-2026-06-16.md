@@ -120,7 +120,7 @@ The competitive gap is not another cert. The gap is confidence infrastructure: r
 
 ### 2. Release Quality Gate
 
-- Add `verify:quality` to run lint, tests, build, dependency audit, and cert-specific audits.
+- Keep the new local `verify:quality` command green for lint, tests, build, dependency audit, and cert-specific audits.
 - Wire the same command into GitHub Actions.
 - Add a minimal browser smoke suite for home, catalog, one dashboard, practice submit, exam submit, and results recovery.
 - Remove or suppress app-owned Recharts sizing warnings.

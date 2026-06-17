@@ -452,7 +452,7 @@
       "Monitor API calls across your AWS infrastructure"
     ],
     "correctAnswer": 0,
-    "explanation": "Amazon Inspector is an automated vulnerability management service that continually scans workloads for software vulnerabilities and unintended network exposure."
+    "explanation": "Amazon Inspector is an automated vulnerability management service that continually scans workloads for software vulnerabilities and unintended network exposure, helping teams prioritize remediation findings."
   },
   {
     "id": 36,
@@ -660,7 +660,7 @@
       "Amazon DynamoDB"
     ],
     "correctAnswer": 3,
-    "explanation": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability."
+    "explanation": "Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability, so customers avoid managing database servers."
   },
   {
     "id": 52,
@@ -1570,7 +1570,7 @@
       "Amazon Translate"
     ],
     "correctAnswer": 3,
-    "explanation": "Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation."
+    "explanation": "Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation for applications that need multilingual text."
   },
   {
     "id": 122,
@@ -1983,7 +1983,7 @@
       0,
       2
     ],
-    "explanation": "The six pillars of the Well-Architected Framework are Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability."
+    "explanation": "The six pillars of the Well-Architected Framework are Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, and Sustainability. They guide workload review and improvement."
   },
   {
     "id": 153,

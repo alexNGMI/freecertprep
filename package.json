@@ -21,7 +21,9 @@
     "enrich:terraform": "node scripts/enrich_terraform_learning_value.mjs",
     "generate:splunk": "node scripts/generate_splunk_core_user_questions.mjs",
     "audit:terraform": "node scripts/audit_terraform_objective_coverage.mjs",
-    "audit:comptia-objectives": "node scripts/audit_comptia_objective_coverage.mjs"
+    "audit:comptia-objectives": "node scripts/audit_comptia_objective_coverage.mjs",
+    "audit:clf-c02": "node scripts/audit_clf_c02_quality.mjs",
+    "verify:quality": "npm run lint && npm test && npm run build && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.2.8",

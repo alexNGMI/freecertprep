@@ -845,6 +845,7 @@ key = random() ** (1 / weight)
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,285-test regression suite.',
                   'June 16 offering audit - confirmed 9 live modules, 8 parked IT modules, 11,693 authored IT questions, zero dependency vulnerabilities, passing content/cert-specific audits, and a hold-the-catalog roadmap focused on local data durability, release gates, and maintainability.',
                   'June 17 course-companion usefulness audit - confirmed the live catalog works best as a companion to trusted courses and vendor learning paths: external instruction teaches concepts, while freecertprep diagnoses weak spots, drives targeted practice, and debriefs readiness.',
+                  'Release quality gate v1 - added npm run verify:quality for lint, tests, production build, dependency audit, and current cert-specific audits; added a CLF-C02 quality gate for domain allocation, format coverage, answer metadata, explanations, uniqueness, distractors, and randomized forms.',
                 ],
               },
               {
@@ -852,8 +853,8 @@ key = random() ** (1 / weight)
                 color: '#a1a1aa',
                 items: [
                   '1. Local data durability - bound session history, surface storage write failures, persist completed results across refresh, and add a versioned full-study backup.',
-                  '2. Release automation - add one verify:quality command for lint, tests, build, dependency audit, and cert-specific audits; run it in CI, add a focused desktop/mobile browser smoke suite, and eliminate chart sizing warnings.',
-                  '3. Course-companion hardening - add a CLF-C02 cert-specific quality gate, keep SAA/Terraform/Splunk maintenance sampling active, and avoid positioning the app as a full course or lab replacement.',
+                  '2. Release automation - wire verify:quality into CI, add a focused desktop/mobile browser smoke suite, and eliminate chart sizing warnings.',
+                  '3. Course-companion hardening - keep CLF-C02, SAA, Terraform, and Splunk quality sampling active, and avoid positioning the app as a full course or lab replacement.',
                   '4. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
                   '5. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
                 ],
