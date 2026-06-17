@@ -23,7 +23,8 @@
     "audit:terraform": "node scripts/audit_terraform_objective_coverage.mjs",
     "audit:comptia-objectives": "node scripts/audit_comptia_objective_coverage.mjs",
     "audit:clf-c02": "node scripts/audit_clf_c02_quality.mjs",
-    "verify:quality": "npm run lint && npm test && npm run build && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02"
+    "verify:quality": "npm run lint && npm test && npm run build && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02",
+    "smoke:browser": "playwright test"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.2.8",
@@ -38,6 +39,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@playwright/test": "^1.61.0",
     "@tailwindcss/vite": "^4.2.2",
     "@testing-library/react": "^16.3.2",
     "@types/react": "^19.2.14",
