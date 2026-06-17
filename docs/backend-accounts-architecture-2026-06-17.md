@@ -1,48 +1,35 @@
-# Backend, Accounts, and Career Data Architecture
+# Backend MVP Execution Plan
 
 Date: June 17, 2026
 Branch: `codex/backend-accounts-planning`
 
-## Purpose
+## Goal
 
-freecertprep can stay useful without accounts, but accounts become important once the product needs:
+Make freecertprep feel like a real public product without bloating the scope.
 
-- cross-device progress sync;
-- email capture for product updates and study reminders;
-- durable question issue reports and correction history;
-- optional user profiles for future job/career matching;
-- a trust layer that proves content is maintained instead of just published.
+The backend MVP is exactly this:
 
-The product should remain local-first. Anonymous users should still be able to study immediately. Accounts should add portability, recovery, and future career features, not create an account wall.
+1. Host the app on a live domain.
+2. Set up domain email for support/admin.
+3. Let users sign in with email.
+4. Save user progress across devices.
+5. Let users report incorrect or outdated question content.
+6. Give the admin a simple queue to review those reports.
 
-## Recommended Stack
+Nothing else belongs in this phase.
 
-### Frontend hosting
+Out of scope for this backend MVP:
 
-Primary recommendation: Vercel.
+- job board;
+- career profiles;
+- resumes;
+- employer matching;
+- paid accounts;
+- community/social features;
+- complex analytics;
+- marketing automation beyond basic email capture.
 
-Why:
-
-- best fit for the current Vite/React deployment model;
-- GitHub-connected previews and production deploys;
-- low operational burden;
-- easy later path to serverless functions if needed.
-
-AWS alternative:
-
-- S3 + CloudFront is cheaper at scale, but adds more deployment and infrastructure work;
-- Amplify is viable, but less necessary unless the project goes deeply into AWS-native auth/data.
-
-### Backend
-
-Primary recommendation: Supabase.
-
-Why:
-
-- Postgres data model is a strong fit for progress, attempts, reports, and future job profiles;
-- Supabase Auth supports magic links and OAuth without building password infrastructure;
-- Row Level Security maps cleanly to "users can only read/write their own study data";
-- the app can keep localStorage for anonymous users and sync only when a user opts in.
+The future job board can be a smart direction later, especially for community colleges and workforce-development partners, but it should not shape the first backend build.
 
 ## Current Pricing Snapshot
 
@@ -50,23 +37,14 @@ Verified June 17, 2026 from official pricing pages.
 
 | Service | Low-cost start | Likely first production tier | Notes |
 | --- | ---: | ---: | --- |
-| Vercel | Free Hobby | Pro at $20/month | Pro is billed by active developer seats plus usage. Good default for public launch and previews. |
-| Supabase | Free | Pro at $25/month | Pro includes 100,000 monthly active users, then usage-based overages. Good default once account sync matters. |
+| Vercel | Free Hobby | Pro at $20/month | Good default for GitHub-connected hosting, previews, CDN, and custom domain. |
+| Supabase | Free | Pro at $25/month | Good default for auth, Postgres, row-level security, and progress/report persistence. |
 
 Practical expectation:
 
 - Prototype: $0/month if using Vercel Hobby + Supabase Free.
 - Serious public beta: about $45/month baseline with Vercel Pro + Supabase Pro.
-- Early real usage: likely $45-$100/month unless traffic, storage, email, or serverless usage grows quickly.
-- Job board phase: budget should be revisited because profile search, email, analytics, and moderation can change the cost shape.
-
-Cost controls:
-
-- keep anonymous local-first use available;
-- sync compact progress summaries, not full raw UI history forever;
-- avoid storing question text per attempt because question banks already live in versioned JSON;
-- set spend limits and usage alerts before public launch;
-- keep email sending separate from auth email until there is a real newsletter/reminder strategy.
+- Early real usage: likely $45-$100/month unless traffic, storage, email, or usage overages grow.
 
 Official references:
 
@@ -75,140 +53,221 @@ Official references:
 - Vercel pricing: https://vercel.com/pricing
 - Vercel pricing docs: https://vercel.com/docs/pricing
 
-## Product Principles
+## Product Rules
 
-1. No account wall.
-   Anonymous study remains fully usable.
+1. Anonymous study still works.
+   A visitor can use the app without an account.
 
-2. Optional sync.
-   Login should offer "sync this device" rather than forcing a new workflow.
+2. Accounts are for saving progress.
+   Login should mean "save and sync my work," not "unlock the app."
 
-3. Privacy by design.
-   Store only what is needed to improve study continuity, trust, and career matching.
+3. Email capture is explicit.
+   A user signing in is not the same as opting into product emails.
 
-4. User-controlled data.
-   Users should be able to export, disconnect local data, and later delete cloud data.
+4. Progress sync must not destroy local progress.
+   First sync must merge local and cloud data safely.
 
-5. Career data is separate from study data.
-   Job-board profile fields should be optional and consent-driven.
+5. Reports are about content trust.
+   The report flow should help fix bad questions, outdated info, typos, confusing explanations, and broken UI.
 
-6. Trust data is durable.
-   Question reports and correction status should survive deployments and be reviewable.
+6. Admin tools start simple.
+   A plain report queue is enough for MVP.
 
-## Phased Build Plan
+## Step 1: Live Domain and Vercel Hosting
 
-### Phase 0: Architecture and Schema
+Goal: make the app publicly reachable from a real domain.
 
-Status: started on this branch.
+Tasks:
 
-Deliverables:
-
-- backend architecture doc;
-- initial Supabase schema draft;
-- cost model;
-- implementation order;
-- privacy and data-retention assumptions.
-
-### Phase 1: Auth and Email Capture
-
-Goal: let a user create an optional account without changing the anonymous learner flow.
-
-Recommended features:
-
-- Supabase Auth with magic link first;
-- optional OAuth later;
-- `profiles` row created on first login;
-- email subscription preference separate from auth identity;
-- small account menu in the app header;
-- no progress sync yet except a clear "coming next" message.
+- choose or confirm the domain;
+- create/import the Vercel project from GitHub;
+- set build command: `npm run build`;
+- set output directory: `dist`;
+- connect the custom domain;
+- verify HTTPS;
+- confirm production deployment from `main`;
+- run `npm run verify:quality` and `npm run smoke:browser` before each release.
 
 Done when:
 
-- user can sign in/out;
+- the live domain loads the app;
+- Vercel deploys from GitHub;
+- the live app routes work on refresh;
+- there is a rollback path through Vercel deployments.
+
+## Step 2: Domain Email
+
+Goal: create real product contact addresses.
+
+Recommended addresses:
+
+- `support@<domain>` for user help and bad-question follow-up;
+- `admin@<domain>` for platform/admin accounts;
+- optional `hello@<domain>` for general contact.
+
+Tasks:
+
+- choose email provider;
+- configure MX records;
+- configure SPF, DKIM, and DMARC;
+- forward support/admin mail to the real inbox initially;
+- later connect support email to a simple helpdesk only if volume requires it.
+
+Provider options:
+
+- Google Workspace: polished, common, higher monthly cost.
+- Zoho Mail: cheaper and good enough for early product email.
+- Cloudflare Email Routing: good forwarding option, not a full mailbox.
+- ImprovMX: simple forwarding option.
+
+Done when:
+
+- support/admin email can send and receive;
+- DNS checks pass;
+- Supabase auth emails can use an approved sender/domain when ready.
+
+## Step 3: Supabase Auth
+
+Goal: let users sign in with email.
+
+Recommended first version:
+
+- Supabase Auth magic-link email sign-in;
+- no passwords at first;
+- no OAuth at first unless sign-in friction becomes a problem;
+- account menu in the header;
+- signed-out users keep full anonymous access.
+
+Implementation tasks:
+
+- create staging Supabase project;
+- apply the initial SQL migration;
+- add `.env.example`;
+- add Vercel environment variables later;
+- install `@supabase/supabase-js`;
+- add `src/lib/supabase.js`;
+- add `AuthProvider`;
+- add sign-in/sign-out UI;
+- create profile row on first login;
+- add explicit product email opt-in.
+
+Done when:
+
+- user can request a magic link;
+- user can sign in and sign out;
+- app still works with no Supabase env vars in local development;
 - app still works when signed out;
-- email collection has explicit opt-in;
-- privacy copy is updated.
+- email opt-in is stored separately from auth identity.
 
-### Phase 2: Local-to-Cloud Sync
+## Step 4: Progress Sync
 
-Goal: protect progress and make multi-device use possible.
-
-Recommended features:
-
-- upload compact local study state after login;
-- download remote state on new device;
-- conflict strategy: merge by cert/question/session timestamp, never blindly overwrite local progress;
-- manual "sync now" button at first;
-- cloud backup timestamp shown in dashboard.
+Goal: logged-in users can save study progress across devices.
 
 Data to sync:
 
 - question stats;
 - bookmarks;
 - completed session summaries;
-- latest completed result/debrief;
-- diagnostic/mastery state derived from attempts rather than manually stored when possible.
+- exam/practice/drill results;
+- latest completed result/debrief if needed for recovery.
 
 Do not sync:
 
-- raw browser event history;
 - full question text;
-- local UI-only flags unless needed.
+- full raw UI history forever;
+- unrelated browser/device data.
 
-### Phase 3: Trust Layer Backend
+Implementation tasks:
 
-Goal: make content quality defensible.
+- create a storage adapter under the existing hooks;
+- keep `localStorage` as the source for anonymous users;
+- on login, offer "Back up this device";
+- merge local and remote progress by cert/question/session timestamp;
+- show last sync status on dashboard;
+- add manual "sync now" before automatic sync;
+- add conflict tests.
 
-Recommended features:
+Done when:
 
-- report an issue on a question;
-- report categories: wrong answer, outdated source, typo, unclear explanation, broken UI, other;
-- editorial queue table;
-- status: open, reviewing, fixed, rejected, duplicate;
-- correction events with reviewer notes;
-- public-facing "last reviewed" and "known issue fixed" history later.
+- progress on device A appears on device B after login;
+- bookmarks sync;
+- session history syncs without duplicating;
+- local progress is not wiped by signing in;
+- app still works offline/local when signed out.
 
-### Phase 4: Career Profile Foundation
+## Step 5: Report Incorrect Info
 
-Goal: prepare for a future job-board/career-matching site without turning the study app into a resume platform too early.
+Goal: make question/content trust durable.
 
-Recommended optional fields:
+User-facing report categories:
 
-- target role;
-- target cert path;
-- current study stage;
-- location/remote preference;
-- work authorization region if needed later;
-- preferred job types;
-- self-reported completed certs;
-- opt-in to career matching.
+- wrong answer;
+- outdated source;
+- typo;
+- unclear explanation;
+- broken UI;
+- other.
 
-Do not collect yet:
+Implementation tasks:
 
-- resume files;
-- sensitive demographic data;
-- full employment history;
-- exact street address;
-- employer-facing profile visibility.
+- add "Report issue" action to question review/results surfaces;
+- require signed-in user for durable reports, or allow anonymous report-to-email later;
+- store report in Supabase;
+- include cert id, question id, category, message, and route/context;
+- show "Thanks, report received" confirmation;
+- do not expose reporter email publicly.
 
-### Phase 5: Job Board / Matching
+Done when:
 
-Goal: connect learners to beginner-friendly roles after accounts, sync, and trust are stable.
+- a signed-in user can submit a report from a question;
+- the report appears in the admin queue;
+- report creation is protected by row-level security;
+- reports survive deploys and refreshes.
 
-Possible features:
+## Step 6: Admin Report Queue
 
-- job saved searches;
-- entry-level role feed;
-- "prepared for" role tags based on cert path;
-- employer/job-source ingestion;
-- user opt-in profile visibility;
-- job application tracking.
+Goal: let the site owner review and resolve reports.
 
-This should be a sister-site or clearly separated product surface, not cluttering the exam prep workflow.
+MVP admin functions:
+
+- view open reports;
+- filter by cert/status/category;
+- open report detail;
+- mark as reviewing/fixed/rejected/duplicate;
+- add internal admin note;
+- record correction event.
+
+Implementation options:
+
+- first version can be an internal `/admin/reports` route protected by admin allowlist;
+- admin role can be managed by an `admin_users` table or Supabase Auth metadata;
+- no fancy dashboard needed.
+
+Done when:
+
+- non-admin users cannot view reports;
+- admin can update report status;
+- correction events are recorded;
+- support workflow can say "fixed" with a durable trail.
+
+## System Order
+
+Do not build all six at once.
+
+Build order:
+
+1. Vercel live domain.
+2. Domain email.
+3. Supabase Auth shell.
+4. Progress sync.
+5. Report issue form.
+6. Admin report queue.
+
+Each step should be independently shippable.
 
 ## Initial Data Model
 
-Core tables:
+MVP tables:
 
 - `profiles`
 - `email_subscriptions`
@@ -218,25 +277,24 @@ Core tables:
 - `session_results`
 - `question_issue_reports`
 - `question_correction_events`
-- `career_profiles`
 
 Design notes:
 
 - `auth.users` remains owned by Supabase Auth.
-- App tables use `user_id uuid references auth.users(id)`.
-- RLS should be enabled on every user-owned table.
-- Users can read/write their own study/profile data.
-- Issue reports are insertable by signed-in users; editorial/admin reads are future policy work.
+- app tables use `user_id uuid references auth.users(id)`;
+- row-level security is enabled on user-owned tables;
+- users can read/write only their own study data;
+- admin report access requires a separate admin policy before launch.
 
 ## Local-First Sync Contract
 
-The existing hooks already create a good migration path:
+The current hooks are the migration boundary:
 
 - `useProgress`
 - `useQuestionStats`
 - `useBookmarks`
 
-The backend implementation should add a storage adapter layer beneath these hooks:
+Target shape:
 
 ```text
 Page components
@@ -246,40 +304,17 @@ Page components
       -> optional Supabase sync
 ```
 
-This avoids rewriting dashboards, quiz, exam, and learning-loop pages.
+This lets the current app remain stable while account sync is added underneath.
 
-## Privacy and Compliance Notes
+## Immediate Next Action
 
-This is not HIPAA, financial, or government data, but it still needs careful handling.
+Step 1 should be handled first:
 
-Minimum policy requirements before launch:
+Confirm the domain and deploy the current app to Vercel.
 
-- say what is stored locally vs in the cloud;
-- explain that account sync is optional;
-- explain email subscription and unsubscribe behavior;
-- explain deletion/export options;
-- avoid selling or sharing study data;
-- keep career/job matching opt-in separate from basic accounts.
+Do not build progress sync until:
 
-## First Implementation Order
-
-1. Keep this branch as planning/schema branch.
-2. Create Supabase project manually when ready.
-3. Apply the initial SQL migration in a staging Supabase project.
-4. Add env variables:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
-5. Add Supabase client wrapper.
-6. Add auth provider/context.
-7. Add sign-in/sign-out UI.
-8. Add email subscription opt-in.
-9. Add local-to-cloud sync adapter.
-10. Add trust report persistence.
-
-## Decision
-
-Proceed with backend planning now, but keep the first build small:
-
-Auth + email capture first, progress sync second, trust reports third, career/job-board profile fourth.
-
-That sequence supports the long-term job-board idea without sacrificing the current free, no-account study experience.
+- the live deployment works;
+- domain email works;
+- Supabase auth works in staging;
+- local data durability is safe enough to merge into cloud sync.

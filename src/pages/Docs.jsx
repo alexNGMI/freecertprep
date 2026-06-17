@@ -847,7 +847,7 @@ key = random() ** (1 / weight)
                   'June 17 course-companion usefulness audit - confirmed the live catalog works best as a companion to trusted courses and vendor learning paths: external instruction teaches concepts, while freecertprep diagnoses weak spots, drives targeted practice, and debriefs readiness.',
                   'Release quality gate v1 - added npm run verify:quality for lint, tests, production build, dependency audit, and current cert-specific audits; GitHub Actions now runs the same gate; browser smoke covers home, catalog, docs, dashboard, practice, exam, and results on desktop and mobile.',
                   'Flagship audit expansion - CLF-C02, SAA-C03, Splunk Core User, and CCST Networking now have named quality gates for domain/form allocation, format coverage, answer metadata, explanations, evidence, uniqueness, and randomized forms.',
-                  'Backend accounts planning - optional accounts, email opt-in, progress sync, trust reports, and future career profiles now have a Vercel/Supabase architecture doc and initial Supabase schema draft while preserving anonymous local-first study.',
+                  'Backend MVP planning - live domain hosting, domain email, optional email sign-in, progress sync, report-incorrect-info workflow, and admin report review now have a Vercel/Supabase execution plan and initial Supabase schema draft.',
                 ],
               },
               {
@@ -857,7 +857,7 @@ key = random() ** (1 / weight)
                   '1. Local data durability - bound session history, surface storage write failures, persist completed results across refresh, and add a versioned full-study backup.',
                   '2. Release automation - eliminate chart sizing warnings and keep verify:quality plus browser smoke green in CI.',
                   '3. Course-companion hardening - keep CLF-C02, SAA, Terraform, Splunk, and CCST quality sampling active, and avoid positioning the app as a full course or lab replacement.',
-                  '4. Optional backend staging - create a staging Supabase project, apply the schema draft, add auth/email only after local durability is safe, then build sync and trust persistence.',
+                  '4. Backend MVP - deploy the live domain, set up support/admin email, create Supabase staging, add optional sign-in, then build progress sync, report persistence, and a simple admin queue.',
                   '5. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
                   '6. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
                 ],
@@ -868,7 +868,7 @@ key = random() ** (1 / weight)
                 items: [
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
                   'CCNA release promotion - parked until Cisco v2.0 becomes active and the preserved preview passes a fresh release audit; maintain the preview loop and advanced simulation quality through targeted sampling.',
-                  'Job-board profile layer - optional career goals, cert path, location/remote preference, completed certs, and job interest after accounts, sync, and trust reports are stable.',
+                  'Job-board concept - keep it parked until the live product has domain hosting, accounts, sync, reports, and admin review working.',
                   'Trust layer phase 1 - durable reports, moderation, audit trails, and correction history after the optional backend foundation is in place.',
                   'Custom domain and installable PWA support.',
                   'CDL sister site - future written-test prep lane for General Knowledge, Air Brakes, Combination Vehicles, and endorsements. Architecture fit is strong because FMCSA sets federal minimum standards while state manuals can be layered like real-estate state modules.',

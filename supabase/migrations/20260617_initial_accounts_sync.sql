@@ -1,5 +1,5 @@
 -- freecertprep backend phase 1 draft
--- Purpose: optional accounts, email opt-in, study sync, trust reports, and future career profile foundation.
+-- Purpose: optional accounts, email opt-in, study sync, trust reports, and admin correction history.
 -- Apply in a staging Supabase project before production.
 
 create extension if not exists pgcrypto;
@@ -16,7 +16,6 @@ create table if not exists public.email_subscriptions (
   email text not null,
   product_updates boolean not null default false,
   study_reminders boolean not null default false,
-  career_updates boolean not null default false,
   subscribed_at timestamptz,
   unsubscribed_at timestamptz,
   updated_at timestamptz not null default now()
@@ -89,19 +88,6 @@ create table if not exists public.question_correction_events (
   created_at timestamptz not null default now()
 );
 
-create table if not exists public.career_profiles (
-  user_id uuid primary key references auth.users(id) on delete cascade,
-  target_role text,
-  target_path text,
-  studying_cert_ids text[] not null default '{}',
-  completed_cert_ids text[] not null default '{}',
-  location_region text,
-  remote_preference text check (remote_preference in ('remote', 'hybrid', 'onsite', 'open')),
-  job_types text[] not null default '{}',
-  career_matching_opt_in boolean not null default false,
-  updated_at timestamptz not null default now()
-);
-
 create index if not exists idx_study_snapshots_user_created
   on public.study_snapshots (user_id, created_at desc);
 
@@ -119,7 +105,6 @@ alter table public.bookmarks enable row level security;
 alter table public.session_results enable row level security;
 alter table public.question_issue_reports enable row level security;
 alter table public.question_correction_events enable row level security;
-alter table public.career_profiles enable row level security;
 
 create policy "Users can read their profile"
   on public.profiles for select
@@ -162,11 +147,6 @@ create policy "Signed-in users can create issue reports"
 create policy "Users can read their own issue reports"
   on public.question_issue_reports for select
   using (auth.uid() = reporter_user_id);
-
-create policy "Users can manage their career profile"
-  on public.career_profiles for all
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
 
 -- Admin/editor read and update policies should be added after an explicit roles model exists.
 -- Until then, correction events are service-role/admin-only by default because no user RLS policy is defined.
