@@ -2,6 +2,8 @@
 
 Review date: June 16, 2026
 
+Update: the June 17 course-companion usefulness audit confirmed the same catalog-freeze direction. The live product should be positioned as a course companion and readiness coach: learners use external instruction for concepts and hands-on practice, then use freecertprep for diagnostic measurement, targeted practice, case reasoning, and readiness debriefs. See `docs/course-companion-usefulness-audit-2026-06-17.md`.
+
 ## Executive Summary
 
 freecertprep is meeting its stated goal for the focused IT offering: free, no-account certification prep for career-changing IT paths, with realistic practice, local-first progress, and honest readiness language.
@@ -147,3 +149,5 @@ The competitive gap is not another cert. The gap is confidence infrastructure: r
 ## Board-Level Recommendation
 
 Hold the catalog where it is. Spend the next sprint making the product harder to lose data in, harder to ship accidentally, and easier to maintain. The offering is already broad enough; the next advantage comes from trust, recovery, and repeatable quality.
+
+June 17 refinement: do not try to turn freecertprep into a full course platform. The competitive lane is a free companion to trusted courses and vendor learning paths.

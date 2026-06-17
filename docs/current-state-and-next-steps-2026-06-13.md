@@ -1,6 +1,6 @@
 # Current State and Next Steps
 
-Last updated: June 16, 2026
+Last updated: June 17, 2026
 
 ## Executive Summary
 
@@ -21,7 +21,7 @@ The requested execution order began with content quality, then trust correctness
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
-The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md`.
+The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md` and `docs/course-companion-usefulness-audit-2026-06-17.md`.
 
 ## Current Public Offering
 
@@ -38,6 +38,24 @@ The June 16 offering audit confirms the same strategic direction: the current ca
 | HashiCorp Terraform Associate | B+ | Maintain objective and operational-review gates plus subobjective diagnostic, mastery map, study plan, debrief, and infrastructure case practice |
 | AWS Cloud Practitioner | A- | Maintain source alignment plus domain-backed diagnostic, mastery map, study plan, exam debrief, and cloud scenario practice |
 | AWS Solutions Architect - Associate | A- | Maintain architecture-focused review plus domain-backed diagnostic, mastery map, study plan, debrief, and case practice |
+
+## Course-Companion Usefulness
+
+The June 17 audit judged the live modules by whether a learner could combine them with a free playlist, vendor learning path, or low-cost course and realistically progress toward the intended goal.
+
+| Module | Course Companion | Standalone | Exam Readiness | Career Usefulness |
+| --- | --- | --- | --- | --- |
+| A+ Core 1 | A+ | B+ | A | A |
+| A+ Core 2 | A+ | B+ | A | A |
+| Network+ | A | B+ | A- | A |
+| Security+ | A | B+ | A- | A- |
+| CCST Networking | B+ | B | B+ | B+ |
+| AWS Cloud Practitioner | A- | B+ | A- | B+ |
+| AWS SAA-C03 | A- | A- | A- | A |
+| Splunk Core Certified User | A- | B | B+ | A- |
+| Terraform Associate 004 | A- | A- | B+ | A- |
+
+Positioning rule: use a course to learn concepts, then use freecertprep to diagnose, practice, repair gaps, and judge readiness. Do not market the app as a full teaching course, hands-on lab platform, vendor PBQ clone, or official score predictor.
 
 ### Coming Soon
 
@@ -89,6 +107,14 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - added CCST Networking diagnostic, mastery map, personal plan, exam debrief, and Cisco foundation case practice using the six official 100-150 domains as measurable targets;
 - added CCNA preview diagnostic, mastery map, personal plan, exam debrief, and Cisco troubleshooting case practice using the 25 objective families in the preserved v2.0 bank;
 - kept the implementation local-first and reused the existing Smart Practice, stats, and result-review engine.
+
+### Course-Companion Usefulness Audit - Completed June 17, 2026
+
+- audited all nine live IT modules against course-companion value, standalone usefulness, exam-readiness support, career usefulness, and blockers;
+- verified current external companion fit for Professor Messer, Cisco/NetAcad, AWS Skill Builder, HashiCorp Developer, and Splunk free training;
+- confirmed the product should be positioned as a readiness coach paired with a course, not a standalone course or lab environment;
+- kept AZ-900, Google CDL, CCNA, NVIDIA, Server+, Linux+, DCCA, and Real Estate excluded from live usefulness scoring;
+- added a roadmap implication to create a CLF-C02 cert-specific quality gate and keep SAA/Terraform/Splunk quality in maintenance without expanding catalog surface.
 
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026
 

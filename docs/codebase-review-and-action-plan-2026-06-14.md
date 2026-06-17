@@ -2,7 +2,7 @@
 
 Review date: June 14, 2026
 
-Execution update: Phase 5 was performed first at the owner's request, followed by Phase 1. The A+ full-bank overhaul and public trust/metadata cleanup are complete. A Network+ personal learning loop was added June 15 without changing the catalog, then extended to the live modules and the preserved CCNA v2.0 preview. The June 16 offering audit confirmed the current catalog should remain frozen and pointed the next work at local data durability, release automation, and maintainability. Phase 2, local data durability, remains next.
+Execution update: Phase 5 was performed first at the owner's request, followed by Phase 1. The A+ full-bank overhaul and public trust/metadata cleanup are complete. A Network+ personal learning loop was added June 15 without changing the catalog, then extended to the live modules and the preserved CCNA v2.0 preview. The June 16 offering audit confirmed the current catalog should remain frozen and pointed the next work at local data durability, release automation, and maintainability. The June 17 course-companion usefulness audit confirmed the live catalog is strongest as a companion to trusted courses and vendor learning paths, not a standalone course or lab platform. Phase 2, local data durability, remains next.
 
 ## Executive Assessment
 
@@ -215,4 +215,4 @@ The following work would consume time without addressing the current product's s
 
 Execute Phase 2 next. The trust-and-metadata cleanup is complete, and the highest remaining product risk is silent or incomplete recovery of the first user's locally stored study work.
 
-Reference: `docs/offering-audit-2026-06-16.md`.
+References: `docs/offering-audit-2026-06-16.md` and `docs/course-companion-usefulness-audit-2026-06-17.md`.

@@ -14,7 +14,7 @@ const TOTAL_QUESTIONS = PUBLISHED_CERTS.reduce((s, c) => s + c.questionCount, 0)
 const NAV = [
   { id: 'overview',       label: 'Overview' },
   { id: 'certifications', label: 'Certifications' },
-  { id: 'video-playlists', label: 'Video Playlists' },
+  { id: 'video-playlists', label: 'Study Companions' },
   { id: 'study-modes',    label: 'Study Modes' },
   { id: 'smart-practice', label: 'Smart Practice' },
   { id: 'question-types', label: 'Question Types' },
@@ -300,11 +300,11 @@ export default function Docs() {
           </Section>
 
           {/* ── Recommended Video Playlists ───────────────────────────────── */}
-          <Section id="video-playlists" title="Recommended Video Playlists">
+          <Section id="video-playlists" title="Recommended Study Companions">
             <P>
-              These playlists are optional study companions for learners who want a structured video course beside the practice
-              bank. Use the videos to build the concepts, then use freecertprep to pressure-test recall, troubleshooting, and
-              exam-style reasoning.
+              These resources are optional study companions for learners who want structured instruction beside the practice
+              bank. Use the course or vendor path to build the concepts, then use freecertprep to diagnose weak spots, pressure-test
+              recall, repair gaps, and judge readiness.
             </P>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -332,6 +332,36 @@ export default function Docs() {
                   code: 'SY0-701',
                   label: 'Professor Messer Security+ playlist',
                   href: 'https://www.youtube.com/playlist?list=PLG49S3nxzAnl4QDVqK-hOnoqcSKEIDDuv',
+                },
+                {
+                  cert: 'Cisco CCST Networking',
+                  code: '100-150',
+                  label: 'Cisco CCST Networking training',
+                  href: 'https://www.cisco.com/site/us/en/learn/training-certifications/training/courses/ccst-networking.html',
+                },
+                {
+                  cert: 'AWS Cloud Practitioner',
+                  code: 'CLF-C02',
+                  label: 'AWS Skill Builder cloud practitioner prep',
+                  href: 'https://aws.amazon.com/certification/certified-cloud-practitioner/',
+                },
+                {
+                  cert: 'AWS Solutions Architect - Associate',
+                  code: 'SAA-C03',
+                  label: 'AWS Skill Builder SAA prep',
+                  href: 'https://aws.amazon.com/certification/certified-solutions-architect-associate/',
+                },
+                {
+                  cert: 'Splunk Core Certified User',
+                  code: 'SPLK-1001',
+                  label: 'Splunk free training',
+                  href: 'https://www.splunk.com/en_us/training/free-courses/overview.html',
+                },
+                {
+                  cert: 'Terraform Associate',
+                  code: '004',
+                  label: 'HashiCorp Terraform Associate 004 prep path',
+                  href: 'https://developer.hashicorp.com/terraform/tutorials/certification-004',
                 },
               ].map(({ cert, code, label, href }) => (
                 <a
@@ -814,6 +844,7 @@ key = random() ** (1 / weight)
                   'Trust and metadata correction - removed the third-party visitor counter and Google-hosted fonts, refreshed root search/share metadata and artwork, corrected privacy language, and added the MIT License.',
                   'Frontend refresh — shared study workspace, modern dashboard charts, icon navigation, guided path pages, route-level lazy loading, JSON question-bank assets, and 1,285-test regression suite.',
                   'June 16 offering audit - confirmed 9 live modules, 8 parked IT modules, 11,693 authored IT questions, zero dependency vulnerabilities, passing content/cert-specific audits, and a hold-the-catalog roadmap focused on local data durability, release gates, and maintainability.',
+                  'June 17 course-companion usefulness audit - confirmed the live catalog works best as a companion to trusted courses and vendor learning paths: external instruction teaches concepts, while freecertprep diagnoses weak spots, drives targeted practice, and debriefs readiness.',
                 ],
               },
               {
@@ -822,8 +853,9 @@ key = random() ** (1 / weight)
                 items: [
                   '1. Local data durability - bound session history, surface storage write failures, persist completed results across refresh, and add a versioned full-study backup.',
                   '2. Release automation - add one verify:quality command for lint, tests, build, dependency audit, and cert-specific audits; run it in CI, add a focused desktop/mobile browser smoke suite, and eliminate chart sizing warnings.',
-                  '3. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
-                  '4. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
+                  '3. Course-companion hardening - add a CLF-C02 cert-specific quality gate, keep SAA/Terraform/Splunk maintenance sampling active, and avoid positioning the app as a full course or lab replacement.',
+                  '4. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
+                  '5. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
                 ],
               },
               {
