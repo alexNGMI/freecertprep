@@ -121,6 +121,8 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 
 - added `verify:quality` as the one local command for lint, tests, production build, dependency audit, and current cert-specific audits;
 - added `audit:clf-c02` to protect the AWS Cloud Practitioner pool with CLF-C02-specific bank, domain, format, answer, explanation, duplicate, distractor, and randomized-form checks;
+- added browser smoke coverage for home, catalog, docs, one live dashboard, practice answer feedback, exam submission, and results on desktop and mobile;
+- added `audit:saa-c03`, `audit:splunk`, and `audit:ccst` to protect the remaining flagship live modules with domain/form allocation, format, explanation, evidence, answer-shape, and uniqueness checks;
 - kept companion-course links in documentation only, not homepage, catalog, or dashboard surfaces.
 
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026
@@ -156,8 +158,8 @@ This is the next active product phase because it directly protects the first use
 ### 4. Release Automation
 
 - keep `verify:quality` green locally as the release baseline;
-- wire `verify:quality` into GitHub Actions so CI matches the local gate;
-- add a small desktop/mobile browser smoke suite for the critical learner journey;
+- keep GitHub Actions aligned to `verify:quality`;
+- keep the desktop/mobile browser smoke suite green for the critical learner journey;
 - eliminate the current Recharts sizing warnings;
 - keep the manual first-user checklist as a final human gate.
 

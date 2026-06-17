@@ -23,7 +23,10 @@
     "audit:terraform": "node scripts/audit_terraform_objective_coverage.mjs",
     "audit:comptia-objectives": "node scripts/audit_comptia_objective_coverage.mjs",
     "audit:clf-c02": "node scripts/audit_clf_c02_quality.mjs",
-    "verify:quality": "npm run lint && npm test && npm run build && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02",
+    "audit:saa-c03": "node scripts/audit_saa_c03_quality.mjs",
+    "audit:splunk": "node scripts/audit_splunk_quality.mjs",
+    "audit:ccst": "node scripts/audit_ccst_networking_quality.mjs",
+    "verify:quality": "npm run lint && npm test && npm run build && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02 && npm run audit:saa-c03 && npm run audit:splunk && npm run audit:ccst",
     "smoke:browser": "playwright test"
   },
   "dependencies": {

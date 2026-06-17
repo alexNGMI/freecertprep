@@ -1,0 +1,176 @@
+import fs from 'node:fs'
+import { weightedSelect } from '../src/utils/exam-selection.js'
+import { LIVE_CERT_IDS } from '../src/data/catalogVisibility.js'
+
+const questions = JSON.parse(fs.readFileSync(new URL('../src/data/ccst-networking-questions.json', import.meta.url), 'utf8'))
+
+const domains = [
+  { name: 'Standards and Concepts', weight: 15 },
+  { name: 'Addressing and Subnet Formats', weight: 20 },
+  { name: 'Endpoints and Media Types', weight: 20 },
+  { name: 'Infrastructure', weight: 20 },
+  { name: 'Diagnosing Problems', weight: 15 },
+  { name: 'Security', weight: 10 },
+]
+const expectedDomainCounts = {
+  'Standards and Concepts': 113,
+  'Addressing and Subnet Formats': 150,
+  'Endpoints and Media Types': 150,
+  Infrastructure: 150,
+  'Diagnosing Problems': 112,
+  Security: 75,
+}
+const expectedFormDomainCounts = {
+  'Standards and Concepts': 8,
+  'Addressing and Subnet Formats': 10,
+  'Endpoints and Media Types': 10,
+  Infrastructure: 10,
+  'Diagnosing Problems': 7,
+  Security: 5,
+}
+const expectedTypeCounts = {
+  'single-choice': 450,
+  'multiple-response': 150,
+  matching: 75,
+  ordering: 75,
+}
+const formTypeMinimums = {
+  'multiple-response': 1,
+  matching: 1,
+  ordering: 1,
+}
+
+const failures = []
+const assert = (condition, message) => { if (!condition) failures.push(message) }
+const typeOf = (question) => question.type || 'single-choice'
+const normalize = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+const wordCount = (value) => normalize(value || '').split(/\s+/).filter(Boolean).length
+const countBy = (items, key) => items.reduce((counts, item) => {
+  const value = key(item)
+  counts[value] = (counts[value] || 0) + 1
+  return counts
+}, {})
+const duplicateGroups = (items, key) => {
+  const groups = new Map()
+  for (const item of items) {
+    const value = key(item)
+    groups.set(value, [...(groups.get(value) || []), item.id])
+  }
+  return [...groups.values()].filter((ids) => ids.length > 1)
+}
+const isPermutation = (values, length) => (
+  Array.isArray(values)
+  && values.length === length
+  && new Set(values).size === length
+  && values.every((value) => Number.isInteger(value) && value >= 0 && value < length)
+)
+const isUniqueIndexArray = (values, maxLength, minLength = 1) => (
+  Array.isArray(values)
+  && values.length >= minLength
+  && new Set(values).size === values.length
+  && values.every((value) => Number.isInteger(value) && value >= 0 && value < maxLength)
+)
+
+function hasValidEvidence(question) {
+  if (!question.evidenceArtifacts?.length) return false
+  return question.evidenceArtifacts.every((artifact) => {
+    if (!artifact.title || !['console', 'table'].includes(artifact.type)) return false
+    if (artifact.type === 'console') return Array.isArray(artifact.lines) && artifact.lines.length >= 2
+    return Array.isArray(artifact.columns)
+      && artifact.columns.length >= 2
+      && Array.isArray(artifact.rows)
+      && artifact.rows.length >= 1
+  })
+}
+
+function hasValidAnswerShape(question) {
+  const type = typeOf(question)
+  if (type === 'single-choice') {
+    return Array.isArray(question.choices)
+      && question.choices.length === 4
+      && Number.isInteger(question.correctAnswer)
+      && question.correctAnswer >= 0
+      && question.correctAnswer < question.choices.length
+  }
+  if (type === 'multiple-response') {
+    return Array.isArray(question.choices)
+      && question.choices.length >= 4
+      && isUniqueIndexArray(question.correctAnswers, question.choices.length, 2)
+  }
+  if (type === 'matching') {
+    return Array.isArray(question.itemsLeft)
+      && Array.isArray(question.itemsRight)
+      && question.itemsLeft.length === question.itemsRight.length
+      && question.itemsLeft.length >= 3
+      && isPermutation(question.correctMatches, question.itemsLeft.length)
+  }
+  if (type === 'ordering') {
+    return Array.isArray(question.items)
+      && question.items.length >= 4
+      && isPermutation(question.correctOrder, question.items.length)
+  }
+  return false
+}
+
+const domainCounts = Object.fromEntries(Object.keys(expectedDomainCounts).map((domain) => [
+  domain,
+  questions.filter((question) => question.domain === domain).length,
+]))
+const typeCounts = Object.fromEntries(Object.keys(expectedTypeCounts).map((type) => [
+  type,
+  questions.filter((question) => typeOf(question) === type).length,
+]))
+const exactGroups = duplicateGroups(questions, (question) => normalize(question.question))
+const structuredExplanations = questions.filter((question) =>
+  /^Why this is right:.*Why the alternatives are wrong:.*Review takeaway:/s.test(question.explanation || '')
+)
+const evidenceQuestions = questions.filter(hasValidEvidence)
+const shortExplanations = questions.filter((question) => wordCount(question.explanation) < 45)
+const invalidAnswers = questions.filter((question) => !hasValidAnswerShape(question))
+const ticketLanguage = questions.filter((question) => /\bticket\b/i.test(question.question))
+
+assert(LIVE_CERT_IDS.has('ccst-networking'), 'ccst-networking is not marked live')
+assert(questions.length === 750, `expected 750 CCST questions, found ${questions.length}`)
+assert(exactGroups.length === 0, `found ${exactGroups.length} exact duplicate-stem groups`)
+assert(structuredExplanations.length === 750, `expected 750 structured explanations, found ${structuredExplanations.length}`)
+assert(evidenceQuestions.length === 750, `expected 750 evidence-led questions, found ${evidenceQuestions.length}`)
+assert(shortExplanations.length === 0, `found ${shortExplanations.length} explanations under 45 words`)
+assert(invalidAnswers.length === 0, `found ${invalidAnswers.length} questions with invalid answer metadata`)
+assert(ticketLanguage.length === 0, `found ${ticketLanguage.length} ticket-framed questions`)
+assert(JSON.stringify(domainCounts) === JSON.stringify(expectedDomainCounts), 'CCST domain counts changed unexpectedly')
+assert(JSON.stringify(typeCounts) === JSON.stringify(expectedTypeCounts), 'CCST format counts changed unexpectedly')
+
+for (let run = 0; run < 500; run += 1) {
+  const form = weightedSelect(questions, 50, domains, {
+    requiredTypeCounts: formTypeMinimums,
+  })
+  const ids = new Set(form.map((question) => question.id))
+  const formDomains = countBy(form, (question) => question.domain)
+  const formTypes = countBy(form, (question) => typeOf(question))
+  assert(form.length === 50, `form ${run + 1} has ${form.length} questions`)
+  assert(ids.size === 50, `form ${run + 1} contains duplicate questions`)
+  for (const [domain, expected] of Object.entries(expectedFormDomainCounts)) {
+    assert(formDomains[domain] === expected, `form ${run + 1} has wrong ${domain} allocation`)
+  }
+  for (const [type, minimum] of Object.entries(formTypeMinimums)) {
+    assert((formTypes[type] || 0) >= minimum, `form ${run + 1} is missing ${type}`)
+  }
+}
+
+console.log(`Questions: ${questions.length}`)
+console.log(`Marked live: ${LIVE_CERT_IDS.has('ccst-networking')}`)
+console.log(`Exact duplicate groups: ${exactGroups.length}`)
+console.log(`Structured explanations: ${structuredExplanations.length}`)
+console.log(`Evidence-led questions: ${evidenceQuestions.length}`)
+console.log(`Explanations under 45 words: ${shortExplanations.length}`)
+console.log(`Invalid answer metadata: ${invalidAnswers.length}`)
+console.log(`Ticket-framed questions: ${ticketLanguage.length}`)
+console.log(`Domain allocation: ${JSON.stringify(domainCounts)}`)
+console.log(`Format allocation: ${JSON.stringify(typeCounts)}`)
+console.log('Validated randomized 50-question forms: 500')
+
+if (failures.length) {
+  console.error('\nFailures:')
+  for (const failure of [...new Set(failures)]) console.error(`- ${failure}`)
+  process.exitCode = 1
+}
