@@ -11,6 +11,7 @@ import {
 } from '../utils/learning-loop'
 import { getLearningLoopConfig, getLearningObjectives, hasLearningLoop } from '../utils/learning-loop-config'
 import ccna200301 from '../data/ccna-200-301-questions.json'
+import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
 
 const objectives = [
   { id: '1.1', domain: 'Concepts', title: 'Models' },
@@ -229,6 +230,26 @@ describe('Network+ learning loop', () => {
     ])
   })
 
+  it('selects Security+ case practice from the real applied evidence set', () => {
+    const secPlusConfig = getLearningLoopConfig('comptia-sec-plus')
+    const secPlusCert = {
+      id: 'comptia-sec-plus',
+      questions: comptiaSecPlus,
+      objectives: getSecurityObjectives(comptiaSecPlus),
+    }
+    const cases = selectCaseQuestions(comptiaSecPlus, 10, getLearningObjectives(secPlusCert))
+    const categories = new Set(cases.map(question => question.practicalCategory).filter(Boolean))
+
+    expect(secPlusConfig.caseCategories).toEqual([
+      'Log triage',
+      'Control placement',
+      'Incident correlation',
+      'Firewall policy',
+    ])
+    expect(cases).toHaveLength(10)
+    expect(categories).toEqual(new Set(['log-triage', 'control-placement', 'incident-correlation', 'firewall-policy']))
+  })
+
   it('registers CCNA as an objective-backed preview learning-loop module', () => {
     const config = getLearningLoopConfig('ccna-200-301')
     const cert = {
@@ -262,3 +283,16 @@ describe('Network+ learning loop', () => {
     ])
   })
 })
+
+function getSecurityObjectives(questions) {
+  const objectivesById = new Map()
+  for (const question of questions) {
+    if (!question.objectiveId || objectivesById.has(question.objectiveId)) continue
+    objectivesById.set(question.objectiveId, {
+      id: question.objectiveId,
+      domain: question.domain,
+      title: question.objectiveTitle,
+    })
+  }
+  return [...objectivesById.values()]
+}

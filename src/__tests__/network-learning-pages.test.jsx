@@ -14,7 +14,7 @@ let mockCertStats = {
   q3: { attempts: 1, correct: 1, lastSeen: Date.now() },
 }
 
-const cert = {
+const networkCert = {
   id: 'comptia-net-plus',
   code: 'N10-009',
   color: '#c8202f',
@@ -62,7 +62,59 @@ const cert = {
   ],
 }
 
-vi.mock('../hooks/useCert', () => ({ useCert: () => cert }))
+const securityCert = {
+  id: 'comptia-sec-plus',
+  code: 'SY0-701',
+  color: '#ef4444',
+  objectives: [
+    { id: '1.1', domain: 'General Security Concepts', title: 'Compare categories and types of security controls' },
+    { id: '4.8', domain: 'Security Operations', title: 'Apply incident response activities' },
+  ],
+  questions: [
+    {
+      id: 's1',
+      domain: 'General Security Concepts',
+      objectiveId: '1.1',
+      question: 'Which control category uses a documented acceptable use policy?',
+      choices: ['Physical', 'Managerial', 'Technical', 'Compensating'],
+      correctAnswer: 1,
+      explanation: 'A policy is a managerial control.',
+    },
+    {
+      id: 's2',
+      domain: 'General Security Concepts',
+      objectiveId: '1.1',
+      question: 'Which control type restores operations after an event?',
+      choices: ['Detective', 'Corrective', 'Deterrent', 'Directive'],
+      correctAnswer: 1,
+      explanation: 'Corrective controls restore normal operations.',
+    },
+    {
+      id: 's3',
+      domain: 'Security Operations',
+      objectiveId: '4.8',
+      practicalCategory: 'incident-correlation',
+      question: 'An analyst correlates EDR and firewall alerts during an investigation. What is the BEST next action?',
+      choices: ['Erase the host', 'Contain the host', 'Disable backups', 'Ignore the alert'],
+      correctAnswer: 1,
+      explanation: 'Containment limits spread while evidence is preserved.',
+    },
+    {
+      id: 's4',
+      domain: 'Security Operations',
+      objectiveId: '4.8',
+      practicalCategory: 'log-triage',
+      question: 'A log shows repeated failed sign-ins followed by one success from a new country. What should be investigated first?',
+      choices: ['Account compromise', 'Patch failure', 'Storage capacity', 'Printer outage'],
+      correctAnswer: 0,
+      explanation: 'The pattern suggests credential attack and possible compromise.',
+    },
+  ],
+}
+
+let mockCert = networkCert
+
+vi.mock('../hooks/useCert', () => ({ useCert: () => mockCert }))
 vi.mock('../hooks/useProgress', () => ({
   useProgress: () => ({ addQuizResult }),
 }))
@@ -82,6 +134,7 @@ describe('Network+ learning pages', () => {
       q2: { attempts: 1, correct: 1, lastSeen: Date.now() },
       q3: { attempts: 1, correct: 1, lastSeen: Date.now() },
     }
+    mockCert = networkCert
   })
 
   it('shows a simple diagnostic-first state before any mastery evidence exists', () => {
@@ -137,5 +190,24 @@ describe('Network+ learning pages', () => {
     expect(screen.getByText('1/4')).toBeTruthy()
     expect(screen.getByText('Best next move')).toBeTruthy()
     expect(screen.getByRole('link', { name: /Practice this target/ })).toBeTruthy()
+  })
+
+  it('gives Security+ the same evidence-driven next action flow', () => {
+    mockCert = securityCert
+    mockCertStats = {
+      s1: { attempts: 1, correct: 0, lastSeen: Date.now() },
+      s3: { attempts: 1, correct: 0, lastSeen: Date.now() },
+    }
+
+    render(
+      <MemoryRouter>
+        <LearningPlan />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('heading', { name: 'Turn security practice into a repair plan.' })).toBeTruthy()
+    expect(screen.getByText('Best next block')).toBeTruthy()
+    expect(screen.getAllByText('Compare categories and types of security controls').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Lowest evidence first: repair misses before widening scope.').length).toBeGreaterThan(0)
   })
 })
