@@ -8,6 +8,11 @@ import LearningPlan from '../pages/LearningPlan'
 
 const addQuizResult = vi.fn()
 const recordSession = vi.fn()
+let mockCertStats = {
+  q1: { attempts: 2, correct: 2, lastSeen: Date.now() },
+  q2: { attempts: 1, correct: 1, lastSeen: Date.now() },
+  q3: { attempts: 1, correct: 1, lastSeen: Date.now() },
+}
 
 const cert = {
   id: 'comptia-net-plus',
@@ -63,11 +68,7 @@ vi.mock('../hooks/useProgress', () => ({
 }))
 vi.mock('../hooks/useQuestionStats', () => ({
   useQuestionStats: () => ({
-    certStats: {
-      q1: { attempts: 2, correct: 2, lastSeen: Date.now() },
-      q2: { attempts: 1, correct: 1, lastSeen: Date.now() },
-      q3: { attempts: 1, correct: 1, lastSeen: Date.now() },
-    },
+    certStats: mockCertStats,
     recordSession,
   }),
 }))
@@ -76,6 +77,26 @@ describe('Network+ learning pages', () => {
   afterEach(() => {
     cleanup()
     vi.clearAllMocks()
+    mockCertStats = {
+      q1: { attempts: 2, correct: 2, lastSeen: Date.now() },
+      q2: { attempts: 1, correct: 1, lastSeen: Date.now() },
+      q3: { attempts: 1, correct: 1, lastSeen: Date.now() },
+    }
+  })
+
+  it('shows a simple diagnostic-first state before any mastery evidence exists', () => {
+    mockCertStats = {}
+
+    render(
+      <MemoryRouter>
+        <LearningPlan />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('heading', { name: 'Get one honest baseline.' })).toBeTruthy()
+    expect(screen.getAllByRole('link', { name: 'Start diagnostic' }).length).toBeGreaterThan(0)
+    expect(screen.getByText('The study plan is intentionally quiet until you have evidence. Take the diagnostic cold, skip what you do not know, then this page turns into a ranked repair plan instead of a list of every possible topic.')).toBeTruthy()
+    expect(screen.queryByText('OSI reference model')).toBeNull()
   })
 
   it('renders mastery states and an evidence-driven study plan', () => {

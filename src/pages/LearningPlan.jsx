@@ -28,6 +28,51 @@ export default function LearningPlan() {
 
   if (!config) return <Navigate to={`/${cert.id}`} replace />
 
+  if (!measured) {
+    return (
+      <div className="space-y-8 animate-fade-up">
+        <StudyHeader
+          eyebrow={config.eyebrow}
+          title={config.title}
+          subtitle={config.subtitle}
+          cert={cert}
+          stats={[
+            { label: 'Measured', value: `0/${mastery.length}`, icon: Map },
+            { label: 'Plan', value: 'Locked', icon: CalendarDays },
+          ]}
+          action={(
+            <Button as={Link} to="diagnostic" variant="accent" size="lg" accentColor={cert.color}>
+              <ClipboardCheck className="h-5 w-5" />
+              Start diagnostic
+            </Button>
+          )}
+        />
+
+        <Surface className="p-6 md:p-8">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider" style={{ color: cert.color }}>First useful step</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-zinc-50">Get one honest baseline.</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                The study plan is intentionally quiet until you have evidence. Take the diagnostic cold, skip what you do not know, then this page turns into a ranked repair plan instead of a list of every possible topic.
+              </p>
+            </div>
+            <Button as={Link} to="diagnostic" variant="accent" size="lg" accentColor={cert.color} className="w-full">
+              Start diagnostic
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          </div>
+        </Surface>
+
+        <section className="grid gap-4 md:grid-cols-3">
+          <PrepCard number="01" title="Measure" body={`A ${config.diagnosticSize}-question diagnostic samples the ${config.measuredLabel}.`} color={cert.color} />
+          <PrepCard number="02" title="Map" body="Your results separate strong, developing, weak, and unmeasured targets." color={cert.color} />
+          <PrepCard number="03" title="Work" body="The plan will point to focused practice, applied cases, and a readiness checkpoint." color={cert.color} />
+        </section>
+      </div>
+    )
+  }
+
   return (
     <div className="space-y-8 animate-fade-up">
       <StudyHeader
@@ -105,6 +150,9 @@ export default function LearningPlan() {
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Personal study plan</p>
             <h2 className="mt-2 text-2xl font-black text-zinc-50">Your next work, in order</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
+              These blocks are ordered by weakest evidence, low coverage, and unmeasured targets so the next session is obvious.
+            </p>
           </div>
           <div className="inline-flex rounded-xl border border-white/10 bg-zinc-900/70 p-1">
             {[7, 14, 30].map(days => (
@@ -168,6 +216,16 @@ function Metric({ label, value }) {
       <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-600">{label}</p>
       <p className="mt-1 font-black text-zinc-200">{value}</p>
     </div>
+  )
+}
+
+function PrepCard({ number, title, body, color }) {
+  return (
+    <Surface className="p-6">
+      <p className="text-xs font-black uppercase tracking-wider" style={{ color }}>{number}</p>
+      <h2 className="mt-3 text-xl font-black text-zinc-100">{title}</h2>
+      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
+    </Surface>
   )
 }
 

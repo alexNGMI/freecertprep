@@ -37,7 +37,7 @@ Baseline at review time:
 - 17 authored IT certification modules;
 - 11,693 authored IT questions;
 - 9 live modules and 8 Coming Soon modules;
-- 1,278 passing tests across 38 files;
+- 1,279 passing tests across 38 files;
 - zero production dependency vulnerabilities reported by `npm audit --omit=dev`;
 - clean `main` branch at commit `cb6caeb` before this documentation update.
 
