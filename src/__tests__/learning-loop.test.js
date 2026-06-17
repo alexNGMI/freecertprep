@@ -4,6 +4,7 @@ import {
   buildMasteryMap,
   buildStudyPlan,
   getQuestionObjectiveId,
+  isAppliedQuestion,
   getMasteryLevel,
   summarizeAppliedPerformance,
   selectCaseQuestions,
@@ -12,6 +13,7 @@ import {
 import { getLearningLoopConfig, getLearningObjectives, hasLearningLoop } from '../utils/learning-loop-config'
 import ccna200301 from '../data/ccna-200-301-questions.json'
 import comptiaSecPlus from '../data/comptia-sec-plus-questions.json'
+import clfc02 from '../data/questions.json'
 
 const objectives = [
   { id: '1.1', domain: 'Concepts', title: 'Models' },
@@ -148,6 +150,35 @@ describe('Network+ learning loop', () => {
     expect(mastery.find(item => item.id === 'domain-2').level).toBe('unmeasured')
 
     expect(buildStudyPlan(mastery, 7).some(item => item.activity === 'Measure this domain')).toBe(true)
+  })
+
+  it('selects Cloud Practitioner cases across the real CLF-C02 domains', () => {
+    const config = getLearningLoopConfig('clf-c02')
+    const cert = {
+      id: 'clf-c02',
+      questions: clfc02,
+      domains: [
+        { name: 'Cloud Concepts', weight: 24 },
+        { name: 'Security and Compliance', weight: 30 },
+        { name: 'Cloud Technology and Services', weight: 34 },
+        { name: 'Billing, Pricing and Support', weight: 12 },
+      ],
+    }
+    const objectives = getLearningObjectives(cert)
+    const diagnostic = selectDiagnosticQuestions(clfc02, objectives, config.diagnosticSize)
+    const cases = selectCaseQuestions(clfc02, 8, objectives)
+
+    expect(config.caseCategories).toEqual([
+      'Cloud value',
+      'Security responsibility',
+      'AWS services',
+      'Billing and support',
+    ])
+    expect(diagnostic).toHaveLength(24)
+    expect(new Set(diagnostic.map(question => question.domain))).toEqual(new Set(cert.domains.map(domain => domain.name)))
+    expect(cases).toHaveLength(8)
+    expect(new Set(cases.map(question => question.domain)).size).toBeGreaterThanOrEqual(3)
+    expect(cases.every(question => isAppliedQuestion(question))).toBe(true)
   })
 
   it('falls back to scenario-like questions for case practice when PBQ formats are absent', () => {

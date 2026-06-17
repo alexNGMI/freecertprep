@@ -112,6 +112,52 @@ const securityCert = {
   ],
 }
 
+const cloudPractitionerCert = {
+  id: 'clf-c02',
+  code: 'CLF-C02',
+  color: '#f1be32',
+  domains: [
+    { name: 'Cloud Concepts', weight: 24 },
+    { name: 'Security and Compliance', weight: 30 },
+    { name: 'Cloud Technology and Services', weight: 34 },
+    { name: 'Billing, Pricing and Support', weight: 12 },
+  ],
+  questions: [
+    {
+      id: 'c1',
+      domain: 'Cloud Concepts',
+      question: 'A company wants to avoid buying servers before it knows demand. Which cloud value applies?',
+      choices: ['Variable expense', 'Reserved hardware', 'Manual patching', 'Single-AZ design'],
+      correctAnswer: 0,
+      explanation: 'Cloud lets customers trade capital expense for variable expense.',
+    },
+    {
+      id: 'c2',
+      domain: 'Security and Compliance',
+      question: 'A team needs to know who patches the physical facilities. Who is responsible?',
+      choices: ['The customer', 'AWS', 'The auditor', 'The developer'],
+      correctAnswer: 1,
+      explanation: 'AWS is responsible for security of the cloud, including facilities.',
+    },
+    {
+      id: 'c3',
+      domain: 'Cloud Technology and Services',
+      question: 'A business needs object storage for static assets. Which AWS service fits?',
+      choices: ['Amazon S3', 'Amazon RDS', 'AWS IAM', 'AWS Budgets'],
+      correctAnswer: 0,
+      explanation: 'Amazon S3 is AWS object storage.',
+    },
+    {
+      id: 'c4',
+      domain: 'Billing, Pricing and Support',
+      question: 'A customer wants alerts before monthly spend exceeds a threshold. Which tool helps?',
+      choices: ['AWS Budgets', 'Amazon VPC', 'Amazon EC2', 'AWS Shield'],
+      correctAnswer: 0,
+      explanation: 'AWS Budgets can alert on cost and usage thresholds.',
+    },
+  ],
+}
+
 let mockCert = networkCert
 
 vi.mock('../hooks/useCert', () => ({ useCert: () => mockCert }))
@@ -208,6 +254,25 @@ describe('Network+ learning pages', () => {
     expect(screen.getByRole('heading', { name: 'Turn security practice into a repair plan.' })).toBeTruthy()
     expect(screen.getByText('Best next block')).toBeTruthy()
     expect(screen.getAllByText('Compare categories and types of security controls').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Lowest evidence first: repair misses before widening scope.').length).toBeGreaterThan(0)
+  })
+
+  it('gives Cloud Practitioner the same domain-backed next action flow', () => {
+    mockCert = cloudPractitionerCert
+    mockCertStats = {
+      c1: { attempts: 1, correct: 0, lastSeen: Date.now() },
+      c3: { attempts: 1, correct: 1, lastSeen: Date.now() },
+    }
+
+    render(
+      <MemoryRouter>
+        <LearningPlan />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('heading', { name: 'Turn AWS fundamentals into a cloud plan.' })).toBeTruthy()
+    expect(screen.getByText('Best next block')).toBeTruthy()
+    expect(screen.getAllByText('Cloud Concepts').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Lowest evidence first: repair misses before widening scope.').length).toBeGreaterThan(0)
   })
 })
