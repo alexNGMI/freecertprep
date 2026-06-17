@@ -111,6 +111,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Current roadmap** - The catalog is mostly frozen after the CCST promotion and CCNA preview-loop pass. The June 16 offering audit confirms the live product is broad enough; local data durability is next, followed by CI release automation, browser smoke coverage, and maintainability. Coming Soon promotion is paused unless a module clears current source, simulation-readiness, active-release alignment, and cert-specific quality gates. See `docs/offering-audit-2026-06-16.md`, `docs/current-state-and-next-steps-2026-06-13.md`, and `docs/codebase-review-and-action-plan-2026-06-14.md`.
 - **Content quality status** - A+, Network+, Security+, Splunk, Terraform, SAA-C03, CLF-C02, CCST, and the CCNA v2.0 preview have current practical/editorial gates. Cert-specific gates now cover objective or domain breadth, practical-category composition, evidence artifacts, explanation structure, selected-response form composition, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
+- **Backend/accounts roadmap** - Optional accounts are now planned as a local-first extension, not an account wall. The first backend architecture targets Vercel hosting plus Supabase auth/database for email opt-in, progress sync, trust reports, and future career/job-board profile data. See `docs/backend-accounts-architecture-2026-06-17.md`.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
@@ -150,7 +151,7 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - Tailwind CSS v4
 - React Router v7
 - Vitest (1,285 tests across 38 files), GitHub Actions CI
-- `localStorage` for all progress; zero-backend by design
+- `localStorage` for all anonymous progress; optional Supabase sync is planned behind accounts
 - JSON-based question banks, lazy-loaded per cert
 
 ## Getting started

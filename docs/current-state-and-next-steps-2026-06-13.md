@@ -21,7 +21,7 @@ The requested execution order began with content quality, then trust correctness
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
-The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The next advantage comes from protecting local learner work, making release checks repeatable, and reducing registry/documentation drift. See `docs/offering-audit-2026-06-16.md` and `docs/course-companion-usefulness-audit-2026-06-17.md`.
+The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The next advantage comes from protecting local learner work, making release checks repeatable, reducing registry/documentation drift, and preparing an optional backend for sync, trust, email, and future job-board features. See `docs/offering-audit-2026-06-16.md`, `docs/course-companion-usefulness-audit-2026-06-17.md`, and `docs/backend-accounts-architecture-2026-06-17.md`.
 
 ## Current Public Offering
 
@@ -125,6 +125,13 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - added `audit:saa-c03`, `audit:splunk`, and `audit:ccst` to protect the remaining flagship live modules with domain/form allocation, format, explanation, evidence, answer-shape, and uniqueness checks;
 - kept companion-course links in documentation only, not homepage, catalog, or dashboard surfaces.
 
+### Backend Accounts Planning - Started June 17, 2026
+
+- opened a dedicated backend planning branch for optional accounts, email capture, progress sync, trust reports, and future job-board profile data;
+- documented the recommended Vercel + Supabase architecture, phased implementation order, privacy posture, and cost model;
+- drafted the first Supabase schema migration for profiles, email subscriptions, study snapshots, question stats, bookmarks, session results, question issue reports, correction events, and optional career profiles;
+- preserved the product decision that anonymous local-first study remains fully usable.
+
 ### 1. A+ Structured Quality Overhaul - Completed June 14, 2026
 
 - rebuilt all 1,520 questions around objective- and domain-correct decisions;
@@ -155,6 +162,8 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 
 This is the next active product phase because it directly protects the first user's work.
 
+This now pairs with the backend plan: local durability should still land before cloud sync, so a first login can safely merge local data instead of replacing it.
+
 ### 4. Release Automation
 
 - keep `verify:quality` green locally as the release baseline;
@@ -171,7 +180,17 @@ This is the next active product phase because it directly protects the first use
 - split the in-app Docs page into data-driven sections;
 - archive completed one-off content generation scripts.
 
-### 6. A+ Content Maintenance
+### 6. Optional Accounts and Sync
+
+- create a staging Supabase project;
+- apply the initial accounts/sync schema in staging;
+- add a Supabase client wrapper behind environment variables;
+- add auth context and optional magic-link sign-in;
+- add explicit email opt-in;
+- build local-to-cloud sync only after local data durability is reliable;
+- add trust report persistence after account basics are stable.
+
+### 7. A+ Content Maintenance
 
 - preserve the zero-repeated-interaction and 20-practical gates;
 - recheck the official 220-1201 and 220-1202 source pages during release reviews;
