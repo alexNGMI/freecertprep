@@ -1,7 +1,7 @@
 # Backend MVP Execution Plan
 
 Date: June 17, 2026
-Branch: `codex/backend-accounts-planning`
+Branch: merged to `main`
 
 ## Goal
 
@@ -37,21 +37,24 @@ Verified June 17, 2026 from official pricing pages.
 
 | Service | Low-cost start | Likely first production tier | Notes |
 | --- | ---: | ---: | --- |
-| Vercel | Free Hobby | Pro at $20/month | Good default for GitHub-connected hosting, previews, CDN, and custom domain. |
+| Cloudflare Workers Static Assets | Free static asset requests; Workers Paid starts at $5/month if dynamic Worker usage grows | $5/month Workers Paid if server-side Worker/API usage is needed | Current production target for the Vite SPA. Static assets are served from `dist/` through `wrangler.jsonc`; SPA fallback is configured in Workers, not `_redirects`. |
+| Cloudflare Pages | Free | Pro at $20/month billed annually or $25/month monthly | Still a viable static-site fallback, but the repo is currently configured for Workers Static Assets. |
 | Supabase | Free | Pro at $25/month | Good default for auth, Postgres, row-level security, and progress/report persistence. |
 
 Practical expectation:
 
-- Prototype: $0/month if using Vercel Hobby + Supabase Free.
-- Serious public beta: about $45/month baseline with Vercel Pro + Supabase Pro.
-- Early real usage: likely $45-$100/month unless traffic, storage, email, or usage overages grow.
+- Prototype: $0/month if using Cloudflare static hosting + Supabase Free.
+- Serious public beta: about $25-$30/month baseline if Supabase Pro is needed and Cloudflare remains mostly static.
+- Early real usage: likely $25-$75/month unless server-side Worker invocations, storage, email, or usage overages grow.
 
 Official references:
 
 - Supabase pricing: https://supabase.com/pricing
 - Supabase billing docs: https://supabase.com/docs/guides/platform/billing-on-supabase
-- Vercel pricing: https://vercel.com/pricing
-- Vercel pricing docs: https://vercel.com/docs/pricing
+- Cloudflare Workers pricing: https://developers.cloudflare.com/workers/platform/pricing/
+- Cloudflare Workers Static Assets billing and limits: https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/
+- Cloudflare Workers Static Assets SPA routing: https://developers.cloudflare.com/workers/static-assets/routing/single-page-application/
+- Cloudflare Pages pricing: https://pages.cloudflare.com/
 
 ## Product Rules
 
@@ -73,16 +76,17 @@ Official references:
 6. Admin tools start simple.
    A plain report queue is enough for MVP.
 
-## Step 1: Live Domain and Vercel Hosting
+## Step 1: Live Domain and Cloudflare Hosting
 
 Goal: make the app publicly reachable from a real domain.
 
 Tasks:
 
 - choose or confirm the domain;
-- create/import the Vercel project from GitHub;
+- create/import the Cloudflare Workers application from GitHub;
 - set build command: `npm run build`;
-- set output directory: `dist`;
+- set deploy command: `npm run deploy:cloudflare`;
+- use `npm run deploy:cloudflare:preview` for preview/static-assets upload checks if non-production builds need an explicit command;
 - connect the custom domain;
 - verify HTTPS;
 - confirm production deployment from `main`;
@@ -91,9 +95,18 @@ Tasks:
 Done when:
 
 - the live domain loads the app;
-- Vercel deploys from GitHub;
+- Cloudflare deploys from GitHub;
 - the live app routes work on refresh;
-- there is a rollback path through Vercel deployments.
+- there is a rollback path through Cloudflare deployments.
+
+Current repo deployment architecture:
+
+- `.node-version` pins the Cloudflare build runtime to Node `22.13.0`.
+- `wrangler` is pinned as a dev dependency.
+- `wrangler.jsonc` points Workers Static Assets at `./dist/`.
+- `assets.not_found_handling = "single-page-application"` handles client-side React Router refreshes.
+- `public/_redirects` must stay removed because Workers validates it and the old catch-all SPA rule caused an infinite redirect loop.
+- The current app still has no application backend; Supabase is planned only after hosting, email, and local data durability are stable.
 
 ## Step 2: Domain Email
 
@@ -143,7 +156,7 @@ Implementation tasks:
 - create staging Supabase project;
 - apply the initial SQL migration;
 - add `.env.example`;
-- add Vercel environment variables later;
+- add Cloudflare environment variables later;
 - install `@supabase/supabase-js`;
 - add `src/lib/supabase.js`;
 - add `AuthProvider`;
@@ -256,7 +269,7 @@ Do not build all six at once.
 
 Build order:
 
-1. Vercel live domain.
+1. Cloudflare live domain.
 2. Domain email.
 3. Supabase Auth shell.
 4. Progress sync.
@@ -310,7 +323,7 @@ This lets the current app remain stable while account sync is added underneath.
 
 Step 1 should be handled first:
 
-Confirm the domain and deploy the current app to Vercel.
+Confirm the domain and deploy the current app to Cloudflare.
 
 Do not build progress sync until:
 
