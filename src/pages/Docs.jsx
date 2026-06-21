@@ -847,6 +847,7 @@ key = random() ** (1 / weight)
                   'June 17 course-companion usefulness audit - confirmed the live catalog works best as a companion to trusted courses and vendor learning paths: external instruction teaches concepts, while freecertprep diagnoses weak spots, drives targeted practice, and debriefs readiness.',
                   'Release quality gate v1 - added npm run verify:quality for lint, tests, production build, dependency audit, and current cert-specific audits; GitHub Actions now runs the same gate; browser smoke covers home, catalog, docs, dashboard, practice, exam, and results on desktop and mobile.',
                   'Flagship audit expansion - CLF-C02, SAA-C03, Splunk Core User, and CCST Networking now have named quality gates for domain/form allocation, format coverage, answer metadata, explanations, evidence, uniqueness, and randomized forms.',
+                  'Backend MVP planning - live domain hosting, domain email, optional email sign-in, progress sync, report-incorrect-info workflow, and admin report review now have a Vercel/Supabase execution plan and initial Supabase schema draft.',
                 ],
               },
               {
@@ -856,8 +857,9 @@ key = random() ** (1 / weight)
                   '1. Local data durability - bound session history, surface storage write failures, persist completed results across refresh, and add a versioned full-study backup.',
                   '2. Release automation - eliminate chart sizing warnings and keep verify:quality plus browser smoke green in CI.',
                   '3. Course-companion hardening - keep CLF-C02, SAA, Terraform, Splunk, and CCST quality sampling active, and avoid positioning the app as a full course or lab replacement.',
-                  '4. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
-                  '5. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
+                  '4. Backend MVP - deploy the live domain, set up support/admin email, create Supabase staging, add optional sign-in, then build progress sync, report persistence, and a simple admin queue.',
+                  '5. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
+                  '6. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
                 ],
               },
               {
@@ -866,8 +868,8 @@ key = random() ** (1 / weight)
                 items: [
                   'Accessibility pass phase 2 — deeper keyboard navigation, screen-reader flow, contrast, reduced-motion checks',
                   'CCNA release promotion - parked until Cisco v2.0 becomes active and the preserved preview passes a fresh release audit; maintain the preview loop and advanced simulation quality through targeted sampling.',
-                  'User accounts and synced progress - useful after the local-first product journey is fully hardened.',
-                  'Trust layer phase 1 - durable reports, moderation, audit trails, and correction history when a backend becomes an active priority.',
+                  'Job-board concept - keep it parked until the live product has domain hosting, accounts, sync, reports, and admin review working.',
+                  'Trust layer phase 1 - durable reports, moderation, audit trails, and correction history after the optional backend foundation is in place.',
                   'Custom domain and installable PWA support.',
                   'CDL sister site - future written-test prep lane for General Knowledge, Air Brakes, Combination Vehicles, and endorsements. Architecture fit is strong because FMCSA sets federal minimum standards while state manuals can be layered like real-estate state modules.',
                   'NCLEX sister site - future nursing prep lane for RN/PN licensure. Defer content buildout until the app has a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.',
