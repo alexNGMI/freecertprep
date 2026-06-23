@@ -35,3 +35,40 @@ export function DomainBadge({ children, color = '#a1a1aa', className }) {
     </span>
   )
 }
+
+export function PageEyebrow({ className, ...props }) {
+  return (
+    <p
+      className={cn('text-[11px] font-bold uppercase tracking-widest text-zinc-500', className)}
+      {...props}
+    />
+  )
+}
+
+export function PageTitle({ as = 'h1', className, ...props }) {
+  return createElement(as, {
+    className: cn('text-4xl font-black tracking-tight text-zinc-50 md:text-6xl', className),
+    ...props,
+  })
+}
+
+export function PageLead({ className, ...props }) {
+  return (
+    <p
+      className={cn('max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg', className)}
+      {...props}
+    />
+  )
+}
+
+export function SectionHeading({ eyebrow, title, detail, className, ...props }) {
+  return (
+    <div className={cn('flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between', className)} {...props}>
+      <div>
+        {eyebrow && <PageEyebrow>{eyebrow}</PageEyebrow>}
+        <h2 className="mt-2 text-2xl font-black text-zinc-50 md:text-3xl">{title}</h2>
+      </div>
+      {detail && <p className="max-w-xl text-sm leading-relaxed text-zinc-500">{detail}</p>}
+    </div>
+  )
+}

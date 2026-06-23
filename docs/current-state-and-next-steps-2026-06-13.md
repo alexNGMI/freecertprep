@@ -133,7 +133,17 @@ Stage 1 is complete:
 - Networking labels Network+ as the broad default and CCST as the Cisco route;
 - the two first-use routes were verified without horizontal overflow on mobile and desktop.
 
-Stage 2, visual consistency, is next. Catalog expansion remains frozen throughout the polish program.
+Stage 2 is complete:
+
+- Home, Catalog, Career Paths, A+, and Account now share one title, lead, eyebrow, section-heading, surface, and button system;
+- public-page desktop titles use one 60px scale and mobile titles use one 36px scale;
+- cards and primary commands now use the shared `Surface` and `Button` primitives instead of page-specific imitations;
+- A+ no longer uses an oversized marketing-only type scale;
+- Catalog and Career Path cards now match the study dashboard's panel treatment and interaction motion;
+- the remaining 24px-radius study-mode outliers were normalized to the shared 16px panel radius;
+- Home, Catalog, Networking, A+, and Account were verified at 390px with zero horizontal overflow.
+
+Stage 3, account experience, is next. Catalog expansion remains frozen throughout the polish program.
 
 ### Network+ Personal Learning Loop - Completed June 15, 2026
 

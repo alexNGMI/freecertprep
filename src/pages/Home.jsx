@@ -12,6 +12,8 @@ import {
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { Button } from '../components/ui/button'
+import { PageEyebrow, PageLead, PageTitle, SectionHeading, Surface } from '../components/ui/surface'
 
 const paths = [
   {
@@ -118,29 +120,33 @@ export default function Home() {
                 <Sparkles className="w-4 h-4 text-zinc-500" />
                 Free practice for modern IT certifications
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-zinc-100 leading-none mb-7">
+              <PageTitle className="mb-6 leading-tight">
                 Choose a direction. Build confidence.
-              </h1>
-              <p className="text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
+              </PageTitle>
+              <PageLead>
                 FreeCertPrep organizes certifications around career momentum, not vendor logos. Start at the level that fits, practice with exam-shaped sessions, and let Smart Practice keep the right questions in rotation.
-              </p>
+              </PageLead>
               <p className="mt-5 text-sm font-semibold text-zinc-300">
                 Brand new to IT? Begin with A+. Already know your goal? Choose a career path.
               </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-3">
-                <Link
+                <Button
+                  as={Link}
                   to="/comptia/a-plus"
-                  className="inline-flex items-center justify-center gap-2 bg-zinc-100 text-zinc-950 font-semibold text-base px-6 py-3 rounded-lg hover:bg-white transition-colors"
+                  variant="primary"
+                  size="lg"
                 >
                   I&apos;m new to IT
                   <ArrowRight className="w-4 h-4" />
-                </Link>
-                <a
+                </Button>
+                <Button
+                  as="a"
                   href="#career-paths"
-                  className="inline-flex items-center justify-center gap-2 bg-zinc-900 text-zinc-100 border border-white/10 font-semibold text-base px-6 py-3 rounded-lg hover:bg-zinc-800 transition-colors"
+                  variant="secondary"
+                  size="lg"
                 >
                   Choose a career path
-                </a>
+                </Button>
               </div>
               <Link to="/catalog" aria-label="Browse All Certs" className="mt-4 inline-flex text-sm font-semibold text-zinc-500 hover:text-zinc-200">
                 Already know the exact certification? Browse all certs.
@@ -153,19 +159,17 @@ export default function Home() {
 
         <section id="paths" className="max-w-7xl mx-auto px-6 py-16 border-y border-white/5">
           <div className="mb-10">
-            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Recommended progression</p>
+            <PageEyebrow className="mb-3">Recommended progression</PageEyebrow>
             <PathCard path={paths[0]} variant="wide" />
           </div>
 
-          <div id="career-paths" className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 pt-10 border-t border-white/5 scroll-mt-24">
-            <div>
-              <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Build forward</p>
-              <h2 className="text-3xl font-bold text-zinc-100">Foundation. Networks. Security. Cloud.</h2>
-            </div>
-            <p className="text-sm text-zinc-500 max-w-xl leading-relaxed">
-              Move through the sequence when it serves your goal, or enter at the stage that matches what you already know.
-            </p>
-          </div>
+          <SectionHeading
+            id="career-paths"
+            eyebrow="Build forward"
+            title="Foundation. Networks. Security. Cloud."
+            detail="Move through the sequence when it serves your goal, or enter at the stage that matches what you already know."
+            className="mb-8 border-t border-white/5 pt-10 scroll-mt-24"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {paths.slice(1).map((path) => (
@@ -179,13 +183,13 @@ export default function Home() {
             {featureItems.map(({ title, desc, icon }) => {
               const FeatureIcon = icon
               return (
-                <div key={title} className="border border-white/10 bg-zinc-950/70 rounded-lg p-6">
+                <Surface key={title} className="p-6">
                   <div className="w-10 h-10 rounded-lg bg-zinc-800/70 border border-white/10 flex items-center justify-center mb-4 text-zinc-300">
                     <FeatureIcon className="w-5 h-5" />
                   </div>
                   <h3 className="text-lg font-bold text-zinc-100 mb-2">{title}</h3>
                   <p className="text-sm text-zinc-400 leading-relaxed">{desc}</p>
-                </div>
+                </Surface>
               )
             })}
           </div>

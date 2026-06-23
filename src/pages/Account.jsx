@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { Button } from '../components/ui/button'
-import { Surface } from '../components/ui/surface'
+import { PageEyebrow, PageLead, PageTitle, Surface } from '../components/ui/surface'
 import { exportProgress, exportQuestionIssueReports, readQuestionIssueReports } from '../utils/storage'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { isSupabaseConfigured, supabase } from '../lib/supabase'
@@ -158,13 +158,13 @@ export default function Account() {
           <Surface className="overflow-hidden p-7 md:p-9">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl">
-                <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">Optional account layer</p>
-                <h1 className="mt-3 text-4xl font-black tracking-tight text-zinc-50 md:text-6xl">
+                <PageEyebrow>Optional account layer</PageEyebrow>
+                <PageTitle className="mt-3">
                   Keep studying locally. Sync when you want.
-                </h1>
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
+                </PageTitle>
+                <PageLead className="mt-5">
                   Accounts are for durability, cross-device progress, and issue-report follow-up. The practice engine stays usable without signing in.
-                </p>
+                </PageLead>
               </div>
               <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5">
                 <StatusPill ready={isSupabaseConfigured} />

@@ -12,6 +12,7 @@ import BrandedName from '../components/BrandedName'
 import { getAllCerts } from '../data/certs'
 import { isCertComingSoon, isCertLive } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { PageEyebrow, PageLead, PageTitle, SectionHeading, Surface } from '../components/ui/surface'
 
 const certs = getAllCerts()
 const liveCerts = certs.filter((cert) => isCertLive(cert.id))
@@ -59,25 +60,19 @@ export default function Catalog() {
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr] gap-8 items-end">
             <div>
-              <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Full catalog</p>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-100 mb-5">
+              <PageEyebrow className="mb-3">Full catalog</PageEyebrow>
+              <PageTitle className="mb-5">
                 Live certs first.
-              </h1>
-              <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
+              </PageTitle>
+              <PageLead>
                 Use this page when you already know the exam you want. Live modules meet the current release and readiness bar; preserved modules remain visible without implying they are ready today.
-              </p>
+              </PageLead>
             </div>
           </div>
         </section>
 
         <section className="max-w-7xl mx-auto px-6 pb-10">
-          <div className="mb-5 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest mb-2">Ready now</p>
-              <h2 className="text-2xl font-bold text-zinc-100">Live practice</h2>
-            </div>
-            <p className="text-sm text-zinc-500">{liveCerts.length} live modules</p>
-          </div>
+          <SectionHeading eyebrow="Ready now" title="Live practice" detail={`${liveCerts.length} live modules`} className="mb-5" />
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {liveCerts.map((cert) => (
               <CertRow key={cert.id} cert={cert} live />
@@ -86,13 +81,7 @@ export default function Catalog() {
         </section>
 
         <section className="max-w-7xl mx-auto px-6 pb-16">
-          <div className="mb-5 flex items-end justify-between gap-4">
-            <div>
-              <p className="text-[10px] font-bold text-amber-300 uppercase tracking-widest mb-2">Coming soon</p>
-              <h2 className="text-2xl font-bold text-zinc-100">Held for quality or release alignment</h2>
-            </div>
-            <p className="text-sm text-zinc-500">{comingSoonCerts.length} modules</p>
-          </div>
+          <SectionHeading eyebrow="Coming soon" title="Held for quality or release alignment" detail={`${comingSoonCerts.length} modules`} className="mb-5" />
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {comingSoonCerts.map((cert) => (
               <CertRow key={cert.id} cert={cert} live={false} />
@@ -116,7 +105,7 @@ function CertRow({ cert, live }) {
           ? HomeIcon
           : Cloud
 
-  const cardClass = `group border border-white/10 bg-zinc-950/75 rounded-lg p-5 transition-colors ${live ? 'hover:bg-zinc-900/70' : 'opacity-75'}`
+  const cardClass = `group p-5 ${live ? 'hover:bg-zinc-900/70' : 'opacity-75'}`
   const content = (
     <>
       <div className="flex items-start justify-between gap-4 mb-4">
@@ -154,19 +143,21 @@ function CertRow({ cert, live }) {
 
   if (!live) {
     return (
-      <div className={cardClass} aria-label={`${cert.title} coming soon`}>
+      <Surface className={cardClass} aria-label={`${cert.title} coming soon`}>
         {content}
-      </div>
+      </Surface>
     )
   }
 
   return (
-    <Link
+    <Surface
+      as={Link}
       to={`/${cert.id}`}
+      interactive
       className={cardClass}
     >
       {content}
-    </Link>
+    </Surface>
   )
 }
 

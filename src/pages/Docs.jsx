@@ -867,7 +867,7 @@ key = random() ** (1 / weight)
                 color: '#a1a1aa',
                 items: [
                   '1. First-use experience - complete: homepage entry choices, A+ Core 1 guidance, explicit path-card actions, and mobile/desktop journey verification.',
-                  '2. Visual consistency - standardize spacing, typography, buttons, cards, status labels, and responsive layouts.',
+                  '2. Visual consistency - complete: shared public-page typography, section headings, buttons, surfaces, interaction motion, card radius, and mobile overflow verification.',
                   '3. Account experience - clarify signed-in state, backup/restore status, timestamps, errors, and confirmations.',
                   '4. Study workflow - smooth diagnostic, mastery map, study plan, practice, simulation, and debrief transitions.',
                   '5. Micro-polish - improve loading, empty, focus, motion, tooltip, wording, and responsive states.',

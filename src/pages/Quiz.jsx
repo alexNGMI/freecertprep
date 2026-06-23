@@ -291,7 +291,7 @@ export default function Quiz() {
                 onClick={action}
                 whileHover={{ y: -4 }}
                 className={cn(
-                  'min-h-64 rounded-3xl border p-6 text-left transition-all',
+                  'min-h-64 rounded-2xl border p-6 text-left transition-all',
                   isSelected ? 'border-white/20 bg-white/[0.07]' : 'border-white/10 bg-zinc-950/70 hover:border-white/20',
                 )}
               >

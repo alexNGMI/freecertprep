@@ -67,7 +67,7 @@ export default function Drill() {
               </div>
             ))}
           </div>
-          <div className="flex flex-col justify-between rounded-3xl border border-rose-500/20 bg-rose-500/10 p-6">
+          <div className="flex flex-col justify-between rounded-2xl border border-rose-500/20 bg-rose-500/10 p-6">
             <div>
               <Flame className="h-10 w-10 text-rose-300" />
               <h2 className="mt-5 text-3xl font-black text-zinc-50">10 minute sprint</h2>

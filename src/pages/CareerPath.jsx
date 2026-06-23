@@ -12,6 +12,7 @@ import BrandedName from '../components/BrandedName'
 import { getCert } from '../data/certs'
 import { isCertLive } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { PageEyebrow, PageLead, PageTitle, SectionHeading, Surface } from '../components/ui/surface'
 
 const PATHS = {
   networking: {
@@ -234,18 +235,18 @@ export default function CareerPath() {
               <div className="w-12 h-12 rounded-lg border border-white/10 bg-zinc-900/80 flex items-center justify-center mb-6" style={{ color: path.color }}>
                 <Icon className="w-6 h-6" />
               </div>
-              <p className="text-[10px] font-bold uppercase tracking-widest mb-4" style={{ color: path.color }}>
+              <PageEyebrow className="mb-4" style={{ color: path.color }}>
                 {path.eyebrow} path
-              </p>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-100 leading-tight mb-6">
+              </PageEyebrow>
+              <PageTitle className="mb-6 leading-tight">
                 {path.title}
-              </h1>
-              <p className="text-lg text-zinc-400 leading-relaxed max-w-2xl">
+              </PageTitle>
+              <PageLead>
                 {path.description}
-              </p>
+              </PageLead>
             </div>
 
-            <div className="border border-white/10 bg-zinc-950/75 rounded-lg p-5 space-y-5">
+            <Surface className="p-5 space-y-5">
               {path.roles?.length > 0 && (
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">Target roles</p>
@@ -281,7 +282,7 @@ export default function CareerPath() {
                   </p>
                 )}
               </div>
-            </div>
+            </Surface>
           </div>
         </section>
 
@@ -289,10 +290,7 @@ export default function CareerPath() {
           <div className="space-y-8">
             {numberedGroups.map((group) => (
               <div key={group.label}>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="h-px w-8" style={{ backgroundColor: path.color }} />
-                  <h2 className="text-xl font-bold text-zinc-100">{group.label}</h2>
-                </div>
+                <SectionHeading title={group.label} className="mb-4" />
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                   {group.items.map((item) => (
                     <StepCard key={`${group.label}-${item.title}`} item={item} color={path.color} />
@@ -355,18 +353,20 @@ function StepCard({ item, color }) {
 
   if (!item.to) {
     return (
-      <div className="border border-white/10 bg-zinc-950/60 rounded-lg p-5 opacity-90">
+      <Surface className="p-5 opacity-90">
         {content}
-      </div>
+      </Surface>
     )
   }
 
   return (
-    <Link
+    <Surface
+      as={Link}
       to={item.to}
-      className="group border border-white/10 bg-zinc-950/75 hover:bg-zinc-900/70 rounded-lg p-5 transition-colors"
+      interactive
+      className="group p-5"
     >
       {content}
-    </Link>
+    </Surface>
   )
 }
