@@ -33,8 +33,8 @@ const PATHS = {
         label: 'Choose a foundation',
         type: 'choice',
         items: [
-          certStep('Foundation', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and support environments.'),
-          certStep('Foundation', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.'),
+          certStep('Foundation', 'comptia-net-plus', 'Best fit if you want broad networking fundamentals across vendors, roles, and support environments.', 'Best default'),
+          certStep('Foundation', 'ccst-networking', 'Best fit if your long-term goal is CCNA and you want a Cisco-aligned first networking step.', 'Cisco route'),
         ],
       },
       {
@@ -157,7 +157,7 @@ const PATHS = {
   },
 }
 
-function certStep(label, certId, description) {
+function certStep(label, certId, description, choiceCue = null) {
   const cert = getCert(certId)
   return {
     label,
@@ -168,6 +168,7 @@ function certStep(label, certId, description) {
     to: isCertLive(cert.id) ? `/${cert.id}` : null,
     status: isCertLive(cert.id) ? 'Live' : 'Coming soon',
     description,
+    choiceCue,
   }
 }
 
@@ -317,7 +318,13 @@ function StepCard({ item, color }) {
           <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">{item.title}</h3>
         </div>
         {item.to ? (
-          <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+          item.choiceCue ? (
+            <span className="rounded-md border border-white/10 bg-zinc-900/70 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-300">
+              {item.choiceCue}
+            </span>
+          ) : (
+            <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+          )
         ) : (
           <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1">
             {item.status}
@@ -337,6 +344,12 @@ function StepCard({ item, color }) {
       <p className="text-sm text-zinc-400 leading-relaxed border-t border-white/5 pt-4" style={{ borderTopColor: `${color}30` }}>
         {item.description}
       </p>
+      {item.to && (
+        <div className="mt-5 flex items-center justify-between border-t border-white/5 pt-4 text-sm font-bold text-zinc-200">
+          <span>Open {item.title}</span>
+          <ArrowRight className="h-4 w-4 text-zinc-500 transition-colors group-hover:text-zinc-200" />
+        </div>
+      )}
     </>
   )
 

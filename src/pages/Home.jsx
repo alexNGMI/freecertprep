@@ -124,21 +124,27 @@ export default function Home() {
               <p className="text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
                 FreeCertPrep organizes certifications around career momentum, not vendor logos. Start at the level that fits, practice with exam-shaped sessions, and let Smart Practice keep the right questions in rotation.
               </p>
+              <p className="mt-5 text-sm font-semibold text-zinc-300">
+                Brand new to IT? Begin with A+. Already know your goal? Choose a career path.
+              </p>
               <div className="mt-10 flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#paths"
+                <Link
+                  to="/comptia/a-plus"
                   className="inline-flex items-center justify-center gap-2 bg-zinc-100 text-zinc-950 font-semibold text-base px-6 py-3 rounded-lg hover:bg-white transition-colors"
                 >
-                  Find Your Path
+                  I&apos;m new to IT
                   <ArrowRight className="w-4 h-4" />
-                </a>
-                <Link
-                  to="/catalog"
+                </Link>
+                <a
+                  href="#career-paths"
                   className="inline-flex items-center justify-center gap-2 bg-zinc-900 text-zinc-100 border border-white/10 font-semibold text-base px-6 py-3 rounded-lg hover:bg-zinc-800 transition-colors"
                 >
-                  Browse All Certs
-                </Link>
+                  Choose a career path
+                </a>
               </div>
+              <Link to="/catalog" aria-label="Browse All Certs" className="mt-4 inline-flex text-sm font-semibold text-zinc-500 hover:text-zinc-200">
+                Already know the exact certification? Browse all certs.
+              </Link>
             </div>
 
             <div aria-hidden="true" className="hidden lg:block" />
@@ -151,7 +157,7 @@ export default function Home() {
             <PathCard path={paths[0]} variant="wide" />
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 pt-10 border-t border-white/5">
+          <div id="career-paths" className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8 pt-10 border-t border-white/5 scroll-mt-24">
             <div>
               <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-3">Build forward</p>
               <h2 className="text-3xl font-bold text-zinc-100">Foundation. Networks. Security. Cloud.</h2>

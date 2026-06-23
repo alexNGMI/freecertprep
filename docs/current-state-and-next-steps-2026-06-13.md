@@ -113,6 +113,28 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Ordered Next Steps
 
+### Product Polish Program - Active June 23, 2026
+
+Work through these stages in order, verifying desktop and mobile before moving forward:
+
+1. First-use experience: make homepage to path to certification to diagnostic immediately understandable.
+2. Visual consistency: standardize spacing, typography, buttons, cards, status labels, and responsive layouts.
+3. Account experience: clarify signed-in state, backup/restore status, timestamps, errors, and confirmations.
+4. Study workflow: smooth diagnostic, mastery map, study plan, practice, simulation, and debrief transitions.
+5. Micro-polish: improve loading, empty, focus, motion, tooltip, wording, and responsive states.
+6. Full browser walkthrough: test every critical learner journey on desktop and mobile and repair remaining friction.
+
+Stage 1 is complete:
+
+- the homepage now separates brand-new learners, career-path learners, and visitors who already know their certification;
+- A+ now states that Core 1 comes first for most new learners and exposes an immediate Core 1 action;
+- the A+ selector keeps the selected-core action beside the choice instead of below the full blueprint;
+- live career-path cards now show explicit open actions;
+- Networking labels Network+ as the broad default and CCST as the Cisco route;
+- the two first-use routes were verified without horizontal overflow on mobile and desktop.
+
+Stage 2, visual consistency, is next. Catalog expansion remains frozen throughout the polish program.
+
 ### Network+ Personal Learning Loop - Completed June 15, 2026
 
 - added a 35-question diagnostic that samples every official objective;

@@ -83,6 +83,17 @@ export default function APlus() {
               <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
                 A+ is a two-exam credential. This track keeps Core 1 and Core 2 separate, uses the official domain weights, and clearly distinguishes practice readiness from CompTIA&apos;s scaled scoring and richer PBQ delivery.
               </p>
+              <div className="mt-7 flex flex-col items-start gap-3">
+                <p className="text-sm font-semibold text-zinc-300">
+                  New to IT? Start with Core 1, then move to Core 2.
+                </p>
+                <Link
+                  to="/comptia-a-plus-core-1"
+                  className="inline-flex items-center justify-center rounded-lg bg-zinc-100 px-5 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-white"
+                >
+                  Begin Core 1
+                </Link>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
@@ -97,6 +108,10 @@ export default function APlus() {
         </section>
 
         <section className="max-w-7xl mx-auto px-6 py-12 border-y border-white/5">
+          <div className="mb-6">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Choose your current exam</p>
+            <h2 className="mt-2 text-2xl font-bold text-zinc-100">Core 1 comes first for most new learners.</h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {Object.entries(CORE_BLUEPRINTS).map(([key, item]) => {
               const active = key === selectedCore
@@ -115,15 +130,34 @@ export default function APlus() {
                       </p>
                       <h2 className="text-2xl font-bold text-zinc-100">{item.code}</h2>
                     </div>
-                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-md border ${active ? 'text-red-200 border-red-500/40 bg-red-500/10' : 'text-zinc-500 border-white/10 bg-zinc-900/60'}`}>
-                      {active ? 'Selected' : 'Select'}
-                    </span>
+                    <div className="flex flex-col items-end gap-2">
+                      {key === 'core1' && (
+                        <span className="rounded-md border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-200">
+                          Start here
+                        </span>
+                      )}
+                      <span className={`text-[11px] font-bold px-2.5 py-1 rounded-md border ${active ? 'text-red-200 border-red-500/40 bg-red-500/10' : 'text-zinc-500 border-white/10 bg-zinc-900/60'}`}>
+                        {active ? 'Selected' : 'Select'}
+                      </span>
+                    </div>
                   </div>
                   <h3 className="text-lg font-semibold text-zinc-200 mb-3">{item.title}</h3>
                   <p className="text-sm text-zinc-400 leading-relaxed">{item.focus}</p>
                 </button>
               )
             })}
+          </div>
+          <div className="mt-6 flex flex-col gap-3 rounded-lg border border-white/10 bg-zinc-950/75 p-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">Your selection</p>
+              <p className="mt-1 text-sm text-zinc-300">{core.label} · {core.code} · {core.title}</p>
+            </div>
+            <Link
+              to={core.route}
+              className="inline-flex items-center justify-center rounded-lg bg-zinc-100 px-5 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-white"
+            >
+              Start {core.label}
+            </Link>
           </div>
         </section>
 
@@ -148,14 +182,6 @@ export default function APlus() {
                   <span className="text-sm text-zinc-500">Status</span>
                   <span className="text-sm font-semibold text-emerald-300">{core.status}</span>
                 </div>
-              </div>
-              <div className="mt-5">
-                <Link
-                  to={core.route}
-                  className="inline-flex items-center justify-center rounded-lg bg-zinc-100 text-zinc-950 text-sm font-semibold px-5 py-3 hover:bg-white transition-colors"
-                >
-                  Start {core.label}
-                </Link>
               </div>
             </div>
 
