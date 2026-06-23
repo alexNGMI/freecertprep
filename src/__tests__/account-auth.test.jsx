@@ -5,12 +5,18 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { MemoryRouter } from 'react-router-dom'
 import Account from '../pages/Account.jsx'
 
-const { auth } = vi.hoisted(() => ({
+const { auth, accountSync } = vi.hoisted(() => ({
   auth: {
     getSession: vi.fn(),
     onAuthStateChange: vi.fn(),
     signInWithOtp: vi.fn(),
     signOut: vi.fn(),
+  },
+  accountSync: {
+    backupStudyData: vi.fn(),
+    getLatestBackupInfo: vi.fn(),
+    restoreLatestStudyData: vi.fn(),
+    summarizeStudyData: vi.fn(),
   },
 }))
 
@@ -18,6 +24,8 @@ vi.mock('../lib/supabase', () => ({
   isSupabaseConfigured: true,
   supabase: { auth },
 }))
+
+vi.mock('../lib/accountSync', () => accountSync)
 
 function renderAccount() {
   return render(
@@ -35,6 +43,15 @@ describe('Account authentication', () => {
     })
     auth.signInWithOtp.mockResolvedValue({ error: null })
     auth.signOut.mockResolvedValue({ error: null })
+    accountSync.getLatestBackupInfo.mockResolvedValue(null)
+    accountSync.summarizeStudyData.mockReturnValue({
+      certifications: 0,
+      sessions: 0,
+      trackedQuestions: 0,
+      bookmarks: 0,
+    })
+    accountSync.backupStudyData.mockResolvedValue('2026-06-23T20:00:00Z')
+    accountSync.restoreLatestStudyData.mockResolvedValue('2026-06-23T20:00:00Z')
   })
 
   afterEach(() => {
@@ -74,5 +91,32 @@ describe('Account authentication', () => {
 
     await waitFor(() => expect(auth.signOut).toHaveBeenCalled())
     expect(await screen.findByText(/You are signed out/i)).toBeTruthy()
+  })
+
+  it('shows the latest backup and confirms before restoring local data', async () => {
+    auth.getSession.mockResolvedValue({
+      data: { session: { user: { email: 'learner@example.com' } } },
+      error: null,
+    })
+    accountSync.getLatestBackupInfo.mockResolvedValue({
+      createdAt: '2026-06-23T20:00:00Z',
+      summary: {
+        certifications: 2,
+        sessions: 4,
+        trackedQuestions: 30,
+        bookmarks: 3,
+      },
+    })
+
+    renderAccount()
+
+    expect(await screen.findByText('2 certs, 4 sessions, 30 tracked questions, 3 bookmarks')).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: 'Restore latest backup' }))
+
+    expect(screen.getByText(/Replace this browser's study data/i)).toBeTruthy()
+    expect(accountSync.restoreLatestStudyData).not.toHaveBeenCalled()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Restore backup' }))
+    await waitFor(() => expect(accountSync.restoreLatestStudyData).toHaveBeenCalled())
   })
 })

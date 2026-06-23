@@ -96,7 +96,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,292 tests pass across 41 files.
+- 1,295 tests pass across 41 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -143,7 +143,19 @@ Stage 2 is complete:
 - the remaining 24px-radius study-mode outliers were normalized to the shared 16px panel radius;
 - Home, Catalog, Networking, A+, and Account were verified at 390px with zero horizontal overflow.
 
-Stage 3, account experience, is next. Catalog expansion remains frozen throughout the polish program.
+Stage 3 is complete:
+
+- the account page now clearly describes manual backup and restore instead of implying continuous synchronization;
+- signed-in learners see their active email identity and latest cloud-backup timestamp;
+- cloud and local snapshots show counts for certifications, sessions, tracked questions, and bookmarks;
+- backup, restore, sign-in, and sign-out use separate loading labels instead of one ambiguous busy state;
+- restore requires an explicit confirmation and explains that local progress, Smart Practice statistics, and bookmarks will be replaced;
+- restore now detects browser-storage write failure instead of reporting a false success;
+- implementation jargon was removed from learner-facing status cards;
+- the dashboard account link now says `Account & backup`;
+- signed-out and mobile account layouts were verified without horizontal overflow.
+
+Stage 4, study workflow, is next. Catalog expansion remains frozen throughout the polish program.
 
 ### Network+ Personal Learning Loop - Completed June 15, 2026
 

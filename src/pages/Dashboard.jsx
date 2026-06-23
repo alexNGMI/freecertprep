@@ -344,14 +344,14 @@ export default function Dashboard() {
               {trackedCount} Smart Practice question{trackedCount === 1 ? '' : 's'} tracked locally.
             </p>
             <p className="mt-1 text-xs leading-relaxed text-zinc-500">
-              Progress stays in this browser. Export a backup before clearing browser data or switching devices.
+              Progress stays local first. Export it or use an optional account backup before clearing browser data or switching devices.
             </p>
             <Link
               to="/account"
               className="mt-3 inline-flex items-center gap-2 rounded-lg border border-sky-500/20 bg-sky-500/10 px-3 py-2 text-xs font-bold text-sky-200 transition hover:bg-sky-500/20"
             >
               <KeyRound className="h-3.5 w-3.5" />
-              Optional account sync
+              Account & backup
             </Link>
           </div>
 

@@ -6,6 +6,7 @@ import {
   Cloud,
   Database,
   Download,
+  HardDrive,
   KeyRound,
   Mail,
   RefreshCw,
@@ -18,19 +19,28 @@ import { PageEyebrow, PageLead, PageTitle, Surface } from '../components/ui/surf
 import { exportProgress, exportQuestionIssueReports, readQuestionIssueReports } from '../utils/storage'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { isSupabaseConfigured, supabase } from '../lib/supabase'
-import { backupStudyData, restoreLatestStudyData } from '../lib/accountSync'
+import {
+  backupStudyData,
+  getLatestBackupInfo,
+  restoreLatestStudyData,
+  summarizeStudyData,
+} from '../lib/accountSync'
 
 export default function Account() {
   const [email, setEmail] = useState('')
   const [notice, setNotice] = useState(null)
   const [session, setSession] = useState(null)
   const [authLoading, setAuthLoading] = useState(isSupabaseConfigured)
-  const [submitting, setSubmitting] = useState(false)
+  const [pendingAction, setPendingAction] = useState(null)
+  const [latestBackup, setLatestBackup] = useState(null)
+  const [backupLoading, setBackupLoading] = useState(false)
+  const [confirmRestore, setConfirmRestore] = useState(false)
   const reports = useMemo(() => readQuestionIssueReports(), [])
+  const [localSummary, setLocalSummary] = useState(() => summarizeStudyData())
 
   useDocumentMeta({
-    title: 'Account and Sync',
-    description: 'Optional freecertprep account, progress sync, and question issue reporting status.',
+    title: 'Account and Backup',
+    description: 'Optional freecertprep account, cloud backup, restore, and question issue reporting status.',
     path: '/account',
   })
 
@@ -47,6 +57,7 @@ export default function Account() {
         setNotice({ kind: 'error', message: error.message })
       } else {
         setSession(data.session)
+        if (data.session) refreshBackupInfo()
       }
       setAuthLoading(false)
     })
@@ -56,7 +67,10 @@ export default function Account() {
       setSession(nextSession)
       setAuthLoading(false)
       if (event === 'SIGNED_IN' && nextSession) {
-        setNotice({ kind: 'success', message: 'You are signed in. Your account is ready for progress sync.' })
+        setNotice({ kind: 'success', message: 'You are signed in. Manual cloud backup is ready.' })
+        refreshBackupInfo()
+      } else if (event === 'SIGNED_OUT') {
+        setLatestBackup(null)
       }
     })
 
@@ -65,6 +79,17 @@ export default function Account() {
       authListener.subscription.unsubscribe()
     }
   }, [])
+
+  async function refreshBackupInfo() {
+    setBackupLoading(true)
+    try {
+      setLatestBackup(await getLatestBackupInfo())
+    } catch (error) {
+      setNotice({ kind: 'error', message: `Could not check cloud backup status: ${error.message}` })
+    } finally {
+      setBackupLoading(false)
+    }
+  }
 
   async function handleSignIn(event) {
     event.preventDefault()
@@ -76,7 +101,7 @@ export default function Account() {
       return
     }
 
-    setSubmitting(true)
+    setPendingAction('sign-in')
     setNotice(null)
     const { error } = await supabase.auth.signInWithOtp({
       email,
@@ -85,7 +110,7 @@ export default function Account() {
         shouldCreateUser: true,
       },
     })
-    setSubmitting(false)
+    setPendingAction(null)
 
     if (error) {
       setNotice({ kind: 'error', message: error.message })
@@ -97,9 +122,9 @@ export default function Account() {
 
   async function handleSignOut() {
     if (!supabase) return
-    setSubmitting(true)
+    setPendingAction('sign-out')
     const { error } = await supabase.auth.signOut()
-    setSubmitting(false)
+    setPendingAction(null)
 
     if (error) {
       setNotice({ kind: 'error', message: error.message })
@@ -111,31 +136,34 @@ export default function Account() {
   }
 
   async function handleBackup() {
-    setSubmitting(true)
+    setPendingAction('backup')
     try {
-      await backupStudyData()
-      setNotice({ kind: 'success', message: 'Your current progress is backed up to your account.' })
+      const createdAt = await backupStudyData()
+      setLatestBackup({ createdAt, summary: summarizeStudyData() })
+      setNotice({ kind: 'success', message: `Backup complete. Saved ${formatDateTime(createdAt)}.` })
     } catch (error) {
       setNotice({ kind: 'error', message: error.message })
     } finally {
-      setSubmitting(false)
+      setPendingAction(null)
     }
   }
 
   async function handleRestore() {
-    setSubmitting(true)
+    setPendingAction('restore')
     try {
       const createdAt = await restoreLatestStudyData()
+      setConfirmRestore(false)
+      setLocalSummary(summarizeStudyData())
       setNotice({
         kind: createdAt ? 'success' : 'info',
         message: createdAt
-          ? 'Your latest account backup was restored. Refresh study pages to see it.'
+          ? `Restored the backup from ${formatDateTime(createdAt)}. Study pages will use it when opened.`
           : 'No account backup exists yet.',
       })
     } catch (error) {
       setNotice({ kind: 'error', message: error.message })
     } finally {
-      setSubmitting(false)
+      setPendingAction(null)
     }
   }
 
@@ -160,26 +188,26 @@ export default function Account() {
               <div className="max-w-3xl">
                 <PageEyebrow>Optional account layer</PageEyebrow>
                 <PageTitle className="mt-3">
-                  Keep studying locally. Sync when you want.
+                  Keep studying locally. Back up when you want.
                 </PageTitle>
                 <PageLead className="mt-5">
-                  Accounts are for durability, cross-device progress, and issue-report follow-up. The practice engine stays usable without signing in.
+                  Accounts are for cloud backup, moving progress between browsers, and issue-report follow-up. The practice engine stays usable without signing in.
                 </PageLead>
               </div>
               <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5">
                 <StatusPill ready={isSupabaseConfigured} />
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                   {isSupabaseConfigured
-                    ? 'Supabase is connected. Email sign-in is available.'
-                    : 'Waiting on Supabase environment variables before live sign-in is enabled.'}
+                    ? 'Email sign-in, cloud backup, and durable issue reports are available.'
+                    : 'The optional account service is unavailable. Local study still works.'}
                 </p>
               </div>
             </div>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               <ReadinessCard icon={ShieldCheck} title="Anonymous access" body="All study modes keep working without an account." ready />
-              <ReadinessCard icon={Cloud} title="Progress sync" body="Prepared for signed-in study snapshots and question stats." ready={isSupabaseConfigured} />
-              <ReadinessCard icon={AlertCircle} title="Issue reports" body="Local reports already export as JSON and map to the backend table." ready />
+              <ReadinessCard icon={Cloud} title="Cloud backup" body="Signed-in learners can save and restore explicit study snapshots." ready={isSupabaseConfigured} />
+              <ReadinessCard icon={AlertCircle} title="Issue reports" body="Signed-in reports reach the review database and keep a local fallback." ready />
             </div>
           </Surface>
 
@@ -195,20 +223,56 @@ export default function Account() {
             ) : session ? (
               <>
                 <h2 className="mt-5 text-2xl font-black text-zinc-50">You are signed in</h2>
-                <p className="mt-2 break-all text-sm leading-relaxed text-zinc-400">{session.user.email}</p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-emerald-300">Account active</p>
+                <p className="mt-1 break-all text-sm leading-relaxed text-zinc-300">{session.user.email}</p>
+                <div className="mt-5 rounded-xl border border-white/10 bg-zinc-900/60 p-4">
+                  <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Latest cloud backup</p>
+                  <p className="mt-2 font-bold text-zinc-100">
+                    {backupLoading
+                      ? 'Checking...'
+                      : latestBackup
+                        ? formatDateTime(latestBackup.createdAt)
+                        : 'No backup yet'}
+                  </p>
+                  {latestBackup?.summary && (
+                    <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+                      {formatSummary(latestBackup.summary)}
+                    </p>
+                  )}
+                </div>
                 <div className="mt-5 grid gap-3">
-                  <Button variant="accent" accentColor="#38bdf8" onClick={handleBackup} disabled={submitting}>
+                  <Button variant="accent" accentColor="#38bdf8" onClick={handleBackup} disabled={Boolean(pendingAction)}>
                     <Upload className="h-4 w-4" />
-                    Back up progress
+                    {pendingAction === 'backup' ? 'Backing up...' : 'Back up this device'}
                   </Button>
-                  <Button variant="secondary" onClick={handleRestore} disabled={submitting}>
+                  <Button
+                    variant="secondary"
+                    onClick={() => setConfirmRestore(true)}
+                    disabled={Boolean(pendingAction) || backupLoading || !latestBackup}
+                  >
                     <RefreshCw className="h-4 w-4" />
                     Restore latest backup
                   </Button>
                 </div>
-                <Button className="mt-5 w-full" variant="secondary" onClick={handleSignOut} disabled={submitting}>
+                {confirmRestore && (
+                  <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
+                    <p className="text-sm font-bold text-amber-100">Replace this browser&apos;s study data?</p>
+                    <p className="mt-2 text-xs leading-relaxed text-amber-100/70">
+                      This restores the {formatDateTime(latestBackup.createdAt)} snapshot and replaces local progress, Smart Practice statistics, and bookmarks.
+                    </p>
+                    <div className="mt-4 flex gap-2">
+                      <Button size="sm" variant="accent" accentColor="#f59e0b" onClick={handleRestore} disabled={Boolean(pendingAction)}>
+                        {pendingAction === 'restore' ? 'Restoring...' : 'Restore backup'}
+                      </Button>
+                      <Button size="sm" variant="ghost" onClick={() => setConfirmRestore(false)} disabled={Boolean(pendingAction)}>
+                        Cancel
+                      </Button>
+                    </div>
+                  </div>
+                )}
+                <Button className="mt-5 w-full" variant="ghost" onClick={handleSignOut} disabled={Boolean(pendingAction)}>
                   <KeyRound className="h-4 w-4" />
-                  {submitting ? 'Signing out...' : 'Sign out'}
+                  {pendingAction === 'sign-out' ? 'Signing out...' : 'Sign out'}
                 </Button>
               </>
             ) : (
@@ -230,9 +294,9 @@ export default function Account() {
                     required
                     className="w-full rounded-xl border border-white/10 bg-zinc-900 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-sky-400/50"
                   />
-                  <Button type="submit" variant="accent" accentColor="#38bdf8" className="w-full" disabled={submitting}>
+                  <Button type="submit" variant="accent" accentColor="#38bdf8" className="w-full" disabled={Boolean(pendingAction)}>
                     <KeyRound className="h-4 w-4" />
-                    {submitting ? 'Sending...' : 'Send magic link'}
+                    {pendingAction === 'sign-in' ? 'Sending...' : 'Send magic link'}
                   </Button>
                 </form>
               </>
@@ -253,10 +317,10 @@ export default function Account() {
 
         <section className="mt-6 grid gap-6 lg:grid-cols-3">
           <Surface className="p-6">
-            <Database className="h-6 w-6 text-emerald-300" />
-            <h2 className="mt-4 text-xl font-black text-zinc-50">Local progress backup</h2>
+            <HardDrive className="h-6 w-6 text-emerald-300" />
+            <h2 className="mt-4 text-xl font-black text-zinc-50">This browser</h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              Until sync is live, export progress before clearing browser data or switching devices.
+              {formatSummary(localSummary)}. Local study continues to work whether you sign in or not.
             </p>
             <Button className="mt-5" variant="secondary" onClick={() => exportProgress()}>
               <Download className="h-4 w-4" />
@@ -268,7 +332,7 @@ export default function Account() {
             <AlertCircle className="h-6 w-6 text-amber-300" />
             <h2 className="mt-4 text-xl font-black text-zinc-50">Question reports</h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              {reports.length} local report{reports.length === 1 ? '' : 's'} ready for export or future backend submission.
+              {reports.length} local fallback report{reports.length === 1 ? '' : 's'}. New signed-in reports also submit to the review database.
             </p>
             <Button className="mt-5" variant="secondary" onClick={() => exportQuestionIssueReports()}>
               <Download className="h-4 w-4" />
@@ -277,14 +341,11 @@ export default function Account() {
           </Surface>
 
           <Surface className="p-6">
-            <Cloud className="h-6 w-6 text-sky-300" />
-            <h2 className="mt-4 text-xl font-black text-zinc-50">Authentication status</h2>
+            <Database className="h-6 w-6 text-sky-300" />
+            <h2 className="mt-4 text-xl font-black text-zinc-50">How backup works</h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              Email sign-in is connected for local and production builds. Approved return URLs are managed in Supabase Authentication settings.
+              Backup is manual today. It creates a new cloud snapshot; restore replaces this browser&apos;s study data with the newest snapshot.
             </p>
-            <div className="mt-5 rounded-xl border border-white/10 bg-zinc-900/60 p-3 text-xs font-semibold text-zinc-500">
-              Required: <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_PUBLISHABLE_KEY</code>
-            </div>
           </Surface>
         </section>
       </main>
@@ -300,7 +361,7 @@ function StatusPill({ ready }) {
         : 'border-amber-500/30 bg-amber-500/10 text-amber-200'
     }`}>
       {ready ? <CheckCircle2 className="h-4 w-4" /> : <AlertCircle className="h-4 w-4" />}
-      {ready ? 'Backend config found' : 'Backend config needed'}
+      {ready ? 'Account service ready' : 'Account service unavailable'}
     </div>
   )
 }
@@ -322,4 +383,18 @@ function StatusDot({ ready }) {
   return (
     <span className={`h-2.5 w-2.5 rounded-full ${ready ? 'bg-emerald-400' : 'bg-amber-400'}`} />
   )
+}
+
+function formatDateTime(value) {
+  if (!value) return 'Unknown time'
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return 'Unknown time'
+  return new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  }).format(date)
+}
+
+function formatSummary(summary) {
+  return `${summary.certifications} cert${summary.certifications === 1 ? '' : 's'}, ${summary.sessions} session${summary.sessions === 1 ? '' : 's'}, ${summary.trackedQuestions} tracked question${summary.trackedQuestions === 1 ? '' : 's'}, ${summary.bookmarks} bookmark${summary.bookmarks === 1 ? '' : 's'}`
 }
