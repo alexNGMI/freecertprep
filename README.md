@@ -2,33 +2,40 @@
 
 Free, open-source certification exam prep for the IT certifications that open doors. Realistic question banks, timed exam simulators, Smart Practice that targets your weaknesses, and full progress tracking - all in the browser, with no account required.
 
-## Supported certifications
+## Live certifications
+
+These are the nine public IT modules currently exposed in the app. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
 
 | Cert | Provider | Code | Difficulty | Questions | Exam Q's | Time | Target |
 |------|----------|------|------------|----------:|---------:|-----:|-----:|
 | AWS Cloud Practitioner | AWS | CLF-C02 | Foundational | 731 | 65 | 90 min | 70% |
 | AWS Solutions Architect - Associate | AWS | SAA-C03 | Associate | 750 | 65 | 130 min | 72% |
-| Microsoft Azure Fundamentals | Microsoft Azure | AZ-900 | Foundational | 600 | 40 | 45 min | 70% |
-| Google Cloud Digital Leader | Google Cloud | CDL | Foundational | 749 | 50 | 90 min | 70% |
-| NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | Associate | 336 | 50 | 60 min | 70% |
-| NVIDIA Generative AI LLMs | NVIDIA | NCA-GENL | Associate | 330 | 50 | 60 min | 70% |
 | Cisco CCST Networking | Cisco | 100-150 | Foundational | 750 | 50 | 50 min | 70% practice |
-| Cisco CCNA | Cisco | 200-301 | Associate | 750 | 60 | 120 min | 70% practice |
 | CompTIA A+ Core 1 | CompTIA | 220-1201 | Foundational | 760 | 90 | 90 min | 75% |
 | CompTIA A+ Core 2 | CompTIA | 220-1202 | Foundational | 760 | 90 | 90 min | 78% |
 | CompTIA Network+ | CompTIA | N10-009 | Foundational | 760 | 90 | 90 min | 80% |
 | CompTIA Security+ | CompTIA | SY0-701 | Foundational | 760 | 90 | 90 min | 83% |
 | Splunk Core Certified User | Splunk | SPLK-1001 | Entry-Level | 750 | 60 | 60 min | 70% practice |
-| CompTIA Server+ | CompTIA | SK0-005 | Foundational | 760 | 90 | 90 min | 83% |
-| CompTIA Linux+ | CompTIA | XK0-006 | Foundational | 750 | 90 | 90 min | 80% |
-| Schneider Data Center Certified Associate | Schneider Electric | DCCA | Associate | 750 | 100 | 120 min | 70% practice |
 | HashiCorp Terraform Associate | HashiCorp | TF Associate 004 | Associate | 651 | 57 | 60 min | 70% readiness |
 
-**11,697 authored questions across 17 IT certifications.** The public catalog currently exposes 9 live modules and holds 8 as Coming Soon. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
+**6,672 live IT questions** are currently available across the public app.
 
-Live now: A+ Core 1, A+ Core 2, CLF-C02, SAA-C03, Network+, CCST Networking, Security+, Splunk Core User, and Terraform Associate.
+## Authored banks held for revision
 
-Coming Soon while simulations are revised or release-aligned: AZ-900, Google CDL, CCNA, NVIDIA AIIO, NVIDIA GENL, Server+, Linux+, and Schneider DCCA. No question banks or routes were deleted.
+These banks remain in the codebase, but they are hidden or marked Coming Soon until they clear the current source, simulation-readiness, release-alignment, and cert-specific quality gates. No question banks or routes were deleted.
+
+| Cert | Provider | Code | Questions | Status |
+|------|----------|------|----------:|--------|
+| Microsoft Azure Fundamentals | Microsoft Azure | AZ-900 | 600 | Coming Soon |
+| Google Cloud Digital Leader | Google Cloud | CDL | 749 | Coming Soon |
+| NVIDIA AI Infrastructure & Operations | NVIDIA | NCA-AIIO | 336 | Coming Soon |
+| NVIDIA Generative AI LLMs | NVIDIA | NCA-GENL | 330 | Coming Soon |
+| Cisco CCNA | Cisco | 200-301 | 750 | Preview, release-aligned to v2.0 |
+| CompTIA Server+ | CompTIA | SK0-005 | 760 | Coming Soon |
+| CompTIA Linux+ | CompTIA | XK0-006 | 750 | Coming Soon |
+| Schneider Data Center Certified Associate | Schneider Electric | DCCA | 750 | Coming Soon |
+
+**11,697 authored questions across 17 IT certifications** remain preserved across the live catalog and revision backlog.
 
 > **Terraform objective remediation is live:** HashiCorp Terraform Associate (004) now ships a 651-question pool covering all 37 implemented subobjectives across the eight Terraform 1.12 objective groups. Every item carries objective and concept metadata, and automated gates reject missing coverage, objective-group mismatches, blueprint-trivia prompts, deprecated-command guidance, and legacy product naming.
 
@@ -92,7 +99,7 @@ A separate Real Estate prototype remains in the codebase with its national and s
 
 State-specific **state-law modules** layer on top of this national pool, modeled to each state's official exam blueprint, with a combined "Full Licensing Exam" mode that mirrors the real national + state split. A sister-site study picker (`/real-estate/study`) lets users choose which exam to prep:
 
-- **Texas ? live.** A 401-question Texas Sales Agent state-law pool modeled to the 2026 Pearson VUE / TREC state-law outline, including the Case Studies category, layered on the national pool; the Full Licensing Exam composes 85 national + 50 state, 70% each section. (`/real-estate/study/tx`)
+- **Texas - live.** A 401-question Texas Sales Agent state-law pool modeled to the 2026 Pearson VUE / TREC state-law outline, including the Case Studies category, layered on the national pool; the Full Licensing Exam composes 85 national + 50 state, 70% each section. (`/real-estate/study/tx`)
 - **Maine — live.** A 400-question Maine Sales Agent state-law pool modeled to the 5 official Pearson VUE sections, layered on the national pool; the Full Licensing Exam composes the real 80 national + 40 state, 75% each section. (`/real-estate/study/me`)
 - **Georgia — live.** A 400-question Georgia Sales Agent state-law pool modeled to the 3 official PSI/AMP sections, layered on the national pool; the Full Licensing Exam composes the real 100 national + 52 state, 75% each section. (`/real-estate/study/ga`)
 - **Arizona — live.** A 400-question Arizona Salesperson state-law pool modeled to the 11 official ADRE / Pearson VUE sections effective 2026-01-01; the Full Licensing Exam composes 80 national + 60 state with a readiness target. (`/real-estate/study/az`)

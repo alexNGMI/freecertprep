@@ -160,11 +160,11 @@ Add one browser smoke per interaction family rather than per cert. That gives br
 
 ### P2 - Repo Root Has Legacy Generation Clutter
 
-There are 18 `add-scenario-batch*.cjs` files in the repository root. They are not part of the live app path and make the codebase look less polished than it is.
+Resolved after this audit: the 18 legacy `add-scenario-batch*.cjs` files were moved out of the repository root and preserved under `scripts/archive/legacy-scenario-batches/`.
 
 Recommendation:
 
-Move root generation batches into `scripts/archive/legacy-scenarios/` or remove them if the generated content is already captured in JSON and history.
+Keep legacy generation batches archived unless a future content rebuild needs them.
 
 ### P2 - Docs Are Valuable But Overlapping
 

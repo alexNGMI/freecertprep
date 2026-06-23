@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer'
 import { expect, test } from '@playwright/test'
 
 test.beforeEach(async ({ page }) => {
@@ -6,6 +7,30 @@ test.beforeEach(async ({ page }) => {
     Math.random = () => 0.001
   })
 })
+
+async function beginExam(page, certPath) {
+  await page.goto(`${certPath}/exam`)
+  await page.getByRole('button', { name: /Begin Readiness Simulation/i }).click()
+  await expect(page.getByRole('heading', { name: /Exam Simulator/i })).toBeVisible()
+}
+
+async function expectQuestionSignals(page, signals, questionCount) {
+  const remaining = new Map(signals.map((signal) => [String(signal), signal]))
+
+  for (let questionNumber = 1; questionNumber <= questionCount; questionNumber += 1) {
+    await page.getByRole('button', { name: new RegExp(`^Go to question ${questionNumber}( answered)?$`, 'i') }).click({ force: true })
+
+    for (const [key, signal] of remaining) {
+      if (await page.getByText(signal).first().isVisible().catch(() => false)) {
+        remaining.delete(key)
+      }
+    }
+
+    if (remaining.size === 0) return
+  }
+
+  throw new Error(`Could not find question signals: ${[...remaining.keys()].join(', ')}`)
+}
 
 test('home, catalog, docs, and live cert dashboard render', async ({ page }) => {
   await page.goto('/')
@@ -48,4 +73,50 @@ test('exam route can submit and display results', async ({ page }) => {
 
   await expect(page).toHaveURL(/\/clf-c02\/results/)
   await expect(page.getByRole('heading', { name: /Readiness Results/i })).toBeVisible()
+})
+
+test('live cert exam forms expose the high-value interaction formats', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium-desktop', 'desktop-only format sweep keeps the smoke suite quick')
+  test.setTimeout(60_000)
+
+  await beginExam(page, '/comptia-net-plus')
+  await expectQuestionSignals(page, [
+    /Interpret command output/i,
+    /Read the topology/i,
+    /Repair the config/i,
+    /Subnetting drill/i,
+  ], 90)
+
+  await beginExam(page, '/comptia-a-plus-core-1')
+  await expectQuestionSignals(page, [/PBQ-lite matching/i], 90)
+
+  await beginExam(page, '/terraform-associate')
+  await expectQuestionSignals(page, [/True or false/i], 57)
+
+  await beginExam(page, '/splunk-core-certified-user')
+  await expectQuestionSignals(page, [/Search evidence/i], 60)
+})
+
+test('dashboard progress can be exported and imported', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'chromium-desktop', 'desktop-only data-control smoke keeps CI fast')
+
+  await page.goto('/clf-c02')
+
+  const downloadPromise = page.waitForEvent('download')
+  await page.getByRole('button', { name: /Export/i }).click()
+  const download = await downloadPromise
+  expect(download.suggestedFilename()).toMatch(/^freecertprep-progress-\d{4}-\d{2}-\d{2}\.json$/)
+
+  await page.locator('input[type="file"]').setInputFiles({
+    name: 'freecertprep-progress-import.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(JSON.stringify({
+      'clf-c02': {
+        quizHistory: [],
+        examHistory: [],
+      },
+    })),
+  })
+
+  await expect(page.getByRole('heading', { name: /AWS Cloud Practitioner/i })).toBeVisible()
 })
