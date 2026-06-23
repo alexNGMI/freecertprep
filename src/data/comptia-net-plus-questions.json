@@ -575,7 +575,7 @@
       "Every router between the workstation and the internet is healthy"
     ],
     "correctAnswer": 0,
-    "explanation": "The ICMP echo replies establish IP reachability to the tested address and show no loss during this sample. A ping does not test DNS when an IP address is used, does not verify an application port, and does not prove the health of unrelated paths.",
+    "explanation": "The successful ping proves only basic IP reachability and round-trip timing for small ICMP packets during the sample. It does not prove that DNS, TCP ports, MTU, authentication, or application services are healthy. Use it as an early signal, then test the specific layer matching the reported symptom.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-performance"
@@ -605,7 +605,7 @@
       "Disable the edge WAN interface because it reports up/up"
     ],
     "correctAnswer": 0,
-    "explanation": "The trace reaches the local gateway, an internal transit hop, and 203.0.113.9 before responses stop. The WAN interface is up/up, so the best next step is to investigate routing, filtering, or reachability beyond the last responding hop.",
+    "explanation": "The trace reaches the local gateway and internal transit path before responses stop at the WAN side, so the first useful check is the edge path, upstream route, or filtering near that handoff. Do not start by replacing access cabling when multiple routed hops already responded.",
     "objectiveId": "5.1",
     "objectiveTitle": "Apply the network troubleshooting methodology",
     "conceptId": "comptia-net-plus-5.1-editorial-reviewed"
@@ -1866,7 +1866,7 @@
       "The technician's DNS server is not resolving intermediate hop names"
     ],
     "correctAnswer": 1,
-    "explanation": "When a router forwards traffic normally but does not generate ICMP Time Exceeded replies (due to a firewall ACL blocking ICMP), it appears as * * * in traceroute output. Since subsequent hops respond, the path is not broken — that router simply discards ICMP responses.",
+    "explanation": "A single traceroute hop showing asterisks does not automatically mean traffic is blocked there. If later hops answer, the router probably forwarded traffic but did not send ICMP Time Exceeded replies. Interpret traceroute by the full path, not one silent hop in isolation.",
     "objectiveId": "5.3",
     "objectiveTitle": "Troubleshoot network services",
     "conceptId": "comptia-net-plus-5.3-editorial-reviewed"
@@ -1951,7 +1951,7 @@
       "Change the address to an APIPA address"
     ],
     "correctAnswer": 0,
-    "explanation": "The configured gateway, 192.168.4.1, is outside the workstation /24 subnet and does not match the router interface. Setting the gateway to 192.168.40.1 provides the correct next hop for remote networks.",
+    "explanation": "The configured default gateway is outside the host subnet, so the workstation cannot ARP for its next hop. First compare the host IP, mask, and gateway: a gateway must be reachable on the local Layer 2 segment. Changing DNS, routing protocols, or remote ACLs would not fix a host whose own next hop is invalid.",
     "objectiveId": "5.3",
     "objectiveTitle": "Troubleshoot network services",
     "conceptId": "comptia-net-plus-5.3-service-failures"
@@ -1981,7 +1981,7 @@
       "Disable full-duplex Ethernet throughout the network"
     ],
     "correctAnswer": 0,
-    "explanation": "One side is full-duplex while the other has negotiated half-duplex, producing late collisions, errors, and poor throughput. Both sides should use compatible auto-negotiation or identical manual speed and duplex settings.",
+    "explanation": "The output points to a duplex mismatch: one side is operating full duplex while the other negotiated half duplex. That produces late collisions, FCS errors, and poor throughput even when the link is physically up. The repair is to set both ends consistently, preferably with supported autonegotiation or matching fixed speed and duplex.",
     "objectiveId": "5.2",
     "objectiveTitle": "Troubleshoot cabling and physical interfaces",
     "conceptId": "comptia-net-plus-5.2-cabling-interfaces"
@@ -2032,7 +2032,7 @@
       "The default gateway has been removed from the routing table"
     ],
     "correctAnswer": 2,
-    "explanation": "APIPA (Automatic Private IP Addressing) assigns an address in 169.254.0.0/16 when a Windows device cannot contact a DHCP server. The device broadcasts four DHCPDISCOVER messages; if none are answered, it self-configures with APIPA, which only allows link-local communication.",
+    "explanation": "A 169.254.0.0/16 APIPA address means the host failed to obtain a DHCP lease and self-assigned a link-local IPv4 address. Troubleshoot DHCP reachability: client VLAN, DHCP relay/helper, server scope availability, and access-layer connectivity. Static DNS changes will not restore a missing lease.",
     "objectiveId": "5.3",
     "objectiveTitle": "Troubleshoot network services",
     "conceptId": "comptia-net-plus-5.3-service-failures"
@@ -2859,7 +2859,7 @@
       "A frame smaller than the minimum 64-byte Ethernet size, typically caused by a collision or faulty NIC/cable"
     ],
     "correctAnswer": 3,
-    "explanation": "Runts are Ethernet frames shorter than 64 bytes (the minimum including header, data, and FCS). They are usually caused by collisions (which corrupt frames mid-transmission), hardware faults, or duplex mismatches. Giants exceed the maximum frame size. Both are Layer 1/2 indicators of physical problems.",
+    "explanation": "Runts are Ethernet frames shorter than the minimum valid frame size. In troubleshooting, rising runt counters usually push you toward duplex mismatch, collisions, bad NICs, or cabling faults rather than Layer 3 routing. Check interface errors on both sides and verify speed/duplex before chasing DNS or application causes.",
     "objectiveId": "5.2",
     "objectiveTitle": "Troubleshoot cabling and physical interfaces",
     "conceptId": "comptia-net-plus-5.2-cabling-interfaces"
@@ -2944,7 +2944,7 @@
       "The client's wireless adapter does not support the MIMO antenna configuration of the AP"
     ],
     "correctAnswer": 2,
-    "explanation": "Strong signal with poor throughput is a classic co-channel interference (CCI) symptom. When multiple APs in range use the same channel, they must defer to each other's transmissions (CSMA/CA), increasing contention and reducing effective throughput even though signal strength is high. The fix is AP channel planning with proper separation.",
+    "explanation": "Strong RSSI with very slow throughput points away from distance and toward airtime contention, co-channel interference, or low SNR. Confirm with channel utilization and retransmission data. The fix is channel/power planning or band steering, not increasing transmit power blindly.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-performance"
@@ -3703,7 +3703,7 @@
       "traceroute — trace the route to the web server"
     ],
     "correctAnswer": 2,
-    "explanation": "When DNS works and ICMP ping succeeds, but a specific application (HTTP/HTTPS) fails, the issue is likely a firewall blocking TCP port 80 or 443. Using telnet or netcat to manually attempt a TCP connection to that port reveals whether the port is open, filtered, or refused — narrowing the problem to the specific protocol.",
+    "explanation": "When DNS resolution works but HTTP/HTTPS does not, narrow the test to the application path: TCP 80/443 reachability, proxy settings, host firewall, and upstream filtering. ICMP success alone cannot prove web access, and replacing cabling is unlikely if other services on the same host still work.",
     "objectiveId": "5.5",
     "objectiveTitle": "Use network troubleshooting tools and protocols",
     "conceptId": "comptia-net-plus-5.5-tools-protocols"
@@ -3771,7 +3771,7 @@
       "The DHCP lease time is too short, causing the phone to re-register frequently"
     ],
     "correctAnswer": 2,
-    "explanation": "One-way audio in VoIP is a classic symptom of asymmetric routing, NAT, or firewall issues. The outbound RTP stream reaches the remote party, but the return stream cannot reach the originating phone — typically because a firewall is blocking inbound UDP, NAT is incorrectly translating the media IP, or return traffic is routed differently. Check firewall rules for RTP ports (typically UDP 16384–32767 or 10000–20000).",
+    "explanation": "One-way VoIP audio usually means signaling succeeded but the RTP media path is asymmetric, blocked, or translated incorrectly. Check NAT, firewall rules, voice VLAN routing, and SIP/RTP helpers if used. Rebooting phones may hide the symptom briefly without fixing the return media path.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-performance"
@@ -4558,7 +4558,7 @@
       "The routers are in different OSPF areas and cannot establish adjacency"
     ],
     "correctAnswer": 1,
-    "explanation": "EXSTART is the state where master/slave negotiation begins and DBD packets are exchanged. If one router's interface MTU is larger than the other's, its DBD packets are too large to be accepted, and the adjacency stalls in EXSTART/EXCHANGE. Use ip ospf mtu-ignore to override, or fix the MTU mismatch. Hello/dead timer mismatches prevent reaching the INIT state.",
+    "explanation": "OSPF EXSTART is where neighbors negotiate database description exchange. An MTU mismatch is a classic reason they fail to progress because DBD packets cannot be exchanged as expected. Compare interface MTU, adjacency parameters, and logs before changing unrelated route metrics.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-performance"
@@ -5130,7 +5130,7 @@
       false,
       true
     ],
-    "explanation": "VLAN mismatch on AP/switch port can isolate wireless clients from the DHCP server (true). Roaming issues can also result from AP placement, sticky client behavior, mismatched security configs, or band steering — not always the driver (false). Hidden SSIDs don't prevent discovery — the SSID is visible in probe request frames captured with tools like Wireshark or Kismet (false). Co-channel interference from APs sharing a channel reduces effective throughput despite strong RSSI (true).",
+    "explanation": "Wireless DHCP failures after association often come from VLAN mapping, trunk tagging, DHCP relay, or isolation policy rather than RF signal. Roaming issues involve handoff behavior between APs, while captive portals can block user traffic until authorization. Separate association, addressing, authentication, and forwarding before choosing a fix.",
     "objectiveId": "5.3",
     "objectiveTitle": "Troubleshoot network services",
     "conceptId": "comptia-net-plus-5.3-editorial-reviewed"
@@ -6716,7 +6716,7 @@
       "Spanning tree port in blocking state"
     ],
     "correctAnswer": 2,
-    "explanation": "Late collisions on a port with good cabling almost always indicate a duplex mismatch (one side full-duplex, the other half-duplex). CRC errors point to cabling, and STP blocking would stop traffic entirely rather than cause late collisions.",
+    "explanation": "Late collisions after the first 64 bytes are most consistent with a duplex mismatch or an old shared-media condition, not normal switched full-duplex behavior. With good cabling assumed, compare negotiated speed and duplex on the workstation and switch port, then correct the mismatch and clear counters before retesting.",
     "objectiveId": "5.2",
     "objectiveTitle": "Troubleshoot cabling and physical interfaces",
     "conceptId": "comptia-net-plus-5.2-cabling-interfaces"
@@ -7645,7 +7645,7 @@
       "DHCP lease exhaustion"
     ],
     "correctAnswer": 2,
-    "explanation": "Adequate signal strength with high loss and retransmissions points to a poor signal-to-noise ratio from RF interference (noise floor too high), not an addressing or DHCP problem.",
+    "explanation": "Good RSSI only means the client hears the AP strongly; it does not prove a clean RF environment. High loss and retransmissions with adequate signal point to low SNR, interference, or channel contention. A spectrum or Wi-Fi analyzer should confirm noise, utilization, and co-channel overlap before changing IP settings.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-performance"
@@ -7679,7 +7679,7 @@
       "Frames smaller than the minimum 64-byte Ethernet frame size"
     ],
     "correctAnswer": 3,
-    "explanation": "Runts are frames smaller than the 64-byte Ethernet minimum, usually caused by collisions or a duplex mismatch. Oversized frames are giants, and CRC errors are counted separately as FCS errors.",
+    "explanation": "A high runt count means the switch is receiving undersized Ethernet frames. Treat that as a Layer 1 or Layer 2 error-counter clue: look for collisions, duplex mismatch, faulty NICs, or bad cabling. It is not a DNS, DHCP, or routing symptom because the frame is malformed before upper-layer processing matters.",
     "objectiveId": "5.2",
     "objectiveTitle": "Troubleshoot cabling and physical interfaces",
     "conceptId": "comptia-net-plus-5.2-cabling-interfaces"
@@ -7843,7 +7843,7 @@
       3,
       4
     ],
-    "explanation": "Logical wireless troubleshooting: confirm correct SSID/credentials and association, check signal strength/SNR/data rates, scan for RF interference with a spectrum analyzer, reboot/retest the AP, then escalate or run a full site survey if unresolved.",
+    "explanation": "For intermittent wireless drops, first collect enough timing and RF evidence to avoid guessing. Confirm the client and AP state, review logs around the failure window, check RSSI/SNR/channel utilization, then adjust channel or power only after the evidence points to interference, roaming, or capacity.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-editorial-reviewed"
@@ -10486,7 +10486,7 @@
       0,
       3
     ],
-    "explanation": "NGFWs add application-layer deep packet inspection and application-aware control regardless of port (e.g., blocking an app on 443). NAT and stateful connection tracking exist in traditional stateful firewalls too.",
+    "explanation": "A duplicate IP address creates ARP instability because two devices claim the same Layer 3 address with different MAC addresses. The practical clue is intermittent reachability or rapidly changing ARP entries. Remove or correct the conflicting assignment, then clear stale ARP/DHCP state and verify stable ownership.",
     "objectiveId": "4.5",
     "objectiveTitle": "Use physical security controls",
     "conceptId": "comptia-net-plus-4.5-editorial-reviewed"
@@ -10590,7 +10590,7 @@
       3,
       4
     ],
-    "explanation": "Logical wireless-association troubleshooting: confirm the client adapter is on (not airplane mode), confirm the AP is up and broadcasting the SSID, check SSID/security/passphrase on the client, review AP logs for auth failures, then test another device to isolate client-specific issues.",
+    "explanation": "Association troubleshooting should move from simple client/AP availability toward authentication and RF causes. Confirm the adapter is enabled, the SSID is visible, the AP is healthy, and credentials/security settings match before escalating to RADIUS, roaming, channel interference, or controller policy.",
     "objectiveId": "5.3",
     "objectiveTitle": "Troubleshoot network services",
     "conceptId": "comptia-net-plus-5.3-editorial-reviewed"
@@ -10673,7 +10673,7 @@
       "Correct the default gateway through DHCP or local configuration"
     ],
     "correctAnswer": 0,
-    "explanation": "Replan channels and power, and move capable clients to 5 GHz or 6 GHz is correct. Strong signal with poor SNR, busy channels, and retries identifies RF contention rather than addressing, routing, or email service. The alternatives are plausible responses to different evidence patterns, but they do not resolve the specific indicators in this scenario.",
+    "explanation": "Strong signal does not guarantee throughput when the channel is busy or overlapping APs create contention. Replanning channels and transmit power reduces co-channel and adjacent-channel interference; moving capable clients to 5 GHz or 6 GHz can also reduce congestion. DHCP or DNS changes would not address RF airtime loss.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-performance"
@@ -10690,7 +10690,7 @@
       "Add the affected VLAN to the trunk allow list on the required links"
     ],
     "correctAnswer": 0,
-    "explanation": "Collect repeatable path evidence and escalate the provider handoff or circuit is correct. The stable local path and persistent increase beginning at the provider boundary isolate the problem beyond the access network. The alternatives are plausible responses to different evidence patterns, but they do not resolve the specific indicators in this scenario.",
+    "explanation": "Because local applications remain responsive and repeated tests show the slowdown beyond the provider handoff, the next useful action is evidence-based escalation. Preserve traceroute/path, latency, packet-loss, and timestamp data. Randomly changing LAN switches or DNS without provider-path evidence risks creating a second problem.",
     "objectiveId": "5.4",
     "objectiveTitle": "Troubleshoot network performance",
     "conceptId": "comptia-net-plus-5.4-performance"

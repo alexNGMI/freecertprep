@@ -150,6 +150,14 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - added `audit:saa-c03`, `audit:splunk`, and `audit:ccst` to protect the remaining flagship live modules with domain/form allocation, format, explanation, evidence, answer-shape, and uniqueness checks;
 - kept companion-course links in documentation only, not homepage, catalog, or dashboard surfaces.
 
+### Priority Three Content Polish - Completed June 23, 2026
+
+- added richer Security+ practical evidence across log triage, IAM correlation, firewall/IPS policy, alert review, flow analysis, retention, and incident-response items;
+- extended `audit:secplus` so all 33 Security+ practical questions must carry evidence or an interactive artifact, with explicit IAM/firewall/alert/incident/flow/retention coverage terms;
+- deepened 20 Network+ troubleshooting explanations around gateway validity, duplex mismatch, runts, RF/SNR, DHCP/APIPA, traceroute interpretation, OSPF EXSTART, VoIP RTP, provider-path escalation, and wireless association flow;
+- rewrote 50 SAA-C03 cost-optimization stems while preserving the 750-question count, 600/150 format split, official 30/26/24/20 domain allocation, and structured explanations;
+- reduced SAA-C03 repeated architecture-template groups from 160 to 139 under the existing audit.
+
 ### Backend MVP Planning - Started June 17, 2026
 
 - opened a dedicated backend planning branch for live domain hosting, domain email, optional accounts, progress sync, report-incorrect-info workflow, and admin report review;

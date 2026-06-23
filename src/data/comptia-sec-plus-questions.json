@@ -1624,7 +1624,35 @@
     "explanation": "Nation-state activity is distinguished by strategic objectives, sustained resources, and advanced capabilities. Persistence and TLS are common across many attacker types and do not independently establish attribution.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-nation-state-and-organized-crime"
+    "conceptId": "comptia-sec-plus-2.1-nation-state-and-organized-crime",
+    "evidenceArtifacts": [
+      {
+        "type": "table",
+        "title": "Threat intelligence correlation",
+        "columns": [
+          "Signal",
+          "Observed evidence"
+        ],
+        "rows": [
+          [
+            "Actor profile",
+            "ORCHID JACKAL is assessed as state-sponsored"
+          ],
+          [
+            "Objective",
+            "Long-term intelligence collection"
+          ],
+          [
+            "Endpoint chain",
+            "Signed-driver abuse, credential memory access, persistence"
+          ],
+          [
+            "Network indicator",
+            "Outbound TLS session to known infrastructure"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-92",
@@ -1686,7 +1714,35 @@
     "explanation": "The combination of impending departure, abnormal volume, after-hours activity, removable media, and a personal storage destination creates a strong exfiltration indicator. None of the other facts alone demonstrates malicious behavior.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it",
+    "evidenceArtifacts": [
+      {
+        "type": "table",
+        "title": "Insider-risk evidence",
+        "columns": [
+          "Source",
+          "Finding"
+        ],
+        "rows": [
+          [
+            "DLP",
+            "6.9 GB moved to USB and personal storage after hours"
+          ],
+          [
+            "HR",
+            "Employee submitted notice the same afternoon"
+          ],
+          [
+            "Baseline",
+            "Normal transfers were small and to approved shares"
+          ],
+          [
+            "Risk read",
+            "Volume, destination, timing, and departure context align"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-95",
@@ -1758,7 +1814,35 @@
     "explanation": "Employees are using an unsanctioned cloud application outside managed SSO, DLP, and vendor review. That is shadow IT and creates governance, data-loss, and compliance risk even if the service itself is not known to be malicious.",
     "objectiveId": "2.1",
     "objectiveTitle": "Compare threat actors and motivations",
-    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it"
+    "conceptId": "comptia-sec-plus-2.1-insider-and-shadow-it",
+    "evidenceArtifacts": [
+      {
+        "type": "table",
+        "title": "CASB discovery snapshot",
+        "columns": [
+          "Control",
+          "State"
+        ],
+        "rows": [
+          [
+            "Managed SSO",
+            "Not integrated"
+          ],
+          [
+            "DLP policy",
+            "No policy attached"
+          ],
+          [
+            "Vendor review",
+            "No security review found"
+          ],
+          [
+            "Finance uploads",
+            "91 GB in 30 days"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-97",
@@ -7401,7 +7485,20 @@
     "explanation": "Network isolation contains the compromised endpoint while preserving telemetry for investigation. Broad destructive actions before scoping are disproportionate, and disabling logging removes evidence.",
     "objectiveId": "4.4",
     "objectiveTitle": "Use security alerting and monitoring concepts",
-    "conceptId": "comptia-sec-plus-4.4-monitoring-alerting"
+    "conceptId": "comptia-sec-plus-4.4-monitoring-alerting",
+    "evidenceArtifacts": [
+      {
+        "type": "console",
+        "title": "EDR containment context",
+        "lines": [
+          "alert_id=8821 host=ACCT-17 severity=high",
+          "parent=WINWORD.EXE child=powershell.exe args=\"-enc SQBFAFgA...\"",
+          "rundll32.exe C:\\Users\\Public\\stage.dll,Start",
+          "network=198.51.100.51:443 action=allowed",
+          "recommended_response=isolate_host preserve_artifacts=true"
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-392",
@@ -7448,7 +7545,35 @@
     "explanation": "Host-based monitoring can observe file integrity and local process activity even when no packet crosses a network sensor. A NIDS analyzes network traffic and may have no evidence for a purely local modification.",
     "objectiveId": "4.4",
     "objectiveTitle": "Use security alerting and monitoring concepts",
-    "conceptId": "comptia-sec-plus-4.4-monitoring-alerting"
+    "conceptId": "comptia-sec-plus-4.4-monitoring-alerting",
+    "evidenceArtifacts": [
+      {
+        "type": "table",
+        "title": "Host vs network visibility",
+        "columns": [
+          "Sensor",
+          "Evidence"
+        ],
+        "rows": [
+          [
+            "HIDS",
+            "/usr/bin/ssh hash changed by root pid 1844"
+          ],
+          [
+            "NIDS",
+            "No matching network flows for DB01"
+          ],
+          [
+            "Likely scope",
+            "Local file integrity event"
+          ],
+          [
+            "Investigation cue",
+            "Host telemetry can see activity no packet sensor observes"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-394",
@@ -7504,7 +7629,35 @@
     "explanation": "A SIEM centralizes events and applies correlation logic across VPN, identity, cloud administration, and storage telemetry. The output demonstrates cross-source detection rather than an endpoint, development, or physical control.",
     "objectiveId": "4.4",
     "objectiveTitle": "Use security alerting and monitoring concepts",
-    "conceptId": "comptia-sec-plus-4.4-monitoring-alerting"
+    "conceptId": "comptia-sec-plus-4.4-monitoring-alerting",
+    "evidenceArtifacts": [
+      {
+        "type": "table",
+        "title": "SIEM correlation evidence",
+        "columns": [
+          "Source",
+          "Event"
+        ],
+        "rows": [
+          [
+            "VPN",
+            "Successful session from expected country"
+          ],
+          [
+            "IdP",
+            "MFA reset by temporary helpdesk account"
+          ],
+          [
+            "Cloud IAM",
+            "CloudAdmin role assigned to user"
+          ],
+          [
+            "Storage",
+            "48 GB export started shortly after privilege change"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-396",
@@ -7535,7 +7688,35 @@
     "explanation": "Retention must exceed the likely detection and investigation window. Moving older logs to lower-cost immutable archive storage preserves evidence while limiting expensive hot-storage use and reducing tampering risk.",
     "objectiveId": "4.6",
     "objectiveTitle": "Implement identity and access management",
-    "conceptId": "comptia-sec-plus-4.6-identity-access"
+    "conceptId": "comptia-sec-plus-4.6-identity-access",
+    "evidenceArtifacts": [
+      {
+        "type": "table",
+        "title": "Retention policy gap",
+        "columns": [
+          "Log source",
+          "Current state"
+        ],
+        "rows": [
+          [
+            "Identity logs",
+            "30 days hot retention"
+          ],
+          [
+            "Proxy logs",
+            "30 days hot retention"
+          ],
+          [
+            "Detection window",
+            "Commonly 60 to 90 days"
+          ],
+          [
+            "Evidence risk",
+            "Initial access logs expire before discovery"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-397",
@@ -7560,7 +7741,19 @@
     "explanation": "Flow records summarize communication metadata such as source, destination, ports, protocol, byte count, and packet count. They help identify unusual transfer patterns but do not contain the full application payload.",
     "objectiveId": "4.9",
     "objectiveTitle": "Use data sources to support investigations",
-    "conceptId": "comptia-sec-plus-4.9-investigation-data"
+    "conceptId": "comptia-sec-plus-4.9-investigation-data",
+    "evidenceArtifacts": [
+      {
+        "type": "console",
+        "title": "Flow record excerpt",
+        "lines": [
+          "src=10.20.8.44 dst=198.51.100.90 proto=tcp",
+          "sport=51544 dport=443 bytes=2147483648 packets=1519023",
+          "payload_captured=false",
+          "investigation_use=volume_and_endpoint_pattern"
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-398",
@@ -7612,7 +7805,35 @@
     "explanation": "An inline IPS can actively block matching traffic. Configuring a timed block while retaining the alert provides containment and an investigation record without creating a permanent deny entry.",
     "objectiveId": "4.8",
     "objectiveTitle": "Apply incident response activities",
-    "conceptId": "comptia-sec-plus-4.8-incident-response"
+    "conceptId": "comptia-sec-plus-4.8-incident-response",
+    "evidenceArtifacts": [
+      {
+        "type": "table",
+        "title": "IPS rule requirement",
+        "columns": [
+          "Setting",
+          "Required behavior"
+        ],
+        "rows": [
+          [
+            "Deployment",
+            "Inline sensor can block traffic"
+          ],
+          [
+            "Detection",
+            "Horizontal port scan threshold reached"
+          ],
+          [
+            "Containment",
+            "Block source for 60 minutes"
+          ],
+          [
+            "Forensics",
+            "Retain alert and log record"
+          ]
+        ]
+      }
+    ]
   },
   {
     "id": "secplus-400",
@@ -14485,7 +14706,7 @@
     "domain": "Security Operations",
     "type": "pbq-matching",
     "pbq": {
-      "title": "Log investigation ticket",
+      "title": "Log investigation review",
       "scenario": "An analyst correlates three log entries. Match each entry to the best investigation focus.",
       "evidence": [
         {
@@ -14592,7 +14813,7 @@
     "domain": "Security Architecture",
     "type": "pbq-matching",
     "pbq": {
-      "title": "Network segmentation ticket",
+      "title": "Network segmentation review",
       "scenario": "A security architect reviews three segmentation needs. Match each need to the best design.",
       "evidence": [
         {
@@ -14934,7 +15155,7 @@
     "domain": "Security Operations",
     "type": "pbq-matching",
     "pbq": {
-      "title": "Incident response phase ticket",
+      "title": "Incident response phase review",
       "scenario": "An incident lead assigns three tasks during an investigation. Match each task to the correct incident-response phase.",
       "evidence": [
         {

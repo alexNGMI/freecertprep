@@ -65,6 +65,20 @@ const operationalTicketQuestions = questions.filter((question) =>
   /\bticket\b/i.test(question.question)
   && !/\b(?:Kerberos|ticket-granting ticket|service ticket|pass-the-ticket)\b/i.test(question.question),
 )
+const evidenceLedPracticalQuestions = questions.filter((question) =>
+  practicalTypes.has(question.type)
+  && (
+    question.evidenceArtifacts?.length > 0
+    || question.pbq?.artifacts?.length > 0
+    || question.pbq?.evidence?.length > 0
+    || question.commands?.length > 0
+    || question.topology
+    || question.config?.length > 0
+  ),
+)
+const practicalEvidenceText = JSON.stringify(
+  questions.filter((question) => practicalTypes.has(question.type)),
+).toLowerCase()
 
 assert(questions.length === 760, `expected 760 questions, found ${questions.length}`)
 assert(ledgerLines.length === 761, `expected a 760-row objective review ledger, found ${ledgerLines.length - 1} rows`)
@@ -90,6 +104,10 @@ assert(!questions.some((question) => question.conceptId.includes('domain-fallbac
 assert(questions.every((question) => objectives[question.objectiveId]), 'found an invalid Security+ objective ID')
 assert(questions.every((question) => objectives[question.objectiveId][0] === question.domain), 'found an objective/domain mismatch')
 assert(questions.filter((question) => practicalTypes.has(question.type)).length >= 33, 'expected at least 33 practical questions')
+assert(evidenceLedPracticalQuestions.length >= 33, 'expected every Security+ practical question to include evidence or an interactive artifact')
+for (const topic of ['iam', 'firewall', 'alert', 'incident', 'flow', 'retention']) {
+  assert(practicalEvidenceText.includes(topic), `Security+ practical evidence is missing ${topic} coverage`)
+}
 
 for (let run = 0; run < 500; run += 1) {
   const form = weightedSelect(questions, 90, domains, {
@@ -126,6 +144,7 @@ console.log(`Repeated template groups: ${templateGroups.length} (${templateQuest
 console.log(`Operational ticket stems: ${operationalTicketQuestions.length}`)
 console.log(`Objective fallbacks: ${questions.filter((question) => question.conceptId.includes('domain-fallback')).length}`)
 console.log(`Practical questions: ${questions.filter((question) => practicalTypes.has(question.type)).length}`)
+console.log(`Evidence-led practical questions: ${evidenceLedPracticalQuestions.length}`)
 console.log(`Types: ${JSON.stringify(typeCounts)}`)
 console.log(`Objectives: ${JSON.stringify(objectiveCounts)}`)
 console.log(`Concepts: ${JSON.stringify(conceptCounts)}`)

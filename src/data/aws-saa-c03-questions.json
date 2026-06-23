@@ -10363,7 +10363,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-101",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A multi-account education platform is reviewing the tagged multi-service AWS environment. The architect must identify right-sizing opportunities and assign spend to workload owners. The review identifies cost visibility and governance as the main design concern. The relevant service area is Cost Explorer, Compute Optimizer. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A fintech platform tags every workload by product team, but monthly spend still appears as one blended bill. Which approach gives owners actionable cost visibility and right-sizing recommendations without weakening production controls?",
     "choices": [
       "Use AWS Cost Explorer, AWS Compute Optimizer, and tagging to find right-sizing opportunities",
       "Use security group descriptions as the only cost reporting tool",
@@ -10381,7 +10381,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-102",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A hybrid-cloud travel company is reviewing the steady-state compute baseline. The architect must discount predictable usage while keeping uncertain capacity flexible. In review case 702, the team identifies commitment-based savings as the main design concern. The relevant service area is Savings Plans, Reserved Instances. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A travel-booking API has a steady baseline every day and unpredictable promotional spikes twice a month. Which purchasing model should cover the known baseline while leaving burst traffic flexible?",
     "choices": [
       "Use Spot Instances for every stateful production database regardless of interruption impact",
       "Use Savings Plans or Reserved Instances for predictable baseline usage",
@@ -10395,7 +10395,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-103",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A security-conscious media archive team is reviewing the private subnet access to AWS services. The architect must reduce NAT gateway traversal for supported service traffic. In review case 703, the team identifies network processing and data-transfer cost as the main design concern. The relevant service area is VPC endpoint, DynamoDB, Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A private analytics subnet downloads large objects from S3 through a NAT gateway during nightly jobs. The architect must reduce NAT data-processing charges without making the subnet public. What should be recommended?",
     "choices": [
       "Route all private service traffic through the internet gateway directly",
       "Increase NAT gateway count solely to reduce per-GB processing cost",
@@ -10409,7 +10409,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-104",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A cost-sensitive biotech research group is reviewing the Athena analytics dataset. The architect must reduce bytes scanned by storing data in efficient columnar partitions. In review case 704, the team identifies query cost per scan as the main design concern. The relevant service area is Athena. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A research data lake stores daily experiment output in S3 and analysts query only recent partitions. Athena costs are climbing because every query scans the full raw dataset. What storage layout change best reduces query cost?",
     "choices": [
       "Store all data as uncompressed JSON in one prefix and always scan the full dataset",
       "Increase the number of IAM users so Athena queries finish cheaper",
@@ -10423,7 +10423,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-105",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A latency-sensitive healthcare provider is reviewing the fault-tolerant batch processing fleet. The architect must lower compute cost for interruptible work while preserving progress. In review case 705, the team identifies batch compute spend as the main design concern. The relevant service area is Auto Scaling, EC2 Spot. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A genomics batch pipeline can checkpoint work and tolerate interruption. The team wants lower EC2 cost while keeping enough capacity across Availability Zones. Which compute strategy fits best?",
     "choices": [
       "Use EC2 Spot Instances or Spot capacity in a diversified Auto Scaling group",
       "Use On-Demand Instances only and disable scaling policies",
@@ -10437,7 +10437,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-106",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A mission-critical retail marketplace is reviewing the long-term object archive. The architect must move infrequently accessed data to lower-cost storage over time. The review identifies storage lifecycle cost as the main design concern. The relevant service area is Amazon S3. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A game studio keeps compliance archives for seven years, with most retrievals expected only during audits. Which two recommendations reduce storage cost while preserving retrieval requirements?",
     "choices": [
       "Use S3 lifecycle policies to transition objects to an appropriate S3 Glacier storage class",
       "Delete the data after 30 days because archival access is expensive",
@@ -10455,7 +10455,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-107",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A compliance-driven insurance analytics company is reviewing the variable relational database workload. The architect must match database capacity to measured utilization instead of overprovisioning. In review case 707, the team identifies database capacity cost as the main design concern. The relevant service area is Amazon RDS, Aurora. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "An insurance reporting database is quiet most of the month but scales during quarterly close. The team currently provisions for peak all month. What database capacity approach should the architect choose?",
     "choices": [
       "Provision for the annual peak all year without monitoring utilization",
       "Move the database to S3 Standard and run SQL through bucket policies",
@@ -10469,7 +10469,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-108",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A data-intensive university research lab is reviewing the static asset delivery path. The architect must reduce repeated origin retrieval and data-transfer waste with caching. In review case 708, the team identifies origin and transfer cost as the main design concern. The relevant service area is CloudFront. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A public web application serves the same images, CSS, and JavaScript globally. Origin load and data-transfer cost rise during every launch. What should the architect do first?",
     "choices": [
       "Set every object TTL to zero so all requests hit the origin",
       "Serve every asset through one t3.micro instance without caching",
@@ -10483,7 +10483,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-109",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A regional financial services firm is reviewing the tagged multi-service AWS environment. The architect must identify right-sizing opportunities and assign spend to workload owners. In review case 709, the team identifies cost visibility and governance as the main design concern. The relevant service area is Cost Explorer, Compute Optimizer. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A central cloud team needs to show each application owner where idle EC2, EBS, and load-balancer spend is occurring. Which AWS cost-management approach is most appropriate?",
     "choices": [
       "Use AWS Cost Explorer, AWS Compute Optimizer, and tagging to find right-sizing opportunities",
       "Estimate cost by reading only the application source code",
@@ -10497,7 +10497,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-110",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A global streaming platform is reviewing the steady-state compute baseline. The architect must discount predictable usage while keeping uncertain capacity flexible. In review case 710, the team identifies commitment-based savings as the main design concern. The relevant service area is Savings Plans, Reserved Instances. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A streaming service runs a minimum number of encoding workers all day and adds more workers for live events. Which option discounts the predictable portion while preserving elasticity?",
     "choices": [
       "Use Spot Instances for every stateful production database regardless of interruption impact",
       "Use Savings Plans or Reserved Instances for predictable baseline usage",
@@ -10511,7 +10511,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-111",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A regulated manufacturer is reviewing the private subnet access to AWS services. The architect must reduce NAT gateway traversal for supported service traffic. The review identifies network processing and data-transfer cost as the main design concern. The relevant service area is VPC endpoint, DynamoDB, Amazon S3. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A regulated workload in private subnets sends frequent requests to S3 and DynamoDB. Which two design choices reduce NAT traversal while keeping service access private?",
     "choices": [
       "Use VPC endpoints for supported AWS services such as S3, DynamoDB, and interface endpoint services",
       "Route all private service traffic through the internet gateway directly",
@@ -10529,7 +10529,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-112",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A fast-growing public-sector agency is reviewing the Athena analytics dataset. The architect must reduce bytes scanned by storing data in efficient columnar partitions. In review case 712, the team identifies query cost per scan as the main design concern. The relevant service area is Athena. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A public-sector analytics team stores CSV logs in one S3 prefix and runs Athena reports by date and region. Queries scan too much data. What change should be made?",
     "choices": [
       "Store all data as uncompressed JSON in one prefix and always scan the full dataset",
       "Increase the number of IAM users so Athena queries finish cheaper",
@@ -10543,7 +10543,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-113",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A multi-account SaaS vendor is reviewing the fault-tolerant batch processing fleet. The architect must lower compute cost for interruptible work while preserving progress. In review case 713, the team identifies batch compute spend as the main design concern. The relevant service area is Auto Scaling, EC2 Spot. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A SaaS vendor processes asynchronous image conversions. Jobs are idempotent and can resume from S3 checkpoints if an instance disappears. Which compute choice reduces cost?",
     "choices": [
       "Use EC2 Spot Instances or Spot capacity in a diversified Auto Scaling group",
       "Use On-Demand Instances only and disable scaling policies",
@@ -10557,7 +10557,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-114",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A hybrid-cloud gaming studio is reviewing the long-term object archive. The architect must move infrequently accessed data to lower-cost storage over time. In review case 714, the team identifies storage lifecycle cost as the main design concern. The relevant service area is Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A gaming company must retain old match telemetry for possible disputes, but most records are rarely read after 90 days. What storage lifecycle design best controls cost?",
     "choices": [
       "Keep all records forever on gp3 EBS volumes attached to stopped instances",
       "Use S3 lifecycle policies to transition objects to an appropriate S3 Glacier storage class",
@@ -10571,7 +10571,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-115",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A security-conscious logistics company is reviewing the variable relational database workload. The architect must match database capacity to measured utilization instead of overprovisioning. In review case 715, the team identifies database capacity cost as the main design concern. The relevant service area is Amazon RDS, Aurora. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A logistics application has an RDS workload with large swings between business hours and overnight idle periods. Which recommendation avoids paying for fixed peak capacity all day?",
     "choices": [
       "Provision for the annual peak all year without monitoring utilization",
       "Move the database to S3 Standard and run SQL through bucket policies",
@@ -10585,7 +10585,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-116",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A cost-sensitive energy monitoring company is reviewing the static asset delivery path. The architect must reduce repeated origin retrieval and data-transfer waste with caching. The review identifies origin and transfer cost as the main design concern. The relevant service area is CloudFront. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "An energy-monitoring site serves firmware files repeatedly to devices in many regions. Which two recommendations reduce repeated origin retrieval and transfer while keeping updates controllable?",
     "choices": [
       "Cache assets with CloudFront and tune TTLs for content that changes predictably",
       "Replicate assets to every account manually for each release",
@@ -10603,7 +10603,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-117",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A latency-sensitive education platform is reviewing the tagged multi-service AWS environment. The architect must identify right-sizing opportunities and assign spend to workload owners. In review case 717, the team identifies cost visibility and governance as the main design concern. The relevant service area is Cost Explorer, Compute Optimizer. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A school district has many AWS accounts and wants department-level chargeback plus recommendations for overprovisioned resources. Which service combination should be used?",
     "choices": [
       "Use AWS Cost Explorer, AWS Compute Optimizer, and tagging to find right-sizing opportunities",
       "Estimate cost by reading only the application source code",
@@ -10617,7 +10617,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-118",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A mission-critical travel company is reviewing the steady-state compute baseline. The architect must discount predictable usage while keeping uncertain capacity flexible. In review case 718, the team identifies commitment-based savings as the main design concern. The relevant service area is Savings Plans, Reserved Instances. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A booking platform has predictable always-on application servers and separate unpredictable analytics jobs. Which purchasing recommendation best balances discount and flexibility?",
     "choices": [
       "Use Spot Instances for every stateful production database regardless of interruption impact",
       "Use Savings Plans or Reserved Instances for predictable baseline usage",
@@ -10631,7 +10631,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-119",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A compliance-driven media archive team is reviewing the private subnet access to AWS services. The architect must reduce NAT gateway traversal for supported service traffic. In review case 719, the team identifies network processing and data-transfer cost as the main design concern. The relevant service area is VPC endpoint, DynamoDB, Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A media archive in private subnets retrieves S3 objects through NAT gateways. Security will not approve public IPs for the workers. What network change reduces cost?",
     "choices": [
       "Route all private service traffic through the internet gateway directly",
       "Increase NAT gateway count solely to reduce per-GB processing cost",
@@ -10645,7 +10645,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-120",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A data-intensive biotech research group is reviewing the Athena analytics dataset. The architect must reduce bytes scanned by storing data in efficient columnar partitions. In review case 720, the team identifies query cost per scan as the main design concern. The relevant service area is Athena. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A biotech team runs Athena against raw JSON stored by month, but most reports need only a few columns and days. What data layout reduces scanned bytes?",
     "choices": [
       "Store all data as uncompressed JSON in one prefix and always scan the full dataset",
       "Increase the number of IAM users so Athena queries finish cheaper",
@@ -10659,7 +10659,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-121",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A regional healthcare provider is reviewing the fault-tolerant batch processing fleet. The architect must lower compute cost for interruptible work while preserving progress. The review identifies batch compute spend as the main design concern. The relevant service area is Auto Scaling, EC2 Spot. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A healthcare image-processing queue can retry failed jobs and stores progress outside the instance. Which two compute practices reduce cost without losing work?",
     "choices": [
       "Use EC2 Spot Instances or Spot capacity in a diversified Auto Scaling group",
       "Use the most expensive instance family because it is always more reliable",
@@ -10677,7 +10677,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-122",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A global retail marketplace is reviewing the long-term object archive. The architect must move infrequently accessed data to lower-cost storage over time. In review case 722, the team identifies storage lifecycle cost as the main design concern. The relevant service area is Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A retail company keeps historical order exports for legal retention but accesses them only during rare audits. Which archive approach is most cost-effective?",
     "choices": [
       "Keep all records forever on gp3 EBS volumes attached to stopped instances",
       "Use S3 lifecycle policies to transition objects to an appropriate S3 Glacier storage class",
@@ -10691,7 +10691,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-123",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A regulated insurance analytics company is reviewing the variable relational database workload. The architect must match database capacity to measured utilization instead of overprovisioning. In review case 723, the team identifies database capacity cost as the main design concern. The relevant service area is Amazon RDS, Aurora. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "An analytics database has unpredictable bursts and long idle windows. Which AWS database capacity option best matches spend to measured demand?",
     "choices": [
       "Provision for the annual peak all year without monitoring utilization",
       "Move the database to S3 Standard and run SQL through bucket policies",
@@ -10705,7 +10705,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-124",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A fast-growing university research lab is reviewing the static asset delivery path. The architect must reduce repeated origin retrieval and data-transfer waste with caching. In review case 724, the team identifies origin and transfer cost as the main design concern. The relevant service area is CloudFront. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A university publishes static course videos and assets to students worldwide. Which delivery pattern lowers origin load and improves repeated access latency?",
     "choices": [
       "Set every object TTL to zero so all requests hit the origin",
       "Serve every asset through one t3.micro instance without caching",
@@ -10719,7 +10719,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-125",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A multi-account financial services firm is reviewing the tagged multi-service AWS environment. The architect must identify right-sizing opportunities and assign spend to workload owners. In review case 725, the team identifies cost visibility and governance as the main design concern. The relevant service area is Cost Explorer, Compute Optimizer. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A financial-services platform has good tagging hygiene but no routine process for finding idle and oversized resources. Which option gives the clearest right-sizing workflow?",
     "choices": [
       "Use AWS Cost Explorer, AWS Compute Optimizer, and tagging to find right-sizing opportunities",
       "Estimate cost by reading only the application source code",
@@ -10733,7 +10733,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-126",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A hybrid-cloud streaming platform is reviewing the steady-state compute baseline. The architect must discount predictable usage while keeping uncertain capacity flexible. The review identifies commitment-based savings as the main design concern. The relevant service area is Savings Plans, Reserved Instances, EC2 Spot. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A media transcoding fleet has a stable minimum load and unpredictable spikes after new releases. Which two purchasing decisions fit the mixed demand pattern?",
     "choices": [
       "Use Savings Plans or Reserved Instances for predictable baseline usage",
       "Use Spot Instances for every stateful production database regardless of interruption impact",
@@ -10751,7 +10751,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-127",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A security-conscious manufacturer is reviewing the private subnet access to AWS services. The architect must reduce NAT gateway traversal for supported service traffic. In review case 727, the team identifies network processing and data-transfer cost as the main design concern. The relevant service area is VPC endpoint, DynamoDB, Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A manufacturing workload in private subnets calls AWS APIs heavily. NAT gateway processing costs are now a material line item. Which architecture reduces those charges?",
     "choices": [
       "Route all private service traffic through the internet gateway directly",
       "Increase NAT gateway count solely to reduce per-GB processing cost",
@@ -10765,7 +10765,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-128",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A cost-sensitive public-sector agency is reviewing the Athena analytics dataset. The architect must reduce bytes scanned by storing data in efficient columnar partitions. In review case 728, the team identifies query cost per scan as the main design concern. The relevant service area is Athena. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A government reporting bucket stores uncompressed event data that Athena scans in full for every query. What change lowers per-query cost most directly?",
     "choices": [
       "Store all data as uncompressed JSON in one prefix and always scan the full dataset",
       "Increase the number of IAM users so Athena queries finish cheaper",
@@ -10779,7 +10779,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-129",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A latency-sensitive SaaS vendor is reviewing the fault-tolerant batch processing fleet. The architect must lower compute cost for interruptible work while preserving progress. In review case 729, the team identifies batch compute spend as the main design concern. The relevant service area is Auto Scaling, EC2 Spot. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A SaaS batch worker fleet handles jobs that can be restarted safely from a queue. The architect must lower compute spend. What is the best fit?",
     "choices": [
       "Use EC2 Spot Instances or Spot capacity in a diversified Auto Scaling group",
       "Use On-Demand Instances only and disable scaling policies",
@@ -10793,7 +10793,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-130",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A mission-critical gaming studio is reviewing the long-term object archive. The architect must move infrequently accessed data to lower-cost storage over time. In review case 730, the team identifies storage lifecycle cost as the main design concern. The relevant service area is Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A studio stores completed project files that must be retained but are unlikely to be read quickly. Which S3 lifecycle strategy should be used?",
     "choices": [
       "Keep all records forever on gp3 EBS volumes attached to stopped instances",
       "Use S3 lifecycle policies to transition objects to an appropriate S3 Glacier storage class",
@@ -10807,7 +10807,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-131",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A compliance-driven logistics company is reviewing the variable relational database workload. The architect must match database capacity to measured utilization instead of overprovisioning. The review identifies database capacity cost as the main design concern. The relevant service area is Amazon RDS, Aurora. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A delivery-planning database sees unpredictable spikes during weather events. Which two actions help avoid paying for maximum provisioned capacity all month?",
     "choices": [
       "Use Aurora Serverless v2 or right-size RDS capacity based on measured utilization",
       "Disable backups because storage is the only database cost driver",
@@ -10825,7 +10825,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-132",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A data-intensive energy monitoring company is reviewing the static asset delivery path. The architect must reduce repeated origin retrieval and data-transfer waste with caching. In review case 732, the team identifies origin and transfer cost as the main design concern. The relevant service area is CloudFront. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "An IoT dashboard serves the same static JavaScript bundle and images to devices across continents. What pattern reduces repeated origin requests?",
     "choices": [
       "Set every object TTL to zero so all requests hit the origin",
       "Serve every asset through one t3.micro instance without caching",
@@ -10839,7 +10839,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-133",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A regional education platform is reviewing the tagged multi-service AWS environment. The architect must identify right-sizing opportunities and assign spend to workload owners. In review case 733, the team identifies cost visibility and governance as the main design concern. The relevant service area is Cost Explorer, Compute Optimizer. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "An education platform wants to tie AWS spend to product owners and identify wasted capacity every month. Which cost tools are most useful?",
     "choices": [
       "Use AWS Cost Explorer, AWS Compute Optimizer, and tagging to find right-sizing opportunities",
       "Estimate cost by reading only the application source code",
@@ -10853,7 +10853,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-134",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A global travel company is reviewing the steady-state compute baseline. The architect must discount predictable usage while keeping uncertain capacity flexible. In review case 734, the team identifies commitment-based savings as the main design concern. The relevant service area is Savings Plans, Reserved Instances. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A travel company runs a steady reservation service plus short seasonal campaigns. What should be discounted with commitments, and what should remain flexible?",
     "choices": [
       "Use Spot Instances for every stateful production database regardless of interruption impact",
       "Use Savings Plans or Reserved Instances for predictable baseline usage",
@@ -10867,7 +10867,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-135",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A regulated media archive team is reviewing the private subnet access to AWS services. The architect must reduce NAT gateway traversal for supported service traffic. In review case 735, the team identifies network processing and data-transfer cost as the main design concern. The relevant service area is VPC endpoint, DynamoDB, Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A compliance archive worker in a private subnet reads from S3 through a NAT gateway. Which private connectivity option reduces recurring network cost?",
     "choices": [
       "Route all private service traffic through the internet gateway directly",
       "Increase NAT gateway count solely to reduce per-GB processing cost",
@@ -10881,7 +10881,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-136",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A fast-growing biotech research group is reviewing the Athena analytics dataset. The architect must reduce bytes scanned by storing data in efficient columnar partitions. The review identifies query cost per scan as the main design concern. The relevant service area is Athena. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A lab analytics workload needs two recommendations to reduce Athena scanned data while preserving query flexibility. Which pair is best?",
     "choices": [
       "Partition data and store it in columnar formats such as Parquet before querying with Athena",
       "Increase the number of IAM users so Athena queries finish cheaper",
@@ -10899,7 +10899,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-137",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A multi-account healthcare provider is reviewing the fault-tolerant batch processing fleet. The architect must lower compute cost for interruptible work while preserving progress. In review case 737, the team identifies batch compute spend as the main design concern. The relevant service area is Auto Scaling, EC2 Spot. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A hospital batch-conversion workload can withstand interruption if jobs are retried from a durable queue. What compute option should be evaluated first?",
     "choices": [
       "Use EC2 Spot Instances or Spot capacity in a diversified Auto Scaling group",
       "Use On-Demand Instances only and disable scaling policies",
@@ -10913,7 +10913,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-138",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A hybrid-cloud retail marketplace is reviewing the long-term object archive. The architect must move infrequently accessed data to lower-cost storage over time. In review case 738, the team identifies storage lifecycle cost as the main design concern. The relevant service area is Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A commerce platform has old order exports that must remain durable for years but rarely need immediate retrieval. Which storage policy lowers cost?",
     "choices": [
       "Keep all records forever on gp3 EBS volumes attached to stopped instances",
       "Use S3 lifecycle policies to transition objects to an appropriate S3 Glacier storage class",
@@ -10927,7 +10927,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-139",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A security-conscious insurance analytics company is reviewing the variable relational database workload. The architect must match database capacity to measured utilization instead of overprovisioning. In review case 739, the team identifies database capacity cost as the main design concern. The relevant service area is Amazon RDS, Aurora. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "An actuarial model database runs intensely for a few days and idles afterward. Which capacity model best reduces waste?",
     "choices": [
       "Provision for the annual peak all year without monitoring utilization",
       "Move the database to S3 Standard and run SQL through bucket policies",
@@ -10941,7 +10941,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-140",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A cost-sensitive university research lab is reviewing the static asset delivery path. The architect must reduce repeated origin retrieval and data-transfer waste with caching. In review case 740, the team identifies origin and transfer cost as the main design concern. The relevant service area is CloudFront. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A research portal repeatedly serves identical public assets after each publication. Which architecture should absorb repeat requests closest to users?",
     "choices": [
       "Set every object TTL to zero so all requests hit the origin",
       "Serve every asset through one t3.micro instance without caching",
@@ -10955,7 +10955,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-141",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A latency-sensitive financial services firm is reviewing the tagged multi-service AWS environment. The architect must identify right-sizing opportunities and assign spend to workload owners. The review identifies cost visibility and governance as the main design concern. The relevant service area is Cost Explorer, Compute Optimizer. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A finance platform needs two recommendations for owner-level cost visibility and right-sizing. Which pair should the architect choose?",
     "choices": [
       "Use AWS Cost Explorer, AWS Compute Optimizer, and tagging to find right-sizing opportunities",
       "Estimate cost by reading only the application source code",
@@ -10973,7 +10973,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-142",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A mission-critical streaming platform is reviewing the steady-state compute baseline. The architect must discount predictable usage while keeping uncertain capacity flexible. In review case 742, the team identifies commitment-based savings as the main design concern. The relevant service area is Savings Plans, Reserved Instances. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A streaming platform has a predictable floor of EC2 usage but uncertain launch-day demand. What pricing strategy should be applied?",
     "choices": [
       "Use Spot Instances for every stateful production database regardless of interruption impact",
       "Use Savings Plans or Reserved Instances for predictable baseline usage",
@@ -10987,7 +10987,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-143",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A compliance-driven manufacturer is reviewing the private subnet access to AWS services. The architect must reduce NAT gateway traversal for supported service traffic. In review case 743, the team identifies network processing and data-transfer cost as the main design concern. The relevant service area is VPC endpoint, DynamoDB, Amazon S3. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A factory data collector in private subnets sends frequent telemetry to AWS managed services. Which option avoids unnecessary NAT gateway data processing?",
     "choices": [
       "Route all private service traffic through the internet gateway directly",
       "Increase NAT gateway count solely to reduce per-GB processing cost",
@@ -11001,7 +11001,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-144",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A data-intensive public-sector agency is reviewing the Athena analytics dataset. The architect must reduce bytes scanned by storing data in efficient columnar partitions. In review case 744, the team identifies query cost per scan as the main design concern. The relevant service area is Athena. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A public agency wants Athena reports to read only the needed columns and partitions. What S3 data organization should be used?",
     "choices": [
       "Store all data as uncompressed JSON in one prefix and always scan the full dataset",
       "Increase the number of IAM users so Athena queries finish cheaper",
@@ -11015,7 +11015,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-145",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A regional SaaS vendor is reviewing the fault-tolerant batch processing fleet. The architect must lower compute cost for interruptible work while preserving progress. In review case 745, the team identifies batch compute spend as the main design concern. The relevant service area is Auto Scaling, EC2 Spot. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A SaaS export job is stateless, queue-driven, and safe to interrupt. Which compute purchasing option best lowers cost?",
     "choices": [
       "Use EC2 Spot Instances or Spot capacity in a diversified Auto Scaling group",
       "Use On-Demand Instances only and disable scaling policies",
@@ -11029,7 +11029,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-146",
     "domain": "Design Cost-Optimized Architectures",
     "type": "multiple-response",
-    "question": "A global gaming studio is reviewing the long-term object archive. The architect must move infrequently accessed data to lower-cost storage over time. The review identifies storage lifecycle cost as the main design concern. The relevant service area is Amazon S3. Which TWO recommendations should the architect include? (Select two.)",
+    "question": "A gaming studio must keep cold project archives for compliance and choose retrieval behavior by business need. Which two lifecycle choices are appropriate?",
     "choices": [
       "Use S3 lifecycle policies to transition objects to an appropriate S3 Glacier storage class",
       "Use NAT gateway metrics as the retention archive",
@@ -11047,7 +11047,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-147",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A regulated logistics company is reviewing the variable relational database workload. The architect must match database capacity to measured utilization instead of overprovisioning. In review case 747, the team identifies database capacity cost as the main design concern. The relevant service area is Amazon RDS, Aurora. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A logistics database has measured utilization far below provisioned capacity except during rare peaks. What is the best cost-optimization recommendation?",
     "choices": [
       "Provision for the annual peak all year without monitoring utilization",
       "Move the database to S3 Standard and run SQL through bucket policies",
@@ -11061,7 +11061,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-148",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A fast-growing energy monitoring company is reviewing the static asset delivery path. The architect must reduce repeated origin retrieval and data-transfer waste with caching. In review case 748, the team identifies origin and transfer cost as the main design concern. The relevant service area is CloudFront. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "An energy dashboard sends the same static files to field devices every hour. Which delivery design reduces origin bandwidth?",
     "choices": [
       "Set every object TTL to zero so all requests hit the origin",
       "Serve every asset through one t3.micro instance without caching",
@@ -11075,7 +11075,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-149",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A multi-account education platform is reviewing the tagged multi-service AWS environment. The architect must identify right-sizing opportunities and assign spend to workload owners. In review case 749, the team identifies cost visibility and governance as the main design concern. The relevant service area is Cost Explorer, Compute Optimizer. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "An education company needs recurring reports that identify untagged spend, idle resources, and owner accountability. Which AWS cost approach fits?",
     "choices": [
       "Use AWS Cost Explorer, AWS Compute Optimizer, and tagging to find right-sizing opportunities",
       "Estimate cost by reading only the application source code",
@@ -11089,7 +11089,7 @@
     "id": "saa-c03-design-cost-optimized-architectures-150",
     "domain": "Design Cost-Optimized Architectures",
     "type": "single-choice",
-    "question": "A hybrid-cloud travel company is reviewing the steady-state compute baseline. The architect must discount predictable usage while keeping uncertain capacity flexible. In review case 750, the team identifies commitment-based savings as the main design concern. The relevant service area is Savings Plans, Reserved Instances. Which design meets the requirement at the lowest appropriate cost?",
+    "question": "A travel search platform has baseline EC2 workers plus unpredictable spikes from fare sales. Which commitment strategy keeps the architecture cost-efficient?",
     "choices": [
       "Use Spot Instances for every stateful production database regardless of interruption impact",
       "Use Savings Plans or Reserved Instances for predictable baseline usage",
