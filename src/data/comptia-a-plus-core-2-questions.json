@@ -9254,7 +9254,7 @@
     "question": "While supporting a hybrid worker, a technician is asked to prepare a normal production change on a production workstation. Which TWO choices best support the requirement?",
     "choices": [
       "Skip peer review and approval",
-      "Document scope, risk, approvals, implementation, validation, and rollback before the maintenance window",
+      "Document the change only after implementation if no users complain",
       "The work is supportable by the next technician without exposing credentials or confidential data",
       "Make the change without a rollback plan"
     ],
@@ -9510,7 +9510,7 @@
       "Follow change-management approval, testing, rollback, and documentation steps"
     ],
     "correctAnswer": 3,
-    "explanation": "Why this is right: Change management reduces risk through review, testing, communication, and rollback planning. The best answer is \"Follow change-management approval, testing, rollback, and documentation steps\" because it directly addresses the observed requirement. Why the other choices are wrong: \"Change it immediately without record\" is unsafe, unrelated, or does not directly satisfy the stated requirement. \"Tell no one until users complain\" is unsafe, unrelated, or does not directly satisfy the stated requirement. \"Document scope, risk, approvals, implementation, validation, and rollback before the maintenance window\" is unsafe, unrelated, or does not directly satisfy the stated requirement. Protect people, data, and service continuity through approval, documentation, privacy, safety, rollback, and verified completion. Verification: Approval, implementation, validation, rollback, safety, privacy, asset, and closure records are complete where required."
+    "explanation": "Why this is right: Change management reduces risk through review, testing, communication, and rollback planning. The best answer is \"Follow change-management approval, testing, rollback, and documentation steps\" because it directly addresses the observed requirement. Why the other choices are wrong: \"Change it immediately without record\" is unsafe, unrelated, or does not directly satisfy the stated requirement. \"Tell no one until users complain\" is unsafe, unrelated, or does not directly satisfy the stated requirement. \"Document the change only after implementation if no users complain\" skips approval, risk review, validation, and rollback planning before the change. Protect people, data, and service continuity through approval, documentation, privacy, safety, rollback, and verified completion. Verification: Approval, implementation, validation, rollback, safety, privacy, asset, and closure records are complete where required."
   },
   {
     "id": "aplus-core2-612",

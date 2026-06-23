@@ -1,6 +1,6 @@
 # Current State and Next Steps
 
-Last updated: June 17, 2026
+Last updated: June 23, 2026
 
 ## Executive Summary
 
@@ -21,7 +21,7 @@ The requested execution order began with content quality, then trust correctness
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
-The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The next advantage comes from protecting local learner work, making release checks repeatable, reducing registry/documentation drift, and preparing a practical backend MVP for Cloudflare hosting, account sync, support email, report-incorrect-info workflow, and admin review. See `docs/offering-audit-2026-06-16.md`, `docs/course-companion-usefulness-audit-2026-06-17.md`, and `docs/backend-accounts-architecture-2026-06-17.md`.
+The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The June 23 full content audit confirms the live modules should stay live, but the next content work should tighten explanation quality, distractor ambiguity, source freshness, and scenario realism rather than expanding the catalog. The next advantage comes from protecting local learner work, making release checks repeatable, reducing registry/documentation drift, and preparing a practical backend MVP for Cloudflare hosting, account sync, support email, report-incorrect-info workflow, and admin review. See `docs/offering-audit-2026-06-16.md`, `docs/course-companion-usefulness-audit-2026-06-17.md`, `docs/full-content-audit-2026-06-23.md`, and `docs/backend-accounts-architecture-2026-06-17.md`.
 
 ## Current Public Offering
 
@@ -56,6 +56,23 @@ The June 17 audit judged the live modules by whether a learner could combine the
 | Terraform Associate 004 | A- | A- | B+ | A- |
 
 Positioning rule: use a course to learn concepts, then use freecertprep to diagnose, practice, repair gaps, and judge readiness. Do not market the app as a full teaching course, hands-on lab platform, vendor PBQ clone, or official score predictor.
+
+## June 23 Full Content Audit
+
+The June 23 audit rechecked the nine live modules against official sources, automated cert gates, deterministic manual samples, stale-term scans, distractor plausibility, repeated-template pressure, explanation depth, and exam-format fidelity. All current cert-specific gates passed. One confirmed A+ Core 2 distractor defect was fixed during the audit.
+
+Current editorial priorities:
+
+1. Network+ explanation upgrade.
+2. Security+ practical/evidence expansion.
+3. CLF-C02 service freshness pass.
+4. SAA-C03 template-diversity pass.
+5. Terraform thin-objective and stem-depth pass.
+6. CCST scenario realism pass.
+7. Splunk UI/SPL evidence polish.
+8. A+ distractor ambiguity sampling maintenance.
+
+Detailed record: `docs/full-content-audit-2026-06-23.md`.
 
 ### Coming Soon
 
@@ -208,6 +225,16 @@ This now pairs with the backend plan: local durability should still land before 
 - sample explanations and practical evidence during normal editorial maintenance;
 - maintain Splunk and Terraform without increasing question counts;
 - keep Coming Soon promotion paused.
+
+### 8. Live Content Audit Follow-Up
+
+- upgrade Network+ and Security+ explanations to the newer why-right, why-wrong, and operational-takeaway standard;
+- add a distractor-ambiguity audit for generated banks;
+- run an AWS service freshness pass on CLF-C02 and SAA-C03;
+- reduce SAA-C03 repeated-template pressure without changing its official domain allocation;
+- deepen Terraform thin objectives with HCL, plan, state, backend, provider, variable, and HCP Terraform examples;
+- make CCST questions less clue-to-term and more first-response troubleshooting oriented;
+- add more Splunk SPL result, dashboard, lookup, scheduled-report, and alert evidence.
 
 ## Completed Foundation
 
