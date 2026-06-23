@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AlertCircle, Download, X } from 'lucide-react'
 import { addQuestionIssueReport, exportQuestionIssueReports } from '../utils/storage'
+import { submitQuestionIssueReport } from '../lib/accountSync'
 import { Button } from './ui/button'
 
 const ISSUE_TYPES = [
@@ -17,8 +18,8 @@ export default function ReportIssueButton({ certId, question, context = 'questio
   const [notes, setNotes] = useState('')
   const [status, setStatus] = useState(null)
 
-  function handleSubmit() {
-    const saved = addQuestionIssueReport({
+  async function handleSubmit() {
+    const report = {
       certId: certId || 'unknown-cert',
       questionId: question.id,
       domain: question.domain,
@@ -27,10 +28,21 @@ export default function ReportIssueButton({ certId, question, context = 'questio
       issueType,
       notes: notes.trim(),
       context,
-    })
+    }
+    const saved = addQuestionIssueReport(report)
 
-    setStatus(saved ? 'saved' : 'error')
-    if (saved) setNotes('')
+    if (!saved) {
+      setStatus('error')
+      return
+    }
+
+    try {
+      const submitted = await submitQuestionIssueReport(report)
+      setStatus(submitted ? 'submitted' : 'saved')
+      setNotes('')
+    } catch {
+      setStatus('saved')
+    }
   }
 
   return (
@@ -52,10 +64,10 @@ export default function ReportIssueButton({ certId, question, context = 'questio
           <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-zinc-950 p-6 shadow-2xl">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-amber-300">Local report</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-amber-300">Question report</p>
                 <h2 id={`report-${question.id}`} className="mt-2 text-2xl font-black text-zinc-50">Flag this question</h2>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                  This saves a local report in your browser for now. Later this same flow can send reports to the review queue.
+                  Signed-in reports go to the review queue. A local copy is kept as a backup.
                 </p>
               </div>
               <button
@@ -103,11 +115,15 @@ export default function ReportIssueButton({ certId, question, context = 'questio
 
               {status && (
                 <p className={`rounded-xl border px-4 py-3 text-sm font-semibold ${
-                  status === 'saved'
+                  status === 'saved' || status === 'submitted'
                     ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
                     : 'border-rose-500/30 bg-rose-500/10 text-rose-200'
                 }`}>
-                  {status === 'saved' ? 'Report saved locally.' : 'Could not save this report in browser storage.'}
+                  {status === 'submitted'
+                    ? 'Report submitted for review.'
+                    : status === 'saved'
+                      ? 'Report saved locally. Sign in to submit future reports.'
+                      : 'Could not save this report in browser storage.'}
                 </p>
               )}
 

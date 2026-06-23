@@ -8,7 +8,9 @@ import {
   Download,
   KeyRound,
   Mail,
+  RefreshCw,
   ShieldCheck,
+  Upload,
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { Button } from '../components/ui/button'
@@ -16,6 +18,7 @@ import { Surface } from '../components/ui/surface'
 import { exportProgress, exportQuestionIssueReports, readQuestionIssueReports } from '../utils/storage'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { isSupabaseConfigured, supabase } from '../lib/supabase'
+import { backupStudyData, restoreLatestStudyData } from '../lib/accountSync'
 
 export default function Account() {
   const [email, setEmail] = useState('')
@@ -107,6 +110,35 @@ export default function Account() {
     setNotice({ kind: 'info', message: 'You are signed out. Local study progress remains on this device.' })
   }
 
+  async function handleBackup() {
+    setSubmitting(true)
+    try {
+      await backupStudyData()
+      setNotice({ kind: 'success', message: 'Your current progress is backed up to your account.' })
+    } catch (error) {
+      setNotice({ kind: 'error', message: error.message })
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  async function handleRestore() {
+    setSubmitting(true)
+    try {
+      const createdAt = await restoreLatestStudyData()
+      setNotice({
+        kind: createdAt ? 'success' : 'info',
+        message: createdAt
+          ? 'Your latest account backup was restored. Refresh study pages to see it.'
+          : 'No account backup exists yet.',
+      })
+    } catch (error) {
+      setNotice({ kind: 'error', message: error.message })
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
       <header className="sticky top-0 z-20 border-b border-white/5 bg-zinc-950/80 backdrop-blur-xl">
@@ -164,6 +196,16 @@ export default function Account() {
               <>
                 <h2 className="mt-5 text-2xl font-black text-zinc-50">You are signed in</h2>
                 <p className="mt-2 break-all text-sm leading-relaxed text-zinc-400">{session.user.email}</p>
+                <div className="mt-5 grid gap-3">
+                  <Button variant="accent" accentColor="#38bdf8" onClick={handleBackup} disabled={submitting}>
+                    <Upload className="h-4 w-4" />
+                    Back up progress
+                  </Button>
+                  <Button variant="secondary" onClick={handleRestore} disabled={submitting}>
+                    <RefreshCw className="h-4 w-4" />
+                    Restore latest backup
+                  </Button>
+                </div>
                 <Button className="mt-5 w-full" variant="secondary" onClick={handleSignOut} disabled={submitting}>
                   <KeyRound className="h-4 w-4" />
                   {submitting ? 'Signing out...' : 'Sign out'}

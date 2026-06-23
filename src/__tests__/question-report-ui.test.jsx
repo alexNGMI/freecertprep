@@ -18,7 +18,7 @@ describe('ReportIssueButton', () => {
     localStorage.clear()
   })
 
-  it('opens a local report modal and stores the report', () => {
+  it('opens a local report modal and stores the report', async () => {
     render(<ReportIssueButton certId="comptia-net-plus" question={question} context="review" />)
 
     fireEvent.click(screen.getByRole('button', { name: /Report issue/i }))
@@ -26,7 +26,7 @@ describe('ReportIssueButton', () => {
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'The command output needs a clearer reason.' } })
     fireEvent.click(screen.getByRole('button', { name: /Save report/i }))
 
-    expect(screen.getByText(/Report saved locally/i)).toBeTruthy()
+    expect(await screen.findByText(/Report saved locally/i)).toBeTruthy()
     const reports = JSON.parse(localStorage.getItem(KEYS.issueReports))
     expect(reports).toHaveLength(1)
     expect(reports[0]).toMatchObject({
