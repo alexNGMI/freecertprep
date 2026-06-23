@@ -165,6 +165,12 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - drafted the first Supabase schema migration for profiles, email subscriptions, study snapshots, question stats, bookmarks, session results, question issue reports, and correction events;
 - preserved the product decision that anonymous local-first study remains fully usable.
 
+### Account and Sync UX Shell - Completed June 23, 2026
+
+- added `/account` as the frontend home for optional email sign-in, Supabase environment readiness, local progress export, and local question-report export;
+- added account access from the homepage and cert navigation, plus an optional sync nudge on dashboards;
+- kept the auth actions status-only until `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, and the Supabase client wrapper are wired.
+
 ### Cloudflare Hosting Architecture - Completed June 21, 2026
 
 - configured production hosting through Cloudflare Workers Static Assets;

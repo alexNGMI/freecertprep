@@ -82,7 +82,7 @@ const featureItems = [
   },
   {
     title: 'No account wall',
-    desc: 'Progress stays local, every feature works immediately, and the project stays open source.',
+    desc: 'Every feature works immediately. Optional accounts are for sync, backup, and report follow-up.',
     icon: CheckCircle2,
   },
 ]
@@ -105,6 +105,7 @@ export default function Home() {
             <a href="#paths" className="hover:text-zinc-100 transition-colors">Paths</a>
             <Link to="/catalog" className="hover:text-zinc-100 transition-colors">Catalog</Link>
             <Link to="/docs" className="hover:text-zinc-100 transition-colors">Docs</Link>
+            <Link to="/account" className="hover:text-zinc-100 transition-colors">Account</Link>
           </div>
         </div>
       </header>

@@ -1,6 +1,6 @@
 import { createElement } from 'react'
 import { NavLink, Outlet, Link, Navigate } from 'react-router-dom'
-import { BarChart3, BookOpenCheck, ClipboardList, Route, Timer } from 'lucide-react'
+import { BarChart3, BookOpenCheck, ClipboardList, Route, Timer, UserRound } from 'lucide-react'
 import { useCert } from '../hooks/useCert'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import BrandedName from './BrandedName'
@@ -74,6 +74,15 @@ export default function CertLayout() {
                 <span className="hidden sm:inline">{label}</span>
               </NavLink>
             ))}
+            <Link
+              to="/account"
+              aria-label="Account"
+              title="Account"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm text-zinc-400 transition-all duration-300 hover:bg-white/5 hover:text-zinc-200 sm:px-4"
+            >
+              <UserRound className="h-4 w-4" aria-hidden="true" />
+              <span className="hidden sm:inline">Account</span>
+            </Link>
           </nav>
         </div>
       </header>

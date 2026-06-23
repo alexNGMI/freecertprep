@@ -122,6 +122,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Content quality status** - A+, Network+, Security+, Splunk, Terraform, SAA-C03, CLF-C02, CCST, and the CCNA v2.0 preview have current practical/editorial gates. Cert-specific gates now cover objective or domain breadth, practical-category composition, evidence artifacts, explanation structure, selected-response form composition, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Backend/accounts roadmap** - Optional accounts are now planned as a local-first extension, not an account wall. The backend MVP starts with Cloudflare-hosted static deployment, domain email, Supabase email sign-in, progress sync, report-incorrect-info workflow, and a simple admin report queue. See `docs/backend-accounts-architecture-2026-06-17.md`.
+- **Account/sync UX shell** - `/account` now frames optional email sign-in, Supabase readiness, local progress export, and local question-report export while the real Supabase client wiring remains pending.
 - **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
@@ -135,7 +136,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 Per-question performance is tracked locally. The weighted pool surfaces the questions you keep getting wrong more often, while mastered questions fade (but never disappear entirely). Selection uses the Efraimidis–Spirakis weighted reservoir sampling algorithm, so every session is probabilistic — you won't see the same 10 questions twice, but your weakest ones are statistically far more likely to appear.
 
-Study answers, progress, bookmarks, and Smart Practice statistics are written to `localStorage`; the application does not send those study records to a backend. Fonts are served from the local system stack, and the homepage does not use a third-party visitor counter.
+Study answers, progress, bookmarks, and Smart Practice statistics are written to `localStorage`; signed-in sync is not active yet. Fonts are served from the local system stack, and the homepage does not use a third-party visitor counter.
 
 ## Question types
 

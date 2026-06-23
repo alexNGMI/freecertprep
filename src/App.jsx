@@ -5,6 +5,7 @@ import APlus from './pages/APlus'
 import Catalog from './pages/Catalog'
 import CareerPath from './pages/CareerPath'
 import Docs from './pages/Docs'
+import Account from './pages/Account'
 import CertLayout from './components/CertLayout'
 import { CertProvider } from './hooks/useCert'
 
@@ -67,6 +68,7 @@ function App() {
         <Route path="/comptia/a-plus" element={<APlus />} />
         <Route path="/paths/:pathId" element={<CareerPath />} />
         <Route path="/docs" element={<Docs />} />
+        <Route path="/account" element={<Account />} />
         <Route path="/real-estate" element={<RealEstate />} />
         <Route path="/real-estate/study" element={<REStudyPicker />} />
         <Route path="/real-estate/study/:reCert" element={<RELayout />}>

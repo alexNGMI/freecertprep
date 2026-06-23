@@ -46,6 +46,11 @@ test('home, catalog, docs, and live cert dashboard render', async ({ page }) => 
   await page.goto('/docs')
   await expect(page.getByRole('heading', { name: 'freecertprep' })).toBeVisible()
 
+  await page.goto('/account')
+  await expect(page.getByRole('heading', { name: /Keep studying locally/i })).toBeVisible()
+  await expect(page.getByRole('button', { name: /Send magic link/i })).toBeVisible()
+  await expect(page.getByText(/Optional account layer/i)).toBeVisible()
+
   await page.goto('/comptia-net-plus')
   await expect(page.getByRole('heading', { name: /CompTIA Network\+/i })).toBeVisible()
   await expect(page.getByRole('link', { name: /Start Diagnostic|Open Study Plan/i })).toBeVisible()
