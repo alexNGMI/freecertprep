@@ -5,10 +5,10 @@ import APlus from './pages/APlus'
 import Catalog from './pages/Catalog'
 import CareerPath from './pages/CareerPath'
 import Docs from './pages/Docs'
-import Account from './pages/Account'
 import CertLayout from './components/CertLayout'
 import { CertProvider } from './hooks/useCert'
 
+const Account = lazy(() => import('./pages/Account'))
 const Dashboard = lazy(() => import('./pages/Dashboard'))
 const Quiz = lazy(() => import('./pages/Quiz'))
 const Drill = lazy(() => import('./pages/Drill'))

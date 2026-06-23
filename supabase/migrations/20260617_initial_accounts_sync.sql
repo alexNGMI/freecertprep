@@ -106,6 +106,16 @@ alter table public.session_results enable row level security;
 alter table public.question_issue_reports enable row level security;
 alter table public.question_correction_events enable row level security;
 
+drop policy if exists "Users can read their profile" on public.profiles;
+drop policy if exists "Users can upsert their profile" on public.profiles;
+drop policy if exists "Users can manage their email subscription" on public.email_subscriptions;
+drop policy if exists "Users can manage their study snapshots" on public.study_snapshots;
+drop policy if exists "Users can manage their question stats" on public.question_stats;
+drop policy if exists "Users can manage their bookmarks" on public.bookmarks;
+drop policy if exists "Users can manage their session results" on public.session_results;
+drop policy if exists "Signed-in users can create issue reports" on public.question_issue_reports;
+drop policy if exists "Users can read their own issue reports" on public.question_issue_reports;
+
 create policy "Users can read their profile"
   on public.profiles for select
   using (auth.uid() = user_id);

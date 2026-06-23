@@ -1,4 +1,4 @@
-import { createElement, useMemo, useState } from 'react'
+import { createElement, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   AlertCircle,
@@ -15,15 +15,14 @@ import { Button } from '../components/ui/button'
 import { Surface } from '../components/ui/surface'
 import { exportProgress, exportQuestionIssueReports, readQuestionIssueReports } from '../utils/storage'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
-
-const SUPABASE_READY = Boolean(
-  import.meta.env.VITE_SUPABASE_URL
-  && import.meta.env.VITE_SUPABASE_ANON_KEY,
-)
+import { isSupabaseConfigured, supabase } from '../lib/supabase'
 
 export default function Account() {
   const [email, setEmail] = useState('')
   const [notice, setNotice] = useState(null)
+  const [session, setSession] = useState(null)
+  const [authLoading, setAuthLoading] = useState(isSupabaseConfigured)
+  const [submitting, setSubmitting] = useState(false)
   const reports = useMemo(() => readQuestionIssueReports(), [])
 
   useDocumentMeta({
@@ -32,19 +31,80 @@ export default function Account() {
     path: '/account',
   })
 
-  function handleSignIn(event) {
+  useEffect(() => {
+    if (!supabase) {
+      return undefined
+    }
+
+    let active = true
+
+    supabase.auth.getSession().then(({ data, error }) => {
+      if (!active) return
+      if (error) {
+        setNotice({ kind: 'error', message: error.message })
+      } else {
+        setSession(data.session)
+      }
+      setAuthLoading(false)
+    })
+
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, nextSession) => {
+      if (!active) return
+      setSession(nextSession)
+      setAuthLoading(false)
+      if (event === 'SIGNED_IN' && nextSession) {
+        setNotice({ kind: 'success', message: 'You are signed in. Your account is ready for progress sync.' })
+      }
+    })
+
+    return () => {
+      active = false
+      authListener.subscription.unsubscribe()
+    }
+  }, [])
+
+  async function handleSignIn(event) {
     event.preventDefault()
-    if (!SUPABASE_READY) {
+    if (!supabase) {
       setNotice({
         kind: 'info',
-        message: 'Account sign-in is ready in the UI. Add the Supabase URL and anon key to enable magic links.',
+        message: 'Account sign-in needs the Supabase project URL and publishable key.',
       })
       return
     }
-    setNotice({
-      kind: 'success',
-      message: `Magic-link sign-in will be sent to ${email} after the Supabase client is connected.`,
+
+    setSubmitting(true)
+    setNotice(null)
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: `${window.location.origin}/account`,
+        shouldCreateUser: true,
+      },
     })
+    setSubmitting(false)
+
+    if (error) {
+      setNotice({ kind: 'error', message: error.message })
+      return
+    }
+
+    setNotice({ kind: 'success', message: `Check ${email} for your secure sign-in link.` })
+  }
+
+  async function handleSignOut() {
+    if (!supabase) return
+    setSubmitting(true)
+    const { error } = await supabase.auth.signOut()
+    setSubmitting(false)
+
+    if (error) {
+      setNotice({ kind: 'error', message: error.message })
+      return
+    }
+
+    setSession(null)
+    setNotice({ kind: 'info', message: 'You are signed out. Local study progress remains on this device.' })
   }
 
   return (
@@ -75,10 +135,10 @@ export default function Account() {
                 </p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5">
-                <StatusPill ready={SUPABASE_READY} />
+                <StatusPill ready={isSupabaseConfigured} />
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                  {SUPABASE_READY
-                    ? 'Supabase env vars are present. The next code pass can connect the client.'
+                  {isSupabaseConfigured
+                    ? 'Supabase is connected. Email sign-in is available.'
                     : 'Waiting on Supabase environment variables before live sign-in is enabled.'}
                 </p>
               </div>
@@ -86,7 +146,7 @@ export default function Account() {
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               <ReadinessCard icon={ShieldCheck} title="Anonymous access" body="All study modes keep working without an account." ready />
-              <ReadinessCard icon={Cloud} title="Progress sync" body="Prepared for signed-in study snapshots and question stats." ready={SUPABASE_READY} />
+              <ReadinessCard icon={Cloud} title="Progress sync" body="Prepared for signed-in study snapshots and question stats." ready={isSupabaseConfigured} />
               <ReadinessCard icon={AlertCircle} title="Issue reports" body="Local reports already export as JSON and map to the backend table." ready />
             </div>
           </Surface>
@@ -95,32 +155,52 @@ export default function Account() {
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-500/30 bg-sky-500/10 text-sky-300">
               <Mail className="h-6 w-6" />
             </div>
-            <h2 className="mt-5 text-2xl font-black text-zinc-50">Sign in with email</h2>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              Magic-link sign-in is the intended first auth flow. No password UX needed.
-            </p>
-            <form className="mt-5 space-y-3" onSubmit={handleSignIn}>
-              <label className="text-xs font-bold uppercase tracking-wider text-zinc-500" htmlFor="account-email">
-                Email
-              </label>
-              <input
-                id="account-email"
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="you@example.com"
-                required
-                className="w-full rounded-xl border border-white/10 bg-zinc-900 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-sky-400/50"
-              />
-              <Button type="submit" variant="accent" accentColor="#38bdf8" className="w-full">
-                <KeyRound className="h-4 w-4" />
-                Send magic link
-              </Button>
-            </form>
+            {authLoading ? (
+              <>
+                <h2 className="mt-5 text-2xl font-black text-zinc-50">Checking your account</h2>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">Confirming whether this browser is already signed in.</p>
+              </>
+            ) : session ? (
+              <>
+                <h2 className="mt-5 text-2xl font-black text-zinc-50">You are signed in</h2>
+                <p className="mt-2 break-all text-sm leading-relaxed text-zinc-400">{session.user.email}</p>
+                <Button className="mt-5 w-full" variant="secondary" onClick={handleSignOut} disabled={submitting}>
+                  <KeyRound className="h-4 w-4" />
+                  {submitting ? 'Signing out...' : 'Sign out'}
+                </Button>
+              </>
+            ) : (
+              <>
+                <h2 className="mt-5 text-2xl font-black text-zinc-50">Sign in with email</h2>
+                <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                  We will email you a secure link. No password needed.
+                </p>
+                <form className="mt-5 space-y-3" onSubmit={handleSignIn}>
+                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-500" htmlFor="account-email">
+                    Email
+                  </label>
+                  <input
+                    id="account-email"
+                    type="email"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    placeholder="you@example.com"
+                    required
+                    className="w-full rounded-xl border border-white/10 bg-zinc-900 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-sky-400/50"
+                  />
+                  <Button type="submit" variant="accent" accentColor="#38bdf8" className="w-full" disabled={submitting}>
+                    <KeyRound className="h-4 w-4" />
+                    {submitting ? 'Sending...' : 'Send magic link'}
+                  </Button>
+                </form>
+              </>
+            )}
             {notice && (
               <p className={`mt-4 rounded-xl border px-4 py-3 text-sm font-semibold ${
                 notice.kind === 'success'
                   ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
+                  : notice.kind === 'error'
+                    ? 'border-red-500/30 bg-red-500/10 text-red-200'
                   : 'border-sky-500/30 bg-sky-500/10 text-sky-200'
               }`}>
                 {notice.message}
@@ -156,12 +236,12 @@ export default function Account() {
 
           <Surface className="p-6">
             <Cloud className="h-6 w-6 text-sky-300" />
-            <h2 className="mt-4 text-xl font-black text-zinc-50">Next backend hook</h2>
+            <h2 className="mt-4 text-xl font-black text-zinc-50">Authentication status</h2>
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              Once Supabase env vars are in Cloudflare and local `.env.local`, connect the client and replace this status-only sign-in with real auth.
+              Email sign-in is connected for local and production builds. Approved return URLs are managed in Supabase Authentication settings.
             </p>
             <div className="mt-5 rounded-xl border border-white/10 bg-zinc-900/60 p-3 text-xs font-semibold text-zinc-500">
-              Required: <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code>
+              Required: <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_PUBLISHABLE_KEY</code>
             </div>
           </Surface>
         </section>
