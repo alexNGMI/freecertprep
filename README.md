@@ -1,6 +1,6 @@
 # freecertprep
 
-Free, open-source certification exam prep for the IT certifications that open doors. Realistic question banks, timed exam simulators, Smart Practice that targets your weaknesses, and full progress tracking - all in the browser, with no account required.
+Free, open-source certification exam prep for the IT certifications that open doors. Realistic question banks, timed exam simulators, Smart Practice that targets your weaknesses, and full progress tracking. Anonymous study remains available with no account; optional email accounts add cloud backup and durable question reporting.
 
 ## Live certifications
 
@@ -118,12 +118,12 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Full content audit** - The June 23 audit confirms the nine live modules should remain public, while the next quality work should tighten explanation depth, distractor ambiguity, service freshness, and scenario realism rather than expand the catalog. See `docs/full-content-audit-2026-06-23.md`.
 - **Content remediation pass** - The June 23 follow-up added a live distractor ambiguity gate, AWS service freshness gate, SAA template-diversity ceiling, CCST clue-to-term wording ceiling, and Splunk evidence-category requirements; it also removed retired AWS OpsWorks/Cloud9 references and deepened Terraform's thinnest objectives.
 - **Content polish pass** - The June 23 priority-three pass added stronger Security+ practical evidence for log, IAM, firewall, alert, flow, retention, and incident-response scenarios; deepened Network+ troubleshooting explanations; and rewrote 50 SAA-C03 stems, reducing tracked repeated architecture-template groups from 160 to 139.
-- **Current roadmap** - The catalog is mostly frozen after the CCST promotion and CCNA preview-loop pass. The June 16 offering audit confirms the live product is broad enough; local data durability is next, followed by CI release automation, browser smoke coverage, and maintainability. Coming Soon promotion is paused unless a module clears current source, simulation-readiness, active-release alignment, and cert-specific quality gates. See `docs/offering-audit-2026-06-16.md`, `docs/current-state-and-next-steps-2026-06-13.md`, and `docs/codebase-review-and-action-plan-2026-06-14.md`.
+- **Current roadmap** - The catalog remains frozen. Cloudflare hosting, Supabase email authentication, manual account backup/restore, and signed-in question-report persistence are live. The next platform priorities are automatic merge-aware sync, an admin report queue, domain support/admin email, and privacy/data-management hardening. Coming Soon promotion remains paused unless a module clears current source, simulation-readiness, active-release alignment, and cert-specific quality gates. See `docs/current-state-and-next-steps-2026-06-13.md` and `docs/backend-accounts-architecture-2026-06-17.md`.
 - **Content quality status** - A+, Network+, Security+, Splunk, Terraform, SAA-C03, CLF-C02, CCST, and the CCNA v2.0 preview have current practical/editorial gates. Cert-specific gates now cover objective or domain breadth, practical-category composition, evidence artifacts, explanation structure, selected-response form composition, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
-- **Backend/accounts roadmap** - Optional accounts are now planned as a local-first extension, not an account wall. The backend MVP starts with Cloudflare-hosted static deployment, domain email, Supabase email sign-in, progress sync, report-incorrect-info workflow, and a simple admin report queue. See `docs/backend-accounts-architecture-2026-06-17.md`.
-- **Account/sync UX shell** - `/account` now frames optional email sign-in, Supabase readiness, local progress export, and local question-report export while the real Supabase client wiring remains pending.
-- **Trust layer roadmap** - Phase 0 source/status cards and report-an-issue links are live. Phase 1 is durable report persistence, moderation state, editorial review workflow, and correction history.
+- **Backend/accounts status** - The app is live on Cloudflare Workers Static Assets. Supabase magic-link sign-in, sign-out, manual full-study snapshot backup/restore, and signed-in issue-report persistence are working. Anonymous study remains fully available. Automatic background sync, conflict merging, domain email, and the admin review queue remain next. See `docs/backend-accounts-architecture-2026-06-17.md`.
+- **Account and sync** - `/account` provides passwordless email access, local JSON export, explicit **Back up progress**, and **Restore latest backup** controls. Backups include progress history, Smart Practice statistics, and bookmarks.
+- **Trust layer roadmap** - Phase 0 source/status cards are live. Durable signed-in question reports now reach Supabase with a local fallback copy. Moderation status, admin review, and correction history remain unfinished.
 - **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
 - **Timed Drill** — 10 questions in 10 minutes, color-shifting countdown timer.
@@ -136,7 +136,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 
 Per-question performance is tracked locally. The weighted pool surfaces the questions you keep getting wrong more often, while mastered questions fade (but never disappear entirely). Selection uses the Efraimidis–Spirakis weighted reservoir sampling algorithm, so every session is probabilistic — you won't see the same 10 questions twice, but your weakest ones are statistically far more likely to appear.
 
-Study answers, progress, bookmarks, and Smart Practice statistics are written to `localStorage`; signed-in sync is not active yet. Fonts are served from the local system stack, and the homepage does not use a third-party visitor counter.
+Study answers, progress, bookmarks, and Smart Practice statistics are written to `localStorage` first. Signed-in users can explicitly back up that data to Supabase and restore the latest snapshot on another browser. Automatic background sync and conflict merging are not active yet. Fonts are served from the local system stack, and the homepage does not use a third-party visitor counter.
 
 ## Question types
 
@@ -161,10 +161,13 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,285 tests across 38 files), GitHub Actions CI
-- `localStorage` for all anonymous progress; optional Supabase sync is planned behind accounts
+- Vitest (1,292 tests across 41 files), GitHub Actions CI
+- `localStorage` for anonymous progress plus optional Supabase account snapshots and issue-report persistence
+- Supabase Auth and Postgres with row-level security
 - JSON-based question banks, lazy-loaded per cert
 - Cloudflare Workers Static Assets for production hosting, configured by `wrangler.jsonc`
+
+Current production URL: `https://freecertprep.a-gilbert2093.workers.dev`
 
 ## Getting started
 

@@ -4,9 +4,9 @@ Last updated: June 23, 2026
 
 ## Executive Summary
 
-freecertprep is in a consolidation phase. The repository contains 11,697 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The current product is useful: its focused homepage, career directions, dashboard, objective learning loops, Smart Practice, drills, simulations, review, bookmarks, and local progress tracking form a coherent study workflow.
+freecertprep is in a consolidation and public-beta foundation phase. The repository contains 11,697 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The current product now combines its study workflow with live Cloudflare hosting, optional Supabase email accounts, manual cloud backup/restore, and durable signed-in question reporting.
 
-The next release should make that workflow more trustworthy and durable, not larger.
+The next release should complete the operational trust loop, not make the catalog larger.
 
 The June 14 full-codebase review found four priorities:
 
@@ -17,7 +17,7 @@ The June 14 full-codebase review found four priorities:
 
 Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
-The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul and trust/metadata pass are now complete. Local data durability is the next active phase.
+The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul, trust/metadata pass, hosted deployment, authentication, and first account-data layer are now complete. Merge-aware synchronization and admin review are the next active platform phases.
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
@@ -96,7 +96,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,285 tests pass across 38 files.
+- 1,292 tests pass across 41 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -106,6 +106,10 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 - Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+ with stronger post-audit quality gates.
 - Catalog expansion remains frozen.
 - Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, CLF-C02, SAA-C03, Splunk, Terraform, and the CCNA preview point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
+- Production is live at `https://freecertprep.a-gilbert2093.workers.dev`.
+- Supabase magic-link sign-in and sign-out work in production.
+- Signed-in learners can manually back up progress, Smart Practice statistics, and bookmarks, then restore their latest snapshot.
+- Signed-in question reports persist to Supabase under row-level security; local fallback copies remain exportable.
 
 ## Ordered Next Steps
 
@@ -158,18 +162,25 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - rewrote 50 SAA-C03 cost-optimization stems while preserving the 750-question count, 600/150 format split, official 30/26/24/20 domain allocation, and structured explanations;
 - reduced SAA-C03 repeated architecture-template groups from 160 to 139 under the existing audit.
 
-### Backend MVP Planning - Started June 17, 2026
+### Backend MVP Foundation - Active June 23, 2026
 
 - opened a dedicated backend planning branch for live domain hosting, domain email, optional accounts, progress sync, report-incorrect-info workflow, and admin report review;
 - documented the Cloudflare + Supabase architecture, six-step implementation order, privacy posture, and cost model;
 - drafted the first Supabase schema migration for profiles, email subscriptions, study snapshots, question stats, bookmarks, session results, question issue reports, and correction events;
+- applied the schema in Supabase with row-level security;
+- connected the production React app using Supabase's publishable key;
+- shipped passwordless magic-link sign-in and persistent sessions;
+- shipped manual full-study snapshot backup and latest-snapshot restore;
+- shipped signed-in question-report persistence with local fallback;
 - preserved the product decision that anonymous local-first study remains fully usable.
 
-### Account and Sync UX Shell - Completed June 23, 2026
+### Account and Sync Foundation - Completed June 23, 2026
 
-- added `/account` as the frontend home for optional email sign-in, Supabase environment readiness, local progress export, and local question-report export;
+- added `/account` as the frontend home for optional email sign-in, sign-out, local export, cloud backup, and restore;
 - added account access from the homepage and cert navigation, plus an optional sync nudge on dashboards;
-- kept the auth actions status-only until `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, and the Supabase client wrapper are wired.
+- connected `@supabase/supabase-js` through `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`;
+- configured production and local authentication redirect URLs;
+- kept account code lazy-loaded so the authentication dependency does not inflate the main application chunk.
 
 ### Cloudflare Hosting Architecture - Completed June 21, 2026
 
@@ -200,17 +211,18 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 - refreshed root search, Open Graph, Twitter, and sharing-image metadata;
 - added an MIT license and restored accurate open-source language.
 
-### 3. Local Data Durability
+### 3. Local Data Durability and Sync
 
 - cap or compact session history;
 - show a warning when browser storage cannot save;
 - persist the latest completed result across refresh;
-- create a versioned full backup for progress, Smart Practice statistics, and bookmarks;
+- preserve the completed versioned full-study snapshot backup for progress, Smart Practice statistics, and bookmarks;
 - add active-session resume only after completed-result recovery is reliable.
+- replace latest-snapshot-only restore with merge-aware synchronization by cert, question, and session timestamp;
+- add last-backup/last-sync status and conflict tests;
+- retain explicit manual controls until automatic sync is proven safe.
 
-This is the next active product phase because it directly protects the first user's work.
-
-This now pairs with the backend plan: local durability should still land before cloud sync, so a first login can safely merge local data instead of replacing it.
+Manual full-study snapshot backup and restore are complete. Automatic background sync is intentionally not yet claimed.
 
 ### 4. Release Automation
 
@@ -230,15 +242,21 @@ This now pairs with the backend plan: local durability should still land before 
 
 ### 6. Backend MVP
 
-- deploy the current app to Cloudflare on a live domain;
+Completed:
+
+- Cloudflare Workers Static Assets production deployment from `main`;
+- Supabase project and initial schema with row-level security;
+- optional magic-link authentication and persistent sessions;
+- explicit manual account backup and restore;
+- durable signed-in report-incorrect-info submissions.
+
+Next:
+
 - set up domain email for support/admin;
-- create a staging Supabase project;
-- apply the initial accounts/sync schema in staging;
-- add a Supabase client wrapper behind environment variables;
-- add auth context and optional magic-link sign-in;
-- add explicit email opt-in;
-- build local-to-cloud sync only after local data durability is reliable;
-- add report-incorrect-info persistence and a simple admin report queue after account basics are stable.
+- add explicit product-email opt-in separate from authentication;
+- build merge-aware cross-device sync and last-sync status;
+- build a protected admin report queue with review statuses and correction events;
+- add account data export/deletion and publish a concise privacy policy before promotion.
 
 ### 7. A+ Content Maintenance
 
@@ -272,4 +290,4 @@ This now pairs with the backend plan: local durability should still land before 
 
 ## Decision Rule
 
-Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope until local data durability, release automation, and maintainability are in better shape.
+Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope while automatic sync, admin review, domain email, and privacy/data controls are unfinished.

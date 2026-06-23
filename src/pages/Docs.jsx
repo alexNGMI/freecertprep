@@ -229,9 +229,10 @@ export default function Docs() {
             </P>
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
-              Free forever. No account required. Study answers and progress live in your browser's localStorage and are not sent to
-              an application backend. Export progress before clearing browser data or changing devices. Fonts use the local system
-              stack, and the homepage does not call a third-party visitor counter.
+              Free forever. No account required. Study data stays local by default. Optional email accounts can back up progress,
+              Smart Practice statistics, and bookmarks to Supabase, restore the latest backup, and submit durable question reports.
+              Automatic background sync is not active yet. Fonts use the local system stack, and the homepage does not call a
+              third-party visitor counter.
             </Callout>
 
             <H3>What's included</H3>
@@ -626,6 +627,13 @@ key = random() ** (1 / weight)
               progress for that cert.
             </P>
 
+            <H3>Optional account backup</H3>
+            <P>
+              The Account page supports passwordless email sign-in. Signed-in learners can explicitly back up all three study-data
+              groups to Supabase and restore the newest snapshot on another browser. This is manual snapshot backup, not continuous
+              automatic synchronization; the local browser remains the active study store.
+            </P>
+
             <H3>Resets</H3>
             <P>Two independent resets are available from the Dashboard, each behind a confirm step:</P>
             <ul className="space-y-3">
@@ -647,8 +655,8 @@ key = random() ** (1 / weight)
           {/* ── Architecture ────────────────────────────────────────────────── */}
           <Section id="architecture" title="Architecture">
             <P>
-              freecertprep is intentionally a zero-backend frontend application. Every architectural decision was made to
-              maximise simplicity, performance, and privacy while keeping the door open for a backend layer when the time is right.
+              freecertprep remains a local-first frontend application with an optional Supabase account layer. Anonymous learners
+              use browser storage only; signed-in learners can create cloud snapshots and submit durable question reports.
             </P>
 
             <H3>Tech stack</H3>
@@ -660,7 +668,8 @@ key = random() ** (1 / weight)
                 ['Styling', 'Tailwind CSS v4', 'Utility-first, no CSS bundle bloat'],
                 ['Routing', 'React Router v7', 'Nested routes, lazy loading'],
                 ['Testing', 'Vitest', 'Native ESM, co-located with Vite'],
-                ['Storage', 'localStorage', 'Zero backend, instant reads, portable'],
+                ['Local storage', 'localStorage', 'Anonymous study, instant reads, offline-friendly behavior'],
+                ['Optional backend', 'Supabase', 'Magic-link auth, study snapshots, row-level security, issue reports'],
                 ['Deployment', 'Cloudflare Workers Static Assets', 'Git-connected deploys, global edge hosting, SPA fallback in wrangler.jsonc'],
               ]}
             />
@@ -753,7 +762,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,285 Vitest tests across 38 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,292 Vitest tests across 41 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -850,19 +859,20 @@ key = random() ** (1 / weight)
                   'Release quality gate v1 - added npm run verify:quality for lint, tests, production build, dependency audit, and current cert-specific audits; GitHub Actions now runs the same gate; browser smoke covers home, catalog, docs, dashboard, practice, exam, and results on desktop and mobile.',
                   'Flagship audit expansion - CLF-C02, SAA-C03, Splunk Core User, and CCST Networking now have named quality gates for domain/form allocation, format coverage, answer metadata, explanations, evidence, uniqueness, and randomized forms.',
                   'Backend MVP planning - live domain hosting, domain email, optional email sign-in, progress sync, report-incorrect-info workflow, and admin report review now have a Cloudflare/Supabase execution plan and initial Supabase schema draft.',
+                  'Backend MVP foundation - production Supabase magic-link authentication, manual progress/stat/bookmark backup and restore, and signed-in question-report persistence are live while anonymous study remains available.',
                 ],
               },
               {
                 status: 'Next up',
                 color: '#a1a1aa',
                 items: [
-                  '1. Local data durability - bound session history, surface storage write failures, persist completed results across refresh, and add a versioned full-study backup.',
-                  '2. Live content audit follow-up - upgrade Network+/Security+ explanations, run AWS service freshness, reduce SAA template repetition, deepen Terraform thin objectives, make CCST less clue-to-term, polish Splunk evidence, and keep A+ distractor sampling active.',
-                  '3. Release automation - eliminate chart sizing warnings and keep verify:quality plus browser smoke green in CI.',
-                  '4. Course-companion hardening - keep CLF-C02, SAA, Terraform, Splunk, and CCST quality sampling active, and avoid positioning the app as a full course or lab replacement.',
-                  '5. Backend MVP - finish the Cloudflare live domain, set up support/admin email, create Supabase staging, add optional sign-in, then build progress sync, report persistence, and a simple admin queue.',
-                  '6. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
-                  '7. A+ maintenance - preserve zero repeated interactions, 20 practicals per core, official source alignment, and the strict 500-form quality gate.',
+                  '1. Merge-aware sync - evolve manual snapshots into safe cross-device merging by cert, question, and session timestamp without overwriting local work.',
+                  '2. Admin report queue - add protected report review, statuses, internal notes, and correction-event history.',
+                  '3. Domain operations - connect a custom domain and create support/admin email with SPF, DKIM, and DMARC.',
+                  '4. Privacy controls - add account data export/deletion and publish a concise privacy policy before broader promotion.',
+                  '5. Local durability - bound session history, surface storage write failures, and persist completed results across refresh.',
+                  '6. Release and content maintenance - keep verify:quality, browser smoke, official-source checks, and flagship cert gates green.',
+                  '7. Maintainability - unify publication status in one registry, derive repeated documentation facts, split the question renderer by interaction family, and archive completed one-off scripts.',
                 ],
               },
               {

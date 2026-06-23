@@ -2,6 +2,18 @@
 
 Date: June 17, 2026
 Branch: merged to `main`
+Status updated: June 23, 2026
+
+## Current Implementation Status
+
+| Step | Status | Current reality |
+| --- | --- | --- |
+| 1. Cloudflare hosting | Complete | Live at `https://freecertprep.a-gilbert2093.workers.dev`; Git pushes to `main` trigger deployment. |
+| 2. Domain email | Not started | Support/admin addresses still need a custom domain and mail routing/provider. |
+| 3. Supabase Auth | Complete foundation | Magic-link sign-in, persistent sessions, sign-out, local and production redirect URLs, and anonymous fallback are live. |
+| 4. Progress sync | Partial | Manual full-study snapshot backup and latest-snapshot restore are live. Automatic background sync, timestamp merging, and conflict handling are not. |
+| 5. Report incorrect info | Complete foundation | Signed-in reports persist to Supabase; every report also keeps a local fallback copy. |
+| 6. Admin report queue | Not started | Schema supports reports and correction events, but no protected admin UI or admin-role policy exists yet. |
 
 ## Goal
 
@@ -106,7 +118,7 @@ Current repo deployment architecture:
 - `wrangler.jsonc` points Workers Static Assets at `./dist/`.
 - `assets.not_found_handling = "single-page-application"` handles client-side React Router refreshes.
 - `public/_redirects` must stay removed because Workers validates it and the old catch-all SPA rule caused an infinite redirect loop.
-- The current app still has no application backend; Supabase is planned only after hosting, email, and local data durability are stable.
+- Supabase is now the optional application backend for authentication, study snapshots, and question issue reports. Anonymous study remains local-first.
 
 ## Step 2: Domain Email
 
@@ -153,14 +165,11 @@ Recommended first version:
 
 Implementation tasks:
 
-- create staging Supabase project;
-- apply the initial SQL migration;
-- add `.env.example`;
-- add Cloudflare environment variables later;
-- install `@supabase/supabase-js`;
-- add `src/lib/supabase.js`;
-- add `AuthProvider`;
-- add sign-in/sign-out UI;
+- create Supabase project; **complete**
+- apply the initial SQL migration; **complete**
+- install `@supabase/supabase-js`; **complete**
+- add `src/lib/supabase.js`; **complete**
+- add sign-in/sign-out UI and persistent-session detection; **complete**
 - create profile row on first login;
 - add explicit product email opt-in.
 
@@ -194,7 +203,8 @@ Implementation tasks:
 
 - create a storage adapter under the existing hooks;
 - keep `localStorage` as the source for anonymous users;
-- on login, offer "Back up this device";
+- on login, offer "Back up progress"; **complete**
+- restore the latest account snapshot; **complete**
 - merge local and remote progress by cert/question/session timestamp;
 - show last sync status on dashboard;
 - add manual "sync now" before automatic sync;
@@ -223,11 +233,11 @@ User-facing report categories:
 
 Implementation tasks:
 
-- add "Report issue" action to question review/results surfaces;
-- require signed-in user for durable reports, or allow anonymous report-to-email later;
-- store report in Supabase;
-- include cert id, question id, category, message, and route/context;
-- show "Thanks, report received" confirmation;
+- add "Report issue" action to question review/results surfaces; **complete**
+- require signed-in user for durable reports while retaining a local fallback; **complete**
+- store report in Supabase; **complete**
+- include cert id, question id, category, and message; **complete**
+- show report-submitted confirmation; **complete**
 - do not expose reporter email publicly.
 
 Done when:
@@ -319,15 +329,10 @@ Page components
 
 This lets the current app remain stable while account sync is added underneath.
 
-## Immediate Next Action
+## Immediate Next Actions
 
-Step 1 should be handled first:
-
-Confirm the domain and deploy the current app to Cloudflare.
-
-Do not build progress sync until:
-
-- the live deployment works;
-- domain email works;
-- Supabase auth works in staging;
-- local data durability is safe enough to merge into cloud sync.
+1. Build merge-aware synchronization instead of overwriting the entire device state.
+2. Add last-backup/last-sync status and cross-device conflict tests.
+3. Create the protected admin report queue and admin-role policy.
+4. Set up custom-domain support/admin email.
+5. Add account data export/deletion and a concise privacy policy before broader promotion.
