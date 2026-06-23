@@ -169,7 +169,10 @@ export function buildExamDebrief(answers, questions, objectives) {
 export function selectCaseQuestions(questions, count = 10, objectives = []) {
   const practical = questions.filter(question => PRACTICAL_TYPES.has(question.type) || question.practicalCategory)
   const balancedPractical = selectBalancedAppliedQuestions(practical, count)
-  if (balancedPractical.length >= count) return fisherYates(balancedPractical).slice(0, count)
+  const appliedCandidates = questions.filter(isAppliedQuestion)
+  if (balancedPractical.length >= count) {
+    return fisherYates(improveDomainCoverage(balancedPractical, appliedCandidates, count)).slice(0, count)
+  }
 
   const selected = [...balancedPractical]
   const selectedIds = new Set(selected.map(question => question.id))
@@ -204,7 +207,7 @@ export function selectCaseQuestions(questions, count = 10, objectives = []) {
     }
   }
 
-  return fisherYates(selected).slice(0, count)
+  return fisherYates(improveDomainCoverage(selected, appliedCandidates, count)).slice(0, count)
 }
 
 export function summarizeAppliedPerformance(answers, questions) {
@@ -279,6 +282,38 @@ function selectBalancedAppliedQuestions(questions, count) {
     }
   }
   return selected
+}
+
+function improveDomainCoverage(selected, candidates, count) {
+  const targetDomainCount = Math.min(3, new Set(candidates.map(question => question.domain).filter(Boolean)).size, count)
+  if (targetDomainCount <= 1) return selected
+
+  const result = selected.slice(0, count)
+  const selectedIds = new Set(result.map(question => question.id))
+
+  while (new Set(result.map(question => question.domain).filter(Boolean)).size < targetDomainCount) {
+    const currentDomains = new Set(result.map(question => question.domain).filter(Boolean))
+    const missingDomain = [...new Set(candidates.map(question => question.domain).filter(Boolean))]
+      .find(domain => !currentDomains.has(domain))
+    if (!missingDomain) break
+
+    const candidate = fisherYates(candidates)
+      .find(question => question.domain === missingDomain && !selectedIds.has(question.id))
+    if (!candidate) break
+
+    const domainCounts = result.reduce((counts, question) => {
+      counts[question.domain] = (counts[question.domain] || 0) + 1
+      return counts
+    }, {})
+    const swapIndex = result.findIndex(question => domainCounts[question.domain] > 1)
+    if (swapIndex === -1) break
+
+    selectedIds.delete(result[swapIndex].id)
+    result[swapIndex] = candidate
+    selectedIds.add(candidate.id)
+  }
+
+  return result
 }
 
 function getStudyReason(objective, practical, reassessment) {

@@ -160,6 +160,7 @@ export default function CasePractice() {
         onAnswer={answer}
         answered={!!currentAnswer}
         selectedChoice={currentAnswer?.selected}
+        certId={cert.id}
       />
     </StudyWorkspace>
   )

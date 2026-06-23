@@ -3,8 +3,9 @@ import { fisherYates } from '../utils/shuffle'
 import { getAnswerProgress, isAnswerCorrect } from '../utils/scoring'
 import { RichText, InlineRichText } from './RichText'
 import { stripMarkdown } from '../utils/markdown'
+import ReportIssueButton from './ReportIssueButton'
 
-export default function QuestionCard({ question, onAnswer, answered, selectedChoice, examMode = false, reviewMode = false, isBookmarked = false, onToggleBookmark = null }) {
+export default function QuestionCard({ question, onAnswer, answered, selectedChoice, examMode = false, reviewMode = false, isBookmarked = false, onToggleBookmark = null, certId = 'unknown-cert' }) {
   const isMultiple = question.type === 'multiple-response'
   const isTrueFalse = question.type === 'true-false'
   const isStatement = question.type === 'statement-block'
@@ -164,6 +165,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
               </svg>
             </button>
           )}
+          <ReportIssueButton certId={certId} question={question} context={reviewMode ? 'review' : examMode ? 'exam' : 'practice'} />
         </div>
         <div className="flex items-center gap-2">
           {isMultiple && <span className="text-xs text-sky-400 font-semibold bg-sky-500/10 px-3 py-1.5 rounded-lg border border-sky-500/20">Select {question.correctAnswers.length}</span>}

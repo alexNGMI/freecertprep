@@ -342,6 +342,9 @@ export default function Dashboard() {
             <p className="mt-1 text-sm text-zinc-400">
               {trackedCount} Smart Practice question{trackedCount === 1 ? '' : 's'} tracked locally.
             </p>
+            <p className="mt-1 text-xs leading-relaxed text-zinc-500">
+              Progress stays in this browser. Export a backup before clearing browser data or switching devices.
+            </p>
           </div>
 
           {notice && (

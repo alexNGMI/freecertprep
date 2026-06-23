@@ -51,6 +51,28 @@ export default function Results() {
   const debrief = learningLoopConfig && examQuestions
     ? buildExamDebrief(answers, examQuestions, learningObjectives)
     : null
+  const incorrect = answers.filter((answer) => !answer.correct)
+  const unanswered = answers.filter((answer) => answer.selected === -1).length
+  const weakestDomain = domainResults[0]
+  const strongestDomain = domainResults[domainResults.length - 1]
+  const missedQuestionTypes = examQuestions
+    ? incorrect.reduce((counts, answer, index) => {
+        const question = examQuestions[index]
+        const type = question?.type || 'single-choice'
+        counts[type] = (counts[type] || 0) + 1
+        return counts
+      }, {})
+    : {}
+  const topMissedType = Object.entries(missedQuestionTypes).sort((a, b) => b[1] - a[1])[0]
+  const nextPracticeLink = debrief?.bestNext
+    ? `/${cert.id}/quiz?objective=${debrief.bestNext.id}`
+    : `/${cert.id}/quiz?mode=missed`
+  const nextPracticeLabel = debrief?.bestNext
+    ? `Practice ${formatLearningTarget(learningLoopConfig, debrief.bestNext.id)}`
+    : 'Review recent misses'
+  const retakeGuidance = passed
+    ? 'Retake only after you confirm weak domains were not just lucky coverage gaps.'
+    : 'Retake after one focused repair block and a short review of missed explanations.'
 
   return (
     <div className="space-y-12 animate-fade-up pt-4 max-w-4xl mx-auto">
@@ -85,6 +107,56 @@ export default function Results() {
         <p className="mx-auto mt-4 max-w-md text-xs leading-relaxed text-zinc-500">
           This result is a freecertprep readiness signal, not an official vendor score report or scaled-score conversion.
         </p>
+      </div>
+
+      <div className="glass-panel rounded-2xl p-8 space-y-6">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">What to do next</p>
+          <h2 className="mt-2 text-2xl font-bold text-zinc-100">
+            {passed ? 'Confirm the weak spots before you call it ready.' : 'Repair the miss pattern before another full exam.'}
+          </h2>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+            Your score is useful, but the next move comes from the miss pattern: weakest domain, missed formats, and unanswered questions.
+          </p>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-3">
+          <div className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Weakest area</p>
+            <p className="mt-2 font-black text-zinc-100">{weakestDomain?.domain || 'No domain signal yet'}</p>
+            <p className="mt-2 text-sm text-zinc-500">
+              {weakestDomain ? `${weakestDomain.correct}/${weakestDomain.total} correct on this form.` : 'Take a practice block to create a signal.'}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Why misses happened</p>
+            <p className="mt-2 font-black text-zinc-100">
+              {incorrect.length === 0 ? 'No misses recorded' : topMissedType ? formatQuestionType(topMissedType[0]) : 'Concept review'}
+            </p>
+            <p className="mt-2 text-sm text-zinc-500">
+              {incorrect.length === 0
+                ? 'Use the review to confirm the form covered enough of the blueprint.'
+                : `${incorrect.length} missed, ${unanswered} unanswered. Read explanations before retaking.`}
+            </p>
+          </div>
+          <div className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Retake rule</p>
+            <p className="mt-2 font-black text-zinc-100">{strongestDomain ? 'Repair first, retake second' : 'Build signal first'}</p>
+            <p className="mt-2 text-sm text-zinc-500">{retakeGuidance}</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Link to={nextPracticeLink} className="rounded-xl px-5 py-3 text-center text-sm font-bold text-zinc-950" style={{ backgroundColor: cert.color }}>
+            {nextPracticeLabel}
+          </Link>
+          <Link to={`/${cert.id}/learning`} className="rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-zinc-200 hover:bg-white/5">
+            Open study plan
+          </Link>
+          <Link to={`/${cert.id}/exam`} className="rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-zinc-200 hover:bg-white/5">
+            Retake when ready
+          </Link>
+        </div>
       </div>
 
       <div className="glass-panel rounded-2xl p-8 space-y-8 relative overflow-hidden">
@@ -294,6 +366,7 @@ export default function Results() {
                       answered={true}
                       selectedChoice={answer.selected === -1 ? undefined : answer.selected}
                       reviewMode={true}
+                      certId={cert.id}
                     />
                   </div>
                 )
@@ -304,4 +377,11 @@ export default function Results() {
       )}
     </div>
   )
+}
+
+function formatQuestionType(type) {
+  return type
+    .split('-')
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
 }

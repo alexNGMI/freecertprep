@@ -246,6 +246,7 @@ export default function Diagnostic() {
         answered={false}
         selectedChoice={selectedAnswers[currentIndex]}
         examMode
+        certId={cert.id}
       />
     </StudyWorkspace>
   )

@@ -164,6 +164,7 @@ export default function Exam() {
           answered={false}
           selectedChoice={selectedAnswers[currentIndex]}
           examMode={true}
+          certId={cert.id}
         />
       </StudyWorkspace>
 

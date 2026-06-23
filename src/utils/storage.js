@@ -23,6 +23,7 @@ export const KEYS = {
   progress: 'freecertprep-progress',
   questionStats: 'freecertprep-question-stats-local',
   bookmarks: 'freecertprep-bookmarks',
+  issueReports: 'freecertprep-question-issue-reports-local',
 }
 
 // Accessing localStorage can itself throw (Safari private mode, disabled
@@ -113,6 +114,48 @@ export function exportProgress(filenamePrefix = 'freecertprep') {
   } catch {
     return false
   }
+}
+
+function downloadJSON(filename, data) {
+  if (typeof document === 'undefined' || typeof URL === 'undefined') return false
+  try {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = filename
+    a.click()
+    URL.revokeObjectURL(url)
+    return true
+  } catch {
+    return false
+  }
+}
+
+export function readQuestionIssueReports() {
+  const reports = readJSON(KEYS.issueReports, [])
+  return Array.isArray(reports) ? reports : []
+}
+
+export function addQuestionIssueReport(report) {
+  const reports = readQuestionIssueReports()
+  const next = [
+    ...reports,
+    {
+      ...report,
+      id: report.id || `issue-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+      createdAt: report.createdAt || new Date().toISOString(),
+      status: report.status || 'local-new',
+    },
+  ]
+  return writeJSON(KEYS.issueReports, next)
+}
+
+export function exportQuestionIssueReports(filenamePrefix = 'freecertprep') {
+  return downloadJSON(
+    `${filenamePrefix}-question-issue-reports-${new Date().toISOString().slice(0, 10)}.json`,
+    readQuestionIssueReports(),
+  )
 }
 
 function isPlainObject(value) {

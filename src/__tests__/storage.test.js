@@ -9,6 +9,9 @@ import {
   subscribe,
   exportProgress,
   importProgressRaw,
+  addQuestionIssueReport,
+  readQuestionIssueReports,
+  exportQuestionIssueReports,
 } from '../utils/storage.js'
 
 // Vitest runs in the node environment (no DOM), so we install a minimal
@@ -49,6 +52,7 @@ describe('storage: KEYS / version', () => {
     expect(KEYS.progress).toBe('freecertprep-progress')
     expect(KEYS.questionStats).toBe('freecertprep-question-stats-local')
     expect(KEYS.bookmarks).toBe('freecertprep-bookmarks')
+    expect(KEYS.issueReports).toBe('freecertprep-question-issue-reports-local')
     expect(SCHEMA_VERSION).toBeGreaterThanOrEqual(1)
   })
 })
@@ -207,6 +211,49 @@ describe('storage: exportProgress', () => {
       expect(exportProgress('realestateprep')).toBe(true)
       expect(click).toHaveBeenCalledTimes(1)
       expect(anchor.download).toMatch(/^realestateprep-progress-\d{4}-\d{2}-\d{2}\.json$/)
+    } finally {
+      delete globalThis.document
+      delete globalThis.Blob
+      delete globalThis.URL
+    }
+  })
+})
+
+describe('storage: question issue reports', () => {
+  beforeEach(() => { globalThis.localStorage = makeLS() })
+
+  it('appends local question reports with workflow metadata', () => {
+    expect(addQuestionIssueReport({
+      certId: 'comptia-net-plus',
+      questionId: 'net-1',
+      domain: 'Troubleshooting',
+      issueType: 'Answer seems wrong',
+      notes: 'Please recheck the explanation.',
+    })).toBe(true)
+
+    const reports = readQuestionIssueReports()
+    expect(reports).toHaveLength(1)
+    expect(reports[0]).toMatchObject({
+      certId: 'comptia-net-plus',
+      questionId: 'net-1',
+      status: 'local-new',
+    })
+    expect(reports[0].id).toMatch(/^issue-/)
+    expect(reports[0].createdAt).toBeTruthy()
+  })
+
+  it('exports the local report queue as JSON', () => {
+    addQuestionIssueReport({ certId: 'clf-c02', questionId: 'aws-1', domain: 'Cloud Concepts', issueType: 'Typo' })
+    const click = vi.fn()
+    const anchor = {}
+    Object.defineProperty(anchor, 'click', { value: click })
+    globalThis.document = { createElement: () => anchor }
+    globalThis.Blob = class { constructor(parts) { this.parts = parts } }
+    globalThis.URL = { createObjectURL: () => 'blob:x', revokeObjectURL: vi.fn() }
+    try {
+      expect(exportQuestionIssueReports()).toBe(true)
+      expect(anchor.download).toMatch(/^freecertprep-question-issue-reports-\d{4}-\d{2}-\d{2}\.json$/)
+      expect(click).toHaveBeenCalledTimes(1)
     } finally {
       delete globalThis.document
       delete globalThis.Blob

@@ -230,7 +230,8 @@ export default function Docs() {
 
             <Callout icon="⚡" color="#a1a1aa" title="Core principles">
               Free forever. No account required. Study answers and progress live in your browser's localStorage and are not sent to
-              an application backend. Fonts use the local system stack, and the homepage does not call a third-party visitor counter.
+              an application backend. Export progress before clearing browser data or changing devices. Fonts use the local system
+              stack, and the homepage does not call a third-party visitor counter.
             </Callout>
 
             <H3>What's included</H3>
@@ -621,8 +622,8 @@ key = random() ** (1 / weight)
             <H3>Export & Import</H3>
             <P>
               The Dashboard provides one-click JSON export of your session history. This lets you back up progress before
-              clearing storage, transfer data between devices, or inspect your raw history. Importing overwrites the current
-              progress for that cert — a confirmation warning is shown.
+              clearing browser data, transfer data between devices, or inspect your raw history. Importing overwrites the current
+              progress for that cert.
             </P>
 
             <H3>Resets</H3>

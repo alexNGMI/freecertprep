@@ -148,6 +148,7 @@ export default function Drill() {
         selectedChoice={currentAnswer?.selected}
         isBookmarked={isBookmarked(currentQuestion.id)}
         onToggleBookmark={toggleBookmark}
+        certId={cert.id}
       />
     </StudyWorkspace>
   )
