@@ -92,6 +92,7 @@ assert(exactGroups.length === 0, `found ${exactGroups.length} exact duplicate-st
 assert(invalidAnswers.length === 0, `found ${invalidAnswers.length} questions with invalid answer metadata`)
 assert(shortExplanations.length === 0, `found ${shortExplanations.length} explanations under 80 words`)
 assert(structuredExplanations.length === 750, `expected 750 structured architecture explanations, found ${structuredExplanations.length}`)
+assert(templateGroups.length <= 175, `found ${templateGroups.length} repeated architecture-template groups; keep this at or below 175`)
 assert(JSON.stringify(domainCounts) === JSON.stringify(expectedDomainCounts), 'SAA-C03 domain counts changed unexpectedly')
 assert(JSON.stringify(typeCounts) === JSON.stringify(expectedTypeCounts), 'SAA-C03 format counts changed unexpectedly')
 

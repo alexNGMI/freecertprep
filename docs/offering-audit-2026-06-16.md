@@ -75,7 +75,7 @@ The next phase should improve reliability and repeatability, not breadth. The hi
 - `npm run audit:aplus`: Core 1 and Core 2 each have 760 unique answer interactions, 20 PBQ-lite items, zero duplicate/canonical duplicate stem groups, and 500 validated randomized forms.
 - `npm run audit:netplus`: 760 questions, zero duplicate/template groups, 52 practical questions, and 500 validated forms.
 - `npm run audit:secplus`: 760 objective-ledger rows, zero duplicate/template groups, zero operational-ticket stems, zero objective fallbacks, 33 practical questions, and 500 validated forms.
-- `npm run audit:terraform`: 647 normalized-unique stems, 647 structured explanations, 532 evidence-led questions, zero invalid objectives, and zero legacy Terraform Cloud references.
+- `npm run audit:terraform`: 651 normalized-unique stems, 651 structured explanations, 536 evidence-led questions, zero invalid objectives, and zero legacy Terraform Cloud references after the June 23 thin-objective follow-up.
 - `npm run audit:comptia-objectives`: Network+ and Security+ have zero invalid objectives, zero missing metadata, and zero domain fallbacks.
 
 ## Competitive Position

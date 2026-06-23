@@ -8,16 +8,16 @@ const target = path.join(root, 'src/data/terraform-associate-questions.json')
 const questions = JSON.parse(fs.readFileSync(target, 'utf8'))
 const EXPECTED_DOMAIN_COUNTS = {
   'Infrastructure as Code (IaC) with Terraform': 98,
-  'Terraform fundamentals': 78,
+  'Terraform fundamentals': 80,
   'Core Terraform workflow': 97,
   'Terraform configuration': 103,
   'Terraform modules': 71,
   'Terraform state management': 87,
   'Maintain infrastructure with Terraform': 63,
-  'HCP Terraform': 50,
+  'HCP Terraform': 52,
 }
 const EXPECTED_TYPE_COUNTS = {
-  'single-choice': 591,
+  'single-choice': 595,
   'true-false': 24,
   'multiple-response': 32,
 }
@@ -121,16 +121,16 @@ console.log(`Domain allocation: ${JSON.stringify(domainCounts)}`)
 console.log(`Format allocation: ${JSON.stringify(typeCounts)}`)
 
 if (
-  questions.length !== 647
+  questions.length !== 651
   || invalid.length
   || domainMismatches.length
   || legacyCloud.length
   || deprecatedRefresh.length
   || taintAsCorrect.length
   || blueprintMeta.length
-  || exactUnique !== 647
-  || normalizedUnique !== 647
-  || structuredExplanations.length !== 647
+  || exactUnique !== 651
+  || normalizedUnique !== 651
+  || structuredExplanations.length !== 651
   || evidenceQuestions.length < 300
   || genericCommandStems.length
   || shortExplanations.length

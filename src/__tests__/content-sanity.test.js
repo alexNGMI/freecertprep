@@ -788,7 +788,7 @@ describe.each(Object.entries(NON_EMPTY_CERT_QUESTIONS))('%s questions', (certId,
     }, {})
 
     expect(byType).toEqual({
-      'single-choice': 591,
+      'single-choice': 595,
       'true-false': 24,
       'multiple-response': 32,
     })

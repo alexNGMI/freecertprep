@@ -23,7 +23,7 @@ The current product is strongest when the real exam is selected-response only or
 The original remediation plan has now completed its A+, Network+, Security+, Splunk, source-release, and Terraform quality sequence. The current repository passes 1,237 tests across 36 files. The active sequence is:
 
 1. Completed June 13: verified source/version and public-copy freshness for the then-nine live modules; the audit moved future-v2.0 CCNA to Coming Soon.
-2. Completed June 13: polished Terraform review quality without increasing its 647-question pool.
+2. Completed June 13: polished Terraform review quality without increasing its then-647-question pool. June 23 follow-up deepened thin objectives to 651 questions.
 3. Completed June 13: hardened the complete first-user journey on desktop and mobile.
 4. Completed June 13: hardened runtime, persistence, recovery, and routing behavior.
 5. Completed June 14: Network+ reached A- readiness after eliminating repeated scenario families, reviewing all 760 objective mappings, and deepening practical interaction while keeping promotion paused.
@@ -103,7 +103,7 @@ Scoring dimensions:
 | Linux+, XK0-006 | C | Strong architecture direction and useful CLI/config item types. | Prior audit found 509 generic single-choice items and heavy normalized repetition; real exam includes performance-based items. | First major content rewrite: convert generic single-choice clusters into concrete command/output/task scenarios. |
 | Splunk Core Certified User | B+ | Exact blueprint allocation, 750 exact and normalized-unique stems, concise selected-response forms, rendered search evidence, and structured review explanations. | Browser practice remains an independent approximation rather than Splunk's confidential delivery interface. | Keep live; maintain the generator gates and perform normal source/version review. |
 | Schneider Data Center Certified Associate | C | Vendor-source topic architecture is useful; 750 questions across data-center physical infrastructure. | Heavy normalized duplication and obvious distractors; official exam-source details are less pinned than major vendors. | Rewrite repeated facility scenarios; pin current official exam guide/source package. |
-| Terraform Associate 004 | B+ | The 647-question Terraform 1.12 pool covers all 37 implemented subobjectives with at least two concepts each, uses the official formats, has 647 normalized-unique stems, and provides structured operational review. | HashiCorp does not publish objective weights, live items, a fixed question count, or a raw passing percentage. | Keep live; maintain the new evidence, explanation, uniqueness, and 500-form gates. |
+| Terraform Associate 004 | B+ | The 651-question Terraform 1.12 pool covers all 37 implemented subobjectives with at least two concepts each, uses the official formats, has 651 normalized-unique stems, and provides structured operational review. | HashiCorp does not publish objective weights, live items, a fixed question count, or a raw passing percentage. | Keep live; maintain the evidence, explanation, uniqueness, thin-objective, and 500-form gates. |
 
 ### Real Estate Sister Product
 
@@ -425,7 +425,7 @@ After that, the most rational expansion options are:
 
 ### P1
 
-- Completed June 13, 2026: Terraform review-quality pass with 647 structured explanations, 532 supporting evidence artifacts, stronger distractors, uniqueness gates, and 500-form audits.
+- Completed June 13, 2026; updated June 23, 2026: Terraform review-quality pass with 651 structured explanations, 536 supporting evidence artifacts, stronger distractors, uniqueness gates, thin-objective remediation, and 500-form audits.
 - Completed June 13, 2026: first-user journey audit stabilized Smart Practice result context, added direct Recent Misses handoffs, protected incomplete exam submission, raised mobile nav targets to 44px, and added a release checklist.
 - Completed June 13, 2026: reliability pass froze timed-drill forms, made session completion idempotent, hardened progress imports, removed exam-timer state-updater side effects, and prevented stale cert content during route transitions.
 - Maintain the completed A+, Network+, Security+, and Splunk quality gates.

@@ -280,7 +280,7 @@ export default function Docs() {
                 [<Badge color="#c8202f">SK0-005</Badge>, 'CompTIA', '760', '90', '90 min', '83%'],
                 [<Badge color="#c8202f">XK0-006</Badge>, 'CompTIA', '750', '90', '90 min', '80%'],
                 [<Badge color="#a78bfa">DCCA</Badge>, 'Schneider Electric', '750', '100', '120 min', '70% practice'],
-                [<Badge color="#7c3aed">TF 004</Badge>, 'HashiCorp', '647', '57', '60 min', '70% readiness'],
+                [<Badge color="#7c3aed">TF 004</Badge>, 'HashiCorp', '651', '57', '60 min', '70% readiness'],
               ]}
             />
 
@@ -832,10 +832,10 @@ key = random() ** (1 / weight)
                   'SAA-C03 learning-loop parity - SAA now has the same diagnostic, mastery map, personal plan, exam debrief, and case-practice workflow as Network+, using the four official SAA-C03 domains as architecture decision targets.',
                   'SAA-C03 premium polish - dashboard study-plan guidance and Smart Practice review-loop copy now organize the existing pool around architecture tradeoffs without adding question volume.',
                   'Cisco CCNA (200-301) - preserved 750-question v2.0 preview with CLI output, topology, config repair, subnetting, written practice, 25 objective families, and a preview diagnostic/mastery/study-plan/debrief/case loop. It is Coming Soon because Cisco v1.1 remains active through February 2, 2027.',
-                  'HashiCorp Terraform Associate (004) — live: 647 questions covering all 37 implemented Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
+                  'HashiCorp Terraform Associate (004) — live: 651 questions covering all 37 implemented Terraform 1.12 subobjectives, with official direct-response formats and a disclosed editorial practice allocation for the 57-question / 60-minute simulator.',
                   'Terraform learning-loop parity - Terraform now has a 40-question subobjective diagnostic, mastery map, personal plan, exam debrief, and case practice built around HCL, plan output, state, CLI maintenance, modules, providers, and HCP Terraform operations.',
                   'Live source and release audit - all then-live modules checked against official vendor sources; AWS, A+, Splunk, Cisco, and Terraform metadata corrected or tightened, and CCNA moved to Coming Soon because its bank targets future v2.0.',
-                  'Terraform learning-value pass - 647 normalized-unique stems, structured operational explanations, 532 supporting evidence artifacts, stronger distractors, and automated allocation, evidence, uniqueness, and 500-form gates.',
+                  'Terraform learning-value pass - 651 normalized-unique stems, structured operational explanations, 536 supporting evidence artifacts, stronger distractors, and automated allocation, evidence, uniqueness, and 500-form gates.',
                   'First-user journey hardening - Smart Practice result context is stable, Recent Misses is a direct next action, incomplete exams require confirmation, mobile cert navigation meets 44px touch targets, and a repeatable release checklist covers desktop and mobile flows.',
                   'Runtime reliability hardening - timed forms stay stable, session completion is idempotent, malformed progress data fails safely, exam expiry avoids state-updater side effects, and cert transitions cannot display stale module content.',
                   'A+, Network+, Security+, and Splunk quality sprint - objective learning, evidence-led practicals, form-composition guarantees, full-bank uniqueness checks, and structured review explanations completed by June 13, 2026.',

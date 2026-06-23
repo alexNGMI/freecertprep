@@ -128,6 +128,10 @@ const evidenceQuestions = questions.filter(hasValidEvidence)
 const shortExplanations = questions.filter((question) => wordCount(question.explanation) < 45)
 const invalidAnswers = questions.filter((question) => !hasValidAnswerShape(question))
 const ticketLanguage = questions.filter((question) => /\bticket\b/i.test(question.question))
+const clueToTermQuestions = questions.filter((question) =>
+  /which networking concept is being described|which term best matches this evidence|needs the Cisco CCST term|which term should the technician choose|term to identify/i
+    .test(`${question.question} ${JSON.stringify(question.evidenceArtifacts || [])}`)
+)
 
 assert(LIVE_CERT_IDS.has('ccst-networking'), 'ccst-networking is not marked live')
 assert(questions.length === 750, `expected 750 CCST questions, found ${questions.length}`)
@@ -137,6 +141,7 @@ assert(evidenceQuestions.length === 750, `expected 750 evidence-led questions, f
 assert(shortExplanations.length === 0, `found ${shortExplanations.length} explanations under 45 words`)
 assert(invalidAnswers.length === 0, `found ${invalidAnswers.length} questions with invalid answer metadata`)
 assert(ticketLanguage.length === 0, `found ${ticketLanguage.length} ticket-framed questions`)
+assert(clueToTermQuestions.length <= 125, `found ${clueToTermQuestions.length} clue-to-term questions; keep first-response wording at or below 125`)
 assert(JSON.stringify(domainCounts) === JSON.stringify(expectedDomainCounts), 'CCST domain counts changed unexpectedly')
 assert(JSON.stringify(typeCounts) === JSON.stringify(expectedTypeCounts), 'CCST format counts changed unexpectedly')
 
@@ -165,6 +170,7 @@ console.log(`Evidence-led questions: ${evidenceQuestions.length}`)
 console.log(`Explanations under 45 words: ${shortExplanations.length}`)
 console.log(`Invalid answer metadata: ${invalidAnswers.length}`)
 console.log(`Ticket-framed questions: ${ticketLanguage.length}`)
+console.log(`Clue-to-term questions: ${clueToTermQuestions.length}`)
 console.log(`Domain allocation: ${JSON.stringify(domainCounts)}`)
 console.log(`Format allocation: ${JSON.stringify(typeCounts)}`)
 console.log('Validated randomized 50-question forms: 500')

@@ -129,6 +129,12 @@ const structuredExplanations = questions.filter((question) =>
 const evidenceQuestions = questions.filter(hasValidEvidence)
 const shortExplanations = questions.filter((question) => wordCount(question.explanation) < 45)
 const invalidAnswers = questions.filter((question) => !hasValidAnswerShape(question))
+const evidenceTitles = evidenceQuestions.reduce((counts, question) => {
+  for (const artifact of question.evidenceArtifacts) {
+    counts[artifact.title] = (counts[artifact.title] || 0) + 1
+  }
+  return counts
+}, {})
 
 assert(questions.length === 750, `expected 750 Splunk questions, found ${questions.length}`)
 assert(exactGroups.length === 0, `found ${exactGroups.length} exact duplicate-stem groups`)
@@ -136,6 +142,12 @@ assert(officialStyleQuestions.length === 690, `expected 690 official-style selec
 assert(learningDrills.length === 60, `expected 60 supplemental matching/ordering drills, found ${learningDrills.length}`)
 assert(structuredExplanations.length === 750, `expected 750 structured explanations, found ${structuredExplanations.length}`)
 assert(evidenceQuestions.length === 690, `expected 690 evidence-led selected-response questions, found ${evidenceQuestions.length}`)
+assert((evidenceTitles['Event sample'] || 0) >= 100, 'expected at least 100 event-sample evidence items')
+assert((evidenceTitles['SPL pipeline'] || 0) >= 80, 'expected at least 80 SPL pipeline evidence items')
+assert((evidenceTitles['Statistical result'] || 0) >= 80, 'expected at least 80 transforming-result evidence items')
+assert((evidenceTitles['Saved object review'] || 0) >= 70, 'expected at least 70 dashboard/report evidence items')
+assert((evidenceTitles['Lookup preview'] || 0) >= 35, 'expected at least 35 lookup evidence items')
+assert((evidenceTitles['Scheduled object settings'] || 0) >= 30, 'expected at least 30 scheduled-report/alert evidence items')
 assert(shortExplanations.length === 0, `found ${shortExplanations.length} explanations under 45 words`)
 assert(invalidAnswers.length === 0, `found ${invalidAnswers.length} questions with invalid answer metadata`)
 assert(JSON.stringify(domainCounts) === JSON.stringify(expectedDomainCounts), 'Splunk domain counts changed unexpectedly')
@@ -162,6 +174,7 @@ console.log(`Supplemental learning drills: ${learningDrills.length}`)
 console.log(`Exact duplicate groups: ${exactGroups.length}`)
 console.log(`Structured explanations: ${structuredExplanations.length}`)
 console.log(`Evidence-led selected-response questions: ${evidenceQuestions.length}`)
+console.log(`Evidence titles: ${JSON.stringify(evidenceTitles)}`)
 console.log(`Explanations under 45 words: ${shortExplanations.length}`)
 console.log(`Invalid answer metadata: ${invalidAnswers.length}`)
 console.log(`Domain allocation: ${JSON.stringify(domainCounts)}`)

@@ -12,8 +12,8 @@ const normalizeStem = stem => stem
   .trim()
 
 describe('Terraform Associate 004 learning-value bank', () => {
-  it('preserves the 647-question allocation and published format mix', () => {
-    expect(questions).toHaveLength(647)
+  it('preserves the 651-question allocation and published format mix', () => {
+    expect(questions).toHaveLength(651)
 
     const byDomain = questions.reduce((counts, question) => {
       counts[question.domain] = (counts[question.domain] || 0) + 1
@@ -21,13 +21,13 @@ describe('Terraform Associate 004 learning-value bank', () => {
     }, {})
     expect(byDomain).toEqual({
       'Infrastructure as Code (IaC) with Terraform': 98,
-      'Terraform fundamentals': 78,
+      'Terraform fundamentals': 80,
       'Core Terraform workflow': 97,
       'Terraform configuration': 103,
       'Terraform modules': 71,
       'Terraform state management': 87,
       'Maintain infrastructure with Terraform': 63,
-      'HCP Terraform': 50,
+      'HCP Terraform': 52,
     })
 
     const byType = questions.reduce((counts, question) => {
@@ -38,13 +38,13 @@ describe('Terraform Associate 004 learning-value bank', () => {
     expect(byType).toEqual({
       'true-false': 24,
       'multiple-response': 32,
-      'single-choice': 591,
+      'single-choice': 595,
     })
   })
 
   it('keeps unique stems and review-quality operational explanations', () => {
-    expect(new Set(questions.map(question => question.question)).size).toBe(647)
-    expect(new Set(questions.map(question => normalizeStem(question.question))).size).toBe(647)
+    expect(new Set(questions.map(question => question.question)).size).toBe(651)
+    expect(new Set(questions.map(question => normalizeStem(question.question))).size).toBe(651)
 
     for (const question of questions) {
       expect(question.question, `${question.id} retains a generic command opening`).not.toMatch(

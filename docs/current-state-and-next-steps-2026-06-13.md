@@ -4,7 +4,7 @@ Last updated: June 23, 2026
 
 ## Executive Summary
 
-freecertprep is in a consolidation phase. The repository contains 11,693 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The current product is useful: its focused homepage, career directions, dashboard, objective learning loops, Smart Practice, drills, simulations, review, bookmarks, and local progress tracking form a coherent study workflow.
+freecertprep is in a consolidation phase. The repository contains 11,697 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The current product is useful: its focused homepage, career directions, dashboard, objective learning loops, Smart Practice, drills, simulations, review, bookmarks, and local progress tracking form a coherent study workflow.
 
 The next release should make that workflow more trustworthy and durable, not larger.
 
@@ -21,7 +21,7 @@ The requested execution order began with content quality, then trust correctness
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
-The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The June 23 full content audit confirms the live modules should stay live, but the next content work should tighten explanation quality, distractor ambiguity, source freshness, and scenario realism rather than expanding the catalog. The next advantage comes from protecting local learner work, making release checks repeatable, reducing registry/documentation drift, and preparing a practical backend MVP for Cloudflare hosting, account sync, support email, report-incorrect-info workflow, and admin review. See `docs/offering-audit-2026-06-16.md`, `docs/course-companion-usefulness-audit-2026-06-17.md`, `docs/full-content-audit-2026-06-23.md`, and `docs/backend-accounts-architecture-2026-06-17.md`.
+The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The June 23 full content audit confirmed the live modules should stay live. The June 23 remediation pass then added repeatable gates for distractor ambiguity, AWS service freshness, SAA template pressure, CCST clue-to-term wording, and Splunk evidence categories while removing retired AWS service references and deepening Terraform's thinnest objectives. The next advantage comes from protecting local learner work, making release checks repeatable, reducing registry/documentation drift, and preparing a practical backend MVP for Cloudflare hosting, account sync, support email, report-incorrect-info workflow, and admin review. See `docs/offering-audit-2026-06-16.md`, `docs/course-companion-usefulness-audit-2026-06-17.md`, `docs/full-content-audit-2026-06-23.md`, and `docs/backend-accounts-architecture-2026-06-17.md`.
 
 ## Current Public Offering
 
@@ -35,7 +35,7 @@ The June 16 offering audit confirms the same strategic direction: the current ca
 | Cisco CCST Networking | B+ | Preserve six-domain source alignment, 750 unique evidence-led stems, diagnostic, mastery map, study plan, debrief, and case practice |
 | CompTIA Security+ | A- | Preserve objective ledger, mixed-interaction gates, diagnostic, mastery map, study plan, exam debrief, and security case practice |
 | Splunk Core Certified User | B+ | Maintain evidence, uniqueness, explanation gates, domain diagnostic, mastery map, study plan, debrief, and search case practice |
-| HashiCorp Terraform Associate | B+ | Maintain objective and operational-review gates plus subobjective diagnostic, mastery map, study plan, debrief, and infrastructure case practice |
+| HashiCorp Terraform Associate | B+ | Maintain 651-question objective and operational-review gates plus subobjective diagnostic, mastery map, study plan, debrief, and infrastructure case practice |
 | AWS Cloud Practitioner | A- | Maintain source alignment plus domain-backed diagnostic, mastery map, study plan, exam debrief, and cloud scenario practice |
 | AWS Solutions Architect - Associate | A- | Maintain architecture-focused review plus domain-backed diagnostic, mastery map, study plan, debrief, and case practice |
 
@@ -61,16 +61,24 @@ Positioning rule: use a course to learn concepts, then use freecertprep to diagn
 
 The June 23 audit rechecked the nine live modules against official sources, automated cert gates, deterministic manual samples, stale-term scans, distractor plausibility, repeated-template pressure, explanation depth, and exam-format fidelity. All current cert-specific gates passed. One confirmed A+ Core 2 distractor defect was fixed during the audit.
 
-Current editorial priorities:
+The follow-up remediation pass completed the highest-leverage fixes from that audit:
 
-1. Network+ explanation upgrade.
-2. Security+ practical/evidence expansion.
-3. CLF-C02 service freshness pass.
-4. SAA-C03 template-diversity pass.
-5. Terraform thin-objective and stem-depth pass.
-6. CCST scenario realism pass.
-7. Splunk UI/SPL evidence polish.
-8. A+ distractor ambiguity sampling maintenance.
+- added `audit:distractors` and wired it into `verify:quality`;
+- added `audit:aws-freshness` and wired it into `verify:quality`;
+- removed AWS OpsWorks and AWS Cloud9 from the live AWS Cloud Practitioner bank;
+- preserved CodeCommit after current AWS documentation confirmed it is generally available again;
+- added an enforced SAA-C03 repeated-template ceiling;
+- added four Terraform thin-objective items for state purpose, state mapping, HCP Terraform CLI integration, and VCS speculative-plan integration;
+- changed CCST clue-to-term wording into first-response classification wording and added a gate so the old phrasing does not return;
+- added Splunk evidence-title minimums for event, SPL, transforming-result, dashboard/report, lookup, and scheduled-report/alert evidence.
+
+Current editorial priorities after remediation:
+
+1. Keep `verify:quality` green before every Cloudflare deployment.
+2. Do manual spot checks on Network+ and Security+ explanations during normal content maintenance.
+3. Continue SAA template-diversity rewrites only when they preserve domain allocation and structured explanations.
+4. Leave catalog expansion frozen until local data durability and backend/reporting workflows are settled.
+5. Re-run the full live-module audit before promoting any Coming Soon module.
 
 Detailed record: `docs/full-content-audit-2026-06-23.md`.
 
@@ -91,11 +99,11 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 - 1,285 tests pass across 38 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
-- A+, Network+, Security+, Terraform, and CompTIA objective audit scripts pass locally.
+- A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
 - Homepage and catalog have no horizontal overflow at 1280px or 390px.
 - The public offering contains nine live and eight Coming Soon modules.
 - Question banks are lazy-loaded by certification.
-- Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+.
+- Both A+ cores grade A+; Network+ and Security+ grade A-; Splunk and Terraform grade B+ with stronger post-audit quality gates.
 - Catalog expansion remains frozen.
 - Fresh dashboards now show one clear recommended next step across certs: A+ Core 1, A+ Core 2, Network+, CCST Networking, Security+, CLF-C02, SAA-C03, Splunk, Terraform, and the CCNA preview point to a diagnostic, while other certs point to Smart Practice; mastery and objective panels stay hidden until progress exists.
 

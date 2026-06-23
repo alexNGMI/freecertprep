@@ -11245,13 +11245,13 @@
     "domain": "Terraform configuration",
     "question": "Which best describes string interpolation in HCL?",
     "choices": [
-      "<var.name>",
-      "%var.name%",
-      "{{var.name}}",
+      "A raw var.name token inside a string without template delimiters",
+      "An environment variable named TF_VAR_name inside the state file",
+      "var_name inside a quoted string without ${ }",
       "\"${var.name}\" embeds an expression in a string"
     ],
     "correctAnswer": 3,
-    "explanation": "Why this is right: Terraform string interpolation uses ${ ... } inside quoted strings, such as \"web-${var.env}\". Modern HCL can often use direct references outside strings, but interpolation remains the way to embed expressions inside string templates. Why the alternatives are wrong: The distractors use an HCL construct with different scope or lifecycle behavior, or create a dependency that Terraform can already infer from references. Operational takeaway: Read the HCL for ownership, scope, value flow, and dependency clues before choosing a resource, data source, expression, lifecycle rule, or validation feature. This item maps to objective 4c: Use variables and outputs.",
+    "explanation": "Why this is right: Terraform string interpolation uses ${ ... } inside quoted strings, such as \"web-${var.env}\". Modern HCL can often use direct references outside strings, but interpolation remains the way to embed expressions inside string templates. Why the alternatives are wrong: The distractors use non-HCL interpolation syntaxes rather than Terraform string templates. Operational takeaway: Read the HCL for ownership, scope, value flow, and dependency clues before choosing a resource, data source, expression, lifecycle rule, or validation feature. This item maps to objective 4c: Use variables and outputs.",
     "objectiveId": "4c",
     "conceptId": "tf-4c-variables",
     "objectiveGroup": "Terraform configuration",
@@ -17028,6 +17028,116 @@
           "$ terraform init",
           "$ terraform plan -out=tfplan",
           "$ terraform apply tfplan"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tf-648",
+    "domain": "Terraform fundamentals",
+    "objectiveId": "2d",
+    "conceptId": "tf-2d-state-purpose",
+    "question": "A new teammate asks why Terraform needs a state file when the configuration already declares the desired resources. Which answer best explains the role of state?",
+    "choices": [
+      "State maps Terraform resource addresses to real remote objects and stores metadata needed to plan changes",
+      "State replaces provider credentials so Terraform can call cloud APIs without authentication",
+      "State is only a human-readable backup copy of the latest HCL files",
+      "State guarantees that every failed apply automatically rolls back all cloud resources"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Why this is right: Terraform state records the relationship between configuration addresses and real infrastructure objects, along with metadata Terraform needs to compare desired configuration with observed remote objects. Why the alternatives are wrong: State does not replace provider authentication, is not merely a copy of HCL, and does not provide automatic rollback for failed provider operations. Operational takeaway: When a question asks why state exists, look for object mapping, metadata, dependency context, and change planning rather than credentials or rollback promises. This item maps to objective 2d: Explain how Terraform uses and manages state.",
+    "objectiveGroup": "Terraform fundamentals",
+    "evidenceArtifacts": [
+      {
+        "type": "console",
+        "title": "State relationship excerpt",
+        "lines": [
+          "$ terraform state list",
+          "aws_instance.web",
+          "$ terraform state show aws_instance.web",
+          "id = \"i-0123456789abcdef0\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tf-649",
+    "domain": "Terraform fundamentals",
+    "objectiveId": "2d",
+    "conceptId": "tf-2d-state-mapping",
+    "question": "A resource was renamed in configuration from `aws_security_group.web` to `aws_security_group.app`, but the real security group should remain in place. What does Terraform state need to preserve?",
+    "choices": [
+      "The mapping from the new resource address to the existing remote security group object",
+      "A second duplicate security group so both resource addresses can be managed forever",
+      "Only the provider version constraint, because resource addresses are not stored in state",
+      "A copy of every inbound packet that used the security group before the rename"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Why this is right: Terraform state binds resource addresses to remote objects, so preserving or moving that binding prevents Terraform from treating a rename as a destroy-and-create operation. Why the alternatives are wrong: Duplicating infrastructure is not the goal, provider constraints do not replace state addresses, and Terraform state does not capture traffic history. Operational takeaway: State questions often turn on address-to-object mapping; configuration names, state addresses, and remote IDs must line up before a plan is safe. This item maps to objective 2d: Explain how Terraform uses and manages state.",
+    "objectiveGroup": "Terraform fundamentals",
+    "evidenceArtifacts": [
+      {
+        "type": "console",
+        "title": "State address review",
+        "lines": [
+          "$ terraform state list",
+          "aws_security_group.web",
+          "$ terraform state mv aws_security_group.web aws_security_group.app"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tf-650",
+    "domain": "HCP Terraform",
+    "objectiveId": "8d",
+    "conceptId": "tf-8d-cli-integration",
+    "question": "A team is moving a local Terraform workflow into HCP Terraform and wants local CLI commands to create remote runs in the correct organization and workspace. Which configuration enables that integration?",
+    "choices": [
+      "Add a `cloud` block with the HCP Terraform organization and workspace information, then authenticate with `terraform login`",
+      "Add a local backend block and manually upload `terraform.tfstate` after each apply",
+      "Set `TF_LOG=TRACE` so HCP Terraform can discover the workspace from debug output",
+      "Run `terraform fmt` with a workspace name so formatting chooses the remote runner"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Why this is right: The Terraform CLI can integrate with HCP Terraform through a `cloud` block that identifies the organization and workspace, with `terraform login` providing the user token for remote operations. Why the alternatives are wrong: A local backend keeps state local, debug logging does not configure remote runs, and formatting does not select an HCP Terraform workspace. Operational takeaway: For CLI-to-HCP integration, look for authentication plus an explicit cloud or backend configuration that points Terraform at the remote workspace. This item maps to objective 8d: Configure and use HCP Terraform integration.",
+    "objectiveGroup": "HCP Terraform",
+    "evidenceArtifacts": [
+      {
+        "type": "console",
+        "title": "HCP Terraform CLI integration",
+        "lines": [
+          "terraform {",
+          "  cloud { organization = \"example-org\" }",
+          "}",
+          "$ terraform login"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tf-651",
+    "domain": "HCP Terraform",
+    "objectiveId": "8d",
+    "conceptId": "tf-8d-vcs-integration",
+    "question": "An HCP Terraform workspace is connected to a Git repository. The team wants every pull request to show a proposed infrastructure change without applying it. Which HCP Terraform behavior supports this?",
+    "choices": [
+      "A speculative plan can run from the VCS pull request and show the proposed changes before merge",
+      "A local state file is committed to the pull request and becomes the approval artifact",
+      "The workspace disables planning until after the pull request is merged and applied",
+      "The VCS connection replaces all provider credentials with Git commit signatures"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Why this is right: HCP Terraform VCS integration can run speculative plans for pull requests so reviewers see proposed infrastructure changes before those changes are merged or applied. Why the alternatives are wrong: State files should not be used as PR approval artifacts, planning before apply is central to the workflow, and Git signatures do not replace provider credentials. Operational takeaway: VCS integration questions usually test the difference between speculative review plans and approved runs that can apply after merge. This item maps to objective 8d: Configure and use HCP Terraform integration.",
+    "objectiveGroup": "HCP Terraform",
+    "evidenceArtifacts": [
+      {
+        "type": "console",
+        "title": "VCS-driven review flow",
+        "lines": [
+          "Pull request opened",
+          "HCP Terraform speculative plan queued",
+          "Plan shows add/change/destroy summary for review"
         ]
       }
     ]

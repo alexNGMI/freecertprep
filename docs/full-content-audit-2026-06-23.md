@@ -94,6 +94,26 @@ The priority order should be:
 7. Splunk UI/SPL evidence polish.
 8. A+ distractor ambiguity sampling maintenance.
 
+## Remediation Update
+
+Completed later on June 23, 2026:
+
+- Added `audit:distractors` to detect duplicate answer choices and ambiguous process-best-practice distractors across the live banks.
+- Added `audit:aws-freshness` to block retired or no-longer-current AWS service references from CLF-C02 and SAA-C03 banks.
+- Removed AWS OpsWorks and AWS Cloud9 from the live AWS Cloud Practitioner pool. CodeCommit was retained after current AWS documentation confirmed it is generally available again.
+- Added an enforced SAA-C03 repeated-template ceiling of 175 groups; the current bank remains under it at 160.
+- Added four Terraform Associate questions for the thinnest objectives: state purpose, state mapping, HCP Terraform CLI integration, and VCS speculative-plan integration. Terraform now has 651 questions and 536 evidence-led items.
+- Reworded CCST clue-to-term prompts into first-response classification prompts and added an audit ceiling to prevent the old phrasing from returning.
+- Added Splunk evidence-title minimums for event samples, SPL pipelines, statistical results, saved object review, lookups, and scheduled reports or alerts.
+- Wired the new distractor and AWS freshness gates into `verify:quality`.
+
+Remaining work is now maintenance-oriented rather than catalog-expansion oriented:
+
+1. Keep `verify:quality` green before deploys.
+2. Spot-check Network+ and Security+ explanation depth during normal editorial maintenance.
+3. Reduce SAA template pressure opportunistically without changing domain allocation.
+4. Re-run this audit before promoting any Coming Soon module.
+
 ## Grades
 
 | Module | Accuracy | Exam-Likeness | Learning Value | Live Status |
@@ -355,11 +375,11 @@ Next action:
 
 Automated status:
 
-- 647 questions.
-- 591 single-choice, 32 multiple-response, 24 true/false.
+- 651 questions.
+- 595 single-choice, 32 multiple-response, 24 true/false.
 - 37 implemented Associate 004 subobjectives covered.
-- 647 structured explanations.
-- 532 evidence-led questions.
+- 651 structured explanations.
+- 536 evidence-led questions.
 - Zero duplicate stems.
 - No legacy Terraform Cloud references.
 - No blueprint-trivia prompts.
@@ -368,7 +388,7 @@ Editorial assessment:
 
 - Good learning value and strong operational explanations.
 - The bank correctly uses Terraform Associate 004 and Terraform 1.12 as the source baseline.
-- Several objectives are thin: 2d, 8d, 7c, 4b, 8b, 6a, 3f, 5b, and 4d have fewer than eight questions.
+- Several objectives remain intentionally small, but the thinnest 2d and 8d objectives were raised from three to five questions during remediation.
 - Stems are often short and direct. This fits some Terraform Associate question style, but the bank would benefit from more applied HCL, plan, state, provider, backend, variable, and HCP Terraform snippets.
 - True/false items are acceptable for HashiCorp-style prep but should not dominate perceived readiness.
 
@@ -380,7 +400,7 @@ Risk:
 Next action:
 
 - Keep live.
-- Deepen thin objectives.
+- Continue deepening small objectives when it improves applied HCL, plan, state, backend, provider, variable, and HCP Terraform reasoning.
 - Replace some short recall stems with HCL/plan/state evidence scenarios.
 
 ## Cross-Catalog Findings
