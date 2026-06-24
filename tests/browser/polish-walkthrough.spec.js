@@ -108,3 +108,15 @@ test('desktop docs navigation follows the selected section', async ({ page }, te
     return page.locator('#architecture').evaluate(element => Math.round(element.getBoundingClientRect().top))
   }).toBeLessThanOrEqual(128)
 })
+
+test('admin report review stays private and offers administrator sign-in', async ({ page }) => {
+  await page.goto('/admin/reports')
+
+  await expect(page.getByRole('heading', { name: 'Administrator sign in' })).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Send admin sign-in link' })).toBeVisible()
+  await expect(page.getByText('Question report review')).toHaveCount(0)
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  )
+  expect(overflow).toBeLessThanOrEqual(1)
+})

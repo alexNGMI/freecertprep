@@ -2,7 +2,7 @@
 
 Date: June 17, 2026
 Branch: merged to `main`
-Status updated: June 23, 2026
+Status updated: June 24, 2026
 
 ## Current Implementation Status
 
@@ -13,7 +13,7 @@ Status updated: June 23, 2026
 | 3. Supabase Auth | Complete foundation | Magic-link sign-in, persistent sessions, sign-out, local and production redirect URLs, and anonymous fallback are live. |
 | 4. Progress sync | Partial | Manual full-study snapshot backup and latest-snapshot restore are live. Automatic background sync, timestamp merging, and conflict handling are not. |
 | 5. Report incorrect info | Complete foundation | Signed-in reports persist to Supabase; every report also keeps a local fallback copy. |
-| 6. Admin report queue | Not started | Schema supports reports and correction events, but no protected admin UI or admin-role policy exists yet. |
+| 6. Admin report queue | Implementation complete; activation pending | `/admin/reports`, explicit admin membership, RLS policies, transactional status updates, internal notes, question inspection, and correction history are built. Apply the June 24 migration and promote the first admin account in Supabase. |
 
 ## Goal
 
@@ -273,6 +273,15 @@ Done when:
 - correction events are recorded;
 - support workflow can say "fixed" with a durable trail.
 
+Implementation completed June 24, 2026:
+
+- added `public.admin_users` and an RLS-safe administrator check;
+- added admin-only report and correction-event read access;
+- added a transactional review function that updates status and writes history together;
+- added `/admin/reports` with status/category/cert filters, current-question inspection, internal notes, and decision history;
+- kept the route out of public navigation;
+- documented production activation in `docs/admin-report-review-runbook.md`.
+
 ## System Order
 
 Do not build all six at once.
@@ -331,8 +340,8 @@ This lets the current app remain stable while account sync is added underneath.
 
 ## Immediate Next Actions
 
-1. Build merge-aware synchronization instead of overwriting the entire device state.
-2. Add last-backup/last-sync status and cross-device conflict tests.
-3. Create the protected admin report queue and admin-role policy.
+1. Apply the June 24 admin migration and promote the first administrator account.
+2. Build merge-aware synchronization instead of overwriting the entire device state.
+3. Add last-backup/last-sync status and cross-device conflict tests.
 4. Set up custom-domain support/admin email.
 5. Add account data export/deletion and a concise privacy policy before broader promotion.

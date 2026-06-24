@@ -17,7 +17,7 @@ The June 14 full-codebase review found four priorities:
 
 Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
-The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul, trust/metadata pass, hosted deployment, authentication, and first account-data layer are now complete. Merge-aware synchronization and admin review are the next active platform phases.
+The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul, trust/metadata pass, hosted deployment, authentication, first account-data layer, and protected admin report-review implementation are now complete. The admin migration still needs production activation; merge-aware synchronization is the next major platform build.
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
@@ -96,7 +96,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,298 tests pass across 43 files.
+- 1,305 tests pass across 46 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -186,7 +186,7 @@ Stage 6 is complete:
 - empty review queues and empty results both provide tested recovery actions;
 - question-report dialogs now move focus inside, contain keyboard focus, close with Escape, and restore focus to the trigger;
 - the documentation sidebar continues to follow the active section on desktop;
-- 12 Playwright browser scenarios now protect the critical journeys across desktop and mobile.
+- 13 Playwright browser scenarios now protect the critical journeys across desktop and mobile.
 
 The six-stage product polish program is complete. Catalog expansion remains frozen; the next work should come from real learner use, production feedback, and the existing operational backlog rather than another broad visual pass.
 
@@ -249,6 +249,8 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - shipped passwordless magic-link sign-in and persistent sessions;
 - shipped manual full-study snapshot backup and latest-snapshot restore;
 - shipped signed-in question-report persistence with local fallback;
+- built a private `/admin/reports` queue with explicit Supabase administrator membership, RLS-enforced report access, question inspection, internal notes, moderation statuses, and durable correction events;
+- added `supabase/migrations/20260624_admin_report_queue.sql` plus a first-admin activation runbook;
 - preserved the product decision that anonymous local-first study remains fully usable.
 
 ### Account and Sync Foundation - Completed June 23, 2026
@@ -326,13 +328,14 @@ Completed:
 - optional magic-link authentication and persistent sessions;
 - explicit manual account backup and restore;
 - durable signed-in report-incorrect-info submissions.
+- protected admin report queue, status workflow, internal notes, and correction history implementation.
 
 Next:
 
+- apply the June 24 admin migration and promote the first production administrator;
 - set up domain email for support/admin;
 - add explicit product-email opt-in separate from authentication;
 - build merge-aware cross-device sync and last-sync status;
-- build a protected admin report queue with review statuses and correction events;
 - add account data export/deletion and publish a concise privacy policy before promotion.
 
 ### 7. A+ Content Maintenance
@@ -367,4 +370,4 @@ Next:
 
 ## Decision Rule
 
-Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope while automatic sync, admin review, domain email, and privacy/data controls are unfinished.
+Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope while automatic sync, admin production activation, domain email, and privacy/data controls are unfinished.
