@@ -202,7 +202,10 @@ export default function Home() {
           <Link to="/" className="hover:opacity-80 transition-opacity">
             <BrandedName size="text-lg" />
           </Link>
-          <p className="text-sm">Built for the leap. Free forever.</p>
+          <div className="flex items-center gap-5 text-sm">
+            <p>Built for the leap. Free forever.</p>
+            <Link to="/privacy" className="font-semibold text-zinc-400 hover:text-zinc-100">Privacy</Link>
+          </div>
         </div>
       </footer>
     </div>

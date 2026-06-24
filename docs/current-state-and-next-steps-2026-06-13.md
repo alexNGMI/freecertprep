@@ -96,7 +96,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,305 tests pass across 46 files.
+- 1,310 tests pass across 49 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -186,7 +186,7 @@ Stage 6 is complete:
 - empty review queues and empty results both provide tested recovery actions;
 - question-report dialogs now move focus inside, contain keyboard focus, close with Escape, and restore focus to the trigger;
 - the documentation sidebar continues to follow the active section on desktop;
-- 13 Playwright browser scenarios now protect the critical journeys across desktop and mobile.
+- 14 Playwright browser scenarios now protect the critical journeys across desktop and mobile.
 
 The six-stage product polish program is complete. Catalog expansion remains frozen; the next work should come from real learner use, production feedback, and the existing operational backlog rather than another broad visual pass.
 
@@ -251,6 +251,7 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - shipped signed-in question-report persistence with local fallback;
 - built a private `/admin/reports` queue with explicit Supabase administrator membership, RLS-enforced report access, question inspection, internal notes, moderation statuses, and durable correction events;
 - added `supabase/migrations/20260624_admin_report_queue.sql` plus a first-admin activation runbook;
+- added `/privacy`, complete cloud-account JSON export, typed-confirmation account deletion, and `supabase/migrations/20260624_account_privacy_controls.sql`;
 - preserved the product decision that anonymous local-first study remains fully usable.
 
 ### Account and Sync Foundation - Completed June 23, 2026
@@ -329,14 +330,15 @@ Completed:
 - explicit manual account backup and restore;
 - durable signed-in report-incorrect-info submissions.
 - protected admin report queue, status workflow, internal notes, and correction history implementation.
+- public privacy policy, complete account-data export, and self-service account deletion implementation.
 
 Next:
 
 - apply the June 24 admin migration and promote the first production administrator;
+- apply and verify the June 24 account privacy-controls migration with a disposable test account;
 - set up domain email for support/admin;
 - add explicit product-email opt-in separate from authentication;
 - build merge-aware cross-device sync and last-sync status;
-- add account data export/deletion and publish a concise privacy policy before promotion.
 
 ### 7. A+ Content Maintenance
 
@@ -370,4 +372,4 @@ Next:
 
 ## Decision Rule
 
-Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope while automatic sync, admin production activation, domain email, and privacy/data controls are unfinished.
+Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope while automatic sync, June 24 backend migration activation, and domain email are unfinished.

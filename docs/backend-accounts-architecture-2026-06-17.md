@@ -14,6 +14,7 @@ Status updated: June 24, 2026
 | 4. Progress sync | Partial | Manual full-study snapshot backup and latest-snapshot restore are live. Automatic background sync, timestamp merging, and conflict handling are not. |
 | 5. Report incorrect info | Complete foundation | Signed-in reports persist to Supabase; every report also keeps a local fallback copy. |
 | 6. Admin report queue | Implementation complete; activation pending | `/admin/reports`, explicit admin membership, RLS policies, transactional status updates, internal notes, question inspection, and correction history are built. Apply the June 24 migration and promote the first admin account in Supabase. |
+| Privacy and account controls | Implementation complete; activation pending | `/privacy`, complete account export, and typed-confirmation account deletion are built. Apply the June 24 privacy-controls migration in Supabase. |
 
 ## Goal
 
@@ -344,4 +345,4 @@ This lets the current app remain stable while account sync is added underneath.
 2. Build merge-aware synchronization instead of overwriting the entire device state.
 3. Add last-backup/last-sync status and cross-device conflict tests.
 4. Set up custom-domain support/admin email.
-5. Add account data export/deletion and a concise privacy policy before broader promotion.
+5. Apply and verify the account privacy-controls migration before broader promotion.

@@ -5,7 +5,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/re
 import { MemoryRouter } from 'react-router-dom'
 import Account from '../pages/Account.jsx'
 
-const { auth, accountSync } = vi.hoisted(() => ({
+const { auth, accountSync, accountPrivacy } = vi.hoisted(() => ({
   auth: {
     getSession: vi.fn(),
     onAuthStateChange: vi.fn(),
@@ -18,6 +18,10 @@ const { auth, accountSync } = vi.hoisted(() => ({
     restoreLatestStudyData: vi.fn(),
     summarizeStudyData: vi.fn(),
   },
+  accountPrivacy: {
+    deleteAccount: vi.fn(),
+    exportAccountData: vi.fn(),
+  },
 }))
 
 vi.mock('../lib/supabase', () => ({
@@ -26,6 +30,7 @@ vi.mock('../lib/supabase', () => ({
 }))
 
 vi.mock('../lib/accountSync', () => accountSync)
+vi.mock('../lib/accountPrivacy', () => accountPrivacy)
 
 function renderAccount() {
   return render(
@@ -52,6 +57,8 @@ describe('Account authentication', () => {
     })
     accountSync.backupStudyData.mockResolvedValue('2026-06-23T20:00:00Z')
     accountSync.restoreLatestStudyData.mockResolvedValue('2026-06-23T20:00:00Z')
+    accountPrivacy.exportAccountData.mockResolvedValue({})
+    accountPrivacy.deleteAccount.mockResolvedValue(true)
   })
 
   afterEach(() => {
@@ -118,5 +125,29 @@ describe('Account authentication', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Restore backup' }))
     await waitFor(() => expect(accountSync.restoreLatestStudyData).toHaveBeenCalled())
+  })
+
+  it('exports account data and requires DELETE before permanent deletion', async () => {
+    auth.getSession.mockResolvedValue({
+      data: { session: { user: { email: 'learner@example.com' } } },
+      error: null,
+    })
+
+    renderAccount()
+
+    await screen.findByText('learner@example.com')
+    fireEvent.click(screen.getByRole('button', { name: 'Download account data' }))
+    await waitFor(() => expect(accountPrivacy.exportAccountData).toHaveBeenCalled())
+
+    fireEvent.click(screen.getByRole('button', { name: 'Delete account' }))
+    const deleteButton = screen.getByRole('button', { name: 'Delete permanently' })
+    expect(deleteButton.disabled).toBe(true)
+
+    fireEvent.change(screen.getByLabelText('Type DELETE to confirm'), { target: { value: 'DELETE' } })
+    expect(deleteButton.disabled).toBe(false)
+    fireEvent.click(deleteButton)
+
+    await waitFor(() => expect(accountPrivacy.deleteAccount).toHaveBeenCalled())
+    expect(await screen.findByText(/Account deleted/i)).toBeTruthy()
   })
 })

@@ -94,6 +94,9 @@ export default function CertLayout() {
         <p className="mt-2 text-xs text-zinc-600">
           Independent practice platform. Not affiliated with or endorsed by certification providers.
         </p>
+        <Link to="/privacy" className="mt-3 inline-flex text-xs font-bold text-zinc-500 hover:text-zinc-200">
+          Privacy and data controls
+        </Link>
       </footer>
     </div>
   )

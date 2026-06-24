@@ -11,6 +11,7 @@ import { CertProvider } from './hooks/useCert'
 
 const Account = lazy(() => import('./pages/Account'))
 const AdminReports = lazy(() => import('./pages/AdminReports'))
+const Privacy = lazy(() => import('./pages/Privacy'))
 const Dashboard = lazy(() => import('./pages/Dashboard'))
 const Quiz = lazy(() => import('./pages/Quiz'))
 const Drill = lazy(() => import('./pages/Drill'))
@@ -76,6 +77,7 @@ function App() {
         <Route path="/docs" element={<Docs />} />
         <Route path="/account" element={<Account />} />
         <Route path="/admin/reports" element={<AdminReports />} />
+        <Route path="/privacy" element={<Privacy />} />
         <Route path="/real-estate" element={<RealEstate />} />
         <Route path="/real-estate/study" element={<REStudyPicker />} />
         <Route path="/real-estate/study/:reCert" element={<RELayout />}>

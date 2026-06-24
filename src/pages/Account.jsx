@@ -6,11 +6,13 @@ import {
   Cloud,
   Database,
   Download,
+  FileJson,
   HardDrive,
   KeyRound,
   Mail,
   RefreshCw,
   ShieldCheck,
+  Trash2,
   Upload,
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
@@ -25,6 +27,7 @@ import {
   restoreLatestStudyData,
   summarizeStudyData,
 } from '../lib/accountSync'
+import { deleteAccount, exportAccountData } from '../lib/accountPrivacy'
 
 export default function Account() {
   const [email, setEmail] = useState('')
@@ -35,6 +38,8 @@ export default function Account() {
   const [latestBackup, setLatestBackup] = useState(null)
   const [backupLoading, setBackupLoading] = useState(false)
   const [confirmRestore, setConfirmRestore] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
+  const [deletePhrase, setDeletePhrase] = useState('')
   const reports = useMemo(() => readQuestionIssueReports(), [])
   const [localSummary, setLocalSummary] = useState(() => summarizeStudyData())
 
@@ -167,6 +172,41 @@ export default function Account() {
     }
   }
 
+  async function handleAccountExport() {
+    setPendingAction('account-export')
+    setNotice(null)
+    try {
+      await exportAccountData()
+      setNotice({ kind: 'success', message: 'Account data export downloaded.' })
+    } catch (error) {
+      setNotice({ kind: 'error', message: error.message })
+    } finally {
+      setPendingAction(null)
+    }
+  }
+
+  async function handleDeleteAccount() {
+    if (deletePhrase !== 'DELETE') return
+
+    setPendingAction('delete-account')
+    setNotice(null)
+    try {
+      await deleteAccount()
+      setSession(null)
+      setLatestBackup(null)
+      setConfirmDelete(false)
+      setDeletePhrase('')
+      setNotice({
+        kind: 'success',
+        message: 'Account deleted. Study data stored in this browser remains available.',
+      })
+    } catch (error) {
+      setNotice({ kind: 'error', message: error.message })
+    } finally {
+      setPendingAction(null)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
       <header className="sticky top-0 z-20 border-b border-white/5 bg-zinc-950/80 backdrop-blur-xl">
@@ -177,6 +217,7 @@ export default function Account() {
           <nav className="flex items-center gap-5 text-sm font-semibold text-zinc-400">
             <Link to="/catalog" className="hover:text-zinc-100">Catalog</Link>
             <Link to="/docs" className="hover:text-zinc-100">Docs</Link>
+            <Link to="/privacy" className="hover:text-zinc-100">Privacy</Link>
           </nav>
         </div>
       </header>
@@ -350,6 +391,76 @@ export default function Account() {
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
               Backup is manual today. It creates a new cloud snapshot; restore replaces this browser&apos;s study data with the newest snapshot.
             </p>
+          </Surface>
+        </section>
+
+        <section className="mt-6">
+          <Surface className="p-6 md:p-7">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Privacy and account data</p>
+                <h2 className="mt-2 text-2xl font-black text-zinc-50">Your account remains under your control.</h2>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                  Read the <Link to="/privacy" className="font-bold text-sky-300 hover:text-sky-200">privacy policy</Link>, export the complete cloud-account record, or permanently delete the account. Local browser study data is separate.
+                </p>
+              </div>
+
+              {session ? (
+                <div className="grid w-full gap-3 lg:max-w-sm">
+                  <Button variant="secondary" onClick={handleAccountExport} disabled={Boolean(pendingAction)}>
+                    <FileJson className="h-4 w-4" />
+                    {pendingAction === 'account-export' ? 'Preparing export...' : 'Download account data'}
+                  </Button>
+                  <Button variant="danger" onClick={() => setConfirmDelete(true)} disabled={Boolean(pendingAction)}>
+                    <Trash2 className="h-4 w-4" />
+                    Delete account
+                  </Button>
+                </div>
+              ) : (
+                <p className="rounded-xl border border-white/10 bg-zinc-900/60 px-4 py-3 text-sm text-zinc-500">
+                  Sign in to export or delete cloud-account data.
+                </p>
+              )}
+            </div>
+
+            {confirmDelete && session && (
+              <div className="mt-6 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-5">
+                <h3 className="text-lg font-black text-rose-100">Permanently delete this account?</h3>
+                <p className="mt-2 text-sm leading-relaxed text-rose-100/75">
+                  This removes the email login and account-owned cloud profile, backups, statistics, bookmarks, and session records. Submitted question reports may remain, but the reporter link is removed. Local browser study data is not cleared.
+                </p>
+                <label htmlFor="delete-confirmation" className="mt-4 block text-xs font-bold uppercase tracking-wider text-rose-200">
+                  Type DELETE to confirm
+                </label>
+                <input
+                  id="delete-confirmation"
+                  value={deletePhrase}
+                  onChange={event => setDeletePhrase(event.target.value)}
+                  autoComplete="off"
+                  className="mt-2 w-full max-w-sm rounded-xl border border-rose-400/30 bg-zinc-950 px-4 py-3 text-sm font-bold text-zinc-100 outline-none focus:border-rose-300"
+                />
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+                  <Button
+                    variant="danger"
+                    onClick={handleDeleteAccount}
+                    disabled={deletePhrase !== 'DELETE' || Boolean(pendingAction)}
+                  >
+                    <Trash2 className="h-4 w-4" />
+                    {pendingAction === 'delete-account' ? 'Deleting account...' : 'Delete permanently'}
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    onClick={() => {
+                      setConfirmDelete(false)
+                      setDeletePhrase('')
+                    }}
+                    disabled={Boolean(pendingAction)}
+                  >
+                    Cancel
+                  </Button>
+                </div>
+              </div>
+            )}
           </Surface>
         </section>
       </main>

@@ -120,3 +120,18 @@ test('admin report review stays private and offers administrator sign-in', async
   )
   expect(overflow).toBeLessThanOrEqual(1)
 })
+
+test('privacy is public while cloud account controls require sign-in', async ({ page }) => {
+  await page.goto('/privacy')
+  await expect(page.getByRole('heading', { name: 'Study without an account. Control your account data.' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Anonymous study' })).toBeVisible()
+  await expect(page.getByText(/reporter link is removed/i)).toBeVisible()
+
+  await page.goto('/account')
+  await expect(page.getByText('Sign in to export or delete cloud-account data.')).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Delete account' })).toHaveCount(0)
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  )
+  expect(overflow).toBeLessThanOrEqual(1)
+})

@@ -634,6 +634,13 @@ key = random() ** (1 / weight)
               automatic synchronization; the local browser remains the active study store.
             </P>
 
+            <H3>Privacy and account controls</H3>
+            <P>
+              The Privacy page explains local and cloud storage in plain language. Signed-in learners can download a complete
+              cloud-account export or permanently delete the account from the Account page. Account deletion removes account-owned
+              cloud data; submitted issue reports may remain for correction history with the reporter link removed.
+            </P>
+
             <H3>Resets</H3>
             <P>Two independent resets are available from the Dashboard, each behind a confirm step:</P>
             <ul className="space-y-3">
@@ -762,14 +769,14 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,305 Vitest tests across 46 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,310 Vitest tests across 49 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
               marks right answers wrong, and a bad question slips past hundreds of thousands of silent reads. The full suite,
               lint, and a production build run in GitHub Actions CI on every push and pull request. The redesigned study
               UI now has focused regression coverage for navigation accessibility, workspace progress, and the question map,
-              while 13 Playwright scenarios protect critical rendered journeys across desktop and mobile.
+              while 14 Playwright scenarios protect critical rendered journeys across desktop and mobile.
             </P>
             <CodeBlock>{`src/__tests__/
 ├── shuffle.test.js         — Fisher-Yates distribution, weightedSample bias
@@ -861,6 +868,7 @@ key = random() ** (1 / weight)
                   'Backend MVP planning - live domain hosting, domain email, optional email sign-in, progress sync, report-incorrect-info workflow, and admin report review now have a Cloudflare/Supabase execution plan and initial Supabase schema draft.',
                   'Backend MVP foundation - production Supabase magic-link authentication, manual progress/stat/bookmark backup and restore, and signed-in question-report persistence are live while anonymous study remains available.',
                   'Admin report review implementation - private /admin/reports workspace, explicit Supabase administrator membership, RLS-protected report access, question inspection, moderation statuses, internal notes, and transactional correction history are built; production activation requires the included migration and first-admin promotion.',
+                  'Privacy and account controls - public /privacy disclosure, complete cloud-account JSON export, and typed-confirmation account deletion are implemented; production activation requires the included Supabase privacy-controls migration.',
                   'Product polish stage 5 - shared accessible loading states, reduced-motion support, actionable empty practice and results states, viewport-safe tooltips, and announced account/dashboard/report feedback are complete.',
                   'Product polish stage 6 - all nine live dashboards and the public learner journey passed desktop/mobile walkthroughs; cross-route path anchors, diagnostic action clarity, report-dialog keyboard behavior, empty-state recovery, and docs section tracking now have permanent browser coverage.',
                 ],
@@ -875,7 +883,7 @@ key = random() ** (1 / weight)
                   '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
                   '5. Micro-polish - complete: accessible loading context, reduced-motion support, actionable empty states, viewport-safe tooltips, semantic feedback announcements, and focused regression coverage.',
                   '6. Full browser walkthrough - complete: all live dashboards and critical public, study, account, reporting, results, and docs journeys are covered across desktop and mobile.',
-                  'Polish program complete. Next: activate the admin migration, then use production feedback to prioritize merge-aware sync, domain email, privacy controls, local durability, and maintainability.',
+                  'Polish program complete. Next: activate the June 24 backend migrations, then use production feedback to prioritize merge-aware sync, domain email, local durability, and maintainability.',
                 ],
               },
               {
@@ -920,6 +928,7 @@ key = random() ** (1 / weight)
 
       <footer className="border-t border-white/5 bg-zinc-950/50 py-8 text-center text-sm text-zinc-600">
         <p>freecertprep — built for the community</p>
+        <Link to="/privacy" className="mt-2 inline-flex font-semibold text-zinc-500 hover:text-zinc-200">Privacy</Link>
       </footer>
     </div>
   )
