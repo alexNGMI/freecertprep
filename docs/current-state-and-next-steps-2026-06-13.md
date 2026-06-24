@@ -96,7 +96,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,297 tests pass across 43 files.
+- 1,298 tests pass across 43 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -113,7 +113,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Ordered Next Steps
 
-### Product Polish Program - Active June 23, 2026
+### Product Polish Program - Completed June 24, 2026
 
 Work through these stages in order, verifying desktop and mobile before moving forward:
 
@@ -176,7 +176,19 @@ Stage 5 is complete:
 - tooltips now stay inside the viewport and wrap longer guidance cleanly;
 - focused regression coverage protects the loading announcement and question-report status behavior.
 
-Stage 6, the full desktop and mobile browser walkthrough, is next. Catalog expansion remains frozen throughout the polish program.
+Stage 6 is complete:
+
+- all nine live certification dashboards render without horizontal overflow or console errors on desktop and mobile;
+- the homepage, catalog, A+ selector, career paths, account, docs, diagnostic, mastery plan, practice, exam, and results journeys were walked in the rendered app;
+- cross-page `Paths` links now land on the intended homepage section instead of returning learners to the top;
+- a fresh mastery plan now exposes one diagnostic action instead of two competing copies;
+- the diagnostic start action now appears in the header and remains visible without requiring a mobile learner to pass the full instruction block first;
+- empty review queues and empty results both provide tested recovery actions;
+- question-report dialogs now move focus inside, contain keyboard focus, close with Escape, and restore focus to the trigger;
+- the documentation sidebar continues to follow the active section on desktop;
+- 12 Playwright browser scenarios now protect the critical journeys across desktop and mobile.
+
+The six-stage product polish program is complete. Catalog expansion remains frozen; the next work should come from real learner use, production feedback, and the existing operational backlog rather than another broad visual pass.
 
 ### Network+ Personal Learning Loop - Completed June 15, 2026
 

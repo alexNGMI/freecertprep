@@ -22,6 +22,7 @@ describe('ReportIssueButton', () => {
     render(<ReportIssueButton certId="comptia-net-plus" question={question} context="review" />)
 
     fireEvent.click(screen.getByRole('button', { name: /Report issue/i }))
+    expect(document.activeElement).toBe(screen.getByLabelText(/Issue type/i))
     fireEvent.change(screen.getByLabelText(/Issue type/i), { target: { value: 'Explanation is unclear' } })
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'The command output needs a clearer reason.' } })
     fireEvent.click(screen.getByRole('button', { name: /Save report/i }))
@@ -39,5 +40,16 @@ describe('ReportIssueButton', () => {
       context: 'review',
       status: 'local-new',
     })
+  })
+
+  it('closes with Escape and restores focus to the report trigger', () => {
+    render(<ReportIssueButton certId="comptia-net-plus" question={question} context="review" />)
+
+    const trigger = screen.getByRole('button', { name: /Report issue/i })
+    fireEvent.click(trigger)
+    fireEvent.keyDown(document, { key: 'Escape' })
+
+    expect(screen.queryByRole('dialog')).toBeNull()
+    expect(document.activeElement).toBe(trigger)
   })
 })

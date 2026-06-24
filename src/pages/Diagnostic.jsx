@@ -86,6 +86,12 @@ export default function Diagnostic() {
             { label: 'Questions', value: config.diagnosticSize, icon: ClipboardCheck },
             { label: 'Targets', value: learningObjectives.length, icon: Map },
           ]}
+          action={(
+            <Button onClick={begin} variant="accent" size="lg" accentColor={cert.color}>
+              Start diagnostic
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          )}
         />
         <StudyLoopNav cert={cert} current="diagnostic" />
         <Surface className="grid gap-6 p-6 md:grid-cols-3">
@@ -93,14 +99,10 @@ export default function Diagnostic() {
           <Rule number="02" title="Skip honestly" body="An unanswered question is evidence that the target needs measurement, not a personal failure." />
           <Rule number="03" title="Study the map" body="The result feeds your mastery map and creates an ordered study plan." />
         </Surface>
-        <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
+        <div className="flex justify-start">
           <Button as={Link} to={`/${cert.id}/learning`} variant="secondary" size="lg">
             <ArrowLeft className="h-5 w-5" />
             Learning plan
-          </Button>
-          <Button onClick={begin} variant="accent" size="lg" accentColor={cert.color}>
-            Start diagnostic
-            <ArrowRight className="h-5 w-5" />
           </Button>
         </div>
       </div>

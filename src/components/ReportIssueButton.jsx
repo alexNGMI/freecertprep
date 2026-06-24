@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AlertCircle, Download, X } from 'lucide-react'
 import { addQuestionIssueReport, exportQuestionIssueReports } from '../utils/storage'
 import { submitQuestionIssueReport } from '../lib/accountSync'
@@ -17,6 +17,46 @@ export default function ReportIssueButton({ certId, question, context = 'questio
   const [issueType, setIssueType] = useState(ISSUE_TYPES[0])
   const [notes, setNotes] = useState('')
   const [status, setStatus] = useState(null)
+  const triggerRef = useRef(null)
+  const dialogRef = useRef(null)
+  const issueTypeRef = useRef(null)
+
+  useEffect(() => {
+    if (!open) return undefined
+
+    const trigger = triggerRef.current
+    issueTypeRef.current?.focus()
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setOpen(false)
+        return
+      }
+
+      if (event.key !== 'Tab') return
+      const focusable = Array.from(dialogRef.current?.querySelectorAll(
+        'button:not([disabled]), select:not([disabled]), textarea:not([disabled]), input:not([disabled]), a[href]',
+      ) || [])
+      if (!focusable.length) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      trigger?.focus()
+    }
+  }, [open])
 
   async function handleSubmit() {
     const report = {
@@ -48,6 +88,7 @@ export default function ReportIssueButton({ certId, question, context = 'questio
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => {
           setStatus(null)
@@ -60,8 +101,16 @@ export default function ReportIssueButton({ certId, question, context = 'questio
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby={`report-${question.id}`}>
-          <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-zinc-950 p-6 shadow-2xl">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={`report-${question.id}`}
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) setOpen(false)
+          }}
+        >
+          <div ref={dialogRef} className="w-full max-w-lg rounded-2xl border border-white/10 bg-zinc-950 p-6 shadow-2xl">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-amber-300">Question report</p>
@@ -86,6 +135,7 @@ export default function ReportIssueButton({ certId, question, context = 'questio
                   Issue type
                 </label>
                 <select
+                  ref={issueTypeRef}
                   id={`issue-type-${question.id}`}
                   value={issueType}
                   onChange={(event) => setIssueType(event.target.value)}

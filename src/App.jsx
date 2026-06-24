@@ -30,16 +30,24 @@ const REDrill = lazy(() => import('./pages/realestate/REDrill'))
 const REExam = lazy(() => import('./pages/realestate/REExam'))
 const REResults = lazy(() => import('./pages/realestate/REResults'))
 
-// Browsers keep the previous scroll position across client-side route
-// changes — so clicking the footer link at the bottom of Home would land
-// you at the bottom of the sister site. Reset to the top whenever the
-// pathname changes. Keyed on pathname only (not hash/search) so in-page
-// anchor jumps like #how / #states still work.
+// Reset ordinary route changes to the top, but honor cross-route hashes
+// after React has rendered the destination section.
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
+
   useEffect(() => {
+    if (hash) {
+      const frameId = window.requestAnimationFrame(() => {
+        const id = decodeURIComponent(hash.slice(1))
+        document.getElementById(id)?.scrollIntoView({ block: 'start' })
+      })
+      return () => window.cancelAnimationFrame(frameId)
+    }
+
     window.scrollTo(0, 0)
-  }, [pathname])
+    return undefined
+  }, [pathname, hash])
+
   return null
 }
 

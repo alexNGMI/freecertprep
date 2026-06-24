@@ -42,12 +42,6 @@ export default function LearningPlan() {
             { label: 'Measured', value: `0/${mastery.length}`, icon: Map },
             { label: 'Plan', value: 'Locked', icon: CalendarDays },
           ]}
-          action={(
-            <Button as={Link} to="diagnostic" variant="accent" size="lg" accentColor={cert.color}>
-              <ClipboardCheck className="h-5 w-5" />
-              Start diagnostic
-            </Button>
-          )}
         />
         <StudyLoopNav cert={cert} current="plan" />
 

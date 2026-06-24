@@ -762,14 +762,14 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,297 Vitest tests across 43 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,298 Vitest tests across 43 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
               marks right answers wrong, and a bad question slips past hundreds of thousands of silent reads. The full suite,
               lint, and a production build run in GitHub Actions CI on every push and pull request. The redesigned study
               UI now has focused regression coverage for navigation accessibility, workspace progress, and the question map,
-              with browser QA still used for full rendered flows.
+              while 12 Playwright scenarios protect critical rendered journeys across desktop and mobile.
             </P>
             <CodeBlock>{`src/__tests__/
 ├── shuffle.test.js         — Fisher-Yates distribution, weightedSample bias
@@ -861,6 +861,7 @@ key = random() ** (1 / weight)
                   'Backend MVP planning - live domain hosting, domain email, optional email sign-in, progress sync, report-incorrect-info workflow, and admin report review now have a Cloudflare/Supabase execution plan and initial Supabase schema draft.',
                   'Backend MVP foundation - production Supabase magic-link authentication, manual progress/stat/bookmark backup and restore, and signed-in question-report persistence are live while anonymous study remains available.',
                   'Product polish stage 5 - shared accessible loading states, reduced-motion support, actionable empty practice and results states, viewport-safe tooltips, and announced account/dashboard/report feedback are complete.',
+                  'Product polish stage 6 - all nine live dashboards and the public learner journey passed desktop/mobile walkthroughs; cross-route path anchors, diagnostic action clarity, report-dialog keyboard behavior, empty-state recovery, and docs section tracking now have permanent browser coverage.',
                 ],
               },
               {
@@ -872,8 +873,8 @@ key = random() ** (1 / weight)
                   '3. Account experience - complete: clear identity state, local/cloud summaries, backup timestamps, action-specific loading, restore confirmation, and honest manual-backup language.',
                   '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
                   '5. Micro-polish - complete: accessible loading context, reduced-motion support, actionable empty states, viewport-safe tooltips, semantic feedback announcements, and focused regression coverage.',
-                  '6. Full browser walkthrough - test every critical learner journey on desktop and mobile and repair remaining friction.',
-                  'After polish: merge-aware sync, admin report review, domain email, privacy controls, local durability, and maintainability remain the operational backlog.',
+                  '6. Full browser walkthrough - complete: all live dashboards and critical public, study, account, reporting, results, and docs journeys are covered across desktop and mobile.',
+                  'Polish program complete. Next: use production feedback to prioritize merge-aware sync, admin report review, domain email, privacy controls, local durability, and maintainability.',
                 ],
               },
               {

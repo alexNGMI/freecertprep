@@ -157,7 +157,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="paths" className="max-w-7xl mx-auto px-6 py-16 border-y border-white/5">
+        <section id="paths" className="max-w-7xl mx-auto scroll-mt-20 border-y border-white/5 px-6 py-16">
           <div className="mb-10">
             <PageEyebrow className="mb-3">Recommended progression</PageEyebrow>
             <PathCard path={paths[0]} variant="wide" />
