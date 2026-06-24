@@ -52,6 +52,8 @@ describe('storage: KEYS / version', () => {
     expect(KEYS.progress).toBe('freecertprep-progress')
     expect(KEYS.questionStats).toBe('freecertprep-question-stats-local')
     expect(KEYS.bookmarks).toBe('freecertprep-bookmarks')
+    expect(KEYS.bookmarkSyncState).toBe('freecertprep-bookmark-sync-state')
+    expect(KEYS.syncState).toBe('freecertprep-account-sync-state')
     expect(KEYS.issueReports).toBe('freecertprep-question-issue-reports-local')
     expect(SCHEMA_VERSION).toBeGreaterThanOrEqual(1)
   })
@@ -287,6 +289,15 @@ describe('storage: subscribe (cross-tab)', () => {
     subscribe(KEYS.progress, handler)
     globalThis.window._dispatch('storage', { key: 'some-other-key' })
     expect(handler).not.toHaveBeenCalled()
+  })
+
+  it('invokes the handler after a same-tab account sync', () => {
+    const handler = vi.fn()
+    subscribe(KEYS.progress, handler)
+    globalThis.window._dispatch('freecertprep-storage-sync', {
+      detail: { keys: [KEYS.progress, KEYS.bookmarks] },
+    })
+    expect(handler).toHaveBeenCalledTimes(1)
   })
 
   it('unsubscribe removes the listener', () => {

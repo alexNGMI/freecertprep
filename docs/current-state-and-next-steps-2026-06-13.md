@@ -17,7 +17,7 @@ The June 14 full-codebase review found four priorities:
 
 Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
-The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul, trust/metadata pass, hosted deployment, authentication, first account-data layer, and protected admin report-review implementation are now complete. The admin migration still needs production activation; merge-aware synchronization is the next major platform build.
+The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul, trust/metadata pass, hosted deployment, authentication, protected admin report review, and merge-aware manual synchronization are now complete in the repository. The June 24 backend migrations still need production activation; domain email and real two-device account validation are next.
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 
@@ -298,11 +298,11 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 - persist the latest completed result across refresh;
 - preserve the completed versioned full-study snapshot backup for progress, Smart Practice statistics, and bookmarks;
 - add active-session resume only after completed-result recovery is reliable.
-- replace latest-snapshot-only restore with merge-aware synchronization by cert, question, and session timestamp;
-- add last-backup/last-sync status and conflict tests;
+- preserve merge-aware synchronization by cert, question, and session timestamp; **complete June 24**
+- preserve last-sync status and conflict tests; **complete June 24**
 - retain explicit manual controls until automatic sync is proven safe.
 
-Manual full-study snapshot backup and restore are complete. Automatic background sync is intentionally not yet claimed.
+Merge-aware manual sync, recovery backup, and restore are complete. Automatic background sync is intentionally not yet claimed.
 
 ### 4. Release Automation
 
@@ -328,6 +328,7 @@ Completed:
 - Supabase project and initial schema with row-level security;
 - optional magic-link authentication and persistent sessions;
 - explicit manual account backup and restore;
+- merge-aware manual cross-device sync with last-sync status and conflict regression tests;
 - durable signed-in report-incorrect-info submissions.
 - protected admin report queue, status workflow, internal notes, and correction history implementation.
 - public privacy policy, complete account-data export, and self-service account deletion implementation.
@@ -338,7 +339,7 @@ Next:
 - apply and verify the June 24 account privacy-controls migration with a disposable test account;
 - set up domain email for support/admin;
 - add explicit product-email opt-in separate from authentication;
-- build merge-aware cross-device sync and last-sync status;
+- complete a real two-device production sync walkthrough;
 
 ### 7. A+ Content Maintenance
 
@@ -372,4 +373,4 @@ Next:
 
 ## Decision Rule
 
-Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope while automatic sync, June 24 backend migration activation, and domain email are unfinished.
+Work is ready when it makes the current learner experience more accurate, recoverable, testable, or maintainable. New catalog entries remain out of scope while June 24 backend migration activation, production account validation, and domain email are unfinished.

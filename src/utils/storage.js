@@ -23,6 +23,8 @@ export const KEYS = {
   progress: 'freecertprep-progress',
   questionStats: 'freecertprep-question-stats-local',
   bookmarks: 'freecertprep-bookmarks',
+  bookmarkSyncState: 'freecertprep-bookmark-sync-state',
+  syncState: 'freecertprep-account-sync-state',
   issueReports: 'freecertprep-question-issue-reports-local',
 }
 
@@ -219,6 +221,19 @@ export function subscribe(key, handler) {
   const listener = (e) => {
     if (e.key === key || e.key === null) handler()
   }
+  const syncListener = (e) => {
+    if (e.detail?.keys?.includes(key)) handler()
+  }
   w.addEventListener('storage', listener)
-  return () => w.removeEventListener('storage', listener)
+  w.addEventListener('freecertprep-storage-sync', syncListener)
+  return () => {
+    w.removeEventListener('storage', listener)
+    w.removeEventListener('freecertprep-storage-sync', syncListener)
+  }
+}
+
+export function notifyStorageSync(keys) {
+  const w = globalThis.window
+  if (!w || typeof w.dispatchEvent !== 'function' || typeof CustomEvent === 'undefined') return
+  w.dispatchEvent(new CustomEvent('freecertprep-storage-sync', { detail: { keys } }))
 }

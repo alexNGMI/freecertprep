@@ -11,7 +11,7 @@ Status updated: June 24, 2026
 | 1. Cloudflare hosting | Complete | Live at `https://freecertprep.a-gilbert2093.workers.dev`; Git pushes to `main` trigger deployment. |
 | 2. Domain email | Not started | Support/admin addresses still need a custom domain and mail routing/provider. |
 | 3. Supabase Auth | Complete foundation | Magic-link sign-in, persistent sessions, sign-out, local and production redirect URLs, and anonymous fallback are live. |
-| 4. Progress sync | Partial | Manual full-study snapshot backup and latest-snapshot restore are live. Automatic background sync, timestamp merging, and conflict handling are not. |
+| 4. Progress sync | Manual sync complete | `Sync now` merges session history, question-stat deltas, and timestamped bookmark changes across devices. Recovery backup/restore remains available. Automatic background sync is not claimed. |
 | 5. Report incorrect info | Complete foundation | Signed-in reports persist to Supabase; every report also keeps a local fallback copy. |
 | 6. Admin report queue | Implementation complete; activation pending | `/admin/reports`, explicit admin membership, RLS policies, transactional status updates, internal notes, question inspection, and correction history are built. Apply the June 24 migration and promote the first admin account in Supabase. |
 | Privacy and account controls | Implementation complete; activation pending | `/privacy`, complete account export, and typed-confirmation account deletion are built. Apply the June 24 privacy-controls migration in Supabase. |
@@ -206,10 +206,10 @@ Implementation tasks:
 - keep `localStorage` as the source for anonymous users;
 - on login, offer "Back up progress"; **complete**
 - restore the latest account snapshot; **complete**
-- merge local and remote progress by cert/question/session timestamp;
-- show last sync status on dashboard;
-- add manual "sync now" before automatic sync;
-- add conflict tests.
+- merge local and remote progress by cert/question/session timestamp; **complete**
+- show last sync status on the Account page; **complete**
+- add manual "sync now" before automatic sync; **complete**
+- add conflict tests; **complete**
 
 Done when:
 
@@ -218,6 +218,17 @@ Done when:
 - session history syncs without duplicating;
 - local progress is not wiped by signing in;
 - app still works offline/local when signed out.
+
+Current merge behavior:
+
+- session histories are unioned and deduplicated by stable session fingerprints;
+- question statistics use a three-way merge against the last common synchronized snapshot;
+- bookmark additions and removals use per-question last-write timestamps;
+- the merged snapshot becomes the next local baseline and is appended to `study_snapshots`;
+- same-tab storage notifications refresh open study views after synchronization;
+- explicit reset/deletion propagation is intentionally conservative: sync preserves study history, while full account deletion remains the cloud-data deletion control.
+
+See `docs/account-sync-runbook.md` for verification and operating details.
 
 ## Step 5: Report Incorrect Info
 
@@ -342,7 +353,7 @@ This lets the current app remain stable while account sync is added underneath.
 ## Immediate Next Actions
 
 1. Apply the June 24 admin migration and promote the first administrator account.
-2. Build merge-aware synchronization instead of overwriting the entire device state.
-3. Add last-backup/last-sync status and cross-device conflict tests.
+2. Activate and validate the June 24 admin/privacy migrations in production.
+3. Set up domain support/admin email and complete a real two-device sync walkthrough.
 4. Set up custom-domain support/admin email.
 5. Apply and verify the account privacy-controls migration before broader promotion.

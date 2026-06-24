@@ -1,5 +1,6 @@
 import { isSupabaseConfigured, supabase } from './supabase'
-import { isValidProgressData, KEYS, readJSON, writeJSON } from '../utils/storage'
+import { isValidProgressData, KEYS, notifyStorageSync, readJSON, writeJSON } from '../utils/storage'
+import { mergeStudySnapshots } from '../utils/account-sync-merge'
 
 const DEVICE_KEY = 'freecertprep-device-id'
 
@@ -20,12 +21,31 @@ async function getUser() {
 
 export function buildLocalSnapshot() {
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     capturedAt: new Date().toISOString(),
     progress: readJSON(KEYS.progress, {}),
     questionStats: readJSON(KEYS.questionStats, {}),
     bookmarks: readJSON(KEYS.bookmarks, {}),
+    bookmarkState: readJSON(KEYS.bookmarkSyncState, {}),
   }
+}
+
+function readSyncState() {
+  return readJSON(KEYS.syncState, null)
+}
+
+function saveMergedLocally(snapshot, syncState) {
+  const writes = [
+    writeJSON(KEYS.progress, snapshot.progress),
+    writeJSON(KEYS.questionStats, snapshot.questionStats),
+    writeJSON(KEYS.bookmarks, snapshot.bookmarks),
+    writeJSON(KEYS.bookmarkSyncState, snapshot.bookmarkState),
+    writeJSON(KEYS.syncState, syncState),
+  ]
+  if (writes.some(saved => !saved)) {
+    throw new Error('The merged progress was created, but this browser could not save all synchronized data.')
+  }
+  notifyStorageSync([KEYS.progress, KEYS.questionStats, KEYS.bookmarks])
 }
 
 export function summarizeStudyData(snapshot = buildLocalSnapshot()) {
@@ -65,12 +85,72 @@ export async function backupStudyData() {
   const snapshot = buildLocalSnapshot()
   const { error } = await supabase.from('study_snapshots').insert({
     user_id: user.id,
-    schema_version: 1,
+    schema_version: 2,
     snapshot,
     source_device_id: getDeviceId(),
   })
   if (error) throw error
   return snapshot.capturedAt
+}
+
+export async function getSyncInfo() {
+  const user = await getUser()
+  if (!user) return null
+  const state = readSyncState()
+  return state
+    ? {
+        lastSyncedAt: state.lastSyncedAt,
+        summary: summarizeStudyData(state.baseSnapshot),
+      }
+    : null
+}
+
+export async function syncStudyData() {
+  const user = await getUser()
+  if (!user) throw new Error('Sign in before syncing progress.')
+
+  const localSnapshot = buildLocalSnapshot()
+  const localSyncState = readSyncState()
+  const deviceId = getDeviceId()
+  const { data: remoteRow, error: remoteError } = await supabase
+    .from('study_snapshots')
+    .select('snapshot, created_at, source_device_id')
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+
+  if (remoteError) throw remoteError
+
+  const remoteSnapshot = remoteRow?.snapshot || {}
+  const baseSnapshot = localSyncState?.baseSnapshot
+    || (remoteRow?.source_device_id === deviceId ? remoteSnapshot : {})
+  const merged = mergeStudySnapshots(localSnapshot, remoteSnapshot, baseSnapshot)
+
+  const { data: inserted, error: insertError } = await supabase
+    .from('study_snapshots')
+    .insert({
+      user_id: user.id,
+      schema_version: 2,
+      snapshot: merged,
+      source_device_id: deviceId,
+    })
+    .select('created_at')
+    .single()
+
+  if (insertError) throw insertError
+
+  const syncState = {
+    lastSyncedAt: inserted.created_at,
+    remoteCreatedAt: remoteRow?.created_at || null,
+    baseSnapshot: merged,
+  }
+  saveMergedLocally(merged, syncState)
+
+  return {
+    syncedAt: inserted.created_at,
+    summary: summarizeStudyData(merged),
+  }
 }
 
 export async function getLatestBackupInfo() {
@@ -118,10 +198,17 @@ export async function restoreLatestStudyData() {
     writeJSON(KEYS.progress, snapshot.progress),
     writeJSON(KEYS.questionStats, snapshot.questionStats || {}),
     writeJSON(KEYS.bookmarks, snapshot.bookmarks || {}),
+    writeJSON(KEYS.bookmarkSyncState, snapshot.bookmarkState || {}),
+    writeJSON(KEYS.syncState, {
+      lastSyncedAt: data.created_at,
+      remoteCreatedAt: data.created_at,
+      baseSnapshot: snapshot,
+    }),
   ]
   if (writes.some((saved) => !saved)) {
     throw new Error('The backup was downloaded, but this browser could not save all restored data.')
   }
+  notifyStorageSync([KEYS.progress, KEYS.questionStats, KEYS.bookmarks])
   return data.created_at
 }
 

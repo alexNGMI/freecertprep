@@ -627,11 +627,11 @@ key = random() ** (1 / weight)
               progress for that cert.
             </P>
 
-            <H3>Optional account backup</H3>
+            <H3>Optional account sync</H3>
             <P>
-              The Account page supports passwordless email sign-in. Signed-in learners can explicitly back up all three study-data
-              groups to Supabase and restore the newest snapshot on another browser. This is manual snapshot backup, not continuous
-              automatic synchronization; the local browser remains the active study store.
+              The Account page supports passwordless email sign-in. Signed-in learners can use Sync now to safely combine progress,
+              Smart Practice statistics, and bookmarks with Supabase across browsers. Explicit recovery backup and restore controls
+              remain available. Sync is user-triggered rather than automatic in the background, and local study remains available.
             </P>
 
             <H3>Privacy and account controls</H3>
@@ -879,11 +879,11 @@ key = random() ** (1 / weight)
                 items: [
                   '1. First-use experience - complete: homepage entry choices, A+ Core 1 guidance, explicit path-card actions, and mobile/desktop journey verification.',
                   '2. Visual consistency - complete: shared public-page typography, section headings, buttons, surfaces, interaction motion, card radius, and mobile overflow verification.',
-                  '3. Account experience - complete: clear identity state, local/cloud summaries, backup timestamps, action-specific loading, restore confirmation, and honest manual-backup language.',
+                  '3. Account experience - complete: clear identity state, local/cloud summaries, merge-aware Sync now, recovery backups, action-specific loading, restore confirmation, and honest manual-sync language.',
                   '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
                   '5. Micro-polish - complete: accessible loading context, reduced-motion support, actionable empty states, viewport-safe tooltips, semantic feedback announcements, and focused regression coverage.',
                   '6. Full browser walkthrough - complete: all live dashboards and critical public, study, account, reporting, results, and docs journeys are covered across desktop and mobile.',
-                  'Polish program complete. Next: activate the June 24 backend migrations, then use production feedback to prioritize merge-aware sync, domain email, local durability, and maintainability.',
+                  'Polish program complete. Merge-aware manual sync is now implemented. Next: activate the June 24 backend migrations, validate a real two-device sync, and set up domain support/admin email.',
                 ],
               },
               {

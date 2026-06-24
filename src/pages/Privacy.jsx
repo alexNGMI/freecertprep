@@ -25,7 +25,7 @@ export default function Privacy() {
         <PageEyebrow>Privacy and data controls</PageEyebrow>
         <PageTitle className="mt-3">Study without an account. Control your account data.</PageTitle>
         <PageLead className="mt-5">
-          freecertprep is local-first. An optional email account adds manual cloud backup and durable question reporting, but it is not required for studying.
+          freecertprep is local-first. An optional email account adds user-triggered cross-device sync, recovery backup, and durable question reporting, but it is not required for studying.
         </PageLead>
         <p className="mt-4 text-xs font-bold uppercase tracking-wider text-zinc-600">Effective June 24, 2026</p>
 
@@ -36,8 +36,8 @@ export default function Privacy() {
           <PrivacyCard icon={Mail} title="Optional account">
             Supabase Auth stores your email address and sign-in metadata so passwordless sign-in works. Signing in is not consent to product or marketing email.
           </PrivacyCard>
-          <PrivacyCard icon={Cloud} title="Manual cloud backup">
-            When you choose Back up this device, progress, question statistics, and bookmarks are saved as a cloud snapshot associated with your account. Restore downloads the newest snapshot into the current browser.
+          <PrivacyCard icon={Cloud} title="Manual account sync">
+            When you choose Sync now, local progress, question statistics, and bookmark changes are combined with the newest cloud snapshot. Recovery backup saves an explicit snapshot, and restore downloads the newest snapshot into the current browser.
           </PrivacyCard>
           <PrivacyCard icon={FileWarning} title="Question reports">
             Signed-in reports store the certification, question ID, category, message, status, and your account identifier. If the account is deleted, the report may remain for content integrity but its reporter link is removed.

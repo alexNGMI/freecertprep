@@ -16,8 +16,10 @@ vi.mock('../lib/supabase', () => ({
 import {
   backupStudyData,
   getLatestBackupInfo,
+  getSyncInfo,
   restoreLatestStudyData,
   summarizeStudyData,
+  syncStudyData,
 } from '../lib/accountSync'
 
 describe('account study-data sync', () => {
@@ -42,7 +44,7 @@ describe('account study-data sync', () => {
     expect(new Date(createdAt).toString()).not.toBe('Invalid Date')
     expect(insert).toHaveBeenCalledWith(expect.objectContaining({
       user_id: 'user-1',
-      schema_version: 1,
+      schema_version: 2,
       snapshot: expect.objectContaining({
         progress: expect.any(Object),
         questionStats: expect.any(Object),
@@ -122,5 +124,96 @@ describe('account study-data sync', () => {
     expect(JSON.parse(localStorage.getItem(KEYS.progress))).toEqual(snapshot.progress)
     expect(JSON.parse(localStorage.getItem(KEYS.questionStats))).toEqual(snapshot.questionStats)
     expect(JSON.parse(localStorage.getItem(KEYS.bookmarks))).toEqual(snapshot.bookmarks)
+    expect(JSON.parse(localStorage.getItem(KEYS.syncState))).toMatchObject({
+      lastSyncedAt: '2026-06-23T20:00:00Z',
+      baseSnapshot: snapshot,
+    })
+  })
+
+  it('merges the latest cloud snapshot with new local work and saves the new baseline', async () => {
+    const baseSnapshot = {
+      progress: { net: { quizHistory: [{ timestamp: 1 }], examHistory: [] } },
+      questionStats: { net: { q1: { attempts: 2, correct: 1, lastSeen: 10 } } },
+      bookmarks: { net: ['q1'] },
+      bookmarkState: { net: { q1: { present: true, changedAt: 10 } } },
+    }
+    localStorage.setItem(KEYS.progress, JSON.stringify({
+      net: { quizHistory: [{ timestamp: 1 }, { timestamp: 2 }], examHistory: [] },
+    }))
+    localStorage.setItem(KEYS.questionStats, JSON.stringify({
+      net: { q1: { attempts: 3, correct: 2, lastSeen: 20 } },
+    }))
+    localStorage.setItem(KEYS.bookmarks, JSON.stringify({ net: ['q1'] }))
+    localStorage.setItem(KEYS.bookmarkSyncState, JSON.stringify(baseSnapshot.bookmarkState))
+    localStorage.setItem(KEYS.syncState, JSON.stringify({
+      lastSyncedAt: '2026-06-23T19:00:00Z',
+      baseSnapshot,
+    }))
+
+    const remoteSnapshot = {
+      ...baseSnapshot,
+      progress: { net: { quizHistory: [{ timestamp: 1 }], examHistory: [{ timestamp: 3 }] } },
+      questionStats: { net: { q1: { attempts: 4, correct: 2, lastSeen: 30 } } },
+    }
+    const maybeSingle = vi.fn().mockResolvedValue({
+      data: {
+        snapshot: remoteSnapshot,
+        created_at: '2026-06-23T20:00:00Z',
+        source_device_id: 'other-device',
+      },
+      error: null,
+    })
+    const remoteSelect = vi.fn().mockReturnValue({
+      eq: vi.fn().mockReturnValue({
+        order: vi.fn().mockReturnValue({
+          limit: vi.fn().mockReturnValue({ maybeSingle }),
+        }),
+      }),
+    })
+    const single = vi.fn().mockResolvedValue({
+      data: { created_at: '2026-06-23T21:00:00Z' },
+      error: null,
+    })
+    const insertSelect = vi.fn().mockReturnValue({ single })
+    const insert = vi.fn().mockReturnValue({ select: insertSelect })
+    from
+      .mockReturnValueOnce({ select: remoteSelect })
+      .mockReturnValueOnce({ insert })
+
+    await expect(syncStudyData()).resolves.toMatchObject({
+      syncedAt: '2026-06-23T21:00:00Z',
+      summary: { sessions: 3, trackedQuestions: 1 },
+    })
+
+    const savedStats = JSON.parse(localStorage.getItem(KEYS.questionStats))
+    expect(savedStats.net.q1).toMatchObject({ attempts: 5, correct: 3, lastSeen: 30 })
+    const savedProgress = JSON.parse(localStorage.getItem(KEYS.progress))
+    expect(savedProgress.net.quizHistory).toHaveLength(2)
+    expect(savedProgress.net.examHistory).toHaveLength(1)
+    expect(JSON.parse(localStorage.getItem(KEYS.syncState))).toMatchObject({
+      lastSyncedAt: '2026-06-23T21:00:00Z',
+      baseSnapshot: { schemaVersion: 2 },
+    })
+  })
+
+  it('reports the locally recorded last successful sync', async () => {
+    localStorage.setItem(KEYS.syncState, JSON.stringify({
+      lastSyncedAt: '2026-06-23T21:00:00Z',
+      baseSnapshot: {
+        progress: { net: { quizHistory: [], examHistory: [] } },
+        questionStats: {},
+        bookmarks: {},
+      },
+    }))
+
+    await expect(getSyncInfo()).resolves.toEqual({
+      lastSyncedAt: '2026-06-23T21:00:00Z',
+      summary: {
+        certifications: 1,
+        sessions: 0,
+        trackedQuestions: 0,
+        bookmarks: 0,
+      },
+    })
   })
 })

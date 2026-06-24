@@ -15,8 +15,10 @@ const { auth, accountSync, accountPrivacy } = vi.hoisted(() => ({
   accountSync: {
     backupStudyData: vi.fn(),
     getLatestBackupInfo: vi.fn(),
+    getSyncInfo: vi.fn(),
     restoreLatestStudyData: vi.fn(),
     summarizeStudyData: vi.fn(),
+    syncStudyData: vi.fn(),
   },
   accountPrivacy: {
     deleteAccount: vi.fn(),
@@ -49,6 +51,7 @@ describe('Account authentication', () => {
     auth.signInWithOtp.mockResolvedValue({ error: null })
     auth.signOut.mockResolvedValue({ error: null })
     accountSync.getLatestBackupInfo.mockResolvedValue(null)
+    accountSync.getSyncInfo.mockResolvedValue(null)
     accountSync.summarizeStudyData.mockReturnValue({
       certifications: 0,
       sessions: 0,
@@ -57,6 +60,15 @@ describe('Account authentication', () => {
     })
     accountSync.backupStudyData.mockResolvedValue('2026-06-23T20:00:00Z')
     accountSync.restoreLatestStudyData.mockResolvedValue('2026-06-23T20:00:00Z')
+    accountSync.syncStudyData.mockResolvedValue({
+      syncedAt: '2026-06-23T20:00:00Z',
+      summary: {
+        certifications: 2,
+        sessions: 4,
+        trackedQuestions: 30,
+        bookmarks: 3,
+      },
+    })
     accountPrivacy.exportAccountData.mockResolvedValue({})
     accountPrivacy.deleteAccount.mockResolvedValue(true)
   })
@@ -114,6 +126,15 @@ describe('Account authentication', () => {
         bookmarks: 3,
       },
     })
+    accountSync.getSyncInfo.mockResolvedValue({
+      lastSyncedAt: '2026-06-23T20:00:00Z',
+      summary: {
+        certifications: 2,
+        sessions: 4,
+        trackedQuestions: 30,
+        bookmarks: 3,
+      },
+    })
 
     renderAccount()
 
@@ -125,6 +146,22 @@ describe('Account authentication', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Restore backup' }))
     await waitFor(() => expect(accountSync.restoreLatestStudyData).toHaveBeenCalled())
+  })
+
+  it('merges local and cloud study data when the learner syncs', async () => {
+    auth.getSession.mockResolvedValue({
+      data: { session: { user: { email: 'learner@example.com' } } },
+      error: null,
+    })
+
+    renderAccount()
+
+    await screen.findByText('learner@example.com')
+    fireEvent.click(screen.getByRole('button', { name: 'Sync now' }))
+
+    await waitFor(() => expect(accountSync.syncStudyData).toHaveBeenCalled())
+    expect(await screen.findByText(/Sync complete/i)).toBeTruthy()
+    expect(screen.getByText('2 certs, 4 sessions, 30 tracked questions, 3 bookmarks')).toBeTruthy()
   })
 
   it('exports account data and requires DELETE before permanent deletion', async () => {
