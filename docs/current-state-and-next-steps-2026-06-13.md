@@ -338,6 +338,7 @@ Next:
 - apply the June 24 admin migration and promote the first production administrator;
 - apply and verify the June 24 account privacy-controls migration with a disposable test account;
 - set up domain email for support/admin;
+- activate the repository-ready `/support` email action with `VITE_SUPPORT_EMAIL` after the domain route exists;
 - add explicit product-email opt-in separate from authentication;
 - complete a real two-device production sync walkthrough;
 

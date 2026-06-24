@@ -883,7 +883,7 @@ key = random() ** (1 / weight)
                   '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
                   '5. Micro-polish - complete: accessible loading context, reduced-motion support, actionable empty states, viewport-safe tooltips, semantic feedback announcements, and focused regression coverage.',
                   '6. Full browser walkthrough - complete: all live dashboards and critical public, study, account, reporting, results, and docs journeys are covered across desktop and mobile.',
-                  'Polish program complete. Merge-aware manual sync is now implemented. Next: activate the June 24 backend migrations, validate a real two-device sync, and set up domain support/admin email.',
+                  'Polish program complete. Merge-aware manual sync and the /support product surface are implemented. Next: activate the June 24 backend migrations, validate a real two-device sync, and connect external domain forwarding and SMTP.',
                 ],
               },
               {
@@ -928,7 +928,10 @@ key = random() ** (1 / weight)
 
       <footer className="border-t border-white/5 bg-zinc-950/50 py-8 text-center text-sm text-zinc-600">
         <p>freecertprep — built for the community</p>
-        <Link to="/privacy" className="mt-2 inline-flex font-semibold text-zinc-500 hover:text-zinc-200">Privacy</Link>
+        <div className="mt-2 flex items-center justify-center gap-4 font-semibold">
+          <Link to="/support" className="text-zinc-500 hover:text-zinc-200">Support</Link>
+          <Link to="/privacy" className="text-zinc-500 hover:text-zinc-200">Privacy</Link>
+        </div>
       </footer>
     </div>
   )

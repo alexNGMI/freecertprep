@@ -1,0 +1,112 @@
+import { createElement } from 'react'
+import { Link } from 'react-router-dom'
+import { BookOpenCheck, CircleHelp, FileWarning, LockKeyhole, Mail } from 'lucide-react'
+import BrandedName from '../components/BrandedName'
+import { Button } from '../components/ui/button'
+import { PageEyebrow, PageLead, PageTitle, Surface } from '../components/ui/surface'
+import { useDocumentMeta } from '../hooks/useDocumentMeta'
+import { supportEmail, supportMailto } from '../config/contact'
+
+export default function Support() {
+  useDocumentMeta({
+    title: 'Support',
+    description: 'Get help with freecertprep accounts, study progress, question content, and privacy controls.',
+    path: '/support',
+  })
+
+  return (
+    <div className="min-h-screen bg-zinc-950 text-zinc-100">
+      <header className="border-b border-white/5 bg-zinc-950/85">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+          <Link to="/"><BrandedName /></Link>
+          <nav className="flex items-center gap-5 text-sm font-bold text-zinc-400">
+            <Link to="/docs" className="hover:text-zinc-100">Docs</Link>
+            <Link to="/account" className="hover:text-zinc-100">Account</Link>
+          </nav>
+        </div>
+      </header>
+
+      <main className="mx-auto max-w-5xl px-6 py-12 md:py-16">
+        <PageEyebrow>Help and contact</PageEyebrow>
+        <PageTitle className="mt-3">Get unstuck without sending sensitive information.</PageTitle>
+        <PageLead className="mt-5">
+          Use the path that matches the problem. Question-content reports stay attached to the exact question; account and technical issues can go to support.
+        </PageLead>
+
+        <section className="mt-10 grid gap-5 md:grid-cols-2">
+          <Surface className="p-6 md:p-7">
+            <Mail className="h-6 w-6 text-sky-300" />
+            <h2 className="mt-4 text-2xl font-black text-zinc-50">Account or technical help</h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              Include the page you were using, what you expected, what happened, and the browser or device type. Never send passwords, magic-link codes, or payment information.
+            </p>
+            {supportMailto ? (
+              <Button as="a" href={supportMailto} variant="accent" accentColor="#38bdf8" className="mt-6">
+                <Mail className="h-4 w-4" />
+                Email {supportEmail}
+              </Button>
+            ) : (
+              <div className="mt-6 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3">
+                <p className="text-sm font-bold text-amber-100">Support email activation is in progress.</p>
+                <p className="mt-1 text-xs leading-relaxed text-amber-100/70">
+                  Account controls and local exports remain available while the custom-domain mailbox is being connected.
+                </p>
+              </div>
+            )}
+          </Surface>
+
+          <Surface className="p-6 md:p-7">
+            <FileWarning className="h-6 w-6 text-amber-300" />
+            <h2 className="mt-4 text-2xl font-black text-zinc-50">Question looks wrong</h2>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              Open that question in practice or review mode and select <strong className="text-zinc-200">Report issue</strong>. That preserves the certification, question ID, and problem category for review.
+            </p>
+            <p className="mt-5 text-xs font-bold uppercase tracking-wider text-zinc-600">
+              Best for wrong answers, outdated facts, unclear explanations, and wording problems
+            </p>
+          </Surface>
+
+          <SupportLink
+            icon={BookOpenCheck}
+            title="How the study tools work"
+            body="Read the learner guide for diagnostics, mastery maps, practice modes, results, sync, and recovery."
+            to="/docs"
+            label="Open learner docs"
+          />
+          <SupportLink
+            icon={LockKeyhole}
+            title="Account and data controls"
+            body="Sign in, sync progress, export account data, restore a recovery snapshot, or delete the account."
+            to="/account"
+            label="Open account controls"
+          />
+        </section>
+
+        <Surface className="mt-6 p-6 md:p-7">
+          <div className="flex gap-4">
+            <CircleHelp className="mt-1 h-5 w-5 shrink-0 text-zinc-500" />
+            <div>
+              <h2 className="text-xl font-black text-zinc-50">What support cannot do</h2>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                freecertprep cannot access certification-provider accounts, schedule exams, issue refunds for third-party courses, or guarantee an exam result. It can help with this site and review reported content.
+              </p>
+            </div>
+          </div>
+        </Surface>
+      </main>
+    </div>
+  )
+}
+
+function SupportLink({ icon: Icon, title, body, to, label }) {
+  return (
+    <Surface className="p-6 md:p-7">
+      {createElement(Icon, { className: 'h-6 w-6 text-emerald-300' })}
+      <h2 className="mt-4 text-xl font-black text-zinc-50">{title}</h2>
+      <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
+      <Button as={Link} to={to} variant="secondary" className="mt-5">
+        {label}
+      </Button>
+    </Surface>
+  )
+}

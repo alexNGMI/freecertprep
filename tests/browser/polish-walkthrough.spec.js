@@ -135,3 +135,18 @@ test('privacy is public while cloud account controls require sign-in', async ({ 
   )
   expect(overflow).toBeLessThanOrEqual(1)
 })
+
+test('support separates technical help from contextual question reports', async ({ page }) => {
+  await page.goto('/support')
+
+  await expect(page.getByRole('heading', { name: 'Get unstuck without sending sensitive information.' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Question looks wrong' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Open learner docs' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Open account controls' })).toBeVisible()
+  await expect(page.getByText('Support email activation is in progress.')).toBeVisible()
+
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  )
+  expect(overflow).toBeLessThanOrEqual(1)
+})

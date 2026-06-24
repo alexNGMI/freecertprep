@@ -9,7 +9,7 @@ Status updated: June 24, 2026
 | Step | Status | Current reality |
 | --- | --- | --- |
 | 1. Cloudflare hosting | Complete | Live at `https://freecertprep.a-gilbert2093.workers.dev`; Git pushes to `main` trigger deployment. |
-| 2. Domain email | Not started | Support/admin addresses still need a custom domain and mail routing/provider. |
+| 2. Domain email | Repository ready; activation pending | `/support`, centralized public-email configuration, safe fallback UX, and the operator runbook are complete. The domain, forwarding routes, outbound SMTP, and `VITE_SUPPORT_EMAIL` production value still require external setup. |
 | 3. Supabase Auth | Complete foundation | Magic-link sign-in, persistent sessions, sign-out, local and production redirect URLs, and anonymous fallback are live. |
 | 4. Progress sync | Manual sync complete | `Sync now` merges session history, question-stat deltas, and timestamped bookmark changes across devices. Recovery backup/restore remains available. Automatic background sync is not claimed. |
 | 5. Report incorrect info | Complete foundation | Signed-in reports persist to Supabase; every report also keeps a local fallback copy. |
@@ -151,6 +151,14 @@ Done when:
 - support/admin email can send and receive;
 - DNS checks pass;
 - Supabase auth emails can use an approved sender/domain when ready.
+
+Repository preparation completed June 24:
+
+- `/support` separates account/technical help from contextual question reports;
+- `VITE_SUPPORT_EMAIL` is the single public build setting;
+- the support action stays hidden behind honest activation copy until configured;
+- the private administrator address and all SMTP credentials remain outside the Vite client bundle;
+- `docs/domain-email-setup-runbook.md` defines Cloudflare forwarding, outbound SMTP, DNS, Supabase, and verification steps.
 
 ## Step 3: Supabase Auth
 

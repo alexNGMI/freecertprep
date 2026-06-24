@@ -17,7 +17,10 @@ export default function Privacy() {
       <header className="border-b border-white/5 bg-zinc-950/85">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <Link to="/"><BrandedName /></Link>
-          <Link to="/account" className="text-sm font-bold text-zinc-400 hover:text-zinc-100">Account</Link>
+          <nav className="flex items-center gap-5 text-sm font-bold text-zinc-400">
+            <Link to="/support" className="hover:text-zinc-100">Support</Link>
+            <Link to="/account" className="hover:text-zinc-100">Account</Link>
+          </nav>
         </div>
       </header>
 

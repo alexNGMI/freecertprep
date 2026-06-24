@@ -47,7 +47,7 @@ test('home, catalog, docs, and live cert dashboard render', async ({ page }) => 
   await expect(page.getByRole('heading', { name: 'freecertprep' })).toBeVisible()
 
   await page.goto('/account')
-  await expect(page.getByRole('heading', { name: /Keep studying locally/i })).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Study anywhere without losing your place/i })).toBeVisible()
   await expect(page.getByRole('button', { name: /Send magic link/i })).toBeVisible()
   await expect(page.getByText(/Optional account layer/i)).toBeVisible()
 

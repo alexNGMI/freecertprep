@@ -204,6 +204,7 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-5 text-sm">
             <p>Built for the leap. Free forever.</p>
+            <Link to="/support" className="font-semibold text-zinc-400 hover:text-zinc-100">Support</Link>
             <Link to="/privacy" className="font-semibold text-zinc-400 hover:text-zinc-100">Privacy</Link>
           </div>
         </div>
