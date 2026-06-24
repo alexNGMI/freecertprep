@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getCert } from '../data/certs'
+import LoadingState from '../components/LoadingState'
+import { Button } from '../components/ui/button'
 
 const CertContext = createContext(null)
 
@@ -73,35 +75,26 @@ export function CertProvider({ children, certId: certIdProp, light = false }) {
           <p className={`text-sm leading-relaxed ${dark ? 'text-zinc-400' : 'text-slate-500'}`}>
             The question bank failed to download. This is usually a network blip — your saved progress is safe.
           </p>
-          <button
+          <Button
             onClick={() => window.location.reload()}
-            className={`px-6 py-3 rounded-xl text-sm font-bold transition-all ${dark ? 'bg-[#f1be32] text-zinc-950 hover:brightness-110' : 'bg-rose-600 text-white hover:bg-rose-700'}`}
+            variant="accent"
+            accentColor={dark ? '#f1be32' : '#e11d48'}
           >
             Try again
-          </button>
+          </Button>
         </div>
       </div>
     )
   }
 
   if (cert?.id !== certConfig.id) {
-    if (light) {
-      return (
-        <div className="min-h-screen bg-white flex items-center justify-center">
-          <div className="text-center space-y-4 animate-fade-up">
-            <div className="w-10 h-10 border-3 border-rose-600 border-t-transparent rounded-full animate-spin mx-auto" />
-            <p className="text-slate-400 text-sm font-bold uppercase tracking-wider">Loading questions…</p>
-          </div>
-        </div>
-      )
-    }
     return (
-      <div className="min-h-screen bg-[#0a0a23] flex items-center justify-center">
-        <div className="text-center space-y-4 animate-fade-up">
-          <div className="w-10 h-10 border-3 border-[#f1be32] border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-[#a5abc4] text-sm font-bold uppercase tracking-wider">Loading questions…</p>
-        </div>
-      </div>
+      <LoadingState
+        label="Loading questions"
+        detail="Preparing this certification workspace."
+        fullScreen
+        light={light}
+      />
     )
   }
 

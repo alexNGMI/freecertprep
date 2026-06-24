@@ -35,6 +35,7 @@ export function Button({
         'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-300',
         'disabled:pointer-events-none disabled:opacity-45',
         'hover:-translate-y-0.5 active:translate-y-0',
+        'motion-reduce:transform-none motion-reduce:transition-none',
         variants[variant],
         sizes[size],
         className,

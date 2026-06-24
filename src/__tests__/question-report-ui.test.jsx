@@ -26,7 +26,7 @@ describe('ReportIssueButton', () => {
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'The command output needs a clearer reason.' } })
     fireEvent.click(screen.getByRole('button', { name: /Save report/i }))
 
-    expect(await screen.findByText(/Report saved locally/i)).toBeTruthy()
+    expect((await screen.findByRole('status')).textContent).toMatch(/Report saved locally/i)
     const reports = JSON.parse(localStorage.getItem(KEYS.issueReports))
     expect(reports).toHaveLength(1)
     expect(reports[0]).toMatchObject({

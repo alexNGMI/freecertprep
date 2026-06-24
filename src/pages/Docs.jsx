@@ -762,7 +762,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,296 Vitest tests across 42 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,297 Vitest tests across 43 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -860,6 +860,7 @@ key = random() ** (1 / weight)
                   'Flagship audit expansion - CLF-C02, SAA-C03, Splunk Core User, and CCST Networking now have named quality gates for domain/form allocation, format coverage, answer metadata, explanations, evidence, uniqueness, and randomized forms.',
                   'Backend MVP planning - live domain hosting, domain email, optional email sign-in, progress sync, report-incorrect-info workflow, and admin report review now have a Cloudflare/Supabase execution plan and initial Supabase schema draft.',
                   'Backend MVP foundation - production Supabase magic-link authentication, manual progress/stat/bookmark backup and restore, and signed-in question-report persistence are live while anonymous study remains available.',
+                  'Product polish stage 5 - shared accessible loading states, reduced-motion support, actionable empty practice and results states, viewport-safe tooltips, and announced account/dashboard/report feedback are complete.',
                 ],
               },
               {
@@ -870,7 +871,7 @@ key = random() ** (1 / weight)
                   '2. Visual consistency - complete: shared public-page typography, section headings, buttons, surfaces, interaction motion, card radius, and mobile overflow verification.',
                   '3. Account experience - complete: clear identity state, local/cloud summaries, backup timestamps, action-specific loading, restore confirmation, and honest manual-backup language.',
                   '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
-                  '5. Micro-polish - improve loading, empty, focus, motion, tooltip, wording, and responsive states.',
+                  '5. Micro-polish - complete: accessible loading context, reduced-motion support, actionable empty states, viewport-safe tooltips, semantic feedback announcements, and focused regression coverage.',
                   '6. Full browser walkthrough - test every critical learner journey on desktop and mobile and repair remaining friction.',
                   'After polish: merge-aware sync, admin report review, domain email, privacy controls, local durability, and maintainability remain the operational backlog.',
                 ],

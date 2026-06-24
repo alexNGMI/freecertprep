@@ -335,26 +335,42 @@ export default function Quiz() {
                 </div>
               </Surface>
             )}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-sm text-zinc-500">
-                {activeMode === 'bookmarked' && poolQuestions.length === 0
-                  ? 'No bookmarks yet. Star questions during practice to fill this list.'
-                  : activeMode === 'smart'
+            {poolQuestions.length === 0 && activeMode !== 'smart' ? (
+              <Surface className="flex flex-col gap-5 p-5 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="font-bold text-zinc-100">Nothing is queued here yet.</p>
+                  <p className="mt-1 text-sm leading-relaxed text-zinc-500">
+                    Start Smart Practice to build history, bookmarks, and review activity.
+                  </p>
+                </div>
+                <Button
+                  onClick={() => setSelectedDomain(SMART_PRACTICE)}
+                  variant="secondary"
+                  className="shrink-0"
+                >
+                  Open Smart Practice
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </Surface>
+            ) : (
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm text-zinc-500">
+                  {activeMode === 'smart'
                     ? `${BLOCK_SIZE} questions selected from weighted weak areas.`
                     : `${poolQuestions.length.toLocaleString()} available.`}
-              </p>
-              <Button
-                id="start-quiz-btn"
-                onClick={startQuiz}
-                disabled={poolQuestions.length === 0}
-                variant="accent"
-                size="lg"
-                accentColor={accentColor}
-              >
-                Start Practice Session
-                <ArrowRight className="h-5 w-5" />
-              </Button>
-            </div>
+                </p>
+                <Button
+                  id="start-quiz-btn"
+                  onClick={startQuiz}
+                  variant="accent"
+                  size="lg"
+                  accentColor={accentColor}
+                >
+                  Start Practice Session
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </div>
+            )}
           </div>
         )}
       </div>

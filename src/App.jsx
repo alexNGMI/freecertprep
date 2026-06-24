@@ -6,6 +6,7 @@ import Catalog from './pages/Catalog'
 import CareerPath from './pages/CareerPath'
 import Docs from './pages/Docs'
 import CertLayout from './components/CertLayout'
+import LoadingState from './components/LoadingState'
 import { CertProvider } from './hooks/useCert'
 
 const Account = lazy(() => import('./pages/Account'))
@@ -43,11 +44,7 @@ function ScrollToTop() {
 }
 
 function PageLoader() {
-  return (
-    <div className="flex items-center justify-center py-20">
-      <div className="w-8 h-8 border-3 border-[#f1be32] border-t-transparent rounded-full animate-spin" />
-    </div>
-  )
+  return <LoadingState label="Opening page" detail="Loading the next workspace." />
 }
 
 function CertRoutes() {

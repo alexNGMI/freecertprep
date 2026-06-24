@@ -114,11 +114,15 @@ export default function ReportIssueButton({ certId, question, context = 'questio
               </div>
 
               {status && (
-                <p className={`rounded-xl border px-4 py-3 text-sm font-semibold ${
+                <p
+                  role={status === 'error' ? 'alert' : 'status'}
+                  aria-live={status === 'error' ? 'assertive' : 'polite'}
+                  className={`rounded-xl border px-4 py-3 text-sm font-semibold ${
                   status === 'saved' || status === 'submitted'
                     ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
                     : 'border-rose-500/30 bg-rose-500/10 text-rose-200'
-                }`}>
+                }`}
+                >
                   {status === 'submitted'
                     ? 'Report submitted for review.'
                     : status === 'saved'

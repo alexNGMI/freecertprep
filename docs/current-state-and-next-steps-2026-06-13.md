@@ -96,7 +96,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,296 tests pass across 42 files.
+- 1,297 tests pass across 43 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -166,7 +166,17 @@ Stage 4 is complete:
 - result actions now use the shared button hierarchy so focused repair is primary and retake is deliberately secondary;
 - the workflow navigator uses two compact rows on mobile and was verified without horizontal overflow.
 
-Stage 5, micro-polish, is next. Catalog expansion remains frozen throughout the polish program.
+Stage 5 is complete:
+
+- route and certification loading now use one accessible status component with useful context instead of silent spinners;
+- loading, button, and page motion now respect the learner's reduced-motion preference;
+- empty saved-practice modes offer a direct route back to Smart Practice instead of ending at a disabled button;
+- empty results now explain what is missing and return the learner to the dashboard through the shared surface and button system;
+- account, dashboard, and question-report feedback now announces success and error states to assistive technology;
+- tooltips now stay inside the viewport and wrap longer guidance cleanly;
+- focused regression coverage protects the loading announcement and question-report status behavior.
+
+Stage 6, the full desktop and mobile browser walkthrough, is next. Catalog expansion remains frozen throughout the polish program.
 
 ### Network+ Personal Learning Loop - Completed June 15, 2026
 

@@ -302,13 +302,17 @@ export default function Account() {
               </>
             )}
             {notice && (
-              <p className={`mt-4 rounded-xl border px-4 py-3 text-sm font-semibold ${
+              <p
+                role={notice.kind === 'error' ? 'alert' : 'status'}
+                aria-live={notice.kind === 'error' ? 'assertive' : 'polite'}
+                className={`mt-4 rounded-xl border px-4 py-3 text-sm font-semibold ${
                 notice.kind === 'success'
                   ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
                   : notice.kind === 'error'
                     ? 'border-red-500/30 bg-red-500/10 text-red-200'
-                  : 'border-sky-500/30 bg-sky-500/10 text-sky-200'
-              }`}>
+                    : 'border-sky-500/30 bg-sky-500/10 text-sky-200'
+              }`}
+              >
                 {notice.message}
               </p>
             )}

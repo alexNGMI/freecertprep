@@ -356,10 +356,14 @@ export default function Dashboard() {
           </div>
 
           {notice && (
-            <div className={cn(
-              'rounded-xl border px-4 py-2 text-sm font-semibold',
-              notice.kind === 'error' ? 'border-rose-500/30 bg-rose-500/10 text-rose-200' : 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200',
-            )}>
+            <div
+              role={notice.kind === 'error' ? 'alert' : 'status'}
+              aria-live={notice.kind === 'error' ? 'assertive' : 'polite'}
+              className={cn(
+                'rounded-xl border px-4 py-2 text-sm font-semibold',
+                notice.kind === 'error' ? 'border-rose-500/30 bg-rose-500/10 text-rose-200' : 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200',
+              )}
+            >
               {notice.msg}
             </div>
           )}

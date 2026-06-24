@@ -161,7 +161,7 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,296 tests across 42 files), GitHub Actions CI
+- Vitest (1,297 tests across 43 files), GitHub Actions CI
 - `localStorage` for anonymous progress plus optional Supabase account snapshots and issue-report persistence
 - Supabase Auth and Postgres with row-level security
 - JSON-based question banks, lazy-loaded per cert

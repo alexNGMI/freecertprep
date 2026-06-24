@@ -7,6 +7,7 @@ import { buildExamDebrief } from '../utils/learning-loop'
 import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
 import StudyLoopNav from '../components/StudyLoopNav'
 import { Button } from '../components/ui/button'
+import { Surface } from '../components/ui/surface'
 
 export default function Results() {
   const cert = useCert()
@@ -19,15 +20,15 @@ export default function Results() {
 
   if (!answers) {
     return (
-      <div className="text-center py-20 space-y-6 animate-fade-up">
-        <p className="text-zinc-400 text-lg">No session data found.</p>
-        <Link 
-          to={`/${cert.id}`} 
-          className="inline-block px-8 py-3 rounded-lg text-sm font-semibold bg-zinc-900 border border-white/10 text-zinc-100 hover:bg-zinc-800 transition-all"
-        >
+      <Surface className="mx-auto max-w-xl p-8 text-center md:p-12">
+        <h1 className="text-2xl font-black text-zinc-50">No completed session to review.</h1>
+        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-zinc-400">
+          Finish a practice or exam session first, then your score and next steps will appear here.
+        </p>
+        <Button as={Link} to={`/${cert.id}`} variant="primary" className="mt-6">
           Return to Dashboard
-        </Link>
-      </div>
+        </Button>
+      </Surface>
     )
   }
 
