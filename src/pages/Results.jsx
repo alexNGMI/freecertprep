@@ -5,6 +5,8 @@ import QuestionCard from '../components/QuestionCard'
 import { readinessResult, readinessTarget } from '../utils/readiness'
 import { buildExamDebrief } from '../utils/learning-loop'
 import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
+import StudyLoopNav from '../components/StudyLoopNav'
+import { Button } from '../components/ui/button'
 
 export default function Results() {
   const cert = useCert()
@@ -77,6 +79,7 @@ export default function Results() {
   return (
     <div className="space-y-12 animate-fade-up pt-4 max-w-4xl mx-auto">
       <h1 className="text-4xl md:text-5xl font-bold text-zinc-100 text-center tracking-tight">Readiness Results</h1>
+      {learningLoopConfig && <StudyLoopNav cert={cert} current="debrief" />}
 
       <div className="glass-panel rounded-2xl p-10 text-center max-w-lg mx-auto relative overflow-hidden shadow-2xl">
         <div 
@@ -147,15 +150,15 @@ export default function Results() {
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link to={nextPracticeLink} className="rounded-xl px-5 py-3 text-center text-sm font-bold text-zinc-950" style={{ backgroundColor: cert.color }}>
+          <Button as={Link} to={nextPracticeLink} variant="accent" accentColor={cert.color}>
             {nextPracticeLabel}
-          </Link>
-          <Link to={`/${cert.id}/learning`} className="rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-zinc-200 hover:bg-white/5">
+          </Button>
+          <Button as={Link} to={`/${cert.id}/learning`} variant="secondary">
             Open study plan
-          </Link>
-          <Link to={`/${cert.id}/exam`} className="rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-zinc-200 hover:bg-white/5">
+          </Button>
+          <Button as={Link} to={`/${cert.id}/exam`} variant="ghost">
             Retake when ready
-          </Link>
+          </Button>
         </div>
       </div>
 
@@ -219,13 +222,13 @@ export default function Results() {
                 {debrief.bestNext.title} produced {debrief.bestNext.misses} miss{debrief.bestNext.misses === 1 ? '' : 'es'} on this form. Practice this target first, then use the mastery map or case set to confirm the repair.
               </p>
               <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-                <Link to={`/${cert.id}/quiz?objective=${debrief.bestNext.id}`} className="rounded-xl px-5 py-3 text-center text-sm font-bold text-zinc-950" style={{ backgroundColor: cert.color }}>
+                <Button as={Link} to={`/${cert.id}/quiz?objective=${debrief.bestNext.id}`} variant="accent" accentColor={cert.color}>
                   Practice this target
-                </Link>
+                </Button>
                 {debrief.practicalMisses > 0 && (
-                  <Link to={`/${cert.id}/learning/cases`} className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-5 py-3 text-center text-sm font-bold text-amber-200 hover:bg-amber-500/20">
+                  <Button as={Link} to={`/${cert.id}/learning/cases`} variant="secondary">
                     Practice applied cases
-                  </Link>
+                  </Button>
                 )}
               </div>
             </div>
@@ -265,39 +268,15 @@ export default function Results() {
             </p>
           )}
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to={`/${cert.id}/learning`} className="rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-bold text-zinc-200 hover:bg-white/5">
+            <Button as={Link} to={`/${cert.id}/learning`} variant="secondary">
               Open Mastery Map
-            </Link>
-            <Link to={`/${cert.id}/learning/cases`} className="rounded-xl border border-amber-500/30 bg-amber-500/10 px-5 py-3 text-center text-sm font-bold text-amber-200 hover:bg-amber-500/20">
+            </Button>
+            <Button as={Link} to={`/${cert.id}/learning/cases`} variant="secondary">
               Practice Applied Cases
-            </Link>
+            </Button>
           </div>
         </div>
       )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-        <Link
-          id="results-dashboard-btn"
-          to={`/${cert.id}`}
-          className="px-6 py-4 rounded-xl font-bold text-center border border-white/10 text-zinc-300 hover:bg-white/5 hover:text-white transition-all shadow-sm"
-        >
-          Dashboard
-        </Link>
-        <Link
-          id="results-practice-btn"
-          to={`/${cert.id}/quiz?mode=missed`}
-          className="px-6 py-4 rounded-xl font-bold text-center bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500 hover:text-white hover:shadow-[0_0_20px_-5px_#6366f1] transition-all"
-        >
-          Review Recent Misses
-        </Link>
-        <Link
-          id="results-retake-btn"
-          to={`/${cert.id}/exam`}
-          className="px-6 py-4 rounded-xl font-bold text-center bg-zinc-100 text-zinc-900 border hover:bg-white hover:scale-105 shadow-[0_5px_15px_-3px_rgba(255,255,255,0.3)] transition-all"
-        >
-          Retake Exam
-        </Link>
-      </div>
 
       {/* Review Questions Section */}
       {examQuestions && (

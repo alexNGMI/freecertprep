@@ -8,6 +8,7 @@ import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } fr
 import { Button } from '../components/ui/button'
 import { DomainBadge, Surface } from '../components/ui/surface'
 import { StudyHeader } from '../components/StudyHeader'
+import StudyLoopNav from '../components/StudyLoopNav'
 
 export default function LearningPlan() {
   const cert = useCert()
@@ -48,6 +49,7 @@ export default function LearningPlan() {
             </Button>
           )}
         />
+        <StudyLoopNav cert={cert} current="plan" />
 
         <Surface className="p-6 md:p-8">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
@@ -92,6 +94,7 @@ export default function LearningPlan() {
           </Button>
         )}
       />
+      <StudyLoopNav cert={cert} current="plan" />
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {Object.entries(MASTERY_LEVELS).map(([level, meta]) => (

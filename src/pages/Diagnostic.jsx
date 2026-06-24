@@ -12,6 +12,7 @@ import { QuestionNavigator, StudyWorkspace } from '../components/StudyWorkspace'
 import { StudyHeader } from '../components/StudyHeader'
 import { Button } from '../components/ui/button'
 import { Surface } from '../components/ui/surface'
+import StudyLoopNav from '../components/StudyLoopNav'
 
 export default function Diagnostic() {
   const cert = useCert()
@@ -86,6 +87,7 @@ export default function Diagnostic() {
             { label: 'Targets', value: learningObjectives.length, icon: Map },
           ]}
         />
+        <StudyLoopNav cert={cert} current="diagnostic" />
         <Surface className="grid gap-6 p-6 md:grid-cols-3">
           <Rule number="01" title="Answer cold" body="Use what you know now. Looking everything up would make the study plan less useful." />
           <Rule number="02" title="Skip honestly" body="An unanswered question is evidence that the target needs measurement, not a personal failure." />
@@ -137,6 +139,7 @@ export default function Diagnostic() {
             { label: 'Measured', value: `${result.length - counts.unmeasured}/${result.length}`, icon: Map },
           ]}
         />
+        <StudyLoopNav cert={cert} current="diagnostic" />
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {Object.entries(MASTERY_LEVELS).map(([level, meta]) => (
             <Surface key={level} className="p-5">

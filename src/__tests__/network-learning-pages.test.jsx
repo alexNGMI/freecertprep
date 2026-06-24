@@ -193,6 +193,7 @@ describe('Network+ learning pages', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'Get one honest baseline.' })).toBeTruthy()
+    expect(screen.getByRole('navigation', { name: 'Study workflow' })).toBeTruthy()
     expect(screen.getAllByRole('link', { name: 'Start diagnostic' }).length).toBeGreaterThan(0)
     expect(screen.getByText('The study plan is intentionally quiet until you have evidence. Take the diagnostic cold, skip what you do not know, then this page turns into a ranked repair plan instead of a list of every possible topic.')).toBeTruthy()
     expect(screen.queryByText('OSI reference model')).toBeNull()
@@ -206,6 +207,7 @@ describe('Network+ learning pages', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'Turn practice into a study plan.' })).toBeTruthy()
+    expect(screen.getByText('Mastery plan').closest('[aria-current="step"]')).toBeTruthy()
     expect(screen.getByText('OSI reference model')).toBeTruthy()
     expect(screen.getAllByText('Troubleshooting methodology').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Strong').length).toBeGreaterThan(0)

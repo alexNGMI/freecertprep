@@ -762,7 +762,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,295 Vitest tests across 41 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,296 Vitest tests across 42 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
@@ -869,7 +869,7 @@ key = random() ** (1 / weight)
                   '1. First-use experience - complete: homepage entry choices, A+ Core 1 guidance, explicit path-card actions, and mobile/desktop journey verification.',
                   '2. Visual consistency - complete: shared public-page typography, section headings, buttons, surfaces, interaction motion, card radius, and mobile overflow verification.',
                   '3. Account experience - complete: clear identity state, local/cloud summaries, backup timestamps, action-specific loading, restore confirmation, and honest manual-backup language.',
-                  '4. Study workflow - smooth diagnostic, mastery map, study plan, practice, simulation, and debrief transitions.',
+                  '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
                   '5. Micro-polish - improve loading, empty, focus, motion, tooltip, wording, and responsive states.',
                   '6. Full browser walkthrough - test every critical learner journey on desktop and mobile and repair remaining friction.',
                   'After polish: merge-aware sync, admin report review, domain email, privacy controls, local durability, and maintainability remain the operational backlog.',

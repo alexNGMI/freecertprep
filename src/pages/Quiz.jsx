@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { ArrowRight, Bookmark, Brain, CheckCircle2, History, Layers3, ListChecks, RotateCcw, Sparkles, Target } from 'lucide-react'
 import { motion as Motion } from 'motion/react'
 import { useCert } from '../hooks/useCert'
@@ -22,6 +22,7 @@ import { cn } from '../utils/cn'
 import { getDueReviewQuestions, getRecentMissQuestions } from '../utils/objective-progress'
 import { getQuestionObjectiveId } from '../utils/learning-loop'
 import { formatLearningTarget, getLearningLoopConfig, getLearningObjectives } from '../utils/learning-loop-config'
+import StudyLoopNav from '../components/StudyLoopNav'
 
 const BLOCK_SIZE = 10
 
@@ -281,6 +282,7 @@ export default function Quiz() {
             { label: 'Tracked', value: trackedCount, icon: Sparkles },
           ]}
         />
+        {learningLoopConfig && <StudyLoopNav cert={cert} current="practice" />}
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {modes.map(({ id, label, description, icon: Icon, accent, action, meta }) => {
@@ -377,6 +379,7 @@ export default function Quiz() {
             { label: 'Correct', value: `${correct}/${total}`, icon: ListChecks },
           ]}
         />
+        {learningLoopConfig && <StudyLoopNav cert={cert} current="practice" />}
         <Surface className="p-8 text-center md:p-12">
           <p className={cn('text-7xl font-black tracking-tight', passed ? 'text-emerald-400' : 'text-rose-400')}>{pct}%</p>
           <p className="mt-4 text-zinc-400">
@@ -393,6 +396,11 @@ export default function Quiz() {
               {isSmartPractice ? 'Next Smart Block' : 'New Block'}
             </Button>
             <Button onClick={() => changeMode()} variant="secondary" size="lg">Change Mode</Button>
+            {learningLoopConfig && (
+              <Button as={Link} to={`/${cert.id}/learning`} variant="secondary" size="lg">
+                Open mastery plan
+              </Button>
+            )}
           </div>
         </Surface>
         {learningObjectives.length > 0 && (() => {

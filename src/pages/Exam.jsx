@@ -9,6 +9,8 @@ import { Button } from '../components/ui/button'
 import { Surface } from '../components/ui/surface'
 import { readinessTarget } from '../utils/readiness'
 import { formatTime } from '../utils/time'
+import StudyLoopNav from '../components/StudyLoopNav'
+import { hasLearningLoop } from '../utils/learning-loop-config'
 
 export default function Exam() {
   const cert = useCert()
@@ -48,6 +50,7 @@ export default function Exam() {
             { label: 'Target', value: readinessTarget(cert), icon: ShieldCheck },
           ]}
         />
+        {hasLearningLoop(cert.id) && <StudyLoopNav cert={cert} current="exam" />}
 
         <Surface className="overflow-hidden">
           <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_340px]">
@@ -57,7 +60,7 @@ export default function Exam() {
                 <ExamMetric icon={Timer} label="Time limit" value={`${cert.examTime}m`} />
                 <ExamMetric icon={Gauge} label="Target" value={readinessTarget(cert)} />
               </div>
-              <div className="rounded-3xl border border-white/10 bg-zinc-900/60 p-5">
+              <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5">
                 <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Rules</p>
                 <ul className="mt-4 space-y-3 text-sm text-zinc-400">
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Navigate freely between questions.</li>

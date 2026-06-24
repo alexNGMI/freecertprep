@@ -96,7 +96,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,295 tests pass across 41 files.
+- 1,296 tests pass across 42 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -155,7 +155,18 @@ Stage 3 is complete:
 - the dashboard account link now says `Account & backup`;
 - signed-out and mobile account layouts were verified without horizontal overflow.
 
-Stage 4, study workflow, is next. Catalog expansion remains frozen throughout the polish program.
+Stage 4 is complete:
+
+- Diagnostic, Mastery Plan, Practice, Cases, Simulation, and Debrief now share one visible workflow navigator;
+- the navigator marks the current stage and links directly to every available adjacent checkpoint;
+- practice completion now offers the mastery plan alongside review, another block, and mode selection;
+- case completion now offers both mastery review and the readiness simulation;
+- exam setup shows its place in the wider study loop;
+- exam results use one authoritative next-action group and no longer repeat Dashboard, Recent Misses, and Retake commands below the debrief;
+- result actions now use the shared button hierarchy so focused repair is primary and retake is deliberately secondary;
+- the workflow navigator uses two compact rows on mobile and was verified without horizontal overflow.
+
+Stage 5, micro-polish, is next. Catalog expansion remains frozen throughout the polish program.
 
 ### Network+ Personal Learning Loop - Completed June 15, 2026
 

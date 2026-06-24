@@ -12,6 +12,7 @@ import { StudyHeader } from '../components/StudyHeader'
 import { StudyWorkspace } from '../components/StudyWorkspace'
 import { Button } from '../components/ui/button'
 import { Surface } from '../components/ui/surface'
+import StudyLoopNav from '../components/StudyLoopNav'
 
 const CASE_SIZE = 10
 
@@ -68,6 +69,7 @@ export default function CasePractice() {
             { label: 'Feedback', value: 'Immediate', icon: Network },
           ]}
         />
+        <StudyLoopNav cert={cert} current="cases" />
         <Surface className="p-6">
           <p className="mb-5 max-w-3xl text-sm leading-relaxed text-zinc-400">
             Case sets pull applied question formats first, then balance the set across troubleshooting evidence instead of repeating one style of prompt.
@@ -107,6 +109,7 @@ export default function CasePractice() {
           cert={cert}
           stats={[{ label: 'Case accuracy', value: `${Math.round((correct / questions.length) * 100)}%`, icon: CheckCircle2 }]}
         />
+        <StudyLoopNav cert={cert} current="cases" />
         {caseSummary.categories.length > 0 && (
           <Surface className="p-6">
             <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Applied skill breakdown</p>
@@ -128,6 +131,9 @@ export default function CasePractice() {
           <Button as={Link} to={`/${cert.id}/learning`} variant="accent" size="lg" accentColor={cert.color}>
             Review mastery map
             <ArrowRight className="h-5 w-5" />
+          </Button>
+          <Button as={Link} to={`/${cert.id}/exam`} variant="secondary" size="lg">
+            Readiness simulation
           </Button>
         </div>
       </div>
