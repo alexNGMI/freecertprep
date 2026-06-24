@@ -101,6 +101,17 @@ const retiredWeakDistractors = [
 const weakDistractorQuestions = questions.filter(question =>
   question.choices?.some(choice => retiredWeakDistractors.includes(choice))
 )
+const requiredEvidenceTerms = {
+  'tf-81': ['TF_VAR_region', 'terraform.tfvars', '-var='],
+  'tf-161': ['Variable declaration excerpt', 'type    = string', 'default ='],
+  'tf-321': ['lifecycle', 'create_before_destroy = true'],
+  'tf-561': ['Data source excerpt', 'aws_ami', 'most_recent = true'],
+}
+const knownEvidenceDefects = Object.entries(requiredEvidenceTerms).filter(([id, terms]) => {
+  const question = questions.find(item => item.id === id)
+  const evidence = JSON.stringify(question?.evidenceArtifacts || [])
+  return !question || terms.some(term => !evidence.includes(term))
+})
 
 console.log(`\nQuestions: ${questions.length}`)
 console.log(`Invalid objectives: ${invalid.length}`)
@@ -117,6 +128,7 @@ console.log(`Generic command-choice stems: ${genericCommandStems.length}`)
 console.log(`Explanations under 240 characters: ${shortExplanations.length}`)
 console.log(`Invalid evidence artifacts: ${invalidEvidence.length}`)
 console.log(`Retired weak distractors: ${weakDistractorQuestions.length}`)
+console.log(`Known evidence context defects: ${knownEvidenceDefects.length}`)
 console.log(`Domain allocation: ${JSON.stringify(domainCounts)}`)
 console.log(`Format allocation: ${JSON.stringify(typeCounts)}`)
 
@@ -136,6 +148,7 @@ if (
   || shortExplanations.length
   || invalidEvidence.length
   || weakDistractorQuestions.length
+  || knownEvidenceDefects.length
   || JSON.stringify(domainCounts) !== JSON.stringify(EXPECTED_DOMAIN_COUNTS)
   || JSON.stringify(typeCounts) !== JSON.stringify(EXPECTED_TYPE_COUNTS)
 ) {

@@ -78,8 +78,8 @@ const featureItems = [
     icon: BrainCircuit,
   },
   {
-    title: 'Exam-shaped flow',
-    desc: 'Timed readiness forms use official domain weighting and the closest supported exam structure.',
+    title: 'Timed exam practice',
+    desc: 'Practice exams follow published topic weights and use the closest format this site can support.',
     icon: ShieldCheck,
   },
   {
@@ -124,7 +124,7 @@ export default function Home() {
                 Choose a direction. Build confidence.
               </PageTitle>
               <PageLead>
-                FreeCertPrep organizes certifications around career momentum, not vendor logos. Start at the level that fits, practice with exam-shaped sessions, and let Smart Practice keep the right questions in rotation.
+                FreeCertPrep organizes certifications around career goals, not vendor logos. Start at the level that fits, practice with timed sessions, and revisit questions that need more work.
               </PageLead>
               <p className="mt-5 text-sm font-semibold text-zinc-300">
                 Brand new to IT? Begin with A+. Already know your goal? Choose a career path.

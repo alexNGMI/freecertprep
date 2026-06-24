@@ -13,7 +13,7 @@ const CORE_BLUEPRINTS = {
     title: 'Hardware, networking, mobile, cloud',
     passingScore: '675 / 900',
     liveQuestions: 760,
-    status: 'Live · A+ readiness · full quality gate passed',
+    status: 'Available now',
     focus: 'Best first stop for device support, network basics, printers, virtualization, and hardware troubleshooting.',
     domains: [
       ['Mobile Devices', 13],
@@ -30,7 +30,7 @@ const CORE_BLUEPRINTS = {
     title: 'Operating systems, security, procedures',
     passingScore: '700 / 900',
     liveQuestions: 760,
-    status: 'Live · A+ readiness · full quality gate passed',
+    status: 'Available now',
     focus: 'Best second stop for Windows, macOS, Linux, malware response, software troubleshooting, and support process.',
     domains: [
       ['Operating Systems', 28],
@@ -46,7 +46,7 @@ export default function APlus() {
   const core = CORE_BLUEPRINTS[selectedCore]
   const contentTargets = [
     [String(core.liveQuestions), `${core.label} live questions`],
-    ['20', 'PBQ-lite scenarios'],
+    ['20', 'Interactive scenarios'],
     ['90', 'exam questions'],
     ['90', 'minutes per exam'],
   ]
@@ -83,7 +83,7 @@ export default function APlus() {
                 Pick your A+ core.
               </PageTitle>
               <PageLead>
-                A+ is a two-exam credential. This track keeps Core 1 and Core 2 separate, uses the official domain weights, and clearly distinguishes practice readiness from CompTIA&apos;s scaled scoring and richer PBQ delivery.
+                A+ is a two-exam credential. This page keeps Core 1 and Core 2 separate, follows the published topic weights, and makes clear that practice results are not CompTIA scores.
               </PageLead>
               <div className="mt-7 flex flex-col items-start gap-3">
                 <p className="text-sm font-semibold text-zinc-300">
@@ -172,7 +172,7 @@ export default function APlus() {
                 {core.label} {core.code}
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed mb-6">
-                {core.label} has {core.liveQuestions.toLocaleString()} questions and twenty evidence-based PBQ-lite scenarios. Every item is mapped to the official objective hierarchy, uses a unique answer interaction, and includes structured review guidance for the correct answer, distractors, and verification step.
+                {core.label} includes {core.liveQuestions.toLocaleString()} practice questions and twenty interactive scenarios. Each question is tied to an exam topic and includes an explanation to help you review the answer.
               </p>
               <Surface className="p-5">
                 <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4">

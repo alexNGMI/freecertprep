@@ -69,9 +69,9 @@ describe('homepage career-path layout', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'Live certs first.' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Live practice' })).toBeTruthy()
-    expect(screen.getByText(/live modules meet the current release and readiness bar/i)).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Held for quality or release alignment' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Available practice' })).toBeTruthy()
+    expect(screen.getByText(/Available exams are ready to practice now/i)).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Still being prepared' })).toBeTruthy()
     expect(screen.getAllByRole('link', { name: /Network\+/ })[0].getAttribute('href')).toBe('/comptia-net-plus')
     expect(screen.getAllByRole('link', { name: /Security\+/ })[0].getAttribute('href')).toBe('/comptia-sec-plus')
     expect(screen.getAllByRole('link', { name: /Splunk Core Certified User/ })[0].getAttribute('href')).toBe('/splunk-core-certified-user')

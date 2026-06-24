@@ -1878,18 +1878,31 @@
       "terraform.tfvars, -var, environment variables"
     ],
     "correctAnswer": 1,
-    "explanation": "Why this is right: Roughly, environment variables (TF_VAR_) are lowest, then terraform.tfvars / *.auto.tfvars, then -var-file, with -var/command-line flags highest precedence. Why the alternatives are wrong: The distractors use an HCL construct with different scope or lifecycle behavior, or create a dependency that Terraform can already infer from references. Operational takeaway: Read the HCL for ownership, scope, value flow, and dependency clues before choosing a resource, data source, expression, lifecycle rule, or validation feature. This item maps to objective 3e: Apply infrastructure changes.",
+    "explanation": "Why this is right: Terraform loads TF_VAR_ environment variables before automatically loaded variable files, while explicit -var-file and -var command-line arguments have higher precedence; among these choices, environment variables, terraform.tfvars, then -var is the correct low-to-high order. Why the alternatives are wrong: The other sequences incorrectly place command-line values below automatically loaded files or environment variables, or claim that conflicting sources have equal precedence. Operational takeaway: When a variable has an unexpected value, inventory every input source and compare them in Terraform precedence order before applying changes. This item maps to objective 3e: Apply infrastructure changes.",
     "objectiveId": "3e",
     "conceptId": "tf-3e-apply-command",
     "objectiveGroup": "Core Terraform workflow",
     "evidenceArtifacts": [
       {
-        "type": "console",
-        "title": "Configuration review excerpt",
-        "lines": [
-          "$ terraform apply tfplan",
-          "module.network.aws_subnet.private[0]: Modifying...",
-          "Apply complete! Resources: 0 added, 1 changed, 0 destroyed."
+        "type": "table",
+        "title": "Variable input review",
+        "columns": [
+          "Input source",
+          "Observed value"
+        ],
+        "rows": [
+          [
+            "TF_VAR_region",
+            "us-east-1"
+          ],
+          [
+            "terraform.tfvars",
+            "region = \"us-west-2\""
+          ],
+          [
+            "CLI argument",
+            "-var=\"region=us-west-1\""
+          ]
         ]
       }
     ]
@@ -4008,17 +4021,18 @@
       "input x = \"a\""
     ],
     "correctAnswer": 1,
-    "explanation": "Why this is right: A variable block declares type and default arguments, e.g., variable \"x\" { type = string; default = \"a\" }. Why the alternatives are wrong: The distractors assign provider installation, authentication, version selection, or state responsibility to the wrong Terraform component. Operational takeaway: Separate Terraform CLI behavior from provider behavior: providers translate resource operations to platform APIs, while Terraform controls configuration, dependency evaluation, and state. This item maps to objective 2b: Describe how Terraform uses providers.",
+    "explanation": "Why this is right: A Terraform input variable is declared with a variable block, and type and default are arguments inside that block. Why the alternatives are wrong: The other choices use syntax from other languages or invent Terraform declarations that HCL does not support. Operational takeaway: Read variable declarations as typed module inputs, and use validation or nullable settings when the input contract needs tighter constraints. This item maps to objective 2b: Describe how Terraform uses providers.",
     "objectiveId": "2b",
     "conceptId": "tf-2b-provider-plugins",
     "objectiveGroup": "Terraform fundamentals",
     "evidenceArtifacts": [
       {
         "type": "console",
-        "title": "Configuration review excerpt",
+        "title": "Variable declaration excerpt",
         "lines": [
-          "provider \"aws\" {",
-          "  region = var.aws_region",
+          "variable \"x\" {",
+          "  type    = string",
+          "  default = \"a\"",
           "}"
         ]
       }
@@ -8219,18 +8233,20 @@
       "create_before_destroy"
     ],
     "correctAnswer": 3,
-    "explanation": "Why this is right: create_before_destroy provisions the new resource before destroying the old, minimizing downtime during replacement. Why the alternatives are wrong: The distractors skip a required workflow boundary, use a command for the wrong lifecycle phase, or imply that validation and planning guarantee a successful apply. Operational takeaway: Identify the exact workflow boundary being tested: initialize dependencies, validate configuration, review a plan, and only then apply the approved change. This item maps to objective 3a: Describe the Terraform workflow.",
+    "explanation": "Why this is right: create_before_destroy asks Terraform to create a replacement before removing the existing object, which can reduce downtime when the provider and resource constraints allow both to coexist. Why the alternatives are wrong: prevent_destroy blocks destruction, ignore_changes suppresses selected drift, and depends_on adds an explicit dependency; none changes replacement order in this way. Operational takeaway: Use lifecycle rules only for a specific operational requirement and confirm that naming, quotas, and provider behavior permit overlapping resources. This item maps to objective 3a: Describe the Terraform workflow.",
     "objectiveId": "3a",
     "conceptId": "tf-3a-workflow-sequence",
     "objectiveGroup": "Core Terraform workflow",
     "evidenceArtifacts": [
       {
         "type": "console",
-        "title": "Configuration review excerpt",
+        "title": "Lifecycle configuration excerpt",
         "lines": [
-          "$ terraform init",
-          "$ terraform plan -out=tfplan",
-          "$ terraform apply tfplan"
+          "resource \"example_service\" \"app\" {",
+          "  lifecycle {",
+          "    create_before_destroy = true",
+          "  }",
+          "}"
         ]
       }
     ]
@@ -14517,17 +14533,18 @@
       "They store state"
     ],
     "correctAnswer": 0,
-    "explanation": "Why this is right: Data sources are read (not managed) to supply existing information into the configuration. For the exam, distinguish this syntax or command behavior from provider, backend, and workflow concepts that look similar. Why the alternatives are wrong: The distractors assign provider installation, authentication, version selection, or state responsibility to the wrong Terraform component. Operational takeaway: Separate Terraform CLI behavior from provider behavior: providers translate resource operations to platform APIs, while Terraform controls configuration, dependency evaluation, and state. This item maps to objective 2b: Describe how Terraform uses providers.",
+    "explanation": "Why this is right: Data sources read information managed outside the current resource block and expose attributes for expressions; Terraform may defer a read until apply when its arguments depend on values not known during planning. Why the alternatives are wrong: Providers communicate with platform APIs, resources manage infrastructure objects, and state records Terraform bindings; a data source performs none of those roles. Operational takeaway: Use data sources for existing information, then inspect the plan for values marked unknown until apply before relying on them in downstream expressions. This item maps to objective 2b: Describe how Terraform uses providers.",
     "objectiveId": "2b",
     "conceptId": "tf-2b-provider-plugins",
     "objectiveGroup": "Terraform fundamentals",
     "evidenceArtifacts": [
       {
         "type": "console",
-        "title": "Configuration review excerpt",
+        "title": "Data source excerpt",
         "lines": [
-          "provider \"aws\" {",
-          "  region = var.aws_region",
+          "data \"aws_ami\" \"selected\" {",
+          "  most_recent = true",
+          "  owners      = [\"self\"]",
           "}"
         ]
       }

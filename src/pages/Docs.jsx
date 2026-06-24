@@ -871,6 +871,7 @@ key = random() ** (1 / weight)
                   'Privacy and account controls - public /privacy disclosure, complete cloud-account JSON export, and typed-confirmation account deletion are implemented; production activation requires the included Supabase privacy-controls migration.',
                   'Product polish stage 5 - shared accessible loading states, reduced-motion support, actionable empty practice and results states, viewport-safe tooltips, and announced account/dashboard/report feedback are complete.',
                   'Product polish stage 6 - all nine live dashboards and the public learner journey passed desktop/mobile walkthroughs; cross-route path anchors, diagnostic action clarity, report-dialog keyboard behavior, empty-state recovery, and docs section tracking now have permanent browser coverage.',
+                  'June 24 four-track quality pass - teaching value, first-user comprehension, accessibility, and maintainability were audited in parallel. CCST answer leakage, a Security+ threshold contradiction, sampled Terraform/A+ defects, false unanswered-question debrief signals, workflow terminology, critical keyboard behavior, and admin-status drift were remediated with permanent regression coverage.',
                 ],
               },
               {

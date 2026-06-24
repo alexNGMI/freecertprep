@@ -86,7 +86,7 @@ export default function CasePractice() {
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
           <Button as={Link} to={`/${cert.id}/learning`} variant="secondary" size="lg">
             <ArrowLeft className="h-5 w-5" />
-            Learning plan
+            Study Plan
           </Button>
           <Button onClick={start} variant="accent" size="lg" accentColor={cert.color}>
             Start case set

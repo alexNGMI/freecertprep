@@ -128,7 +128,7 @@ export default function LearningPlan() {
       <Surface className="p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Mastery map</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Evidence by target</p>
             <h2 className="mt-2 text-2xl font-black text-zinc-50">What your practice evidence says</h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
               A target needs repeated coverage before it can become Strong. Untested material stays Not measured instead of being mislabeled as weak.
@@ -160,7 +160,7 @@ export default function LearningPlan() {
                 <div className="mt-5 grid grid-cols-3 gap-2 text-sm">
                   <Metric label="Accuracy" value={objective.accuracy === null ? 'New' : `${objective.accuracy}%`} />
                   <Metric label="Coverage" value={`${objective.coverage}%`} />
-                  <Metric label="Confidence" value={`${objective.confidence}%`} />
+                  <Metric label="Evidence strength" value={`${objective.evidenceStrength}%`} />
                 </div>
               </Link>
             )
@@ -171,7 +171,7 @@ export default function LearningPlan() {
       <Surface className="p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Personal study plan</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Study Plan</p>
             <h2 className="mt-2 text-2xl font-black text-zinc-50">Your next work, in order</h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
               These blocks are ordered by weakest evidence, low coverage, and unmeasured targets so the next session is obvious.

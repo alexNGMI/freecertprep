@@ -4,7 +4,7 @@ import { cn } from '../utils/cn'
 
 const STEPS = [
   { id: 'diagnostic', label: 'Diagnostic', path: 'learning/diagnostic' },
-  { id: 'plan', label: 'Mastery plan', path: 'learning' },
+  { id: 'plan', label: 'Study Plan', path: 'learning' },
   { id: 'practice', label: 'Practice', path: 'quiz' },
   { id: 'cases', label: 'Cases', path: 'learning/cases' },
   { id: 'exam', label: 'Simulate', path: 'exam' },

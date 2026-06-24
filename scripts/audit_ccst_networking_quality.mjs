@@ -44,6 +44,9 @@ const failures = []
 const assert = (condition, message) => { if (!condition) failures.push(message) }
 const typeOf = (question) => question.type || 'single-choice'
 const normalize = (value) => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+const containsNormalizedPhrase = (text, phrase) => (
+  ` ${normalize(text)} `.includes(` ${normalize(phrase)} `)
+)
 const wordCount = (value) => normalize(value || '').split(/\s+/).filter(Boolean).length
 const countBy = (items, key) => items.reduce((counts, item) => {
   const value = key(item)
@@ -112,6 +115,33 @@ function hasValidAnswerShape(question) {
   return false
 }
 
+function correctResponseText(question) {
+  const type = typeOf(question)
+  if (type === 'single-choice') return [question.choices[question.correctAnswer]]
+  if (type === 'multiple-response') return question.correctAnswers.map((index) => question.choices[index])
+  if (type === 'matching') {
+    return question.itemsLeft.flatMap((left, index) => [
+      left,
+      question.itemsRight[question.correctMatches[index]],
+    ])
+  }
+  return []
+}
+
+function evidenceLeaksCorrectResponse(question) {
+  const evidence = JSON.stringify(question.evidenceArtifacts || [])
+  return correctResponseText(question).some((response) => {
+    const normalizedResponse = normalize(response)
+    return normalizedResponse.length >= 3 && containsNormalizedPhrase(evidence, response)
+  })
+}
+
+function stemLeaksCorrectResponse(question) {
+  if (typeOf(question) !== 'single-choice') return false
+  const response = normalize(question.choices[question.correctAnswer])
+  return response.length >= 3 && containsNormalizedPhrase(question.question, response)
+}
+
 const domainCounts = Object.fromEntries(Object.keys(expectedDomainCounts).map((domain) => [
   domain,
   questions.filter((question) => question.domain === domain).length,
@@ -127,6 +157,12 @@ const structuredExplanations = questions.filter((question) =>
 const evidenceQuestions = questions.filter(hasValidEvidence)
 const shortExplanations = questions.filter((question) => wordCount(question.explanation) < 45)
 const invalidAnswers = questions.filter((question) => !hasValidAnswerShape(question))
+const evidenceLeakQuestions = questions.filter(evidenceLeaksCorrectResponse)
+const stemLeakQuestions = questions.filter(stemLeaksCorrectResponse)
+const genericEvidenceQuestions = questions.filter((question) =>
+  /compare the observation with the available responses|classification pending technician analysis/i
+    .test(JSON.stringify(question.evidenceArtifacts || []))
+)
 const ticketLanguage = questions.filter((question) => /\bticket\b/i.test(question.question))
 const clueToTermQuestions = questions.filter((question) =>
   /which networking concept is being described|which term best matches this evidence|needs the Cisco CCST term|which term should the technician choose|term to identify/i
@@ -140,6 +176,18 @@ assert(structuredExplanations.length === 750, `expected 750 structured explanati
 assert(evidenceQuestions.length === 750, `expected 750 evidence-led questions, found ${evidenceQuestions.length}`)
 assert(shortExplanations.length === 0, `found ${shortExplanations.length} explanations under 45 words`)
 assert(invalidAnswers.length === 0, `found ${invalidAnswers.length} questions with invalid answer metadata`)
+assert(
+  evidenceLeakQuestions.length === 0,
+  `found correct-response text in pre-answer evidence for ${evidenceLeakQuestions.map((question) => question.id).join(', ')}`,
+)
+assert(
+  stemLeakQuestions.length === 0,
+  `found correct-response text directly named in single-choice stems for ${stemLeakQuestions.map((question) => question.id).join(', ')}`,
+)
+assert(
+  genericEvidenceQuestions.length === 0,
+  `found generic placeholder evidence for ${genericEvidenceQuestions.map((question) => question.id).join(', ')}`,
+)
 assert(ticketLanguage.length === 0, `found ${ticketLanguage.length} ticket-framed questions`)
 assert(clueToTermQuestions.length <= 125, `found ${clueToTermQuestions.length} clue-to-term questions; keep first-response wording at or below 125`)
 assert(JSON.stringify(domainCounts) === JSON.stringify(expectedDomainCounts), 'CCST domain counts changed unexpectedly')
@@ -169,6 +217,9 @@ console.log(`Structured explanations: ${structuredExplanations.length}`)
 console.log(`Evidence-led questions: ${evidenceQuestions.length}`)
 console.log(`Explanations under 45 words: ${shortExplanations.length}`)
 console.log(`Invalid answer metadata: ${invalidAnswers.length}`)
+console.log(`Pre-answer evidence leaks: ${evidenceLeakQuestions.length}`)
+console.log(`Direct single-choice stem leaks: ${stemLeakQuestions.length}`)
+console.log(`Generic evidence placeholders: ${genericEvidenceQuestions.length}`)
 console.log(`Ticket-framed questions: ${ticketLanguage.length}`)
 console.log(`Clue-to-term questions: ${clueToTermQuestions.length}`)
 console.log(`Domain allocation: ${JSON.stringify(domainCounts)}`)

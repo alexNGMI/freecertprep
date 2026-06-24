@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
-import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Map, Wrench } from 'lucide-react'
+import { AlertTriangle, ArrowLeft, ArrowRight, CheckCircle2, ClipboardCheck, Map, Timer, Wrench } from 'lucide-react'
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
@@ -85,6 +85,7 @@ export default function Diagnostic() {
           stats={[
             { label: 'Questions', value: config.diagnosticSize, icon: ClipboardCheck },
             { label: 'Targets', value: learningObjectives.length, icon: Map },
+            { label: 'Time', value: `About ${config.diagnosticSize} min`, icon: Timer },
           ]}
           action={(
             <Button onClick={begin} variant="accent" size="lg" accentColor={cert.color}>
@@ -97,12 +98,21 @@ export default function Diagnostic() {
         <Surface className="grid gap-6 p-6 md:grid-cols-3">
           <Rule number="01" title="Answer cold" body="Use what you know now. Looking everything up would make the study plan less useful." />
           <Rule number="02" title="Skip honestly" body="An unanswered question is evidence that the target needs measurement, not a personal failure." />
-          <Rule number="03" title="Study the map" body="The result feeds your mastery map and creates an ordered study plan." />
+          <Rule number="03" title="Use the Study Plan" body="The result creates an ordered study plan from the evidence you collected." />
+        </Surface>
+        <Surface className="flex gap-4 border-amber-500/25 bg-amber-500/10 p-5">
+          <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-amber-300" />
+          <div>
+            <p className="font-bold text-amber-100">Finish in this tab.</p>
+            <p className="mt-1 text-sm leading-relaxed text-amber-100/75">
+              Diagnostic answers are not saved until you submit. Closing or reloading this page will discard the session.
+            </p>
+          </div>
         </Surface>
         <div className="flex justify-start">
           <Button as={Link} to={`/${cert.id}/learning`} variant="secondary" size="lg">
             <ArrowLeft className="h-5 w-5" />
-            Learning plan
+            Study Plan
           </Button>
         </div>
       </div>
@@ -134,7 +144,7 @@ export default function Diagnostic() {
         <StudyHeader
           eyebrow="Diagnostic complete"
           title="Your baseline is ready."
-          subtitle="The result is now part of your study history. Repeated practice will increase confidence and can move targets between levels."
+          subtitle="The result is now part of your study history. Repeated practice strengthens the evidence and can move targets between levels."
           cert={cert}
           stats={[
             { label: 'Answered', value: `${answeredCount}/${diagnosticQuestions.length}`, icon: CheckCircle2 },
@@ -159,8 +169,8 @@ export default function Diagnostic() {
               </h2>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
                 {bestTarget
-                  ? `${bestTarget.title} is the highest-value next block from this baseline. Do one focused set, then use the mastery map to decide whether to add cases or retest.`
-                  : 'No measured target produced an obvious repair block. Use the mastery map or an exam simulation to look for a wider readiness signal.'}
+                  ? `${bestTarget.title} is the highest-value next block from this baseline. Do one focused set, then use the Study Plan to decide whether to add cases or retest.`
+                  : 'No measured target produced an obvious repair block. Use the Study Plan or an exam simulation to look for a wider readiness signal.'}
               </p>
               {appliedSummary.total > 0 && (
                 <p className="mt-3 text-sm font-semibold text-amber-200">
@@ -198,7 +208,7 @@ export default function Diagnostic() {
         <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
           <Button onClick={begin} variant="secondary" size="lg">Retake later</Button>
           <Button as={Link} to={`/${cert.id}/learning`} variant="accent" size="lg" accentColor={cert.color}>
-            Open mastery map
+            Open Study Plan
             <ArrowRight className="h-5 w-5" />
           </Button>
         </div>

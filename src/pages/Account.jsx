@@ -318,8 +318,11 @@ export default function Account() {
                   </Button>
                   <Button variant="secondary" onClick={handleBackup} disabled={Boolean(pendingAction)}>
                     <Upload className="h-4 w-4" />
-                    {pendingAction === 'backup' ? 'Backing up...' : 'Create recovery backup'}
+                    {pendingAction === 'backup' ? 'Uploading backup...' : 'Upload recovery backup'}
                   </Button>
+                  <p className="text-xs leading-relaxed text-zinc-500">
+                    Backups are manual. This uploads the study data currently stored in this browser to your account.
+                  </p>
                   <Button
                     variant="secondary"
                     onClick={() => setConfirmRestore(true)}
@@ -354,7 +357,7 @@ export default function Account() {
               <>
                 <h2 className="mt-5 text-2xl font-black text-zinc-50">Sign in with email</h2>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                  We will email you a secure link. No password needed.
+                  We will email you a secure link. If this email is new, opening the first link creates your free account. No password is needed.
                 </p>
                 <form className="mt-5 space-y-3" onSubmit={handleSignIn}>
                   <label className="text-xs font-bold uppercase tracking-wider text-zinc-500" htmlFor="account-email">

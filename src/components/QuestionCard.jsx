@@ -134,6 +134,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
   const orderingReady = activeOrder.length === question.items?.length
   const matchingReady = activeMatches.every(m => m !== null)
   const subnetReady = (question.asks || []).every((field) => String(activeSubnetAnswer[field] ?? '').trim().length > 0)
+  const promptId = `question-${question.id}-prompt`
 
   return (
     <div className="glass-panel rounded-2xl p-6 md:p-8 space-y-8 relative overflow-hidden">
@@ -152,9 +153,12 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
           )}
           {onToggleBookmark && (
             <button
+              type="button"
               onClick={() => onToggleBookmark(question.id)}
+              aria-label={isBookmarked ? 'Remove bookmark from this question' : 'Bookmark this question'}
+              aria-pressed={isBookmarked}
               title={isBookmarked ? 'Remove bookmark' : 'Bookmark this question'}
-              className={`p-1.5 rounded-lg border transition-all duration-200 ${
+              className={`inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border transition-all duration-200 ${
                 isBookmarked
                   ? 'border-amber-500/40 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20'
                   : 'border-white/10 bg-transparent text-zinc-600 hover:text-amber-400 hover:border-amber-500/30'
@@ -212,9 +216,15 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
         </div>
       )}
 
-      <RichText text={question.question} className="text-zinc-100 text-xl font-medium leading-relaxed" />
+      <div id={promptId}>
+        <RichText text={question.question} className="text-zinc-100 text-xl font-medium leading-relaxed" />
+      </div>
 
-      <div className="space-y-4">
+      <div
+        className="space-y-4"
+        role="group"
+        aria-labelledby={promptId}
+      >
         {/* Single Choice or Multiple Response — uses shuffledChoices for display,
             origIdx for answer storage so validation is unaffected */}
         {!isStatement && !isOrdering && !isMatching && shuffledChoices.map(({ origIdx, text }, displayIdx) => {
@@ -240,8 +250,10 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
           return (
             <button
               key={origIdx}
+              type="button"
               disabled={answered}
               onClick={() => isMultiple ? toggleMulti(origIdx) : onAnswer(origIdx)}
+              aria-pressed={Boolean(isSelected)}
               className={`w-full text-left px-6 py-4 rounded-xl border transition-all duration-300 ${style}`}
             >
               <div className="flex items-start">
@@ -267,18 +279,26 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
           return (
             <div key={index} className={`flex flex-col md:flex-row justify-between items-start md:items-center px-6 py-4 rounded-xl border transition-all ${rowStyle}`}>
-              <InlineRichText text={stmt} className="text-sm sm:text-base text-zinc-200 flex-1 pr-6 leading-relaxed mb-4 md:mb-0" />
-              <div className="flex gap-2 w-full md:w-auto">
+              <span id={`statement-${question.id}-${index}`} className="text-sm sm:text-base text-zinc-200 flex-1 pr-6 leading-relaxed mb-4 md:mb-0">
+                <InlineRichText text={stmt} />
+              </span>
+              <div className="flex gap-2 w-full md:w-auto" role="radiogroup" aria-labelledby={`statement-${question.id}-${index}`}>
                 <button
+                  type="button"
                   disabled={answered}
                   onClick={() => setStatement(index, true)}
+                  role="radio"
+                  aria-checked={ans === true}
                   className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === true ? 'bg-indigo-500 border-indigo-500 text-white' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
                 >
                   Yes
                 </button>
                 <button
+                  type="button"
                   disabled={answered}
                   onClick={() => setStatement(index, false)}
+                  role="radio"
+                  aria-checked={ans === false}
                   className={`flex-1 md:flex-none px-6 py-2 rounded-lg text-sm font-semibold border transition-all ${ans === false ? 'bg-indigo-500 border-indigo-500 text-white' : 'border-white/10 text-zinc-400 hover:border-white/30 hover:bg-zinc-800'} disabled:opacity-50`}
                 >
                   No
@@ -321,8 +341,10 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                         )}
                         {!answered && (
                           <button
+                            type="button"
                             onClick={() => toggleOrderItem(itemIndex)}
-                            className="shrink-0 text-zinc-500 hover:text-rose-400 transition-colors text-lg leading-none"
+                            aria-label={`Remove ${stripMarkdown(question.items[itemIndex])} from position ${seqPos + 1}`}
+                            className="inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center text-zinc-500 hover:text-rose-400 transition-colors text-lg leading-none"
                             title="Remove from sequence"
                           >×</button>
                         )}
@@ -345,7 +367,9 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                     return (
                       <button
                         key={index}
+                        type="button"
                         onClick={() => toggleOrderItem(index)}
+                        aria-label={`Add ${stripMarkdown(item)} as position ${activeOrder.length + 1}`}
                         className="w-full text-left px-6 py-4 rounded-xl border border-white/5 bg-zinc-900/50 text-zinc-300 hover:border-white/20 hover:bg-zinc-800 hover:text-zinc-100 hover:-translate-y-0.5 transition-all duration-200"
                       >
                         <InlineRichText text={item} className="text-sm sm:text-base leading-snug" />
@@ -395,12 +419,15 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
                         : 'border-white/5 bg-zinc-900/50'
                   }`}
                 >
-                  <InlineRichText text={leftItem} className="text-sm sm:text-base text-zinc-200 flex-1 leading-snug" />
+                  <span id={`match-${question.id}-${leftIndex}`} className="text-sm sm:text-base text-zinc-200 flex-1 leading-snug">
+                    <InlineRichText text={leftItem} />
+                  </span>
                   <div className="flex items-center gap-3 w-full sm:w-auto">
                     <select
                       disabled={answered}
                       value={selected !== null ? selected : ''}
                       onChange={e => setMatch(leftIndex, e.target.value)}
+                      aria-labelledby={`match-${question.id}-${leftIndex}`}
                       className={`flex-1 sm:w-48 px-3 py-2 rounded-lg text-sm border bg-zinc-900 text-zinc-200 transition-all cursor-pointer disabled:cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500/50 ${
                         answered
                           ? isCorrectMatch
@@ -456,7 +483,7 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
       {/* Feedback Block */}
       {answered && (
-        <div className={`p-6 rounded-xl text-sm sm:text-base leading-relaxed animate-fade-up flex gap-4 ${
+        <div role="status" aria-live="polite" className={`p-6 rounded-xl text-sm sm:text-base leading-relaxed animate-fade-up flex gap-4 ${
           isCorrect
             ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-100'
             : 'bg-rose-500/10 border border-rose-500/30 text-rose-100'

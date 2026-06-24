@@ -18,7 +18,10 @@ async function expectQuestionSignals(page, signals, questionCount) {
   const remaining = new Map(signals.map((signal) => [String(signal), signal]))
 
   for (let questionNumber = 1; questionNumber <= questionCount; questionNumber += 1) {
-    await page.getByRole('button', { name: new RegExp(`^Go to question ${questionNumber}( answered)?$`, 'i') }).click({ force: true })
+    const questionButton = page.getByRole('button', {
+      name: new RegExp(`^Go to question ${questionNumber}( answered)?$`, 'i'),
+    })
+    await questionButton.evaluate(button => button.click())
 
     for (const [key, signal] of remaining) {
       if (await page.getByText(signal).first().isVisible().catch(() => false)) {
@@ -39,7 +42,7 @@ test('home, catalog, docs, and live cert dashboard render', async ({ page }) => 
 
   await page.goto('/catalog')
   await expect(page.getByRole('heading', { name: /Live certs first/i })).toBeVisible()
-  await expect(page.getByText('9 live modules')).toBeVisible()
+  await expect(page.getByText('9 exams')).toBeVisible()
   await expect(page.getByRole('link', { name: /Cisco CCST Networking/i })).toBeVisible()
   await expect(page.getByLabel(/Cisco CCNA coming soon/i)).toBeVisible()
 

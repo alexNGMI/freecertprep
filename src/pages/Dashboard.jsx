@@ -43,10 +43,11 @@ import { Tooltip as UiTooltip } from '../components/ui/tooltip'
 import { cn } from '../utils/cn'
 import { rankWeakObjectives, summarizeObjectiveProgress } from '../utils/objective-progress'
 import { getLearningLoopConfig } from '../utils/learning-loop-config'
+import { hasStudyBaseline } from '../utils/learning-loop'
 
 export default function Dashboard() {
   const cert = useCert()
-  const { getDomainStats, getOverallStats, resetProgress } = useProgress(cert.id)
+  const { progress, getDomainStats, getOverallStats, resetProgress } = useProgress(cert.id)
   const { certStats, trackedCount, resetStats } = useQuestionStats(cert.id)
   const domainStats = getDomainStats(cert.domains)
   const overall = getOverallStats
@@ -87,15 +88,16 @@ export default function Dashboard() {
   const learningLoop = Boolean(learningLoopConfig)
   const learningTargetLabel = (learningLoopConfig?.objectiveLabel || 'objective').toLowerCase()
   const hasStarted = overall.totalQuestions > 0 || trackedCount > 0
+  const hasBaseline = hasStudyBaseline(progress)
   const primaryAction = learningLoop
     ? {
-        label: hasStarted ? 'Open Study Plan' : 'Start Diagnostic',
-        sub: hasStarted ? 'Use your current results to choose the next block.' : 'Answer a short baseline first.',
-        to: hasStarted ? 'learning' : 'learning/diagnostic',
+        label: hasBaseline ? 'Open Study Plan' : 'Start Diagnostic',
+        sub: hasBaseline ? 'Use your current results to choose the next block.' : 'Complete a baseline before treating the map as a study guide.',
+        to: hasBaseline ? 'learning' : 'learning/diagnostic',
       }
     : action
   const nextStepTitle = learningLoop
-    ? hasStarted ? 'Continue from your map.' : 'Take the diagnostic first.'
+    ? hasBaseline ? 'Continue from your Study Plan.' : 'Take the diagnostic first.'
     : hasStarted ? 'Work the weakest signal.' : 'Start with Smart Practice.'
   const nextStepBody = learningLoop
     ? `${primaryAction.sub} The app will separate what you know, what needs work, and what has not been measured yet.`
@@ -220,8 +222,13 @@ export default function Dashboard() {
           <Surface className="p-6">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Domain mastery</p>
-                <h2 className="mt-2 text-2xl font-black text-zinc-50">Weighted readiness map</h2>
+                <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">{hasBaseline ? 'Domain evidence' : 'Early practice snapshot'}</p>
+                <h2 className="mt-2 text-2xl font-black text-zinc-50">{hasBaseline ? 'Readiness by exam domain' : 'Not a readiness map yet'}</h2>
+                {!hasBaseline && (
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-zinc-500">
+                    These results come from limited practice. Complete the diagnostic or an exam simulation before using them to judge strengths and weaknesses.
+                  </p>
+                )}
               </div>
               <span className="text-sm text-zinc-500">{cert.domains.length} exam domains</span>
             </div>
@@ -269,10 +276,16 @@ export default function Dashboard() {
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Objective learning loop</p>
               <h2 className="mt-2 text-2xl font-black text-zinc-50">
-                {weakObjectives.length ? 'Your next three study targets' : 'Build an objective-level signal'}
+                {!hasBaseline
+                  ? 'Early objective snapshot'
+                  : weakObjectives.length
+                    ? 'Your next three study targets'
+                    : 'Build an objective-level signal'}
               </h2>
               <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">
-                Accuracy shows performance on attempted questions. Coverage shows how much of that objective you have actually seen.
+                {hasBaseline
+                  ? 'Accuracy shows performance on attempted questions. Coverage shows how much of that objective you have actually seen.'
+                  : 'A few practice answers can show what you have seen, but they are not enough to rank strengths and weaknesses. Complete the diagnostic first.'}
               </p>
             </div>
             <DomainBadge color={cert.color}>{cert.objectives.length} objectives</DomainBadge>

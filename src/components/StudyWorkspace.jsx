@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { CheckCircle2, Circle, Flag, Timer } from 'lucide-react'
 import { motion as Motion } from 'motion/react'
 import { Button } from './ui/button'
@@ -21,6 +22,15 @@ export function StudyWorkspace({
 }) {
   const progress = total > 0 ? ((currentIndex + 1) / total) * 100 : 0
   const answeredProgress = total > 0 ? ((answeredCount || 0) / total) * 100 : 0
+  const questionRegionRef = useRef(null)
+  const previousIndexRef = useRef(currentIndex)
+
+  useEffect(() => {
+    if (previousIndexRef.current !== currentIndex) {
+      questionRegionRef.current?.focus()
+      previousIndexRef.current = currentIndex
+    }
+  }, [currentIndex])
 
   return (
     <div className="space-y-6 animate-fade-up">
@@ -48,16 +58,34 @@ export function StudyWorkspace({
                     <Flag className="h-4 w-4" />
                     Progress
                   </div>
-                  <p className="mt-1 text-2xl font-black text-zinc-100">{currentIndex + 1}<span className="text-sm text-zinc-500">/{total}</span></p>
+                  <p className="mt-1 text-2xl font-black text-zinc-100" aria-live="polite">
+                    <span className="sr-only">Current question </span>
+                    {currentIndex + 1}<span className="text-sm text-zinc-500">/{total}</span>
+                  </p>
                 </div>
               </div>
             </div>
             <div className="mt-5 space-y-2">
-              <div className="h-2 rounded-full bg-zinc-900">
+              <div
+                className="h-2 rounded-full bg-zinc-900"
+                role="progressbar"
+                aria-label="Questions viewed"
+                aria-valuemin={0}
+                aria-valuemax={total}
+                aria-valuenow={currentIndex + 1}
+                aria-valuetext={`Question ${currentIndex + 1} of ${total}`}
+              >
                 <div className="h-full rounded-full transition-all duration-300" style={{ width: `${progress}%`, backgroundColor: cert.color }} />
               </div>
               {answeredCount !== undefined && (
-                <div className="h-1 rounded-full bg-zinc-900">
+                <div
+                  className="h-1 rounded-full bg-zinc-900"
+                  role="progressbar"
+                  aria-label="Questions answered"
+                  aria-valuemin={0}
+                  aria-valuemax={total}
+                  aria-valuenow={answeredCount || 0}
+                >
                   <div className="h-full rounded-full bg-emerald-400/80 transition-all duration-300" style={{ width: `${answeredProgress}%` }} />
                 </div>
               )}
@@ -82,7 +110,11 @@ export function StudyWorkspace({
       </Surface>
 
       <Motion.div
+        ref={questionRegionRef}
         key={currentIndex}
+        tabIndex={-1}
+        role="region"
+        aria-label={`Question ${currentIndex + 1} of ${total}`}
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.22, ease: 'easeOut' }}
@@ -112,8 +144,9 @@ export function QuestionNavigator({ items, currentIndex, selectedAnswers = {}, o
               size="icon"
               onClick={() => onGoToQuestion(index)}
               aria-label={`Go to question ${index + 1}${isAnswered ? ' answered' : ''}`}
+              aria-current={isCurrent ? 'step' : undefined}
               className={cn(
-                'h-10 w-10 rounded-xl border text-xs',
+                'h-11 w-11 rounded-xl border text-xs',
                 isCurrent && 'scale-105 text-zinc-950',
                 !isCurrent && isAnswered && 'border-emerald-500/30 bg-emerald-500/10 text-emerald-300',
                 !isCurrent && !isAnswered && 'border-white/10 bg-zinc-900/70 text-zinc-500',

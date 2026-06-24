@@ -10422,7 +10422,7 @@
   {
     "id": "secplus-539",
     "domain": "Security Program Management and Oversight",
-    "question": "A healthcare organization suffers a breach exposing 600 patient records. Under HIPAA Breach Notification Rule, within how many days must they notify the Department of Health and Human Services (HHS) for breaches affecting fewer than 500 individuals?",
+    "question": "A healthcare organization suffers a breach exposing 400 patient records. Under HIPAA Breach Notification Rule, within how many days must they notify the Department of Health and Human Services (HHS) for breaches affecting fewer than 500 individuals?",
     "type": "single-choice",
     "choices": [
       "30 days",

@@ -13,6 +13,11 @@ import BrandedName from '../components/BrandedName'
 import LoadingState from '../components/LoadingState'
 import { Button } from '../components/ui/button'
 import { PageEyebrow, PageTitle, Surface } from '../components/ui/surface'
+import {
+  ACTIONABLE_ADMIN_REPORT_STATUSES,
+  ADMIN_REPORT_STATUSES,
+  getAdminReportStatus,
+} from '../config/adminReportStatuses'
 import { getCert } from '../data/certs'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import {
@@ -20,19 +25,10 @@ import {
   listCorrectionEvents,
   listIssueReports,
   REPORT_CATEGORIES,
-  REPORT_STATUSES,
   reviewIssueReport,
 } from '../lib/adminReports'
 import { supabase } from '../lib/supabase'
 import { cn } from '../utils/cn'
-
-const STATUS_META = {
-  open: { label: 'Open', color: 'text-amber-200 border-amber-500/30 bg-amber-500/10' },
-  reviewing: { label: 'Reviewing', color: 'text-sky-200 border-sky-500/30 bg-sky-500/10' },
-  fixed: { label: 'Fixed', color: 'text-emerald-200 border-emerald-500/30 bg-emerald-500/10' },
-  rejected: { label: 'Rejected', color: 'text-rose-200 border-rose-500/30 bg-rose-500/10' },
-  duplicate: { label: 'Duplicate', color: 'text-violet-200 border-violet-500/30 bg-violet-500/10' },
-}
 
 export default function AdminReports() {
   const [access, setAccess] = useState(null)
@@ -68,8 +64,8 @@ export default function AdminReports() {
       setSelectedId(current => (
         nextReports.some(report => report.id === current) ? current : nextReports[0]?.id || null
       ))
-    } catch (error) {
-      setNotice({ kind: 'error', message: error.message })
+    } catch {
+      setNotice({ kind: 'error', message: 'Reports could not be loaded. Try again.' })
     } finally {
       setLoading(false)
     }
@@ -82,10 +78,10 @@ export default function AdminReports() {
       try {
         const result = await getAdminAccess()
         if (active) setAccess(result)
-      } catch (error) {
+      } catch {
         if (active) {
           setAccess({ configured: true, signedIn: true, isAdmin: false, accessError: true })
-          setNotice({ kind: 'error', message: error.message })
+          setNotice(null)
         }
       }
     }
@@ -119,8 +115,8 @@ export default function AdminReports() {
       if (!active) return
       setEvents(nextEvents)
       setQuestion(nextQuestion)
-    }).catch(error => {
-      if (active) setNotice({ kind: 'error', message: error.message })
+    }).catch(() => {
+      if (active) setNotice({ kind: 'error', message: 'Report details could not be loaded. Try again.' })
     })
 
     return () => { active = false }
@@ -151,9 +147,9 @@ export default function AdminReports() {
       await reviewIssueReport(selected.id, status, note)
       setNote('')
       await refreshReports()
-      setNotice({ kind: 'success', message: `Report marked ${STATUS_META[status].label.toLowerCase()}.` })
-    } catch (error) {
-      setNotice({ kind: 'error', message: error.message })
+      setNotice({ kind: 'success', message: `Report marked ${getAdminReportStatus(status).label.toLowerCase()}.` })
+    } catch {
+      setNotice({ kind: 'error', message: 'The report could not be updated. Try again.' })
     } finally {
       setPendingStatus(null)
     }
@@ -194,7 +190,7 @@ export default function AdminReports() {
       return (
         <AccessMessage
           title="Admin setup needs attention"
-          body="The protected administrator check could not run. Apply the June 24 Supabase migration, then reload this page."
+          body="The administrator access check is temporarily unavailable. Try again later or contact the site administrator."
         />
       )
     }
@@ -233,7 +229,7 @@ export default function AdminReports() {
             label="Status"
             value={filters.status}
             onChange={value => setFilters(current => ({ ...current, status: value }))}
-            options={['all', ...REPORT_STATUSES]}
+            options={['all', ...ADMIN_REPORT_STATUSES]}
           />
           <FilterSelect
             label="Category"
@@ -394,7 +390,7 @@ function ReportDetail({ report, question, events, note, onNoteChange, pendingSta
           className="mt-3 w-full resize-y rounded-xl border border-white/10 bg-zinc-900 px-4 py-3 text-sm leading-relaxed text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-sky-400/50"
         />
         <div className="mt-4 flex flex-wrap gap-2">
-          {['reviewing', 'fixed', 'rejected', 'duplicate'].map(status => (
+          {ACTIONABLE_ADMIN_REPORT_STATUSES.map(status => (
             <Button
               key={status}
               variant={status === 'fixed' ? 'accent' : status === 'rejected' ? 'danger' : 'secondary'}
@@ -402,7 +398,7 @@ function ReportDetail({ report, question, events, note, onNoteChange, pendingSta
               onClick={() => onReview(status)}
               disabled={Boolean(pendingStatus)}
             >
-              {pendingStatus === status ? 'Saving...' : `Mark ${STATUS_META[status].label}`}
+              {pendingStatus === status ? 'Saving...' : `Mark ${getAdminReportStatus(status).label}`}
             </Button>
           ))}
         </div>
@@ -487,7 +483,7 @@ function FilterSelect({ label, value, onChange, options }) {
 }
 
 function StatusBadge({ status }) {
-  const meta = STATUS_META[status] || STATUS_META.open
+  const meta = getAdminReportStatus(status)
   return <span className={cn('rounded-lg border px-2.5 py-1 text-xs font-bold', meta.color)}>{meta.label}</span>
 }
 

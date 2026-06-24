@@ -6698,7 +6698,7 @@
     "domain": "Software Troubleshooting",
     "objectiveId": "3.1",
     "conceptId": "aplus-core2-3.1-04",
-    "question": "During a mobile-device enrollment, the Windows workstation shows this symptom: a user profile loads with a temporary profile. The technician has ruled out a simple user-interface misunderstanding. Working systems and unrelated settings should remain unchanged. What should the technician do FIRST?",
+    "question": "After a Windows user reports a sign-in problem, the Windows workstation shows this symptom: a user profile loads with a temporary profile. The technician has ruled out a simple user-interface misunderstanding. Working systems and unrelated settings should remain unchanged. What should the technician do FIRST?",
     "choices": [
       "Replace the router antenna",
       "Disable DNS",
@@ -6807,7 +6807,7 @@
     "domain": "Software Troubleshooting",
     "objectiveId": "3.3",
     "conceptId": "aplus-core2-3.3-11",
-    "question": "During a network closet inspection, a technician needs to respond to a phone showing unauthorized location access and excessive data use on the managed mobile device. The technician must verify the result under the original conditions. The next action should narrow the cause or complete the stated task. Which option best matches the requirement?",
+    "question": "During a managed-phone security review, a technician needs to respond to a phone showing unauthorized location access and excessive data use on the managed mobile device. The technician must verify the result under the original conditions. The next action should narrow the cause or complete the stated task. Which option best matches the requirement?",
     "choices": [
       "Enable installation from every unknown source",
       "Share the device unlock code",
@@ -8239,7 +8239,7 @@
     "domain": "Software Troubleshooting",
     "objectiveId": "3.3",
     "conceptId": "aplus-core2-3.3-12",
-    "question": "During a network closet inspection, a technician needs to respond to a phone repeatedly displaying fake security alerts on the managed mobile device. The technician has ruled out a simple user-interface misunderstanding. The least disruptive effective action is preferred. Which action is BEST?",
+    "question": "During a managed-phone security review, a technician needs to respond to a phone repeatedly displaying fake security alerts on the managed mobile device. The technician has ruled out a simple user-interface misunderstanding. The least disruptive effective action is preferred. Which action is BEST?",
     "choices": [
       "Enter payment details into the alert",
       "Check extensions, proxy settings, malware, and browser reset options",
@@ -10310,7 +10310,7 @@
     "domain": "Operational Procedures",
     "objectiveId": "4.4",
     "conceptId": "aplus-core2-4.4-12",
-    "question": "During a mobile-device enrollment, a technician needs to clean loose toner from inside a laser printer safely on the affected printer. The technician must verify the result under the original conditions. The technician should choose the option that directly satisfies the requirement. Which option best matches the requirement?",
+    "question": "During scheduled laser-printer maintenance, a technician needs to clean loose toner from inside a laser printer safely on the affected printer. The technician must verify the result under the original conditions. The technician should choose the option that directly satisfies the requirement. Which option best matches the requirement?",
     "choices": [
       "Use a household vacuum",
       "Disconnect power and use ESD protection before handling components",

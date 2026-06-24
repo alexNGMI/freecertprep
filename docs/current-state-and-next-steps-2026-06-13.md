@@ -48,6 +48,8 @@ Network+ also established a complete personal learning loop: a balanced diagnost
 
 The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The June 23 full content audit confirmed the live modules should stay live. The June 23 remediation pass then added repeatable gates for distractor ambiguity, AWS service freshness, SAA template pressure, CCST clue-to-term wording, and Splunk evidence categories while removing retired AWS service references and deepening Terraform's thinnest objectives. The June 23 human-centered codebase audit reframed the review around what a real learner, maintainer, skeptical reviewer, and future operator would notice after the gates pass. The next advantage comes from protecting local learner work, making release checks repeatable, reducing registry/documentation drift, and preparing a practical backend MVP for Cloudflare hosting, account sync, support email, report-incorrect-info workflow, and admin review. See `docs/offering-audit-2026-06-16.md`, `docs/course-companion-usefulness-audit-2026-06-17.md`, `docs/full-content-audit-2026-06-23.md`, `docs/human-centered-codebase-audit-2026-06-23.md`, and `docs/backend-accounts-architecture-2026-06-17.md`.
 
+The June 24 four-track audit then reviewed teaching value, first-user comprehension, accessibility, and maintainability in parallel. It found and remediated release-blocking CCST evidence leakage, a Security+ threshold contradiction, sampled Terraform artifact mismatches, and sampled A+ context defects. It also corrected false debrief advice from unanswered questions, standardized Study Plan language, clarified baseline and account behavior, improved critical keyboard/screen-reader interactions, and centralized administrator status metadata. See `docs/four-track-quality-audit-2026-06-24.md`.
+
 ## Current Public Offering
 
 ### Live
@@ -377,13 +379,27 @@ Next:
 
 ### 8. Live Content Audit Follow-Up
 
-- upgrade Network+ and Security+ explanations to the newer why-right, why-wrong, and operational-takeaway standard;
-- add a distractor-ambiguity audit for generated banks;
-- run an AWS service freshness pass on CLF-C02 and SAA-C03;
-- reduce SAA-C03 repeated-template pressure without changing its official domain allocation;
-- deepen Terraform thin objectives with HCL, plan, state, backend, provider, variable, and HCP Terraform examples;
-- make CCST questions less clue-to-term and more first-response troubleshooting oriented;
-- add more Splunk SPL result, dashboard, lookup, scheduled-report, and alert evidence.
+- replace repeated SAA-C03, CCST, and Splunk decision families through one-for-one rewrites;
+- replace stock explanation templates with misconception-specific coaching;
+- improve distractor plausibility and add answer-length cue reporting;
+- deepen CLF-C02 contrast explanations on scenario questions;
+- continue targeted Network+ and Security+ explanation enrichment;
+- preserve the new CCST evidence-leak, Security+ threshold, A+ context, and Terraform evidence gates.
+
+### 9. Accessibility Follow-Up
+
+- add semantic text/foreground tokens and contrast tests across certification colors;
+- add timer milestone announcements;
+- connect evidence tables to captions and scoped headers;
+- convert destructive account confirmations to accessible alert dialogs;
+- add axe, forced-colors, and reduced-motion browser verification.
+
+### 10. Maintainability Follow-Up
+
+- extract shared dark-theme public header/footer components;
+- centralize career-path facts and visibility;
+- move certification lifecycle status into one registry without changing editorial readiness metadata;
+- split the Docs operational ledger and specialized QuestionCard renderers behind existing tests.
 
 ## Completed Foundation
 

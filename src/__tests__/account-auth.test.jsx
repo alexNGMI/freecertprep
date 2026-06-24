@@ -82,6 +82,7 @@ describe('Account authentication', () => {
     renderAccount()
 
     await screen.findByRole('heading', { name: /Sign in with email/i })
+    expect(screen.getByText(/opening the first link creates your free account/i)).toBeTruthy()
     fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'learner@example.com' } })
     fireEvent.click(screen.getByRole('button', { name: /Send magic link/i }))
 
@@ -139,6 +140,8 @@ describe('Account authentication', () => {
     renderAccount()
 
     expect(await screen.findByText('2 certs, 4 sessions, 30 tracked questions, 3 bookmarks')).toBeTruthy()
+    expect(screen.getByRole('button', { name: 'Upload recovery backup' })).toBeTruthy()
+    expect(screen.getByText(/Backups are manual/i)).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: 'Restore latest backup' }))
 
     expect(screen.getByText(/Replace this browser's study data/i)).toBeTruthy()

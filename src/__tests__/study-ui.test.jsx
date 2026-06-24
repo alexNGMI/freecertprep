@@ -66,6 +66,8 @@ describe('cert study UI', () => {
     expect(container.textContent).toContain('6 remaining')
     expect(container.querySelector('[style*="width: 30%"]')).toBeTruthy()
     expect(container.querySelector('[style*="width: 40%"]')).toBeTruthy()
+    expect(screen.getByRole('progressbar', { name: 'Questions viewed' }).getAttribute('aria-valuetext')).toBe('Question 3 of 10')
+    expect(screen.getByRole('progressbar', { name: 'Questions answered' }).getAttribute('aria-valuenow')).toBe('4')
   })
 
   it('marks answered questions in the navigator label and routes clicks', () => {
@@ -84,8 +86,35 @@ describe('cert study UI', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Go to question 2 answered' }))
 
     expect(onGoToQuestion).toHaveBeenCalledWith(1)
+    expect(screen.getByRole('button', { name: 'Go to question 2 answered' }).getAttribute('aria-current')).toBe('step')
     expect(screen.getByRole('button', { name: 'Go to question 1' })).toBeTruthy()
     expect(screen.getByRole('button', { name: 'Go to question 3' })).toBeTruthy()
+  })
+
+  it('moves focus to the new question region after navigation', () => {
+    const { rerender } = render(
+      <StudyWorkspace
+        cert={{ color: '#f1be32' }}
+        title="Practice Quiz"
+        currentIndex={0}
+        total={3}
+      >
+        <div>First question</div>
+      </StudyWorkspace>,
+    )
+
+    rerender(
+      <StudyWorkspace
+        cert={{ color: '#f1be32' }}
+        title="Practice Quiz"
+        currentIndex={1}
+        total={3}
+      >
+        <div>Second question</div>
+      </StudyWorkspace>,
+    )
+
+    expect(document.activeElement).toBe(screen.getByRole('region', { name: 'Question 2 of 3' }))
   })
 
   it('does not mark subnetting questions answered until every field has a value', () => {

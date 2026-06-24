@@ -94,7 +94,7 @@ export default function ReportIssueButton({ certId, question, context = 'questio
           setStatus(null)
           setOpen(true)
         }}
-        className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-zinc-950/40 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-500 transition hover:border-amber-500/30 hover:bg-amber-500/10 hover:text-amber-200"
+        className="inline-flex min-h-11 items-center gap-2 rounded-lg border border-white/10 bg-zinc-950/40 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-500 transition hover:border-amber-500/30 hover:bg-amber-500/10 hover:text-amber-200"
       >
         <AlertCircle className="h-3.5 w-3.5" />
         Report issue
@@ -116,14 +116,14 @@ export default function ReportIssueButton({ certId, question, context = 'questio
                 <p className="text-xs font-bold uppercase tracking-widest text-amber-300">Question report</p>
                 <h2 id={`report-${question.id}`} className="mt-2 text-2xl font-black text-zinc-50">Flag this question</h2>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                  Signed-in reports go to the review queue. A local copy is kept as a backup.
+                  Signed-in reports go to the review queue. If you are signed out, this saves only on this device and can be exported as JSON.
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close report issue"
-                className="rounded-lg border border-white/10 p-2 text-zinc-500 hover:bg-white/5 hover:text-zinc-200"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/10 p-2 text-zinc-500 hover:bg-white/5 hover:text-zinc-200"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -160,7 +160,7 @@ export default function ReportIssueButton({ certId, question, context = 'questio
               </div>
 
               <div className="rounded-xl border border-white/10 bg-zinc-900/60 p-3 text-xs leading-relaxed text-zinc-500">
-                Saved with cert, question ID, domain, objective, type, issue category, notes, and timestamp.
+                Includes the certification, question ID, domain, objective, type, issue category, notes, and timestamp.
               </div>
 
               {status && (

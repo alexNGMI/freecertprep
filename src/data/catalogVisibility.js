@@ -28,3 +28,17 @@ export function isCertLive(certId) {
 export function isCertComingSoon(certId) {
   return COMING_SOON_CERT_IDS.has(certId)
 }
+
+export const CATALOG_VISIBILITY_COUNTS = Object.freeze({
+  live: LIVE_CERT_IDS.size,
+  comingSoon: COMING_SOON_CERT_IDS.size,
+  total: LIVE_CERT_IDS.size + COMING_SOON_CERT_IDS.size,
+})
+
+export function selectLiveCerts(certs) {
+  return certs.filter(cert => isCertLive(cert.id))
+}
+
+export function selectComingSoonCerts(certs) {
+  return certs.filter(cert => isCertComingSoon(cert.id))
+}

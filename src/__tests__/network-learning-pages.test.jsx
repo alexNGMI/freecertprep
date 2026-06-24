@@ -207,13 +207,14 @@ describe('Network+ learning pages', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'Turn practice into a study plan.' })).toBeTruthy()
-    expect(screen.getByText('Mastery plan').closest('[aria-current="step"]')).toBeTruthy()
+    expect(screen.getAllByText('Study Plan').some(node => node.closest('[aria-current="step"]'))).toBe(true)
     expect(screen.getByText('OSI reference model')).toBeTruthy()
     expect(screen.getAllByText('Troubleshooting methodology').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Strong').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Not measured').length).toBeGreaterThan(0)
     expect(screen.getByRole('link', { name: 'Retake diagnostic' })).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Your next work, in order' })).toBeTruthy()
+    expect(screen.getAllByText('Evidence strength').length).toBeGreaterThan(0)
   })
 
   it('does not record skipped diagnostic questions as mastery attempts', () => {
@@ -238,6 +239,18 @@ describe('Network+ learning pages', () => {
     expect(screen.getByText('1/4')).toBeTruthy()
     expect(screen.getByText('Best next move')).toBeTruthy()
     expect(screen.getByRole('link', { name: /Practice this target/ })).toBeTruthy()
+  })
+
+  it('warns that diagnostic answers are not saved before submission', () => {
+    render(
+      <MemoryRouter>
+        <Diagnostic />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByText('About 35 min')).toBeTruthy()
+    expect(screen.getByText(/Diagnostic answers are not saved until you submit/i)).toBeTruthy()
+    expect(screen.getByRole('link', { name: 'Study Plan' })).toBeTruthy()
   })
 
   it('gives Security+ the same evidence-driven next action flow', () => {

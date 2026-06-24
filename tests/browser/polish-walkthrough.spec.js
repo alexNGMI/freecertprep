@@ -143,7 +143,7 @@ test('support separates technical help from contextual question reports', async 
   await expect(page.getByRole('heading', { name: 'Question looks wrong' })).toBeVisible()
   await expect(page.getByRole('link', { name: 'Open learner docs' })).toBeVisible()
   await expect(page.getByRole('link', { name: 'Open account controls' })).toBeVisible()
-  await expect(page.getByText('Support email activation is in progress.')).toBeVisible()
+  await expect(page.getByText('Direct email support is not available right now.')).toBeVisible()
 
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth,

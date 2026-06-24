@@ -90,7 +90,10 @@ describe('QuestionCard pbq-matching questions', () => {
     expect(screen.getByText('Wireless survey')).toBeTruthy()
     expect(screen.getByText('-68 dBm')).toBeTruthy()
 
-    const selects = screen.getAllByRole('combobox')
+    const selects = [
+      screen.getByRole('combobox', { name: /2.4 GHz clients connect/i }),
+      screen.getByRole('combobox', { name: /Contractors enter valid passwords/i }),
+    ]
     fireEvent.change(selects[0], { target: { value: '1' } })
     fireEvent.change(selects[1], { target: { value: '0' } })
     fireEvent.click(screen.getByRole('button', { name: 'Submit Answer' }))

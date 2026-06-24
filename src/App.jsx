@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react'
+import { lazy, Suspense, useEffect, useRef } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import APlus from './pages/APlus'
@@ -37,6 +37,7 @@ const REResults = lazy(() => import('./pages/realestate/REResults'))
 // after React has rendered the destination section.
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
+  const previousPathname = useRef(pathname)
 
   useEffect(() => {
     if (hash) {
@@ -48,6 +49,23 @@ function ScrollToTop() {
     }
 
     window.scrollTo(0, 0)
+    if (previousPathname.current !== pathname) {
+      const frameId = window.requestAnimationFrame(() => {
+        const heading = document.querySelector('h1')
+        if (!heading) return
+
+        const previousTabIndex = heading.getAttribute('tabindex')
+        heading.setAttribute('tabindex', '-1')
+        heading.focus()
+        heading.addEventListener('blur', () => {
+          if (previousTabIndex === null) heading.removeAttribute('tabindex')
+          else heading.setAttribute('tabindex', previousTabIndex)
+        }, { once: true })
+      })
+      previousPathname.current = pathname
+      return () => window.cancelAnimationFrame(frameId)
+    }
+    previousPathname.current = pathname
     return undefined
   }, [pathname, hash])
 

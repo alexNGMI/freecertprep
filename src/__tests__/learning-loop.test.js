@@ -4,6 +4,7 @@ import {
   buildMasteryMap,
   buildStudyPlan,
   getQuestionObjectiveId,
+  hasStudyBaseline,
   isAppliedQuestion,
   getMasteryLevel,
   summarizeAppliedPerformance,
@@ -69,6 +70,18 @@ describe('Network+ learning loop', () => {
     expect(plan.at(-1).reason).toContain('mixed objectives')
   })
 
+  it('does not treat incidental practice as a completed study baseline', () => {
+    expect(hasStudyBaseline({
+      quizHistory: [{ kind: 'quiz', answers: [{ questionId: 'q1', correct: true }] }],
+      examHistory: [],
+    })).toBe(false)
+    expect(hasStudyBaseline({
+      quizHistory: [{ kind: 'diagnostic', answers: [] }],
+      examHistory: [],
+    })).toBe(true)
+    expect(hasStudyBaseline({ quizHistory: [], examHistory: [{ answers: [] }] })).toBe(true)
+  })
+
   it('selects only applied question formats for case practice', () => {
     const selected = selectCaseQuestions(questions, 4)
     expect(selected).toHaveLength(4)
@@ -101,6 +114,19 @@ describe('Network+ learning loop', () => {
     expect(debrief.practicalMisses).toBe(2)
     expect(debrief.bestNext.id).toBe('1.1')
     expect(debrief.measuredObjectives).toBe(3)
+  })
+
+  it('excludes unanswered questions from debrief priorities and applied misses', () => {
+    const debrief = buildExamDebrief([
+      { questionId: 'q2', selected: -1, correct: false },
+      { questionId: 'q3', selected: 0, correct: true },
+      { questionId: 'q5', selected: -1, correct: false, complete: false },
+    ], questions, objectives)
+
+    expect(debrief.priorities).toEqual([])
+    expect(debrief.practicalMisses).toBe(0)
+    expect(debrief.bestNext).toBeNull()
+    expect(debrief.measuredObjectives).toBe(1)
   })
 
   it('summarizes applied performance by practical category', () => {

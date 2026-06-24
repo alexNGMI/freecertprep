@@ -1,6 +1,10 @@
 import { isSupabaseConfigured, supabase } from './supabase'
+import {
+  ADMIN_REPORT_STATUSES,
+  isActionableAdminReportStatus,
+} from '../config/adminReportStatuses'
 
-export const REPORT_STATUSES = ['open', 'reviewing', 'fixed', 'rejected', 'duplicate']
+export const REPORT_STATUSES = ADMIN_REPORT_STATUSES
 export const REPORT_CATEGORIES = [
   'wrong_answer',
   'outdated_source',
@@ -60,7 +64,7 @@ export async function listCorrectionEvents(reportId) {
 }
 
 export async function reviewIssueReport(reportId, status, editorNote = '') {
-  if (!REPORT_STATUSES.includes(status) || status === 'open') {
+  if (!isActionableAdminReportStatus(status)) {
     throw new Error('Choose a valid review status.')
   }
 

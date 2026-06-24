@@ -47,9 +47,9 @@ export default function Support() {
               </Button>
             ) : (
               <div className="mt-6 rounded-xl border border-amber-500/25 bg-amber-500/10 px-4 py-3">
-                <p className="text-sm font-bold text-amber-100">Support email activation is in progress.</p>
+                <p className="text-sm font-bold text-amber-100">Direct email support is not available right now.</p>
                 <p className="mt-1 text-xs leading-relaxed text-amber-100/70">
-                  Account controls and local exports remain available while the custom-domain mailbox is being connected.
+                  No support inbox is being monitored. Use Report issue for question problems, and use the account page for sign-in, export, restore, or deletion controls.
                 </p>
               </div>
             )}
@@ -59,7 +59,7 @@ export default function Support() {
             <FileWarning className="h-6 w-6 text-amber-300" />
             <h2 className="mt-4 text-2xl font-black text-zinc-50">Question looks wrong</h2>
             <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-              Open that question in practice or review mode and select <strong className="text-zinc-200">Report issue</strong>. That preserves the certification, question ID, and problem category for review.
+              Open that question in practice or review mode and select <strong className="text-zinc-200">Report issue</strong>. Signed-in reports enter the review queue; signed-out reports stay on that device for export.
             </p>
             <p className="mt-5 text-xs font-bold uppercase tracking-wider text-zinc-600">
               Best for wrong answers, outdated facts, unclear explanations, and wording problems
@@ -69,7 +69,7 @@ export default function Support() {
           <SupportLink
             icon={BookOpenCheck}
             title="How the study tools work"
-            body="Read the learner guide for diagnostics, mastery maps, practice modes, results, sync, and recovery."
+            body="Read the learner guide for diagnostics, study plans, practice modes, results, sync, and recovery."
             to="/docs"
             label="Open learner docs"
           />

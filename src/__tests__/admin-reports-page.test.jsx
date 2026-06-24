@@ -80,6 +80,16 @@ describe('admin report review page', () => {
     expect(adminApi.listIssueReports).not.toHaveBeenCalled()
   })
 
+  it('keeps deployment details out of administrator access errors', async () => {
+    adminApi.getAdminAccess.mockRejectedValue(new Error('Apply the database migration before deployment.'))
+
+    renderPage()
+
+    expect(await screen.findByRole('heading', { name: 'Admin setup needs attention' })).toBeTruthy()
+    expect(screen.getByText(/administrator access check is temporarily unavailable/i)).toBeTruthy()
+    expect(screen.queryByText(/migration|deployment/i)).toBeNull()
+  })
+
   it('shows the protected queue and records an admin decision', async () => {
     adminApi.getAdminAccess.mockResolvedValue({ configured: true, signedIn: true, isAdmin: true })
     adminApi.listIssueReports

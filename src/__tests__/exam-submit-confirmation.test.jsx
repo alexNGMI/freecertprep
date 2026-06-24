@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
-import { fireEvent, render, screen } from '@testing-library/react'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import Exam from '../pages/Exam'
 
 const finishExam = vi.fn()
@@ -47,6 +47,8 @@ vi.mock('../hooks/useExamSession', () => ({
 }))
 
 describe('exam submission confirmation', () => {
+  afterEach(cleanup)
+
   beforeEach(() => {
     finishExam.mockClear()
   })
@@ -54,17 +56,40 @@ describe('exam submission confirmation', () => {
   it('warns before submitting an incomplete exam', () => {
     render(<Exam />)
 
-    fireEvent.click(screen.getByRole('button', { name: 'Submit Exam' }))
+    const submitTrigger = screen.getByRole('button', { name: 'Submit Exam' })
+    fireEvent.click(submitTrigger)
 
     expect(finishExam).not.toHaveBeenCalled()
     expect(screen.getByRole('dialog')).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Submit with 2 unanswered?' })).toBeTruthy()
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Keep Working' }))
 
     fireEvent.click(screen.getByRole('button', { name: 'Keep Working' }))
     expect(screen.queryByRole('dialog')).toBeNull()
+    expect(document.activeElement).toBe(submitTrigger)
 
     fireEvent.click(screen.getByRole('button', { name: 'Submit Exam' }))
     fireEvent.click(screen.getByRole('button', { name: 'Submit Anyway' }))
     expect(finishExam).toHaveBeenCalledTimes(1)
+  })
+
+  it('traps focus and closes with Escape', () => {
+    render(<Exam />)
+
+    const submitTrigger = screen.getByRole('button', { name: 'Submit Exam' })
+    fireEvent.click(submitTrigger)
+    const keepWorking = screen.getByRole('button', { name: 'Keep Working' })
+    const submitAnyway = screen.getByRole('button', { name: 'Submit Anyway' })
+
+    submitAnyway.focus()
+    fireEvent.keyDown(document, { key: 'Tab' })
+    expect(document.activeElement).toBe(keepWorking)
+
+    fireEvent.keyDown(document, { key: 'Tab', shiftKey: true })
+    expect(document.activeElement).toBe(submitAnyway)
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(screen.queryByRole('dialog')).toBeNull()
+    expect(document.activeElement).toBe(submitTrigger)
   })
 })

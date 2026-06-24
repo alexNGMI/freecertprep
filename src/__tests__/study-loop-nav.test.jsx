@@ -21,7 +21,7 @@ describe('StudyLoopNav', () => {
     )
 
     expect(screen.getByRole('navigation', { name: 'Study workflow' })).toBeTruthy()
-    expect(screen.getByText('Mastery plan').closest('[aria-current="step"]')).toBeTruthy()
+    expect(screen.getByText('Study Plan').closest('[aria-current="step"]')).toBeTruthy()
     expect(screen.getByRole('link', { name: /Diagnostic/ }).getAttribute('href')).toBe('/comptia-net-plus/learning/diagnostic')
     expect(screen.getByRole('link', { name: /Practice/ }).getAttribute('href')).toBe('/comptia-net-plus/quiz')
     expect(screen.getByRole('link', { name: /Cases/ }).getAttribute('href')).toBe('/comptia-net-plus/learning/cases')

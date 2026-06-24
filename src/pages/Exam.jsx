@@ -1,4 +1,4 @@
-import { createElement, useState } from 'react'
+import { createElement, useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, CheckCircle2, ClipboardList, Gauge, ShieldCheck, Timer } from 'lucide-react'
 import { useCert } from '../hooks/useCert'
 import { useExamSession } from '../hooks/useExamSession'
@@ -15,6 +15,8 @@ import { hasLearningLoop } from '../utils/learning-loop-config'
 export default function Exam() {
   const cert = useCert()
   const [confirmSubmit, setConfirmSubmit] = useState(false)
+  const submitDialogRef = useRef(null)
+  const submitDialogTriggerRef = useRef(null)
   const questions = cert.questions
   const allocationCopy = cert.domainWeightSource === 'editorial-practice'
     ? 'a stable objective-group practice allocation'
@@ -36,6 +38,60 @@ export default function Exam() {
     timeLeft,
   } = useExamSession({ cert, questions, resultsPath: `/${cert.id}/results` })
 
+  const unansweredCount = EXAM_QUESTIONS - answeredCount
+  const requestFinish = (event) => {
+    if (unansweredCount > 0) {
+      submitDialogTriggerRef.current = event?.currentTarget || document.activeElement
+      setConfirmSubmit(true)
+      return
+    }
+    finishExam()
+  }
+
+  useEffect(() => {
+    if (!confirmSubmit) return undefined
+
+    const dialog = submitDialogRef.current
+    const trigger = submitDialogTriggerRef.current
+    const focusableSelector = [
+      'button:not([disabled])',
+      '[href]',
+      'input:not([disabled])',
+      'select:not([disabled])',
+      'textarea:not([disabled])',
+      '[tabindex]:not([tabindex="-1"])',
+    ].join(',')
+    dialog?.querySelector(focusableSelector)?.focus()
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setConfirmSubmit(false)
+        return
+      }
+
+      if (event.key !== 'Tab') return
+      const focusable = Array.from(dialog?.querySelectorAll(focusableSelector) || [])
+      if (!focusable.length) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      trigger?.focus()
+    }
+  }, [confirmSubmit])
+
   if (!started) {
     return (
       <div className="mx-auto max-w-5xl space-y-8 animate-fade-up">
@@ -47,7 +103,7 @@ export default function Exam() {
           stats={[
             { label: 'Questions', value: EXAM_QUESTIONS, icon: ClipboardList },
             { label: 'Minutes', value: cert.examTime, icon: Timer },
-            { label: 'Target', value: readinessTarget(cert), icon: ShieldCheck },
+            { label: 'Practice target', value: readinessTarget(cert), icon: ShieldCheck },
           ]}
         />
         {hasLearningLoop(cert.id) && <StudyLoopNav cert={cert} current="exam" />}
@@ -58,7 +114,7 @@ export default function Exam() {
               <div className="grid gap-4 sm:grid-cols-3">
                 <ExamMetric icon={ClipboardList} label="Exam size" value={EXAM_QUESTIONS} />
                 <ExamMetric icon={Timer} label="Time limit" value={`${cert.examTime}m`} />
-                <ExamMetric icon={Gauge} label="Target" value={readinessTarget(cert)} />
+                <ExamMetric icon={Gauge} label="Practice target" value={readinessTarget(cert)} />
               </div>
               <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5">
                 <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Rules</p>
@@ -76,6 +132,7 @@ export default function Exam() {
                     </li>
                   )}
                   <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> Vendor exams may include unscored items, scaled scoring, or richer interaction types.</li>
+                  <li className="flex gap-3"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" /> The practice target is a freecertprep readiness signal, not the vendor&apos;s scaled passing score.</li>
                 </ul>
               </div>
             </div>
@@ -106,14 +163,6 @@ export default function Exam() {
   }
 
   const timerWarning = timeLeft < 300
-  const unansweredCount = EXAM_QUESTIONS - answeredCount
-  const requestFinish = () => {
-    if (unansweredCount > 0) {
-      setConfirmSubmit(true)
-      return
-    }
-    finishExam()
-  }
 
   return (
     <>
@@ -174,16 +223,18 @@ export default function Exam() {
       {confirmSubmit && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/80 p-4 backdrop-blur-sm">
           <div
+            ref={submitDialogRef}
             role="dialog"
             aria-modal="true"
             aria-labelledby="exam-submit-title"
+            aria-describedby="exam-submit-description"
             className="w-full max-w-md rounded-2xl border border-white/10 bg-zinc-950 p-6 shadow-2xl"
           >
             <p className="text-xs font-bold uppercase tracking-wider text-rose-300">Unanswered questions</p>
             <h2 id="exam-submit-title" className="mt-2 text-2xl font-black text-zinc-50">
               Submit with {unansweredCount} unanswered?
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+            <p id="exam-submit-description" className="mt-3 text-sm leading-relaxed text-zinc-400">
               Unanswered questions are scored as incorrect. You can keep working or submit the current readiness signal now.
             </p>
             <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">

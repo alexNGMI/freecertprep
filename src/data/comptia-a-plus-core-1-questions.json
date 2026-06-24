@@ -361,7 +361,7 @@
     "domain": "Mobile Devices",
     "objectiveId": "1.2",
     "conceptId": "aplus-core1-1.2-02",
-    "question": "During a network closet inspection, a technician needs to configure a phone for corporate email on the managed mobile device. The technician has ruled out a simple user-interface misunderstanding. The result must be verified under the original conditions. What is the most likely correct next step?",
+    "question": "During a managed-device onboarding, a technician needs to configure a phone for corporate email on the managed mobile device. The technician has ruled out a simple user-interface misunderstanding. The result must be verified under the original conditions. What is the most likely correct next step?",
     "choices": [
       "Use the organization-approved MDM enrollment and require screen lock before syncing mail",
       "Disable device encryption to improve sync speed",
@@ -2150,7 +2150,7 @@
     "domain": "Networking",
     "objectiveId": "2.5",
     "conceptId": "aplus-core1-2.5-05",
-    "question": "During a mobile-device enrollment, a technician needs to power a ceiling-mounted access point through Ethernet within the office wireless network. The team needs the smallest supported change that satisfies the requirement. The technician should choose the option that directly satisfies the requirement. What is the most likely correct next step?",
+    "question": "During a wireless access point installation, a technician needs to power a ceiling-mounted access point through Ethernet within the office wireless network. The team needs the smallest supported change that satisfies the requirement. The technician should choose the option that directly satisfies the requirement. What is the most likely correct next step?",
     "choices": [
       "Use a crossover cable only",
       "Router",
@@ -2962,7 +2962,7 @@
     "domain": "Networking",
     "objectiveId": "2.8",
     "conceptId": "aplus-core1-2.8-19",
-    "question": "During a mobile-device enrollment, a technician needs to verify the wire map of a newly terminated Ethernet run on the affected Ethernet connection. The technician must verify the result under the original conditions. The change must preserve user data and approved security controls. What should the technician do FIRST?",
+    "question": "After terminating a new office Ethernet run, a technician needs to verify the wire map of a newly terminated Ethernet run on the affected Ethernet connection. The technician must verify the result under the original conditions. The change must preserve user data and approved security controls. What should the technician do FIRST?",
     "choices": [
       "Use a Wi-Fi analyzer",
       "Use tracert or traceroute",
@@ -5687,7 +5687,7 @@
     "domain": "Hardware",
     "objectiveId": "3.7",
     "conceptId": "aplus-core1-3.7-19",
-    "question": "During a mobile-device enrollment, a technician needs to configure a multifunction printer to scan to a network share on the affected printer. The technician has documented when the behavior or requirement began. The next action should narrow the cause or complete the stated task. What should the technician do FIRST?",
+    "question": "While configuring a multifunction printer, a technician needs to configure a multifunction printer to scan to a network share on the affected printer. The technician has documented when the behavior or requirement began. The next action should narrow the cause or complete the stated task. What should the technician do FIRST?",
     "choices": [
       "Point the scanner at a DHCP exclusion",
       "NVMe SSD",

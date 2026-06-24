@@ -23,6 +23,7 @@ describe('ReportIssueButton', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /Report issue/i }))
     expect(document.activeElement).toBe(screen.getByLabelText(/Issue type/i))
+    expect(screen.getByText(/If you are signed out, this saves only on this device/i)).toBeTruthy()
     fireEvent.change(screen.getByLabelText(/Issue type/i), { target: { value: 'Explanation is unclear' } })
     fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'The command output needs a clearer reason.' } })
     fireEvent.click(screen.getByRole('button', { name: /Save report/i }))

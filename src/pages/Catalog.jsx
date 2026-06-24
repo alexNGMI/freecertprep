@@ -33,7 +33,7 @@ export default function Catalog() {
   useDocumentMeta({
     title: 'Catalog | freecertprep',
     description:
-      'Browse live freecertprep certification practice and preview coming-soon modules being held until they meet the simulation readiness bar.',
+      'Browse available freecertprep certification practice and see which exams are still being prepared.',
     path: '/catalog',
   })
 
@@ -65,14 +65,14 @@ export default function Catalog() {
                 Live certs first.
               </PageTitle>
               <PageLead>
-                Use this page when you already know the exam you want. Live modules meet the current release and readiness bar; preserved modules remain visible without implying they are ready today.
+                Use this page when you already know the exam you want. Available exams are ready to practice now; coming-soon exams are listed but cannot be opened yet.
               </PageLead>
             </div>
           </div>
         </section>
 
         <section className="max-w-7xl mx-auto px-6 pb-10">
-          <SectionHeading eyebrow="Ready now" title="Live practice" detail={`${liveCerts.length} live modules`} className="mb-5" />
+          <SectionHeading eyebrow="Ready now" title="Available practice" detail={`${liveCerts.length} exams`} className="mb-5" />
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {liveCerts.map((cert) => (
               <CertRow key={cert.id} cert={cert} live />
@@ -81,7 +81,7 @@ export default function Catalog() {
         </section>
 
         <section className="max-w-7xl mx-auto px-6 pb-16">
-          <SectionHeading eyebrow="Coming soon" title="Held for quality or release alignment" detail={`${comingSoonCerts.length} modules`} className="mb-5" />
+          <SectionHeading eyebrow="Coming soon" title="Still being prepared" detail={`${comingSoonCerts.length} exams`} className="mb-5" />
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {comingSoonCerts.map((cert) => (
               <CertRow key={cert.id} cert={cert} live={false} />
@@ -135,7 +135,7 @@ function CertRow({ cert, live }) {
         </span>
       </div>
       <div className="grid grid-cols-2 gap-2 border-t border-white/5 pt-4">
-        <MiniStat value={cert.examQuestions} label="Practice form" />
+        <MiniStat value={cert.examQuestions} label="Questions per exam" />
         <MiniStat value={`${cert.examTime}m`} label="Time" />
       </div>
     </>

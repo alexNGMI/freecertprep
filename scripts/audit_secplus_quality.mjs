@@ -79,6 +79,7 @@ const evidenceLedPracticalQuestions = questions.filter((question) =>
 const practicalEvidenceText = JSON.stringify(
   questions.filter((question) => practicalTypes.has(question.type)),
 ).toLowerCase()
+const hipaaThresholdQuestion = questions.find((question) => question.id === 'secplus-539')
 
 assert(questions.length === 760, `expected 760 questions, found ${questions.length}`)
 assert(ledgerLines.length === 761, `expected a 760-row objective review ledger, found ${ledgerLines.length - 1} rows`)
@@ -103,6 +104,14 @@ assert(questions.every((question) => wordCount(question.explanation) >= 20), 'on
 assert(!questions.some((question) => question.conceptId.includes('domain-fallback')), 'found unreviewed objective fallback metadata')
 assert(questions.every((question) => objectives[question.objectiveId]), 'found an invalid Security+ objective ID')
 assert(questions.every((question) => objectives[question.objectiveId][0] === question.domain), 'found an objective/domain mismatch')
+assert(
+  hipaaThresholdQuestion
+    && /\b400 patient records\b/i.test(hipaaThresholdQuestion.question)
+    && /fewer than 500 individuals/i.test(hipaaThresholdQuestion.question)
+    && hipaaThresholdQuestion.correctAnswer === 2
+    && /60 days from (?:the )?end of the calendar year/i.test(hipaaThresholdQuestion.choices[2]),
+  'secplus-539 must describe a breach below 500 individuals and retain the annual HHS reporting answer',
+)
 assert(questions.filter((question) => practicalTypes.has(question.type)).length >= 33, 'expected at least 33 practical questions')
 assert(evidenceLedPracticalQuestions.length >= 33, 'expected every Security+ practical question to include evidence or an interactive artifact')
 for (const topic of ['iam', 'firewall', 'alert', 'incident', 'flow', 'retention']) {

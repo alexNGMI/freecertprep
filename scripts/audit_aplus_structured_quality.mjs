@@ -75,6 +75,16 @@ const canonicalize = (value) => normalize(value)
   .replace(/\b(?:\d{1,3}\.){3}\d{1,3}(?:\/\d{1,2})?\b/g, '<ip>')
   .replace(/\b\d+\b/g, '#')
 const typeOf = (question) => question.type || 'single-choice'
+const repairedContextStarts = {
+  'aplus-core1-024': 'During a managed-device onboarding,',
+  'aplus-core1-139': 'During a wireless access point installation,',
+  'aplus-core1-191': 'After terminating a new office Ethernet run,',
+  'aplus-core1-366': 'While configuring a multifunction printer,',
+  'aplus-core2-431': 'After a Windows user reports a sign-in problem,',
+  'aplus-core2-438': 'During a managed-phone security review,',
+  'aplus-core2-530': 'During a managed-phone security review,',
+  'aplus-core2-663': 'During scheduled laser-printer maintenance,',
+}
 
 function contentSignature(question) {
   const type = typeOf(question)
@@ -230,6 +240,15 @@ for (const bank of banks) {
     questions.every((question) => ['single-choice', 'multiple-response', 'pbq-matching'].includes(typeOf(question))),
     `${bank.label}: found a generic learning-drill type in the production pool`,
   )
+  for (const [id, expectedStart] of Object.entries(repairedContextStarts)) {
+    const question = questions.find((item) => item.id === id)
+    if (question) {
+      assert(
+        question.question.startsWith(expectedStart),
+        `${bank.label}: ${id} regressed to a mismatched scenario context`,
+      )
+    }
+  }
   assert(practicals.length === 20, `${bank.label}: expected 20 handcrafted PBQ-lite questions`)
   assert(
     practicals.every((question) => (

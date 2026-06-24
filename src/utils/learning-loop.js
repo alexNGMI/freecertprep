@@ -9,6 +9,13 @@ export const MASTERY_LEVELS = {
 
 export const PRACTICAL_TYPES = new Set(['cli-output', 'topology-scenario', 'config-repair', 'subnetting-drill', 'matching', 'pbq-matching'])
 
+export function hasStudyBaseline(progress) {
+  return Boolean(
+    progress?.examHistory?.length
+    || progress?.quizHistory?.some(session => session.kind === 'diagnostic'),
+  )
+}
+
 export function selectDiagnosticQuestions(questions, objectives, count = 35) {
   if (!questions?.length || !objectives?.length) return []
 
@@ -63,7 +70,7 @@ export function buildMasteryMap(questions, statsMap, objectives, now = Date.now(
       ? Math.round((attemptedQuestions / objectiveQuestions.length) * 100)
       : 0
     const recencyDays = lastSeen ? Math.floor((now - lastSeen) / (24 * 60 * 60 * 1000)) : null
-    const confidence = Math.min(100, Math.round((attemptedQuestions / 3) * 100))
+    const evidenceStrength = Math.min(100, Math.round((attemptedQuestions / 3) * 100))
     const level = getMasteryLevel({ accuracy, attemptedQuestions, recencyDays })
 
     return {
@@ -74,7 +81,7 @@ export function buildMasteryMap(questions, statsMap, objectives, now = Date.now(
       correct,
       accuracy,
       coverage,
-      confidence,
+      evidenceStrength,
       lastSeen,
       recencyDays,
       level,
@@ -137,9 +144,10 @@ export function buildExamDebrief(answers, questions, objectives) {
     objective.id,
     { ...objective, correct: 0, total: 0, practicalMisses: 0 },
   ]))
-  const appliedSummary = summarizeAppliedPerformance(answers, questions)
+  const answered = (answers || []).filter(isAnsweredResult)
+  const appliedSummary = summarizeAppliedPerformance(answered, questions)
 
-  for (const answer of answers || []) {
+  for (const answer of answered) {
     const question = byId.get(answer.questionId)
     const result = objectiveMap.get(getQuestionObjectiveId(question, objectives))
     if (!result) continue
@@ -320,9 +328,13 @@ function getStudyReason(objective, practical, reassessment) {
   if (reassessment) return 'Check whether the repair work held under mixed objectives.'
   if (practical) return 'Convert topic recall into troubleshooting and decision practice.'
   if (objective.level === 'weak') return 'Lowest evidence first: repair misses before widening scope.'
-  if (objective.level === 'developing') return 'Close the confidence gap with another focused pass.'
+  if (objective.level === 'developing') return 'Strengthen the evidence with another focused pass.'
   if (objective.level === 'unmeasured') return 'Collect evidence so this target is no longer a blind spot.'
   return 'Keep the target warm with a short review block.'
+}
+
+function isAnsweredResult(answer) {
+  return answer?.complete !== false && answer?.selected !== -1
 }
 
 function humanize(value) {

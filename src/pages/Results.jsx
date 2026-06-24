@@ -54,13 +54,26 @@ export default function Results() {
   const debrief = learningLoopConfig && examQuestions
     ? buildExamDebrief(answers, examQuestions, learningObjectives)
     : null
-  const incorrect = answers.filter((answer) => !answer.correct)
+  const answeredIncorrect = answers.filter((answer) => !answer.correct && answer.selected !== -1 && answer.complete !== false)
   const unanswered = answers.filter((answer) => answer.selected === -1).length
-  const weakestDomain = domainResults[0]
+  const answeredDomainMap = {}
+  answers.forEach((answer) => {
+    if (answer.selected === -1 || answer.complete === false) return
+    if (!answeredDomainMap[answer.domain]) answeredDomainMap[answer.domain] = { correct: 0, total: 0 }
+    answeredDomainMap[answer.domain].total += 1
+    if (answer.correct) answeredDomainMap[answer.domain].correct += 1
+  })
+  const weakestDomain = Object.entries(answeredDomainMap)
+    .map(([domain, stats]) => ({
+      domain,
+      ...stats,
+      percentage: Math.round((stats.correct / stats.total) * 100),
+    }))
+    .sort((a, b) => a.percentage - b.percentage)[0]
   const strongestDomain = domainResults[domainResults.length - 1]
   const missedQuestionTypes = examQuestions
-    ? incorrect.reduce((counts, answer, index) => {
-        const question = examQuestions[index]
+    ? answeredIncorrect.reduce((counts, answer) => {
+        const question = examQuestions.find(item => item.id === answer.questionId)
         const type = question?.type || 'single-choice'
         counts[type] = (counts[type] || 0) + 1
         return counts
@@ -69,10 +82,10 @@ export default function Results() {
   const topMissedType = Object.entries(missedQuestionTypes).sort((a, b) => b[1] - a[1])[0]
   const nextPracticeLink = debrief?.bestNext
     ? `/${cert.id}/quiz?objective=${debrief.bestNext.id}`
-    : `/${cert.id}/quiz?mode=missed`
+    : `/${cert.id}/quiz`
   const nextPracticeLabel = debrief?.bestNext
     ? `Practice ${formatLearningTarget(learningLoopConfig, debrief.bestNext.id)}`
-    : 'Review recent misses'
+    : 'Start focused practice'
   const retakeGuidance = passed
     ? 'Retake only after you confirm weak domains were not just lucky coverage gaps.'
     : 'Retake after one focused repair block and a short review of missed explanations.'
@@ -120,7 +133,7 @@ export default function Results() {
             {passed ? 'Confirm the weak spots before you call it ready.' : 'Repair the miss pattern before another full exam.'}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-            Your score is useful, but the next move comes from the miss pattern: weakest domain, missed formats, and unanswered questions.
+            Your score includes unanswered questions. Study recommendations use only questions you answered, so skipped items do not become false weakness signals.
           </p>
         </div>
 
@@ -135,12 +148,12 @@ export default function Results() {
           <div className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
             <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Why misses happened</p>
             <p className="mt-2 font-black text-zinc-100">
-              {incorrect.length === 0 ? 'No misses recorded' : topMissedType ? formatQuestionType(topMissedType[0]) : 'Concept review'}
+              {answeredIncorrect.length === 0 ? 'No answered misses' : topMissedType ? formatQuestionType(topMissedType[0]) : 'Concept review'}
             </p>
             <p className="mt-2 text-sm text-zinc-500">
-              {incorrect.length === 0
-                ? 'Use the review to confirm the form covered enough of the blueprint.'
-                : `${incorrect.length} missed, ${unanswered} unanswered. Read explanations before retaking.`}
+              {answeredIncorrect.length === 0
+                ? `${unanswered} unanswered. Answer more questions before using a miss pattern to choose study work.`
+                : `${answeredIncorrect.length} answered incorrectly, ${unanswered} unanswered. Read explanations before retaking.`}
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
@@ -155,7 +168,7 @@ export default function Results() {
             {nextPracticeLabel}
           </Button>
           <Button as={Link} to={`/${cert.id}/learning`} variant="secondary">
-            Open study plan
+            Open Study Plan
           </Button>
           <Button as={Link} to={`/${cert.id}/exam`} variant="ghost">
             Retake when ready
@@ -220,7 +233,7 @@ export default function Results() {
                 Repair {formatLearningTarget(learningLoopConfig, debrief.bestNext.id)} before retaking the exam.
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-                {debrief.bestNext.title} produced {debrief.bestNext.misses} miss{debrief.bestNext.misses === 1 ? '' : 'es'} on this form. Practice this target first, then use the mastery map or case set to confirm the repair.
+                {debrief.bestNext.title} produced {debrief.bestNext.misses} miss{debrief.bestNext.misses === 1 ? '' : 'es'} on this form. Practice this target first, then use the Study Plan or case set to confirm the repair.
               </p>
               <div className="mt-4 flex flex-col gap-3 sm:flex-row">
                 <Button as={Link} to={`/${cert.id}/quiz?objective=${debrief.bestNext.id}`} variant="accent" accentColor={cert.color}>
@@ -265,12 +278,12 @@ export default function Results() {
             </div>
           ) : (
             <p className="rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-5 text-sm font-semibold text-emerald-200">
-              No target produced a miss on this form. Use the mastery map to check coverage before treating that as full readiness.
+              No answered question produced a target-level miss on this form. Use the Study Plan to check coverage before treating that as full readiness.
             </p>
           )}
           <div className="flex flex-col gap-3 sm:flex-row">
             <Button as={Link} to={`/${cert.id}/learning`} variant="secondary">
-              Open Mastery Map
+              Open Study Plan
             </Button>
             <Button as={Link} to={`/${cert.id}/learning/cases`} variant="secondary">
               Practice Applied Cases
