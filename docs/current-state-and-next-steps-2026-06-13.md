@@ -1,12 +1,12 @@
 # Current State and Next Steps
 
-Last updated: June 23, 2026
+Last updated: June 24, 2026
 
 ## Executive Summary
 
-freecertprep is in a consolidation and public-beta foundation phase. The repository contains 11,697 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The current product now combines its study workflow with live Cloudflare hosting, optional Supabase email accounts, manual cloud backup/restore, and durable signed-in question reporting.
+freecertprep is in a consolidation and public-beta activation phase. The repository contains 11,697 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The product now combines its study workflow with live Cloudflare hosting, optional Supabase email accounts, merge-aware manual sync, recovery controls, durable signed-in question reporting, protected admin review, privacy controls, and a prepared support surface.
 
-The next release should complete the operational trust loop, not make the catalog larger.
+The next release should activate and validate the operational trust loop, not make the catalog larger.
 
 The June 14 full-codebase review found four priorities:
 
@@ -17,7 +17,32 @@ The June 14 full-codebase review found four priorities:
 
 Detailed review: `docs/codebase-review-and-action-plan-2026-06-14.md`.
 
-The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul, trust/metadata pass, hosted deployment, authentication, protected admin report review, and merge-aware manual synchronization are now complete in the repository. The June 24 backend migrations still need production activation; domain email and real two-device account validation are next.
+The requested execution order began with content quality, then trust correctness. The A+ full-bank overhaul, trust/metadata pass, hosted deployment, authentication, protected admin report review, privacy controls, merge-aware manual synchronization, and support-email product preparation are complete in the repository. The remaining backend MVP work is operational activation in Supabase, Cloudflare, DNS, and email-provider dashboards.
+
+## Current Handoff
+
+### Owner activation work
+
+These steps require access to external service dashboards and cannot be completed by repository changes alone:
+
+1. Apply `20260624_admin_report_queue.sql` in production Supabase and promote the first administrator.
+2. Apply `20260624_account_privacy_controls.sql` and verify export/deletion using a disposable account.
+3. Connect the final custom domain to Cloudflare and add it to Supabase Site URL and redirect allowlists.
+4. Create `support@`, `admin@`, and `no-reply@` routing/sending arrangements; configure SPF, DKIM, and DMARC.
+5. Set `VITE_SUPPORT_EMAIL` in the Cloudflare production build and redeploy.
+6. Complete the real two-device sync walkthrough in `docs/account-sync-runbook.md`.
+
+### Parallel repository work
+
+While activation is underway, engineering effort should stay on work that improves the current learner rather than expanding scope:
+
+1. **Content teaching-value audit:** identify the weakest explanations and least useful distractors in the nine live modules using human sampling, not question-count expansion.
+2. **First-user comprehension pass:** test whether a new learner understands diagnostics, mastery, study plans, cases, simulators, results, sync, and reporting without prior explanation.
+3. **Accessibility and keyboard pass:** deepen focus order, dialog semantics, screen-reader labels, contrast, and reduced-motion verification across the critical workflow.
+4. **Maintainability reduction:** centralize repeated public navigation/footer data and split the largest high-change UI modules where tests provide a safe boundary.
+5. **Production acceptance preparation:** turn the final signed-out, signed-in, admin, mobile, and two-device walkthrough into one concise release checklist.
+
+Do not spend the current token budget on new certifications, automatic background sync, marketing systems, payment infrastructure, a job board, classroom dashboards, or speculative analytics.
 
 Network+ also established a complete personal learning loop: a balanced diagnostic, objective mastery map, deterministic personal study plan, exam debrief, and practical case mode. A+ Core 1, A+ Core 2, CCST Networking, Security+, AWS Cloud Practitioner, SAA-C03, Splunk, and Terraform now use the same learning-loop architecture for the live product. CCNA also uses the loop as a Coming Soon v2.0 preview, driven by its 25 objective families and CLI/topology/config/subnetting case practice. This improves the offering while keeping catalog promotion disciplined.
 

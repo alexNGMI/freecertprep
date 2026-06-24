@@ -360,8 +360,20 @@ This lets the current app remain stable while account sync is added underneath.
 
 ## Immediate Next Actions
 
+### External activation
+
 1. Apply the June 24 admin migration and promote the first administrator account.
-2. Activate and validate the June 24 admin/privacy migrations in production.
-3. Set up domain support/admin email and complete a real two-device sync walkthrough.
-4. Set up custom-domain support/admin email.
-5. Apply and verify the account privacy-controls migration before broader promotion.
+2. Apply the June 24 account privacy-controls migration and validate it with a disposable account.
+3. Connect the final custom domain and update Supabase authentication URLs.
+4. Activate support/admin forwarding and transactional SMTP using `docs/domain-email-setup-runbook.md`.
+5. Set `VITE_SUPPORT_EMAIL` in Cloudflare and redeploy.
+6. Complete the two-device sync walkthrough in `docs/account-sync-runbook.md`.
+
+### Repository work that can continue in parallel
+
+1. Run a human teaching-value audit across the nine live modules.
+2. Perform a first-user comprehension and accessibility pass across the full learning loop.
+3. Reduce navigation/documentation duplication and split only the highest-change oversized modules.
+4. Prepare the final production acceptance checklist.
+
+The backend MVP should not grow beyond these activation and validation tasks. Automatic background sync, paid plans, job-board features, marketing automation, and classroom tooling remain out of scope.
