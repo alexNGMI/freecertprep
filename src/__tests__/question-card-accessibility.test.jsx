@@ -82,6 +82,7 @@ describe('QuestionCard accessibility', () => {
       />,
     )
 
-    expect(screen.getByRole('status').textContent).toContain('Correct!')
+    expect(screen.getByRole('status').textContent).toBe('Correct answer.')
+    expect(screen.getByText('The first choice is correct.')).toBeTruthy()
   })
 })

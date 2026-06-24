@@ -64,6 +64,7 @@ export async function listCorrectionEvents(reportId) {
 }
 
 export async function reviewIssueReport(reportId, status, editorNote = '') {
+  if (!supabase) throw new Error('The account service is unavailable.')
   if (!isActionableAdminReportStatus(status)) {
     throw new Error('Choose a valid review status.')
   }

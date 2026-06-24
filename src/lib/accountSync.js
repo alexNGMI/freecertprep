@@ -30,8 +30,9 @@ export function buildLocalSnapshot() {
   }
 }
 
-function readSyncState() {
-  return readJSON(KEYS.syncState, null)
+function readSyncState(userId) {
+  const state = readJSON(KEYS.syncState, null)
+  return state?.userId === userId ? state : null
 }
 
 function saveMergedLocally(snapshot, syncState) {
@@ -96,7 +97,7 @@ export async function backupStudyData() {
 export async function getSyncInfo() {
   const user = await getUser()
   if (!user) return null
-  const state = readSyncState()
+  const state = readSyncState(user.id)
   return state
     ? {
         lastSyncedAt: state.lastSyncedAt,
@@ -110,7 +111,7 @@ export async function syncStudyData() {
   if (!user) throw new Error('Sign in before syncing progress.')
 
   const localSnapshot = buildLocalSnapshot()
-  const localSyncState = readSyncState()
+  const localSyncState = readSyncState(user.id)
   const deviceId = getDeviceId()
   const { data: remoteRow, error: remoteError } = await supabase
     .from('study_snapshots')
@@ -141,6 +142,7 @@ export async function syncStudyData() {
   if (insertError) throw insertError
 
   const syncState = {
+    userId: user.id,
     lastSyncedAt: inserted.created_at,
     remoteCreatedAt: remoteRow?.created_at || null,
     baseSnapshot: merged,
@@ -200,6 +202,7 @@ export async function restoreLatestStudyData() {
     writeJSON(KEYS.bookmarks, snapshot.bookmarks || {}),
     writeJSON(KEYS.bookmarkSyncState, snapshot.bookmarkState || {}),
     writeJSON(KEYS.syncState, {
+      userId: user.id,
       lastSyncedAt: data.created_at,
       remoteCreatedAt: data.created_at,
       baseSnapshot: snapshot,

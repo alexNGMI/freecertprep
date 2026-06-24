@@ -2,13 +2,15 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 const migration = readFileSync(
-  new URL('../../supabase/migrations/20260624_account_privacy_controls.sql', import.meta.url),
+  new URL('../../supabase/migrations/20260624000200_account_privacy_controls.sql', import.meta.url),
   'utf8',
 )
 
 describe('account privacy migration', () => {
   it('exports all account-owned data and deletes through the authenticated auth user', () => {
     expect(migration).toContain('create or replace function public.export_my_account_data()')
+    expect(migration).toContain("set search_path = ''")
+    expect(migration).toContain('Dependency: apply 20260624000100_admin_report_queue.sql first.')
     expect(migration).toContain("'studySnapshots'")
     expect(migration).toContain("'questionStats'")
     expect(migration).toContain("'bookmarks'")

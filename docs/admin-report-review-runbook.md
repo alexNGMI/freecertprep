@@ -24,7 +24,7 @@ The browser cannot grant administrator access. Supabase checks membership for ev
 In Supabase:
 
 1. Open **SQL Editor**.
-2. Open `supabase/migrations/20260624_admin_report_queue.sql` from this repository.
+2. Open `supabase/migrations/20260624000100_admin_report_queue.sql` from this repository.
 3. Paste the full file into a new query.
 4. Click **Run**.
 

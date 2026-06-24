@@ -125,6 +125,7 @@ describe('account study-data sync', () => {
     expect(JSON.parse(localStorage.getItem(KEYS.questionStats))).toEqual(snapshot.questionStats)
     expect(JSON.parse(localStorage.getItem(KEYS.bookmarks))).toEqual(snapshot.bookmarks)
     expect(JSON.parse(localStorage.getItem(KEYS.syncState))).toMatchObject({
+      userId: 'user-1',
       lastSyncedAt: '2026-06-23T20:00:00Z',
       baseSnapshot: snapshot,
     })
@@ -146,6 +147,7 @@ describe('account study-data sync', () => {
     localStorage.setItem(KEYS.bookmarks, JSON.stringify({ net: ['q1'] }))
     localStorage.setItem(KEYS.bookmarkSyncState, JSON.stringify(baseSnapshot.bookmarkState))
     localStorage.setItem(KEYS.syncState, JSON.stringify({
+      userId: 'user-1',
       lastSyncedAt: '2026-06-23T19:00:00Z',
       baseSnapshot,
     }))
@@ -191,6 +193,7 @@ describe('account study-data sync', () => {
     expect(savedProgress.net.quizHistory).toHaveLength(2)
     expect(savedProgress.net.examHistory).toHaveLength(1)
     expect(JSON.parse(localStorage.getItem(KEYS.syncState))).toMatchObject({
+      userId: 'user-1',
       lastSyncedAt: '2026-06-23T21:00:00Z',
       baseSnapshot: { schemaVersion: 2 },
     })
@@ -198,6 +201,7 @@ describe('account study-data sync', () => {
 
   it('reports the locally recorded last successful sync', async () => {
     localStorage.setItem(KEYS.syncState, JSON.stringify({
+      userId: 'user-1',
       lastSyncedAt: '2026-06-23T21:00:00Z',
       baseSnapshot: {
         progress: { net: { quizHistory: [], examHistory: [] } },
@@ -215,5 +219,19 @@ describe('account study-data sync', () => {
         bookmarks: 0,
       },
     })
+  })
+
+  it('ignores a sync baseline created by a different signed-in account', async () => {
+    localStorage.setItem(KEYS.syncState, JSON.stringify({
+      userId: 'user-2',
+      lastSyncedAt: '2026-06-23T21:00:00Z',
+      baseSnapshot: {
+        progress: { net: { quizHistory: [{ timestamp: 1 }], examHistory: [] } },
+        questionStats: {},
+        bookmarks: {},
+      },
+    }))
+
+    await expect(getSyncInfo()).resolves.toBeNull()
   })
 })

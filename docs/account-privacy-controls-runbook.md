@@ -16,8 +16,11 @@ Date: June 24, 2026
 Apply this migration in Supabase SQL Editor:
 
 ```text
-supabase/migrations/20260624_account_privacy_controls.sql
+supabase/migrations/20260624000200_account_privacy_controls.sql
 ```
+
+Apply `20260624000100_admin_report_queue.sql` first because the export includes the
+current user's administrator-membership flag.
 
 The migration adds two authenticated functions:
 

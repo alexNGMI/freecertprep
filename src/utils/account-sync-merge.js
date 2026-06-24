@@ -1,3 +1,5 @@
+import { retainExamHistory, retainQuizHistory } from './storage.js'
+
 function normalizeSnapshot(snapshot = {}) {
   return {
     schemaVersion: 2,
@@ -43,8 +45,8 @@ export function mergeProgress(local = {}, remote = {}) {
 
   certIds.forEach(certId => {
     merged[certId] = {
-      quizHistory: mergeHistory(local[certId]?.quizHistory, remote[certId]?.quizHistory),
-      examHistory: mergeHistory(local[certId]?.examHistory, remote[certId]?.examHistory),
+      quizHistory: retainQuizHistory(mergeHistory(local[certId]?.quizHistory, remote[certId]?.quizHistory)),
+      examHistory: retainExamHistory(mergeHistory(local[certId]?.examHistory, remote[certId]?.examHistory)),
     }
   })
 

@@ -7,6 +7,7 @@ import CareerPath from './pages/CareerPath'
 import Docs from './pages/Docs'
 import CertLayout from './components/CertLayout'
 import LoadingState from './components/LoadingState'
+import StorageWriteWarning from './components/StorageWriteWarning'
 import { CertProvider } from './hooks/useCert'
 
 const Account = lazy(() => import('./pages/Account'))
@@ -88,6 +89,7 @@ function App() {
   return (
     <Suspense fallback={<PageLoader />}>
       <ScrollToTop />
+      <StorageWriteWarning />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />

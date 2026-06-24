@@ -483,34 +483,39 @@ export default function QuestionCard({ question, onAnswer, answered, selectedCho
 
       {/* Feedback Block */}
       {answered && (
-        <div role="status" aria-live="polite" className={`p-6 rounded-xl text-sm sm:text-base leading-relaxed animate-fade-up flex gap-4 ${
-          isCorrect
-            ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-100'
-            : 'bg-rose-500/10 border border-rose-500/30 text-rose-100'
-        }`}>
-          <div className="shrink-0 mt-0.5">
-            {isCorrect ? (
-              <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            )}
-          </div>
-          <div>
-            <p className="font-bold mb-2">
-              {isCorrect ? 'Correct!' : 'Incorrect'}
-            </p>
-            {answerProgress && answerProgress.total > 1 && (
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-400">
-                Component check: {answerProgress.correct}/{answerProgress.total} correct
+        <>
+          <p className="sr-only" role="status" aria-live="polite">
+            {isCorrect ? 'Correct answer.' : 'Incorrect answer.'}
+          </p>
+          <div className={`p-6 rounded-xl text-sm sm:text-base leading-relaxed animate-fade-up flex gap-4 ${
+            isCorrect
+              ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-100'
+              : 'bg-rose-500/10 border border-rose-500/30 text-rose-100'
+          }`}>
+            <div className="shrink-0 mt-0.5">
+              {isCorrect ? (
+                <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+            </div>
+            <div>
+              <p className="font-bold mb-2">
+                {isCorrect ? 'Correct!' : 'Incorrect'}
               </p>
-            )}
-            <ExplanationReview question={question} />
+              {answerProgress && answerProgress.total > 1 && (
+                <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                  Component check: {answerProgress.correct}/{answerProgress.total} correct
+                </p>
+              )}
+              <ExplanationReview question={question} />
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   )

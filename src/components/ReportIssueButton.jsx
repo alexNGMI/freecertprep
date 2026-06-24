@@ -17,6 +17,7 @@ export default function ReportIssueButton({ certId, question, context = 'questio
   const [issueType, setIssueType] = useState(ISSUE_TYPES[0])
   const [notes, setNotes] = useState('')
   const [status, setStatus] = useState(null)
+  const [submitting, setSubmitting] = useState(false)
   const triggerRef = useRef(null)
   const dialogRef = useRef(null)
   const issueTypeRef = useRef(null)
@@ -59,6 +60,8 @@ export default function ReportIssueButton({ certId, question, context = 'questio
   }, [open])
 
   async function handleSubmit() {
+    if (submitting) return
+    setSubmitting(true)
     const report = {
       certId: certId || 'unknown-cert',
       questionId: question.id,
@@ -73,6 +76,7 @@ export default function ReportIssueButton({ certId, question, context = 'questio
 
     if (!saved) {
       setStatus('error')
+      setSubmitting(false)
       return
     }
 
@@ -82,6 +86,8 @@ export default function ReportIssueButton({ certId, question, context = 'questio
       setNotes('')
     } catch {
       setStatus('saved')
+    } finally {
+      setSubmitting(false)
     }
   }
 
@@ -186,8 +192,8 @@ export default function ReportIssueButton({ certId, question, context = 'questio
                   <Download className="h-4 w-4" />
                   Export reports
                 </Button>
-                <Button type="button" variant="accent" accentColor="#f59e0b" onClick={handleSubmit}>
-                  Save report
+                <Button type="button" variant="accent" accentColor="#f59e0b" onClick={handleSubmit} disabled={submitting}>
+                  {submitting ? 'Saving...' : 'Save report'}
                 </Button>
               </div>
             </div>

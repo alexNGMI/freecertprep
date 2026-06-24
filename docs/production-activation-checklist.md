@@ -6,15 +6,15 @@ This is the short owner checklist for turning the repository-complete backend MV
 
 ## 1. Supabase Administrator
 
-- Run `supabase/migrations/20260624_admin_report_queue.sql`.
+- Run `supabase/migrations/20260624000100_admin_report_queue.sql`.
 - Sign in once with the intended administrator email.
-- Insert that user into `public.app_admins` using `docs/admin-report-review-runbook.md`.
+- Insert that user into `public.admin_users` using `docs/admin-report-review-runbook.md`.
 - Open `/admin/reports` and confirm the queue loads.
 - Confirm a normal signed-in account cannot access the queue.
 
 ## 2. Privacy Controls
 
-- Run `supabase/migrations/20260624_account_privacy_controls.sql`.
+- Run `supabase/migrations/20260624000200_account_privacy_controls.sql`.
 - Create a disposable learner account.
 - Add a little progress, sync it, and submit one question report.
 - Download the complete account export.

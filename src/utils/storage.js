@@ -16,6 +16,12 @@
 export const SCHEMA_VERSION = 1
 
 const VERSION_KEY = 'freecertprep-schema-version'
+const STORAGE_ERROR_EVENT = 'freecertprep-storage-error'
+
+export const SESSION_RETENTION = Object.freeze({
+  quizHistory: 50,
+  examHistory: 20,
+})
 
 // The canonical storage keys. Keeping the historical names means existing
 // users' data is preserved with no migration needed for v1.
@@ -38,6 +44,12 @@ function getLS() {
   }
 }
 
+function notifyStorageError(key) {
+  const w = globalThis.window
+  if (!w || typeof w.dispatchEvent !== 'function' || typeof CustomEvent === 'undefined') return
+  w.dispatchEvent(new CustomEvent(STORAGE_ERROR_EVENT, { detail: { key } }))
+}
+
 /** Read and JSON-parse a key. Returns `fallback` on missing/corrupt/unavailable. */
 export function readJSON(key, fallback) {
   const ls = getLS()
@@ -57,13 +69,53 @@ export function readJSON(key, fallback) {
  */
 export function writeJSON(key, value) {
   const ls = getLS()
-  if (!ls) return false
+  if (!ls) {
+    notifyStorageError(key)
+    return false
+  }
   try {
     ls.setItem(key, JSON.stringify(value))
     return true
   } catch {
+    notifyStorageError(key)
     return false
   }
+}
+
+export function subscribeToStorageErrors(handler) {
+  const w = globalThis.window
+  if (!w || typeof w.addEventListener !== 'function') return () => {}
+  w.addEventListener(STORAGE_ERROR_EVENT, handler)
+  return () => w.removeEventListener(STORAGE_ERROR_EVENT, handler)
+}
+
+function retainRecent(history, limit, preserveKind = null) {
+  if (!Array.isArray(history)) return []
+  const recent = history.slice(-limit)
+  if (!preserveKind) return recent
+
+  const preserved = [...history].reverse().find(session => session?.kind === preserveKind)
+  return preserved && !recent.includes(preserved) ? [preserved, ...recent] : recent
+}
+
+export function retainQuizHistory(history) {
+  return retainRecent(history, SESSION_RETENTION.quizHistory, 'diagnostic')
+}
+
+export function retainExamHistory(history) {
+  return retainRecent(history, SESSION_RETENTION.examHistory)
+}
+
+export function applySessionRetention(progress) {
+  if (!isPlainObject(progress)) return {}
+  return Object.fromEntries(Object.entries(progress).map(([certId, certProgress]) => [
+    certId,
+    {
+      ...certProgress,
+      quizHistory: retainQuizHistory(certProgress?.quizHistory),
+      examHistory: retainExamHistory(certProgress?.examHistory),
+    },
+  ]))
 }
 
 /** Remove a key. Never throws. */
@@ -202,6 +254,7 @@ export function importProgressRaw(raw) {
     ls.setItem(KEYS.progress, raw)
     return 'ok'
   } catch {
+    notifyStorageError(KEYS.progress)
     return 'error'
   }
 }

@@ -1,6 +1,15 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { aggregateDomainStats, aggregateOverallStats } from '../utils/progress-stats.js'
-import { KEYS, isValidProgressData, readJSON, writeJSON, subscribe } from '../utils/storage.js'
+import {
+  applySessionRetention,
+  KEYS,
+  isValidProgressData,
+  readJSON,
+  retainExamHistory,
+  retainQuizHistory,
+  subscribe,
+  writeJSON,
+} from '../utils/storage.js'
 
 const STORAGE_KEY = KEYS.progress
 
@@ -12,7 +21,7 @@ function getCertProgress(progress, certId) {
 
 function loadProgress() {
   const stored = readJSON(STORAGE_KEY, defaultProgress)
-  return isValidProgressData(stored) ? stored : defaultProgress
+  return isValidProgressData(stored) ? applySessionRetention(stored) : defaultProgress
 }
 
 export function useProgress(certId) {
@@ -37,7 +46,10 @@ export function useProgress(certId) {
         ...prev,
         [certId]: {
           ...cert,
-          quizHistory: [...cert.quizHistory, { ...result, timestamp: Date.now() }],
+          quizHistory: retainQuizHistory([
+            ...cert.quizHistory,
+            { ...result, timestamp: Date.now() },
+          ]),
         },
       }
     })
@@ -50,7 +62,10 @@ export function useProgress(certId) {
         ...prev,
         [certId]: {
           ...cert,
-          examHistory: [...cert.examHistory, { ...result, timestamp: Date.now() }],
+          examHistory: retainExamHistory([
+            ...cert.examHistory,
+            { ...result, timestamp: Date.now() },
+          ]),
         },
       }
     })

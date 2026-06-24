@@ -2,6 +2,13 @@ import fs from 'node:fs'
 
 const OUT = 'src/data/ccst-networking-questions.json'
 
+if (!process.argv.includes('--replace-curated-bank')) {
+  throw new Error(
+    'This script is an initial-bank scaffold and does not include later editorial repairs. '
+    + 'Pass --replace-curated-bank only when you intend to regenerate, repair, and re-audit the full CCST bank.',
+  )
+}
+
 const domains = [
   { name: 'Standards and Concepts', count: 113 },
   { name: 'Addressing and Subnet Formats', count: 150 },

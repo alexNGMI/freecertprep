@@ -163,6 +163,23 @@ const genericEvidenceQuestions = questions.filter((question) =>
   /compare the observation with the available responses|classification pending technician analysis/i
     .test(JSON.stringify(question.evidenceArtifacts || []))
 )
+const malformedStemQuestions = questions.filter((question) =>
+  /\bthe the\b|An IPv4 the observed|observed service 169\.254|observed service or ifconfig|observed connection indicate|not assigned to a\."/i
+    .test(question.question)
+)
+const catchAllPromptQuestions = questions.filter((question) =>
+  /Which choice best identifies the relevant network condition, component, protocol, or control\?/i
+    .test(question.question)
+)
+const unsupportedSingleChoiceEvidence = questions.filter((question) => {
+  if (typeOf(question) !== 'single-choice') return false
+  const evidence = normalize(JSON.stringify(question.evidenceArtifacts || []))
+  if (question.domain === 'Diagnosing Problems') {
+    return !/observation 1|observation 2|observation 3/.test(evidence)
+  }
+  const quotedObservation = question.question.match(/"([^"]+)"/)?.[1]
+  return quotedObservation && !containsNormalizedPhrase(evidence, quotedObservation)
+})
 const ticketLanguage = questions.filter((question) => /\bticket\b/i.test(question.question))
 const clueToTermQuestions = questions.filter((question) =>
   /which networking concept is being described|which term best matches this evidence|needs the Cisco CCST term|which term should the technician choose|term to identify/i
@@ -187,6 +204,18 @@ assert(
 assert(
   genericEvidenceQuestions.length === 0,
   `found generic placeholder evidence for ${genericEvidenceQuestions.map((question) => question.id).join(', ')}`,
+)
+assert(
+  malformedStemQuestions.length === 0,
+  `found malformed CCST stems for ${malformedStemQuestions.map((question) => question.id).join(', ')}`,
+)
+assert(
+  catchAllPromptQuestions.length === 0,
+  `found ${catchAllPromptQuestions.length} over-generic catch-all prompts`,
+)
+assert(
+  unsupportedSingleChoiceEvidence.length === 0,
+  `found single-choice evidence that does not support the stem for ${unsupportedSingleChoiceEvidence.map((question) => question.id).join(', ')}`,
 )
 assert(ticketLanguage.length === 0, `found ${ticketLanguage.length} ticket-framed questions`)
 assert(clueToTermQuestions.length <= 125, `found ${clueToTermQuestions.length} clue-to-term questions; keep first-response wording at or below 125`)
@@ -220,6 +249,9 @@ console.log(`Invalid answer metadata: ${invalidAnswers.length}`)
 console.log(`Pre-answer evidence leaks: ${evidenceLeakQuestions.length}`)
 console.log(`Direct single-choice stem leaks: ${stemLeakQuestions.length}`)
 console.log(`Generic evidence placeholders: ${genericEvidenceQuestions.length}`)
+console.log(`Malformed stems: ${malformedStemQuestions.length}`)
+console.log(`Over-generic catch-all prompts: ${catchAllPromptQuestions.length}`)
+console.log(`Unsupported single-choice evidence: ${unsupportedSingleChoiceEvidence.length}`)
 console.log(`Ticket-framed questions: ${ticketLanguage.length}`)
 console.log(`Clue-to-term questions: ${clueToTermQuestions.length}`)
 console.log(`Domain allocation: ${JSON.stringify(domainCounts)}`)

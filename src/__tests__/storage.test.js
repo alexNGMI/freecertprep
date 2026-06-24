@@ -12,6 +12,9 @@ import {
   addQuestionIssueReport,
   readQuestionIssueReports,
   exportQuestionIssueReports,
+  retainExamHistory,
+  retainQuizHistory,
+  SESSION_RETENTION,
 } from '../utils/storage.js'
 
 // Vitest runs in the node environment (no DOM), so we install a minimal
@@ -56,6 +59,33 @@ describe('storage: KEYS / version', () => {
     expect(KEYS.syncState).toBe('freecertprep-account-sync-state')
     expect(KEYS.issueReports).toBe('freecertprep-question-issue-reports-local')
     expect(SCHEMA_VERSION).toBeGreaterThanOrEqual(1)
+  })
+})
+
+describe('storage: session retention', () => {
+  it('keeps recent practice history and preserves the latest diagnostic baseline', () => {
+    const diagnostic = { kind: 'diagnostic', timestamp: 1 }
+    const history = [
+      diagnostic,
+      ...Array.from({ length: SESSION_RETENTION.quizHistory + 5 }, (_, index) => ({
+        kind: 'quiz',
+        timestamp: index + 2,
+      })),
+    ]
+
+    const retained = retainQuizHistory(history)
+
+    expect(retained).toHaveLength(SESSION_RETENTION.quizHistory + 1)
+    expect(retained[0]).toBe(diagnostic)
+    expect(retained.at(-1).timestamp).toBe(history.at(-1).timestamp)
+  })
+
+  it('caps exam history at the configured recent-session limit', () => {
+    const history = Array.from({ length: SESSION_RETENTION.examHistory + 4 }, (_, index) => ({
+      timestamp: index,
+    }))
+
+    expect(retainExamHistory(history)).toEqual(history.slice(-SESSION_RETENTION.examHistory))
   })
 })
 

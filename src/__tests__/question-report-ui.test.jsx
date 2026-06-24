@@ -1,9 +1,17 @@
 // @vitest-environment jsdom
 
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import ReportIssueButton from '../components/ReportIssueButton.jsx'
 import { KEYS } from '../utils/storage.js'
+
+const { submitQuestionIssueReport } = vi.hoisted(() => ({
+  submitQuestionIssueReport: vi.fn(),
+}))
+
+vi.mock('../lib/accountSync', () => ({
+  submitQuestionIssueReport,
+}))
 
 const question = {
   id: 'net-report-1',
@@ -13,6 +21,11 @@ const question = {
 }
 
 describe('ReportIssueButton', () => {
+  beforeEach(() => {
+    submitQuestionIssueReport.mockReset()
+    submitQuestionIssueReport.mockResolvedValue(false)
+  })
+
   afterEach(() => {
     cleanup()
     localStorage.clear()
@@ -52,5 +65,24 @@ describe('ReportIssueButton', () => {
 
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(document.activeElement).toBe(trigger)
+  })
+
+  it('prevents duplicate reports while a submission is still pending', async () => {
+    let resolveSubmission
+    submitQuestionIssueReport.mockReturnValue(new Promise(resolve => {
+      resolveSubmission = resolve
+    }))
+    render(<ReportIssueButton certId="comptia-net-plus" question={question} context="review" />)
+
+    fireEvent.click(screen.getByRole('button', { name: /Report issue/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Save report/i }))
+
+    const savingButton = screen.getByRole('button', { name: /Saving/i })
+    expect(savingButton.disabled).toBe(true)
+    fireEvent.click(savingButton)
+    expect(JSON.parse(localStorage.getItem(KEYS.issueReports))).toHaveLength(1)
+
+    resolveSubmission(false)
+    expect((await screen.findByRole('status')).textContent).toMatch(/saved locally/i)
   })
 })

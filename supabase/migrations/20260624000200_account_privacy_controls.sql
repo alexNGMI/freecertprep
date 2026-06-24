@@ -1,11 +1,12 @@
 -- freecertprep backend phase 3
 -- Purpose: authenticated account-data export and self-service account deletion.
+-- Dependency: apply 20260624000100_admin_report_queue.sql first.
 
 create or replace function public.export_my_account_data()
 returns jsonb
 language plpgsql
 security definer
-set search_path = public, auth
+set search_path = ''
 as $$
 declare
   current_user_id uuid := auth.uid();
@@ -79,7 +80,7 @@ create or replace function public.delete_my_account()
 returns boolean
 language plpgsql
 security definer
-set search_path = public, auth
+set search_path = ''
 as $$
 declare
   current_user_id uuid := auth.uid();

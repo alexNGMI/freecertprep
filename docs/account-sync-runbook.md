@@ -12,12 +12,12 @@ Anonymous study remains local-first and fully available. Sync is manual; the app
 
 | Data | Rule |
 | --- | --- |
-| Quiz and exam history | Union local and cloud sessions, deduplicate matching sessions, then order by timestamp. |
+| Quiz and exam history | Union local and cloud sessions, deduplicate matching sessions, order by timestamp, then retain the latest 50 practice-family and 20 exam sessions per cert. The newest diagnostic is preserved. |
 | Smart Practice statistics | Add independent local and remote attempt/correct deltas to the last common synchronized baseline. |
 | Bookmarks | Use timestamped add/remove state per question; the newest change wins. |
 | Recovery snapshots | Append-only rows in `study_snapshots`; restore explicitly replaces local study state with the newest snapshot. |
 
-The locally stored sync baseline prevents a repeated sync from counting the same question attempts twice.
+The locally stored sync baseline prevents a repeated sync from counting the same question attempts twice. The baseline is scoped to the signed-in user, so a different account in the same browser cannot reuse another learner's merge state or last-sync summary.
 
 ## First Production Verification
 
@@ -39,7 +39,7 @@ The locally stored sync baseline prevents a repeated sync from counting the same
 
 ## Automated Coverage
 
-- `src/__tests__/account-sync-merge.test.js` covers deduplication, three-way statistics, idempotency, and bookmark removal.
-- `src/__tests__/account-sync.test.js` covers Supabase snapshot operations, restore state, and the full sync service.
+- `src/__tests__/account-sync-merge.test.js` covers deduplication, retention, three-way statistics, idempotency, and bookmark removal.
+- `src/__tests__/account-sync.test.js` covers Supabase snapshot operations, restore state, account-scoped baselines, and the full sync service.
 - `src/__tests__/account-auth.test.jsx` covers the signed-in Sync now interaction.
 - `src/__tests__/storage.test.js` covers same-tab refresh notifications after sync.

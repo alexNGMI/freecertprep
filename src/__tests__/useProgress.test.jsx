@@ -8,7 +8,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 import { useProgress } from '../hooks/useProgress.js'
-import { KEYS } from '../utils/storage.js'
+import { KEYS, SESSION_RETENTION } from '../utils/storage.js'
 
 const DOMAINS = [{ name: 'Alpha' }, { name: 'Beta' }]
 
@@ -120,5 +120,25 @@ describe('useProgress — persistence & isolation', () => {
 
     const other = renderHook(() => useProgress('cert-b'))
     expect(other.result.current.progress).toEqual({ quizHistory: [], examHistory: [] })
+  })
+
+  it('compacts an oversized stored history while preserving the latest diagnostic', () => {
+    const diagnostic = { kind: 'diagnostic', timestamp: 1, answers: [] }
+    const quizHistory = [
+      diagnostic,
+      ...Array.from({ length: SESSION_RETENTION.quizHistory + 4 }, (_, index) => ({
+        kind: 'quiz',
+        timestamp: index + 2,
+        answers: [],
+      })),
+    ]
+    localStorage.setItem(KEYS.progress, JSON.stringify({
+      'cert-a': { quizHistory, examHistory: [] },
+    }))
+
+    const { result } = renderHook(() => useProgress('cert-a'))
+
+    expect(result.current.progress.quizHistory).toHaveLength(SESSION_RETENTION.quizHistory + 1)
+    expect(result.current.progress.quizHistory[0]).toEqual(diagnostic)
   })
 })

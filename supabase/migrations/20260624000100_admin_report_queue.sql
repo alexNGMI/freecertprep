@@ -1,5 +1,6 @@
 -- freecertprep backend phase 2
 -- Purpose: explicit admin authorization, protected report review, and correction history.
+-- Apply before the account privacy-controls migration.
 
 create table if not exists public.admin_users (
   user_id uuid primary key references auth.users(id) on delete cascade,
@@ -14,7 +15,7 @@ returns boolean
 language sql
 stable
 security definer
-set search_path = public
+set search_path = ''
 as $$
   select exists (
     select 1
@@ -51,7 +52,7 @@ create or replace function public.review_question_issue_report(
 returns public.question_issue_reports
 language plpgsql
 security definer
-set search_path = public
+set search_path = ''
 as $$
 declare
   updated_report public.question_issue_reports;

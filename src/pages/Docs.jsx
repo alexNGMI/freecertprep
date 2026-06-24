@@ -769,7 +769,7 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,310 Vitest tests across 49 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,345 Vitest tests across 56 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently

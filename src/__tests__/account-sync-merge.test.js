@@ -5,6 +5,7 @@ import {
   mergeQuestionStats,
   mergeStudySnapshots,
 } from '../utils/account-sync-merge'
+import { SESSION_RETENTION } from '../utils/storage'
 
 describe('merge-aware account sync', () => {
   it('unions session history without duplicating a session present on both devices', () => {
@@ -22,6 +23,30 @@ describe('merge-aware account sync', () => {
     )
 
     expect(merged.net.quizHistory).toEqual([shared, remoteOnly, localOnly])
+  })
+
+  it('caps merged cloud and local history without discarding the latest diagnostic', () => {
+    const diagnostic = { kind: 'diagnostic', timestamp: 1 }
+    const localHistory = Array.from({ length: 30 }, (_, index) => ({
+      kind: 'quiz',
+      timestamp: index + 2,
+    }))
+    const remoteHistory = [
+      diagnostic,
+      ...Array.from({ length: 30 }, (_, index) => ({
+        kind: 'quiz',
+        timestamp: index + 100,
+      })),
+    ]
+
+    const merged = mergeProgress(
+      { net: { quizHistory: localHistory, examHistory: [] } },
+      { net: { quizHistory: remoteHistory, examHistory: [] } },
+    )
+
+    expect(merged.net.quizHistory).toHaveLength(SESSION_RETENTION.quizHistory + 1)
+    expect(merged.net.quizHistory[0]).toEqual(diagnostic)
+    expect(merged.net.quizHistory.at(-1).timestamp).toBe(remoteHistory.at(-1).timestamp)
   })
 
   it('adds independent question-stat deltas to the last common base', () => {

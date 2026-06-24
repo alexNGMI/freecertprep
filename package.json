@@ -28,6 +28,7 @@
     "audit:saa-c03": "node scripts/audit_saa_c03_quality.mjs",
     "audit:splunk": "node scripts/audit_splunk_quality.mjs",
     "audit:ccst": "node scripts/audit_ccst_networking_quality.mjs",
+    "repair:ccst": "node scripts/repair_ccst_networking_quality.mjs",
     "audit:distractors": "node scripts/audit_distractor_ambiguity.mjs",
     "audit:aws-freshness": "node scripts/audit_aws_service_freshness.mjs",
     "verify:quality": "npm run lint && npm test && npm run build && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02 && npm run audit:saa-c03 && npm run audit:splunk && npm run audit:ccst && npm run audit:distractors && npm run audit:aws-freshness",

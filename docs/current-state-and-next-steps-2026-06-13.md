@@ -25,8 +25,8 @@ The requested execution order began with content quality, then trust correctness
 
 These steps require access to external service dashboards and cannot be completed by repository changes alone:
 
-1. Apply `20260624_admin_report_queue.sql` in production Supabase and promote the first administrator.
-2. Apply `20260624_account_privacy_controls.sql` and verify export/deletion using a disposable account.
+1. Apply `20260624000100_admin_report_queue.sql` in production Supabase and promote the first administrator.
+2. Apply `20260624000200_account_privacy_controls.sql` and verify export/deletion using a disposable account.
 3. Connect the final custom domain to Cloudflare and add it to Supabase Site URL and redirect allowlists.
 4. Create `support@`, `admin@`, and `no-reply@` routing/sending arrangements; configure SPF, DKIM, and DMARC.
 5. Set `VITE_SUPPORT_EMAIL` in the Cloudflare production build and redeploy.
@@ -36,11 +36,11 @@ These steps require access to external service dashboards and cannot be complete
 
 While activation is underway, engineering effort should stay on work that improves the current learner rather than expanding scope:
 
-1. **Content teaching-value audit:** identify the weakest explanations and least useful distractors in the nine live modules using human sampling, not question-count expansion.
-2. **First-user comprehension pass:** test whether a new learner understands diagnostics, mastery, study plans, cases, simulators, results, sync, and reporting without prior explanation.
-3. **Accessibility and keyboard pass:** deepen focus order, dialog semantics, screen-reader labels, contrast, and reduced-motion verification across the critical workflow.
-4. **Maintainability reduction:** centralize repeated public navigation/footer data and split the largest high-change UI modules where tests provide a safe boundary.
-5. **Production acceptance preparation:** turn the final signed-out, signed-in, admin, mobile, and two-device walkthrough into one concise release checklist.
+1. **Completed-result recovery:** persist the latest finished practice or simulation result so a refresh does not erase the debrief.
+2. **Active-session decision:** decide whether interrupted quiz, drill, diagnostic, and exam sessions must resume before wider public testing.
+3. **Production acceptance:** complete signed-out, signed-in, administrator, mobile, privacy, support, and two-device walkthroughs against the live domain.
+4. **Maintainability reduction:** centralize repeated public navigation/path data and split the largest high-change UI modules only behind existing tests.
+5. **Targeted content maintenance:** continue human sampling and one-for-one rewrites in the B+ modules without adding certifications or increasing bank sizes.
 
 Do not spend the current token budget on new certifications, automatic background sync, marketing systems, payment infrastructure, a job board, classroom dashboards, or speculative analytics.
 
@@ -49,6 +49,8 @@ Network+ also established a complete personal learning loop: a balanced diagnost
 The June 16 offering audit confirms the same strategic direction: the current catalog is broad enough. The June 17 course-companion usefulness audit adds the sharper positioning: freecertprep is strongest as a course companion and readiness coach, not as a standalone lecture course or hands-on lab replacement. The June 23 full content audit confirmed the live modules should stay live. The June 23 remediation pass then added repeatable gates for distractor ambiguity, AWS service freshness, SAA template pressure, CCST clue-to-term wording, and Splunk evidence categories while removing retired AWS service references and deepening Terraform's thinnest objectives. The June 23 human-centered codebase audit reframed the review around what a real learner, maintainer, skeptical reviewer, and future operator would notice after the gates pass. The next advantage comes from protecting local learner work, making release checks repeatable, reducing registry/documentation drift, and preparing a practical backend MVP for Cloudflare hosting, account sync, support email, report-incorrect-info workflow, and admin review. See `docs/offering-audit-2026-06-16.md`, `docs/course-companion-usefulness-audit-2026-06-17.md`, `docs/full-content-audit-2026-06-23.md`, `docs/human-centered-codebase-audit-2026-06-23.md`, and `docs/backend-accounts-architecture-2026-06-17.md`.
 
 The June 24 four-track audit then reviewed teaching value, first-user comprehension, accessibility, and maintainability in parallel. It found and remediated release-blocking CCST evidence leakage, a Security+ threshold contradiction, sampled Terraform artifact mismatches, and sampled A+ context defects. It also corrected false debrief advice from unanswered questions, standardized Study Plan language, clarified baseline and account behavior, improved critical keyboard/screen-reader interactions, and centralized administrator status metadata. See `docs/four-track-quality-audit-2026-06-24.md`.
+
+The June 24 full code review then hardened the recent backend and learner-facing work. It scoped sync baselines to the signed-in account, ordered and secured the pending Supabase migrations, bounded local and merged session history, surfaced browser-storage failures, prevented duplicate report submissions, reduced screen-reader over-announcement, and repaired a CCST editorial regression that the earlier gate missed. See `docs/code-review-2026-06-24.md`.
 
 ## Current Public Offering
 
@@ -123,7 +125,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,310 tests pass across 49 files.
+- 1,345 tests pass across 56 files.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -277,8 +279,8 @@ Detailed architecture: `docs/network-plus-learning-loop.md`.
 - shipped manual full-study snapshot backup and latest-snapshot restore;
 - shipped signed-in question-report persistence with local fallback;
 - built a private `/admin/reports` queue with explicit Supabase administrator membership, RLS-enforced report access, question inspection, internal notes, moderation statuses, and durable correction events;
-- added `supabase/migrations/20260624_admin_report_queue.sql` plus a first-admin activation runbook;
-- added `/privacy`, complete cloud-account JSON export, typed-confirmation account deletion, and `supabase/migrations/20260624_account_privacy_controls.sql`;
+- added `supabase/migrations/20260624000100_admin_report_queue.sql` plus a first-admin activation runbook;
+- added `/privacy`, complete cloud-account JSON export, typed-confirmation account deletion, and `supabase/migrations/20260624000200_account_privacy_controls.sql`;
 - preserved the product decision that anonymous local-first study remains fully usable.
 
 ### Account and Sync Foundation - Completed June 23, 2026
@@ -320,8 +322,8 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 
 ### 3. Local Data Durability and Sync
 
-- cap or compact session history;
-- show a warning when browser storage cannot save;
+- cap or compact session history; **complete June 24**
+- show a warning when browser storage cannot save; **complete June 24**
 - persist the latest completed result across refresh;
 - preserve the completed versioned full-study snapshot backup for progress, Smart Practice statistics, and bookmarks;
 - add active-session resume only after completed-result recovery is reliable.
@@ -329,7 +331,7 @@ Detailed record: `scripts/audits/aplus-structured-quality-audit-2026-06-14.md`.
 - preserve last-sync status and conflict tests; **complete June 24**
 - retain explicit manual controls until automatic sync is proven safe.
 
-Merge-aware manual sync, recovery backup, and restore are complete. Automatic background sync is intentionally not yet claimed.
+Merge-aware manual sync, recovery backup, restore, account-scoped merge baselines, bounded history, and visible storage-failure warnings are complete. Automatic background sync is intentionally not yet claimed.
 
 ### 4. Release Automation
 
