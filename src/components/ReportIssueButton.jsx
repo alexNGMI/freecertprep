@@ -11,6 +11,7 @@ const ISSUE_TYPES = [
   'Not exam-like',
   'Outdated content',
 ]
+const MAX_REPORT_NOTES_LENGTH = 3500
 
 export default function ReportIssueButton({ certId, question, context = 'question' }) {
   const [open, setOpen] = useState(false)
@@ -158,11 +159,15 @@ export default function ReportIssueButton({ certId, question, context = 'questio
                 <textarea
                   id={`issue-notes-${question.id}`}
                   value={notes}
-                  onChange={(event) => setNotes(event.target.value)}
+                  onChange={(event) => setNotes(event.target.value.slice(0, MAX_REPORT_NOTES_LENGTH))}
                   rows={4}
+                  maxLength={MAX_REPORT_NOTES_LENGTH}
                   placeholder="What should be reviewed?"
                   className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-zinc-900 px-4 py-3 text-sm leading-relaxed text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-amber-400/50"
                 />
+                <p className="mt-2 text-right text-[11px] font-semibold text-zinc-600">
+                  {notes.length}/{MAX_REPORT_NOTES_LENGTH}
+                </p>
               </div>
 
               <div className="rounded-xl border border-white/10 bg-zinc-900/60 p-3 text-xs leading-relaxed text-zinc-500">

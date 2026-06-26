@@ -53,6 +53,26 @@ describe('account study-data sync', () => {
     }))
   })
 
+  it('can back up when browser storage blocks the device identifier', async () => {
+    const getItem = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new Error('storage blocked')
+    })
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('storage blocked')
+    })
+    const insert = vi.fn().mockResolvedValue({ error: null })
+    from.mockReturnValue({ insert })
+
+    await expect(backupStudyData()).resolves.toEqual(expect.any(String))
+    expect(insert).toHaveBeenCalledWith(expect.objectContaining({
+      user_id: 'user-1',
+      source_device_id: expect.stringMatching(/^device-|^[0-9a-f-]{36}$/i),
+    }))
+
+    getItem.mockRestore()
+    setItem.mockRestore()
+  })
+
   it('summarizes the study data included in a snapshot', () => {
     expect(summarizeStudyData({
       progress: {

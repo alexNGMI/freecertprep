@@ -869,6 +869,7 @@ key = random() ** (1 / weight)
                   'Backend MVP foundation - production Supabase magic-link authentication, manual progress/stat/bookmark backup and restore, and signed-in question-report persistence are live while anonymous study remains available.',
                   'Admin report review implementation - private /admin/reports workspace, explicit Supabase administrator membership, RLS-protected report access, question inspection, moderation statuses, internal notes, and transactional correction history are built; production activation requires the included migration and first-admin promotion.',
                   'Privacy and account controls - public /privacy disclosure, complete cloud-account JSON export, and typed-confirmation account deletion are implemented; production activation requires the included Supabase privacy-controls migration.',
+                  'Security hardening - static deployment headers, bounded browser-writable Supabase rows, client-side report-note limits, and blocked-storage-safe backup device IDs are implemented; production activation requires the June 26 hardening migration.',
                   'Product polish stage 5 - shared accessible loading states, reduced-motion support, actionable empty practice and results states, viewport-safe tooltips, and announced account/dashboard/report feedback are complete.',
                   'Product polish stage 6 - all nine live dashboards and the public learner journey passed desktop/mobile walkthroughs; cross-route path anchors, diagnostic action clarity, report-dialog keyboard behavior, empty-state recovery, and docs section tracking now have permanent browser coverage.',
                   'June 24 four-track quality pass - teaching value, first-user comprehension, accessibility, and maintainability were audited in parallel. CCST answer leakage, a Security+ threshold contradiction, sampled Terraform/A+ defects, false unanswered-question debrief signals, workflow terminology, critical keyboard behavior, and admin-status drift were remediated with permanent regression coverage.',
@@ -884,7 +885,7 @@ key = random() ** (1 / weight)
                   '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
                   '5. Micro-polish - complete: accessible loading context, reduced-motion support, actionable empty states, viewport-safe tooltips, semantic feedback announcements, and focused regression coverage.',
                   '6. Full browser walkthrough - complete: all live dashboards and critical public, study, account, reporting, results, and docs journeys are covered across desktop and mobile.',
-                  'Polish program complete. Merge-aware manual sync and the /support product surface are implemented. Next: activate the June 24 backend migrations, validate a real two-device sync, and connect external domain forwarding and SMTP.',
+                  'Polish program complete. Merge-aware manual sync and the /support product surface are implemented. Next: activate the June 24 and June 26 backend migrations, validate a real two-device sync, verify live security headers, and connect external domain forwarding and SMTP.',
                 ],
               },
               {

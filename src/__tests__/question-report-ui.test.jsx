@@ -85,4 +85,19 @@ describe('ReportIssueButton', () => {
     resolveSubmission(false)
     expect((await screen.findByRole('status')).textContent).toMatch(/saved locally/i)
   })
+
+  it('caps report notes before local or cloud submission', async () => {
+    render(<ReportIssueButton certId="comptia-net-plus" question={question} context="review" />)
+
+    fireEvent.click(screen.getByRole('button', { name: /Report issue/i }))
+    fireEvent.change(screen.getByLabelText(/Notes/i), { target: { value: 'x'.repeat(3600) } })
+    fireEvent.click(screen.getByRole('button', { name: /Save report/i }))
+
+    expect((await screen.findByRole('status')).textContent).toMatch(/saved locally/i)
+    const reports = JSON.parse(localStorage.getItem(KEYS.issueReports))
+    expect(reports[0].notes).toHaveLength(3500)
+    expect(submitQuestionIssueReport).toHaveBeenCalledWith(expect.objectContaining({
+      notes: 'x'.repeat(3500),
+    }))
+  })
 })

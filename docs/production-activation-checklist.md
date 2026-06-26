@@ -1,6 +1,6 @@
 # Production Activation Checklist
 
-Updated: June 24, 2026
+Updated: June 26, 2026
 
 This is the short owner checklist for turning the repository-complete backend MVP into a fully validated public service.
 
@@ -20,7 +20,14 @@ This is the short owner checklist for turning the repository-complete backend MV
 - Download the complete account export.
 - Delete the disposable account and confirm sign-in no longer succeeds for that account.
 
-## 3. Domain and Authentication
+## 3. Security Hardening
+
+- Run `supabase/migrations/20260626000100_security_hardening_constraints.sql`.
+- Confirm an ordinary signed-in account can still sync, back up progress, and submit a question report.
+- Confirm the live deployment serves the headers from `public/_headers`, especially `Content-Security-Policy`, `X-Frame-Options`, and `X-Content-Type-Options`.
+- Confirm no service-role key, SMTP credential, private token, or admin password exists in Cloudflare public build variables.
+
+## 4. Domain and Authentication
 
 - Connect the final domain to the Cloudflare Worker.
 - Confirm HTTPS and direct-route refreshes such as `/account`, `/support`, and `/comptia-net-plus`.
@@ -28,14 +35,14 @@ This is the short owner checklist for turning the repository-complete backend MV
 - Add the production `/account` URL to the Supabase redirect allowlist.
 - Request and complete a magic-link sign-in from the production domain.
 
-## 4. Product Email
+## 5. Product Email
 
 - Follow `docs/domain-email-setup-runbook.md`.
 - Verify `support@`, `admin@`, and `no-reply@` behavior.
 - Set `VITE_SUPPORT_EMAIL` in the Cloudflare production build.
 - Redeploy and confirm `/support` shows the email action.
 
-## 5. Two-Device Sync
+## 6. Two-Device Sync
 
 - Follow `docs/account-sync-runbook.md`.
 - Confirm independent sessions combine without duplication.
@@ -43,7 +50,7 @@ This is the short owner checklist for turning the repository-complete backend MV
 - Confirm the newest bookmark add/remove state wins.
 - Confirm recovery backup and restore remain available.
 
-## 6. Final Acceptance
+## 7. Final Acceptance
 
 - Run the live site as a signed-out learner.
 - Run it as a signed-in learner.
@@ -52,4 +59,4 @@ This is the short owner checklist for turning the repository-complete backend MV
 - Confirm privacy, support, account export, account deletion, and question reporting.
 - Record any production-only defects before inviting broader use.
 
-The product is ready for broader public testing when all six sections pass. New catalog work remains paused until then.
+The product is ready for broader public testing when all seven sections pass. New catalog work remains paused until then.

@@ -1,6 +1,6 @@
 # Current State and Next Steps
 
-Last updated: June 24, 2026
+Last updated: June 26, 2026
 
 ## Executive Summary
 
@@ -27,10 +27,12 @@ These steps require access to external service dashboards and cannot be complete
 
 1. Apply `20260624000100_admin_report_queue.sql` in production Supabase and promote the first administrator.
 2. Apply `20260624000200_account_privacy_controls.sql` and verify export/deletion using a disposable account.
-3. Connect the final custom domain to Cloudflare and add it to Supabase Site URL and redirect allowlists.
-4. Create `support@`, `admin@`, and `no-reply@` routing/sending arrangements; configure SPF, DKIM, and DMARC.
-5. Set `VITE_SUPPORT_EMAIL` in the Cloudflare production build and redeploy.
-6. Complete the real two-device sync walkthrough in `docs/account-sync-runbook.md`.
+3. Apply `20260626000100_security_hardening_constraints.sql` and verify sync/report writes still work.
+4. Confirm the live Cloudflare deployment serves the security headers from `public/_headers`.
+5. Connect the final custom domain to Cloudflare and add it to Supabase Site URL and redirect allowlists.
+6. Create `support@`, `admin@`, and `no-reply@` routing/sending arrangements; configure SPF, DKIM, and DMARC.
+7. Set `VITE_SUPPORT_EMAIL` in the Cloudflare production build and redeploy.
+8. Complete the real two-device sync walkthrough in `docs/account-sync-runbook.md`.
 
 ### Parallel repository work
 
@@ -51,6 +53,8 @@ The June 16 offering audit confirms the same strategic direction: the current ca
 The June 24 four-track audit then reviewed teaching value, first-user comprehension, accessibility, and maintainability in parallel. It found and remediated release-blocking CCST evidence leakage, a Security+ threshold contradiction, sampled Terraform artifact mismatches, and sampled A+ context defects. It also corrected false debrief advice from unanswered questions, standardized Study Plan language, clarified baseline and account behavior, improved critical keyboard/screen-reader interactions, and centralized administrator status metadata. See `docs/four-track-quality-audit-2026-06-24.md`.
 
 The June 24 full code review then hardened the recent backend and learner-facing work. It scoped sync baselines to the signed-in account, ordered and secured the pending Supabase migrations, bounded local and merged session history, surfaced browser-storage failures, prevented duplicate report submissions, reduced screen-reader over-announcement, and repaired a CCST editorial regression that the earlier gate missed. See `docs/code-review-2026-06-24.md`.
+
+The June 26 security review then added static deployment security headers, database constraints for browser-writable account/report tables, client-side report-note bounds, and blocked-storage tolerance for account backup device IDs. See `docs/security-review-2026-06-26.md`.
 
 ## Current Public Offering
 

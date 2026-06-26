@@ -123,8 +123,8 @@ test('admin report review stays private and offers administrator sign-in', async
 
 test('privacy is public while cloud account controls require sign-in', async ({ page }) => {
   await page.goto('/privacy')
-  await expect(page.getByRole('heading', { name: 'Study without an account. Control your account data.' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Anonymous study' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Lets talk about Privacy' })).toBeVisible()
+  await expect(page.getByText(/When you study anonymously/i)).toBeVisible()
   await expect(page.getByText(/reporter link is removed/i)).toBeVisible()
 
   await page.goto('/account')

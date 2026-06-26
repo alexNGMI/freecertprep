@@ -5,10 +5,18 @@ import { mergeStudySnapshots } from '../utils/account-sync-merge'
 const DEVICE_KEY = 'freecertprep-device-id'
 
 function getDeviceId() {
-  const existing = globalThis.localStorage?.getItem(DEVICE_KEY)
-  if (existing) return existing
+  try {
+    const existing = globalThis.localStorage?.getItem(DEVICE_KEY)
+    if (existing) return existing
+  } catch {
+    /* storage may be disabled */
+  }
   const id = globalThis.crypto?.randomUUID?.() || `device-${Date.now()}`
-  globalThis.localStorage?.setItem(DEVICE_KEY, id)
+  try {
+    globalThis.localStorage?.setItem(DEVICE_KEY, id)
+  } catch {
+    /* storage may be disabled */
+  }
   return id
 }
 
