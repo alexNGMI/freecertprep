@@ -15,13 +15,12 @@ describe('Privacy page', () => {
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('heading', { name: 'Privacy at freecertprep.' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Our position' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'What stays local' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'What an optional account stores' })).toBeTruthy()
-    expect(screen.getByRole('heading', { name: 'Question reports' })).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Lets talk about Privacy' })).toBeTruthy()
+    expect(screen.getByText(/When you study anonymously/i)).toBeTruthy()
+    expect(screen.getByText(/If you create an account/i)).toBeTruthy()
+    expect(screen.getByText(/Signed-in question reports store/i)).toBeTruthy()
     expect(screen.getByText(/download a complete account-data export/i)).toBeTruthy()
     expect(screen.getByText(/reporter link is removed/i)).toBeTruthy()
-    expect(screen.getByText(/We do not sell personal information/i)).toBeTruthy()
+    expect(screen.getByText(/does not sell personal information/i)).toBeTruthy()
   })
 })
