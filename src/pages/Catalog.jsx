@@ -105,7 +105,7 @@ function CertRow({ cert, live }) {
           ? HomeIcon
           : Cloud
 
-  const cardClass = `group p-5 ${live ? 'hover:bg-zinc-900/70' : 'opacity-75'}`
+  const cardClass = `group flex h-full flex-col p-5 ${live ? 'hover:bg-zinc-900/70' : 'opacity-75'}`
   const content = (
     <>
       <div className="flex items-start justify-between gap-4 mb-4">
@@ -120,11 +120,7 @@ function CertRow({ cert, live }) {
         </div>
         {live ? (
           <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
-        ) : (
-          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1 shrink-0">
-            Coming soon
-          </span>
-        )}
+        ) : null}
       </div>
       <div className="flex flex-wrap gap-2 mb-4">
         <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-md border ${ps.bg} ${ps.text}`}>
@@ -138,6 +134,13 @@ function CertRow({ cert, live }) {
         <MiniStat value={cert.examQuestions} label="Questions per exam" />
         <MiniStat value={`${cert.examTime}m`} label="Time" />
       </div>
+      {!live && (
+        <div className="mt-auto flex justify-end pt-5">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1">
+            Coming soon
+          </span>
+        </div>
+      )}
     </>
   )
 
