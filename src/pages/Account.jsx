@@ -245,7 +245,6 @@ export default function Account() {
           </Link>
           <nav className="flex items-center gap-3 text-xs font-semibold text-zinc-400 sm:gap-5 sm:text-sm">
             <Link to="/catalog" className="hidden hover:text-zinc-100 sm:inline">Catalog</Link>
-            <Link to="/docs" className="hover:text-zinc-100">Docs</Link>
             <Link to="/support" className="hover:text-zinc-100">Support</Link>
             <Link to="/privacy" className="hover:text-zinc-100">Privacy</Link>
           </nav>

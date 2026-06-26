@@ -67,7 +67,6 @@ export default function APlus() {
           </Link>
           <div className="flex items-center gap-5 text-sm font-medium text-zinc-400">
             <Link to="/" className="hover:text-zinc-100 transition-colors">Home</Link>
-            <Link to="/docs" className="hidden sm:inline hover:text-zinc-100 transition-colors">Docs</Link>
           </div>
         </div>
       </header>

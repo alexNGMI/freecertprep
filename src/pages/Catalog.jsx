@@ -47,7 +47,6 @@ export default function Catalog() {
           <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
             <Link to="/#paths" className="hover:text-zinc-100 transition-colors">Paths</Link>
             <Link to="/catalog" className="text-zinc-100 transition-colors">Catalog</Link>
-            <Link to="/docs" className="hover:text-zinc-100 transition-colors">Docs</Link>
           </div>
         </div>
       </header>

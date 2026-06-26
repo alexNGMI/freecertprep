@@ -106,7 +106,6 @@ export default function Home() {
           <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
             <a href="#paths" className="hover:text-zinc-100 transition-colors">Paths</a>
             <Link to="/catalog" className="hover:text-zinc-100 transition-colors">Catalog</Link>
-            <Link to="/docs" className="hover:text-zinc-100 transition-colors">Docs</Link>
             <Link to="/account" className="hover:text-zinc-100 transition-colors">Account</Link>
           </div>
         </div>

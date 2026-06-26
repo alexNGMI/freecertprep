@@ -20,7 +20,6 @@ export default function Support() {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <Link to="/"><BrandedName /></Link>
           <nav className="flex items-center gap-5 text-sm font-bold text-zinc-400">
-            <Link to="/docs" className="hover:text-zinc-100">Docs</Link>
             <Link to="/account" className="hover:text-zinc-100">Account</Link>
           </nav>
         </div>
