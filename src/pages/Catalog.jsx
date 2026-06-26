@@ -130,17 +130,17 @@ function CertRow({ cert, live }) {
           {cert.difficulty}
         </span>
       </div>
-      <div className="grid grid-cols-[1fr,auto] gap-3 border-t border-white/5 pt-4">
+      <div className="grid grid-cols-2 gap-2 border-t border-white/5 pt-4">
         <MiniStat value={cert.examQuestions} label="Questions per exam" />
-        <div className="flex flex-col items-end justify-start gap-2 text-right">
-          <MiniStat value={`${cert.examTime}m`} label="Time" align="right" />
-          {!live && (
-            <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1">
-              Coming soon
-            </span>
-          )}
-        </div>
+        <MiniStat value={`${cert.examTime}m`} label="Time" />
       </div>
+      {!live && (
+        <div className="mt-auto flex justify-end pt-5">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1">
+            Coming soon
+          </span>
+        </div>
+      )}
     </>
   )
 
@@ -164,9 +164,9 @@ function CertRow({ cert, live }) {
   )
 }
 
-function MiniStat({ value, label, align = 'left' }) {
+function MiniStat({ value, label }) {
   return (
-    <div className={align === 'right' ? 'text-right' : undefined}>
+    <div>
       <p className="text-sm font-bold text-zinc-200">{value}</p>
       <p className="text-[10px] text-zinc-600 uppercase tracking-widest font-bold mt-1">{label}</p>
     </div>
