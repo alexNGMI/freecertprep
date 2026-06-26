@@ -10,14 +10,14 @@ import {
 } from 'lucide-react'
 import BrandedName from '../components/BrandedName'
 import { getAllCerts } from '../data/certs'
-import { isCertComingSoon, isCertLive } from '../data/catalogVisibility'
+import { selectComingSoonCerts, selectLiveCerts } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { PageEyebrow, PageLead, PageTitle, SectionHeading, Surface } from '../components/ui/surface'
 
 const certs = getAllCerts()
 const hiddenCatalogCertIds = new Set(['comptia-server-plus', 'comptia-linux-plus'])
-const liveCerts = certs.filter((cert) => isCertLive(cert.id))
-const comingSoonCerts = certs.filter((cert) => isCertComingSoon(cert.id) && !hiddenCatalogCertIds.has(cert.id))
+const liveCerts = selectLiveCerts(certs)
+const comingSoonCerts = selectComingSoonCerts(certs).filter((cert) => !hiddenCatalogCertIds.has(cert.id))
 
 const providerStyles = {
   AWS: { bg: 'bg-orange-500/10 border-orange-500/20', text: 'text-orange-300' },

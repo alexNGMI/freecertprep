@@ -10,9 +10,12 @@ import {
 describe('catalog visibility selectors', () => {
   const certs = [
     { id: 'az-900' },
+    { id: 'clf-c02' },
     { id: 'comptia-net-plus' },
+    { id: 'comptia-a-plus-core-1' },
     { id: 'not-in-catalog' },
     { id: 'terraform-associate' },
+    { id: 'ccna-200-301' },
   ]
 
   it('derives counts from the existing visibility sets', () => {
@@ -23,11 +26,13 @@ describe('catalog visibility selectors', () => {
     })
   })
 
-  it('selects live and coming-soon certs while preserving registry order', () => {
+  it('selects live and coming-soon certs by the explicit catalog order', () => {
     expect(selectLiveCerts(certs).map(cert => cert.id)).toEqual([
+      'comptia-a-plus-core-1',
       'comptia-net-plus',
+      'clf-c02',
       'terraform-associate',
     ])
-    expect(selectComingSoonCerts(certs).map(cert => cert.id)).toEqual(['az-900'])
+    expect(selectComingSoonCerts(certs).map(cert => cert.id)).toEqual(['az-900', 'ccna-200-301'])
   })
 })

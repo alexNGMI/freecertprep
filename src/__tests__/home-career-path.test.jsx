@@ -72,6 +72,13 @@ describe('homepage career-path layout', () => {
     expect(screen.getByRole('heading', { name: 'Available practice' })).toBeTruthy()
     expect(screen.getByText(/Available exams are ready to practice now/i)).toBeTruthy()
     expect(screen.getByRole('heading', { name: 'Still being prepared' })).toBeTruthy()
+    const aPlusCore1Link = screen.getAllByRole('link', { name: /CompTIA A\+ Core 1/ })[0]
+    const networkPlusLink = screen.getAllByRole('link', { name: /Network\+/ })[0]
+    const cloudPractitionerLink = screen.getAllByRole('link', { name: /AWS Cloud Practitioner/ })[0]
+    const terraformLink = screen.getAllByRole('link', { name: /HashiCorp Terraform Associate/ })[0]
+    expect(aPlusCore1Link.compareDocumentPosition(networkPlusLink) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(networkPlusLink.compareDocumentPosition(cloudPractitionerLink) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(cloudPractitionerLink.compareDocumentPosition(terraformLink) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
     expect(screen.getAllByRole('link', { name: /Network\+/ })[0].getAttribute('href')).toBe('/comptia-net-plus')
     expect(screen.getAllByRole('link', { name: /Security\+/ })[0].getAttribute('href')).toBe('/comptia-sec-plus')
     expect(screen.getAllByRole('link', { name: /Splunk Core Certified User/ })[0].getAttribute('href')).toBe('/splunk-core-certified-user')
