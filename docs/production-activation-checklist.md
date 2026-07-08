@@ -1,8 +1,8 @@
 # Production Activation Checklist
 
-Updated: June 26, 2026
+Updated: July 8, 2026
 
-This is the short owner checklist for turning the repository-complete backend MVP into a fully validated public service.
+This is the short owner checklist for turning the repository-complete backend MVP into a fully validated public service. The root FreeCertPrep IT app remains the primary production surface; Practice107 is now a separate workspace app with its own activation checks.
 
 ## 1. Supabase Administrator
 
@@ -59,4 +59,16 @@ This is the short owner checklist for turning the repository-complete backend MV
 - Confirm privacy, support, account export, account deletion, and question reporting.
 - Record any production-only defects before inviting broader use.
 
-The product is ready for broader public testing when all seven sections pass. New catalog work remains paused until then.
+## 8. Practice107 Sister Site
+
+- Confirm `npm run test:practice107` and `npm run build:practice107` pass locally.
+- Confirm `apps/practice107/wrangler.jsonc` points at the intended Cloudflare Worker name and production route.
+- Connect the final Practice107 domain when selected.
+- Confirm HTTPS and direct-route refresh behavior for the single-page app.
+- Confirm the 360-question certified UAG pool is the only learner-facing Part 107 pool.
+- Confirm all six 60-question forms preserve the 29/12/3/1/15 domain allocation.
+- Confirm FAA figure assets render from `/part107/stimuli/`.
+- Decide and document payment/entitlement behavior before advertising paid full-exam access.
+- Confirm product copy avoids FAA, PSI, Udemy, or instructor affiliation claims.
+
+The root product is ready for broader public testing when the first seven sections pass. Practice107 is ready for its own public launch only after section 8 passes. New IT catalog work remains paused until then.

@@ -2,6 +2,8 @@
 
 Free, open-source certification exam prep for the IT certifications that open doors. Realistic question banks, timed exam simulators, Smart Practice that targets your weaknesses, and full progress tracking. Anonymous study remains available with no account; optional email accounts add merge-aware cross-device sync, recovery backups, and durable question reporting.
 
+The repository is now a small npm workspace. The root app remains FreeCertPrep, while `apps/practice107` contains a separate Practice107 sister-site app for FAA Part 107 / Remote Pilot UAG readiness practice.
+
 ## Live certifications
 
 These are the nine public IT modules currently exposed in the app. Practice thresholds are readiness targets unless the vendor publishes a directly comparable raw percentage.
@@ -36,6 +38,20 @@ These banks remain in the codebase, but they are hidden or marked Coming Soon un
 | Schneider Data Center Certified Associate | Schneider Electric | DCCA | 750 | Coming Soon |
 
 **11,697 authored questions across 17 IT certifications** remain preserved across the live catalog and revision backlog.
+
+## Sister site - Practice107
+
+Practice107 is a dedicated FAA Part 107 / Remote Pilot UAG readiness coach in `apps/practice107`. It is isolated from the FreeCertPrep IT catalog with its own Vite entry point, Cloudflare Workers Static Assets config, local progress/stat hooks, certified content bank, and tests.
+
+Current Practice107 status:
+
+- **360 source-reviewed UAG questions** certified on July 8, 2026.
+- **Six complete 60-question forms** aligned to the current UAG allocation: 29 Regulations, 12 Airspace and requirements, 3 Weather, 1 Loading and performance, and 15 Operations.
+- **FAA/PSI-modeled exam facts:** 60 questions, two-hour timer, 70% readiness target, and single-correct-answer multiple-choice format.
+- **FAA visual stimulus support:** local FAA-CT-8080-2H figure assets for chart/weather/supplement-reference practice.
+- **Free practice plus Smart Study and full-exam surfaces** in the app; payment/entitlement plumbing remains a product decision before public monetization.
+
+See `docs/part107-sister-site-content-architecture-2026-07-07.md` for the source spine, content model, premium boundary, and open decisions.
 
 > **Terraform objective remediation is live:** HashiCorp Terraform Associate (004) now ships a 651-question pool covering all 37 implemented subobjectives across the eight Terraform 1.12 objective groups. Every item carries objective and concept metadata, and automated gates reject missing coverage, objective-group mismatches, blueprint-trivia prompts, deprecated-command guidance, and legacy product naming.
 
@@ -121,7 +137,8 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Four-track quality audit** - The June 24 parallel review covered human teaching value, first-user comprehension, accessibility, and maintainability. It remediated critical content defects, false debrief signals, workflow terminology, keyboard/screen-reader gaps, and admin-status drift while preserving catalog scope. See `docs/four-track-quality-audit-2026-06-24.md`.
 - **Content remediation pass** - The June 23 follow-up added a live distractor ambiguity gate, AWS service freshness gate, SAA template-diversity ceiling, CCST clue-to-term wording ceiling, and Splunk evidence-category requirements; it also removed retired AWS OpsWorks/Cloud9 references and deepened Terraform's thinnest objectives.
 - **Content polish pass** - The June 23 priority-three pass added stronger Security+ practical evidence for log, IAM, firewall, alert, flow, retention, and incident-response scenarios; deepened Network+ troubleshooting explanations; and rewrote 50 SAA-C03 stems, reducing tracked repeated architecture-template groups from 160 to 139.
-- **Current roadmap** - The catalog remains frozen. Cloudflare hosting, Supabase email authentication, account-scoped merge-aware manual sync, recovery backup/restore, bounded local history, storage-failure warnings, signed-in question reports, protected admin review, privacy controls, defensive static headers, and the support-email product surface are implemented. The June 24 and June 26 Supabase migrations plus external domain/email settings still require owner activation. See `docs/production-activation-checklist.md` for the concise handoff and `docs/current-state-and-next-steps-2026-06-13.md` for parallel engineering priorities.
+- **Current roadmap** - The IT catalog remains frozen while production activation and sister-site validation continue. Cloudflare hosting, Supabase email authentication, account-scoped merge-aware manual sync, recovery backup/restore, bounded local history, storage-failure warnings, signed-in question reports, protected admin review, privacy controls, defensive static headers, and the support-email product surface are implemented. The June 24 and June 26 Supabase migrations plus external domain/email settings still require owner activation. See `docs/production-activation-checklist.md` for the concise handoff and `docs/current-state-and-next-steps-2026-06-13.md` for parallel engineering priorities.
+- **Practice107 sister-site app** - `apps/practice107` now ships as a separate Part 107 readiness app with its own Vite build, Cloudflare Worker config, certified 360-question UAG pool, FAA figure assets, local progress tracking, Smart Study, and full 60-question exam simulation.
 - **Content quality status** - A+, Network+, Security+, Splunk, Terraform, SAA-C03, CLF-C02, CCST, and the CCNA v2.0 preview have current practical/editorial gates. Cert-specific gates now cover objective or domain breadth, practical-category composition, evidence artifacts, explanation structure, selected-response form composition, and normalized uniqueness where appropriate.
 - **Future sister-site roadmap** - CDL written-test prep is the strongest near-term adjacent lane because it can reuse the current national/state-module pattern around FMCSA standards and state CDL manuals. NCLEX nursing prep is a higher-complexity future lane because exam-quality support would need a clinical-judgment case-study engine for matrix/grid, cloze, highlighting, drag/drop, chart/lab evidence, and partial-credit scoring.
 - **Backend/accounts status** - The app is live on Cloudflare Workers Static Assets. Supabase magic-link sign-in, merge-aware manual sync, recovery controls, signed-in issue reports, private admin review, account export, and account deletion are implemented. Anonymous study remains fully available. Automatic background sync is not implemented; custom-domain email is repository-ready but awaits external DNS, forwarding, and SMTP activation.
@@ -165,11 +182,11 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,345 tests across 56 files), GitHub Actions CI
+- Vitest (1,360 tests across 58 files across the root app and Practice107), GitHub Actions CI
 - `localStorage` for anonymous progress plus optional Supabase account snapshots and issue-report persistence
 - Supabase Auth and Postgres with row-level security
 - JSON-based question banks, lazy-loaded per cert
-- Cloudflare Workers Static Assets for production hosting, configured by `wrangler.jsonc`
+- Cloudflare Workers Static Assets for production hosting, configured by root `wrangler.jsonc` and `apps/practice107/wrangler.jsonc`
 
 Current production URL: `https://freecertprep.a-gilbert2093.workers.dev`
 
@@ -180,16 +197,34 @@ npm install
 npm run dev
 ```
 
+Practice107 local dev server:
+
+```bash
+npm run dev:practice107
+```
+
 Production build:
 
 ```bash
 npm run build
 ```
 
+Build both workspace apps:
+
+```bash
+npm run build:all
+```
+
 Cloudflare production deploy:
 
 ```bash
 npm run deploy:cloudflare
+```
+
+Practice107 Cloudflare production deploy:
+
+```bash
+npm run deploy:practice107
 ```
 
 Cloudflare preview/static-assets deploy check:
@@ -209,6 +244,7 @@ Run the tests:
 
 ```bash
 npx vitest run
+npm run test:practice107
 ```
 
 Run the full local release-quality gate:
@@ -217,7 +253,7 @@ Run the full local release-quality gate:
 npm run verify:quality
 ```
 
-This runs lint, tests, production build, a production dependency audit, and the current cert-specific audit scripts, including the CLF-C02, SAA-C03, Splunk, and CCST quality gates.
+This runs lint, root tests, Practice107 tests, both production builds, a production dependency audit, and the current cert-specific audit scripts, including the CLF-C02, SAA-C03, Splunk, CCST, and Part 107 gates.
 
 ## Adding a new cert
 
