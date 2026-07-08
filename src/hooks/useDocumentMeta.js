@@ -31,10 +31,10 @@ function setCanonical(href) {
  * just DOM updates in an effect. Pass a route-specific title fragment and
  * description; `path` should be the canonical pathname for this view.
  */
-export function useDocumentMeta({ title, description, path = '/' }) {
+export function useDocumentMeta({ title, description, path = '/', site = SITE, origin = ORIGIN }) {
   useEffect(() => {
-    const fullTitle = title ? `${title} — ${SITE}` : `${SITE} — Free Certification Exam Prep`
-    const url = `${ORIGIN}${path}`
+    const fullTitle = title ? `${title} — ${site}` : `${site} — Free Certification Exam Prep`
+    const url = `${origin}${path}`
 
     document.title = fullTitle
     if (description) {
@@ -46,5 +46,5 @@ export function useDocumentMeta({ title, description, path = '/' }) {
     setMeta('meta[name="twitter:title"]', 'content', fullTitle)
     setMeta('meta[property="og:url"]', 'content', url)
     setCanonical(url)
-  }, [title, description, path])
+  }, [title, description, path, site, origin])
 }

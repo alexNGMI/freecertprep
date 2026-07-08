@@ -6,28 +6,29 @@ import {
   Cpu,
   Home as HomeIcon,
   Network,
+  Search,
   Server,
 } from 'lucide-react'
-import BrandedName from '../components/BrandedName'
+import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { getAllCerts } from '../data/certs'
 import { selectComingSoonCerts, selectLiveCerts } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
-import { PageEyebrow, PageLead, PageTitle, SectionHeading, Surface } from '../components/ui/surface'
 
 const certs = getAllCerts()
 const hiddenCatalogCertIds = new Set(['comptia-server-plus', 'comptia-linux-plus'])
 const liveCerts = selectLiveCerts(certs)
 const comingSoonCerts = selectComingSoonCerts(certs).filter((cert) => !hiddenCatalogCertIds.has(cert.id))
+const totalQuestions = liveCerts.reduce((sum, cert) => sum + cert.questionCount, 0)
 
 const providerStyles = {
-  AWS: { bg: 'bg-orange-500/10 border-orange-500/20', text: 'text-orange-300' },
-  'Google Cloud': { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-300' },
-  NVIDIA: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-300' },
-  'Microsoft Azure': { bg: 'bg-cyan-500/10 border-cyan-500/20', text: 'text-cyan-300' },
-  Cisco: { bg: 'bg-blue-500/10 border-blue-500/20', text: 'text-blue-300' },
-  CompTIA: { bg: 'bg-red-500/10 border-red-500/20', text: 'text-red-300' },
-  HashiCorp: { bg: 'bg-violet-500/10 border-violet-500/20', text: 'text-violet-300' },
-  Splunk: { bg: 'bg-green-500/10 border-green-500/20', text: 'text-green-300' },
+  AWS: { bg: 'bg-orange-50 border-orange-200', text: 'text-orange-700' },
+  'Google Cloud': { bg: 'bg-blue-50 border-blue-200', text: 'text-blue-700' },
+  NVIDIA: { bg: 'bg-emerald-50 border-emerald-200', text: 'text-emerald-700' },
+  'Microsoft Azure': { bg: 'bg-cyan-50 border-cyan-200', text: 'text-cyan-700' },
+  Cisco: { bg: 'bg-sky-50 border-sky-200', text: 'text-sky-700' },
+  CompTIA: { bg: 'bg-rose-50 border-rose-200', text: 'text-rose-700' },
+  HashiCorp: { bg: 'bg-violet-50 border-violet-200', text: 'text-violet-700' },
+  Splunk: { bg: 'bg-lime-50 border-lime-200', text: 'text-lime-700' },
 }
 
 export default function Catalog() {
@@ -39,62 +40,82 @@ export default function Catalog() {
   })
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-950 text-zinc-100">
-      <header className="border-b border-white/5 bg-zinc-950/70 backdrop-blur-xl sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="hover:opacity-80 transition-opacity">
-            <BrandedName />
-          </Link>
-          <div className="hidden sm:flex items-center gap-6 text-sm font-medium text-zinc-400">
-            <Link to="/#paths" className="hover:text-zinc-100 transition-colors">Paths</Link>
-            <Link to="/catalog" className="text-zinc-100 transition-colors">Catalog</Link>
-          </div>
-        </div>
-      </header>
+    <div className="theme-page min-h-screen text-slate-950">
+      <SiteHeader />
 
-      <main className="flex-1">
-        <section className="max-w-7xl mx-auto px-6 pt-16 pb-10">
-          <Link to="/" className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-200 transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" />
+      <main>
+        <section className="mx-auto max-w-7xl px-5 pb-10 pt-12 sm:px-6 md:pt-16">
+          <Link to="/" className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-slate-500 transition-colors hover:text-slate-950">
+            <ArrowLeft className="h-4 w-4" />
             Back home
           </Link>
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.75fr] gap-8 items-end">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-end">
             <div>
-              <PageEyebrow className="mb-3">Full catalog</PageEyebrow>
-              <PageTitle className="mb-5">
+              <p className="mb-3 text-xs font-black uppercase tracking-widest text-teal-700">Full catalog</p>
+              <h1 className="text-5xl font-black leading-tight text-slate-950 md:text-6xl">
                 Live certs first.
-              </PageTitle>
-              <PageLead>
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
                 Use this page when you already know the exam you want. Available exams are ready to practice now; coming-soon exams are listed but cannot be opened yet.
-              </PageLead>
+              </p>
+            </div>
+            <div className="rounded-lg border border-slate-900/10 bg-white p-5 shadow-[0_24px_60px_-42px_rgba(15,23,42,0.4)]">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+                  <Search className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="text-sm font-black text-slate-950">Pick the exact exam.</p>
+                  <p className="text-sm text-slate-500">Career paths are guidance. Catalog is direct access.</p>
+                </div>
+              </div>
+              <div className="mt-5 grid grid-cols-2 gap-3">
+                <CatalogMetric value={liveCerts.length} label="Ready now" />
+                <CatalogMetric value={`${Math.round(totalQuestions / 100) / 10}k+`} label="Questions" />
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-6 pb-10">
-          <SectionHeading eyebrow="Ready now" title="Available practice" detail={`${liveCerts.length} exams`} className="mb-5" />
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <section className="mx-auto max-w-7xl px-5 pb-10 sm:px-6">
+          <SectionHead eyebrow="Ready now" title="Available practice" detail={`${liveCerts.length} exams`} />
+          <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
             {liveCerts.map((cert) => (
               <CertRow key={cert.id} cert={cert} live />
             ))}
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-6 pb-16">
-          <SectionHeading eyebrow="Coming soon" title="Still being prepared" detail={`${comingSoonCerts.length} exams`} className="mb-5" />
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {comingSoonCerts.map((cert) => (
-              <CertRow key={cert.id} cert={cert} live={false} />
-            ))}
+        <section className="border-t border-slate-900/10 bg-white/70">
+          <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 md:py-16">
+            <SectionHead eyebrow="Coming soon" title="Still being prepared" detail={`${comingSoonCerts.length} exams`} />
+            <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {comingSoonCerts.map((cert) => (
+                <CertRow key={cert.id} cert={cert} live={false} />
+              ))}
+            </div>
           </div>
         </section>
       </main>
+      <SiteFooter />
+    </div>
+  )
+}
+
+function SectionHead({ eyebrow, title, detail }) {
+  return (
+    <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p className="text-xs font-black uppercase tracking-widest text-slate-500">{eyebrow}</p>
+        <h2 className="mt-2 text-2xl font-black text-slate-950 md:text-3xl">{title}</h2>
+      </div>
+      <p className="text-sm font-bold text-slate-500">{detail}</p>
     </div>
   )
 }
 
 function CertRow({ cert, live }) {
-  const ps = providerStyles[cert.provider] || { bg: 'bg-zinc-800 border-zinc-700', text: 'text-zinc-400' }
+  const ps = providerStyles[cert.provider] || { bg: 'bg-slate-100 border-slate-200', text: 'text-slate-600' }
   const Icon = cert.provider === 'CompTIA' || cert.provider === 'Cisco'
     ? Network
     : cert.provider === 'HashiCorp'
@@ -105,38 +126,38 @@ function CertRow({ cert, live }) {
           ? HomeIcon
           : Cloud
 
-  const cardClass = `group flex h-full flex-col p-5 ${live ? 'hover:bg-zinc-900/70' : 'opacity-75'}`
+  const cardClass = `group flex h-full flex-col rounded-lg border border-slate-900/10 bg-white p-5 shadow-[0_20px_50px_-42px_rgba(15,23,42,0.55)] transition ${live ? 'hover:-translate-y-0.5 hover:border-slate-900/20 hover:shadow-[0_24px_60px_-40px_rgba(15,23,42,0.55)]' : 'opacity-75'}`
   const content = (
     <>
-      <div className="flex items-start justify-between gap-4 mb-4">
-        <div className="flex items-center gap-3 min-w-0">
-          <div className="w-10 h-10 rounded-lg border border-white/10 bg-zinc-900/80 flex items-center justify-center shrink-0" style={{ color: cert.color }}>
-            <Icon className="w-5 h-5" />
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border bg-slate-50" style={{ color: cert.color, borderColor: `${cert.color}35` }}>
+            <Icon className="h-5 w-5" />
           </div>
           <div className="min-w-0">
-            <h3 className="text-base font-bold text-zinc-100 truncate group-hover:text-white transition-colors">{cert.title}</h3>
-            <p className="text-xs text-zinc-500 mt-1">{cert.code}</p>
+            <h3 className="truncate text-base font-black text-slate-950 transition-colors group-hover:text-teal-800">{cert.title}</h3>
+            <p className="mt-1 text-xs font-semibold text-slate-500">{cert.code}</p>
           </div>
         </div>
         {live ? (
-          <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+          <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition-colors group-hover:text-teal-700" />
         ) : null}
       </div>
-      <div className="flex flex-wrap gap-2 mb-4">
-        <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-md border ${ps.bg} ${ps.text}`}>
+      <div className="mb-4 flex flex-wrap gap-2">
+        <span className={`rounded-md border px-2.5 py-1 text-[11px] font-bold ${ps.bg} ${ps.text}`}>
           {cert.provider}
         </span>
-        <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/10 bg-zinc-900/60 text-zinc-400">
+        <span className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-slate-600">
           {cert.difficulty}
         </span>
       </div>
-      <div className="grid grid-cols-2 gap-2 border-t border-white/5 pt-4">
+      <div className="grid grid-cols-2 gap-2 border-t border-slate-900/10 pt-4">
         <MiniStat value={cert.examQuestions} label="Questions per exam" />
         <MiniStat value={`${cert.examTime}m`} label="Time" />
       </div>
       {!live && (
         <div className="mt-auto flex justify-end pt-5">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1">
+          <span className="rounded-md border border-amber-300 bg-amber-50 px-2 py-1 text-[10px] font-black uppercase tracking-widest text-amber-800">
             Coming soon
           </span>
         </div>
@@ -146,29 +167,33 @@ function CertRow({ cert, live }) {
 
   if (!live) {
     return (
-      <Surface className={cardClass} aria-label={`${cert.title} coming soon`}>
+      <div className={cardClass} aria-label={`${cert.title} coming soon`}>
         {content}
-      </Surface>
+      </div>
     )
   }
 
   return (
-    <Surface
-      as={Link}
-      to={`/${cert.id}`}
-      interactive
-      className={cardClass}
-    >
+    <Link to={`/${cert.id}`} className={cardClass}>
       {content}
-    </Surface>
+    </Link>
   )
 }
 
 function MiniStat({ value, label }) {
   return (
     <div>
-      <p className="text-sm font-bold text-zinc-200">{value}</p>
-      <p className="text-[10px] text-zinc-600 uppercase tracking-widest font-bold mt-1">{label}</p>
+      <p className="text-sm font-black text-slate-800">{value}</p>
+      <p className="mt-1 text-[10px] font-black uppercase tracking-widest text-slate-400">{label}</p>
+    </div>
+  )
+}
+
+function CatalogMetric({ value, label }) {
+  return (
+    <div className="rounded-lg border border-slate-900/10 bg-slate-50 p-3">
+      <p className="text-xl font-black text-slate-950">{value}</p>
+      <p className="mt-1 text-[10px] font-black uppercase tracking-widest text-slate-500">{label}</p>
     </div>
   )
 }

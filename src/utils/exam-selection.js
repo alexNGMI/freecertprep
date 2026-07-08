@@ -41,19 +41,21 @@ export function weightedSelect(questions, count, domains, options = {}) {
 
   // Pick allocated questions from each domain (shuffle pool first)
   const picked = []
+  const uniqueKey = typeof options.uniqueKey === 'function' ? options.uniqueKey : null
+  const pickedUniqueKeys = new Set()
   let leftover = 0
   for (const { name, alloc } of floors) {
     const pool = fisherYates(byDomain[name] || [])
-    const take = Math.min(alloc, pool.length)
-    picked.push(...pool.slice(0, take))
-    leftover += alloc - take   // track shortfall if domain has fewer questions than allocated
+    const selected = takeUnique(pool, alloc, pickedUniqueKeys, uniqueKey)
+    picked.push(...selected)
+    leftover += alloc - selected.length   // track shortfall if domain has fewer questions than allocated
   }
 
   // Fill any shortfall with random questions not already picked
   if (leftover > 0) {
     const pickedIds = new Set(picked.map(q => q.id))
     const extra = fisherYates(eligibleQuestions.filter(q => !pickedIds.has(q.id)))
-    picked.push(...extra.slice(0, leftover))
+    picked.push(...takeUnique(extra, leftover, pickedUniqueKeys, uniqueKey))
   }
 
   // Guarantee at least 1 question per type that exists in the pool.
@@ -106,6 +108,31 @@ export function weightedSelect(questions, count, domains, options = {}) {
 
   // Final shuffle so domain blocks aren't visible in question order
   return fisherYates(picked)
+}
+
+function takeUnique(pool, count, pickedUniqueKeys, uniqueKey) {
+  const selected = []
+  const selectedIds = new Set()
+
+  for (const question of pool) {
+    if (selected.length >= count) break
+    const key = uniqueKey?.(question)
+    if (key && pickedUniqueKeys.has(key)) continue
+    selected.push(question)
+    selectedIds.add(question.id)
+    if (key) pickedUniqueKeys.add(key)
+  }
+
+  for (const question of pool) {
+    if (selected.length >= count) break
+    if (selectedIds.has(question.id)) continue
+    selected.push(question)
+    selectedIds.add(question.id)
+    const key = uniqueKey?.(question)
+    if (key) pickedUniqueKeys.add(key)
+  }
+
+  return selected
 }
 
 function guaranteePracticalCategories(picked, questions, requiredCategories = [], requiredTypeCounts = {}) {

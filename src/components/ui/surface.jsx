@@ -4,7 +4,7 @@ import { cn } from '../../utils/cn'
 export function Surface({ as = 'div', className, interactive = false, ...props }) {
   return createElement(as, {
     className: cn(
-        'rounded-2xl border border-white/10 bg-zinc-950/80 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)]',
+        'ui-surface rounded-lg border border-white/10 bg-zinc-950/80 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.9)]',
         'bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.018))]',
         interactive && 'transition-all duration-200 hover:-translate-y-1 hover:border-white/20 hover:bg-zinc-900/80',
         className,

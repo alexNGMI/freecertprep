@@ -15,7 +15,7 @@ import {
   Trash2,
   Upload,
 } from 'lucide-react'
-import BrandedName from '../components/BrandedName'
+import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { Button } from '../components/ui/button'
 import { PageEyebrow, PageLead, PageTitle, Surface } from '../components/ui/surface'
 import { exportProgress, exportQuestionIssueReports, readQuestionIssueReports } from '../utils/storage'
@@ -237,19 +237,8 @@ export default function Account() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="sticky top-0 z-20 border-b border-white/5 bg-zinc-950/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <Link to="/" className="hover:opacity-80">
-            <BrandedName />
-          </Link>
-          <nav className="flex items-center gap-3 text-xs font-semibold text-zinc-400 sm:gap-5 sm:text-sm">
-            <Link to="/catalog" className="hidden hover:text-zinc-100 sm:inline">Catalog</Link>
-            <Link to="/support" className="hover:text-zinc-100">Support</Link>
-            <Link to="/privacy" className="hover:text-zinc-100">Privacy</Link>
-          </nav>
-        </div>
-      </header>
+    <div className="theme-page min-h-screen text-slate-950">
+      <SiteHeader />
 
       <main className="mx-auto max-w-7xl px-6 py-12">
         <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px]">
@@ -264,7 +253,7 @@ export default function Account() {
                   Sign in to safely combine progress across browsers and devices. The practice engine stays usable without an account.
                 </PageLead>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5">
+              <div className="rounded-lg border border-slate-900/10 bg-slate-50 p-5">
                 <StatusPill ready={isSupabaseConfigured} />
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">
                   {isSupabaseConfigured
@@ -282,7 +271,7 @@ export default function Account() {
           </Surface>
 
           <Surface className="p-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-sky-500/30 bg-sky-500/10 text-sky-300">
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-sky-200 bg-sky-50 text-sky-700">
               <Mail className="h-6 w-6" />
             </div>
             {authLoading ? (
@@ -295,7 +284,7 @@ export default function Account() {
                 <h2 className="mt-5 text-2xl font-black text-zinc-50">You are signed in</h2>
                 <p className="mt-2 text-xs font-bold uppercase tracking-wider text-emerald-300">Account active</p>
                 <p className="mt-1 break-all text-sm leading-relaxed text-zinc-300">{session.user.email}</p>
-                <div className="mt-5 rounded-xl border border-white/10 bg-zinc-900/60 p-4">
+                <div className="mt-5 rounded-lg border border-slate-900/10 bg-slate-50 p-4">
                   <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Last successful sync</p>
                   <p className="mt-2 font-bold text-zinc-100">
                     {backupLoading
@@ -332,9 +321,9 @@ export default function Account() {
                   </Button>
                 </div>
                 {confirmRestore && (
-                  <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4">
-                    <p className="text-sm font-bold text-amber-100">Replace this browser&apos;s study data?</p>
-                    <p className="mt-2 text-xs leading-relaxed text-amber-100/70">
+                  <div className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-4">
+                    <p className="text-sm font-bold text-amber-950">Replace this browser&apos;s study data?</p>
+                    <p className="mt-2 text-xs leading-relaxed text-amber-800">
                       This restores the {formatDateTime(latestBackup.createdAt)} snapshot and replaces local progress, Smart Practice statistics, and bookmarks.
                     </p>
                     <div className="mt-4 flex gap-2">
@@ -369,7 +358,7 @@ export default function Account() {
                     onChange={(event) => setEmail(event.target.value)}
                     placeholder="you@example.com"
                     required
-                    className="w-full rounded-xl border border-white/10 bg-zinc-900 px-4 py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-sky-400/50"
+                    className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-sky-500"
                   />
                   <Button type="submit" variant="accent" accentColor="#38bdf8" className="w-full" disabled={Boolean(pendingAction)}>
                     <KeyRound className="h-4 w-4" />
@@ -384,10 +373,10 @@ export default function Account() {
                 aria-live={notice.kind === 'error' ? 'assertive' : 'polite'}
                 className={`mt-4 rounded-xl border px-4 py-3 text-sm font-semibold ${
                 notice.kind === 'success'
-                  ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
+                  ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
                   : notice.kind === 'error'
-                    ? 'border-red-500/30 bg-red-500/10 text-red-200'
-                    : 'border-sky-500/30 bg-sky-500/10 text-sky-200'
+                    ? 'border-red-300 bg-red-50 text-red-800'
+                    : 'border-sky-300 bg-sky-50 text-sky-800'
               }`}
               >
                 {notice.message}
@@ -437,7 +426,7 @@ export default function Account() {
                 <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Privacy and account data</p>
                 <h2 className="mt-2 text-2xl font-black text-zinc-50">Your account remains under your control.</h2>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-                  Read the <Link to="/privacy" className="font-bold text-sky-300 hover:text-sky-200">privacy policy</Link>, export the complete cloud-account record, or permanently delete the account. Local browser study data is separate.
+                  Read the <Link to="/privacy" className="font-bold text-sky-700 hover:text-sky-900">privacy policy</Link>, export the complete cloud-account record, or permanently delete the account. Local browser study data is separate.
                 </p>
               </div>
 
@@ -453,19 +442,19 @@ export default function Account() {
                   </Button>
                 </div>
               ) : (
-                <p className="rounded-xl border border-white/10 bg-zinc-900/60 px-4 py-3 text-sm text-zinc-500">
+                <p className="rounded-lg border border-slate-900/10 bg-slate-50 px-4 py-3 text-sm text-slate-500">
                   Sign in to export or delete cloud-account data.
                 </p>
               )}
             </div>
 
             {confirmDelete && session && (
-              <div className="mt-6 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-5">
-                <h3 className="text-lg font-black text-rose-100">Permanently delete this account?</h3>
-                <p className="mt-2 text-sm leading-relaxed text-rose-100/75">
+              <div className="mt-6 rounded-lg border border-rose-300 bg-rose-50 p-5">
+                <h3 className="text-lg font-black text-rose-900">Permanently delete this account?</h3>
+                <p className="mt-2 text-sm leading-relaxed text-rose-800">
                   This removes the email login and account-owned cloud profile, backups, statistics, bookmarks, and session records. Submitted question reports may remain, but the reporter link is removed. Local browser study data is not cleared.
                 </p>
-                <label htmlFor="delete-confirmation" className="mt-4 block text-xs font-bold uppercase tracking-wider text-rose-200">
+                <label htmlFor="delete-confirmation" className="mt-4 block text-xs font-bold uppercase tracking-wider text-rose-700">
                   Type DELETE to confirm
                 </label>
                 <input
@@ -473,7 +462,7 @@ export default function Account() {
                   value={deletePhrase}
                   onChange={event => setDeletePhrase(event.target.value)}
                   autoComplete="off"
-                  className="mt-2 w-full max-w-sm rounded-xl border border-rose-400/30 bg-zinc-950 px-4 py-3 text-sm font-bold text-zinc-100 outline-none focus:border-rose-300"
+                  className="mt-2 w-full max-w-sm rounded-lg border border-rose-300 bg-white px-4 py-3 text-sm font-bold text-slate-950 outline-none focus:border-rose-500"
                 />
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                   <Button
@@ -500,6 +489,7 @@ export default function Account() {
           </Surface>
         </section>
       </main>
+      <SiteFooter />
     </div>
   )
 }
@@ -508,8 +498,8 @@ function StatusPill({ ready }) {
   return (
     <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-bold uppercase tracking-wider ${
       ready
-        ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
-        : 'border-amber-500/30 bg-amber-500/10 text-amber-200'
+        ? 'border-emerald-300 bg-emerald-50 text-emerald-800'
+        : 'border-amber-300 bg-amber-50 text-amber-800'
     }`}>
       {ready ? <CheckCircle2 className="h-4 w-4" /> : <AlertCircle className="h-4 w-4" />}
       {ready ? 'Account service ready' : 'Account service unavailable'}
@@ -519,7 +509,7 @@ function StatusPill({ ready }) {
 
 function ReadinessCard({ icon: Icon, title, body, ready }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-zinc-900/55 p-5">
+    <div className="rounded-lg border border-slate-900/10 bg-slate-50 p-5">
       <div className="flex items-center justify-between gap-3">
         {createElement(Icon, { className: 'h-5 w-5 text-zinc-400' })}
         <StatusDot ready={ready} />

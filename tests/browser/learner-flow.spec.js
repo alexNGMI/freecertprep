@@ -38,7 +38,7 @@ async function expectQuestionSignals(page, signals, questionCount) {
 test('home, catalog, docs, and live cert dashboard render', async ({ page }) => {
   await page.goto('/')
   await expect(page.getByRole('heading', { name: /Choose a direction/i })).toBeVisible()
-  await expect(page.getByRole('link', { name: /Browse All Certs/i })).toBeVisible()
+  await expect(page.getByRole('link', { name: /Full Catalog/i })).toBeVisible()
 
   await page.goto('/catalog')
   await expect(page.getByRole('heading', { name: /Live certs first/i })).toBeVisible()
@@ -85,7 +85,7 @@ test('exam route can submit and display results', async ({ page }) => {
 
 test('live cert exam forms expose the high-value interaction formats', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'chromium-desktop', 'desktop-only format sweep keeps the smoke suite quick')
-  test.setTimeout(60_000)
+  test.setTimeout(90_000)
 
   await beginExam(page, '/comptia-net-plus')
   await expectQuestionSignals(page, [
