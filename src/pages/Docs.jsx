@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import BrandedName from '../components/BrandedName'
+import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { getAllCerts } from '../data/certs'
 import { isCertLive } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
@@ -59,7 +59,7 @@ function Badge({ color, children }) {
 
 function Tag({ children }) {
   return (
-    <span className="inline-block text-[11px] font-semibold px-2.5 py-1 rounded bg-zinc-800 border border-white/5 text-zinc-400">
+    <span className="inline-block rounded border border-slate-200 bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
       {children}
     </span>
   )
@@ -154,25 +154,15 @@ export default function Docs() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="border-b border-white/5 bg-zinc-950/60 backdrop-blur-xl sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="hover:opacity-80 transition-opacity">
-            <BrandedName />
-          </Link>
-          <div className="flex items-center gap-6 text-sm font-medium text-zinc-400">
-            <Link to="/" className="hover:text-zinc-100 transition-colors">Home</Link>
-          </div>
-        </div>
-      </header>
+    <div className="theme-page flex min-h-screen flex-col text-slate-950">
+      <SiteHeader />
 
       <div className="flex-1 max-w-7xl mx-auto w-full px-6 py-12 flex gap-12">
 
         {/* Sidebar */}
         <aside className="hidden lg:block w-56 shrink-0">
           <div className="sticky top-28 space-y-1">
-            <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest mb-4 pl-3">Contents</p>
+            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4 pl-3">Contents</p>
             {NAV.map(({ id, label }) => (
               <button
                 key={id}
@@ -180,8 +170,8 @@ export default function Docs() {
                 aria-current={activeSection === id ? 'true' : undefined}
                 className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all ${
                   activeSection === id
-                    ? 'text-zinc-100 bg-zinc-800/60 font-semibold'
-                    : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-900/40'
+                    ? 'bg-white text-slate-950 shadow-sm font-semibold'
+                    : 'text-slate-500 hover:text-slate-950 hover:bg-white/70'
                 }`}
               >
                 {label}
@@ -195,11 +185,11 @@ export default function Docs() {
 
           {/* Page title */}
           <div className="mb-14">
-            <div className="inline-block text-sm font-medium px-4 py-1.5 rounded-full border border-zinc-700 bg-zinc-900/50 text-zinc-300 mb-4">
+            <div className="inline-block rounded-full border border-slate-900/10 bg-white px-4 py-1.5 text-sm font-bold text-slate-700 shadow-sm mb-4">
               Documentation
             </div>
-            <h1 className="text-4xl font-bold text-zinc-100 mb-3">freecertprep</h1>
-            <p className="text-lg text-zinc-400 max-w-2xl">
+            <h1 className="text-4xl font-black text-slate-950 mb-3">freecertprep</h1>
+            <p className="text-lg text-slate-600 max-w-2xl">
               Open-source exam prep built for the career changer. The public catalog now leads with the modules that meet the current simulation-readiness bar, while the rest remain visible as Coming Soon during revision.
             </p>
           </div>
@@ -223,7 +213,7 @@ export default function Docs() {
             <P>
               Real Estate is temporarily hidden from public navigation while its source and simulation quality are reworked. The
               existing build remains available for internal review through this documentation only:{' '}
-              <Link to="/real-estate" className="text-amber-300 underline underline-offset-4 hover:text-amber-200">
+              <Link to="/real-estate" className="font-bold text-teal-700 underline underline-offset-4 hover:text-slate-950">
                 open the Real Estate review build
               </Link>.
             </P>
@@ -371,14 +361,14 @@ export default function Docs() {
                   href={href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group glass-panel rounded-xl p-5 block hover:border-zinc-600 transition-colors"
+                  className="group glass-panel rounded-xl p-5 block transition-colors hover:border-slate-300"
                 >
                   <div className="flex items-start justify-between gap-4 mb-4">
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-widest text-zinc-600 mb-2">{code}</p>
-                      <h3 className="font-bold text-zinc-100 group-hover:text-white transition-colors">{cert}</h3>
+                      <h3 className="font-bold text-zinc-100 transition-colors group-hover:text-slate-950">{cert}</h3>
                     </div>
-                    <span className="text-[11px] font-semibold px-2.5 py-1 rounded bg-zinc-800 border border-white/5 text-zinc-400">
+                    <span className="rounded border border-slate-200 bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
                       YouTube
                     </span>
                   </div>
@@ -413,7 +403,7 @@ export default function Docs() {
                 { label: 'Specific Domain', desc: 'Pick a single exam domain to focus on. Useful when the dashboard shows a weak area that needs dedicated work.' },
               ].map(({ label, desc }) => (
                 <li key={label} className="flex gap-4 glass-panel rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-zinc-500 mt-2 shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-slate-400 mt-2 shrink-0" />
                   <div>
                     <p className="font-semibold text-zinc-200 mb-1">{label}</p>
                     <p className="text-sm text-zinc-500 leading-relaxed">{desc}</p>
@@ -498,8 +488,8 @@ key = random() ** (1 / weight)
 }`}
             </CodeBlock>
             <P>
-              Stored in localStorage under the key <code className="text-zinc-300 bg-zinc-900 px-1.5 py-0.5 rounded text-xs">freecertprep-question-stats-local</code>.
-              The <code className="text-zinc-300 bg-zinc-900 px-1.5 py-0.5 rounded text-xs">-local</code> suffix is intentional — it reserves the migration path for when
+              Stored in localStorage under the key <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">freecertprep-question-stats-local</code>.
+              The <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">-local</code> suffix is intentional — it reserves the migration path for when
               user accounts are added. On first login, local stats can be merged into the user's account without data loss.
             </P>
 
@@ -928,13 +918,7 @@ key = random() ** (1 / weight)
         </main>
       </div>
 
-      <footer className="border-t border-white/5 bg-zinc-950/50 py-8 text-center text-sm text-zinc-600">
-        <p>freecertprep — built for the community</p>
-        <div className="mt-2 flex items-center justify-center gap-4 font-semibold">
-          <Link to="/support" className="text-zinc-500 hover:text-zinc-200">Support</Link>
-          <Link to="/privacy" className="text-zinc-500 hover:text-zinc-200">Privacy</Link>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   )
 }

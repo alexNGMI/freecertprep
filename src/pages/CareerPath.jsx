@@ -8,11 +8,11 @@ import {
   Network,
   Server,
 } from 'lucide-react'
-import BrandedName from '../components/BrandedName'
+import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { getCert } from '../data/certs'
 import { isCertLive } from '../data/catalogVisibility'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
-import { PageEyebrow, PageLead, PageTitle, SectionHeading, Surface } from '../components/ui/surface'
+import { Surface } from '../components/ui/surface'
 
 const PATHS = {
   networking: {
@@ -211,47 +211,38 @@ export default function CareerPath() {
   })
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
-      <header className="border-b border-white/5 bg-zinc-950/70 backdrop-blur-xl sticky top-0 z-20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="hover:opacity-80 transition-opacity">
-            <BrandedName />
-          </Link>
-          <div className="flex items-center gap-5 text-sm font-medium text-zinc-400">
-            <Link to="/" className="hover:text-zinc-100 transition-colors">Home</Link>
-          </div>
-        </div>
-      </header>
+    <div className="theme-page min-h-screen text-slate-950">
+      <SiteHeader />
 
-      <main className="flex-1">
-        <section className="max-w-7xl mx-auto px-6 pt-16 pb-12">
-          <Link to="/#paths" className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-500 hover:text-zinc-200 transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" />
+      <main>
+        <section className="mx-auto max-w-7xl px-5 pb-12 pt-12 sm:px-6 md:pt-16">
+          <Link to="/#paths" className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-slate-500 transition-colors hover:text-slate-950">
+            <ArrowLeft className="h-4 w-4" />
             Back to paths
           </Link>
-          <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 items-end">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
-              <div className="w-12 h-12 rounded-lg border border-white/10 bg-zinc-900/80 flex items-center justify-center mb-6" style={{ color: path.color }}>
-                <Icon className="w-6 h-6" />
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg border bg-white" style={{ color: path.color, borderColor: `${path.color}35` }}>
+                <Icon className="h-6 w-6" />
               </div>
-              <PageEyebrow className="mb-4" style={{ color: path.color }}>
+              <p className="mb-4 text-xs font-black uppercase tracking-widest" style={{ color: path.color }}>
                 {path.eyebrow} path
-              </PageEyebrow>
-              <PageTitle className="mb-6 leading-tight">
+              </p>
+              <h1 className="mb-6 text-5xl font-black leading-tight text-slate-950 md:text-6xl">
                 {path.title}
-              </PageTitle>
-              <PageLead>
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-slate-700">
                 {path.description}
-              </PageLead>
+              </p>
             </div>
 
-            <Surface className="p-5 space-y-5">
+            <Surface className="space-y-5 border-slate-900/10 bg-white p-5 shadow-[0_24px_60px_-42px_rgba(15,23,42,0.45)]">
               {path.roles?.length > 0 && (
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">Target roles</p>
+                  <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-slate-500">Target roles</p>
                   <div className="flex flex-wrap gap-2">
                     {path.roles.map((role) => (
-                      <span key={role} className="rounded-md border border-white/10 bg-zinc-900/60 px-2.5 py-1.5 text-xs font-semibold text-zinc-300">
+                      <span key={role} className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1.5 text-xs font-bold text-slate-700">
                         {role}
                       </span>
                     ))}
@@ -259,24 +250,24 @@ export default function CareerPath() {
                 </div>
               )}
               {path.availability && (
-                <div className="border-t border-white/5 pt-4">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">Available practice</p>
-                  <p className="text-sm leading-relaxed text-zinc-300">{path.availability}</p>
+                <div className="border-t border-slate-900/10 pt-4">
+                  <p className="mb-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Available practice</p>
+                  <p className="text-sm leading-6 text-slate-700">{path.availability}</p>
                 </div>
               )}
-              <div className={path.roles?.length > 0 || path.availability ? 'border-t border-white/5 pt-4' : ''}>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-3">Path logic</p>
+              <div className={path.roles?.length > 0 || path.availability ? 'border-t border-slate-900/10 pt-4' : ''}>
+                <p className="mb-3 text-[10px] font-black uppercase tracking-widest text-slate-500">Path logic</p>
                 {path.highlights ? (
                   <ul className="space-y-3">
                     {path.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-3 text-sm text-zinc-400 leading-relaxed">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full shrink-0" style={{ backgroundColor: path.color }} />
+                      <li key={highlight} className="flex gap-3 text-sm leading-6 text-slate-600">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: path.color }} />
                         <span>{highlight}</span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="text-sm text-zinc-400 leading-relaxed">
+                  <p className="text-sm leading-6 text-slate-600">
                     This page is a guided sequence, not a lock-in. Use it when you want a recommendation. Use the catalog when you already know the exact cert you want.
                   </p>
                 )}
@@ -285,12 +276,13 @@ export default function CareerPath() {
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-6 py-14 border-y border-white/5">
+        <section className="border-y border-slate-900/10 bg-white/70">
+          <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6">
           <div className="space-y-8">
             {numberedGroups.map((group) => (
               <div key={group.label}>
-                <SectionHeading title={group.label} className="mb-4" />
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                <h2 className="mb-4 text-2xl font-black text-slate-950">{group.label}</h2>
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {group.items.map((item) => (
                     <StepCard key={`${group.label}-${item.title}`} item={item} color={path.color} />
                   ))}
@@ -298,8 +290,10 @@ export default function CareerPath() {
               </div>
             ))}
           </div>
+          </div>
         </section>
       </main>
+      <SiteFooter />
     </div>
   )
 }
@@ -309,42 +303,42 @@ function StepCard({ item, color }) {
     <>
       <div className="flex items-start justify-between gap-4 mb-5">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">
+          <p className="mb-2 text-[10px] font-black uppercase tracking-widest text-slate-500">
             Step {String(item.stepNumber).padStart(2, '0')} / {item.optionLabel ? `${item.optionLabel} / ` : ''}{item.label}
           </p>
-          <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white transition-colors">{item.title}</h3>
+          <h3 className="text-xl font-black text-slate-950 transition-colors group-hover:text-teal-800">{item.title}</h3>
         </div>
         {item.to ? (
           item.choiceCue ? (
-            <span className="rounded-md border border-white/10 bg-zinc-900/70 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-zinc-300">
+            <span className="rounded-md border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] font-black uppercase tracking-wider text-slate-600">
               {item.choiceCue}
             </span>
           ) : (
-            <ArrowRight className="w-4 h-4 text-zinc-600 group-hover:text-zinc-300 transition-colors shrink-0 mt-1" />
+            <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-slate-400 transition-colors group-hover:text-teal-700" />
           )
         ) : (
-          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-200 border border-amber-300/25 bg-amber-300/10 rounded-md px-2 py-1">
+          <span className="rounded-md border border-amber-300 bg-amber-50 px-2 py-1 text-[10px] font-black uppercase tracking-widest text-amber-800">
             {item.status}
           </span>
         )}
       </div>
       {item.code && (
         <div className="flex flex-wrap gap-2 mb-4">
-          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/10 bg-zinc-900/60 text-zinc-400">
+          <span className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-slate-600">
             {item.code}
           </span>
-          <span className="text-[11px] font-semibold px-2.5 py-1 rounded-md border border-white/10 bg-zinc-900/60 text-zinc-400">
+          <span className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[11px] font-bold text-slate-600">
             {item.difficulty}
           </span>
         </div>
       )}
-      <p className="text-sm text-zinc-400 leading-relaxed border-t border-white/5 pt-4" style={{ borderTopColor: `${color}30` }}>
+      <p className="border-t pt-4 text-sm leading-6 text-slate-600" style={{ borderTopColor: `${color}30` }}>
         {item.description}
       </p>
       {item.to && (
-        <div className="mt-5 flex items-center justify-between border-t border-white/5 pt-4 text-sm font-bold text-zinc-200">
+        <div className="mt-5 flex items-center justify-between border-t border-slate-900/10 pt-4 text-sm font-black text-slate-800">
           <span>Open {item.title}</span>
-          <ArrowRight className="h-4 w-4 text-zinc-500 transition-colors group-hover:text-zinc-200" />
+          <ArrowRight className="h-4 w-4 text-slate-400 transition-colors group-hover:text-teal-700" />
         </div>
       )}
     </>
@@ -352,7 +346,7 @@ function StepCard({ item, color }) {
 
   if (!item.to) {
     return (
-      <Surface className="p-5 opacity-90">
+      <Surface className="border-slate-900/10 bg-white p-5 opacity-90 shadow-[0_20px_50px_-42px_rgba(15,23,42,0.45)]">
         {content}
       </Surface>
     )
@@ -363,7 +357,7 @@ function StepCard({ item, color }) {
       as={Link}
       to={item.to}
       interactive
-      className="group p-5"
+      className="group border-slate-900/10 bg-white p-5 shadow-[0_20px_50px_-42px_rgba(15,23,42,0.45)] hover:border-slate-900/20 hover:bg-white"
     >
       {content}
     </Surface>

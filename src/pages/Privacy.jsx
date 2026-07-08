@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import BrandedName from '../components/BrandedName'
+import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { PageEyebrow, PageTitle } from '../components/ui/surface'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 
@@ -11,23 +10,15 @@ export default function Privacy() {
   })
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100">
-      <header className="border-b border-white/5 bg-zinc-950/85">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <Link to="/"><BrandedName /></Link>
-          <nav className="flex items-center gap-5 text-sm font-bold text-zinc-400">
-            <Link to="/support" className="hover:text-zinc-100">Support</Link>
-            <Link to="/account" className="hover:text-zinc-100">Account</Link>
-          </nav>
-        </div>
-      </header>
+    <div className="theme-page min-h-screen text-slate-950">
+      <SiteHeader />
 
       <main className="mx-auto max-w-4xl px-6 py-12 md:py-16">
-        <PageEyebrow>Privacy and data controls</PageEyebrow>
-        <PageTitle className="mt-3">Lets talk about Privacy</PageTitle>
-        <p className="mt-4 text-xs font-bold uppercase tracking-wider text-zinc-600">Effective June 24, 2026</p>
+        <PageEyebrow className="text-teal-700">Privacy and data controls</PageEyebrow>
+        <PageTitle className="mt-3 text-slate-950">Lets talk about Privacy</PageTitle>
+        <p className="mt-4 text-xs font-bold uppercase tracking-wider text-slate-500">Effective June 24, 2026</p>
 
-        <article className="mt-10 max-w-3xl space-y-6 text-base leading-8 text-zinc-300 md:text-lg md:leading-9">
+        <article className="mt-10 max-w-3xl space-y-6 rounded-lg border border-slate-900/10 bg-white p-6 text-base leading-8 text-slate-700 shadow-[0_24px_60px_-42px_rgba(15,23,42,0.45)] md:p-8 md:text-lg md:leading-9">
           <p>
             We do not want a study product that requires people to hand over data before they can learn. Core studying on freecertprep works without an account, and account features are optional.
           </p>
@@ -51,6 +42,7 @@ export default function Privacy() {
           </p>
         </article>
       </main>
+      <SiteFooter />
     </div>
   )
 }

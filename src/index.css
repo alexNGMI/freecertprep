@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Segoe UI", Arial, system-ui, sans-serif;
-  --font-heading: "Segoe UI", Arial, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-heading: "Bricolage Grotesque", "Instrument Sans", "Aptos", system-ui, sans-serif;
 
   --animate-fade-up: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-answer-pop: answer-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
@@ -45,12 +45,11 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(9, 9, 11, 0.76), #09090b 32rem),
-    radial-gradient(circle at 50% -20%, rgba(63, 63, 70, 0.45), transparent 34rem),
-    radial-gradient(circle at 1px 1px, #18181b 1px, transparent 0);
-  background-color: #09090b;
-  background-size: auto, auto, 26px 26px;
-  color: #f4f4f5;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.78) 30rem),
+    radial-gradient(circle at 18% -10%, rgba(20, 184, 166, 0.16), transparent 24rem),
+    radial-gradient(circle at 84% 6%, rgba(251, 113, 133, 0.12), transparent 24rem);
+  background-color: #f7f3eb;
+  color: #172033;
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
@@ -60,7 +59,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 *:focus-visible {
@@ -75,15 +74,20 @@ h1, h2, h3, h4, h5, h6 {
 
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #27272a; border-radius: 5px; border: 2px solid #09090b; }
-::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 5px; border: 2px solid #f7f3eb; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.rounded-2xl,
+.rounded-xl {
+  border-radius: 0.5rem;
+}
 
 /* Structural panel replacing generic glass */
 .glass-panel {
-  background: rgba(9, 9, 11, 0.82);
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.015) 100%);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 24px 80px -48px rgba(0, 0, 0, 0.9);
+  background: rgba(15, 23, 42, 0.86);
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 80px -48px rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(16px);
 }
 
@@ -114,6 +118,238 @@ main {
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
   padding: 1px;
+}
+
+.study-shell {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.72), #020617 34rem),
+    radial-gradient(circle at 18% -10%, rgba(20, 184, 166, 0.16), transparent 28rem),
+    radial-gradient(circle at 88% 4%, rgba(251, 113, 133, 0.12), transparent 26rem),
+    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.12) 1px, transparent 0);
+  background-color: #020617;
+  background-size: auto, auto, auto, 28px 28px;
+}
+
+.theme-page {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(247, 243, 235, 0.92) 34rem),
+    radial-gradient(circle at 16% -12%, rgba(20, 184, 166, 0.15), transparent 26rem),
+    radial-gradient(circle at 86% 2%, rgba(251, 113, 133, 0.1), transparent 24rem);
+  background-color: #f7f3eb;
+  color: #020617;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-header {
+  border-color: rgba(15, 23, 42, 0.1);
+  background: rgba(247, 243, 235, 0.86);
+}
+
+.site-header-nav a:hover,
+.site-footer-links a:hover {
+  color: #020617;
+}
+
+.site-footer {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.site-footer-links a {
+  color: #334155;
+}
+
+.theme-toggle {
+  width: 2.5rem;
+  min-height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 0;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 800;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: rgba(15, 23, 42, 0.24);
+  background: #fff;
+  color: #020617;
+}
+
+.theme-toggle__icon {
+  display: inline-grid;
+  place-items: center;
+  color: #0f766e;
+}
+
+.theme-page .ui-surface,
+.theme-page .glass-panel {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  background: rgba(255, 255, 255, 0.86) !important;
+  box-shadow: 0 20px 50px -42px rgba(15, 23, 42, 0.45) !important;
+}
+
+.theme-page [class*="border-white/5"],
+.theme-page [class*="border-white/10"] {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+.theme-page [class*="text-zinc-50"],
+.theme-page [class*="text-zinc-100"],
+.theme-page [class*="text-zinc-200"],
+.theme-page [class*="text-zinc-300"] {
+  color: #0f172a !important;
+}
+
+.theme-page [class*="text-zinc-400"],
+.theme-page [class*="text-zinc-500"],
+.theme-page [class*="text-zinc-600"],
+.theme-page [class*="text-zinc-700"] {
+  color: #64748b !important;
+}
+
+.theme-page code[class*="bg-zinc"],
+.theme-page pre[class*="glass-panel"] {
+  background-color: rgba(248, 250, 252, 0.92) !important;
+}
+
+.hero-scrim {
+  background: linear-gradient(90deg, rgba(247,243,235,0.98) 0%, rgba(247,243,235,0.94) 48%, rgba(247,243,235,0.46) 78%, rgba(247,243,235,0.14) 100%);
+}
+
+html[data-theme="night"] body {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.9), #020617 34rem),
+    radial-gradient(circle at 18% -10%, rgba(20, 184, 166, 0.18), transparent 28rem),
+    radial-gradient(circle at 88% 4%, rgba(251, 113, 133, 0.12), transparent 26rem);
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+html[data-theme="night"] .theme-page {
+  background:
+    linear-gradient(180deg, rgba(2, 6, 23, 0.86), #020617 34rem),
+    radial-gradient(circle at 18% -10%, rgba(20, 184, 166, 0.18), transparent 28rem),
+    radial-gradient(circle at 88% 4%, rgba(251, 113, 133, 0.14), transparent 26rem);
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+html[data-theme="night"] .theme-header {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(2, 6, 23, 0.82);
+}
+
+html[data-theme="night"] .site-header-nav {
+  color: #cbd5e1;
+}
+
+html[data-theme="night"] .site-header-nav a:hover,
+html[data-theme="night"] .site-footer-links a:hover {
+  color: #f8fafc;
+}
+
+html[data-theme="night"] .site-footer {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(2, 6, 23, 0.9);
+  color: #94a3b8;
+}
+
+html[data-theme="night"] .site-footer-links a {
+  color: #cbd5e1;
+}
+
+html[data-theme="night"] .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.72);
+  color: #cbd5e1;
+}
+
+html[data-theme="night"] .theme-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(30, 41, 59, 0.9);
+  color: #f8fafc;
+}
+
+html[data-theme="night"] .theme-toggle__icon {
+  color: #5eead4;
+}
+
+html[data-theme="night"] .hero-scrim {
+  background: linear-gradient(90deg, rgba(2,6,23,0.98) 0%, rgba(2,6,23,0.94) 50%, rgba(2,6,23,0.58) 80%, rgba(2,6,23,0.28) 100%);
+}
+
+html[data-theme="night"] .theme-page [class*="bg-[#f7f3eb]"],
+html[data-theme="night"] .theme-page [class*="bg-white"],
+html[data-theme="night"] .theme-page [class*="bg-slate-50"],
+html[data-theme="night"] .theme-page [class*="bg-slate-100"],
+html[data-theme="night"] .theme-page [class*="bg-emerald-50"],
+html[data-theme="night"] .theme-page [class*="bg-amber-50"],
+html[data-theme="night"] .theme-page [class*="bg-sky-50"],
+html[data-theme="night"] .theme-page [class*="bg-red-50"],
+html[data-theme="night"] .theme-page [class*="bg-rose-50"] {
+  background-color: rgba(15, 23, 42, 0.82) !important;
+}
+
+html[data-theme="night"] .theme-page .ui-surface,
+html[data-theme="night"] .theme-page .glass-panel {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(15, 23, 42, 0.82) !important;
+  box-shadow: 0 24px 80px -48px rgba(0, 0, 0, 0.9) !important;
+}
+
+html[data-theme="night"] .theme-page [class*="border-slate-900/10"],
+html[data-theme="night"] .theme-page [class*="border-slate-200"],
+html[data-theme="night"] .theme-page [class*="border-white/5"] {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html[data-theme="night"] .theme-page [class*="text-slate-950"],
+html[data-theme="night"] .theme-page [class*="text-slate-900"],
+html[data-theme="night"] .theme-page [class*="text-slate-800"],
+html[data-theme="night"] .theme-page [class*="text-zinc-50"],
+html[data-theme="night"] .theme-page [class*="text-zinc-100"],
+html[data-theme="night"] .theme-page [class*="text-zinc-200"] {
+  color: #f8fafc !important;
+}
+
+html[data-theme="night"] .theme-page [class*="text-slate-700"],
+html[data-theme="night"] .theme-page [class*="text-slate-600"],
+html[data-theme="night"] .theme-page [class*="text-zinc-300"],
+html[data-theme="night"] .theme-page [class*="text-zinc-400"] {
+  color: #cbd5e1 !important;
+}
+
+html[data-theme="night"] .theme-page [class*="text-slate-500"],
+html[data-theme="night"] .theme-page [class*="text-slate-400"],
+html[data-theme="night"] .theme-page [class*="text-zinc-500"],
+html[data-theme="night"] .theme-page [class*="text-zinc-600"] {
+  color: #94a3b8 !important;
+}
+
+html[data-theme="night"] .theme-page [class*="text-teal-700"],
+html[data-theme="night"] .theme-page [class*="text-emerald-800"] {
+  color: #5eead4 !important;
+}
+
+html[data-theme="night"] .theme-page [class*="text-amber-800"],
+html[data-theme="night"] .theme-page [class*="text-amber-950"] {
+  color: #fcd34d !important;
+}
+
+html[data-theme="night"] .theme-page [class*="text-sky-700"],
+html[data-theme="night"] .theme-page [class*="text-sky-800"] {
+  color: #7dd3fc !important;
+}
+
+html[data-theme="night"] .theme-page [class*="text-red-800"],
+html[data-theme="night"] .theme-page [class*="text-rose-700"],
+html[data-theme="night"] .theme-page [class*="text-rose-800"],
+html[data-theme="night"] .theme-page [class*="text-rose-900"] {
+  color: #fda4af !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
