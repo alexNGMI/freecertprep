@@ -3,14 +3,23 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "dev": "vite",
+    "dev:practice107": "npm run dev --workspace @freecertprep/practice107",
     "build": "vite build",
+    "build:practice107": "npm run build --workspace @freecertprep/practice107",
+    "build:all": "npm run build && npm run build:practice107",
     "deploy:cloudflare": "wrangler deploy",
     "deploy:cloudflare:preview": "wrangler versions upload --assets=./dist",
+    "deploy:practice107": "npm run deploy:cloudflare --workspace @freecertprep/practice107",
+    "deploy:practice107:preview": "npm run deploy:cloudflare:preview --workspace @freecertprep/practice107",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:practice107": "npm run test --workspace @freecertprep/practice107",
     "test:watch": "vitest",
     "validate:content": "vitest run src/__tests__/content-sanity.test.js",
     "audit:aplus": "node scripts/audit_aplus_structured_quality.mjs",
@@ -31,7 +40,7 @@
     "repair:ccst": "node scripts/repair_ccst_networking_quality.mjs",
     "audit:distractors": "node scripts/audit_distractor_ambiguity.mjs",
     "audit:aws-freshness": "node scripts/audit_aws_service_freshness.mjs",
-    "verify:quality": "npm run lint && npm test && npm run build && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02 && npm run audit:saa-c03 && npm run audit:splunk && npm run audit:ccst && npm run audit:distractors && npm run audit:aws-freshness",
+    "verify:quality": "npm run lint && npm test && npm run test:practice107 && npm run build && npm run build:practice107 && npm audit --omit=dev && npm run audit:aplus && npm run audit:netplus && npm run audit:secplus && npm run audit:terraform && npm run audit:comptia-objectives && npm run audit:clf-c02 && npm run audit:saa-c03 && npm run audit:splunk && npm run audit:ccst && npm run audit:distractors && npm run audit:aws-freshness",
     "smoke:browser": "playwright test"
   },
   "dependencies": {
