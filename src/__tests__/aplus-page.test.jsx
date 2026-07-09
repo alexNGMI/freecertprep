@@ -11,14 +11,16 @@ describe('A+ selection page', () => {
   })
 
   it('keeps Core 1 and Core 2 separate from the catalog grid', () => {
-    render(
+    const { container } = render(
       <MemoryRouter>
         <APlus />
       </MemoryRouter>,
     )
 
     expect(screen.getByRole('heading', { name: 'Start here if IT feels new.' })).toBeTruthy()
-    expect(screen.getByText(/You do not need to understand the whole path today/i)).toBeTruthy()
+    expect(screen.getByText(/CompTIA A\+ certification is the industry standard to start your IT career/i)).toBeTruthy()
+    expect(screen.getByText(/which you can take in any order/i)).toBeTruthy()
+    expect(container.querySelector('img[src="/comptia-a-plus-certification.png"]')).toBeTruthy()
     expect(screen.getByRole('link', { name: 'Start Core 1' }).getAttribute('href')).toBe('/comptia-a-plus-core-1')
     expect(screen.getByRole('link', { name: 'Compare both cores' }).getAttribute('href')).toBe('#choose-core')
     expect(screen.getByText('Most beginners should choose Core 1.')).toBeTruthy()

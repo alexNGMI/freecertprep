@@ -61,23 +61,33 @@ export default function APlus() {
 
       <main>
         <section className="mx-auto max-w-7xl px-5 pb-12 pt-16 sm:px-6 md:pt-20">
-          <div className="max-w-3xl">
-            <p className="mb-5 text-xs font-black uppercase tracking-widest text-rose-700">
-              Beginner-friendly A+ track
-            </p>
-            <h1 className="mb-6 text-5xl font-black leading-tight text-slate-950 md:text-6xl">
-              Start here if IT feels new.
-            </h1>
-            <p className="text-lg leading-8 text-slate-700">
-              CompTIA A+ is usually the first certification for people learning computer support. You do not need to understand the whole path today. Start with Core 1, build confidence, then come back for Core 2.
-            </p>
-            <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Button as={Link} to="/comptia-a-plus-core-1" variant="primary">
-                Start Core 1
-              </Button>
-              <a href="#choose-core" className="text-sm font-black text-slate-600 transition hover:text-slate-950">
-                Compare both cores
-              </a>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+            <div className="max-w-3xl">
+              <p className="mb-5 text-xs font-black uppercase tracking-widest text-rose-700">
+                Beginner-friendly A+ track
+              </p>
+              <h1 className="mb-6 text-5xl font-black leading-tight text-slate-950 md:text-6xl">
+                Start here if IT feels new.
+              </h1>
+              <p className="text-lg leading-8 text-slate-700">
+                CompTIA A+ certification is the industry standard to start your IT career and appears in more tech support job listings than any other IT credential. You'll need to pass two exams: Core 1 (hardware and networking) and Core 2 (operating systems and security), which you can take in any order.
+              </p>
+              <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                <Button as={Link} to="/comptia-a-plus-core-1" variant="primary">
+                  Start Core 1
+                </Button>
+                <a href="#choose-core" className="text-sm font-black text-slate-600 transition hover:text-slate-950">
+                  Compare both cores
+                </a>
+              </div>
+            </div>
+
+            <div className="flex justify-center lg:justify-end">
+              <img
+                src="/comptia-a-plus-certification.png"
+                alt="CompTIA A+ Certification Plus Series badge"
+                className="w-full max-w-[17rem] object-contain drop-shadow-[0_28px_50px_rgba(15,23,42,0.18)] sm:max-w-[19rem] lg:max-w-[21rem]"
+              />
             </div>
           </div>
         </section>
