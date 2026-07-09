@@ -153,7 +153,7 @@ const regulations = [
       'The visual observer assigned to watch for traffic',
     ],
     right: 'Part 107 assigns direct responsibility and final authority to the remote PIC.',
-    wrong: 'A client or visual observer may influence the operation, but they do not replace the remote PIC authority.',
+    wrong: 'A job requester or visual observer may influence the operation, but they do not replace the remote PIC authority.',
     takeaway: 'Exam questions often test who owns the safety decision when pressure appears.',
   }),
   q({
@@ -195,7 +195,7 @@ const regulations = [
     acsCode: 'UA.I.B.K10',
     sourceRefs: ['14 CFR 107.25'],
     itemStyle: 'scenario-application',
-    question: 'A remote PIC wants to control a small UA from a moving truck while filming along a city street. Which statement is correct?',
+    question: 'A remote PIC plans to control a small UA from a moving truck while filming along a city street. How does Part 107 treat that operation?',
     correct: 'The standard moving-vehicle allowance does not permit that populated-area operation',
     distractors: [
       'It is allowed whenever the aircraft remains below the speed limit of the road',
@@ -379,7 +379,7 @@ const regulations = [
     ],
     right: 'The remote PIC must determine that the aircraft can safely complete the operation.',
     wrong: 'Manufacturer data matters, but the flight-specific performance decision belongs to the remote PIC.',
-    takeaway: 'The remote PIC cannot outsource performance responsibility to the client or manufacturer.',
+    takeaway: 'The remote PIC cannot outsource performance responsibility to another person or to manufacturer data alone.',
   }),
   q({
     id: 'p107-cert-reg-019',
@@ -504,10 +504,10 @@ const regulations = [
     correct: 'The operator must receive the applicable FAA waiver or redesign the operation to comply',
     distractors: [
       'The operator may proceed if the remote PIC has logged at least 10 hours on that aircraft',
-      'The operator may proceed if the customer signs a risk acceptance form',
+      'The operator may proceed if the property representative signs a risk acceptance form',
     ],
     right: 'A waiver is required before intentionally conducting a waivable operation outside the standard rule.',
-    wrong: 'Pilot experience and customer acceptance do not replace FAA waiver approval.',
+    wrong: 'Pilot experience and local permission do not replace FAA waiver approval.',
     takeaway: 'A waiver is FAA authorization, not a local business document.',
   }),
   q({
@@ -586,7 +586,7 @@ const airspace = [
     sourceRefs: ['FAA LAANC', 'FAA UAS Facility Maps', '14 CFR 107.41'],
     evidenceType: 'LAANC/UASFM',
     itemStyle: 'scenario-application',
-    question: 'A UAS Facility Map grid shows 100 feet for the planned location, and the job requires 150 feet AGL. What should the remote PIC do?',
+    question: 'A UAS Facility Map grid shows 100 feet for the planned location, but the operation requires 150 feet AGL. What authorization is needed?',
     correct: 'Request authorization for the needed altitude or reduce the operation to fit the approved altitude',
     distractors: [
       'Treat the 100-foot grid as automatic authorization to fly at any altitude below 400 feet',

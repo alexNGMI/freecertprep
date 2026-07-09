@@ -26,7 +26,7 @@ import { fisherYates, weightedSample } from '../utils/shuffle'
 
 const ACCOUNT_KEY = 'practice107-local-account'
 const PREMIUM_KEY = 'practice107-local-exam-unlock'
-const EXAM_PRICE = '$5'
+const EXAM_PRICE = '$20'
 
 function readFlag(key) {
   if (typeof window === 'undefined') return false
@@ -719,10 +719,77 @@ export default function Part107() {
           line-height: 1.35;
         }
 
+        .p107-feature-premium {
+          display: grid;
+          gap: 10px;
+        }
+
+        .p107-feature-intro {
+          display: block;
+          color: #1d2c3d;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 1.35;
+        }
+
+        .p107-feature-premium-card {
+          border-color: #b31942;
+          background: #fff7f9;
+        }
+
+        .p107-premium-title {
+          color: #b31942 !important;
+          font-size: 15px !important;
+        }
+
+        .p107-feature-benefits {
+          display: grid;
+          gap: 6px;
+          border-top: 1px solid #d8a2b3;
+          padding-top: 10px;
+        }
+
+        .p107-benefit {
+          display: flex;
+          gap: 8px;
+          color: #1d2c3d;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 1.35;
+        }
+
+        .p107-benefit::before {
+          content: '+';
+          color: #b31942;
+          font-weight: 900;
+        }
+
+        .p107-benefit b {
+          color: #0a3161;
+          font-weight: 900;
+        }
+
         .p107-modal-actions {
           display: flex;
           flex-wrap: wrap;
           gap: 8px;
+        }
+
+        .p107-text-link {
+          width: fit-content;
+          border: 0;
+          background: transparent;
+          color: #0a3161;
+          padding: 0;
+          font-size: 12px;
+          font-weight: 700;
+          text-align: left;
+          text-decoration: underline;
+          text-transform: none;
+        }
+
+        .p107-text-link:hover {
+          color: #b31942;
         }
 
         @media (max-width: 520px) {
@@ -752,6 +819,10 @@ export default function Part107() {
           .p107-pay,
           .p107-modal-actions button {
             width: 100%;
+          }
+
+          .p107-text-link {
+            width: fit-content;
           }
 
           .p107-modal {
@@ -886,10 +957,10 @@ function PracticeAuthPrompt({
             <button type="button" className="p107-pay" onClick={onCreateAccount}>
               Create Account
             </button>
-            <button type="button" className="p107-secondary" onClick={onContinue}>
-              Keep Practicing
-            </button>
           </div>
+          <button type="button" className="p107-text-link" onClick={onContinue}>
+            I don't want to track my progress yet
+          </button>
         </div>
       </section>
     </div>
@@ -897,8 +968,6 @@ function PracticeAuthPrompt({
 }
 
 function SignupPanel({
-  account,
-  premium,
   price,
   examReady,
   onCreateAccount,
@@ -906,48 +975,54 @@ function SignupPanel({
   onClose,
 }) {
   return (
-    <div className="p107-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="p107-signup-title">
+    <div className="p107-modal-backdrop" role="dialog" aria-modal="true" aria-describedby="p107-signup-summary">
       <section className="p107-modal">
         <div className="p107-modal-head">
-          <h2 id="p107-signup-title">Practice with memory.</h2>
+          <span aria-hidden="true" />
           <button type="button" className="p107-close" aria-label="Close sign up" onClick={onClose}>
             x
           </button>
         </div>
         <div className="p107-modal-body">
-          <p>
-            Free practice stays simple. An account turns it into a study tool.
+          <p id="p107-signup-summary">
+            Practice is free. Tracking is free.
+            <br />
+            Unlock Smart Study and Exam Simulations for life for $20.
           </p>
 
           <div className="p107-feature-list">
             <div className="p107-feature">
-              <strong>Track misses</strong>
-              <span>Save what you get wrong by ACS area so weak spots do not disappear.</span>
+              <strong>Free account</strong>
+              <span>Keep your practice history, and track weak areas for free forever!</span>
             </div>
-            <div className="p107-feature">
-              <strong>Smart study</strong>
-              <span>Build short sessions from missed and weak Part 107 topics instead of random guessing.</span>
-            </div>
-            <div className="p107-feature">
-              <strong>Full simulation</strong>
-              <span>
-                {examReady
-                  ? 'Unlock 60-question UAG-style exams with the real two-hour, 70% readiness target.'
-                  : 'Paid full exams unlock only after the UAG bank is certified against the current FAA/PSI blueprint.'}
-              </span>
+            <div className="p107-feature p107-feature-premium-card">
+              <div className="p107-feature-premium">
+                <div>
+                  <strong className="p107-premium-title">Full Access - $20 One-time fee</strong>
+                  <span className="p107-feature-intro">Unlock Smart Practice and Exam Simulations for life.</span>
+                </div>
+                <div className="p107-feature-benefits">
+                  <div className="p107-benefit">
+                    <span><b>Smart Practice:</b> adaptive practice built from your missed questions.</span>
+                  </div>
+                  <div className="p107-benefit">
+                    <span>
+                      <b>Exam Simulations:</b> {examReady
+                        ? 'Take full 60-question Part 107 timed simulations with real weighting and score targets.'
+                        : 'Paid full exams unlock only after the UAG bank is certified against the current FAA/PSI blueprint.'}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="p107-modal-actions">
             <button type="button" className="p107-primary" onClick={onCreateAccount}>
-              {account ? 'Tracking On' : 'Create Account'}
+              Free Account
             </button>
             <button type="button" className="p107-pay" onClick={onUnlockExam}>
-              {premium && examReady
-                ? 'Start Full Exam'
-                : examReady
-                  ? `Full Sim ${price}`
-                  : 'Full Sim In Review'}
+              {examReady ? `Lifetime ${price}` : 'Full Sim In Review'}
             </button>
             <button type="button" className="p107-secondary" onClick={onClose}>
               Not Now

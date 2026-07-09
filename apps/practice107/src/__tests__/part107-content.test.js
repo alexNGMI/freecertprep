@@ -134,6 +134,12 @@ describe('Part 107 certified UAG content bank', () => {
         expect(text, `${question.id} ${field} uses rough source wording`).not.toMatch(
           /1800WXBrief|Method of Compliance/,
         )
+        expect(text, `${question.id} ${field} uses generated-sounding exam phrasing`).not.toMatch(
+          /asks whether|asks which|What is correct\?|Which statement is correct\?|Which is correct\?|What is the correct answer\?|correct answer|declaration pathway|best matches|Which response|What should happen\?|dramatic video/i,
+        )
+        expect(text, `${question.id} ${field} overuses generic requester framing`).not.toMatch(
+          /\b(client|customer)\b/i,
+        )
       }
     }
   })
