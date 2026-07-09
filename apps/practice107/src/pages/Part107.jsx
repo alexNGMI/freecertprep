@@ -861,10 +861,9 @@ export default function Part107() {
         <main className="p107-shell">
           <section className="p107-card p107-landing">
             <div>
-              <p className="p107-kicker">FAA Part 107</p>
-              <h1 className="p107-title">Practice 107.</h1>
+              <h1 className="p107-title">Practice 107</h1>
             </div>
-            <p className="p107-copy">Free practice questions for the drone exam.</p>
+            <p className="p107-copy">Practice questions for the FAA Part 107 exam</p>
             <div>
               <button type="button" className="p107-primary" onClick={() => startSession('practice')}>
                 <Play size={18} />
@@ -948,7 +947,7 @@ function PracticeAuthPrompt({
         </div>
         <div className="p107-modal-body">
           <p>
-            You have answered 3 practice questions. Sign in or create an account to track weak areas.
+            Sign in or Create Account to track progress.
           </p>
           <div className="p107-modal-actions">
             <button type="button" className="p107-primary" onClick={onSignIn}>
