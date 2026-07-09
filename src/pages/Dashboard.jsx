@@ -1,4 +1,4 @@
-import { createElement, useRef, useState } from 'react'
+import { createElement } from 'react'
 import { Link } from 'react-router-dom'
 import { motion as Motion } from 'motion/react'
 import {
@@ -6,17 +6,11 @@ import {
   ArrowRight,
   BookOpenCheck,
   CheckCircle2,
-  Compass,
-  Download,
-  FileUp,
   Gauge,
-  KeyRound,
-  RotateCcw,
   ShieldCheck,
   Sparkles,
   Target,
   Timer,
-  Trash2,
 } from 'lucide-react'
 import {
   Bar,
@@ -35,25 +29,18 @@ import {
 import { useCert } from '../hooks/useCert'
 import { useProgress } from '../hooks/useProgress'
 import { useQuestionStats } from '../hooks/useQuestionStats'
-import { exportProgress, importProgressRaw } from '../utils/storage'
 import { Button } from '../components/ui/button'
 import { DomainBadge, Kicker, Surface } from '../components/ui/surface'
-import TrustPanel from '../components/TrustPanel'
-import { Tooltip as UiTooltip } from '../components/ui/tooltip'
-import { cn } from '../utils/cn'
 import { rankWeakObjectives, summarizeObjectiveProgress } from '../utils/objective-progress'
 import { getLearningLoopConfig } from '../utils/learning-loop-config'
 import { hasStudyBaseline } from '../utils/learning-loop'
 
 export default function Dashboard() {
   const cert = useCert()
-  const { progress, getDomainStats, getOverallStats, resetProgress } = useProgress(cert.id)
-  const { certStats, trackedCount, resetStats } = useQuestionStats(cert.id)
+  const { progress, getDomainStats, getOverallStats } = useProgress(cert.id)
+  const { certStats, trackedCount } = useQuestionStats(cert.id)
   const domainStats = getDomainStats(cert.domains)
   const overall = getOverallStats
-  const importRef = useRef(null)
-  const [confirmReset, setConfirmReset] = useState(null)
-  const [notice, setNotice] = useState(null)
 
   const readiness = overall.totalQuestions > 0 ? overall.percentage : 0
   const attemptsPerDomain = domainStats.filter((d) => d.total > 0)
@@ -86,7 +73,6 @@ export default function Dashboard() {
 
   const learningLoopConfig = getLearningLoopConfig(cert.id)
   const learningLoop = Boolean(learningLoopConfig)
-  const learningTargetLabel = (learningLoopConfig?.objectiveLabel || 'objective').toLowerCase()
   const hasStarted = overall.totalQuestions > 0 || trackedCount > 0
   const hasBaseline = hasStudyBaseline(progress)
   const primaryAction = learningLoop
@@ -96,126 +82,78 @@ export default function Dashboard() {
         to: hasBaseline ? 'learning' : 'learning/diagnostic',
       }
     : action
-  const nextStepTitle = learningLoop
-    ? hasBaseline ? 'Continue from your Study Plan.' : 'Take the diagnostic first.'
-    : hasStarted ? 'Work the weakest signal.' : 'Start with Smart Practice.'
-  const nextStepBody = learningLoop
-    ? `${primaryAction.sub} The app will separate what you know, what needs work, and what has not been measured yet.`
-    : `${primaryAction.sub}. Build a small signal first, then the dashboard will surface domains, objectives, and exam readiness.`
-
-  function handleImport(e) {
-    const file = e.target.files?.[0]
-    if (!file) return
-    const reader = new FileReader()
-    reader.onload = (ev) => {
-      const status = importProgressRaw(ev.target.result)
-      if (status === 'ok') {
-        window.location.reload()
-      } else if (status === 'invalid') {
-        setNotice({ kind: 'error', msg: "That file isn't valid progress JSON." })
-      } else {
-        setNotice({ kind: 'error', msg: 'Import failed because browser storage is full.' })
-      }
-    }
-    reader.readAsText(file)
-    e.target.value = ''
-  }
 
   return (
     <div className="space-y-8 animate-fade-up">
       <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
-        <Surface className="exam-shell overflow-hidden p-6 md:p-8">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl space-y-4">
-              <Kicker>
-                Start here
-                <span className="text-zinc-600">/</span>
-                <span style={{ color: cert.color }}>{cert.code}</span>
-              </Kicker>
-              <div className="space-y-3">
-                <h1 className="text-4xl font-black tracking-tight text-zinc-50 md:text-6xl">
-                  {cert.title}
-                </h1>
-                <p className="max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
-                  {learningLoop
-                    ? `New to ${cert.code}? Start with the diagnostic. If you already practiced, use the study plan to choose the next target, case set, or exam simulation.`
-                    : 'Start with a short practice block. As you answer questions, this page turns into your readiness dashboard.'}
-                </p>
-              </div>
-            </div>
-            <div className="rounded-2xl border border-white/10 bg-zinc-900/60 px-5 py-4 text-sm text-zinc-400 lg:max-w-xs">
+        <Surface className="exam-shell overflow-hidden p-6 md:p-8 xl:col-span-2">
+          <div className="max-w-3xl space-y-4">
+            <Kicker>
+              Start here
+              <span className="text-zinc-600">/</span>
+              <span style={{ color: cert.color }}>{cert.code}</span>
+            </Kicker>
+            <h1 className="text-4xl font-black tracking-tight text-zinc-50 md:text-6xl">
+              {cert.title}
+            </h1>
+            <p className="max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
               {learningLoop
-                ? 'Start with a baseline, then let the study plan choose the next useful block.'
-                : 'One short block is enough to unlock useful progress signals.'}
-            </div>
+                ? `New to ${cert.code}? Take the diagnostic first. If you already know where you stand, jump straight into practice or a timed exam.`
+                : 'Start with a short practice block. Once you answer questions, this page will show simple progress signals.'}
+            </p>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color}>
+              <Sparkles className="h-5 w-5" />
+              {primaryAction.label}
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+            <Button as={Link} to="quiz" variant="secondary" size="lg">
+              Practice
+            </Button>
+            <Button as={Link} to="exam" variant="secondary" size="lg">
+              Exam simulator
+            </Button>
+          </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <MetricCard icon={BookOpenCheck} label="Answered" value={overall.totalQuestions} />
             <MetricCard icon={CheckCircle2} label="Correct" value={overall.correctAnswers} />
             <MetricCard icon={Gauge} label="Readiness" value={overall.totalQuestions ? `${readiness}%` : 'New'} accentColor={cert.color} />
             <MetricCard icon={Activity} label="Sessions" value={overall.quizzesTaken + overall.examsTaken} />
           </div>
         </Surface>
-
-        <Surface className="p-6">
-          <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Recommended next step</p>
-          <h2 className="mt-2 text-2xl font-black text-zinc-50">
-            {nextStepTitle}
-          </h2>
-          <p className="mt-3 text-sm leading-relaxed text-zinc-400">
-            {nextStepBody}
-          </p>
-          <Button as={Link} to={primaryAction.to} variant="accent" size="lg" accentColor={cert.color} className="mt-5 w-full">
-            <Sparkles className="h-5 w-5" />
-            {primaryAction.label}
-            <ArrowRight className="h-5 w-5" />
-          </Button>
-          {learningLoop && (
-            <div className="mt-5 space-y-3">
-              {[
-                ['01', 'Measure', `A short diagnostic checks every ${learningTargetLabel}.`],
-                ['02', 'Practice', 'The plan points you to the next useful block.'],
-                ['03', 'Simulate', 'Exam results turn into a debrief and repair list.'],
-              ].map(([number, label, body]) => (
-                <div key={label} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-black" style={{ color: cert.color }}>{number}</span>
-                    <p className="font-black text-zinc-100">{label}</p>
-                  </div>
-                  <p className="mt-1 text-sm leading-relaxed text-zinc-500">{body}</p>
-                </div>
-              ))}
-            </div>
-          )}
-        </Surface>
       </section>
 
-      {cert.studyPlan && (
-        <Surface className="overflow-hidden">
-          <div className="grid gap-0 lg:grid-cols-[320px_minmax(0,1fr)]">
-            <div className="border-b border-white/10 p-6 lg:border-b-0 lg:border-r lg:p-7">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border" style={{ color: cert.color, borderColor: `${cert.color}45`, backgroundColor: `${cert.color}12` }}>
-                <Compass className="h-6 w-6" />
-              </div>
-              <p className="mt-6 text-xs font-bold uppercase tracking-wider text-zinc-500">Study architecture</p>
-              <h2 className="mt-2 text-2xl font-black text-zinc-50">{cert.studyPlan.headline}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-400">{cert.studyPlan.summary}</p>
-            </div>
-            <div className="grid gap-3 p-5 md:grid-cols-2 lg:p-7">
-              {cert.studyPlan.checkpoints.map((checkpoint) => {
-                const [label, body] = checkpoint.split(': ')
-                return (
-                  <div key={checkpoint} className="rounded-2xl border border-white/10 bg-zinc-900/55 p-4">
-                    <p className="text-sm font-black text-zinc-100">{body ? label : checkpoint}</p>
-                    {body && <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>}
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </Surface>
-      )}
+      <section className="grid gap-4 lg:grid-cols-3">
+        <ActionCard
+          icon={BookOpenCheck}
+          title="Practice"
+          body={cert.objectives?.length
+            ? 'Answer questions, review explanations, or focus one objective.'
+            : 'Answer questions, review explanations, or focus one domain.'}
+          to="quiz"
+          cta="Start practice"
+          color="#6366f1"
+        />
+        <ActionCard
+          icon={Timer}
+          title="Timed drill"
+          body="Ten questions under a ten-minute clock when you want a quick rep."
+          to="drill"
+          cta="Start drill"
+          color="#f43f5e"
+        />
+        <ActionCard
+          icon={ShieldCheck}
+          title="Exam simulator"
+          body={`${cert.examQuestions} questions with timing and scoring closer to the real exam experience.`}
+          to="exam"
+          cta="Begin exam"
+          color={cert.color}
+        />
+      </section>
 
       {hasStarted && (
         <section className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
@@ -316,128 +254,6 @@ export default function Dashboard() {
         </Surface>
       )}
 
-      <section className="grid gap-6 lg:grid-cols-3">
-        <ActionCard
-          icon={BookOpenCheck}
-          title="Practice Quiz"
-          body={cert.objectives?.length
-            ? 'Smart Practice, objective focus, review queues, bookmarks, or one domain.'
-            : 'Smart Practice, bookmarks, or one focused domain.'}
-          to="quiz"
-          cta="Start Quiz"
-          color="#6366f1"
-        />
-        <ActionCard
-          icon={Timer}
-          title="Timed Drill"
-          body="Ten questions under a ten-minute clock."
-          to="drill"
-          cta="Start Drill"
-          color="#f43f5e"
-        />
-        <ActionCard
-          icon={ShieldCheck}
-          title="Exam Simulator"
-          body={cert.domainWeightSource === 'editorial-practice'
-            ? `${cert.examQuestions} questions across a stable objective-group practice allocation.`
-            : `${cert.examQuestions} questions across weighted official domains.`}
-          to="exam"
-          cta="Begin Exam"
-          color={cert.color}
-        />
-      </section>
-
-      <TrustPanel cert={cert} />
-
-      <Surface className="p-5">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-zinc-500">Data controls</p>
-            <p className="mt-1 text-sm text-zinc-400">
-              {trackedCount} Smart Practice question{trackedCount === 1 ? '' : 's'} tracked locally.
-            </p>
-            <p className="mt-1 text-xs leading-relaxed text-zinc-500">
-              Progress stays local first. Export it or use an optional account backup before clearing browser data or switching devices.
-            </p>
-            <Link
-              to="/account"
-              className="mt-3 inline-flex items-center gap-2 rounded-lg border border-sky-500/20 bg-sky-500/10 px-3 py-2 text-xs font-bold text-sky-200 transition hover:bg-sky-500/20"
-            >
-              <KeyRound className="h-3.5 w-3.5" />
-              Account & backup
-            </Link>
-          </div>
-
-          {notice && (
-            <div
-              role={notice.kind === 'error' ? 'alert' : 'status'}
-              aria-live={notice.kind === 'error' ? 'assertive' : 'polite'}
-              className={cn(
-                'rounded-xl border px-4 py-2 text-sm font-semibold',
-                notice.kind === 'error' ? 'border-rose-500/30 bg-rose-500/10 text-rose-200' : 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200',
-              )}
-            >
-              {notice.msg}
-            </div>
-          )}
-
-          <div className="flex flex-wrap gap-2">
-            <UiTooltip content="Download local progress as JSON">
-              <Button
-                variant="secondary"
-                size="sm"
-                onClick={() => {
-                  if (!exportProgress()) setNotice({ kind: 'error', msg: 'Export failed.' })
-                }}
-              >
-                <Download className="h-4 w-4" />
-                Export
-              </Button>
-            </UiTooltip>
-            <UiTooltip content="Import a saved progress JSON file">
-              <Button variant="secondary" size="sm" onClick={() => importRef.current?.click()}>
-                <FileUp className="h-4 w-4" />
-                Import
-              </Button>
-            </UiTooltip>
-            <input ref={importRef} type="file" accept=".json" className="hidden" onChange={handleImport} />
-            {trackedCount > 0 && (
-              <Button variant="danger" size="sm" onClick={() => setConfirmReset('smart')}>
-                <RotateCcw className="h-4 w-4" />
-                Smart Stats
-              </Button>
-            )}
-            <Button variant="danger" size="sm" onClick={() => setConfirmReset('progress')}>
-              <Trash2 className="h-4 w-4" />
-              Progress
-            </Button>
-          </div>
-        </div>
-
-        {confirmReset && (
-          <div className="mt-4 flex flex-col gap-3 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm font-semibold text-rose-100">
-              {confirmReset === 'progress'
-                ? 'Reset all quiz and exam history for this cert?'
-                : 'Reset all Smart Practice stats for this cert?'}
-            </p>
-            <div className="flex gap-2">
-              <Button
-                variant="danger"
-                size="sm"
-                onClick={() => {
-                  if (confirmReset === 'progress') resetProgress()
-                  else resetStats()
-                  setConfirmReset(null)
-                }}
-              >
-                Reset
-              </Button>
-              <Button variant="ghost" size="sm" onClick={() => setConfirmReset(null)}>Cancel</Button>
-            </div>
-          </div>
-        )}
-      </Surface>
     </div>
   )
 }
@@ -472,15 +288,15 @@ function Insight({ label, value }) {
 function ActionCard({ icon: Icon, title, body, to, cta, color }) {
   return (
     <Surface as={Link} to={to} interactive className="group p-6">
-      <div className="flex h-full min-h-56 flex-col justify-between">
+      <div className="flex h-full min-h-44 flex-col justify-between">
         <div>
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border" style={{ color, borderColor: `${color}45`, backgroundColor: `${color}12` }}>
-            {createElement(Icon, { className: 'h-6 w-6' })}
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border" style={{ color, borderColor: `${color}45`, backgroundColor: `${color}12` }}>
+            {createElement(Icon, { className: 'h-5 w-5' })}
           </div>
-          <h3 className="mt-6 text-2xl font-black text-zinc-50">{title}</h3>
+          <h3 className="mt-5 text-xl font-black text-zinc-50">{title}</h3>
           <p className="mt-2 text-sm leading-relaxed text-zinc-400">{body}</p>
         </div>
-        <span className="mt-8 inline-flex items-center gap-2 text-sm font-bold" style={{ color }}>
+        <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold" style={{ color }}>
           {cta}
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </span>

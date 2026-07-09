@@ -13,7 +13,9 @@ const CORE_BLUEPRINTS = {
     passingScore: '675 / 900',
     liveQuestions: 760,
     status: 'Available now',
+    plainFocus: 'Practice the things a help desk tech sees first: computers, phones, printers, Wi-Fi, cables, and basic troubleshooting.',
     focus: 'Best first stop for device support, network basics, printers, virtualization, and hardware troubleshooting.',
+    examples: ['Fix a slow laptop', 'Identify network basics', 'Troubleshoot printers and devices'],
     domains: [
       ['Mobile Devices', 13],
       ['Networking', 23],
@@ -30,7 +32,9 @@ const CORE_BLUEPRINTS = {
     passingScore: '700 / 900',
     liveQuestions: 760,
     status: 'Available now',
+    plainFocus: 'Practice the software side of support: operating systems, security basics, malware cleanup, and professional support habits.',
     focus: 'Best second stop for Windows, macOS, Linux, malware response, software troubleshooting, and support process.',
+    examples: ['Use Windows tools', 'Handle basic security issues', 'Follow support procedures'],
     domains: [
       ['Operating Systems', 28],
       ['Security', 28],
@@ -43,12 +47,6 @@ const CORE_BLUEPRINTS = {
 export default function APlus() {
   const [selectedCore, setSelectedCore] = useState('core1')
   const core = CORE_BLUEPRINTS[selectedCore]
-  const contentTargets = [
-    [String(core.liveQuestions), `${core.label} live questions`],
-    ['20', 'Interactive scenarios'],
-    ['90', 'exam questions'],
-    ['90', 'minutes per exam'],
-  ]
 
   useDocumentMeta({
     title: 'CompTIA A+ Core 1 and Core 2 | freecertprep',
@@ -63,43 +61,45 @@ export default function APlus() {
 
       <main>
         <section className="mx-auto max-w-7xl px-5 pb-12 pt-16 sm:px-6 md:pt-20">
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center">
+            <div className="max-w-3xl">
               <p className="mb-5 text-xs font-black uppercase tracking-widest text-rose-700">
-                CompTIA A+ V15
+                Beginner-friendly A+ track
               </p>
               <h1 className="mb-6 text-5xl font-black leading-tight text-slate-950 md:text-6xl">
-                Pick your A+ core.
+                Start here if IT feels new.
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-slate-700">
-                A+ is a two-exam credential. This page keeps Core 1 and Core 2 separate, follows the published topic weights, and makes clear that practice results are not CompTIA scores.
+              <p className="text-lg leading-8 text-slate-700">
+                CompTIA A+ certification is the industry standard to start your IT career and appears in more tech support job listings than any other IT credential. You'll need to pass two exams: Core 1 (hardware and networking) and Core 2 (operating systems and security), which you can take in any order.
               </p>
-              <div className="mt-7 flex flex-col items-start gap-3">
-                <p className="text-sm font-bold text-slate-700">
-                  New to IT? Start with Core 1, then move to Core 2.
-                </p>
+              <div className="mt-7 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                 <Button as={Link} to="/comptia-a-plus-core-1" variant="primary">
-                  Begin Core 1
+                  Start Core 1
                 </Button>
+                <a href="#choose-core" className="text-sm font-black text-slate-600 transition hover:text-slate-950">
+                  Compare both cores
+                </a>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              {contentTargets.map(([value, label]) => (
-                <div key={label} className="rounded-lg border border-slate-900/10 bg-white p-5 shadow-[0_20px_50px_-42px_rgba(15,23,42,0.45)]">
-                  <p className="text-3xl font-black text-slate-950">{value}</p>
-                  <p className="mt-1 text-xs font-black uppercase tracking-widest text-slate-500">{label}</p>
-                </div>
-              ))}
+            <div className="flex justify-center lg:justify-end">
+              <img
+                src="/comptia-a-plus-certification.png"
+                alt="CompTIA A+ Certification Plus Series badge"
+                className="w-full max-w-[17rem] object-contain drop-shadow-[0_28px_50px_rgba(15,23,42,0.18)] sm:max-w-[19rem] lg:max-w-[21rem]"
+              />
             </div>
           </div>
         </section>
 
-        <section className="border-y border-slate-900/10 bg-white/70">
+        <section id="choose-core" className="border-y border-slate-900/10 bg-white/70">
           <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6">
             <div className="mb-6">
-              <p className="text-xs font-black uppercase tracking-widest text-slate-500">Choose your current exam</p>
-              <h2 className="mt-2 text-3xl font-black text-slate-950">Core 1 comes first for most new learners.</h2>
+              <p className="text-xs font-black uppercase tracking-widest text-slate-500">Choose where to start</p>
+              <h2 className="mt-2 text-3xl font-black text-slate-950">Most beginners should choose Core 1.</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+                Think of the two cores as two halves of the same entry-level IT skill set. Core 1 is more about equipment and connectivity. Core 2 is more about software, security, and day-to-day support work.
+              </p>
             </div>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               {Object.entries(CORE_BLUEPRINTS).map(([key, item]) => {
@@ -131,7 +131,15 @@ export default function APlus() {
                       </div>
                     </div>
                     <h3 className="mb-3 text-lg font-black text-slate-800">{item.title}</h3>
-                    <p className="text-sm leading-6 text-slate-600">{item.focus}</p>
+                    <p className="text-sm leading-6 text-slate-600">{item.plainFocus}</p>
+                    <ul className="mt-5 space-y-2">
+                      {item.examples.map((example) => (
+                        <li key={example} className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                          <span className="h-1.5 w-1.5 rounded-full bg-rose-600" />
+                          {example}
+                        </li>
+                      ))}
+                    </ul>
                   </button>
                 )
               })}
@@ -142,17 +150,23 @@ export default function APlus() {
                 <p className="mt-1 text-sm font-semibold text-slate-700">{core.label} - {core.code} - {core.title}</p>
               </div>
               <Button as={Link} to={core.route} variant="primary">
-                Start {core.label}
+                {`Open ${core.label} practice`}
               </Button>
             </div>
           </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6">
+          <div className="mb-8 rounded-lg border border-rose-200 bg-rose-50 p-5">
+            <p className="text-sm font-black text-rose-800">What to do next</p>
+            <p className="mt-2 text-sm leading-6 text-rose-950">
+              If you are brand new, do not start by memorizing percentages. Open Core 1, answer a short practice set, read the explanations, and let the weak areas tell you what to study next.
+            </p>
+          </div>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
               <p className="mb-3 text-xs font-black uppercase tracking-widest text-slate-500">
-                Blueprint
+                Exam details
               </p>
               <h2 className="mb-4 text-3xl font-black text-slate-950">
                 {core.label} {core.code}
