@@ -17,6 +17,10 @@ This branch should become a single-purpose Part 107 readiness coach, not another
 
 Positioning: use FAA materials and trusted instruction to learn, then use the sister site to diagnose, practice, repair gaps, and judge readiness. The app should not claim affiliation with the FAA, PSI, Udemy, or any course author.
 
+## Portfolio Summary
+
+Built Practice107, a dedicated FAA Part 107 exam-prep web app with a source-reviewed 360-question UAG bank, six blueprint-aligned 60-question simulations, local progress tracking, adaptive practice, and independent Cloudflare deployment inside a multi-app React/Vite monorepo.
+
 ## Freemium Product Model
 
 This sister site is a freemium single-exam product. It reuses the current freecertprep study engine, but the product surface should be aggressively streamlined: one brand, one `Practice Now` landing action, then a simple free-question practice page.
