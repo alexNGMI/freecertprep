@@ -1,22 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { buildWeightedPool } from '../utils/smart-practice.js'
+import { readStoredJSON, writeStoredJSON } from '../utils/storage.js'
 
 const STORAGE_KEY = 'practice107-question-stats'
-
-function readJSON(key, fallback) {
-  if (typeof window === 'undefined') return fallback
-  try {
-    const value = window.localStorage.getItem(key)
-    return value ? JSON.parse(value) : fallback
-  } catch {
-    return fallback
-  }
-}
-
-function writeJSON(key, value) {
-  if (typeof window === 'undefined') return
-  window.localStorage.setItem(key, JSON.stringify(value))
-}
 
 function mergeSessionStats(stats, answers) {
   const next = { ...stats }
@@ -33,15 +19,15 @@ function mergeSessionStats(stats, answers) {
 }
 
 export function useQuestionStats(certId) {
-  const [stats, setStats] = useState(() => readJSON(STORAGE_KEY, {}))
+  const [stats, setStats] = useState(() => readStoredJSON(STORAGE_KEY, {}))
 
   useEffect(() => {
-    writeJSON(STORAGE_KEY, stats)
+    writeStoredJSON(STORAGE_KEY, stats)
   }, [stats])
 
   useEffect(() => {
     function handleStorage(event) {
-      if (event.key === STORAGE_KEY) setStats(readJSON(STORAGE_KEY, {}))
+      if (event.key === STORAGE_KEY) setStats(readStoredJSON(STORAGE_KEY, {}))
     }
 
     window.addEventListener('storage', handleStorage)

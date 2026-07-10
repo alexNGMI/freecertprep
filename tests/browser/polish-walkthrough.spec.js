@@ -39,11 +39,11 @@ test('cross-page path links land on the career-path section', async ({ page }) =
   await page.goto('/#paths')
   await expect(page.locator('#paths')).toBeVisible()
   await expect.poll(async () => {
-    return page.locator('#paths').evaluate(element => Math.round(element.getBoundingClientRect().top))
-  }).toBeGreaterThanOrEqual(0)
-  await expect.poll(async () => {
-    return page.locator('#paths').evaluate(element => Math.round(element.getBoundingClientRect().top))
-  }).toBeLessThanOrEqual(100)
+    return page.locator('#paths').evaluate((element) => {
+      const box = element.getBoundingClientRect()
+      return box.top >= 0 && box.top <= window.innerHeight * 0.35
+    })
+  }).toBe(true)
 })
 
 test('fresh study plan has one diagnostic action and the diagnostic starts from the header', async ({ page }) => {

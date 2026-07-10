@@ -489,8 +489,8 @@ key = random() ** (1 / weight)
             </CodeBlock>
             <P>
               Stored in localStorage under the key <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">freecertprep-question-stats-local</code>.
-              The <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">-local</code> suffix is intentional — it reserves the migration path for when
-              user accounts are added. On first login, local stats can be merged into the user's account without data loss.
+              The <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">-local</code> suffix distinguishes the browser-first record from optional account snapshots.
+              Signed-in learners can use Sync now to merge local statistics with their account without replacing newer work.
             </P>
 
             <H3>When stats are saved</H3>
@@ -501,8 +501,8 @@ key = random() ** (1 / weight)
             </P>
 
             <Callout icon="🔒" color="#a1a1aa" title="Privacy">
-              Smart Practice history, answers, bookmarks, and progress remain local to this browser and are not sent to an
-              application backend. You can inspect, export, reset, or delete the locally stored study history from the Dashboard.
+              Anonymous Smart Practice history, answers, bookmarks, and progress remain in this browser. Signed-in learners send
+              that data only when they choose Sync now or upload a recovery backup. Export, import, and local clearing live on the Account page.
             </Callout>
           </Section>
 
@@ -612,9 +612,9 @@ key = random() ** (1 / weight)
 
             <H3>Export & Import</H3>
             <P>
-              The Dashboard provides one-click JSON export of your session history. This lets you back up progress before
-              clearing browser data, transfer data between devices, or inspect your raw history. Importing overwrites the current
-              progress for that cert.
+              The Account page provides JSON export and validated import for local session history. This lets you back up progress
+              before clearing browser data, transfer it between devices, or inspect the raw history. Import replaces the local
+              progress record while leaving question reports separate.
             </P>
 
             <H3>Optional account sync</H3>
@@ -631,22 +631,11 @@ key = random() ** (1 / weight)
               cloud data; submitted issue reports may remain for correction history with the reporter link removed.
             </P>
 
-            <H3>Resets</H3>
-            <P>Two independent resets are available from the Dashboard, each behind a confirm step:</P>
-            <ul className="space-y-3">
-              {[
-                { label: 'Reset Progress', desc: 'Clears quiz and exam session history. Domain readiness bars and overall stats reset to zero. Smart Practice history is unaffected.' },
-                { label: 'Reset Smart Practice', desc: 'Clears per-question performance data. The weighted pool reverts to treating all questions as equally unknown. Only visible when you have tracked questions.' },
-              ].map(({ label, desc }) => (
-                <li key={label} className="flex gap-4 glass-panel rounded-xl p-4">
-                  <span className="w-2 h-2 rounded-full bg-rose-500 mt-2 shrink-0" />
-                  <div>
-                    <p className="font-semibold text-zinc-200 mb-1">{label}</p>
-                    <p className="text-sm text-zinc-500 leading-relaxed">{desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <H3>Clear local data</H3>
+            <P>
+              A confirmed Account-page action clears local progress, Smart Practice statistics, bookmarks, and the local sync
+              baseline. Local question reports remain separate so a study reset does not silently erase correction records.
+            </P>
           </Section>
 
           {/* ── Architecture ────────────────────────────────────────────────── */}
@@ -719,16 +708,16 @@ key = random() ** (1 / weight)
                 body: 'Each cert\'s JSON file is emitted as a standalone asset and fetched only when that cert is opened. A 750-question JSON file is never loaded on the home page, and the banks do not inflate JavaScript chunks.',
               },
               {
-                title: 'Hooks own all storage — pages own none',
-                body: 'No page component touches localStorage directly. useProgress, useBookmarks, and useQuestionStats each own their storage key. This is what makes the backend migration clean: swap the storage implementation inside the hook, and no page code changes.',
+                title: 'Storage access is centralized',
+                body: 'useProgress, useBookmarks, and useQuestionStats own normal persistence through guarded storage helpers. Account-page export, import, and clearing also call those helpers rather than manipulating raw storage keys. This keeps blocked storage, validation, sync notifications, and future schema changes in one boundary.',
               },
               {
                 title: 'Answer shuffling is per-render, not per-data',
                 body: 'Question data is stored with original answer indices (correctAnswer: 2). At render time, Fisher-Yates shuffles the display order. The user sees A/B/C/D labels but the underlying index is tracked. This eliminates position bias without modifying any source data.',
               },
               {
-                title: 'Smart Practice data shape mirrors a future DB schema',
-                body: 'The localStorage object uses certId, questionId, attempts, correct, and lastSeen — fields that map directly to a Supabase table row. When accounts are added, the hook\'s internals change but the interface (recordSession, getWeightedPool) stays identical.',
+                title: 'Smart Practice data shape supports account snapshots',
+                body: 'The local record uses certId, questionId, attempts, correct, and lastSeen. The optional account layer preserves that shape inside merge-aware snapshots, while the hook interface (recordSession, getWeightedPool) stays unchanged.',
               },
               {
                 title: 'Exam domain allocation uses largest-remainder',
@@ -759,14 +748,14 @@ key = random() ** (1 / weight)
 
             <H3>Testing</H3>
             <P>
-              1,345 Vitest tests across 56 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
+              1,365 Vitest tests across 60 files cover the math, the scoring, the Smart Practice weights, objective-level learning, the progress rollups,
               the shared study UI, the markdown rendering, and a content sanity sweep over every question across every cert — including a check that
               every question, choice, and explanation is a non-empty string. These are the functions
               where correctness matters most: a bug in domain allocation silently distorts every exam, a bug in scoring silently
               marks right answers wrong, and a bad question slips past hundreds of thousands of silent reads. The full suite,
               lint, and a production build run in GitHub Actions CI on every push and pull request. The redesigned study
               UI now has focused regression coverage for navigation accessibility, workspace progress, and the question map,
-              while 14 Playwright scenarios protect critical rendered journeys across desktop and mobile.
+              while 16 Playwright scenarios protect critical rendered journeys across desktop and mobile.
             </P>
             <CodeBlock>{`src/__tests__/
 ├── shuffle.test.js         — Fisher-Yates distribution, weightedSample bias
@@ -804,7 +793,7 @@ key = random() ** (1 / weight)
                 color: '#34d399',
                 items: [
                   'Cloudflare deployment - Workers Static Assets serves the Vite build from dist, Node is pinned at 22.13.0, Wrangler is pinned in devDependencies, and React Router refreshes use the single-page-application setting in wrangler.jsonc.',
-                  'Trust layer phase 0 - every cert now has source metadata, official source links, source-check dates, exam-format notes, score-model notes, editorial status, dashboard source cards, report-an-issue links, and readiness-language cleanup for exam starts/results.',
+                  'Trust layer phase 0 - every cert has source metadata, official source links, source-check dates, exam-format notes, score-model notes, editorial status, report-an-issue actions, and readiness-language cleanup. Simplified dashboards no longer render the former operational source-status panel.',
                   'CompTIA PBQ-lite expansion - A+ Core 1, A+ Core 2, Network+, Security+, and Server+ now each include 10 scenario-based pbq-matching troubleshooting items.',
                   'Network+ and Security+ Objective Learning Loop - every N10-009 and SY0-701 question now carries objective and concept metadata; dashboards separate accuracy from coverage; practice supports objective focus, recent misses, and spaced due review; session results recommend the objectives behind each miss.',
                   'Network+ Personal Learning Loop - N10-009 now includes a 35-question all-objective diagnostic, Strong/Developing/Weak/Not measured mastery map, evidence-driven 7/14/30-day plans, objective-level exam debriefs, and ten-question applied case practice.',
@@ -862,6 +851,7 @@ key = random() ** (1 / weight)
                   'Security hardening - static deployment headers, bounded browser-writable Supabase rows, client-side report-note limits, and blocked-storage-safe backup device IDs are implemented; production activation requires the June 26 hardening migration.',
                   'Product polish stage 5 - shared accessible loading states, reduced-motion support, actionable empty practice and results states, viewport-safe tooltips, and announced account/dashboard/report feedback are complete.',
                   'Product polish stage 6 - all nine live dashboards and the public learner journey passed desktop/mobile walkthroughs; cross-route path anchors, diagnostic action clarity, report-dialog keyboard behavior, empty-state recovery, and docs section tracking now have permanent browser coverage.',
+                  'July 10 codebase audit - dark mode now initializes before React and is the first-visit default; Google Fonts were removed again; Account owns local export/import/clearing; Practice107 storage fails softly and its full exam has a real two-hour timer; CI reads the production Node pin; browser smoke and documentation were realigned.',
                   'June 24 four-track quality pass - teaching value, first-user comprehension, accessibility, and maintainability were audited in parallel. CCST answer leakage, a Security+ threshold contradiction, sampled Terraform/A+ defects, false unanswered-question debrief signals, workflow terminology, critical keyboard behavior, and admin-status drift were remediated with permanent regression coverage.',
                 ],
               },
@@ -875,7 +865,7 @@ key = random() ** (1 / weight)
                   '4. Study workflow - complete: shared six-stage workflow navigation, clearer completion actions, connected case-to-simulation movement, and a single debrief action hierarchy.',
                   '5. Micro-polish - complete: accessible loading context, reduced-motion support, actionable empty states, viewport-safe tooltips, semantic feedback announcements, and focused regression coverage.',
                   '6. Full browser walkthrough - complete: all live dashboards and critical public, study, account, reporting, results, and docs journeys are covered across desktop and mobile.',
-                  'Polish program complete. Merge-aware manual sync and the /support product surface are implemented. Next: activate the June 24 and June 26 backend migrations, validate a real two-device sync, verify live security headers, and connect external domain forwarding and SMTP.',
+                  'Polish program complete. Next: activate the June 24 and June 26 backend migrations, validate a real two-device sync, verify live security headers, connect external domain forwarding and SMTP, and build real Practice107 authentication/payment entitlement before monetization.',
                 ],
               },
               {

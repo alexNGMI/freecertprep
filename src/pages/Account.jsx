@@ -18,7 +18,13 @@ import {
 import { SiteFooter, SiteHeader } from '../components/SiteChrome'
 import { Button } from '../components/ui/button'
 import { PageEyebrow, PageLead, PageTitle, Surface } from '../components/ui/surface'
-import { exportProgress, exportQuestionIssueReports, readQuestionIssueReports } from '../utils/storage'
+import {
+  clearLocalStudyData,
+  exportProgress,
+  exportQuestionIssueReports,
+  importProgressRaw,
+  readQuestionIssueReports,
+} from '../utils/storage'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { isSupabaseConfigured, supabase } from '../lib/supabase'
 import {
@@ -42,6 +48,7 @@ export default function Account() {
   const [backupLoading, setBackupLoading] = useState(false)
   const [confirmRestore, setConfirmRestore] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
+  const [confirmLocalClear, setConfirmLocalClear] = useState(false)
   const [deletePhrase, setDeletePhrase] = useState('')
   const reports = useMemo(() => readQuestionIssueReports(), [])
   const [localSummary, setLocalSummary] = useState(() => summarizeStudyData())
@@ -236,6 +243,39 @@ export default function Account() {
     }
   }
 
+  function handleProgressImport(event) {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = () => {
+      const status = importProgressRaw(String(reader.result || ''))
+      if (status === 'ok') {
+        setLocalSummary(summarizeStudyData())
+        setNotice({ kind: 'success', message: 'Progress imported into this browser.' })
+      } else if (status === 'invalid') {
+        setNotice({ kind: 'error', message: 'That file is not a valid freecertprep progress export.' })
+      } else {
+        setNotice({ kind: 'error', message: 'This browser could not save the imported progress.' })
+      }
+    }
+    reader.onerror = () => {
+      setNotice({ kind: 'error', message: 'That progress file could not be read.' })
+    }
+    reader.readAsText(file)
+  }
+
+  function handleLocalClear() {
+    if (clearLocalStudyData()) {
+      setConfirmLocalClear(false)
+      setLocalSummary(summarizeStudyData())
+      setNotice({ kind: 'success', message: 'Local study progress, statistics, and bookmarks were cleared.' })
+    } else {
+      setNotice({ kind: 'error', message: 'This browser could not clear the local study data.' })
+    }
+  }
+
   return (
     <div className="theme-page min-h-screen text-slate-950">
       <SiteHeader />
@@ -392,10 +432,40 @@ export default function Account() {
             <p className="mt-2 text-sm leading-relaxed text-zinc-400">
               {formatSummary(localSummary)}. Local study continues to work whether you sign in or not.
             </p>
-            <Button className="mt-5" variant="secondary" onClick={() => exportProgress()}>
-              <Download className="h-4 w-4" />
-              Export progress
-            </Button>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Button variant="secondary" onClick={() => exportProgress()}>
+                <Download className="h-4 w-4" />
+                Export progress
+              </Button>
+              <Button as="label" variant="secondary">
+                <Upload className="h-4 w-4" />
+                Import progress
+                <input
+                  type="file"
+                  accept="application/json,.json"
+                  className="sr-only"
+                  aria-label="Import progress file"
+                  onChange={handleProgressImport}
+                />
+              </Button>
+            </div>
+            {!confirmLocalClear ? (
+              <Button className="mt-3" variant="ghost" onClick={() => setConfirmLocalClear(true)}>
+                <Trash2 className="h-4 w-4" />
+                Clear local study data
+              </Button>
+            ) : (
+              <div className="mt-4 rounded-lg border border-rose-300 bg-rose-50 p-4">
+                <p className="text-sm font-bold text-rose-900">Clear this browser's study data?</p>
+                <p className="mt-1 text-xs leading-relaxed text-rose-800">
+                  This removes progress, Smart Practice statistics, bookmarks, and the local sync baseline. Question reports are kept separately.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <Button size="sm" variant="danger" onClick={handleLocalClear}>Clear study data</Button>
+                  <Button size="sm" variant="ghost" onClick={() => setConfirmLocalClear(false)}>Cancel</Button>
+                </div>
+              </div>
+            )}
           </Surface>
 
           <Surface className="p-6">

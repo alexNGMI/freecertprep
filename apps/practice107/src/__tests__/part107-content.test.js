@@ -3,6 +3,7 @@ import {
   PART107_BANK_BLUEPRINT,
   PART107_CONTENT_CERTIFICATION,
   PART107_DOMAINS,
+  PART107_EXAM_MINUTES,
   PART107_EXAM_SIZE,
   PART107_PASSING_PERCENT,
   PART107_QUESTIONS,
@@ -27,6 +28,7 @@ describe('Part 107 certified UAG content bank', () => {
   it('uses only the source-reviewed 360-question certified pool', () => {
     expect(PART107_QUESTIONS).toHaveLength(PART107_BANK_BLUEPRINT.totalQuestions)
     expect(PART107_EXAM_SIZE).toBe(60)
+    expect(PART107_EXAM_MINUTES).toBe(120)
     expect(PART107_PASSING_PERCENT).toBe(70)
     expect(countBy(PART107_QUESTIONS, 'domain')).toEqual(PART107_BANK_BLUEPRINT.domainAllocation)
     expect(new Set(PART107_QUESTIONS.map(question => question.id)).size).toBe(360)

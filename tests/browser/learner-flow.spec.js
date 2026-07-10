@@ -8,6 +8,15 @@ test.beforeEach(async ({ page }) => {
   })
 })
 
+test('new visitors start in dark mode and can save a day-mode preference', async ({ page }) => {
+  await page.goto('/')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'night')
+
+  await page.getByRole('button', { name: 'Switch to day mode' }).click()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'day')
+  await expect.poll(() => page.evaluate(() => window.localStorage.getItem('freecertprep-theme'))).toBe('day')
+})
+
 async function beginExam(page, certPath) {
   await page.goto(`${certPath}/exam`)
   await page.getByRole('button', { name: /Begin Readiness Simulation/i }).click()
@@ -108,14 +117,14 @@ test('live cert exam forms expose the high-value interaction formats', async ({ 
 test('dashboard progress can be exported and imported', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'chromium-desktop', 'desktop-only data-control smoke keeps CI fast')
 
-  await page.goto('/clf-c02')
+  await page.goto('/account')
 
   const downloadPromise = page.waitForEvent('download')
-  await page.getByRole('button', { name: /Export/i }).click()
+  await page.getByRole('button', { name: 'Export progress' }).click()
   const download = await downloadPromise
   expect(download.suggestedFilename()).toMatch(/^freecertprep-progress-\d{4}-\d{2}-\d{2}\.json$/)
 
-  await page.locator('input[type="file"]').setInputFiles({
+  await page.getByLabel('Import progress file').setInputFiles({
     name: 'freecertprep-progress-import.json',
     mimeType: 'application/json',
     buffer: Buffer.from(JSON.stringify({
@@ -126,5 +135,5 @@ test('dashboard progress can be exported and imported', async ({ page }, testInf
     })),
   })
 
-  await expect(page.getByRole('heading', { name: /AWS Cloud Practitioner/i })).toBeVisible()
+  await expect(page.getByText('Progress imported into this browser.')).toBeVisible()
 })

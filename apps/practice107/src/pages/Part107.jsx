@@ -14,6 +14,7 @@ import {
   PART107_CERT_ID,
   PART107_CONTENT_CERTIFICATION,
   PART107_DOMAINS,
+  PART107_EXAM_MINUTES,
   PART107_EXAM_SIZE,
   PART107_PASSING_PERCENT,
   PART107_QUESTIONS,
@@ -23,15 +24,11 @@ import { weightedSelect } from '../utils/exam-selection'
 import { isAnswerCorrect } from '../utils/scoring'
 import { buildWeightedPool } from '../utils/smart-practice'
 import { fisherYates, weightedSample } from '../utils/shuffle'
+import { readStoredFlag, writeStoredFlag } from '../utils/storage'
 
 const ACCOUNT_KEY = 'practice107-local-account'
 const PREMIUM_KEY = 'practice107-local-exam-unlock'
 const EXAM_PRICE = '$20'
-
-function readFlag(key) {
-  if (typeof window === 'undefined') return false
-  return window.localStorage.getItem(key) === 'true'
-}
 
 function shuffleQuestionChoices(question) {
   const shuffled = fisherYates(question.choices.map((choice, index) => ({ choice, index })))
@@ -65,8 +62,8 @@ function buildExamSession() {
 }
 
 export default function Part107() {
-  const [account, setAccount] = useState(() => readFlag(ACCOUNT_KEY))
-  const [premium, setPremium] = useState(() => readFlag(PREMIUM_KEY))
+  const [account, setAccount] = useState(() => readStoredFlag(ACCOUNT_KEY))
+  const [premium, setPremium] = useState(() => readStoredFlag(PREMIUM_KEY))
   const [session, setSession] = useState(null)
   const [completed, setCompleted] = useState(null)
   const [practiceAnsweredIds, setPracticeAnsweredIds] = useState([])
@@ -84,11 +81,11 @@ export default function Part107() {
   })
 
   useEffect(() => {
-    if (typeof window !== 'undefined') window.localStorage.setItem(ACCOUNT_KEY, account ? 'true' : 'false')
+    writeStoredFlag(ACCOUNT_KEY, account)
   }, [account])
 
   useEffect(() => {
-    if (typeof window !== 'undefined') window.localStorage.setItem(PREMIUM_KEY, premium ? 'true' : 'false')
+    writeStoredFlag(PREMIUM_KEY, premium)
   }, [premium])
 
   function startSession(mode = 'free', options = {}) {
@@ -110,7 +107,7 @@ export default function Part107() {
       currentIndex: 0,
       answers: {},
       recordedAnswerIds: [],
-      startedAt: 0,
+      startedAt: Date.now(),
     })
   }
 
@@ -1093,7 +1090,10 @@ function QuizPanel({
         {!practiceMode && (
           <div className="p107-quiz-head">
             <span>{label}</span>
-            <span>Question {session.currentIndex + 1} / {session.questions.length}</span>
+            <span>
+              {examMode && <ExamTimer startedAt={session.startedAt} onExpire={onFinish} />}
+              Question {session.currentIndex + 1} / {session.questions.length}
+            </span>
           </div>
         )}
 
@@ -1177,6 +1177,39 @@ function QuizPanel({
         </div>
       </section>
     </main>
+  )
+}
+
+function ExamTimer({ startedAt, onExpire }) {
+  const [remaining, setRemaining] = useState(PART107_EXAM_MINUTES * 60)
+
+  useEffect(() => {
+    let expired = false
+    const update = () => {
+      const seconds = Math.max(
+        0,
+        Math.ceil((startedAt + PART107_EXAM_MINUTES * 60_000 - Date.now()) / 1000),
+      )
+      setRemaining(seconds)
+      if (seconds === 0 && !expired) {
+        expired = true
+        onExpire()
+      }
+    }
+
+    update()
+    const timer = window.setInterval(update, 1000)
+    return () => window.clearInterval(timer)
+  }, [startedAt, onExpire])
+
+  const hours = Math.floor(remaining / 3600)
+  const minutes = Math.floor((remaining % 3600) / 60)
+  const seconds = remaining % 60
+
+  return (
+    <span aria-label={`${hours} hours ${minutes} minutes ${seconds} seconds remaining`}>
+      {hours}:{String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')} ·{' '}
+    </span>
   )
 }
 

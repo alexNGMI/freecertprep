@@ -1,12 +1,12 @@
 # Current State and Next Steps
 
-Last updated: June 26, 2026
+Last updated: July 10, 2026
 
 ## Executive Summary
 
 freecertprep is in a consolidation and public-beta activation phase. The repository contains 11,697 authored questions across 17 IT certifications, while the public catalog deliberately exposes nine modules and marks eight as Coming Soon. The product now combines its study workflow with live Cloudflare hosting, optional Supabase email accounts, merge-aware manual sync, recovery controls, durable signed-in question reporting, protected admin review, privacy controls, and a prepared support surface.
 
-The next release should activate and validate the operational trust loop, not make the catalog larger.
+The next release should activate and validate the operational trust loop, not make the catalog larger. The July 10 full-codebase audit also aligned dark-mode initialization, local data controls, Practice107 storage/timing, CI runtime selection, browser smoke, and documentation. See `docs/codebase-audit-2026-07-10.md`.
 
 The June 14 full-codebase review found four priorities:
 
@@ -38,11 +38,12 @@ These steps require access to external service dashboards and cannot be complete
 
 While activation is underway, engineering effort should stay on work that improves the current learner rather than expanding scope:
 
-1. **Completed-result recovery:** persist the latest finished practice or simulation result so a refresh does not erase the debrief.
-2. **Active-session decision:** decide whether interrupted quiz, drill, diagnostic, and exam sessions must resume before wider public testing.
-3. **Production acceptance:** complete signed-out, signed-in, administrator, mobile, privacy, support, and two-device walkthroughs against the live domain.
-4. **Maintainability reduction:** centralize repeated public navigation/path data and split the largest high-change UI modules only behind existing tests.
-5. **Targeted content maintenance:** continue human sampling and one-for-one rewrites in the B+ modules without adding certifications or increasing bank sizes.
+1. **Production acceptance:** complete signed-out, signed-in, administrator, mobile, privacy, support, and two-device walkthroughs against the live domain.
+2. **Practice107 production boundary:** replace local sign-in/unlock flags with real authentication, payment, and server-verified entitlement before monetization.
+3. **Completed-result recovery:** persist the latest finished practice or simulation result so a refresh does not erase the debrief.
+4. **Active-session decision:** decide whether interrupted quiz, drill, diagnostic, and exam sessions must resume before wider public testing.
+5. **Maintainability reduction:** split the largest high-change UI modules only behind existing tests.
+6. **Targeted content maintenance:** continue human sampling and one-for-one rewrites in the B+ modules without adding certifications or increasing bank sizes.
 
 Do not spend the current token budget on new certifications, automatic background sync, marketing systems, payment infrastructure, a job board, classroom dashboards, or speculative analytics.
 
@@ -129,7 +130,7 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 
 ## Verified Baseline
 
-- 1,345 tests pass across 56 files.
+- 1,365 tests pass across 60 files in the root app and Practice107.
 - 1,049 content sanity tests pass.
 - `npm audit --omit=dev` reports zero vulnerabilities.
 - A+, Network+, Security+, Terraform, CompTIA objective, distractor ambiguity, and AWS freshness audit scripts pass locally.
@@ -143,6 +144,9 @@ AZ-900, Google Cloud Digital Leader, CCNA, NVIDIA AI Infrastructure and Operatio
 - Supabase magic-link sign-in and sign-out work in production.
 - Signed-in learners can manually back up progress, Smart Practice statistics, and bookmarks, then restore their latest snapshot.
 - Signed-in question reports persist to Supabase under row-level security; local fallback copies remain exportable.
+- Dark mode is the first-visit default; a saved day-mode preference is applied before React paints.
+- Local progress export, validated import, and confirmed study-data clearing live on `/account` rather than certification dashboards.
+- Practice107 now has a real two-hour countdown and blocked-storage-safe local persistence, but real authentication/payment entitlement remains unimplemented.
 
 ## Ordered Next Steps
 

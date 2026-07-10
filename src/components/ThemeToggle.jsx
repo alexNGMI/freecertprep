@@ -5,13 +5,13 @@ import { cn } from '../utils/cn'
 const STORAGE_KEY = 'freecertprep-theme'
 
 function readInitialTheme() {
-  if (typeof window === 'undefined') return 'day'
+  if (typeof window === 'undefined') return 'night'
 
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY)
-    return stored === 'night' ? 'night' : 'day'
+    return stored === 'day' ? 'day' : 'night'
   } catch {
-    return 'day'
+    return 'night'
   }
 }
 

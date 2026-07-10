@@ -16,7 +16,7 @@ Run this checklist before merging a learner-facing release.
 
 ## Certification Entry
 
-- Dashboard clearly identifies the certification, active exam code, source status, and readiness target.
+- Dashboard clearly identifies the certification and active exam code, then presents the primary study actions without operational metadata panels.
 - Dashboard provides direct actions for Practice, Timed Drill, and Exam Simulator.
 - Mobile cert navigation exposes all four study views with at least 44px targets.
 - Invalid cert routes return the learner to a safe page.
@@ -48,7 +48,7 @@ Run this checklist before merging a learner-facing release.
 
 - Export downloads valid progress JSON.
 - Import accepts a valid export and rejects malformed or structurally unsafe JSON with visible feedback.
-- Smart Practice reset and progress reset require confirmation.
+- Export, import, and confirmed local study-data clearing are available from `/account` rather than certification dashboards.
 - Storage failures produce visible feedback rather than silently losing a completed session.
 - The latest completed result remains recoverable after a page refresh.
 - A full backup restores progress, Smart Practice statistics, and bookmarks.

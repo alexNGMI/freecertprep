@@ -5,6 +5,7 @@ import {
   readJSON,
   writeJSON,
   removeKey,
+  clearLocalStudyData,
   migrate,
   subscribe,
   exportProgress,
@@ -248,6 +249,27 @@ describe('storage: exportProgress', () => {
       delete globalThis.Blob
       delete globalThis.URL
     }
+  })
+})
+
+describe('storage: clearLocalStudyData', () => {
+  beforeEach(() => { globalThis.localStorage = makeLS() })
+
+  it('clears study and sync keys while preserving local issue reports', () => {
+    writeJSON(KEYS.progress, { cert: { quizHistory: [], examHistory: [] } })
+    writeJSON(KEYS.questionStats, { cert: { q1: { attempts: 1 } } })
+    writeJSON(KEYS.bookmarks, { cert: ['q1'] })
+    writeJSON(KEYS.bookmarkSyncState, { cert: {} })
+    writeJSON(KEYS.syncState, { userId: 'user-1' })
+    writeJSON(KEYS.issueReports, [{ id: 'report-1' }])
+
+    expect(clearLocalStudyData()).toBe(true)
+    expect(readJSON(KEYS.progress, null)).toBeNull()
+    expect(readJSON(KEYS.questionStats, null)).toBeNull()
+    expect(readJSON(KEYS.bookmarks, null)).toBeNull()
+    expect(readJSON(KEYS.bookmarkSyncState, null)).toBeNull()
+    expect(readJSON(KEYS.syncState, null)).toBeNull()
+    expect(readJSON(KEYS.issueReports, [])).toEqual([{ id: 'report-1' }])
   })
 })
 

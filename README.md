@@ -79,7 +79,7 @@ See `docs/part107-sister-site-content-architecture-2026-07-07.md` for the source
 
 > **A+ PBQ-lite v3 is live:** all 40 practical scenarios now include an explicit task brief, realistic console/table/checklist artifacts, and per-component corrective-action feedback. Core 1 forms guarantee coverage across hardware diagnostics, networking, mobile/peripherals, storage, and virtualization; Core 2 forms guarantee OS tools, security response, software/mobile troubleshooting, and operational workflow while retaining at least six practicals and exact domain allocation.
 
-> **Trust layer phase 0 is live:** every registered cert now carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. Dashboards expose official-source links, and exam/results copy now labels scores as readiness signals instead of official vendor score reports.
+> **Trust layer phase 0 is live:** every registered cert carries source metadata with official source links, source-check date, exam-format notes, score-model notes, and editorial status. The metadata remains available to the product and documentation while simplified exam dashboards focus on study actions. Exam/results copy labels scores as readiness signals instead of official vendor score reports.
 
 > **CompTIA practical simulation is live:** every 90-question Network+ form guarantees at least eight practical scenarios, while Security+ guarantees at least six. Security+ forms now also guarantee PBQ matching, log/CLI analysis, topology, configuration repair, multiple-response, matching, ordering, statement blocks, and all four practical categories. Multi-part review shows component-level correctness without claiming CompTIA's confidential partial-credit model.
 
@@ -145,7 +145,7 @@ Single-integrated-exam states (Florida, California, New York) are explicitly **o
 - **Account and sync** - `/account` provides passwordless email access, local JSON export, explicit **Sync now**, **Create recovery backup**, and **Restore latest backup** controls. Sync combines session history, Smart Practice statistics, and timestamped bookmark changes without replacing newer local work.
 - **Support preparation** - `/support` separates technical/account help from contextual question reports. Set `VITE_SUPPORT_EMAIL` in the production build to activate the public custom-domain email action; private admin and SMTP credentials stay outside the client bundle. See `docs/domain-email-setup-runbook.md`.
 - **Trust layer roadmap** - Phase 0 source/status cards and durable signed-in reports are live. Admin review, moderation statuses, internal notes, and correction history are implemented behind Supabase administrator policies; production activation requires applying the included migration.
-- **Dashboard** — Per-cert progress, domain-weighted readiness scores, history export/import.
+- **Dashboard** — Per-cert progress, domain-weighted readiness scores, and focused study actions. Local export, import, and clearing live on `/account`.
 - **Practice Quiz** — 10 questions per session. Choose Smart Practice (weakness-weighted), Bookmarked, or a single Domain.
 - **Timed Drill** — 10 questions in 10 minutes, color-shifting countdown timer.
 - **Exam Simulator** — Full-length timed readiness simulation using official domain weights and the closest supported question count/time model.
@@ -182,13 +182,15 @@ CCNA simulation types implemented in the preserved v2.0 preview: CLI output inte
 - React 19 + Vite
 - Tailwind CSS v4
 - React Router v7
-- Vitest (1,360 tests across 58 files across the root app and Practice107), GitHub Actions CI
+- Vitest (1,365 tests across 60 files across the root app and Practice107), GitHub Actions CI
 - `localStorage` for anonymous progress plus optional Supabase account snapshots and issue-report persistence
 - Supabase Auth and Postgres with row-level security
 - JSON-based question banks, lazy-loaded per cert
 - Cloudflare Workers Static Assets for production hosting, configured by root `wrangler.jsonc` and `apps/practice107/wrangler.jsonc`
 
 Current production URL: `https://freecertprep.a-gilbert2093.workers.dev`
+
+Latest engineering review: `docs/codebase-audit-2026-07-10.md`.
 
 ## Getting started
 

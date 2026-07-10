@@ -1,6 +1,6 @@
 # Production Activation Checklist
 
-Updated: July 8, 2026
+Updated: July 10, 2026
 
 This is the short owner checklist for turning the repository-complete backend MVP into a fully validated public service. The root FreeCertPrep IT app remains the primary production surface; Practice107 is now a separate workspace app with its own activation checks.
 
@@ -55,6 +55,8 @@ This is the short owner checklist for turning the repository-complete backend MV
 - Run the live site as a signed-out learner.
 - Run it as a signed-in learner.
 - Run it on a narrow mobile viewport.
+- Confirm a first visit starts in dark mode and a saved day-mode choice survives a new page load.
+- Export, import, and clear local study data from `/account`.
 - Run the administrator report workflow.
 - Confirm privacy, support, account export, account deletion, and question reporting.
 - Record any production-only defects before inviting broader use.
@@ -67,8 +69,10 @@ This is the short owner checklist for turning the repository-complete backend MV
 - Confirm HTTPS and direct-route refresh behavior for the single-page app.
 - Confirm the 360-question certified UAG pool is the only learner-facing Part 107 pool.
 - Confirm all six 60-question forms preserve the 29/12/3/1/15 domain allocation.
+- Confirm the full simulation starts at 2:00:00, counts down, and submits at expiry.
 - Confirm FAA figure assets render from `/part107/stimuli/`.
 - Decide and document payment/entitlement behavior before advertising paid full-exam access.
+- Replace local sign-in and unlock flags with real authentication and server-verified entitlement before accepting payment.
 - Confirm product copy avoids FAA, PSI, Udemy, or instructor affiliation claims.
 
 The root product is ready for broader public testing when the first seven sections pass. Practice107 is ready for its own public launch only after section 8 passes. New IT catalog work remains paused until then.

@@ -129,6 +129,30 @@ export function removeKey(key) {
   }
 }
 
+export function clearLocalStudyData() {
+  const ls = getLS()
+  const keys = [
+    KEYS.progress,
+    KEYS.questionStats,
+    KEYS.bookmarks,
+    KEYS.bookmarkSyncState,
+    KEYS.syncState,
+  ]
+  if (!ls) {
+    notifyStorageError(KEYS.progress)
+    return false
+  }
+
+  try {
+    keys.forEach(key => ls.removeItem(key))
+    notifyStorageSync([KEYS.progress, KEYS.questionStats, KEYS.bookmarks])
+    return true
+  } catch {
+    notifyStorageError(KEYS.progress)
+    return false
+  }
+}
+
 /**
  * Idempotent schema migration. Call once at app startup (main.jsx), never at
  * import. Current persisted data is unversioned and IS the v1 baseline, so v1
